@@ -1,16 +1,18 @@
 import click
 import parser
-
+import pyperclip
 
 @click.group()
 def cli():
     pass
 
 @cli.command()
-@click.argument("java")
-def java_to_table(java):
+def java_to_table():
     """ Converts Mindustry attribute decelleration 
     into a Markdown table. """
-    click.echo(java)
+    i = pyperclip.paste()
+    o = parser.build_table(i)
+    pyperclip.copy(o)
+    click.echo(o)
 
 cli()

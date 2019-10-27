@@ -16,6 +16,49 @@ Feilds have noumerous attributes, but the important one is `type` as it's what t
 
 
 # Referance
+
+## UnlockableContent and MappableContent 
+
+Pretty much all types can have a name and description.
+
+| field       | type          | notes                    |
+|-------------|---------------|--------------------------|
+| name        | public String | name visible to the user |
+| description | public String |                          |
+
+## Item
+
+*extends `UnlockableContent`
+
+Objects that ride conveyors/sorters and can be used in crafters.
+
+| field          | value             | notes                                                                 |
+|----------------|-------------------|-----------------------------------------------------------------------|
+| color          | string            | hex string of color                                                   |
+| type           | string "resource" | resource or material; used for tabs and core acceptance               |
+| explosiveness  | float 0           | how explosive this item is.                                           |
+| flammability   | float 0           | flammability above 0.3 makes this eleigible for item burners.         |
+| radioactivity  | float             | how radioactive this item is. 0=none, 1=chernobyl ground zero         |
+| hardness       | int 0             | drill hardness of the item                                            |
+| cost           | float 1           | used for calculating place times; 1 cost = 1 tick added to build time |
+| alwaysUnlocked | boolean false     | If true, item is always unlocked.                                     |
+
+## BlockStorage
+
+| field          | type          | notes |
+|----------------|---------------|-------|
+| hasItems       | boolean       |       |
+| hasLiquids     | boolean       |       |
+| hasPower       | boolean       |       |
+| outputsLiquid  | boolean false |       |
+| consumesPower  | boolean true  |       |
+| outputsPower   | boolean false |       |
+| itemCapacity   | int 10        |       |
+| liquidCapacity | float 10f     |       |
+
+## Block
+
+
 ## Effect
 
 Value type should be `string`. This type will animate a pre-programmed effects. List of built-in effects:
@@ -209,30 +252,3 @@ Defaults:
 | weaveScale | float 0                 |   |
 | weaveMag   | float -1                |   |
     
-## UnlockableContent and MappableContent 
-
-Base interface for an unlockable content type.
-
-| field       | type          | notes                    |
-|-------------|---------------|--------------------------|
-| name        | public String | name visible to the user |
-| description | public String |                          |
-
-## Item extends UnlockableContent
-
-Objects that ride conveyors/sorters and can be used in crafters.
-
-| field          | value             | notes                                                                 |
-|----------------|-------------------|-----------------------------------------------------------------------|
-| color          | string            | hex string of color                                                   |
-| type           | string "resource" | resource or material; used for tabs and core acceptance               |
-| explosiveness  | float 0           | how explosive this item is.                                           |
-| flammability   | float 0           | flammability above 0.3 makes this eleigible for item burners.         |
-| radioactivity  | float             | how radioactive this item is. 0=none, 1=chernobyl ground zero         |
-| hardness       | int 0             | drill hardness of the item                                            |
-| cost           | float 1           | used for calculating place times; 1 cost = 1 tick added to build time |
-| alwaysUnlocked | boolean false     | If true, item is always unlocked.                                     |
-
-
-
-
