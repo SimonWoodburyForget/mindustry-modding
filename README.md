@@ -44,49 +44,165 @@ You can't currently create custom effects.
 
 ## BulletType
 
-This type is typically used within the field of another type, like turret ammo, or weapon bullet, or fragment bullet.
+| field              | value             |                                                                         |
+|--------------------|-------------------|-------------------------------------------------------------------------|
+| lifetime           | float             | amount of ticks it lasts                                                |
+| speed              | float             | inital speed of bullet                                                  |
+| damage             | float             | collision damage                                                        |
+| hitSize            | float 4           | collision radius                                                        |
+| drawSize           | float 40          |                                                                         |
+| drag               | float 0           | decelleration per tick                                                  |
+| pierce             | boolean           | whether it can collide                                                  |
+| hitEffect          | Effect            | created when bullet hits something                                      |
+| despawnEffect      | Effect            | created when bullet despawns                                            |
+| shootEffect        | Effect            | created when shooting                                                   |
+| smokeEffect        | Effect            | created when shooting                                                   |
+| hitSound           | Sound             | made when hitting something or getting removed                          |
+| inaccuracy         | float 0           | extra inaccuracy                                                        |
+| ammoMultiplier     | float 2           | how many bullets get created per item/liquid                            |
+| reloadMultiplier   | float 1           | multiplied by turret reload speed                                       |
+| recoil             | float             | recoil from shooter entities                                            |
+| splashDamage       | float 0f          |                                                                         |
+| knockback          | float             | Knockback in velocity.                                                  |
+| hitTiles           | boolean true      | Whether this bullet hits tiles.                                         |
+| status             | StatusEffect none | Status effect applied on hit.                                           |
+| statusDuration     | float 600         | Intensity of applied status effect in terms of duration.                |
+| collidesTiles      | boolean true      | Whether this bullet type collides with tiles.                           |
+| collidesTeam       | boolean false     | Whether this bullet type collides with tiles that are of the same team. |
+| collidesAir        | boolean true      | Whether this bullet type collides with air units.                       |
+| collides           | boolean true      | Whether this bullet types collides with anything at all.                |
+| keepVelocity       | boolean true      | Whether velocity is inherited from the shooter.                         |
+| fragBullets        | int 9             |                                                                         |
+| fragVelocityMin    | float 0.2         |                                                                         |
+| fragVelocityMax    | float 1           |                                                                         |
+| fragBullet         | BulletType null   |                                                                         |
+| splashDamageRadius | float -1f         | Use a negative value to disable splash damage.                          |
+| incendAmount       | int 0             |                                                                         |
+| incendSpread       | float 8f          |                                                                         |
+| incendChance       | float 1f          |                                                                         |
+| homingPower        | float 0f          |                                                                         |
+| homingRange        | float 50f         |                                                                         |
+| lightining         | int               |                                                                         |
+| lightningLength    | int 5             |                                                                         |
+| hitShake           | float 0f          |                                                                         |
 
-| field              | value                            |                                                                         |
-|--------------------|----------------------------------|-------------------------------------------------------------------------|
-| lifetime           | float                            | amount of ticks it lasts                                                |
-| speed              | float                            | inital speed of bullet                                                  |
-| damage             | float                            | collision damage                                                        |
-| hitSize            | float 4                          | collision radius                                                        |
-| drawSize           | float 40                         |                                                                         |
-| drag               | float 0                          | decelleration per tick                                                  |
-| pierce             | boolean                          | whether it can collide                                                  |
-| hitEffect          | Effect                           | created when bullet hits something                                      |
-| despawnEffect      | Effect                           | created when bullet despawns                                            |
-| shootEffect        | Effect                           | created when shooting                                                   |
-| smokeEffect        | Effect                           | created when shooting                                                   |
-| hitSound           | Sound                            | made when hitting something or getting removed                          |
-| inaccuracy         | float 0                          | extra inaccuracy                                                        |
-| ammoMultiplier     | float 2                          | how many bullets get created per item/liquid                            |
-| reloadMultiplier   | float 1                          | multiplied by turret reload speed                                       |
-| recoil             | float                            | recoil from shooter entities                                            |
-| splashDamage       | float 0f                         |                                                                         |
-| knockback          | float                            | Knockback in velocity.                                                  |
-| hitTiles           | boolean true                     | Whether this bullet hits tiles.                                         |
-| status             | StatusEffect StatusEffects.none  | Status effect applied on hit.                                           |
-| statusDuration     | float 60 * 10f                   | Intensity of applied status effect in terms of duration.                |
-| collidesTiles      | boolean true                     | Whether this bullet type collides with tiles.                           |
-| collidesTeam       | boolean false                    | Whether this bullet type collides with tiles that are of the same team. |
-| collidesAir        | boolean true                     | Whether this bullet type collides with air units.                       |
-| collides           | boolean true                     | Whether this bullet types collides with anything at all.                |
-| keepVelocity       | boolean true                     | Whether velocity is inherited from the shooter.                         |
-| fragBullets        | int 9                            |                                                                         |
-| fragVelocityMin    | float 0.2f, fragVelocityMax = 1f |                                                                         |
-| fragBullet         | BulletType null                  |                                                                         |
-| splashDamageRadius | float -1f                        | Use a negative value to disable splash damage.                          |
-| incendAmount       | int 0                            |                                                                         |
-| incendSpread       | float 8f                         |                                                                         |
-| incendChance       | float 1f                         |                                                                         |
-| homingPower        | float 0f                         |                                                                         |
-| homingRange        | float 50f                        |                                                                         |
-| lightining         | int                              |                                                                         |
-| lightningLength    | int 5                            |                                                                         |
-| hitShake           | float 0f                         |                                                                         |
+### BasicBulletType
 
+The actual bullet type.
+
+| field        | value                  |   |
+|--------------|------------------------|---|
+| backColor    | Color bulletYellowBack |   |
+| frontColor   | Color bulletYellow     |   |
+| bulletWidth  | float 5                |   |
+| bulletHeight | float 7                |   |
+| bulletShrink | float 0.5              |   |
+| bulletSprite | String                 |   |
+
+#### ArtilleryBulletType
+
+| field         | value                 |   |
+|---------------|-----------------------|---|
+| trailEffect   | Effect artilleryTrail |   |
+
+
+Defaults:
+| field         | value     |
+|---------------|-----------|
+| collidesTiles | false     |
+| collides      | false     |
+| hitShake      | 1         |
+| hitSound      | explosion |
+
+#### BombBulletType
+
+Defaults:
+| field              | value     |
+|--------------------|-----------|
+| collidesTiles      | false     |
+| collides           | false     |
+| bulletShrink       | 0.7       |
+| lifetime           | 30        |
+| drag               | 0.05      |
+| keepVelocity       | false     |
+| collidesAir        | false     |
+| hitSound           | explosion |
+
+
+#### FlakBulletType
+
+Bullets that explode near enemies.
+
+| field        | value    |   |
+|--------------|----------|---|
+| explodeRange | float 30 |   |
+
+Defaults:
+| field              | value            |
+|--------------------|------------------|
+| splashDamage       | 15               |
+| splashDamageRadius | 34               |
+| hitEffect          | flakExplosionBig |
+| bulletWidth        | 8                |
+| bulletHeight       | 10               |
+
+
+#### HealBulletType
+
+Bullets that can heal blocks of the same team as the shooter.
+
+| field       | value   |   |
+|-------------|---------|---|
+| healPercent | float 3 |   |
+
+Defaults:
+| field         | value     |
+|---------------|-----------|
+| shootEffect   | shootHeal |
+| smokeEffect   | hitLaser  |
+| hitEffect     | hitLaser  |
+| despawnEffect | hitLaser  |
+| collidesTeam  | true      |
+
+
+#### LiquidBulletType
+
+| field  | value       |                |
+|--------|-------------|----------------|
+| liquid | Liquid null | required field |
+
+Defaults:
+| field          | value     |
+|----------------|-----------|
+| lifetime       | 74        |
+| statusDuration | 90        |
+| despawnEffect  | none      |
+| hitEffect      | hitLiquid |
+| smokeEffect    | none      |
+| shootEffect    | none      |
+| drag           | 0.009     |
+| knockback      | 0.55      |
+
+
+#### MassDriverBolt
+
+
+Defaults:
+| field         | value        |
+|---------------|--------------|
+| collidesTiles | false        |
+| lifetime      | 200          |
+| despawnEffect | smeltsmoke   |
+| hitEffect     | hitBulletBig |
+| drag          | 0.005        |
+
+#### MissileBulletType
+
+| field      | value                   |   |
+|------------|-------------------------|---|
+| trailColor | Color missileYellowBack |   |
+| weaveScale | float 0                 |   |
+| weaveMag   | float -1                |   |
 
 ## UnlockableContent and MappableContent 
 

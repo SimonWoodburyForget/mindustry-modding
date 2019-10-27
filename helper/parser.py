@@ -99,6 +99,22 @@ TEST = """
     public float hitShake = 0f;
 """
 
+TEST2 = """
+    public Color backColor = Pal.bulletYellowBack, frontColor = Pal.bulletYellow;
+    public float bulletWidth = 5f, bulletHeight = 7f;
+    public float bulletShrink = 0.5f;
+    public String bulletSprite;
+"""
+
+
+TEST3 = """
+    protected Color trailColor = Pal.missileYellowBack;
+
+    protected float weaveScale = 0f;
+    protected float weaveMag = -1f;
+
+"""
+
 if __name__ == "__main__":
     from pprint import pprint
     #pprint(java(TEST))
@@ -113,4 +129,4 @@ if __name__ == "__main__":
         public float thing = 34;
     """) == ("thing", "float 34")
 
-    print(build_table(TEST))
+    print(build_table(TEST3))
