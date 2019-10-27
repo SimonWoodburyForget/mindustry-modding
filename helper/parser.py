@@ -3,7 +3,7 @@ import re
 
 def parse_lines(string):
     """ Splits document into terminations (;)"""
-    return [ x.strip() for x in string.split(";") ]
+    return [ x.strip() for x in string.split(";") ]    # FIXME: this needs to check for comments.
 
 def parse_comment_ml(string):
     """ Parses multiline comment. """
