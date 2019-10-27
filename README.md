@@ -85,7 +85,7 @@ You can't currently create custom effects.
 | lightining         | int               |                                                                         |
 | lightningLength    | int 5             |                                                                         |
 | hitShake           | float 0f          |                                                                         |
-
+    
 ### BasicBulletType
 
 The actual bullet type.
@@ -107,6 +107,7 @@ The actual bullet type.
 
 
 Defaults:
+
 | field         | value     |
 |---------------|-----------|
 | collidesTiles | false     |
@@ -117,6 +118,7 @@ Defaults:
 #### BombBulletType
 
 Defaults:
+
 | field              | value     |
 |--------------------|-----------|
 | collidesTiles      | false     |
@@ -128,7 +130,7 @@ Defaults:
 | collidesAir        | false     |
 | hitSound           | explosion |
 
-
+    
 #### FlakBulletType
 
 Bullets that explode near enemies.
@@ -138,6 +140,7 @@ Bullets that explode near enemies.
 | explodeRange | float 30 |       |
 
 Defaults:
+
 | field              | value            |
 |--------------------|------------------|
 | splashDamage       | 15               |
@@ -156,6 +159,7 @@ Bullets that can heal blocks of the same team as the shooter.
 | healPercent | float 3 |       |
 
 Defaults:
+
 | field         | value     |
 |---------------|-----------|
 | shootEffect   | shootHeal |
@@ -172,6 +176,7 @@ Defaults:
 | liquid | Liquid null | required field |
 
 Defaults:
+
 | field          | value     |
 |----------------|-----------|
 | lifetime       | 74        |
@@ -186,8 +191,8 @@ Defaults:
 
 #### MassDriverBolt
 
-
 Defaults:
+
 | field         | value        |
 |---------------|--------------|
 | collidesTiles | false        |
