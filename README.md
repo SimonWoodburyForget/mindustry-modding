@@ -44,7 +44,7 @@ You can't currently create custom effects.
 
 ## BulletType
 
-| field              | value             |                                                                         |
+| field              | value             | notes                                                                   |
 |--------------------|-------------------|-------------------------------------------------------------------------|
 | lifetime           | float             | amount of ticks it lasts                                                |
 | speed              | float             | inital speed of bullet                                                  |
@@ -90,20 +90,20 @@ You can't currently create custom effects.
 
 The actual bullet type.
 
-| field        | value                  |   |
-|--------------|------------------------|---|
-| backColor    | Color bulletYellowBack |   |
-| frontColor   | Color bulletYellow     |   |
-| bulletWidth  | float 5                |   |
-| bulletHeight | float 7                |   |
-| bulletShrink | float 0.5              |   |
-| bulletSprite | String                 |   |
+| field        | value                  | notes |
+|--------------|------------------------|-------|
+| backColor    | Color bulletYellowBack |       |
+| frontColor   | Color bulletYellow     |       |
+| bulletWidth  | float 5                |       |
+| bulletHeight | float 7                |       |
+| bulletShrink | float 0.5              |       |
+| bulletSprite | String                 |       |
 
 #### ArtilleryBulletType
 
-| field         | value                 |   |
-|---------------|-----------------------|---|
-| trailEffect   | Effect artilleryTrail |   |
+| field       | value                 | notes |
+|-------------|-----------------------|-------|
+| trailEffect | Effect artilleryTrail |       |
 
 
 Defaults:
@@ -133,9 +133,9 @@ Defaults:
 
 Bullets that explode near enemies.
 
-| field        | value    |   |
-|--------------|----------|---|
-| explodeRange | float 30 |   |
+| field        | value    | notes |
+|--------------|----------|-------|
+| explodeRange | float 30 |       |
 
 Defaults:
 | field              | value            |
@@ -151,9 +151,9 @@ Defaults:
 
 Bullets that can heal blocks of the same team as the shooter.
 
-| field       | value   |   |
-|-------------|---------|---|
-| healPercent | float 3 |   |
+| field       | value   | notes |
+|-------------|---------|-------|
+| healPercent | float 3 |       |
 
 Defaults:
 | field         | value     |
@@ -203,12 +203,12 @@ Defaults:
 | trailColor | Color missileYellowBack |   |
 | weaveScale | float 0                 |   |
 | weaveMag   | float -1                |   |
-
+    
 ## UnlockableContent and MappableContent 
 
 Base interface for an unlockable content type.
 
-| field       | type          |                          |
+| field       | type          | notes                    |
 |-------------|---------------|--------------------------|
 | name        | public String | name visible to the user |
 | description | public String |                          |
@@ -217,7 +217,7 @@ Base interface for an unlockable content type.
 
 Objects that ride conveyors/sorters and can be used in crafters.
 
-| field          | value             |                                                                       |
+| field          | value             | notes                                                                 |
 |----------------|-------------------|-----------------------------------------------------------------------|
 | color          | string            | hex string of color                                                   |
 | type           | string "resource" | resource or material; used for tabs and core acceptance               |
