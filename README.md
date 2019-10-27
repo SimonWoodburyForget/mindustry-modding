@@ -60,6 +60,8 @@ Pretty much all types can have a name and description.
 
 *extends `BlockStorage`* -- Attributes for all objects that are blocks.
 
+| field               | value                                  | notes                                                                                                      |
+|---------------------|----------------------------------------|------------------------------------------------------------------------------------------------------------|
 | update              | boolean                                | whether this block has a tile entity that updates                                                          |
 | destructible        | boolean                                | whether this block has health and can be destroyed                                                         |
 | unloadable          | boolean true                           | whether unloaders work on this block                                                                       |
