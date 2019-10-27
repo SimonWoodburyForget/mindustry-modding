@@ -46,66 +46,46 @@ You can't currently create custom effects.
 
 This type is typically used within the field of another type, like turret ammo, or weapon bullet, or fragment bullet.
 
-| field            | value    |                                                |
-|------------------|----------|------------------------------------------------|
-| lifetime         | float    | amount of ticks it lasts                       |
-| speed            | float    | inital speed of bullet                         |
-| damage           | float    | collision damage                               |
-| hitSize          | float 4  | collision radius                               |
-| drawSize         | float 40 |                                                |
-| drag             | float 0  | decelleration per tick                         |
-| pierce           | boolean  | whether it can collide                         |
-| hitEffect        | Effect   | created when bullet hits something             |
-| despawnEffect    | Effect   | created when bullet despawns                   |
-| shootEffect      | Effect   | created when shooting                          |
-| smokeEffect      | Effect   | created when shooting                          |
-| hitSound         | Sound    | made when hitting something or getting removed |
-| inaccuracy       | float 0  | extra inaccuracy                               |
-| ammoMultiplier   | float 2  | how many bullets get created per item/liquid   |
-| reloadMultiplier | float 1  | multiplied by turret reload speed              |
-| recoil           | float    | recoil from shooter entities                   |
-
-
-    public float splashDamage = 0f;
-    /** Knockback in velocity. */
-    public float knockback;
-    /** Whether this bullet hits tiles. */
-    public boolean hitTiles = true;
-    /** Status effect applied on hit. */
-    public StatusEffect status = StatusEffects.none;
-    /** Intensity of applied status effect in terms of duration. */
-    public float statusDuration = 60 * 10f;
-    /** Whether this bullet type collides with tiles. */
-    public boolean collidesTiles = true;
-    /** Whether this bullet type collides with tiles that are of the same team. */
-    public boolean collidesTeam = false;
-    /** Whether this bullet type collides with air units. */
-    public boolean collidesAir = true;
-    /** Whether this bullet types collides with anything at all. */
-    public boolean collides = true;
-    /** Whether velocity is inherited from the shooter. */
-    public boolean keepVelocity = true;
-
-    //additional effects
-
-    public int fragBullets = 9;
-    public float fragVelocityMin = 0.2f, fragVelocityMax = 1f;
-    public BulletType fragBullet = null;
-
-    /** Use a negative value to disable splash damage. */
-    public float splashDamageRadius = -1f;
-
-    public int incendAmount = 0;
-    public float incendSpread = 8f;
-    public float incendChance = 1f;
-
-    public float homingPower = 0f;
-    public float homingRange = 50f;
-
-    public int lightining;
-    public int lightningLength = 5;
-
-    public float hitShake = 0f;
+| field              | value                            |                                                                         |
+|--------------------|----------------------------------|-------------------------------------------------------------------------|
+| lifetime           | float                            | amount of ticks it lasts                                                |
+| speed              | float                            | inital speed of bullet                                                  |
+| damage             | float                            | collision damage                                                        |
+| hitSize            | float 4                          | collision radius                                                        |
+| drawSize           | float 40                         |                                                                         |
+| drag               | float 0                          | decelleration per tick                                                  |
+| pierce             | boolean                          | whether it can collide                                                  |
+| hitEffect          | Effect                           | created when bullet hits something                                      |
+| despawnEffect      | Effect                           | created when bullet despawns                                            |
+| shootEffect        | Effect                           | created when shooting                                                   |
+| smokeEffect        | Effect                           | created when shooting                                                   |
+| hitSound           | Sound                            | made when hitting something or getting removed                          |
+| inaccuracy         | float 0                          | extra inaccuracy                                                        |
+| ammoMultiplier     | float 2                          | how many bullets get created per item/liquid                            |
+| reloadMultiplier   | float 1                          | multiplied by turret reload speed                                       |
+| recoil             | float                            | recoil from shooter entities                                            |
+| splashDamage       | float 0f                         |                                                                         |
+| knockback          | float                            | Knockback in velocity.                                                  |
+| hitTiles           | boolean true                     | Whether this bullet hits tiles.                                         |
+| status             | StatusEffect StatusEffects.none  | Status effect applied on hit.                                           |
+| statusDuration     | float 60 * 10f                   | Intensity of applied status effect in terms of duration.                |
+| collidesTiles      | boolean true                     | Whether this bullet type collides with tiles.                           |
+| collidesTeam       | boolean false                    | Whether this bullet type collides with tiles that are of the same team. |
+| collidesAir        | boolean true                     | Whether this bullet type collides with air units.                       |
+| collides           | boolean true                     | Whether this bullet types collides with anything at all.                |
+| keepVelocity       | boolean true                     | Whether velocity is inherited from the shooter.                         |
+| fragBullets        | int 9                            |                                                                         |
+| fragVelocityMin    | float 0.2f, fragVelocityMax = 1f |                                                                         |
+| fragBullet         | BulletType null                  |                                                                         |
+| splashDamageRadius | float -1f                        | Use a negative value to disable splash damage.                          |
+| incendAmount       | int 0                            |                                                                         |
+| incendSpread       | float 8f                         |                                                                         |
+| incendChance       | float 1f                         |                                                                         |
+| homingPower        | float 0f                         |                                                                         |
+| homingRange        | float 50f                        |                                                                         |
+| lightining         | int                              |                                                                         |
+| lightningLength    | int 5                            |                                                                         |
+| hitShake           | float 0f                         |                                                                         |
 
 
 ## UnlockableContent and MappableContent 

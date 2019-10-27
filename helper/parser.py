@@ -2,18 +2,60 @@
 import re
 
 def parse_lines(string):
-    """ Splits document into terminations (;) and comments (*/) """
+    """ Splits document into terminations (;)"""
     return [ x.strip() for x in string.split(";") ]
 
-def parse_comment(string):
-    return re.search("/\\*[^*]*\\*+(?:[^/*][^*]*\\*+)*/", string)
+def parse_comment_ml(string):
+    """ Parses multiline comment. """
+    multi = r"/\*[^*]*\*+(?:([^/*][^*]*)\*+)*/"
+    r = re.match(multi, string)
+    if r is not None:
+        a, b = r.span()
+        m = r.group(1).strip()
+        return a, b, m
+    else:
+        return 0, 0, ""
 
-def parse_rows(comment, definition):
-    return [ row_parser(x[0], x[1]) for x in lines ]
+def parse_comment_sl(string):
+    pattern = r"//[^\n\r]+.*[\n\r]"
+    r = re.search(pattern, string)
+    if r is not None:
+        a, b = r.span()
+        return a, b
+    else:
+        return 0, 0
+    
+def parse_definition(string):
+    """ Parses definition without comment. """
+    string = string.strip()
+    a, b = parse_comment_sl(string)
+    string = string[b:]
+    
+    a, b, r = parse_comment_ml(string)
 
-def java(string):
-    return lines
+    line = string[b:].strip().replace(";", "").split(" ")
+    try:
+        type_ = line[1]
+        field = line[2]
+        default = line[4:]
+        value = " ".join([type_] + default)
+        return (field, value)
+    except IndexError:
+        return None
+    
+def build_rows(string):
+    lines = parse_lines(string)
+    for line in lines:
+        comment = parse_comment_ml(line)[2]
+        f_v = parse_definition(line)
+        if f_v is None :
+            continue
+        f, v = f_v
+        yield (f, v, comment)
 
+def build_table(string):
+    return "| " + "|\n| ".join([ " | ".join(x) for x in build_rows(string) ])
+        
 TEST = """
     public float splashDamage = 0f;
     /** Knockback in velocity. */
@@ -61,6 +103,14 @@ if __name__ == "__main__":
     from pprint import pprint
     #pprint(java(TEST))
     #pprint(parse_rows("", ""))
-    assert not parse_comment("thing")
-    assert parse_comment("/** her */ thing")
-    pprint(parse_comment("/** her */ thing"))
+    assert parse_comment_ml("thing") == (0, 0, "")
+    assert parse_comment_ml("/** her */ thing")[2] == "her"
+    assert parse_comment_sl("""// her 
+                               thing""") == (0, 8)
+    
+    assert parse_definition("""
+        /** her */ 
+        public float thing = 34;
+    """) == ("thing", "float 34")
+
+    print(build_table(TEST))
