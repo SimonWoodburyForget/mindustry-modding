@@ -1,7 +1,6 @@
 *Disclaimier: This is an overview of the possible fields and types, some of them may or may not work as expected.*
 
 # Overview
-
 ## Directory Structure
 
 At the root of your project you should have a `content/`directory, this is where all the JSON data goes, and in that directory you have other directories for various types of units, these are the current common ones:
@@ -15,7 +14,9 @@ At the root of your project you should have a `content/`directory, this is where
 
 Feilds have noumerous attributes, but the important one is `type` as it's what tells the parser which class of object to select. A lot of objects are actually very simple, and follow the common OOP patterns, all that means is they inherit attributes and various behaviors. *(sometimes predictably, othertimes not as much)*
 
-# Effect
+
+# Referance
+## Effect
 
 Value type should be `string`. This type will animate a pre-programmed effects. List of built-in effects:
 
@@ -41,36 +42,29 @@ Value type should be `string`. This type will animate a pre-programmed effects. 
 
 You can't currently create custom effects.
 
-# BulletType
+## BulletType
 
 This type is typically used within the field of another type, like turret ammo, or weapon bullet, or fragment bullet.
 
-| field         | value    |                                 |
-|---------------|----------|---------------------------------|
-| lifetime      | float    | amount of ticks it lasts        |
-| speed         | float    | inital speed of bullet          |
-| damage        | float    | collision damage                |
-| hitSize       | float 4  | collision radius                |
-| drawSize      | float 40 |                                 |
-| drag          | float 0  | decelleration per tick          |
-| pierce        | boolean  | whether it can collide          |
-| hitEffect     | Effect   | used when bullet hits something |
-| despawnEffect | Effect   | used when bullet despawns       |
+| field            | value    |                                                |
+|------------------|----------|------------------------------------------------|
+| lifetime         | float    | amount of ticks it lasts                       |
+| speed            | float    | inital speed of bullet                         |
+| damage           | float    | collision damage                               |
+| hitSize          | float 4  | collision radius                               |
+| drawSize         | float 40 |                                                |
+| drag             | float 0  | decelleration per tick                         |
+| pierce           | boolean  | whether it can collide                         |
+| hitEffect        | Effect   | created when bullet hits something             |
+| despawnEffect    | Effect   | created when bullet despawns                   |
+| shootEffect      | Effect   | created when shooting                          |
+| smokeEffect      | Effect   | created when shooting                          |
+| hitSound         | Sound    | made when hitting something or getting removed |
+| inaccuracy       | float 0  | extra inaccuracy                               |
+| ammoMultiplier   | float 2  | how many bullets get created per item/liquid   |
+| reloadMultiplier | float 1  | multiplied by turret reload speed              |
+| recoil           | float    | recoil from shooter entities                   |
 
-    /** Effect created when shooting. */
-    public Effect shootEffect = Fx.shootSmall;
-    /** Extra smoke effect created when shooting. */
-    public Effect smokeEffect = Fx.shootSmallSmoke;
-    /** Sound made when hitting something or getting removed.*/
-    public Sound hitSound = Sounds.none;
-    /** Extra inaccuracy when firing. */
-    public float inaccuracy = 0f;
-    /** How many bullets get created per ammo item/liquid. */
-    public float ammoMultiplier = 2f;
-    /** Multiplied by turret reload speed to get final shoot speed. */
-    public float reloadMultiplier = 1f;
-    /** Recoil from shooter entities. */
-    public float recoil;
 
     public float splashDamage = 0f;
     /** Knockback in velocity. */
@@ -114,7 +108,7 @@ This type is typically used within the field of another type, like turret ammo, 
     public float hitShake = 0f;
 
 
-# UnlockableContent and MappableContent 
+## UnlockableContent and MappableContent 
 
 Base interface for an unlockable content type.
 
@@ -123,7 +117,7 @@ Base interface for an unlockable content type.
 | name        | public String | name visible to the user |
 | description | public String |                          |
 
-# Item extends UnlockableContent
+## Item extends UnlockableContent
 
 Objects that ride conveyors/sorters and can be used in crafters.
 
