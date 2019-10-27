@@ -45,70 +45,78 @@ Pretty much all types can have a name and description.
 
 *extends `UnlockableContent`* 
 
-| field          | type          | notes |
-|----------------|---------------|-------|
-| hasItems       | boolean       |       |
-| hasLiquids     | boolean       |       |
-| hasPower       | boolean       |       |
-| outputsLiquid  | boolean false |       |
-| consumesPower  | boolean true  |       |
-| outputsPower   | boolean false |       |
-| itemCapacity   | int 10        |       |
-| liquidCapacity | float 10      |       |
+| field         | type          | notes |
+|---------------|---------------|-------|
+| hasItems      | boolean       |       |
+| hasLiquids    | boolean       |       |
+| hasPower      | boolean       |       |
+| outputsLiquid | boolean false |       |
+| consumesPower | boolean true  |       |
+| outputsPower  | bolean false  |       |
+| itemCapacity  | int 10        |       |
+| ity           | float 10      |       |
 
-## BuildVisibility
-
-Possible options for build visibility include:
+options for build visibility include:
 - hidden,
 - shown, 
 - debugOnly,
 - sandboxOnly,
-- campaignOnly.
+- campaignOnly
+
+## BlockGroup
+
+- none
+- walls
+- turrets
+- transportation
+- power
+- liquids
+- drills
 
 ## Block
 
-*extends `BlockStorage`* -- Attributes for all objects that are blocks.
+*`BlockStorage`* -- Attributes for all objects that are blocks.
 
-| field               | value                  | notes                                                                              |
-|---------------------|------------------------|------------------------------------------------------------------------------------|
-| update              | boolean                | whether this block has a tile entity that updates                                  |
-| destructible        | boolean                | whether this block has health and can be destroyed                                 |
-| unloadable          | boolean true           | whether unloaders work on this block                                               |
-| solid               | boolean                | whether this is solid                                                              |
-| solidifes           | boolean                | whether this block CAN be solid.                                                   |
-| rotate              | boolean                | whether this is rotateable                                                         |
-| breakable           | boolean                | whether you can break this with rightclick                                         |
-| placeableOn         | boolean true           | whether this floor can be placed on.                                               |
-| health              | int -1                 | tile entity health                                                                 |
-| baseExplosiveness   | float 0                | base block explosiveness                                                           |
-| floating            | boolean false          | whether this block can be placed on edges of liquids.                              |
-| size                | int 1                  | multiblock size                                                                    |
-| expanded            | boolean false          | Whether to draw this block in the expanded draw range.                             |
-| timers              | int 0                  | Max of timers used.                                                                |
-| fillesTile          | true                   | Special flag; if false, floor will be drawn under this block even if it is cached. |
-| alwaysReplace       | boolean false          | whether this block can be replaced in all cases                                    |
-| group               | BlockGroup none        | Unless `canReplace` is overriden, blocks in the same group can replace each other. |
-| priority            | TargetPriority base    | Targeting priority of this block, as seen by enemies.                              |
-| configurable        | boolean                | Whether the block can be tapped and selected to configure.                         |
-| consumesTap         | boolean                | Whether this block consumes touchDown events when tapped.                          |
-| posConfig           | boolean                | Whether the config is positional and needs to be shifted.                          |
-| targetable          | boolean true           | Whether units target this block.                                                   |
-| canOverdrive        | boolean true           | Whether the overdrive core has any effect on this block.                           |
-| outlineColor        | Color "404049"         | Outlined icon color.                                                               |
-| outlineIcon         | boolean false          | Whether the icon region has an outline added.                                      |
-| hasShadow           | boolean true           | Whether this block has a shadow under it.                                          |
-| breakSound          | Sound boom             | Sounds made when this block breaks.                                                |
-| activeSound         | Sound none             | The sound that this block makes while active. One sound loop. Do not overuse.      |
-| activeSoundVolume   | float 0.5              | Active sound base volume.                                                          |
-| idleSound           | Sound none             | The sound that this block makes while idle. Uses one sound loop for all blocks.    |
-| idleSoundVolume     | float 0.5              | Idle sound base volume.                                                            |
-| requirements        | ItemStack []           | Cost of constructing this block.                                                   |
-| category            | Category distribution  | Category in place menu.                                                            |
-| buildCost           | float                  | Cost of building this block; do not modify directly!                               |
-| buildVisibility     | BuildVisibility hidden | Whether this block is visible and can currently be built.                          |
-| buildCostMultiplier | float 1f               | Multiplier for speed of building this block.                                       |
-| instantTransfer     | boolean false          | Whether this block has instant transfer.                                           |
-| alwaysUnlocked      | boolean false          |                                                                                    |
+| field               | value                    | notes                                                                              |
+|---------------------|--------------------------|------------------------------------------------------------------------------------|
+| update              | boolean                  | whether this block has a tile entity that updates                                  |
+| destructible        | boolean                  | whether this block has health and can be destroyed                                 |
+| unloadable          | boolean true             | whether unloaders work on this block                                               |
+| solid               | boolean                  | whether this is solid                                                              |
+| solidifes           | boolean                  | whether this block CAN be solid.                                                   |
+| rotate              | boolean                  | whether this is rotateable                                                         |
+| breakable           | boolean                  | whether you can break this with rightclick                                         |
+| placeableOn         | boolean true             | whether this floor can be placed on.                                               |
+| health              | int -1                   | tile entity health                                                                 |
+| baseExplosiveness   | float 0                  | base block explosiveness                                                           |
+| floating            | boolean false            | whether this block can be placed on edges of liquids.                              |
+| size                | int 1                    | multiblock size                                                                    |
+| expanded            | boolean false            | Whether to draw this block in the expanded draw range.                             |
+| timers              | int 0                    | Max of timers used.                                                                |
+| fillesTile          | true                     | Special flag; if false, floor will be drawn under this block even if it is cached. |
+| alwaysReplace       | boolean false            | whether this block can be replaced in all cases                                    |
+| group               | BlockGroup none          | Unless `canReplace` is overriden, blocks in the same group can replace each other. |
+| priority            | TargetPriority base      | Targeting priority of this block, as seen by enemies.                              |
+| configurable        | boolean                  | Whether the block can be tapped and selected to configure.                         |
+| consumesTap         | boolean                  | Whether this block consumes touchDown events when tapped.                          |
+| posConfig           | boolean                  | Whether the config is positional and needs to be shifted.                          |
+| targetable          | boolean true             | Whether units target this block.                                                   |
+| canOverdrive        | boolean true             | Whether the overdrive core has any effect on this block.                           |
+| outlineColor        | Color "404049"           | Outlined icon color.                                                               |
+| outlineIcon         | boolean false            | Whether the icon region has an outline added.                                      |
+| hasShadow           | boolean true             | Whether this block has a shadow under it.                                          |
+| breakSound          | Sound boom               | Sounds made when this block breaks.                                                |
+| activeSound         | Sound none               | The sound that this block makes while active. One sound loop. Do not overuse.      |
+| activeSoundVolume   | float 0.5                | Active sound base volume.                                                          |
+| idleSound           | Sound none               | The sound that this block makes while idle. Uses one sound loop for all blocks.    |
+| idleSoundVolume     | float 0.5                | Idle sound base volume.                                                            |
+| requirements        | ItemStack []             | Cost of constructing this block.                                                   |
+| category            | Category "distribution"  | Category in place menu.                                                            |
+| buildCost           | float                    | Cost of building this block; do not modify directly!                               |
+| buildVisibility     | BuildVisibility "hidden" | Whether this block is visible and can currently be built.                          |
+| buildCostMultiplier | float 1                  | Multiplier for speed of building this block.                                       |
+| instantTransfer     | boolean false            | Whether this block has instant transfer.                                           |
+| alwaysUnlocked      | boolean false            |                                                                                    |
 
 ## Effect
 
