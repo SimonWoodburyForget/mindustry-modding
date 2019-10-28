@@ -15,4 +15,14 @@ def java_to_table():
     pyperclip.copy(o)
     click.echo(o)
 
+@cli.command()
+def to_defaults():
+    """ Converts Mindustry attribute decelleration 
+    into a Markdown table. """
+    i = pyperclip.paste()
+    o = parser.build_defaults(i)
+    pyperclip.copy(o)
+    click.echo(o)
+
+    
 cli()

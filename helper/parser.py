@@ -55,7 +55,11 @@ def build_rows(string):
 
 def build_table(string):
     return "| " + "|\n| ".join([ " | ".join(x) for x in build_rows(string) ])
-        
+
+def build_defaults(string):
+    return "\n".join([ "| " + x.replace("=", "|").replace(";", " |")
+                       for x in string.splitlines() ])
+
 TEST = """
     public float splashDamage = 0f;
     /** Knockback in velocity. */
