@@ -357,21 +357,21 @@
       |------------+-------+----------|
       | flameColor | Color | "ffc999" |
 
-      Sprites suffix:
+      Sprite suffix:
       * `-top`
 
 ***** TODO Separator
       ~extends Block~ -- Extracts a random list of items from an input item and an input liquid.
       
-      | field            | type  | default                 |
-      |------------------+-------+-------------------------|
-      | craftTime        | float |                         |
-      | spinnerRadius    | float | 2.5f                    |
-      | spinnerLength    | float | 1f                      |
-      | spinnerThickness | float | 1f                      |
-      | spinnerSpeed     | float | 2f                      |
-      | color            | Color | Color.valueOf("858585") |
-      | liquidRegion     | int   |                         |
+      | field            | type  |  default |
+      |------------------+-------+----------|
+      | craftTime        | float |          |
+      | spinnerRadius    | float |      2.5 |
+      | spinnerLength    | float |        1 |
+      | spinnerThickness | float |        1 |
+      | spinnerSpeed     | float |        2 |
+      | color            | Color | "858585" |
+      | liquidRegion     | int   |          |
 
       Defaults:
       | field      | default |
@@ -380,7 +380,9 @@
       | solid      | true    |
       | hasItems   | true    |
       | hasLiquids | true    |
-      |            |         |
+
+      Sprite suffixes:
+      * `-liquid`
 
 **** Sandbox
 ***** TODO Incinerator
