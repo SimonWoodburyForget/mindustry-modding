@@ -33,9 +33,11 @@
    * ~other-mod-name-angry-dagger~ would referance ~angry-dagger~ in ~other-mod-name~,
    * ~not-a-mod-angry-dagger~ would referance ~angry-dagger~ in ~not-a-mod~.
 
-** ItemStack
+* ItemStack
 
-   This type is found everywhere inside of other times. An item stack is simply put an array of objects with these fields:
+   This type is used by blocks, to consume/output items. 
+
+   An item stack is simply an array of objects with these fields:
 
    | field  | type | default |
    |--------+------+---------|
@@ -51,7 +53,23 @@
 ]
 #+END_SRC
 
-   Typically you'll find it where ever you need to specific multiple items, such as in inputs, outputs and consumes.
+* LiquidStack
+
+   This type is used by blocks, to consume a liquid, just like `ItemStack` except that it can only contain 1 liquid.
+
+   | field  | type   |
+   |--------+--------|
+   | liquid | Liquid |
+   | amount | float  |
+
+   For example:
+
+   #+BEGIN_SRC json
+{
+   "liquid": "water",
+   "amount": 0.5
+}
+   #+END_SRC
 
 * UnlockableContent and MappableContent 
 
@@ -81,15 +99,15 @@
 
    ~extends UnlockableContent~ Object that defines the properties of a liquid.
 
-   | field         | vaule             | notes                                                                                |
-   |---------------+-------------------+--------------------------------------------------------------------------------------|
-   | flammability  | float             | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
-   | temperature   | float 0.5         | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot                           |
-   | heatCapacity  | float 0.5         | used in cooling; water is 0.4                                                        |
-   | viscosity     | float 0.5         | how thick this liquid is; water is 0.5, tar is 1 (very slow)                         |
-   | explosiveness | float             | explosiveness when heated; 0 is nothing, 1 is nuke                                   |
-   | flameColor    | Color ffb763      | the burning color of this liquid                                                     |
-   | effect        | StatusEffect none | the associated status effect.                                                        |
+   | field         | vaule        | default | notes                                                                                |
+   |---------------+--------------+---------+--------------------------------------------------------------------------------------|
+   | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
+   | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot                           |
+   | heatCapacity  | float        |     0.5 | used in cooling; water is 0.4                                                        |
+   | viscosity     | float        |     0.5 | how thick this liquid is; water is 0.5, tar is 1 (very slow)                         |
+   | explosiveness | float        |         | explosiveness when heated; 0 is nothing, 1 is nuke                                   |
+   | flameColor    | Color        |  ffb763 | the burning color of this liquid                                                     |
+   | effect        | StatusEffect |    none | the associated status effect.                                                        |
 
 ** BlockStorage
 
