@@ -38,8 +38,8 @@ def parse_definition(string):
         type_ = line[1]
         field = line[2]
         default = line[4:]
-        value = " ".join([type_] + default)
-        return (field, value)
+        # value = " ".join([type_] + default)
+        return (field, field, type_)
     except IndexError:
         return None
     
@@ -50,8 +50,8 @@ def build_rows(string):
         f_v = parse_definition(line)
         if f_v is None :
             continue
-        f, v = f_v
-        yield (f, v, comment)
+        f, v, t = f_v
+        yield (f, v, t, comment)
 
 def build_table(string):
     return "| " + "|\n| ".join([ " | ".join(x) for x in build_rows(string) ])

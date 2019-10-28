@@ -102,7 +102,7 @@
     | alwaysUnlocked | boolean  |   false | If true, item is always unlocked.                                     |
 
 *** Liquid
-    ~extends UnlockableContent~ Object that defines the properties of a liquid.
+    ~extends UnlockableContent~ -- Object that defines the properties of a liquid.
 
     | field         | type    | default | notes                                                                                |
     |---------------+--------------+---------+--------------------------------------------------------------------------------------|
@@ -169,9 +169,9 @@
 
 *** Block
 
- ~extends BlockStorage~ Attributes for all objects that are blocks.
+ ~extends BlockStorage~ -- Attributes for all objects that are blocks.
 
- | field               | type            |              | notes                                                                              |
+ | field               | type            | default      | notes                                                                              |
  |---------------------+-----------------+--------------+------------------------------------------------------------------------------------|
  | update              | boolean         |              | whether this block has a tile entity that updates                                  |
  | destructible        | boolean         |              | whether this block has health and can be destroyed                                 |
@@ -437,3 +437,57 @@
  | weaveScale | float |                 0 |   |
  | weaveMag   | float |                -1 |   |
     
+*** Mech
+    ~extends Unlockablecontent~ -- Mechs are the player controlled entities.
+
+    | field              | type    | default |
+    |--------------------+---------+---------|
+    | flying             | boolean |         |
+    | speed              | float   |     1.1 |
+    | maxSpeed           | float   |      10 |
+    | boostSpeed         | float   |    0.75 |
+    | drag               | float   |     0.4 |
+    | mass               | float   |       1 |
+    | shake              | float   |       0 |
+    | health             | float   |     200 |
+    | hitsize            | float   |       6 |
+    | cellTrnsY          | float   |       0 |
+    | mineSpeed          | float   |       1 |
+    | drillPower         | int     |      -1 |
+    | buildPower         | float   |       1 |
+    | engineColor        | Color   | boostTo |
+    | itemCapacity       | int     |      30 |
+    | turnCursor         | boolean |    true |
+    | canHeal            | boolean |   false |
+    | compoundSpeed      | float   |       5 |
+    | compoundSpeedBoost | float   |       5 |
+    | weaponOffsetY      | float   |       5 |
+    | engineOffset       | float   |       5 |
+    | engineSize         | float   |     2.5 |
+    | weapon             | Weapon  |    null |
+
+*** Weapon
+
+    Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
+
+    | field          | type        | default | notes                                                             |
+    |----------------+-------------+---------+-------------------------------------------------------------------|
+    | name           | string      |         | weapons name                                                      |
+    | nimPlayerDist  | float       |      20 | minimum cursor distance from player, fixes 'cross-eyed' shooting. |
+    | sequenceNum    | int         |       0 |                                                                   |
+    | bullet         | BulletType  |         | bullet shot                                                       |
+    | ejectEffect    | ejectEffect |    none | shell ejection effect                                             |
+    | reload         | float       |         | weapon reload in frames                                           |
+    | shots          | int         |       1 | amount of shots per fire                                          |
+    | spacing        | float       |      12 | spacing in degrees between multiple shots, if applicable          |
+    | inaccuracy     | float       |       0 | inaccuracy of degrees of each shot                                |
+    | shake          | float       |       0 | intensity and duration of each shot's screen shake                |
+    | recoil         | float       |     1.5 | visual weapon knockback.                                          |
+    | length         | float       |       3 | shoot barrel y offset                                             |
+    | width          | float       |       4 | shoot barrel x offset.                                            |
+    | velocityRnd    | float       |       0 | fraction of velocity that is random                               |
+    | alternate      | bool        |   false | shoot one arm after another, rather than all at once              |
+    | lengthRand     | float       |       0 | randomization of shot length                                      |
+    | shotDelay      | float       |       0 | delay in ticks between shots                                      |
+    | ignoreRotation | boolean     |   false | whether shooter rotation is ignored when shooting.                |
+    | shootSound     | Sound       |     pew |                                                                   |
