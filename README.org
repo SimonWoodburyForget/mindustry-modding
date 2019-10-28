@@ -6,7 +6,7 @@
 At the root of your project you should have a ~content/~ directory, this is where all the JSON data goes, and in that directory you have other directories for various types of units, these are the current common ones:
 
 - ~content/items/~ for things like copper and surge-alloy,
-- ~content/blocks/~for things like turrets and floors,
+- ~content/blocks/~ for things like turrets and floors,
 - ~content/mechs/~ for player controlled mechs tau and dagger,
 - ~content/liquids/~for liquids like water and slag,
 - ~content/units/~ for flying or ground units like reaper and dagger,
@@ -134,7 +134,7 @@ Categories for building menu:
 
 ** Block
 
-*~BlockStorage~* -- Attributes for all objects that are blocks.
+*~extends BlockStorage~* -- Attributes for all objects that are blocks.
 
 | field               | value                    | notes                                                                              |   |
 |---------------------|--------------------------|------------------------------------------------------------------------------------|---|
@@ -176,6 +176,38 @@ Categories for building menu:
 | buildCostMultiplier | float 1                  | Multiplier for speed of building this block.                                       |   |
 | instantTransfer     | boolean false            | Whether this block has instant transfer.                                           |   |
 | alwaysUnlocked      | boolean false            |                                                                                    |   |
+
+*** Wall 
+    *~extends Block~*
+
+    | field    | type | default |
+    |----------+------+---------|
+    | variants | int  |       0 |
+
+    Defaults
+
+    | field               | default |
+    |---------------------+---------|
+    | solid               | true    |
+    | destructible        | true    |
+    | group               | walls   |
+    | buildCostMultiplier | 5       |
+
+**** Door
+     *~extends Wall~*
+     
+     | field   | type   | default   |
+     |---------+--------+-----------|
+     | openfx  | Effect | dooropen  |
+     | closefx | Effect | doorclose |
+
+     Defaults:
+
+     | field       | type  |
+     |-------------+-------|
+     | solid       | false |
+     | solidfies   | true  | 
+     | consumesTap | true  | 
 
 ** Effect
 
