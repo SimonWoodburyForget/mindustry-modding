@@ -31,9 +31,9 @@ You can add dependencies to your mod, and be able to have acces to them. Add the
 
 The names is the mods name lower cased, with special characters replaced with `-`, and then from your mod, you can now use anything in the other mod by prefixing it with said name, for example:
 
-- `other-mod-name-not-copper`,
-- `other-mod-name-angry-dagger`,
-- `not-a-mod-angry-dagger`.
+- `other-mod-name-not-copper` would referance `not-copper` in `other-mod-name`,
+- `other-mod-name-angry-dagger` would referance `angry-dagger` in `other-mod-name`,
+- `not-a-mod-angry-dagger` would referance `angry-dagger` in `not-a-mod`.
 
 # Referance
 
