@@ -91,9 +91,9 @@ Pretty much all types can have a name and description.
    | flameColor    | Color ffb763      | the burning color of this liquid                                                     |
    | effect        | StatusEffect none | the associated status effect.                                                        |
 
-** BlockStoraeg
+** BlockStorage
 
-*extends ~UnlockableContent~* 
+~extends UnlockableContent~
 
 | field         | type          | notes |
 |---------------|---------------|-------|
