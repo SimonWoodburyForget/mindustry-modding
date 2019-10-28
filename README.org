@@ -336,23 +336,52 @@
       | outputItem         | ItemStack   |         |
       | outputLiquid       | LiquidStack |         |
       | craftTime          | float       | 80      |
-      | craftEffect        | Effect      | Fx.none |
-      | updateEffect       | Effect      | Fx.none |
-      | updateEffectChance | float       | 0.04f   |
+      | craftEffect        | Effect      | "none"  |
+      | updateEffect       | Effect      | "none"  |
+      | updateEffectChance | float       | 0.04    |
 
       Defaults:
-      | field           | default |
-      |-----------------+---------|
-      | update          | true    |
-      | solid           | true    |
-      | hasItems        | true    |
-      | health          | 60      |
-      | idleSound       | machine |
-      | idleSoundVolume | 0.03    |
-
+      | field           | default   |
+      |-----------------+-----------|
+      | update          | true      |
+      | solid           | true      |
+      | hasItems        | true      |
+      | health          | 60        |
+      | idleSound       | "machine" |
+      | idleSoundVolume | 0.03      |
 
 ***** TODO GenericSmelter
+      ~extends GenericCrafter~ -- A GenericCrafter with a new glowing region drawn on top.
+
+      | field      | type  | defaults |
+      |------------+-------+----------|
+      | flameColor | Color | "ffc999" |
+
+      Sprites suffix:
+      * `-top`
+
 ***** TODO Separator
+      ~extends Block~ -- Extracts a random list of items from an input item and an input liquid.
+      
+      | field            | type  | default                 |
+      |------------------+-------+-------------------------|
+      | craftTime        | float |                         |
+      | spinnerRadius    | float | 2.5f                    |
+      | spinnerLength    | float | 1f                      |
+      | spinnerThickness | float | 1f                      |
+      | spinnerSpeed     | float | 2f                      |
+      | color            | Color | Color.valueOf("858585") |
+      | liquidRegion     | int   |                         |
+
+      Defaults:
+      | field      | default |
+      |------------+---------|
+      | update     | true    |
+      | solid      | true    |
+      | hasItems   | true    |
+      | hasLiquids | true    |
+      |            |         |
+
 **** Sandbox
 ***** TODO Incinerator
 ***** TODO PowerVoid
