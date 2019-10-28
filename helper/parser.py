@@ -39,7 +39,7 @@ def parse_definition(string):
         field = line[2]
         default = line[4:]
         # value = " ".join([type_] + default)
-        return (field, field, type_)
+        return (field, type_, "".join(default))
     except IndexError:
         return None
     
