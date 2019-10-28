@@ -104,8 +104,9 @@
 *** Liquid
     ~extends UnlockableContent~ Object that defines the properties of a liquid.
 
-    | field         | vaule        | default | notes                                                                                |
+    | field         | type    | default | notes                                                                                |
     |---------------+--------------+---------+--------------------------------------------------------------------------------------|
+    | color         | Color        |         | color of liquid                                                                      |
     | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
     | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot                           |
     | heatCapacity  | float        |     0.5 | used in cooling; water is 0.4                                                        |
