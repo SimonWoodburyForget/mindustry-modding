@@ -1,3 +1,5 @@
+#+OPTIONS: html-postamble:nil
+
 /Disclaimier: This is a work in progress, things may not work as expected./
 
 * Overview
@@ -104,7 +106,7 @@
 *** Liquid
     ~extends UnlockableContent~ -- Object that defines the properties of a liquid.
 
-    | field         | type    | default | notes                                                                                |
+    | field         | type         | default | notes                                                                                |
     |---------------+--------------+---------+--------------------------------------------------------------------------------------|
     | color         | Color        |         | color of liquid                                                                      |
     | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
