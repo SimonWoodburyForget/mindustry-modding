@@ -53,9 +53,7 @@ For example:
 
 Typically you'll find it where ever you need to specific multiple items, such as in inputs, outputs and consumes.
 
-* Referance
-
-** UnlockableContent and MappableContent 
+* UnlockableContent and MappableContent 
 
 Pretty much all types can have a name and description.
 
@@ -66,18 +64,32 @@ Pretty much all types can have a name and description.
 
 ** Item
 
-*extends ~UnlockableContent~* Objects that ride conveyors/sorters and can be used in crafters.
+   ~extends UnlockableContent~ Objects that ride conveyors/sorters and can be used in crafters.
 
-| field          | value         | notes                                                                 |
-|----------------|---------------|-----------------------------------------------------------------------|
-| color          | Color         | hex string of color                                                   |
-| type           | ItemType      | resource or material; used for tabs and core acceptance               |
-| explosiveness  | float 0       | how explosive this item is.                                           |
-| flammability   | float 0       | flammability above 0.3 makes this eleigible for item burners.         |
-| radioactivity  | float         | how radioactive this item is. 0=none, 1=chernobyl ground zero         |
-| hardness       | int 0         | drill hardness of the item                                            |
-| cost           | float 1       | used for calculating place times; 1 cost = 1 tick added to build time |
-| alwaysUnlocked | boolean false | If true, item is always unlocked.                                     |
+   | field          | value         | notes                                                                 |
+   |----------------+---------------+-----------------------------------------------------------------------|
+   | color          | Color         | hex string of color                                                   |
+   | type           | ItemType      | resource or material; used for tabs and core acceptance               |
+   | explosiveness  | float 0       | how explosive this item is.                                           |
+   | flammability   | float 0       | flammability above 0.3 makes this eleigible for item burners.         |
+   | radioactivity  | float         | how radioactive this item is. 0=none, 1=chernobyl ground zero         |
+   | hardness       | int 0         | drill hardness of the item                                            |
+   | cost           | float 1       | used for calculating place times; 1 cost = 1 tick added to build time |
+   | alwaysUnlocked | boolean false | If true, item is always unlocked.                                     |
+
+** Liquid
+
+   ~extends UnlockableContent~ Object that defines the properties of a liquid.
+
+   | field         | vaule             | notes                                                                                |
+   |---------------+-------------------+--------------------------------------------------------------------------------------|
+   | flammability  | float             | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
+   | temperature   | float 0.5         | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot                           |
+   | heatCapacity  | float 0.5         | used in cooling; water is 0.4                                                        |
+   | viscosity     | float 0.5         | how thick this liquid is; water is 0.5, tar is 1 (very slow)                         |
+   | explosiveness | float             | explosiveness when heated; 0 is nothing, 1 is nuke                                   |
+   | flameColor    | Color ffb763      | the burning color of this liquid                                                     |
+   | effect        | StatusEffect none | the associated status effect.                                                        |
 
 ** BlockStoraeg
 
