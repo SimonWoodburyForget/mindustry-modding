@@ -56,11 +56,13 @@ Pretty much all types can have a name and description.
 | itemCapacity  | int 10        |       |
 | ity           | float 10      |       |
 
-options for build visibility include:
-- hidden,
-- shown, 
-- debugOnly,
-- sandboxOnly,
+## BuildVisibility
+
+Options for build visibility include:
+- hidden
+- shown
+- debugOnly
+- sandboxOnly
 - campaignOnly
 
 ## BlockGroup
@@ -95,7 +97,7 @@ options for build visibility include:
 | timers              | int 0                    | Max of timers used.                                                                |
 | fillesTile          | true                     | Special flag; if false, floor will be drawn under this block even if it is cached. |
 | alwaysReplace       | boolean false            | whether this block can be replaced in all cases                                    |
-| group               | BlockGroup none          | Unless `canReplace` is overriden, blocks in the same group can replace each other. |
+| group               | BlockGroup "none"          | Unless `canReplace` is overriden, blocks in the same group can replace each other. |
 | priority            | TargetPriority base      | Targeting priority of this block, as seen by enemies.                              |
 | configurable        | boolean                  | Whether the block can be tapped and selected to configure.                         |
 | consumesTap         | boolean                  | Whether this block consumes touchDown events when tapped.                          |
