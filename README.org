@@ -329,7 +329,7 @@
 
 ***** ArtilleryBulletType
 
- | field       | type   |                | notes |
+ | field       | type   | default        | notes |
  |-------------+--------+----------------+-------|
  | trailEffect | Effect | artilleryTrail |       |
 
