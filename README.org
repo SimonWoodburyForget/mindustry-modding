@@ -1,39 +1,39 @@
-*Disclaimier: This is an overview of the possible fields and types, some of them may or may not work as expected.*
+/Disclaimier: This is a work in progress, things may not always work as expected./
 
-# Overview
-## Directory Structure
+* Overview
+** Directory Structure
 
-At the root of your project you should have a `content/`directory, this is where all the JSON data goes, and in that directory you have other directories for various types of units, these are the current common ones:
+At the root of your project you should have a ~content/~ directory, this is where all the JSON data goes, and in that directory you have other directories for various types of units, these are the current common ones:
 
-- `content/items/` for things like copper and surge-alloy,
-- `content/blocks/`for things like turrets and floors,
-- `content/mechs/` for player controlled mechs tau and dagger,
-- `content/liquids/`for liquids like water and slag,
-- `content/units/` for flying or ground units like reaper and dagger,
-- `content/zones/` for configuration of campaign maps.
+- ~content/items/~ for things like copper and surge-alloy,
+- ~content/blocks/~for things like turrets and floors,
+- ~content/mechs/~ for player controlled mechs tau and dagger,
+- ~content/liquids/~for liquids like water and slag,
+- ~content/units/~ for flying or ground units like reaper and dagger,
+- ~content/zones/~ for configuration of campaign maps.
 
-Feilds have noumerous attributes, but the important one is `type` as it's what tells the parser which class of object to select. A lot of objects are actually very simple, and follow the common OOP patterns, all that means is they inherit attributes and various behaviors. *(sometimes predictably, othertimes not as much)*
+Feilds have noumerous attributes, but the important one is ~type~ as it's what tells the parser which class of object to select. A lot of objects are actually very simple, and follow the common OOP patterns, all that means is they inherit attributes and various behaviors. *(sometimes predictably, othertimes not as much)*
 
-## Dependencies
+** Dependencies
 
-You can add dependencies to your mod, and be able to have acces to them. Add the root directory name of the other mod, this in your `mod.json`:
+You can add dependencies to your mod, and be able to have acces to them. Add the root directory name of the other mod, this in your ~mod.json~:
 
-```json
+#+BEGIN_SRC json
 {
     "dependencies": [
         "other-mod-name",
         "not-a-mod"
     ]
 }
-```
+#+END_SRC
 
-The names is the mods name lower cased, with special characters replaced with `-`, and then from your mod, you can now use anything in the other mod by prefixing it with said name, for example:
+The names is the mods name lower cased, with special characters replaced with ~-~, and then from your mod, you can now use anything in the other mod by prefixing it with said name, for example:
 
-- `other-mod-name-not-copper` would referance `not-copper` in `other-mod-name`,
-- `other-mod-name-angry-dagger` would referance `angry-dagger` in `other-mod-name`,
-- `not-a-mod-angry-dagger` would referance `angry-dagger` in `not-a-mod`.
+- ~other-mod-name-not-copper~ would referance ~not-copper~ in ~other-mod-name~,
+- ~other-mod-name-angry-dagger~ would referance ~angry-dagger~ in ~other-mod-name~,
+- ~not-a-mod-angry-dagger~ would referance ~angry-dagger~ in ~not-a-mod~.
 
-## ItemStack
+** ItemStack
 
 This type is found everywhere inside of other times. An item stack is simply put an array of objects with these fields:
 
@@ -44,18 +44,18 @@ This type is found everywhere inside of other times. An item stack is simply put
 
 For example:
 
-```json
+#+BEGIN_SRC json
 [
     { "amount": 30, "item": "surge-alloy" },
     { "amount": 90, "item": "copper" }
 ]
-```
+#+END_SRC
 
 Typically you'll find it where ever you need to specific multiple items, such as in inputs, outputs and consumes.
 
-# Referance
+* Referance
 
-## UnlockableContent and MappableContent 
+** UnlockableContent and MappableContent 
 
 Pretty much all types can have a name and description.
 
@@ -64,9 +64,9 @@ Pretty much all types can have a name and description.
 | name        | String | name visible to the user |
 | description | String |                          |
 
-## Item
+** Item
 
-*extends `UnlockableContent`* Objects that ride conveyors/sorters and can be used in crafters.
+*extends ~UnlockableContent~* Objects that ride conveyors/sorters and can be used in crafters.
 
 | field          | value         | notes                                                                 |
 |----------------|---------------|-----------------------------------------------------------------------|
@@ -79,9 +79,9 @@ Pretty much all types can have a name and description.
 | cost           | float 1       | used for calculating place times; 1 cost = 1 tick added to build time |
 | alwaysUnlocked | boolean false | If true, item is always unlocked.                                     |
 
-## BlockStoraeg
+** BlockStoraeg
 
-*extends `UnlockableContent`* 
+*extends ~UnlockableContent~* 
 
 | field         | type          | notes |
 |---------------|---------------|-------|
@@ -97,44 +97,44 @@ Pretty much all types can have a name and description.
 | bars          | BlockBars     |       |
 | consumes      | Consumers     |       |
 
-## BuildVisibility
+** BuildVisibility
 
 Options for build visibility include:
-- `hidden`
-- `shown`
-- `debugOnly`
-- `sandboxOnly`
-- `campaignOnly`
+- ~hidden~
+- ~shown~
+- ~debugOnly~
+- ~sandboxOnly~
+- ~campaignOnly~
 
-## BlockGroup
+** BlockGroup
 
 Groups for blocks to build on top of each other:
-- `none`
-- `walls`
-- `turrets`
-- `transportation`
-- `power`
-- `liquids`
-- `drills`
+- ~none~
+- ~walls~
+- ~turrets~
+- ~transportation~
+- ~power~
+- ~liquids~
+- ~drills~
 
-## Category
+** Category
 
 Categories for building menu:
-- `turret` Offensive turrets;
-- `production` Blocks that produce raw resources, such as drills;
-- `distribution` Blocks that move items around;
-- `liquid` Blocks that move liquids around;
-- `power` Blocks that generate or transport power;
-- `defense` Walls and other defensive structures;
-- `crafting` Blocks that craft things;
-- `units` Blocks that create units;
-- `upgrade` Things that upgrade the player such as mech pads;
-- `effect` Things for storage or passive effects.
+- ~turret~ Offensive turrets;
+- ~production~ Blocks that produce raw resources, such as drills;
+- ~distribution~ Blocks that move items around;
+- ~liquid~ Blocks that move liquids around;
+- ~power~ Blocks that generate or transport power;
+- ~defense~ Walls and other defensive structures;
+- ~crafting~ Blocks that craft things;
+- ~units~ Blocks that create units;
+- ~upgrade~ Things that upgrade the player such as mech pads;
+- ~effect~ Things for storage or passive effects.
 
 
-## Block
+** Block
 
-*`BlockStorage`* -- Attributes for all objects that are blocks.
+*~BlockStorage~* -- Attributes for all objects that are blocks.
 
 | field               | value                    | notes                                                                              |   |
 |---------------------|--------------------------|------------------------------------------------------------------------------------|---|
@@ -154,7 +154,7 @@ Categories for building menu:
 | timers              | int 0                    | Max of timers used.                                                                |   |
 | fillesTile          | true                     | Special flag; if false, floor will be drawn under this block even if it is cached. |   |
 | alwaysReplace       | boolean false            | whether this block can be replaced in all cases                                    |   |
-| group               | BlockGroup "none"        | Unless `canReplace` is overriden, blocks in the same group can replace each other. |   |
+| group               | BlockGroup "none"        | Unless ~canReplace~ is overriden, blocks in the same group can replace each other. |   |
 | priority            | TargetPriority "base"    | Targeting priority of this block, as seen by enemies.                              |   |
 | configurable        | boolean                  | Whether the block can be tapped and selected to configure.                         |   |
 | consumesTap         | boolean                  | Whether this block consumes touchDown events when tapped.                          |   |
@@ -177,9 +177,9 @@ Categories for building menu:
 | instantTransfer     | boolean false            | Whether this block has instant transfer.                                           |   |
 | alwaysUnlocked      | boolean false            |                                                                                    |   |
 
-## Effect
+** Effect
 
-Value type should be `string`. This type will animate a pre-programmed effects. List of built-in effects:
+Value type should be ~string~. This type will animate a pre-programmed effects. List of built-in effects:
 
 - none, placeBlock, breakBlock, smoke, spawn, tapBlock, select;
 - vtolHover, unitDrop, unitPickup, unitLand, pickup, healWave, heal, 
@@ -203,7 +203,7 @@ Value type should be `string`. This type will animate a pre-programmed effects. 
 
 You can't currently create custom effects.
 
-## BulletType
+** BulletType
 
 | field              | value             | notes                                                                   |
 |--------------------|-------------------|-------------------------------------------------------------------------|
@@ -247,7 +247,7 @@ You can't currently create custom effects.
 | lightningLength    | int 5             |                                                                         |
 | hitShake           | float 0f          |                                                                         |
     
-### BasicBulletType
+*** BasicBulletType
 
 The actual bullet type.
 
@@ -260,7 +260,7 @@ The actual bullet type.
 | bulletShrink | float 0.5              |       |
 | bulletSprite | String                 |       |
 
-#### ArtilleryBulletType
+**** ArtilleryBulletType
 
 | field       | value                 | notes |
 |-------------|-----------------------|-------|
@@ -276,7 +276,7 @@ Defaults:
 | hitShake      | 1         |
 | hitSound      | explosion |
 
-#### BombBulletType
+**** BombBulletType
 
 Defaults:
 
@@ -292,7 +292,7 @@ Defaults:
 | hitSound           | explosion |
 
     
-#### FlakBulletType
+**** FlakBulletType
 
 Bullets that explode near enemies.
 
@@ -311,7 +311,7 @@ Defaults:
 | bulletHeight       | 10               |
 
 
-#### HealBulletType
+**** HealBulletType
 
 Bullets that can heal blocks of the same team as the shooter.
 
@@ -330,7 +330,7 @@ Defaults:
 | collidesTeam  | true      |
 
 
-#### LiquidBulletType
+**** LiquidBulletType
 
 | field  | value       |                |
 |--------|-------------|----------------|
@@ -350,7 +350,7 @@ Defaults:
 | knockback      | 0.55      |
 
 
-#### MassDriverBolt
+**** MassDriverBolt
 
 Defaults:
 
@@ -362,7 +362,7 @@ Defaults:
 | hitEffect     | hitBulletBig |
 | drag          | 0.005        |
 
-#### MissileBulletType
+**** MissileBulletType
 
 | field      | value                   |   |
 |------------|-------------------------|---|
