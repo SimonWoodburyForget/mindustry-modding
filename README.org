@@ -212,22 +212,46 @@
  | instantTransfer     | boolean         | false        | Whether this block has instant transfer.                                           |
  | alwaysUnlocked      | boolean         | false        |                                                                                    |
 
-**** Wall 
-     ~extends Block~
+**** Environment
+***** TODO Floor
+***** TODO OverlayFloor
+***** TODO StaticWall
+***** TODO Rock
+***** TODO StaticWall
+***** TODO StaticTree
+***** TODO TreeBlock
+***** TODO Rock DoubleOverlayFloor
+**** TODO OreBlock
+**** Crafting
+***** TODO GenericCrafter
+***** TODO GenericSmelter
+***** TODO Separator
+**** Sandbox
+***** TODO Incinerator
+***** TODO PowerVoid
+***** TODO PowerSource
+***** TODO ItemSource
+***** TODO ItemVoid
+***** TODO LiquidSource
+***** TODO MessageBlock
+**** Defense
+***** Wall 
+      ~extends Block~
 
-     | field    | type | default |
-     |----------+------+---------|
-     | variants | int  |       0 |
+      | field    | type | default |
+      |----------+------+---------|
+      | variants | int  |       0 |
 
-     Defaults
+      Defaults
 
-     | field               | default |
-     |---------------------+---------|
-     | solid               | true    |
-     | destructible        | true    |
-     | group               | walls   |
-     | buildCostMultiplier | 5       |
-
+      | field               | default |
+      |---------------------+---------|
+      | solid               | true    |
+      | destructible        | true    |
+      | group               | walls   |
+      | buildCostMultiplier | 5       |
+***** TODO DeflectorWall
+***** TODO SurgeWall
 ***** Door
       ~extends Wall~
      
@@ -243,6 +267,62 @@
       | solid       | false |
       | solidfies   | true  | 
       | consumesTap | true  | 
+***** TODO MendProjector
+***** TODO OverdriveProjector
+***** TODO ForceProjector
+***** TODO ShockMine
+**** Distribution
+***** TODO Conveyor
+***** TODO ArmoredConveyor
+***** TODO Junction
+***** TODO BufferedItemBridge
+***** TODO ItemBridge
+***** TODO Sorter
+***** TODO OverflowGate
+***** TODO MassDriver
+**** Liquid
+***** TODO Pump
+***** TODO Conduit
+***** TODO LiquidRouter
+***** TODO LiquidTank
+***** TODO LiquidJunction
+***** TODO LiquidBridge
+***** TODO LiquidExtendingBridge
+**** Power
+***** TODO PowerNode
+***** TODO Battery
+***** TODO BurnerGenerator
+***** TODO ThermalGenerator
+***** TODO SingleTypeGenerator
+***** TODO DecayGenerator
+***** TODO SolarGenerator
+***** TODO NuclearReactor
+***** TODO ImpactReactor
+**** Production
+***** TODO Drill
+***** TODO SolidPump
+***** TODO Cultivator
+***** TODO Fracker
+**** Storage
+***** TODO CoreBlock
+***** TODO Vault
+***** TODO Unloader
+***** TODO LaunchPad
+**** Turret
+***** TODO ItemTurret
+***** TODO DoubleTurret
+***** TODO BurstTurret
+***** TODO ArtilleryTurret
+***** TODO LiquidTurret
+***** TODO PowerTurret
+***** TODO ChargeTurret
+***** TODO LaserTurret
+**** Units
+***** TODO UnitFactory
+***** TODO CommandCenter
+***** TODO UnitFactory
+***** TODO RepairPoint
+***** TODO MechPad
 
 *** Effect
 
@@ -468,6 +548,15 @@
 
 *** Weapon
 
+*** TODO 
+*** TODO 
+*** TODO 
+*** 
+*** TODO 
+
+*** TODO 
+*** TODO 
+
     Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
 
     | field          | type        | default | notes                                                             |
@@ -491,3 +580,9 @@
     | shotDelay      | float       |       0 | delay in ticks between shots                                      |
     | ignoreRotation | boolean     |   false | whether shooter rotation is ignored when shooting.                |
     | shootSound     | Sound       |     pew |                                                                   |
+
+** TODO Zone
+** TODO Consumer
+** TODO Rules
+** TODO Objective
+** TODO UnitType
