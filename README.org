@@ -318,7 +318,7 @@
 
  The actual bullet type.
 
- | field        | type   |                  | notes |
+ | field        | type   |        default   | notes |
  |--------------+--------+------------------+-------|
  | backColor    | Color  | bulletYellowBack |       |
  | frontColor   | Color  |     bulletYellow |       |
