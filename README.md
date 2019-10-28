@@ -41,7 +41,7 @@ The names is the mods name lower cased, with special characters replaced with `-
 
 Inheritance
 -----------
-f
+
 You may be confused as to what \`extends\` mean. In the context of modding, all it means is some fields are inherited. A \`Turret\` type, is also a \`Block\` type, so it can also have \`health\` which happens to be in \`Block\` because it \`extends Block\`.
 
 Whether the behavior is what you'd expect is at the objects discresion, some fields aren't actually really used by their extenders, resulting in no behavior at all.
