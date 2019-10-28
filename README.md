@@ -144,19 +144,19 @@ Value type should be `string`. This type will animate a pre-programmed effects. 
 - vtolHover, unitDrop, unitPickup, unitLand, pickup, healWave, heal, 
     landShock, reactorsmoke, nuclearsmoke, nuclearcloud;
 - redgeneratespark, generatespark, fuelburn, plasticburn, pulverize, 
-    pulverizeRed, pulverizeRedder, pulverizeSmall;- pulverizeMedium;
+    pulverizeRed, pulverizeRedder, pulverizeSmall, pulverizeMedium;
 - producesmoke, smeltsmoke, formsmoke, blastsmoke, lava, doorclose, 
-    dooropen, dooropenlarge, doorcloselarge, purify;- purifyoil, purifystone, generate;
+    dooropen, dooropenlarge, doorcloselarge, purify, purifyoil, purifystone, generate;
 - mine, mineBig, mineHuge, smelt, teleportActivate, teleport, teleportOut, ripple, bubble, launch;
 - healBlock, healBlockFull, healWaveMend, overdriveWave, overdriveBlockFull, shieldBreak, hitBulletSmall, hitFuse;
 - hitBulletBig, hitFlameSmall, hitLiquid, hitLaser, hitLancer, hitMeltdown, despawn, flakExplosion, blastExplosion;
 - plasticExplosion, artilleryTrail, incendTrail, missileTrail, absorb, flakExplosionBig, plasticExplosionFlak, burning, fire;
 - fireSmoke, steam, fireballsmoke, ballfire, freezing, melting, wet, oily, overdriven, dropItem, shockwave;
 - bigShockwave, nuclearShockwave, explosion, blockExplosion, 
-    blockExplosionSmoke, shootSmall, shootHeal, shootSmallSmoke;- shootBig, shootBig2, shootBigSmoke;
+    blockExplosionSmoke, shootSmall, shootHeal, shootSmallSmoke, shootBig, shootBig2, shootBigSmoke;
 - shootBigSmoke2, shootSmallFlame, shootPyraFlame, shootLiquid, shellEjectSmall, shellEjectMedium;
 - shellEjectBig, lancerLaserShoot, lancerLaserShootSmoke, lancerLaserCharge,
-    lancerLaserChargeBegin, lightningCharge;- lightningShoot;
+    lancerLaserChargeBegin, lightningCharge, lightningShoot;
 - unitSpawn, spawnShockwave, magmasmoke, impactShockwave, 
     impactcloud, impactsmoke, dynamicExplosion, padlaunch, commandSend, coreLand.
 
