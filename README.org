@@ -3,22 +3,22 @@
 * Overview
 ** Directory Structure
 
-At the root of your project you should have a ~content/~ directory, this is where all the JSON data goes, and in that directory you have other directories for various types of units, these are the current common ones:
+   At the root of your project you should have a ~content/~ directory, this is where all the JSON data goes, and in that directory you have other directories for various types of units, these are the current common ones:
 
-- ~content/items/~ for things like copper and surge-alloy,
-- ~content/blocks/~ for things like turrets and floors,
-- ~content/mechs/~ for player controlled mechs tau and dagger,
-- ~content/liquids/~ for liquids like water and slag,
-- ~content/units/~ for flying or ground units like reaper and dagger,
-- ~content/zones/~ for configuration of campaign maps.
+   * ~content/items/~ for things like copper and surge-alloy,
+   * ~content/blocks/~ for things like turrets and floors,
+   * ~content/mechs/~ for player controlled mechs tau and dagger,
+   * ~content/liquids/~ for liquids like water and slag,
+   * ~content/units/~ for flying or ground units like reaper and dagger,
+   * ~content/zones/~ for configuration of campaign maps.
 
-Feilds have noumerous attributes, but the important one is ~type~ as it's what tells the parser which class of object to select. A lot of objects are actually very simple, and follow the common OOP patterns, all that means is they inherit attributes and various behaviors. *(sometimes predictably, othertimes not as much)*
+   Feilds have noumerous attributes, but the important one is ~type~ as it's what tells the parser which class of object to select. A lot of objects are actually very simple, and follow the common OOP patterns, all that means is they inherit attributes and various behaviors. *(sometimes predictably, othertimes not as much)*
 
 ** Dependencies
 
-You can add dependencies to your mod, and be able to have acces to them. Add the root directory name of the other mod, this in your ~mod.json~:
+   You can add dependencies to your mod, and be able to have acces to them. Add the root directory name of the other mod, this in your ~mod.json~:
 
-#+BEGIN_SRC json
+   #+BEGIN_SRC json
 {
     "dependencies": [
         "other-mod-name",
@@ -27,40 +27,40 @@ You can add dependencies to your mod, and be able to have acces to them. Add the
 }
 #+END_SRC
 
-The names is the mods name lower cased, with special characters replaced with ~-~, and then from your mod, you can now use anything in the other mod by prefixing it with said name, for example:
+   The names is the mods name lower cased, with special characters replaced with ~-~, and then from your mod, you can now use anything in the other mod by prefixing it with said name, for example:
 
-- ~other-mod-name-not-copper~ would referance ~not-copper~ in ~other-mod-name~,
-- ~other-mod-name-angry-dagger~ would referance ~angry-dagger~ in ~other-mod-name~,
-- ~not-a-mod-angry-dagger~ would referance ~angry-dagger~ in ~not-a-mod~.
+   * ~other-mod-name-not-copper~ would referance ~not-copper~ in ~other-mod-name~,
+   * ~other-mod-name-angry-dagger~ would referance ~angry-dagger~ in ~other-mod-name~,
+   * ~not-a-mod-angry-dagger~ would referance ~angry-dagger~ in ~not-a-mod~.
 
 ** ItemStack
 
-This type is found everywhere inside of other times. An item stack is simply put an array of objects with these fields:
+   This type is found everywhere inside of other times. An item stack is simply put an array of objects with these fields:
 
-| field  | type | default |
-|--------|------|---------|
-| amount | int  | 1       |
-| item   | Item |         |
+   | field  | type | default |
+   |--------+------+---------|
+   | amount | int  |       1 |
+   | item   | Item |         |
 
-For example:
+   For example:
 
-#+BEGIN_SRC json
+   #+BEGIN_SRC json
 [
     { "amount": 30, "item": "surge-alloy" },
     { "amount": 90, "item": "copper" }
 ]
 #+END_SRC
 
-Typically you'll find it where ever you need to specific multiple items, such as in inputs, outputs and consumes.
+   Typically you'll find it where ever you need to specific multiple items, such as in inputs, outputs and consumes.
 
 * UnlockableContent and MappableContent 
 
-Pretty much all types can have a name and description.
+  Pretty much all types can have a name and description.
 
-| field       | type   | notes                    |
-|-------------|--------|--------------------------|
-| name        | String | name visible to the user |
-| description | String |                          |
+  | field       | type   | notes                    |
+  |-------------+--------+--------------------------|
+  | name        | String | name visible to the user |
+  | description | String |                          |
 
 ** Item
 
@@ -93,56 +93,55 @@ Pretty much all types can have a name and description.
 
 ** BlockStorage
 
-~extends UnlockableContent~
+   ~extends UnlockableContent~
 
-| field         | type          | notes |
-|---------------|---------------|-------|
-| hasItems      | boolean       |       |
-| hasLiquids    | boolean       |       |
-| hasPower      | boolean       |       |
-| outputsLiquid | boolean false |       |
-| consumesPower | boolean true  |       |
-| outputsPower  | bolean false  |       |
-| itemCapacity  | int 10        |       |
-| item          | float 10      |       |
-| stats         | BlockStats    |       |
-| bars          | BlockBars     |       |
-| consumes      | Consumers     |       |
+   | field         | type          | notes |
+   |---------------+---------------+-------|
+   | hasItems      | boolean       |       |
+   | hasLiquids    | boolean       |       |
+   | hasPower      | boolean       |       |
+   | outputsLiquid | boolean false |       |
+   | consumesPower | boolean true  |       |
+   | outputsPower  | bolean false  |       |
+   | itemCapacity  | int 10        |       |
+   | item          | float 10      |       |
+   | stats         | BlockStats    |       |
+   | bars          | BlockBars     |       |
+   | consumes      | Consumers     |       |
 
 ** BuildVisibility
 
-Options for build visibility include:
-- ~hidden~
-- ~shown~
-- ~debugOnly~
-- ~sandboxOnly~
-- ~campaignOnly~
+   Options for build visibility include: 
+   * ~hidden~ 
+   * ~shown~
+   * ~debugOnly~
+   * ~sandboxOnly~
+   * ~campaignOnly~
 
 ** BlockGroup
 
-Groups for blocks to build on top of each other:
-- ~none~
-- ~walls~
-- ~turrets~
-- ~transportation~
-- ~power~
-- ~liquids~
-- ~drills~
+   Groups for blocks to build on top of each other:
+   * ~none~
+   * ~walls~
+   * ~turrets~
+   * ~transportation~
+   * ~power~
+   * ~liquids~
+   * ~drills~
 
 ** Category
 
-Categories for building menu:
-- ~turret~ Offensive turrets;
-- ~production~ Blocks that produce raw resources, such as drills;
-- ~distribution~ Blocks that move items around;
-- ~liquid~ Blocks that move liquids around;
-- ~power~ Blocks that generate or transport power;
-- ~defense~ Walls and other defensive structures;
-- ~crafting~ Blocks that craft things;
-- ~units~ Blocks that create units;
-- ~upgrade~ Things that upgrade the player such as mech pads;
-- ~effect~ Things for storage or passive effects.
-
+   Categories for building menu:
+   * ~turret~ Offensive turrets;
+   * ~production~ Blocks that produce raw resources, such as drills;
+   * ~distribution~ Blocks that move items around;
+   * ~liquid~ Blocks that move liquids around;
+   * ~power~ Blocks that generate or transport power;
+   * ~defense~ Walls and other defensive structures;
+   * ~crafting~ Blocks that craft things;
+   * ~units~ Blocks that create units;
+   * ~upgrade~ Things that upgrade the player such as mech pads;
+   * ~effect~ Things for storage or passive effects.
 
 ** Block
 
@@ -223,73 +222,73 @@ Categories for building menu:
 
 ** Effect
 
-Value type should be ~string~. This type will animate a pre-programmed effects. List of built-in effects:
+   Value type should be ~string~. This type will animate a pre-programmed effects. List of built-in effects:
 
-- none, placeBlock, breakBlock, smoke, spawn, tapBlock, select;
-- vtolHover, unitDrop, unitPickup, unitLand, pickup, healWave, heal, 
-    landShock, reactorsmoke, nuclearsmoke, nuclearcloud;
-- redgeneratespark, generatespark, fuelburn, plasticburn, pulverize, 
-    pulverizeRed, pulverizeRedder, pulverizeSmall, pulverizeMedium;
-- producesmoke, smeltsmoke, formsmoke, blastsmoke, lava, doorclose, 
-    dooropen, dooropenlarge, doorcloselarge, purify, purifyoil, purifystone, generate;
-- mine, mineBig, mineHuge, smelt, teleportActivate, teleport, teleportOut, ripple, bubble, launch;
-- healBlock, healBlockFull, healWaveMend, overdriveWave, overdriveBlockFull, shieldBreak, hitBulletSmall, hitFuse;
-- hitBulletBig, hitFlameSmall, hitLiquid, hitLaser, hitLancer, hitMeltdown, despawn, flakExplosion, blastExplosion;
-- plasticExplosion, artilleryTrail, incendTrail, missileTrail, absorb, flakExplosionBig, plasticExplosionFlak, burning, fire;
-- fireSmoke, steam, fireballsmoke, ballfire, freezing, melting, wet, oily, overdriven, dropItem, shockwave;
-- bigShockwave, nuclearShockwave, explosion, blockExplosion, 
-    blockExplosionSmoke, shootSmall, shootHeal, shootSmallSmoke, shootBig, shootBig2, shootBigSmoke;
-- shootBigSmoke2, shootSmallFlame, shootPyraFlame, shootLiquid, shellEjectSmall, shellEjectMedium;
-- shellEjectBig, lancerLaserShoot, lancerLaserShootSmoke, lancerLaserCharge,
-    lancerLaserChargeBegin, lightningCharge, lightningShoot;
-- unitSpawn, spawnShockwave, magmasmoke, impactShockwave, 
-    impactcloud, impactsmoke, dynamicExplosion, padlaunch, commandSend, coreLand.
+   * none, placeBlock, breakBlock, smoke, spawn, tapBlock, select;
+   * vtolHover, unitDrop, unitPickup, unitLand, pickup, healWave, heal, 
+       landShock, reactorsmoke, nuclearsmoke, nuclearcloud;
+   * redgeneratespark, generatespark, fuelburn, plasticburn, pulverize, 
+       pulverizeRed, pulverizeRedder, pulverizeSmall, pulverizeMedium;
+   * producesmoke, smeltsmoke, formsmoke, blastsmoke, lava, doorclose, 
+       dooropen, dooropenlarge, doorcloselarge, purify, purifyoil, purifystone, generate;
+   * mine, mineBig, mineHuge, smelt, teleportActivate, teleport, teleportOut, ripple, bubble, launch;
+   * healBlock, healBlockFull, healWaveMend, overdriveWave, overdriveBlockFull, shieldBreak, hitBulletSmall, hitFuse;
+   * hitBulletBig, hitFlameSmall, hitLiquid, hitLaser, hitLancer, hitMeltdown, despawn, flakExplosion, blastExplosion;
+   * plasticExplosion, artilleryTrail, incendTrail, missileTrail, absorb, flakExplosionBig, plasticExplosionFlak, burning, fire;
+   * fireSmoke, steam, fireballsmoke, ballfire, freezing, melting, wet, oily, overdriven, dropItem, shockwave;
+   * bigShockwave, nuclearShockwave, explosion, blockExplosion, 
+       blockExplosionSmoke, shootSmall, shootHeal, shootSmallSmoke, shootBig, shootBig2, shootBigSmoke;
+   * shootBigSmoke2, shootSmallFlame, shootPyraFlame, shootLiquid, shellEjectSmall, shellEjectMedium;
+   * shellEjectBig, lancerLaserShoot, lancerLaserShootSmoke, lancerLaserCharge,
+       lancerLaserChargeBegin, lightningCharge, lightningShoot;
+   * unitSpawn, spawnShockwave, magmasmoke, impactShockwave, 
+       impactcloud, impactsmoke, dynamicExplosion, padlaunch, commandSend, coreLand.
 
 You can't currently create custom effects.
 
 ** BulletType
-
-| field              | value             | notes                                                                   |
-|--------------------|-------------------|-------------------------------------------------------------------------|
-| lifetime           | float             | amount of ticks it lasts                                                |
-| speed              | float             | inital speed of bullet                                                  |
-| damage             | float             | collision damage                                                        |
-| hitSize            | float 4           | collision radius                                                        |
-| drawSize           | float 40          |                                                                         |
-| drag               | float 0           | decelleration per tick                                                  |
-| pierce             | boolean           | whether it can collide                                                  |
-| hitEffect          | Effect            | created when bullet hits something                                      |
-| despawnEffect      | Effect            | created when bullet despawns                                            |
-| shootEffect        | Effect            | created when shooting                                                   |
-| smokeEffect        | Effect            | created when shooting                                                   |
-| hitSound           | Sound             | made when hitting something or getting removed                          |
-| inaccuracy         | float 0           | extra inaccuracy                                                        |
-| ammoMultiplier     | float 2           | how many bullets get created per item/liquid                            |
-| reloadMultiplier   | float 1           | multiplied by turret reload speed                                       |
-| recoil             | float             | recoil from shooter entities                                            |
-| splashDamage       | float 0f          |                                                                         |
-| knockback          | float             | Knockback in velocity.                                                  |
-| hitTiles           | boolean true      | Whether this bullet hits tiles.                                         |
-| status             | StatusEffect none | Status effect applied on hit.                                           |
-| statusDuration     | float 600         | Intensity of applied status effect in terms of duration.                |
-| collidesTiles      | boolean true      | Whether this bullet type collides with tiles.                           |
-| collidesTeam       | boolean false     | Whether this bullet type collides with tiles that are of the same team. |
-| collidesAir        | boolean true      | Whether this bullet type collides with air units.                       |
-| collides           | boolean true      | Whether this bullet types collides with anything at all.                |
-| keepVelocity       | boolean true      | Whether velocity is inherited from the shooter.                         |
-| fragBullets        | int 9             |                                                                         |
-| fragVelocityMin    | float 0.2         |                                                                         |
-| fragVelocityMax    | float 1           |                                                                         |
-| fragBullet         | BulletType null   |                                                                         |
-| splashDamageRadius | float -1f         | Use a negative value to disable splash damage.                          |
-| incendAmount       | int 0             |                                                                         |
-| incendSpread       | float 8f          |                                                                         |
-| incendChance       | float 1f          |                                                                         |
-| homingPower        | float 0f          |                                                                         |
-| homingRange        | float 50f         |                                                                         |
-| lightining         | int               |                                                                         |
-| lightningLength    | int 5             |                                                                         |
-| hitShake           | float 0f          |                                                                         |
+   
+   | field              | value             | notes                                                                   |
+   |--------------------+-------------------+-------------------------------------------------------------------------|
+   | lifetime           | float             | amount of ticks it lasts                                                |
+   | speed              | float             | inital speed of bullet                                                  |
+   | damage             | float             | collision damage                                                        |
+   | hitSize            | float 4           | collision radius                                                        |
+   | drawSize           | float 40          |                                                                         |
+   | drag               | float 0           | decelleration per tick                                                  |
+   | pierce             | boolean           | whether it can collide                                                  |
+   | hitEffect          | Effect            | created when bullet hits something                                      |
+   | despawnEffect      | Effect            | created when bullet despawns                                            |
+   | shootEffect        | Effect            | created when shooting                                                   |
+   | smokeEffect        | Effect            | created when shooting                                                   |
+   | hitSound           | Sound             | made when hitting something or getting removed                          |
+   | inaccuracy         | float 0           | extra inaccuracy                                                        |
+   | ammoMultiplier     | float 2           | how many bullets get created per item/liquid                            |
+   | reloadMultiplier   | float 1           | multiplied by turret reload speed                                       |
+   | recoil             | float             | recoil from shooter entities                                            |
+   | splashDamage       | float 0f          |                                                                         |
+   | knockback          | float             | Knockback in velocity.                                                  |
+   | hitTiles           | boolean true      | Whether this bullet hits tiles.                                         |
+   | status             | StatusEffect none | Status effect applied on hit.                                           |
+   | statusDuration     | float 600         | Intensity of applied status effect in terms of duration.                |
+   | collidesTiles      | boolean true      | Whether this bullet type collides with tiles.                           |
+   | collidesTeam       | boolean false     | Whether this bullet type collides with tiles that are of the same team. |
+   | collidesAir        | boolean true      | Whether this bullet type collides with air units.                       |
+   | collides           | boolean true      | Whether this bullet types collides with anything at all.                |
+   | keepVelocity       | boolean true      | Whether velocity is inherited from the shooter.                         |
+   | fragBullets        | int 9             |                                                                         |
+   | fragVelocityMin    | float 0.2         |                                                                         |
+   | fragVelocityMax    | float 1           |                                                                         |
+   | fragBullet         | BulletType null   |                                                                         |
+   | splashDamageRadius | float -1f         | Use a negative value to disable splash damage.                          |
+   | incendAmount       | int 0             |                                                                         |
+   | incendSpread       | float 8f          |                                                                         |
+   | incendChance       | float 1f          |                                                                         |
+   | homingPower        | float 0f          |                                                                         |
+   | homingRange        | float 50f         |                                                                         |
+   | lightining         | int               |                                                                         |
+   | lightningLength    | int 5             |                                                                         |
+   | hitShake           | float 0f          |                                                                         |
     
 *** BasicBulletType
 
