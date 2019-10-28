@@ -14,6 +14,26 @@ At the root of your project you should have a `content/`directory, this is where
 
 Feilds have noumerous attributes, but the important one is `type` as it's what tells the parser which class of object to select. A lot of objects are actually very simple, and follow the common OOP patterns, all that means is they inherit attributes and various behaviors. *(sometimes predictably, othertimes not as much)*
 
+## Dependencies
+
+You can add dependencies to your mod, and be able to have acces to them. Add the root directory name of the other mod, this in your `mod.json`:
+
+```
+{
+    ...
+    "dependencies": [
+        "other-mod-name",
+        "not-a-mod"
+    ]
+}
+
+```
+
+The names is the mods name lower cased, with special characters replaced with `-`, and then from your mod, you can now use anything in the other mod by prefixing it with said name, for example:
+
+- `other-mod-name-not-copper`,
+- `other-mod-name-angry-dagger`,
+- `not-a-mod-angry-dagger`.
 
 # Referance
 
@@ -40,8 +60,8 @@ Pretty much all types can have a name and description.
 | hardness       | int 0         | drill hardness of the item                                            |
 | cost           | float 1       | used for calculating place times; 1 cost = 1 tick added to build time |
 | alwaysUnlocked | boolean false | If true, item is always unlocked.                                     |
-    
-## BlockStorage
+
+## BlockStoraeg
 
 *extends `UnlockableContent`* 
 
@@ -54,7 +74,10 @@ Pretty much all types can have a name and description.
 | consumesPower | boolean true  |       |
 | outputsPower  | bolean false  |       |
 | itemCapacity  | int 10        |       |
-| ity           | float 10      |       |
+| item          | float 10      |       |
+| stats         | BlockStats    |       |
+| bars          | BlockBars     |       |
+| consumes      | Consumers     |       |
 
 ## BuildVisibility
 
