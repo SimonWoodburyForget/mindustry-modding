@@ -329,6 +329,8 @@
 
 **** Crafting
 ***** TODO GenericCrafter
+
+
 ***** TODO GenericSmelter
 ***** TODO Separator
 **** Sandbox
@@ -431,7 +433,7 @@
 
 *** Effect
 
-    Value type should be ~string~. This type will animate a pre-programmed effects. List of built-in effects:
+    Value type should be ~string~. List of built-in effects are as follows:
 
     * none, placeBlock, breakBlock, smoke, spawn, tapBlock, select;
     * vtolHover, unitDrop, unitPickup, unitLand, pickup, healWave, heal, 
