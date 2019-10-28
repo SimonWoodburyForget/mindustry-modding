@@ -1,4 +1,4 @@
-/Disclaimier: This is a work in progress, things may not always work as expected./
+/Disclaimier: This is a work in progress, things may not work as expected./
 
 * Overview
 ** Directory Structure
