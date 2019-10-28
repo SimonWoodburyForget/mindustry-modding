@@ -195,7 +195,7 @@
    * ~effect~ Things for storage or passive effects.
 
 ** Block
-
+   
 ~extends BlockStorage~ -- Attributes for all objects that are blocks.
 
 | field               | type            | default      | notes                                                                              |
@@ -239,249 +239,249 @@
 | instantTransfer     | boolean         | false        | Whether this block has instant transfer.                                           |
 | alwaysUnlocked      | boolean         | false        |                                                                                    |
 
-*** Environment
-**** Floors
-***** Floor
-      ~extends Block~ -- Environmental floors. Needs a sprite to be visible in the map editor.
+** Environment
+*** Floors
+**** Floor
+     ~extends Block~ -- Environmental floors. Needs a sprite to be visible in the map editor.
 
-     | field             | type         | default           | notes                                                   |
-     |-------------------+--------------+-------------------+---------------------------------------------------------|
-     | variants          | int          | 3                 | number of different variant regions to use.             |
-     | edge              | String       | "stone"           | edge fallback, used mainly for ores.                    |
-     | speedMultiplier   | float        | 1                 | multiplies unit velocity by this when walked on.        |
-     | dragMultiplier    | float        | 0                 | multiplies unit drag by this when walked on.            |
-     | damageTaken       | float        | 0                 | damage taken per tick on this tile.                     |
-     | drownTime         | float        | 0                 | how many ticks it takes to drown on this.               |
-     | walkEffect        | Effect       | "ripple"          | effect when walking on this floor.                      |
-     | drownUpdateEffect | Effect       | "bubble"          | effect displayed when drowning on this floor.           |
-     | status            | StatusEffect | "none"            | status effect applied when walking on.                  |
-     | statusDuration    | float        | 60                | intensity of applied status effect.                     |
-     | liquidDrop        | Liquid       |                   | liquids that drop from this block, used for pumps.      |
-     | itemDrop          | Item         |                   | item that drops from this block, used for drills.       |
-     | isLiquid          | boolean      |                   | whether this block can be drowned in.                   |
-     | playerUnmineable  | boolean      | false             | block cannot be mined by players if true.               |
-     | blendGroup        | Block        | this              | group of blocks that this block does not draw edges on. |
-     | updateEffect      | Effect       | "none"            | effect displayed when randomly updated.                 |
-     | attributes        | Attributes   | `{ "array": [] }` | array of affinities to certain things.                  |
+    | field             | type         | default           | notes                                                   |
+    |-------------------+--------------+-------------------+---------------------------------------------------------|
+    | variants          | int          | 3                 | number of different variant regions to use.             |
+    | edge              | String       | "stone"           | edge fallback, used mainly for ores.                    |
+    | speedMultiplier   | float        | 1                 | multiplies unit velocity by this when walked on.        |
+    | dragMultiplier    | float        | 0                 | multiplies unit drag by this when walked on.            |
+    | damageTaken       | float        | 0                 | damage taken per tick on this tile.                     |
+    | drownTime         | float        | 0                 | how many ticks it takes to drown on this.               |
+    | walkEffect        | Effect       | "ripple"          | effect when walking on this floor.                      |
+    | drownUpdateEffect | Effect       | "bubble"          | effect displayed when drowning on this floor.           |
+    | status            | StatusEffect | "none"            | status effect applied when walking on.                  |
+    | statusDuration    | float        | 60                | intensity of applied status effect.                     |
+    | liquidDrop        | Liquid       |                   | liquids that drop from this block, used for pumps.      |
+    | itemDrop          | Item         |                   | item that drops from this block, used for drills.       |
+    | isLiquid          | boolean      |                   | whether this block can be drowned in.                   |
+    | playerUnmineable  | boolean      | false             | block cannot be mined by players if true.               |
+    | blendGroup        | Block        | this              | group of blocks that this block does not draw edges on. |
+    | updateEffect      | Effect       | "none"            | effect displayed when randomly updated.                 |
+    | attributes        | Attributes   | `{ "array": [] }` | array of affinities to certain things.                  |
 
-***** OverlayFloor
+**** OverlayFloor
 
-      ~extends Floor~ -- A type of floor that is overlaid on top of over floors.
+     ~extends Floor~ -- A type of floor that is overlaid on top of over floors.
 
-      For example:
-      * ~spawn~
-      * ~tendrils~
+     For example:
+     * ~spawn~
+     * ~tendrils~
 
-***** DoubleOverlayFloor
+**** DoubleOverlayFloor
 
-      ~extends OverlayFloor~
+     ~extends OverlayFloor~
 
-      For example:
-      * ~pebbles~
-***** OreBlock
-      ~extends OverlayFloor~ -- An overlay ore for a specific item type.
+     For example:
+     * ~pebbles~
+**** OreBlock
+     ~extends OverlayFloor~ -- An overlay ore for a specific item type.
 
-      | field    | type |
-      |----------+------|
-      | variants | 3    |
-**** StaticWalls
-***** Rock
-      ~extends Block~ 
+     | field    | type |
+     |----------+------|
+     | variants | 3    |
+*** StaticWalls
+**** Rock
+     ~extends Block~ 
 
-      | field    | type |
-      |----------+------|
-      | variants | int  |
+     | field    | type |
+     |----------+------|
+     | variants | int  |
 
-      Defaults:
-      | field         | type |
-      |---------------+------|
-      | breakable     | true |
-      | alwaysReplace | true |
+     Defaults:
+     | field         | type |
+     |---------------+------|
+     | breakable     | true |
+     | alwaysReplace | true |
 
-***** StaticWall
-      ~extends Rock~
+**** StaticWall
+     ~extends Rock~
 
-      Defaults:
-      | field         | type  |
-      |---------------+-------|
-      | breakable     | false |
-      | alwaysReplace | false |
-      | solid         | true  |
-      | variants      | 2     |
+     Defaults:
+     | field         | type  |
+     |---------------+-------|
+     | breakable     | false |
+     | alwaysReplace | false |
+     | solid         | true  |
+     | variants      | 2     |
 
-***** StaticTree
-      ~extends StaticWall~ 
+**** StaticTree
+     ~extends StaticWall~ 
        
-      For example:
-      * ~spore-pine~
-      * ~snow-pine~
-      * ~pine~
-      * ~shrubs~
-**** TreeBlock
-     ~extends Block~
+     For example:
+     * ~spore-pine~
+     * ~snow-pine~
+     * ~pine~
+     * ~shrubs~
+*** TreeBlock
+    ~extends Block~
 
-     Defaults:
-     | field    | default |
-     |----------+---------|
-     | solid    | true    |
-     | layer    | "power" |
-     | expanded | true    |
+    Defaults:
+    | field    | default |
+    |----------+---------|
+    | solid    | true    |
+    | layer    | "power" |
+    | expanded | true    |
 
-*** Crafting
-**** TODO GenericCrafter
-     ~extends Block~
+** Crafting
+*** TODO GenericCrafter
+    ~extends Block~
 
-     | field              | type        | default |
-     |--------------------+-------------+---------|
-     | outputItem         | ItemStack   |         |
-     | outputLiquid       | LiquidStack |         |
-     | craftTime          | float       | 80      |
-     | craftEffect        | Effect      | "none"  |
-     | updateEffect       | Effect      | "none"  |
-     | updateEffectChance | float       | 0.04    |
+    | field              | type        | default |
+    |--------------------+-------------+---------|
+    | outputItem         | ItemStack   |         |
+    | outputLiquid       | LiquidStack |         |
+    | craftTime          | float       | 80      |
+    | craftEffect        | Effect      | "none"  |
+    | updateEffect       | Effect      | "none"  |
+    | updateEffectChance | float       | 0.04    |
 
-     Defaults:
-     | field           | default   |
-     |-----------------+-----------|
-     | update          | true      |
-     | solid           | true      |
-     | hasItems        | true      |
-     | health          | 60        |
-     | idleSound       | "machine" |
-     | idleSoundVolume | 0.03      |
+    Defaults:
+    | field           | default   |
+    |-----------------+-----------|
+    | update          | true      |
+    | solid           | true      |
+    | hasItems        | true      |
+    | health          | 60        |
+    | idleSound       | "machine" |
+    | idleSoundVolume | 0.03      |
 
-**** TODO GenericSmelter
-     ~extends GenericCrafter~ -- A GenericCrafter with a new glowing region drawn on top.
+*** TODO GenericSmelter
+    ~extends GenericCrafter~ -- A GenericCrafter with a new glowing region drawn on top.
 
-     | field      | type  | defaults |
-     |------------+-------+----------|
-     | flameColor | Color | "ffc999" |
+    | field      | type  | defaults |
+    |------------+-------+----------|
+    | flameColor | Color | "ffc999" |
 
-     Sprite suffix:
-     * `-top`
+    Sprite suffix:
+    * `-top`
 
-**** TODO Separator
-     ~extends Block~ -- Extracts a random list of items from an input item and an input liquid.
+*** TODO Separator
+    ~extends Block~ -- Extracts a random list of items from an input item and an input liquid.
       
-     | field            | type      |  default | notes        |
-     |------------------+-----------+----------+--------------|
-     | results          | ItemStack |          | *[required]* |
-     | craftTime        | float     |          |              |
-     | spinnerRadius    | float     |      2.5 |              |
-     | spinnerLength    | float     |        1 |              |
-     | spinnerThickness | float     |        1 |              |
-     | spinnerSpeed     | float     |        2 |              |
-     | color            | Color     | "858585" |              |
-     | liquidRegion     | int       |          |              |
+    | field            | type      |  default | notes        |
+    |------------------+-----------+----------+--------------|
+    | results          | ItemStack |          | *[required]* |
+    | craftTime        | float     |          |              |
+    | spinnerRadius    | float     |      2.5 |              |
+    | spinnerLength    | float     |        1 |              |
+    | spinnerThickness | float     |        1 |              |
+    | spinnerSpeed     | float     |        2 |              |
+    | color            | Color     | "858585" |              |
+    | liquidRegion     | int       |          |              |
 
-     Defaults:
-     | field      | default |
-     |------------+---------|
-     | update     | true    |
-     | solid      | true    |
-     | hasItems   | true    |
-     | hasLiquids | true    |
+    Defaults:
+    | field      | default |
+    |------------+---------|
+    | update     | true    |
+    | solid      | true    |
+    | hasItems   | true    |
+    | hasLiquids | true    |
 
-     Sprite suffixes:
-     * `-liquid`
+    Sprite suffixes:
+    * `-liquid`
 
-*** Sandbox
-**** TODO Incinerator
-**** TODO PowerVoid
-**** TODO PowerSource
-**** TODO ItemSource
-**** TODO ItemVoid
-**** TODO LiquidSource
-**** TODO MessageBlock
-*** Defense
-**** Wall 
-     ~extends Block~
+** Sandbox
+*** TODO Incinerator
+*** TODO PowerVoid
+*** TODO PowerSource
+*** TODO ItemSource
+*** TODO ItemVoid
+*** TODO LiquidSource
+*** TODO MessageBlock
+** Defense
+*** Wall 
+    ~extends Block~
 
-     | field    | type | default |
-     |----------+------+---------|
-     | variants | int  |       0 |
+    | field    | type | default |
+    |----------+------+---------|
+    | variants | int  |       0 |
 
-     Defaults
+    Defaults
 
-     | field               | default |
-     |---------------------+---------|
-     | solid               | true    |
-     | destructible        | true    |
-     | group               | walls   |
-     | buildCostMultiplier | 5       |
-**** TODO DeflectorWall
-**** TODO SurgeWall
-**** Door
-     ~extends Wall~
+    | field               | default |
+    |---------------------+---------|
+    | solid               | true    |
+    | destructible        | true    |
+    | group               | walls   |
+    | buildCostMultiplier | 5       |
+*** TODO DeflectorWall
+*** TODO SurgeWall
+*** Door
+    ~extends Wall~
      
-     | field   | type   | default   |
-     |---------+--------+-----------|
-     | openfx  | Effect | dooropen  |
-     | closefx | Effect | doorclose |
+    | field   | type   | default   |
+    |---------+--------+-----------|
+    | openfx  | Effect | dooropen  |
+    | closefx | Effect | doorclose |
 
-     Defaults:
+    Defaults:
 
-     | field       | type  |
-     |-------------+-------|
-     | solid       | false |
-     | solidfies   | true  | 
-     | consumesTap | true  | 
-**** TODO MendProjector
-**** TODO OverdriveProjector
-**** TODO ForceProjector
-**** TODO ShockMine
-*** Distribution
-**** TODO Conveyor
-**** TODO ArmoredConveyor
-**** TODO Junction
-**** TODO BufferedItemBridge
-**** TODO ItemBridge
-**** TODO Sorter
-**** TODO OverflowGate
-**** TODO MassDriver
-*** Liquid
-**** TODO Pump
-**** TODO Conduit
-**** TODO LiquidRouter
-**** TODO LiquidTank
-**** TODO LiquidJunction
-**** TODO LiquidBridge
-**** TODO LiquidExtendingBridge
-*** Power
-**** TODO PowerNode
-**** TODO Battery
-**** TODO BurnerGenerator
-**** TODO ThermalGenerator
-**** TODO SingleTypeGenerator
-**** TODO DecayGenerator
-**** TODO SolarGenerator
-**** TODO NuclearReactor
-**** TODO ImpactReactor
-*** Production
-**** TODO Drill
-**** TODO SolidPump
-**** TODO Cultivator
-**** TODO Fracker`
-*** Storage
-**** TODO CoreBlock
-**** TODO Vault
-**** TODO Unloader
-**** TODO LaunchPad
-*** Turret
-**** TODO ItemTurret
-**** TODO DoubleTurret
-**** TODO BurstTurret
-**** TODO ArtilleryTurret
-**** TODO LiquidTurret
-**** TODO PowerTurret
-**** TODO ChargeTurret
-**** TODO LaserTurret
-*** Units
-**** TODO UnitFactory
-**** TODO CommandCenter
-**** TODO UnitFactory
-**** TODO RepairPoint
-**** TODO MechPad
+    | field       | type  |
+    |-------------+-------|
+    | solid       | false |
+    | solidfies   | true  | 
+    | consumesTap | true  | 
+*** TODO MendProjector
+*** TODO OverdriveProjector
+*** TODO ForceProjector
+*** TODO ShockMine
+** Distribution
+*** TODO Conveyor
+*** TODO ArmoredConveyor
+*** TODO Junction
+*** TODO BufferedItemBridge
+*** TODO ItemBridge
+*** TODO Sorter
+*** TODO OverflowGate
+*** TODO MassDriver
+** Liquid
+*** TODO Pump
+*** TODO Conduit
+*** TODO LiquidRouter
+*** TODO LiquidTank
+*** TODO LiquidJunction
+*** TODO LiquidBridge
+*** TODO LiquidExtendingBridge
+** Power
+*** TODO PowerNode
+*** TODO Battery
+*** TODO BurnerGenerator
+*** TODO ThermalGenerator
+*** TODO SingleTypeGenerator
+*** TODO DecayGenerator
+*** TODO SolarGenerator
+*** TODO NuclearReactor
+*** TODO ImpactReactor
+** Production
+*** TODO Drill
+*** TODO SolidPump
+*** TODO Cultivator
+*** TODO Fracker`
+** Storage
+*** TODO CoreBlock
+*** TODO Vault
+*** TODO Unloader
+*** TODO LaunchPad
+** Turret
+*** TODO ItemTurret
+*** TODO DoubleTurret
+*** TODO BurstTurret
+*** TODO ArtilleryTurret
+*** TODO LiquidTurret
+*** TODO PowerTurret
+*** TODO ChargeTurret
+*** TODO LaserTurret
+** Units
+*** TODO UnitFactory
+*** TODO CommandCenter
+*** TODO UnitFactory
+*** TODO RepairPoint
+*** TODO MechPad
 
 ** Effect
 
