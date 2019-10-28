@@ -84,7 +84,7 @@
 
    ~extends UnlockableContent~ Objects that ride conveyors/sorters and can be used in crafters.
 
-   | field          | value    | default | notes                                                                 |
+   | field          | type     | default | notes                                                                 |
    |----------------+----------+---------+-----------------------------------------------------------------------|
    | color          | Color    |         | hex string of color                                                   |
    | type           | ItemType |         | resource or material; used for tabs and core acceptance               |
@@ -164,7 +164,7 @@
 
 ~extends BlockStorage~ Attributes for all objects that are blocks.
 
-| field               | value           |              | notes                                                                              |
+| field               | type            |              | notes                                                                              |
 |---------------------+-----------------+--------------+------------------------------------------------------------------------------------|
 | update              | boolean         |              | whether this block has a tile entity that updates                                  |
 | destructible        | boolean         |              | whether this block has health and can be destroyed                                 |
@@ -265,7 +265,7 @@ You can't currently create custom effects.
 
 ** BulletType
    
-   | field              | value        |       | notes                                                                   |
+   | field              | type         |       | notes                                                                   |
    |--------------------+--------------+-------+-------------------------------------------------------------------------|
    | lifetime           | float        |       | amount of ticks it lasts                                                |
    | speed              | float        |       | inital speed of bullet                                                  |
@@ -311,7 +311,7 @@ You can't currently create custom effects.
 
 The actual bullet type.
 
-| field        | value  |                  | notes |
+| field        | type   |                  | notes |
 |--------------+--------+------------------+-------|
 | backColor    | Color  | bulletYellowBack |       |
 | frontColor   | Color  |     bulletYellow |       |
@@ -322,15 +322,15 @@ The actual bullet type.
 
 **** ArtilleryBulletType
 
-| field       | value  |                | notes |
+| field       | type   |                | notes |
 |-------------+--------+----------------+-------|
 | trailEffect | Effect | artilleryTrail |       |
 
 
 Defaults:
 
-| field         | value     |
-|---------------|-----------|
+| field         | type      |
+|---------------+-----------|
 | collidesTiles | false     |
 | collides      | false     |
 | hitShake      | 1         |
@@ -340,48 +340,48 @@ Defaults:
 
 Defaults:
 
-| field              | value     |
-|--------------------|-----------|
-| collidesTiles      | false     |
-| collides           | false     |
-| bulletShrink       | 0.7       |
-| lifetime           | 30        |
-| drag               | 0.05      |
-| keepVelocity       | false     |
-| collidesAir        | false     |
-| hitSound           | explosion |
+| field         | type      |
+|---------------+-----------|
+| collidesTiles | false     |
+| collides      | false     |
+| bulletShrink  | 0.7       |
+| lifetime      | 30        |
+| drag          | 0.05      |
+| keepVelocity  | false     |
+| collidesAir   | false     |
+| hitSound      | explosion |
 
     
 **** FlakBulletType
 
 Bullets that explode near enemies.
 
-| field        | value | default | notes |
+| field        | type  | default | notes |
 |--------------+-------+---------+-------|
 | explodeRange | float |      30 |       |
 
 Defaults:
 
-| field              | value            |
-|--------------------|------------------|
-| splashDamage       | 15               |
-| splashDamageRadius | 34               |
+| field              |             type |
+|--------------------+------------------|
+| splashDamage       |               15 |
+| splashDamageRadius |               34 |
 | hitEffect          | flakExplosionBig |
-| bulletWidth        | 8                |
-| bulletHeight       | 10               |
+| bulletWidth        |                8 |
+| bulletHeight       |               10 |
 
 
 **** HealBulletType
 
 Bullets that can heal blocks of the same team as the shooter.
 
-| field       | value | default | notes |
+| field       | type  | default | notes |
 |-------------+-------+---------+-------|
 | healPercent | float |       3 |       |
 
 Defaults:
 
-| field         | value     |
+| field         | type |
 |---------------|-----------|
 | shootEffect   | shootHeal |
 | smokeEffect   | hitLaser  |
@@ -392,14 +392,14 @@ Defaults:
 
 **** LiquidBulletType
 
-| field  | value  | default |                |
+| field  | type   | default |                |
 |--------+--------+---------+----------------|
 | liquid | Liquid | null    | required field |
 
 Defaults:
 
-| field          | value     |
-|----------------|-----------|
+| field          | type      |
+|----------------+-----------|
 | lifetime       | 74        |
 | statusDuration | 90        |
 | despawnEffect  | none      |
@@ -414,8 +414,8 @@ Defaults:
 
 Defaults:
 
-| field         | value        |
-|---------------|--------------|
+| field         | type         |
+|---------------+--------------|
 | collidesTiles | false        |
 | lifetime      | 200          |
 | despawnEffect | smeltsmoke   |
@@ -424,7 +424,7 @@ Defaults:
 
 **** MissileBulletType
 
-| field      | value |                   |   |
+| field      | type  |                   |   |
 |------------+-------+-------------------+---|
 | trailColor | Color | missileYellowBack |   |
 | weaveScale | float |                 0 |   |
