@@ -363,15 +363,16 @@
 ***** TODO Separator
       ~extends Block~ -- Extracts a random list of items from an input item and an input liquid.
       
-      | field            | type  |  default |
-      |------------------+-------+----------|
-      | craftTime        | float |          |
-      | spinnerRadius    | float |      2.5 |
-      | spinnerLength    | float |        1 |
-      | spinnerThickness | float |        1 |
-      | spinnerSpeed     | float |        2 |
-      | color            | Color | "858585" |
-      | liquidRegion     | int   |          |
+      | field            | type      |  default | notes        |
+      |------------------+-----------+----------+--------------|
+      | results          | ItemStack |          | *[required]* |
+      | craftTime        | float     |          |              |
+      | spinnerRadius    | float     |      2.5 |              |
+      | spinnerLength    | float     |        1 |              |
+      | spinnerThickness | float     |        1 |              |
+      | spinnerSpeed     | float     |        2 |              |
+      | color            | Color     | "858585" |              |
+      | liquidRegion     | int       |          |              |
 
       Defaults:
       | field      | default |
