@@ -59,21 +59,37 @@ Pretty much all types can have a name and description.
 ## BuildVisibility
 
 Options for build visibility include:
-- hidden
-- shown
-- debugOnly
-- sandboxOnly
-- campaignOnly
+- `hidden`
+- `shown`
+- `debugOnly`
+- `sandboxOnly`
+- `campaignOnly`
 
 ## BlockGroup
 
-- none
-- walls
-- turrets
-- transportation
-- power
-- liquids
-- drills
+Groups for blocks to build on top of each other:
+- `none`
+- `walls`
+- `turrets`
+- `transportation`
+- `power`
+- `liquids`
+- `drills`
+
+## Category
+
+Categories for building menu:
+- `turret` Offensive turrets;
+- `production` Blocks that produce raw resources, such as drills;
+- `distribution` Blocks that move items around;
+- `liquid` Blocks that move liquids around;
+- `power` Blocks that generate or transport power;
+- `defense` Walls and other defensive structures;
+- `crafting` Blocks that craft things;
+- `units` Blocks that create units;
+- `upgrade` Things that upgrade the player such as mech pads;
+- `effect` Things for storage or passive effects.
+
 
 ## Block
 
@@ -97,7 +113,7 @@ Options for build visibility include:
 | timers              | int 0                    | Max of timers used.                                                                |
 | fillesTile          | true                     | Special flag; if false, floor will be drawn under this block even if it is cached. |
 | alwaysReplace       | boolean false            | whether this block can be replaced in all cases                                    |
-| group               | BlockGroup "none"          | Unless `canReplace` is overriden, blocks in the same group can replace each other. |
+| group               | BlockGroup "none"        | Unless `canReplace` is overriden, blocks in the same group can replace each other. |
 | priority            | TargetPriority base      | Targeting priority of this block, as seen by enemies.                              |
 | configurable        | boolean                  | Whether the block can be tapped and selected to configure.                         |
 | consumesTap         | boolean                  | Whether this block consumes touchDown events when tapped.                          |
