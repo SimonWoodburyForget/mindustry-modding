@@ -318,20 +318,20 @@
 
  The actual bullet type.
 
- | field        | type   |        default   | notes |
- |--------------+--------+------------------+-------|
- | backColor    | Color  | bulletYellowBack |       |
- | frontColor   | Color  |     bulletYellow |       |
- | bulletWidth  | float  |                5 |       |
- | bulletHeight | float  |                7 |       |
- | bulletShrink | float  |              0.5 |       |
- | bulletSprite | String |                  |       |
+ | field        | type   |          default |
+ |--------------+--------+------------------|
+ | backColor    | Color  | bulletYellowBack |
+ | frontColor   | Color  |     bulletYellow |
+ | bulletWidth  | float  |                5 |
+ | bulletHeight | float  |                7 |
+ | bulletShrink | float  |              0.5 |
+ | bulletSprite | String |                  |
 
 ***** ArtilleryBulletType
 
- | field       | type   | default        | notes |
- |-------------+--------+----------------+-------|
- | trailEffect | Effect | artilleryTrail |       |
+ | field       | type   | default        |
+ |-------------+--------+----------------|
+ | trailEffect | Effect | artilleryTrail |
 
 
  Defaults:
@@ -431,11 +431,11 @@
 
 ***** MissileBulletType
 
- | field      | type  |                   |   |
- |------------+-------+-------------------+---|
- | trailColor | Color | missileYellowBack |   |
- | weaveScale | float |                 0 |   |
- | weaveMag   | float |                -1 |   |
+ | field      | type  |           default |
+ |------------+-------+-------------------|
+ | trailColor | Color | missileYellowBack |
+ | weaveScale | float |                 0 |
+ | weaveMag   | float |                -1 |
     
 *** Mech
     ~extends Unlockablecontent~ -- Mechs are the player controlled entities.
