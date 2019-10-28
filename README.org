@@ -134,7 +134,7 @@ Categories for building menu:
 
 ** Block
 
-*~extends BlockStorage~* -- Attributes for all objects that are blocks.
+~extends BlockStorage~ Attributes for all objects that are blocks.
 
 | field               | value                    | notes                                                                              |   |
 |---------------------|--------------------------|------------------------------------------------------------------------------------|---|
@@ -178,7 +178,7 @@ Categories for building menu:
 | alwaysUnlocked      | boolean false            |                                                                                    |   |
 
 *** Wall 
-    *~extends Block~*
+    ~extends Block~
 
     | field    | type | default |
     |----------+------+---------|
@@ -194,7 +194,7 @@ Categories for building menu:
     | buildCostMultiplier | 5       |
 
 **** Door
-     *~extends Wall~*
+     ~extends Wall~
      
      | field   | type   | default   |
      |---------+--------+-----------|
