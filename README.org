@@ -8,7 +8,7 @@ At the root of your project you should have a ~content/~ directory, this is wher
 - ~content/items/~ for things like copper and surge-alloy,
 - ~content/blocks/~ for things like turrets and floors,
 - ~content/mechs/~ for player controlled mechs tau and dagger,
-- ~content/liquids/~for liquids like water and slag,
+- ~content/liquids/~ for liquids like water and slag,
 - ~content/units/~ for flying or ground units like reaper and dagger,
 - ~content/zones/~ for configuration of campaign maps.
 
