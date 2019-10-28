@@ -53,11 +53,14 @@ def build_rows(string):
         f, v, t = f_v
         yield (f, v, t, comment)
 
+        
 def build_table(string):
-    return "| " + "|\n| ".join([ " | ".join(x) for x in build_rows(string) ])
+    colnames = "|field|type|default|notes|\n|-\n"
+    return colnames + "| " + "|\n| ".join([ " | ".join(x) for x in build_rows(string) ])
 
 def build_defaults(string):
-    return "\n".join([ "| " + x.replace("=", "|").replace(";", " |")
+    colnames = "|field|default|\n|-\n"
+    return colnames + "\n".join([ "| " + x.replace("=", "|").replace(";", " |")
                        for x in string.splitlines() ])
 
 TEST = """
