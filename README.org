@@ -1,5 +1,3 @@
-#+OPTIONS: html-postamble:nil
-
 /Disclaimier: This is a work in progress, things may not work as expected./
 
 * Overview
