@@ -77,6 +77,33 @@
 }
    #+END_SRC
 
+** Attributes
+
+   This is an object with an array of attributes, with specific attribute values at each index.
+
+    * 0 = heat
+    * 1 = spores
+    * 2 = water
+    * 3 = oil
+
+    For example:
+
+    #+BEGIN_SRC json
+{
+    "array": [ 100, 1, 0.5, 0.1]
+}
+    #+END_SRC
+
+    This would give you 100 heat, 1 spores, 0.5 water and 0.1 oil. This is typically used in the `Floor` type as such
+
+    #+BEGIN_SRC json
+{
+    "type": "Floor",
+    "name": "magma",
+    "attributes": { "array": [ 0.75, 0, 0, 0 ] }
+}
+    #+END_SRC
+
 ** UnlockableContent and MappableContent 
 
    This is for types that can have a display name and description.
@@ -214,6 +241,26 @@
 
 **** Environment
 ***** TODO Floor
+| field             | type         | default | notes                                                   |
+|-------------------+--------------+---------+---------------------------------------------------------|
+| variants          | int          | 3       | number of different variant regions to use.             |
+| edge              | String       | "stone" | edge fallback, used mainly for ores.                    |
+| speedMultiplier   | float        | 1       | multiplies unit velocity by this when walked on.        |
+| dragMultiplier    | float        | 0       | multiplies unit drag by this when walked on.            |
+| damageTaken       | float        | 0       | damage taken per tick on this tile.                     |
+| drownTime         | float        | 0       | how many ticks it takes to drown on this.               |
+| walkEffect        | Effect       | ripple  | effect when walking on this floor.                      |
+| drownUpdateEffect | Effect       | bubble  | effect displayed when drowning on this floor.           |
+| status            | StatusEffect | none    | status effect applied when walking on.                  |
+| statusDuration    | float        | 60      | intensity of applied status effect.                     |
+| liquidDrop        | Liquid       | null    | liquids that drop from this block, used for pumps.      |
+| itemDrop          | Item         | null    | item that drops from this block, used for drills.       |
+| isLiquid          | boolean      |         | whether this block can be drowned in.                   |
+| playerUnmineable  | boolean      | false   | block cannot be mined by players if true.               |
+| blendGroup        | Block        | this    | group of blocks that this block does not draw edges on. |
+| updateEffect      | Effect       | none    | effect displayed when randomly updated.                 |
+| attributes        | Attributes   | []      | array of affinities to certain things.                  |
+
 ***** TODO OverlayFloor
 ***** TODO StaticWall
 ***** TODO Rock
