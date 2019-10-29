@@ -667,42 +667,58 @@ Extends [[#BlockStorage][BlockStorage]] -- Fields for all objects that are block
 *** TODO LaunchPad
 ** Turrets
 *** Turret
-    Extends
+    Extends [[#Block][Block]] -- Base of turrets.
 
-    | field         | type    |    default |
-    |---------------+---------+------------|
-    | heatColor     | [[#Color][Color]]   | turretHeat |
-    | shootEffect   | [[#Effect][Effect]]  |       none |
-    | smokeEffect   | [[#Effect][Effect]] |       none |
-    | ammoUseEffect | [[#Effect][Effect]] |       none |
-    | shootSound    | [[#Sound][Sound]] |      shoot |
-    | ammoPerShot   | int     |          1 |
-    | ammoEjectBack | float   |          1 |
-    | range         | float   |         50 |
-    | reload        | float   |         10 |
-    | inaccuracy    | float   |          0 |
-    | shots         | int     |          1 |
-    | spread        | float   |          4 |
-    | recoil        | float   |          1 |
-    | restitution   | float   |       0.02 |
-    | cooldown      | float   |       0.02 |
-    | rotatespeed   | float   |          5 |
-    | shootCone     | float   |          8 |
-    | shootShake    | float   |          0 |
-    | xRand         | float   |          0 |
-    | targetAir     | boolean |       true |
-    | targetGround  | boolean |       true |
+    | field         | type    |    default | notes               |
+    |---------------+---------+------------+---------------------|
+    | heatColor     | [[#Color][Color]]   | turretHeat |                     |
+    | shootEffect   | [[#Effect][Effect]]  |       none |                     |
+    | smokeEffect   | [[#Effect][Effect]]  |       none |                     |
+    | ammoUseEffect | [[#Effect][Effect]]  |       none |                     |
+    | shootSound    | [[#Sound][Sound]]   |      shoot |                     |
+    | ammoPerShot   | int     |          1 |                     |
+    | ammoEjectBack | float   |          1 |                     |
+    | range         | float   |         50 |                     |
+    | reload        | float   |         10 |                     |
+    | inaccuracy    | float   |          0 |                     |
+    | shots         | int     |          1 |                     |
+    | spread        | float   |          4 |                     |
+    | recoil        | float   |          1 |                     |
+    | restitution   | float   |       0.02 |                     |
+    | cooldown      | float   |       0.02 |                     |
+    | rotatespeed   | float   |          5 | in degrees per tick |
+    | shootCone     | float   |          8 |                     |
+    | shootShake    | float   |          0 |                     |
+    | xRand         | float   |          0 |                     |
+    | targetAir     | boolean |       true |                     |
+    | targetGround  | boolean |       true |                     |
 
-
-*** TODO ArtilleryTurret
+*** ArtilleryTurret
     Extends [[#ItemTurret][ItemTurret]] -- Artillery turrets have special shooting calculations done to hit targets.
 
     | field     | default |
     |-----------+---------|
     | targetAir | false   |
-*** TODO ItemTurret
-*** TODO DoubleTurret
-*** TODO BurstTurret
+*** ItemTurret
+*** DoubleTurret
+    Extends [[#ItemTurret][ItemTurret]] -- Turret that shoots from two side by side barrels.
+
+    | field     | type  | default |
+    |-----------+-------+---------|
+    | shotWidth | float |       2 |
+
+    Default:
+    | field | default |
+    |-------+---------|
+    | shots |       2 |
+
+*** BurstTurret
+    Extends [[#ItemTurret][ItemTurret]] -- Turrets capable of bursts of specially spaced bullets, separated by long reload times.
+
+    | field        | type  | default |
+    |--------------+-------+---------|
+    | burstSpacing | float |       5 |
+
 *** TODO LiquidTurret
 *** TODO PowerTurret
 *** TODO ChargeTurret
@@ -737,7 +753,7 @@ Extends [[#BlockStorage][BlockStorage]] -- Fields for all objects that are block
    | splashDamage       | float        |     0 |                                                                         |
    | knockback          | float        |       | Knockback in velocity.                                                  |
    | hitTiles           | boolean      |  true | Whether this bullet hits tiles.                                         |
-   | status             | StatusEffect |  none | Status effect applied on hit.                                           |
+   | status             | [[#StatusEffect][StatusEffect]] |  none | Status effect applied on hit.                                           |
    | statusDuration     | float        |   600 | Intensity of applied status effect in terms of duration.                |
    | collidesTiles      | boolean      |  true | Whether this bullet type collides with tiles.                           |
    | collidesTeam       | boolean      | false | Whether this bullet type collides with tiles that are of the same team. |
