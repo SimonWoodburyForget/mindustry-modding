@@ -79,14 +79,14 @@
 
 ** Attributes
 
-   This is an object with an array of attributes, with specific attribute values at each index.
+   Used inside of `Foor` type, to give a tile attributes, like `heat`. This is an object with an array of attributes, with specific attribute values at each index.
 
-    * 0 = heat
-    * 1 = spores
-    * 2 = water
-    * 3 = oil
+    * index ~0~ is ~heat~,
+    * index ~1~ is ~spores~,
+    * index ~2~ is ~water~,
+    * indeb ~3~ is ~oil~.
 
-    For example:
+    For example, this would give you ~100~ heat, ~1~ spores, ~0.5~ water and ~0.1~ oil.
 
     #+BEGIN_SRC json
 {
@@ -94,7 +94,7 @@
 }
     #+END_SRC
 
-    This would give you 100 heat, 1 spores, 0.5 water and 0.1 oil. This is typically used in the `Floor` type as such
+    You could use it inside of `Floor` type as such:
 
     #+BEGIN_SRC json
 {
