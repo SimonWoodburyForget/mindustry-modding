@@ -224,7 +224,6 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
    * =00ffff= is cyan,
    * /ect../
 
-
 * Block Types
 ** Block
    
@@ -1031,6 +1030,60 @@ Defaults:
       =lancerLaserChargeBegin= =lightningCharge= =lightningShoot=
   * =unitSpawn= =spawnShockwave= =magmasmoke= =impactShockwave= 
       =impactcloud= =impactsmoke= =dynamicExplosion= =padlaunch= =commandSend= =coreLand=
+
+* Sound
+  
+  Custom sounds can be added through the modding system in the `sounds/` directory, of which two formats are needed:
+
+  * =.ogg= required for Desktop/Android
+  * =.mp3= required for iOS
+
+  Just like any other assets, you reference them by the stem of your filename(s).
+
+  Built-In sounds:
+  * =artillery=
+  * =back=
+  * =bang=
+  * =beam=
+  * =bigshot=
+  * =boom=
+  * =break=
+  * =build=
+  * =buttonClick=
+  * =click=
+  * =conveyor=
+  * =corexplode=
+  * =door=
+  * =drill=
+  * =empty=
+  * =explosionbig=
+  * =explosion=
+  * =fire=
+  * =flame2=
+  * =flame=
+  * =laserbig=
+  * =laser=
+  * =machine=
+  * =message=
+  * =missile=
+  * =pew=
+  * =place=
+  * =press=
+  * =release=
+  * =respawning=
+  * =respawn=
+  * =shootBig=
+  * =shoot=
+  * =shootSnap=
+  * =shotgun=
+  * =spark=
+  * =splash=
+  * =spray=
+  * =thruster=
+  * =unlock=
+  * =wave=
+  * =windowHide=
+
 
 * TODO StatusEffect
 
