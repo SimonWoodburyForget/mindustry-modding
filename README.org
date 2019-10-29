@@ -92,7 +92,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** LiquidStack
 
-   This type is used by blocks, to consume a liquid, just like ~[[#ItemStack][ItemStack]]~ except that it can only contain 1 liquid.
+   This type is used by blocks, to consume a liquid, just like [[#ItemStack][~ItemStack~]] except that it can only contain 1 liquid.
 
    | field  | type   |
    |--------+--------|
