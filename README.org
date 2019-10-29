@@ -1,4 +1,4 @@
-/Disclaimier: This is a work in progress, things may not work as expected./
+/Disclaimer: This is a work in progress, things may not work as expected./
 
 * Overview
 ** Directory Structure
@@ -14,7 +14,7 @@
 
 ** Dependencies
 
-   You can add dependencies to your mod, and be able to have acces to them. Add the root directory name of the other mod, this in your ~mod.json~:
+   You can add dependencies to your mod, and be able to have access to them. Add the root directory name of the other mod, this in your ~mod.json~:
 
    #+BEGIN_SRC json
 {
@@ -25,16 +25,16 @@
 }
 #+END_SRC
 
-   The names is the mods name lower cased, with special characters replaced with ~-~, and then from your mod, you can now use anything in the other mod by prefixing it with said name, for example:
+   The name is the mod's name lower cased, with special characters replaced with ~-~, and then from your mod, you can now use anything in the other mod by prefixing it with said name, for example:
 
-   * ~other-mod-name-not-copper~ would referance ~not-copper~ in ~other-mod-name~,
-   * ~other-mod-name-angry-dagger~ would referance ~angry-dagger~ in ~other-mod-name~,
-   * ~not-a-mod-angry-dagger~ would referance ~angry-dagger~ in ~not-a-mod~.
+   * ~other-mod-name-not-copper~ would reference ~not-copper~ in ~other-mod-name~,
+   * ~other-mod-name-angry-dagger~ would reference ~angry-dagger~ in ~other-mod-name~,
+   * ~not-a-mod-angry-dagger~ would reference ~angry-dagger~ in ~not-a-mod~.
 * Type
 
-  Types have noumerous fields, but the important one is ~type~. Types /extend/ each other, and what that means is if ~MissileBulletType extends BasicBulletType~, then you'll have all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~. A ~Turret~ type, is also a ~Block~ type, so it can also have ~health~, which is a ~Block~ field.
+  Types have numerous fields, but the important one is ~type~. Types /extend/ each other, and what that means is if ~MissileBulletType extends BasicBulletType~, then you'll have all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~. A ~Turret~ type, is also a ~Block~ type, so it can also have ~health~, which is a ~Block~ field.
 
-  Whether the behavior is what you'd expect is at the types discresion, some fields aren't actually really used by their extenders/childrens, resulting in no behavior at all. 
+  Whether the behavior is what you'd expect is at the type's discretion, some fields aren't actually really used by their extenders/childrens, resulting in no behavior at all. 
 
   A type can be specified in the field of an object, but this is not all a type is. A type is the type of something ~float~ is a type so ~0.3~ is type float. ~Block~ is a type, which isn't something you'll be using by itself, but instead you use ~Floor~ which is a ~Block~ type topped with behavior that is floor specific. 
 
