@@ -349,7 +349,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | expanded | true    |
 
 ** Crafting
-*** TODO GenericCrafter
+*** GenericCrafter
     ~extends Block~
 
     | field              | type        | default |
@@ -371,7 +371,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | idleSound       | "machine" |
     | idleSoundVolume | 0.03      |
 
-*** TODO GenericSmelter
+*** GenericSmelter
     ~extends GenericCrafter~ -- A GenericCrafter with a new glowing region drawn on top.
 
     | field      | type  | defaults |
@@ -381,7 +381,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     Sprite suffix:
     * ~-top~
 
-*** TODO Separator
+*** Separator
     ~extends Block~ -- Extracts a random list of items from an input item and an input liquid.
       
     | field            | type      |  default | notes        |
@@ -506,6 +506,24 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | powerDamage        | float |     0.1 |
 
 *** TODO ShockMine
+    ~extends Block~
+
+    | field      | type  | default |
+    |------------+-------+---------|
+    | cooldown   | float |      80 |
+    | tileDamage | float |       5 |
+    | damage     | float |      13 |
+    | length     | int   |      10 |
+    | tendrils   | int   |       6 |
+
+    Defaults:
+    | field        | default |
+    |--------------+---------|
+    | update       | false   |
+    | destructible | true    |
+    | solid        | false   |
+    | targetable   | false   |
+    | layer        | overlay |
 ** Distribution
 *** TODO Conveyor
 *** TODO ArmoredConveyor
@@ -557,7 +575,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 *** TODO CommandCenter
 *** TODO UnitFactory
 *** TODO RepairPoint
-*** TODO MechPad
+*** TODO MechPad    
 * Entity Types
 ** BulletType
    
@@ -753,7 +771,7 @@ Defaults:
    | engineOffset       | float   |       5 |
    | engineSize         | float   |     2.5 |
    | weapon             | Weapon  |    null |
-
+   
 ** Weapon
    Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
 
