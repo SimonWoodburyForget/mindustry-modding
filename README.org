@@ -125,7 +125,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 }
     #+END_SRC
 
-    You could use it inside of ~Floor~ type as such:
+    You could use it inside of [[#Floor][Floor]] type as such:
 
     #+BEGIN_SRC json
 {
@@ -137,7 +137,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** Item
 
-   ~extends UnlockableContent~ Objects that ride conveyors/sorters and can be used in crafters.
+   Extends [[#UnlockableContent][UnlockableContent]] Objects that ride conveyors/sorters and can be used in crafters.
 
    | field          | type     | default | notes                                                                 |
    |----------------+----------+---------+-----------------------------------------------------------------------|
@@ -151,7 +151,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
    | alwaysUnlocked | boolean  |   false | If true, item is always unlocked.                                     |
 
 ** Liquid
-   ~extends UnlockableContent~ -- Object that defines the properties of a liquid.
+   Extends [[#UnlockableContent][UnlockableContent]] -- Object that defines the properties of a liquid.
 
    | field         | type         | default | notes                                                                                |
    |---------------+--------------+---------+--------------------------------------------------------------------------------------|
@@ -166,7 +166,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** BlockStorage
 
-   ~extends UnlockableContent~
+   Extends [[#UnlockableContent][UnlockableContent]]
 
    | field         | type       | default | notes |
    |---------------+------------+---------+-------|
@@ -218,7 +218,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 * Block Types
 ** Block
    
-~extends BlockStorage~ -- Attributes for all objects that are blocks.
+Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are blocks.
 
 | field               | type            | default      | notes                                                                              |
 |---------------------+-----------------+--------------+------------------------------------------------------------------------------------|
@@ -229,16 +229,16 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 | solidifes           | boolean         |              | whether this block CAN be solid.                                                   |
 | rotate              | boolean         |              | whether this is rotateable                                                         |
 | breakable           | boolean         |              | whether you can break this with rightclick                                         |
-| placeableOn         | boolean         | true         | whether this floor can be placed on.                                               |
+| placeableOn         | boolean         | true         | whether this [[#Floor][floor]] can be placed on.                                   |
 | health              | int             | -1           | tile entity health                                                                 |
 | baseExplosiveness   | float           | 0            | base block explosiveness                                                           |
 | floating            | boolean         | false        | whether this block can be placed on edges of liquids.                              |
 | size                | int             | 1            | multiblock size                                                                    |
 | expanded            | boolean         | false        | Whether to draw this block in the expanded draw range.                             |
 | timers              | int             | 0            | Max of timers used.                                                                |
-| fillesTile          | true            |              | Special flag; if false, floor will be drawn under this block even if it is cached. |
+| fillesTile          | true            |              | Special flag; if false, [[#floor][floor]] will be drawn under this block even if it is cached. |
 | alwaysReplace       | boolean         | false        | whether this block can be replaced in all cases                                    |
-| group               | BlockGroup      | none         | Unless ~canReplace~ is overriden, blocks in the same group can replace each other. |
+| group               | [[#BlockGroup][BlockGroup]] | none         | Unless ~canReplace~ is overriden, blocks in the same group can replace each other. |
 | priority            | TargetPriority  | base         | Targeting priority of this block, as seen by enemies.                              |
 | configurable        | boolean         |              | Whether the block can be tapped and selected to configure.                         |
 | consumesTap         | boolean         |              | Whether this block consumes touchDown events when tapped.                          |
@@ -263,7 +263,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** Environment
 *** Floor
-    ~extends Block~ -- Environmental floors. Needs a sprite to be visible in the map editor.
+    Extends [[#Block][Block]] -- Environmental floors. Needs a sprite to be visible in the map editor.
 
    | field             | type         | default           | notes                                                   |
    |-------------------+--------------+-------------------+---------------------------------------------------------|
@@ -273,8 +273,8 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
    | dragMultiplier    | float        | 0                 | multiplies unit drag by this when walked on.            |
    | damageTaken       | float        | 0                 | damage taken per tick on this tile.                     |
    | drownTime         | float        | 0                 | how many ticks it takes to drown on this.               |
-   | walkEffect        | Effect       | "ripple"          | effect when walking on this floor.                      |
-   | drownUpdateEffect | Effect       | "bubble"          | effect displayed when drowning on this floor.           |
+   | walkEffect        | Effect       | "ripple"          | effect when walking on this [[#floor][floor]].          |
+   | drownUpdateEffect | Effect       | "bubble"          | effect displayed when drowning on this [[#floor][floor]]. |
    | status            | StatusEffect | "none"            | status effect applied when walking on.                  |
    | statusDuration    | float        | 60                | intensity of applied status effect.                     |
    | liquidDrop        | Liquid       |                   | liquids that drop from this block, used for pumps.      |
@@ -287,7 +287,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 *** OverlayFloor
 
-    ~extends Floor~ -- A type of floor that is overlaid on top of over floors.
+    Extends [[#Floor][Floor]] -- A type of floor that is overlaid on top of over floors.
 
     For example:
     * ~spawn~
@@ -295,19 +295,19 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 *** DoubleOverlayFloor
 
-    ~extends OverlayFloor~
+    Extends [[#OverlayFloor][OverlayFloor]]
 
     For example:
     * ~pebbles~
 *** OreBlock
-    ~extends OverlayFloor~ -- An overlay ore for a specific item type.
+    Extends [[#OverlayFloor][OverlayFloor]] -- An overlay ore for a specific item type.
 
     | field    | type |
     |----------+------|
     | variants | 3    |
 *** StaticWalls
 **** Rock
-     ~extends Block~ 
+     Extends [[#Block][Block]] 
 
      | field    | type |
      |----------+------|
@@ -320,7 +320,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
      | alwaysReplace | true |
 
 **** StaticWall
-     ~extends Rock~
+     Extends [[#Rock][Rock]]
 
      Defaults:
      | field         | type  |
@@ -331,7 +331,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
      | variants      | 2     |
 
 **** StaticTree
-     ~extends StaticWall~ 
+     Extends [[#StaticWall][StaticWall]] 
        
      For example:
      * ~spore-pine~
@@ -339,7 +339,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
      * ~pine~
      * ~shrubs~
 *** TreeBlock
-    ~extends Block~
+    Extends [[#Block][Block]]
 
     Defaults:
     | field    | default |
@@ -350,7 +350,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** Crafting
 *** GenericCrafter
-    ~extends Block~
+    Extends [[#Block][Block]]
 
     | field              | type        | default |
     |--------------------+-------------+---------|
@@ -372,7 +372,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | idleSoundVolume | 0.03      |
 
 *** GenericSmelter
-    ~extends GenericCrafter~ -- A GenericCrafter with a new glowing region drawn on top.
+    Extends [[#GenericCrafter][GenericCrafter]] -- A GenericCrafter with a new glowing region drawn on top.
 
     | field      | type  | defaults |
     |------------+-------+----------|
@@ -382,7 +382,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     * ~-top~
 
 *** Separator
-    ~extends Block~ -- Extracts a random list of items from an input item and an input liquid.
+    Extends [[#Block][Block]] -- Extracts a random list of items from an input item and an input liquid.
       
     | field            | type      |  default | notes        |
     |------------------+-----------+----------+--------------|
@@ -416,7 +416,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 *** TODO MessageBlock
 ** Defense
 *** Wall 
-    ~extends Block~
+    Extends [[#Block][Block]]
 
     | field    | type | default |
     |----------+------+---------|
@@ -431,7 +431,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | group               | "walls" |
     | buildCostMultiplier | 5       |
 *** DeflectorWall
-    ~extends Wall~ -- Wall that deflects low damage bullets.
+    Extends [[#Wall][Wall]] -- Wall that deflects low damage bullets.
 
     | field            | type  | default |
     |------------------+-------+---------|
@@ -439,7 +439,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | maxDamageDeflect | float |      10 |
 
 *** SurgeWall
-    ~extends Wall~ -- Wall that creates lightning when shot.
+    Extends [[#Wall][Wall]] -- Wall that creates lightning when shot.
 
     | field           | type  | default |
     |-----------------+-------+---------|
@@ -448,7 +448,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | lightningLength | int   |      17 |
 
 *** Door
-    ~extends Wall~
+    Extends [[#Wall][Wall]]
      
     | field   | type   | default   |
     |---------+--------+-----------|
@@ -463,7 +463,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | solidfies   | true    |
     | consumesTap | true    |
 *** MendProjector
-    ~extends Block~
+    Extends [[#Block][Block]]
 
     | field           | type  |  default |
     |-----------------+-------+----------|
@@ -477,7 +477,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | useTime         | float |      400 |
 
 *** OverdriveProjector
-    ~extends Block~
+    Extends [[#Block][Block]]
 
     | field           | type  |  default |
     |-----------------+-------+----------|
@@ -491,7 +491,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | phaseRangeBoost | float |       20 |
 
 *** ForceProjector
-    ~extends Block~
+    Extends [[#Block][Block]]
 
     | field              | type  | default |
     |--------------------+-------+---------|
@@ -506,7 +506,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | powerDamage        | float |     0.1 |
 
 *** ShockMine
-    ~extends Block~
+    Extends [[#Block][Block]]
 
     | field      | type  | default |
     |------------+-------+---------|
@@ -535,7 +535,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 *** TODO MassDriver
 ** Liquid
 *** LiquidBlock
-    ~extends Block~ -- For blocks that can carry liquids. Apart from the better defaults, it also fetches extra sprites.
+    Extends [[#Block][Block]] -- For blocks that can carry liquids. Apart from the better defaults, it also fetches extra sprites.
 
     Defaults:
 
@@ -553,7 +553,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
    * ~<name>-bottom~
 
 *** Pump
-    ~extends LiquidBlock~
+    Extends [[#LiquidBlock][LiquidBlock]]
 
     | field      | type  | default |
     |------------+-------+---------|
@@ -566,7 +566,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | floating | true      |
 
 *** Conduit
-    ~extends LiquidBlock~
+    Extends [[#LiquidBlock][LiquidBlock]]
 
     Defaults:
 
@@ -580,20 +580,20 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     * ~<name>-top-<i>~
 
 *** LiquidRouter
-    ~extends LiquidBlock~
+    Extends [[#LiquidBlock][LiquidBlock]]
 
 *** LiquidTank
-    ~extends LiquidRouter~
+    Extends [[#LiquidRouter][LiquidRouter]]
 
 *** LiquidJunction
-    ~extends LiquidBlock~
+    Extends [[#LiquidBlock][LiquidBlock]]
 
     | field      | default |
     |------------+---------|
     | hasLiquids | true    |
 
 *** LiquidBridge
-    ~extends LiquidBridge~
+    Extends [[#LiquidBridge][LiquidBridge]]
 
     | field         | default   |
     |---------------+-----------|
@@ -603,7 +603,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | group         | "liquids" |
 
 *** LiquidExtendingBridge
-    ~extends ExtendingItemBridge~
+    Extends [[#ExtendingItemBridge][ExtendingItemBridge]]
 
     | field         | default |
     |---------------+---------|
@@ -614,7 +614,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** Power
 *** TODO PowerNode
-    ~extends PowerBlock~
+    Extends [[#PowerBlock][PowerBlock]]
 
     | field      | type  | default |
     |------------+-------+---------|
@@ -651,7 +651,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 *** TODO LaunchPad
 ** Turret
 *** TODO ArtilleryTurret
-    ~extends ItemTurret~ -- Artillery turrets have special shooting calculations done to hit targets.
+    Extends [[#ItemTurret][ItemTurret]] -- Artillery turrets have special shooting calculations done to hit targets.
 
     | field     | default |
     |-----------+---------|
@@ -837,7 +837,7 @@ Defaults:
 | weaveScale | float |                 0 |
 | weaveMag   | float |                -1 |    
 ** Mech
-   ~extends Unlockablecontent~ -- Mechs are the player controlled entities.
+   Extends [[#UnlockableContent][UnlockableContent]] -- Mechs are the player controlled entities.
 
    | field              | type    | default |
    |--------------------+---------+---------|
