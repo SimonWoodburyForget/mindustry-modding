@@ -670,7 +670,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 *** TODO LaunchPad
 ** Turrets
 *** Turret
-    Extends [[#Block][Block]] -- Base of turrets.
+    Extends [[#Block][Block]] -- Base extended to make turrets types.
 
     | field         | type    |    default | notes               |
     |---------------+---------+------------+---------------------|
@@ -696,12 +696,14 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | targetAir     | boolean |       true |                     |
     | targetGround  | boolean |       true |                     |
 
-*** ArtilleryTurret
-    Extends [[#ItemTurret][ItemTurret]] -- Artillery turrets have special shooting calculations done to hit targets.
+*** CooledTurret
+    Extends [[#Turret][Turret]] -- Extends turret with cooling behavior.
 
-    | field     | default |
-    |-----------+---------|
-    | targetAir | false   |
+    | field             | type   | default | notes                                                                   |
+    |-------------------+--------+---------+-------------------------------------------------------------------------|
+    | coolantMultiplier | float  | 5       | How much reload is lowered by for each unit of liquid of heat capacity. |
+    | coolEffect        | [[#Effect][Effect]] | shoot   |                                                                         |
+
 *** ItemTurret
     Extends [[#CooledTurret][CooledTurret]] -- Turrets that uses items as ammo.
 
@@ -742,17 +744,23 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     |-------+---------|
     | shots |       2 |
 
+*** ArtilleryTurret
+    Extends [[#ItemTurret][ItemTurret]] -- Artillery turrets have special shooting calculations done to hit targets.
+
+    | field     | default |
+    |-----------+---------|
+    | targetAir | false   |
+
 *** BurstTurret
     Extends [[#ItemTurret][ItemTurret]] -- Turrets capable of bursts of specially spaced bullets, separated by long reload times.
 
     | field        | type  | default |
     |--------------+-------+---------|
     | burstSpacing | float |       5 |
-
-*** TODO LiquidTurret
 *** TODO PowerTurret
 *** TODO ChargeTurret
 *** TODO LaserTurret
+*** TODO LiquidTurret
 ** Units
 *** TODO UnitFactory
 *** TODO CommandCenter
@@ -760,49 +768,51 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 *** TODO RepairPoint
 *** TODO MechPad    
 * Entity Types
+** Content
 ** BulletType
-   
-   | field              | type         |       | notes                                                                   |
-   |--------------------+--------------+-------+-------------------------------------------------------------------------|
-   | lifetime           | float        |       | amount of ticks it lasts                                                |
-   | speed              | float        |       | inital speed of bullet                                                  |
-   | damage             | float        |       | collision damage                                                        |
-   | hitSize            | float        |     4 | collision radius                                                        |
-   | drawSize           | float        |    40 |                                                                         |
-   | drag               | float        |     0 | decelleration per tick                                                  |
-   | pierce             | boolean      |       | whether it can collide                                                  |
-   | hitEffect          | [[#Effect][Effect]]       |       | created when bullet hits something                                      |
-   | despawnEffect      | [[#Effect][Effect]]       |       | created when bullet despawns                                            |
-   | shootEffect        | [[#Effect][Effect]]       |       | created when shooting                                                   |
-   | smokeEffect        | [[#Effect][Effect]]       |       | created when shooting                                                   |
-   | hitSound           | Sound        |       | made when hitting something or getting removed                          |
-   | inaccuracy         | float        |     0 | extra inaccuracy                                                        |
-   | ammoMultiplier     | float        |     2 | how many bullets get created per item/liquid                            |
-   | reloadMultiplier   | float        |     1 | multiplied by turret reload speed                                       |
-   | recoil             | float        |       | recoil from shooter entities                                            |
-   | splashDamage       | float        |     0 |                                                                         |
-   | knockback          | float        |       | Knockback in velocity.                                                  |
-   | hitTiles           | boolean      |  true | Whether this bullet hits tiles.                                         |
-   | status             | [[#StatusEffect][StatusEffect]] |  none | Status effect applied on hit.                                           |
-   | statusDuration     | float        |   600 | Intensity of applied status effect in terms of duration.                |
-   | collidesTiles      | boolean      |  true | Whether this bullet type collides with tiles.                           |
-   | collidesTeam       | boolean      | false | Whether this bullet type collides with tiles that are of the same team. |
-   | collidesAir        | boolean      |  true | Whether this bullet type collides with air units.                       |
-   | collides           | boolean      |  true | Whether this bullet types collides with anything at all.                |
-   | keepVelocity       | boolean      |  true | Whether velocity is inherited from the shooter.                         |
-   | fragBullets        | int          |     9 |                                                                         |
-   | fragVelocityMin    | float        |   0.2 |                                                                         |
-   | fragVelocityMax    | float        |     1 |                                                                         |
-   | fragBullet         | [[#BulletType][BulletType]]   |  null |                                                                         |
-   | splashDamageRadius | float        |    -1 | Use a negative value to disable splash damage.                          |
-   | incendAmount       | int          |     0 |                                                                         |
-   | incendSpread       | float        |     8 |                                                                         |
-   | incendChance       | float        |     1 |                                                                         |
-   | homingPower        | float        |     0 |                                                                         |
-   | homingRange        | float        |    50 |                                                                         |
-   | lightining         | int          |       |                                                                         |
-   | lightningLength    | int          |     5 |                                                                         |
-   | hitShake           | float        |     0 |                                                                         |
+   Extends [[#Content][Content]] -- Bullet can either be an object or a string, where a string would be reusing a built-in one and an object would be making a custom one.
+
+   | field              | type         | default | notes                                                                   |
+   |--------------------+--------------+---------+-------------------------------------------------------------------------|
+   | lifetime           | float        |         | amount of ticks it lasts                                                |
+   | speed              | float        |         | inital speed of bullet                                                  |
+   | damage             | float        |         | collision damage                                                        |
+   | hitSize            | float        |       4 | collision radius                                                        |
+   | drawSize           | float        |      40 |                                                                         |
+   | drag               | float        |       0 | decelleration per tick                                                  |
+   | pierce             | boolean      |         | whether it can collide                                                  |
+   | hitEffect          | [[#Effect][Effect]]       |         | created when bullet hits something                                      |
+   | despawnEffect      | [[#Effect][Effect]]       |         | created when bullet despawns                                            |
+   | shootEffect        | [[#Effect][Effect]]       |         | created when shooting                                                   |
+   | smokeEffect        | [[#Effect][Effect]]       |         | created when shooting                                                   |
+   | hitSound           | Sound        |         | made when hitting something or getting removed                          |
+   | inaccuracy         | float        |       0 | extra inaccuracy                                                        |
+   | ammoMultiplier     | float        |       2 | how many bullets get created per item/liquid                            |
+   | reloadMultiplier   | float        |       1 | multiplied by turret reload speed                                       |
+   | recoil             | float        |         | recoil from shooter entities                                            |
+   | splashDamage       | float        |       0 |                                                                         |
+   | knockback          | float        |         | Knockback in velocity.                                                  |
+   | hitTiles           | boolean      |    true | Whether this bullet hits tiles.                                         |
+   | status             | [[#StatusEffect][StatusEffect]] |    none | Status effect applied on hit.                                           |
+   | statusDuration     | float        |     600 | Intensity of applied status effect in terms of duration.                |
+   | collidesTiles      | boolean      |    true | Whether this bullet type collides with tiles.                           |
+   | collidesTeam       | boolean      |   false | Whether this bullet type collides with tiles that are of the same team. |
+   | collidesAir        | boolean      |    true | Whether this bullet type collides with air units.                       |
+   | collides           | boolean      |    true | Whether this bullet types collides with anything at all.                |
+   | keepVelocity       | boolean      |    true | Whether velocity is inherited from the shooter.                         |
+   | fragBullets        | int          |       9 |                                                                         |
+   | fragVelocityMin    | float        |     0.2 |                                                                         |
+   | fragVelocityMax    | float        |       1 |                                                                         |
+   | fragBullet         | [[#BulletType][BulletType]]   |    null |                                                                         |
+   | splashDamageRadius | float        |      -1 | Use a negative value to disable splash damage.                          |
+   | incendAmount       | int          |       0 |                                                                         |
+   | incendSpread       | float        |       8 |                                                                         |
+   | incendChance       | float        |       1 |                                                                         |
+   | homingPower        | float        |       0 |                                                                         |
+   | homingRange        | float        |      50 |                                                                         |
+   | lightining         | int          |         |                                                                         |
+   | lightningLength    | int          |       5 |                                                                         |
+   | hitShake           | float        |       0 |                                                                         |
 
    Built-in bullets:
    * artillery:
