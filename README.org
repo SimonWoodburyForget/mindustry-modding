@@ -12,7 +12,6 @@
    * ~content/units/~ for flying or ground units like reaper and dagger,
    * ~content/zones/~ for configuration of campaign maps.
 
-   Feilds have noumerous attributes, but the important one is ~type~ as it's what tells the parser which class of object to select. A lot of objects are actually very simple, and follow the common OOP patterns, all that means is they inherit attributes and various behaviors. *(sometimes predictably, othertimes not as much)*
 
 ** Dependencies
 
@@ -33,31 +32,64 @@
    * ~other-mod-name-angry-dagger~ would referance ~angry-dagger~ in ~other-mod-name~,
    * ~not-a-mod-angry-dagger~ would referance ~angry-dagger~ in ~not-a-mod~.
 
-** Inheritance
+* Type
 
-   You may be confused as to what `extends` mean. In the context of modding, all it means is some fields are inherited. A `Turret` type, is also a `Block` type, so it can also have `health` which happens to be in `Block` because it `extends Block`. 
+  Feilds have noumerous attributes, but the important one is ~type~. Types /extend/ each other, and what that means is if ~MissileBulletType extends BasicBulletType~, then you'll have all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~. A ~Turret~ type, is also a ~Block~ type, so it can also have ~health~, which is a ~Block~ field.
 
-   Whether the behavior is what you'd expect is at the objects discresion, some fields aren't actually really used by their extenders, resulting in no behavior at all.
+  Whether the behavior is what you'd expect is at the types discresion, some fields aren't actually really used by their extenders/childrens, resulting in no behavior at all. 
+
+  A type can be specified in the field of an object, but this is not all a type is. A type is the type of something ~float~ is a type so ~0.3~ is type float. ~Block~ is a type, which isn't something you'll be using by itself, but instead you use ~Floor~ which is a ~Block~ type topped with behavior that is floor specific. 
+
+  #+BEGIN_SRC json
+  {
+      "type": "Revenant",
+          "weapon": { 
+              "bullet": {
+                  "type": "MissileBulletType",
+              "damage": 9000
+          }
+      }
+  }
+  #+END_SRC
+
+Here you can see, the type of the top level object is `Revenant`, but the type of the `bullet` which needs to be a `BulletType` is actually `MissileBulletType`, which gives you attributes, behaviors and effects that missiles should have.
+
+** UnlockableContent and MappableContent 
+
+   Types that can have a display name and description. /Most content in other words/ but not everything. `ItemStack` isn't `UnlockableContent` because it's not content, it's just a stack of items.
+
+   | field       | type   |
+   |-------------+--------|
+   | name        | String |
+   | description | String |
+   
+   #+BEGIN_SRC json
+   {
+       "type": "Revenant",
+       "name": "Mammoth",
+       "description": "Not a description."
+   }
+   #+END_SRC
 
 ** ItemStack
 
-   This type is used by blocks, to consume/output items. 
+    This type is used by blocks, to consume/output items. 
 
-   An item stack is simply an array of objects with these fields:
+    An item stack is simply an array of objects with these fields:
 
-   | field  | type | default |
-   |--------+------+---------|
-   | amount | int  |       1 |
-   | item   | Item |         |
+    | field  | type | default |
+    |--------+------+---------|
+    | amount | int  |       1 |
+    | item   | Item |         |
 
-   For example:
+    For example:
 
-   #+BEGIN_SRC json
-[
-    { "amount": 30, "item": "surge-alloy" },
-    { "amount": 90, "item": "copper" }
-]
-#+END_SRC
+    #+BEGIN_SRC json
+ [
+     { "amount": 30, "item": "surge-alloy" },
+     { "amount": 90, "item": "copper" }
+ ]
+ #+END_SRC
 
 ** LiquidStack
 
@@ -103,15 +135,6 @@
     "attributes": { "array": [ 0.75, 0, 0, 0 ] }
 }
     #+END_SRC
-
-** UnlockableContent and MappableContent 
-
-   This is for types that can have a display name and description.
-
-   | field       | type   |
-   |-------------+--------|
-   | name        | String |
-   | description | String |
 
 ** Item
 
@@ -193,8 +216,8 @@
    * ~units~ Blocks that create units;
    * ~upgrade~ Things that upgrade the player such as mech pads;
    * ~effect~ Things for storage or passive effects.
-
-* Block
+* Block Types
+** Block
    
 ~extends BlockStorage~ -- Attributes for all objects that are blocks.
 
@@ -481,31 +504,7 @@
 *** TODO UnitFactory
 *** TODO RepairPoint
 *** TODO MechPad
-
-** Effect
-
-   Type should be a ~string~. You can't currently create custom effects. List of built-in effects are as follows:
-
-   * none, placeBlock, breakBlock, smoke, spawn, tapBlock, select;
-   * vtolHover, unitDrop, unitPickup, unitLand, pickup, healWave, heal, 
-       landShock, reactorsmoke, nuclearsmoke, nuclearcloud;
-   * redgeneratespark, generatespark, fuelburn, plasticburn, pulverize, 
-       pulverizeRed, pulverizeRedder, pulverizeSmall, pulverizeMedium;
-   * producesmoke, smeltsmoke, formsmoke, blastsmoke, lava, doorclose, 
-       dooropen, dooropenlarge, doorcloselarge, purify, purifyoil, purifystone, generate;
-   * mine, mineBig, mineHuge, smelt, teleportActivate, teleport, teleportOut, ripple, bubble, launch;
-   * healBlock, healBlockFull, healWaveMend, overdriveWave, overdriveBlockFull, shieldBreak, hitBulletSmall, hitFuse;
-   * hitBulletBig, hitFlameSmall, hitLiquid, hitLaser, hitLancer, hitMeltdown, despawn, flakExplosion, blastExplosion;
-   * plasticExplosion, artilleryTrail, incendTrail, missileTrail, absorb, flakExplosionBig, plasticExplosionFlak, burning, fire;
-   * fireSmoke, steam, fireballsmoke, ballfire, freezing, melting, wet, oily, overdriven, dropItem, shockwave;
-   * bigShockwave, nuclearShockwave, explosion, blockExplosion, 
-       blockExplosionSmoke, shootSmall, shootHeal, shootSmallSmoke, shootBig, shootBig2, shootBigSmoke;
-   * shootBigSmoke2, shootSmallFlame, shootPyraFlame, shootLiquid, shellEjectSmall, shellEjectMedium;
-   * shellEjectBig, lancerLaserShoot, lancerLaserShootSmoke, lancerLaserCharge,
-       lancerLaserChargeBegin, lightningCharge, lightningShoot;
-   * unitSpawn, spawnShockwave, magmasmoke, impactShockwave, 
-       impactcloud, impactsmoke, dynamicExplosion, padlaunch, commandSend, coreLand.
-
+* Entity Types
 ** BulletType
    
    | field              | type         |       | notes                                                                   |
@@ -671,8 +670,7 @@ Defaults:
 |------------+-------+-------------------|
 | trailColor | Color | missileYellowBack |
 | weaveScale | float |                 0 |
-| weaveMag   | float |                -1 |
-    
+| weaveMag   | float |                -1 |    
 ** Mech
    ~extends Unlockablecontent~ -- Mechs are the player controlled entities.
 
@@ -726,9 +724,32 @@ Defaults:
    | shotDelay      | float       |       0 | delay in ticks between shots                                      |
    | ignoreRotation | boolean     |   false | whether shooter rotation is ignored when shooting.                |
    | shootSound     | Sound       |     pew |                                                                   |
+* Effect
 
-** TODO Zone
-** TODO Consumer
-** TODO Rules
-** TODO Objective
-** TODO UnitType
+  Type should be a ~string~. You can't currently create custom effects. List of built-in effects are as follows:
+
+  * none, placeBlock, breakBlock, smoke, spawn, tapBlock, select;
+  * vtolHover, unitDrop, unitPickup, unitLand, pickup, healWave, heal, 
+      landShock, reactorsmoke, nuclearsmoke, nuclearcloud;
+  * redgeneratespark, generatespark, fuelburn, plasticburn, pulverize, 
+      pulverizeRed, pulverizeRedder, pulverizeSmall, pulverizeMedium;
+  * producesmoke, smeltsmoke, formsmoke, blastsmoke, lava, doorclose, 
+      dooropen, dooropenlarge, doorcloselarge, purify, purifyoil, purifystone, generate;
+  * mine, mineBig, mineHuge, smelt, teleportActivate, teleport, teleportOut, ripple, bubble, launch;
+  * healBlock, healBlockFull, healWaveMend, overdriveWave, overdriveBlockFull, shieldBreak, hitBulletSmall, hitFuse;
+  * hitBulletBig, hitFlameSmall, hitLiquid, hitLaser, hitLancer, hitMeltdown, despawn, flakExplosion, blastExplosion;
+  * plasticExplosion, artilleryTrail, incendTrail, missileTrail, absorb, flakExplosionBig, plasticExplosionFlak, burning, fire;
+  * fireSmoke, steam, fireballsmoke, ballfire, freezing, melting, wet, oily, overdriven, dropItem, shockwave;
+  * bigShockwave, nuclearShockwave, explosion, blockExplosion, 
+      blockExplosionSmoke, shootSmall, shootHeal, shootSmallSmoke, shootBig, shootBig2, shootBigSmoke;
+  * shootBigSmoke2, shootSmallFlame, shootPyraFlame, shootLiquid, shellEjectSmall, shellEjectMedium;
+  * shellEjectBig, lancerLaserShoot, lancerLaserShootSmoke, lancerLaserCharge,
+      lancerLaserChargeBegin, lightningCharge, lightningShoot;
+  * unitSpawn, spawnShockwave, magmasmoke, impactShockwave, 
+      impactcloud, impactsmoke, dynamicExplosion, padlaunch, commandSend, coreLand.
+
+* TODO Zone
+* TODO Consumer
+* TODO Rules
+* TODO Objective
+* TODO UnitType
