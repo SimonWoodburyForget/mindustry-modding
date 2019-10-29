@@ -33,7 +33,7 @@
    * ~not-a-mod-angry-dagger~ would referance ~angry-dagger~ in ~not-a-mod~.
 * Type
 
-  Feilds have noumerous attributes, but the important one is ~type~. Types /extend/ each other, and what that means is if ~MissileBulletType extends BasicBulletType~, then you'll have all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~. A ~Turret~ type, is also a ~Block~ type, so it can also have ~health~, which is a ~Block~ field.
+  Types have noumerous fields, but the important one is ~type~. Types /extend/ each other, and what that means is if ~MissileBulletType extends BasicBulletType~, then you'll have all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~. A ~Turret~ type, is also a ~Block~ type, so it can also have ~health~, which is a ~Block~ field.
 
   Whether the behavior is what you'd expect is at the types discresion, some fields aren't actually really used by their extenders/childrens, resulting in no behavior at all. 
 
@@ -51,7 +51,7 @@
   }
   #+END_SRC
 
-Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ which needs to be a ~BulletType~ is actually ~MissileBulletType~, which gives you attributes, behaviors and effects that missiles should have.
+Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ which needs to be a ~BulletType~ is actually ~MissileBulletType~, which gives you the behaviors and effects that missiles should have.
 
 ** UnlockableContent and MappableContent 
 
@@ -137,7 +137,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** Item
 
-   Extends [[#UnlockableContent][UnlockableContent]] Objects that ride conveyors/sorters and can be used in crafters.
+   Extends [[#UnlockableContent][UnlockableContent]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
 
    | field          | type     | default | notes                                                                 |
    |----------------+----------+---------+-----------------------------------------------------------------------|
@@ -231,7 +231,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 * Block Types
 ** Block
    
-Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are blocks.
+Extends [[#BlockStorage][BlockStorage]] -- Fields for all objects that are blocks.
 
 | field               | type            | default      | notes                                                                              |
 |---------------------+-----------------+--------------+------------------------------------------------------------------------------------|
@@ -291,7 +291,7 @@ Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are b
    | status            | StatusEffect | "none"            | status effect applied when walking on.                  |
    | statusDuration    | float        | 60                | intensity of applied status effect.                     |
    | liquidDrop        | Liquid       |                   | liquids that drop from this block, used for pumps.      |
-   | itemDrop          | Item         |                   | item that drops from this block, used for drills.       |
+   | itemDrop          | [[#Item][Item]] |                   | item that drops from this block, used for drills.       |
    | isLiquid          | boolean      |                   | whether this block can be drowned in.                   |
    | playerUnmineable  | boolean      | false             | block cannot be mined by players if true.               |
    | blendGroup        | Block        | this              | group of blocks that this block does not draw edges on. |
