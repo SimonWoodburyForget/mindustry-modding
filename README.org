@@ -168,19 +168,17 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
    Extends [[#UnlockableContent][UnlockableContent]]
 
-   | field         | type       | default | notes |
-   |---------------+------------+---------+-------|
-   | hasItems      | boolean    |         |       |
-   | hasLiquids    | boolean    |         |       |
-   | hasPower      | boolean    |         |       |
-   | outputsLiquid | boolean    | false   |       |
-   | consumesPower | boolean    | true    |       |
-   | outputsPower  | bolean     | false   |       |
-   | itemCapacity  | int        | 10      |       |
-   | item          | float      | 10      |       |
-   | stats         | BlockStats |         |       |
-   | bars          | BlockBars  |         |       |
-   | consumes      | Consumers  |         |       |
+   | field         | type      | default | notes |
+   |---------------+-----------+---------+-------|
+   | hasItems      | boolean   |         |       |
+   | hasLiquids    | boolean   |         |       |
+   | hasPower      | boolean   |         |       |
+   | outputsLiquid | boolean   | false   |       |
+   | consumesPower | boolean   | true    |       |
+   | outputsPower  | bolean    | false   |       |
+   | itemCapacity  | int       | 10      |       |
+   | item          | float     | 10      |       |
+   | consumes      | [[#Consumers][Consumers]] |         |       |
 
 ** BuildVisibility
 
@@ -276,7 +274,7 @@ Extends [[#BlockStorage][BlockStorage]] -- Fields for all objects that are block
 
 ** Environment
 *** Floor
-    Extends [[#Block][Block]] -- Environmental floors. Needs a sprite to be visible in the map editor.
+    Extends [[#Block][Block]] -- Environmental floors. Requires a sprite, so to be visible in the map editor.
 
    | field             | type         | default           | notes                                                   |
    |-------------------+--------------+-------------------+---------------------------------------------------------|
@@ -298,7 +296,7 @@ Extends [[#BlockStorage][BlockStorage]] -- Fields for all objects that are block
    | updateEffect      | [[#Effect][Effect]]       | "none"            | effect displayed when randomly updated.                 |
    | attributes        | [[#Attributes][Attributes]]   | ~{ "array": [] }~ | array of affinities to certain things.                  |
 
-   Sprite lookup name, where `i` is `1` or greater:
+   Sprite lookup name, where `i` is the variant:
    - `<name><i>.png` variants start at `1`.
 
 *** OverlayFloor
@@ -345,6 +343,9 @@ Extends [[#BlockStorage][BlockStorage]] -- Fields for all objects that are block
      | alwaysReplace | false |
      | solid         | true  |
      | variants      | 2     |
+
+     Extra Sprites:
+     * `<name>-large.png` which is a 2x2 variant. 
 
 **** StaticTree
      Extends [[#StaticWall][StaticWall]] 
@@ -665,7 +666,35 @@ Extends [[#BlockStorage][BlockStorage]] -- Fields for all objects that are block
 *** TODO Vault
 *** TODO Unloader
 *** TODO LaunchPad
-** Turret
+** Turrets
+*** Turret
+    Extends
+
+    | field         | type    | default        | notes |
+    |---------------+---------+----------------+-------|
+    | heatColor     | [[#Color][Color]]   | turretHeat  |       |
+    | shootEffect   | [[#Effect][Effect]]  | none         |       |
+    | smokeEffect   | [[#Effect][Effect]]  | none         |       |
+    | ammoUseEffect | [[#Effect][Effect]]  | none         |       |
+    | shootSound    | [[#Sound][Sound]]   | shoot    |       |
+    | ammoPerShot   | int     | 1              |       |
+    | ammoEjectBack | float   | 1f             |       |
+    | range         | float   | 50f            |       |
+    | reload        | float   | 10f            |       |
+    | inaccuracy    | float   | 0f             |       |
+    | shots         | int     | 1              |       |
+    | spread        | float   | 4f             |       |
+    | recoil        | float   | 1f             |       |
+    | restitution   | float   | 0.02f          |       |
+    | cooldown      | float   | 0.02f          |       |
+    | rotatespeed   | float   | 5f             |       |
+    | shootCone     | float   | 8f             |       |
+    | shootShake    | float   | 0f             |       |
+    | xRand         | float   | 0f             |       |
+    | targetAir     | boolean | true           |       |
+    | targetGround  | boolean | true           |       |
+
+
 *** TODO ArtilleryTurret
     Extends [[#ItemTurret][ItemTurret]] -- Artillery turrets have special shooting calculations done to hit targets.
 
@@ -884,27 +913,27 @@ Defaults:
 ** Weapon
    Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
 
-   | field          | type        | default | notes                                                             |
-   |----------------+-------------+---------+-------------------------------------------------------------------|
-   | name           | string      |         | weapons name                                                      |
-   | nimPlayerDist  | float       |      20 | minimum cursor distance from player, fixes 'cross-eyed' shooting. |
-   | sequenceNum    | int         |       0 |                                                                   |
+   | field          | type       | default | notes                                                             |
+   |----------------+------------+---------+-------------------------------------------------------------------|
+   | name           | string     |         |                                                                   |
+   | nimPlayerDist  | float      |      20 | minimum cursor distance from player, fixes 'cross-eyed' shooting. |
+   | sequenceNum    | int        |       0 |                                                                   |
    | bullet         | [[#BulletType][BulletType]] |         | bullet shot                                                       |
-   | ejectEffect    | [[#Effect][Effect]] |    none | shell ejection effect                                             |
-   | reload         | float       |         | weapon reload in frames                                           |
-   | shots          | int         |       1 | amount of shots per fire                                          |
-   | spacing        | float       |      12 | spacing in degrees between multiple shots, if applicable          |
-   | inaccuracy     | float       |       0 | inaccuracy of degrees of each shot                                |
-   | shake          | float       |       0 | intensity and duration of each shot's screen shake                |
-   | recoil         | float       |     1.5 | visual weapon knockback.                                          |
-   | length         | float       |       3 | shoot barrel y offset                                             |
-   | width          | float       |       4 | shoot barrel x offset.                                            |
-   | velocityRnd    | float       |       0 | fraction of velocity that is random                               |
-   | alternate      | bool        |   false | shoot one arm after another, rather than all at once              |
-   | lengthRand     | float       |       0 | randomization of shot length                                      |
-   | shotDelay      | float       |       0 | delay in ticks between shots                                      |
-   | ignoreRotation | boolean     |   false | whether shooter rotation is ignored when shooting.                |
-   | shootSound     | [[#Sound][Sound]] |     pew |                                                                   |
+   | ejectEffect    | [[#Effect][Effect]]     |    none | shell ejection effect                                             |
+   | reload         | float      |         | weapon reload in frames                                           |
+   | shots          | int        |       1 | amount of shots per fire                                          |
+   | spacing        | float      |      12 | spacing in degrees between multiple shots, if applicable          |
+   | inaccuracy     | float      |       0 | inaccuracy of degrees of each shot                                |
+   | shake          | float      |       0 | intensity and duration of each shot's screen shake                |
+   | recoil         | float      |     1.5 | visual weapon knockback.                                          |
+   | length         | float      |       3 | shoot barrel y offset                                             |
+   | width          | float      |       4 | shoot barrel x offset.                                            |
+   | velocityRnd    | float      |       0 | fraction of velocity that is random                               |
+   | alternate      | bool       |   false | shoot one arm after another, rather than all at once              |
+   | lengthRand     | float      |       0 | randomization of shot length                                      |
+   | shotDelay      | float      |       0 | delay in ticks between shots                                      |
+   | ignoreRotation | boolean    |   false | whether shooter rotation is ignored when shooting.                |
+   | shootSound     | [[#Sound][Sound]]      |     pew |                                                                   |
 * Effect
 
   Type should be a ~string~. You can't currently create custom effects. List of built-in effects are as follows:
@@ -928,6 +957,23 @@ Defaults:
       lancerLaserChargeBegin, lightningCharge, lightningShoot;
   * unitSpawn, spawnShockwave, magmasmoke, impactShockwave, 
       impactcloud, impactsmoke, dynamicExplosion, padlaunch, commandSend, coreLand.
+
+* StatusEffect
+
+  Not be be confused with [[#Effect][Effect]], is a modifier that has an effect.
+
+  Built-in status effects:
+  * `none` 
+  * `burning`
+  * `freezing`
+  * `wet`
+  * `melting`
+  * `tarred`
+  * `overdrive`
+  * `shielded`
+  * `shocked`
+  * `corroded`
+  * `boss`
 
 * TODO Zone
 * TODO Consumer
