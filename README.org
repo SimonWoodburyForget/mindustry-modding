@@ -215,13 +215,13 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** Color
 
-   Color is a hexadecimal string, ~"<rr><gg><bb>"~ for example:
+   Color is a hexadecimal string, ~<rr><gg><bb>~ for example:
 
-   * ~"ff0000"~ is read,
-   * ~"00ff00"~ is green,
-   * ~"00ffff"~ is blue,
-   * ~"ffff00"~ is yellow,
-   * ~"00ffff"~ is cyan,
+   * ~ff0000~ is read,
+   * ~00ff00~ is green,
+   * ~00ffff~ is blue,
+   * ~ffff00~ is yellow,
+   * ~00ffff~ is cyan,
    * /ect../
 
 
