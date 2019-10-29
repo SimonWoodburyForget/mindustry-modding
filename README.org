@@ -476,7 +476,20 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
     | phaseRangeBoost | float |       50 |
     | useTime         | float |      400 |
 
-*** TODO OverdriveProjector
+*** OverdriveProjector
+    ~extends Block~
+
+    | field           | type  |  default |
+    |-----------------+-------+----------|
+    | color           | Color | "feb380" |
+    | phase           | Color | "ffd59e" |
+    | reload          | float |       60 |
+    | range           | float |       80 |
+    | speedBoost      | float |      1.5 |
+    | speedBoostPhase | float |     0.75 |
+    | useTime         | float |      400 |
+    | phaseRangeBoost | float |       20 |
+
 *** TODO ForceProjector
 *** TODO ShockMine
 ** Distribution
