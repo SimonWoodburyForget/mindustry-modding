@@ -457,7 +457,7 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
 
     Defaults:
 
-    | field       | type  |
+    | field       | default   |
     |-------------+-------|
     | solid       | false |
     | solidfies   | true  | 
