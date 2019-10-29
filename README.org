@@ -703,6 +703,33 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     |-----------+---------|
     | targetAir | false   |
 *** ItemTurret
+    Extends [[#CooledTurret][CooledTurret]] -- Turrets that uses items as ammo.
+
+    | field   | type                 | default |
+    |---------+----------------------+---------|
+    | maxAmmo | int                  |      30 |
+    | ammo    | { [[#Item][Item]]: [[#BulletType][BulletType]] } |         |
+
+    Defaults:
+    
+    | field    | default |
+    |----------+---------|
+    | hasItems | true    |
+
+    Ammo is an object of item:bullet-type pairs, for example:
+
+    #+BEGIN_SRC json
+    {
+        "ammo": {
+            "copper": "standardCopper",
+            "metaglass": {
+                "type": "MissileBulletType",
+                "damage": 2
+            }
+        }
+    }
+    #+END_SRC
+
 *** DoubleTurret
     Extends [[#ItemTurret][ItemTurret]] -- Turret that shoots from two side by side barrels.
 
@@ -776,7 +803,26 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
    | lightining         | int          |       |                                                                         |
    | lightningLength    | int          |     5 |                                                                         |
    | hitShake           | float        |     0 |                                                                         |
-    
+
+   Built-in bullets:
+   * artillery:
+     * =artilleryDense=, =arilleryPlastic=, =artilleryPlasticFrag=, =artilleryHoming=, =artlleryIncendiary=, =artilleryExplosive=, =artilleryUnit=,
+   * flak:
+     * =flakScrap=, =flakLead=, =flakPlastic=, =flakExplosive=, =flakSurge=, =flakGlass=, =glassFrag=,
+   * missiles:
+     * =missileExplosive=, =missileIncendiary=, =missileSurge=, =missileJavelin=, =missileSwarm=, =missileRevenant=,
+   * standard:
+     * =standardCopper=, =standardDense=, =standardThorium=, =standardHoming=, =standardIncendiary=, =standardMechSmall=, =standardGlaive=, =standardDenseBig=, =standardThoriumBig=, =standardIncendiaryBig=,
+   * electric:
+     * =lancerLaser=, =meltdownLaser=, =lightning=, =arc=, =damageLightning=,
+   * liquid:
+     * =waterShot=, =cryoShot=, =slagShot=, =oilShot=,
+   * environment & misc:
+     * =fireball=, =basicFlame=, =pyraFlame=, =driverBolt=, =healBullet=, =healBulletBig=, =frag=, =eruptorShot=,
+   * bombs:
+     * =bombExplosive=, =bombIncendiary=, =bombOil=;
+
+
 *** BasicBulletType
 
 The actual bullet type.
