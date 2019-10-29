@@ -109,7 +109,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** Attributes
 
-   Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors. `Attributes` is an object with an array of attributes:
+   Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors. =Attributes= is an object with an array of attributes:
 
     * index ~0~ is ~heat~,
     * index ~1~ is ~spores~,
@@ -298,8 +298,8 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
    | updateEffect      | [[#Effect][Effect]]       | "none"            | effect displayed when randomly updated.                 |
    | attributes        | [[#Attributes][Attributes]]   | ~{ "array": [] }~ | array of affinities to certain things.                  |
 
-   Sprite lookup name, where `i` is the variant:
-   - `<name><i>.png` variants start at `1`.
+   Sprite lookup name, where =i= is the variant:
+   - =<name><i>.png= variants start at =1=.
 
 *** OverlayFloor
 
@@ -347,7 +347,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
      | variants      | 2     |
 
      Extra Sprites:
-     * `<name>-large.png` which is a 2x2 variant. 
+     * =<name>-large.png= which is a 2x2 variant. 
 
 **** StaticTree
      Extends [[#StaticWall][StaticWall]] 
@@ -1037,17 +1037,17 @@ Defaults:
   Not be be confused with [[#Effect][Effect]], is a modifier that has an effect.
 
   Built-in status effects:
-  * `none` 
-  * `burning`
-  * `freezing`
-  * `wet`
-  * `melting`
-  * `tarred`
-  * `overdrive`
-  * `shielded`
-  * `shocked`
-  * `corroded`
-  * `boss`
+  * =none= 
+  * =burning=
+  * =freezing=
+  * =wet=
+  * =melting=
+  * =tarred=
+  * =overdrive=
+  * =shielded=
+  * =shocked=
+  * =corroded=
+  * =boss=
 
 * TODO Zone
 * TODO Consumer
