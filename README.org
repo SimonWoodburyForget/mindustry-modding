@@ -806,21 +806,21 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
    Built-in bullets:
    * artillery:
-     * =artilleryDense=, =arilleryPlastic=, =artilleryPlasticFrag=, =artilleryHoming=, =artlleryIncendiary=, =artilleryExplosive=, =artilleryUnit=,
+     * =artilleryDense= =arilleryPlastic= =artilleryPlasticFrag= =artilleryHoming= =artlleryIncendiary= =artilleryExplosive= =artilleryUnit=
    * flak:
-     * =flakScrap=, =flakLead=, =flakPlastic=, =flakExplosive=, =flakSurge=, =flakGlass=, =glassFrag=,
+     * =flakScrap= =flakLead= =flakPlastic= =flakExplosive= =flakSurge= =flakGlass= =glassFrag=
    * missiles:
-     * =missileExplosive=, =missileIncendiary=, =missileSurge=, =missileJavelin=, =missileSwarm=, =missileRevenant=,
+     * =missileExplosive= =missileIncendiary= =missileSurge= =missileJavelin= =missileSwarm= =missileRevenant=
    * standard:
-     * =standardCopper=, =standardDense=, =standardThorium=, =standardHoming=, =standardIncendiary=, =standardMechSmall=, =standardGlaive=, =standardDenseBig=, =standardThoriumBig=, =standardIncendiaryBig=,
+     * =standardCopper= =standardDense= =standardThorium= =standardHoming= =standardIncendiary= =standardMechSmall= =standardGlaive= =standardDenseBig= =standardThoriumBig= =standardIncendiaryBig=
    * electric:
-     * =lancerLaser=, =meltdownLaser=, =lightning=, =arc=, =damageLightning=,
+     * =lancerLaser= =meltdownLaser= =lightning= =arc= =damageLightning=
    * liquid:
-     * =waterShot=, =cryoShot=, =slagShot=, =oilShot=,
+     * =waterShot= =cryoShot= =slagShot= =oilShot=
    * environment & misc:
-     * =fireball=, =basicFlame=, =pyraFlame=, =driverBolt=, =healBullet=, =healBulletBig=, =frag=, =eruptorShot=,
+     * =fireball= =basicFlame= =pyraFlame= =driverBolt= =healBullet= =healBulletBig= =frag= =eruptorShot=
    * bombs:
-     * =bombExplosive=, =bombIncendiary=, =bombOil=;
+     * =bombExplosive= =bombIncendiary= =bombOil=
 
 
 *** BasicBulletType
@@ -1002,25 +1002,25 @@ Defaults:
 
   Type should be a ~string~. You can't currently create custom effects. List of built-in effects are as follows:
 
-  * none, placeBlock, breakBlock, smoke, spawn, tapBlock, select;
-  * vtolHover, unitDrop, unitPickup, unitLand, pickup, healWave, heal, 
-      landShock, reactorsmoke, nuclearsmoke, nuclearcloud;
-  * redgeneratespark, generatespark, fuelburn, plasticburn, pulverize, 
-      pulverizeRed, pulverizeRedder, pulverizeSmall, pulverizeMedium;
-  * producesmoke, smeltsmoke, formsmoke, blastsmoke, lava, doorclose, 
-      dooropen, dooropenlarge, doorcloselarge, purify, purifyoil, purifystone, generate;
-  * mine, mineBig, mineHuge, smelt, teleportActivate, teleport, teleportOut, ripple, bubble, launch;
-  * healBlock, healBlockFull, healWaveMend, overdriveWave, overdriveBlockFull, shieldBreak, hitBulletSmall, hitFuse;
-  * hitBulletBig, hitFlameSmall, hitLiquid, hitLaser, hitLancer, hitMeltdown, despawn, flakExplosion, blastExplosion;
-  * plasticExplosion, artilleryTrail, incendTrail, missileTrail, absorb, flakExplosionBig, plasticExplosionFlak, burning, fire;
-  * fireSmoke, steam, fireballsmoke, ballfire, freezing, melting, wet, oily, overdriven, dropItem, shockwave;
-  * bigShockwave, nuclearShockwave, explosion, blockExplosion, 
-      blockExplosionSmoke, shootSmall, shootHeal, shootSmallSmoke, shootBig, shootBig2, shootBigSmoke;
-  * shootBigSmoke2, shootSmallFlame, shootPyraFlame, shootLiquid, shellEjectSmall, shellEjectMedium;
-  * shellEjectBig, lancerLaserShoot, lancerLaserShootSmoke, lancerLaserCharge,
-      lancerLaserChargeBegin, lightningCharge, lightningShoot;
-  * unitSpawn, spawnShockwave, magmasmoke, impactShockwave, 
-      impactcloud, impactsmoke, dynamicExplosion, padlaunch, commandSend, coreLand.
+  * =none= =placeBlock= =breakBlock= =smoke= =spawn= =tapBlock= =select=
+  * =vtolHover= =unitDrop= =unitPickup= =unitLand= =pickup= =healWave= =heal= 
+      =landShock= =reactorsmoke= =nuclearsmoke= =nuclearcloud=
+  * =redgeneratespark= =generatespark= =fuelburn= =plasticburn= =pulverize= 
+      =pulverizeRed= =pulverizeRedder= =pulverizeSmall= =pulverizeMedium=
+  * =producesmoke= =smeltsmoke= =formsmoke= =blastsmoke= =lava= =doorclose= 
+      =dooropen= =dooropenlarge= =doorcloselarge= =purify= =purifyoil= =purifystone= =generate=
+  * =mine= =mineBig= =mineHuge= =smelt= =teleportActivate= =teleport= =teleportOut= =ripple= =bubble= =launch=
+  * =healBlock= =healBlockFull= =healWaveMend= =overdriveWave= =overdriveBlockFull= =shieldBreak= =hitBulletSmall= =hitFuse=
+  * =hitBulletBig= =hitFlameSmall= =hitLiquid= =hitLaser= =hitLancer= =hitMeltdown= =despawn= =flakExplosion= =blastExplosion=
+  * =plasticExplosion= =artilleryTrail= =incendTrail= =missileTrail= =absorb= =flakExplosionBig= =plasticExplosionFlak= =burning= =fire=
+  * =fireSmoke= =steam= =fireballsmoke= =ballfire= =freezing= =melting= =wet= =oily= =overdriven= =dropItem= =shockwave=
+  * =bigShockwave= =nuclearShockwave= =explosion= =blockExplosion= 
+      =blockExplosionSmoke= =shootSmall= =shootHeal= =shootSmallSmoke= =shootBig= =shootBig2= =shootBigSmoke=
+  * =shootBigSmoke2= =shootSmallFlame= =shootPyraFlame= =shootLiquid= =shellEjectSmall= =shellEjectMedium=
+  * =shellEjectBig= =lancerLaserShoot= =lancerLaserShootSmoke= =lancerLaserCharge=
+      =lancerLaserChargeBegin= =lightningCharge= =lightningShoot=
+  * =unitSpawn= =spawnShockwave= =magmasmoke= =impactShockwave= 
+      =impactcloud= =impactsmoke= =dynamicExplosion= =padlaunch= =commandSend= =coreLand=
 
 * TODO StatusEffect
 
