@@ -194,7 +194,7 @@
    * ~upgrade~ Things that upgrade the player such as mech pads;
    * ~effect~ Things for storage or passive effects.
 
-** Block
+* Block
    
 ~extends BlockStorage~ -- Attributes for all objects that are blocks.
 
