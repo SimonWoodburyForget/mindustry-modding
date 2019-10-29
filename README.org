@@ -670,29 +670,29 @@ Extends [[#BlockStorage][BlockStorage]] -- Fields for all objects that are block
 *** Turret
     Extends
 
-    | field         | type    | default        | notes |
-    |---------------+---------+----------------+-------|
-    | heatColor     | [[#Color][Color]]   | turretHeat  |       |
-    | shootEffect   | [[#Effect][Effect]]  | none         |       |
-    | smokeEffect   | [[#Effect][Effect]]  | none         |       |
-    | ammoUseEffect | [[#Effect][Effect]]  | none         |       |
-    | shootSound    | [[#Sound][Sound]]   | shoot    |       |
-    | ammoPerShot   | int     | 1              |       |
-    | ammoEjectBack | float   | 1f             |       |
-    | range         | float   | 50f            |       |
-    | reload        | float   | 10f            |       |
-    | inaccuracy    | float   | 0f             |       |
-    | shots         | int     | 1              |       |
-    | spread        | float   | 4f             |       |
-    | recoil        | float   | 1f             |       |
-    | restitution   | float   | 0.02f          |       |
-    | cooldown      | float   | 0.02f          |       |
-    | rotatespeed   | float   | 5f             |       |
-    | shootCone     | float   | 8f             |       |
-    | shootShake    | float   | 0f             |       |
-    | xRand         | float   | 0f             |       |
-    | targetAir     | boolean | true           |       |
-    | targetGround  | boolean | true           |       |
+    | field         | type    |    default |
+    |---------------+---------+------------|
+    | heatColor     | [[#Color][Color]]   | turretHeat |
+    | shootEffect   | [[#Effect][Effect]]  |       none |
+    | smokeEffect   | [[#Effect][Effect]] |       none |
+    | ammoUseEffect | [[#Effect][Effect]] |       none |
+    | shootSound    | [[#Sound][Sound]] |      shoot |
+    | ammoPerShot   | int     |          1 |
+    | ammoEjectBack | float   |          1 |
+    | range         | float   |         50 |
+    | reload        | float   |         10 |
+    | inaccuracy    | float   |          0 |
+    | shots         | int     |          1 |
+    | spread        | float   |          4 |
+    | recoil        | float   |          1 |
+    | restitution   | float   |       0.02 |
+    | cooldown      | float   |       0.02 |
+    | rotatespeed   | float   |          5 |
+    | shootCone     | float   |          8 |
+    | shootShake    | float   |          0 |
+    | xRand         | float   |          0 |
+    | targetAir     | boolean |       true |
+    | targetGround  | boolean |       true |
 
 
 *** TODO ArtilleryTurret
@@ -958,7 +958,7 @@ Defaults:
   * unitSpawn, spawnShockwave, magmasmoke, impactShockwave, 
       impactcloud, impactsmoke, dynamicExplosion, padlaunch, commandSend, coreLand.
 
-* StatusEffect
+* TODO StatusEffect
 
   Not be be confused with [[#Effect][Effect]], is a modifier that has an effect.
 
