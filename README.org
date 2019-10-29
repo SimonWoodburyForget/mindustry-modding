@@ -31,7 +31,6 @@
    * ~other-mod-name-not-copper~ would referance ~not-copper~ in ~other-mod-name~,
    * ~other-mod-name-angry-dagger~ would referance ~angry-dagger~ in ~other-mod-name~,
    * ~not-a-mod-angry-dagger~ would referance ~angry-dagger~ in ~not-a-mod~.
-
 * Type
 
   Feilds have noumerous attributes, but the important one is ~type~. Types /extend/ each other, and what that means is if ~MissileBulletType extends BasicBulletType~, then you'll have all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~. A ~Turret~ type, is also a ~Block~ type, so it can also have ~health~, which is a ~Block~ field.
@@ -423,16 +422,31 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
     |----------+------+---------|
     | variants | int  |       0 |
 
-    Defaults
+    Defaults:
 
     | field               | default |
     |---------------------+---------|
     | solid               | true    |
     | destructible        | true    |
-    | group               | walls   |
+    | group               | "walls" |
     | buildCostMultiplier | 5       |
-*** TODO DeflectorWall
-*** TODO SurgeWall
+*** DeflectorWall
+    ~extends Wall~ -- Wall that deflects low damage bullets.
+
+    | field            | type  | default |
+    |------------------+-------+---------|
+    | hitTime          | float |      10 |
+    | maxDamageDeflect | float |      10 |
+
+*** SurgeWall
+    ~extends Wall~ -- Wall that creates lightning when shot.
+
+    | field           | type  | default |
+    |-----------------+-------+---------|
+    | lightningChance | float |    0.05 |
+    | lightningDamage | float |      15 |
+    | lightningLength | int   |      17 |
+
 *** Door
     ~extends Wall~
      
