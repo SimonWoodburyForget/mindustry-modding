@@ -462,7 +462,20 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
     | solid       | false |
     | solidfies   | true  | 
     | consumesTap | true  | 
-*** TODO MendProjector
+*** MendProjector
+    ~extends Block~
+
+    | field           | type  |  default |
+    |-----------------+-------+----------|
+    | color           | Color | "84f491" |
+    | phase           | Color | "ffd59e" |
+    | reload          | float |      250 |
+    | range           | float |       60 |
+    | healPercent     | float |       12 |
+    | phaseBoost      | float |       12 |
+    | phaseRangeBoost | float |       50 |
+    | useTime         | float |      400 |
+
 *** TODO OverdriveProjector
 *** TODO ForceProjector
 *** TODO ShockMine
