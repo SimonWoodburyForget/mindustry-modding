@@ -70,7 +70,9 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
    }
    #+END_SRC
 
-** <<itemstack>>ItemStack
+** ItemStack
+
+   <<itemstack>>
 
     This type is used by blocks, to consume/output items. 
 
