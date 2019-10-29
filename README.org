@@ -141,8 +141,8 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
    | field          | type     | default | notes                                                                 |
    |----------------+----------+---------+-----------------------------------------------------------------------|
-   | color          | Color    |         | hex string of color                                                   |
-   | type           | ItemType |         | resource or material; used for tabs and core acceptance               |
+   | color          | [[#Color][Color]] |         | hex string of color                                                   |
+   | type           | [[#ItemType][ItemType]] |         | resource or material; used for tabs and core acceptance               |
    | explosiveness  | float    |       0 | how explosive this item is.                                           |
    | flammability   | float    |       0 | flammability above 0.3 makes this eleigible for item burners.         |
    | radioactivity  | float    |         | how radioactive this item is. 0=none, 1=chernobyl ground zero         |
@@ -155,13 +155,13 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
    | field         | type         | default | notes                                                                                |
    |---------------+--------------+---------+--------------------------------------------------------------------------------------|
-   | color         | Color        |         | color of liquid                                                                      |
+   | color         | [[#Color][Color]] |         | color of liquid                                                                      |
    | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
    | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot                           |
    | heatCapacity  | float        |     0.5 | used in cooling; water is 0.4                                                        |
    | viscosity     | float        |     0.5 | how thick this liquid is; water is 0.5, tar is 1 (very slow)                         |
    | explosiveness | float        |         | explosiveness when heated; 0 is nothing, 1 is nuke                                   |
-   | flameColor    | Color        |  ffb763 | the burning color of this liquid                                                     |
+   | flameColor    | [[#Color][Color]] |  ffb763 | the burning color of this liquid                                                     |
    | effect        | StatusEffect |    none | the associated status effect.                                                        |
 
 ** BlockStorage
@@ -215,6 +215,19 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
    * ~units~ Blocks that create units;
    * ~upgrade~ Things that upgrade the player such as mech pads;
    * ~effect~ Things for storage or passive effects.
+
+** Color
+
+   Color is a hexadecimal string, `"<rr><gg><bb>"` for example:
+
+   * `"ff0000"` is read,
+   * `"00ff00"` is green,
+   * `"00ffff"` is blue,
+   * `"ffff00"` is yellow,
+   * `"00ffff"` is cyan,
+   * /ect../
+
+
 * Block Types
 ** Block
    
@@ -245,7 +258,7 @@ Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are b
 | posConfig           | boolean         |              | Whether the config is positional and needs to be shifted.                          |
 | targetable          | boolean         | true         | Whether units target this block.                                                   |
 | canOverdrive        | boolean         | true         | Whether the overdrive core has any effect on this block.                           |
-| outlineColor        | Color           | 404049       | Outlined icon color.                                                               |
+| outlineColor        | [[#Color][Color]] | 404049       | Outlined icon color.                                                               |
 | outlineIcon         | boolean         | false        | Whether the icon region has an outline added.                                      |
 | hasShadow           | boolean         | true         | Whether this block has a shadow under it.                                          |
 | breakSound          | Sound           | boom         | Sounds made when this block breaks.                                                |
@@ -273,8 +286,8 @@ Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are b
    | dragMultiplier    | float        | 0                 | multiplies unit drag by this when walked on.            |
    | damageTaken       | float        | 0                 | damage taken per tick on this tile.                     |
    | drownTime         | float        | 0                 | how many ticks it takes to drown on this.               |
-   | walkEffect        | Effect       | "ripple"          | effect when walking on this [[#floor][floor]].          |
-   | drownUpdateEffect | Effect       | "bubble"          | effect displayed when drowning on this [[#floor][floor]]. |
+   | walkEffect        | [[#Effect][Effect]] | "ripple"          | effect when walking on this [[#floor][floor]].          |
+   | drownUpdateEffect | [[#Effect][Effect]] | "bubble"          | effect displayed when drowning on this [[#floor][floor]]. |
    | status            | StatusEffect | "none"            | status effect applied when walking on.                  |
    | statusDuration    | float        | 60                | intensity of applied status effect.                     |
    | liquidDrop        | Liquid       |                   | liquids that drop from this block, used for pumps.      |
@@ -282,7 +295,7 @@ Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are b
    | isLiquid          | boolean      |                   | whether this block can be drowned in.                   |
    | playerUnmineable  | boolean      | false             | block cannot be mined by players if true.               |
    | blendGroup        | Block        | this              | group of blocks that this block does not draw edges on. |
-   | updateEffect      | Effect       | "none"            | effect displayed when randomly updated.                 |
+   | updateEffect      | [[#Effect][Effect]] | "none"            | effect displayed when randomly updated.                 |
    | attributes        | Attributes   | ~{ "array": [] }~ | array of affinities to certain things.                  |
 
 *** OverlayFloor
@@ -357,8 +370,8 @@ Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are b
     | outputItem         | [[#ItemStack][ItemStack]] |         |
     | outputLiquid       | LiquidStack |         |
     | craftTime          | float       | 80      |
-    | craftEffect        | Effect      | "none"  |
-    | updateEffect       | Effect      | "none"  |
+    | craftEffect        | [[#Effect][Effect]] | "none"  |
+    | updateEffect       | [[#Effect][Effect]] | "none"  |
     | updateEffectChance | float       | 0.04    |
 
     Defaults:
@@ -376,7 +389,7 @@ Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are b
 
     | field      | type  | defaults |
     |------------+-------+----------|
-    | flameColor | Color | "ffc999" |
+    | flameColor | [[#Color][Color]] | "ffc999" |
 
     Sprite suffix:
     * ~-top~
@@ -392,7 +405,7 @@ Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are b
     | spinnerLength    | float     |        1 |              |
     | spinnerThickness | float     |        1 |              |
     | spinnerSpeed     | float     |        2 |              |
-    | color            | Color     | "858585" |              |
+    | color            | [[#Color][Color]] | "858585" |              |
     | liquidRegion     | int       |          |              |
 
     Defaults:
@@ -452,8 +465,8 @@ Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are b
      
     | field   | type   | default   |
     |---------+--------+-----------|
-    | openfx  | Effect | dooropen  |
-    | closefx | Effect | doorclose |
+    | openfx  | [[#Effect][Effect]] | dooropen  |
+    | closefx | [[#Effect][Effect]] | doorclose |
 
     Defaults:
 
@@ -467,8 +480,8 @@ Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are b
 
     | field           | type  |  default |
     |-----------------+-------+----------|
-    | color           | Color | "84f491" |
-    | phase           | Color | "ffd59e" |
+    | color           | [[#Color][Color]] | "84f491" |
+    | phase           | [[#Color][Color]] | "ffd59e" |
     | reload          | float |      250 |
     | range           | float |       60 |
     | healPercent     | float |       12 |
@@ -481,8 +494,8 @@ Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are b
 
     | field           | type  |  default |
     |-----------------+-------+----------|
-    | color           | Color | "feb380" |
-    | phase           | Color | "ffd59e" |
+    | color           | [[#Color][Color]] | "feb380" |
+    | phase           | [[#Color][Color]] | "ffd59e" |
     | reload          | float |       60 |
     | range           | float |       80 |
     | speedBoost      | float |      1.5 |
@@ -681,10 +694,10 @@ Extends [[#BlockStorage][BlockStorage]] -- Attributes for all objects that are b
    | drawSize           | float        |    40 |                                                                         |
    | drag               | float        |     0 | decelleration per tick                                                  |
    | pierce             | boolean      |       | whether it can collide                                                  |
-   | hitEffect          | Effect       |       | created when bullet hits something                                      |
-   | despawnEffect      | Effect       |       | created when bullet despawns                                            |
-   | shootEffect        | Effect       |       | created when shooting                                                   |
-   | smokeEffect        | Effect       |       | created when shooting                                                   |
+   | hitEffect          | [[#Effect][Effect]] |       | created when bullet hits something                                      |
+   | despawnEffect      | [[#Effect][Effect]] |       | created when bullet despawns                                            |
+   | shootEffect        | [[#Effect][Effect]] |       | created when shooting                                                   |
+   | smokeEffect        | [[#Effect][Effect]] |       | created when shooting                                                   |
    | hitSound           | Sound        |       | made when hitting something or getting removed                          |
    | inaccuracy         | float        |     0 | extra inaccuracy                                                        |
    | ammoMultiplier     | float        |     2 | how many bullets get created per item/liquid                            |
@@ -720,8 +733,8 @@ The actual bullet type.
 
 | field        | type   |          default |
 |--------------+--------+------------------|
-| backColor    | Color  | bulletYellowBack |
-| frontColor   | Color  |     bulletYellow |
+| backColor    | [[#Color][Color]] | bulletYellowBack |
+| frontColor   | [[#Color][Color]] |     bulletYellow |
 | bulletWidth  | float  |                5 |
 | bulletHeight | float  |                7 |
 | bulletShrink | float  |              0.5 |
@@ -731,7 +744,7 @@ The actual bullet type.
 
 | field       | type   | default        |
 |-------------+--------+----------------|
-| trailEffect | Effect | artilleryTrail |
+| trailEffect | [[#Effect][Effect]]  | artilleryTrail |
 
 
 Defaults:
@@ -833,7 +846,7 @@ Defaults:
 
 | field      | type  |           default |
 |------------+-------+-------------------|
-| trailColor | Color | missileYellowBack |
+| trailColor | [[#Color][Color]] | missileYellowBack |
 | weaveScale | float |                 0 |
 | weaveMag   | float |                -1 |    
 ** Mech
@@ -854,7 +867,7 @@ Defaults:
    | mineSpeed          | float   |       1 |
    | drillPower         | int     |      -1 |
    | buildPower         | float   |       1 |
-   | engineColor        | Color   | boostTo |
+   | engineColor        | [[#Color][Color]]  | boostTo |
    | itemCapacity       | int     |      30 |
    | turnCursor         | boolean |    true |
    | canHeal            | boolean |   false |
