@@ -505,7 +505,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | basePowerDraw      | float |     0.2 |
     | powerDamage        | float |     0.1 |
 
-*** TODO ShockMine
+*** ShockMine
     ~extends Block~
 
     | field      | type  | default |
