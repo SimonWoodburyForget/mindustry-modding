@@ -110,7 +110,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** Attributes
 
-   Used inside of ~Foor~ type, to give a tile attributes, like ~heat~. This is an object with an array of attributes, with specific attribute values at each index.
+   Used inside of ~Floor~ type, to give a tile attributes, like ~heat~. This is an object with an array of attributes, with specific attribute values at each index.
 
     * index ~0~ is ~heat~,
     * index ~1~ is ~spores~,
