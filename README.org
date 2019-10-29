@@ -71,23 +71,23 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** ItemStack
 
-    This type is used by blocks, to consume/output items. 
+   This type is used by blocks, to consume/output items. 
 
-    An item stack is simply an array of objects with these fields:
+   An item stack is simply an array of objects with these fields:
 
-    | field  | type | default |
-    |--------+------+---------|
-    | amount | int  |       1 |
-    | item   | [[#Item][Item]] |         |
+   | field  | type | default |
+   |--------+------+---------|
+   | amount | int  |       1 |
+   | item   | [[#Item][Item]] |         |
 
-    For example:
+   For example:
 
-    #+BEGIN_SRC json
- [
-     { "amount": 30, "item": "surge-alloy" },
-     { "amount": 90, "item": "copper" }
- ]
- #+END_SRC
+   #+BEGIN_SRC json
+   [
+       { "amount": 30, "item": "surge-alloy" },
+       { "amount": 90, "item": "copper" }
+   ]
+   #+END_SRC
 
 ** LiquidStack
 
@@ -136,7 +136,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** Item
 
-   Extends [[#UnlockableContent][UnlockableContent]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
+   Extends [[#unlockablecontent-and-mappablecontent][UnlockableContent]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
 
    | field          | type     | default | notes                                                                 |
    |----------------+----------+---------+-----------------------------------------------------------------------|
@@ -150,7 +150,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
    | alwaysUnlocked | boolean  |   false | If true, item is always unlocked.                                     |
 
 ** Liquid
-   Extends [[#UnlockableContent][UnlockableContent]] -- Object that defines the properties of a liquid.
+   Extends [[#unlockablecontent-and-mappablecontent][UnlockableContent]] -- Object that defines the properties of a liquid.
 
    | field         | type         | default | notes                                                                                |
    |---------------+--------------+---------+--------------------------------------------------------------------------------------|
@@ -165,7 +165,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** BlockStorage
 
-   Extends [[#UnlockableContent][UnlockableContent]]
+   Extends [[#unlockablecontent-and-mappablecontent][UnlockableContent]]
 
    | field         | type      | default | notes |
    |---------------+-----------+---------+-------|
@@ -956,7 +956,7 @@ Defaults:
 | weaveScale | float |                 0 |
 | weaveMag   | float |                -1 |    
 ** Mech
-   Extends [[#UnlockableContent][UnlockableContent]] -- Mechs are the player controlled entities.
+   Extends [[#unlockablecontent-and-mappablecontent][UnlockableContent]] -- Mechs are the player controlled entities.
 
    | field              | type    | default |
    |--------------------+---------+---------|
