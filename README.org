@@ -517,13 +517,13 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | tendrils   | int   |       6 |
 
     Defaults:
-    | field        | default |
-    |--------------+---------|
-    | update       | false   |
-    | destructible | true    |
-    | solid        | false   |
-    | targetable   | false   |
-    | layer        | overlay |
+    | field        | default   |
+    |--------------+-----------|
+    | update       | false     |
+    | destructible | true      |
+    | solid        | false     |
+    | targetable   | false     |
+    | layer        | "overlay" |
 ** Distribution
 *** TODO Conveyor
 *** TODO ArmoredConveyor
@@ -534,13 +534,84 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 *** TODO OverflowGate
 *** TODO MassDriver
 ** Liquid
-*** TODO Pump
-*** TODO Conduit
-*** TODO LiquidRouter
-*** TODO LiquidTank
-*** TODO LiquidJunction
-*** TODO LiquidBridge
-*** TODO LiquidExtendingBridge
+*** LiquidBlock
+    ~extends Block~ -- For blocks that can carry liquids. Apart from the better defaults, it also fetches extra sprites.
+
+    Defaults:
+
+   | field         | default   |
+   |---------------+-----------|
+   | update        | true      |
+   | solid         | true      |
+   | hasLiquids    | true      |
+   | group         | "liquids" |
+   | outputsLiquid | true      |
+
+   Sprite lookup templates:
+   * ~<name>-liquid~
+   * ~<name>-top~
+   * ~<name>-bottom~
+
+*** Pump
+    ~extends LiquidBlock~
+
+    | field      | type  | default |
+    |------------+-------+---------|
+    | pumpAmount | float |       1 |
+
+    | field    | default   |
+    |----------+-----------|
+    | layer    | "overlay" |
+    | group    | "liquids" |
+    | floating | true      |
+
+*** Conduit
+    ~extends LiquidBlock~
+
+    Defaults:
+
+    | field    | default |
+    |----------+---------|
+    | rotate   | true    |
+    | solid    | false   |
+    | floating | true    |
+
+    Sprite lookup name /(where ~i~ can be anything from 0-6)/:
+    * ~<name>-top-<i>~
+
+*** LiquidRouter
+    ~extends LiquidBlock~
+
+*** LiquidTank
+    ~extends LiquidRouter~
+
+*** LiquidJunction
+    ~extends LiquidBlock~
+
+    | field      | default |
+    |------------+---------|
+    | hasLiquids | true    |
+
+*** LiquidBridge
+    ~extends LiquidBridge~
+
+    | field         | default   |
+    |---------------+-----------|
+    | hasItems      | false     |
+    | hasLiquids    | true      |
+    | outputsLiquid | true      |
+    | group         | "liquids" |
+
+*** LiquidExtendingBridge
+    ~extends ExtendingItemBridge~
+
+    | field         | default |
+    |---------------+---------|
+    | hasItems      | false   |
+    | hasLiquids    | true    |
+    | outputsLiquid | true    |
+    | group         | liquids |
+
 ** Power
 *** TODO PowerNode
 *** TODO Battery
