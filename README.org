@@ -240,50 +240,49 @@
 | alwaysUnlocked      | boolean         | false        |                                                                                    |
 
 ** Environment
-*** Floors
-**** Floor
-     ~extends Block~ -- Environmental floors. Needs a sprite to be visible in the map editor.
+*** Floor
+    ~extends Block~ -- Environmental floors. Needs a sprite to be visible in the map editor.
 
-    | field             | type         | default           | notes                                                   |
-    |-------------------+--------------+-------------------+---------------------------------------------------------|
-    | variants          | int          | 3                 | number of different variant regions to use.             |
-    | edge              | String       | "stone"           | edge fallback, used mainly for ores.                    |
-    | speedMultiplier   | float        | 1                 | multiplies unit velocity by this when walked on.        |
-    | dragMultiplier    | float        | 0                 | multiplies unit drag by this when walked on.            |
-    | damageTaken       | float        | 0                 | damage taken per tick on this tile.                     |
-    | drownTime         | float        | 0                 | how many ticks it takes to drown on this.               |
-    | walkEffect        | Effect       | "ripple"          | effect when walking on this floor.                      |
-    | drownUpdateEffect | Effect       | "bubble"          | effect displayed when drowning on this floor.           |
-    | status            | StatusEffect | "none"            | status effect applied when walking on.                  |
-    | statusDuration    | float        | 60                | intensity of applied status effect.                     |
-    | liquidDrop        | Liquid       |                   | liquids that drop from this block, used for pumps.      |
-    | itemDrop          | Item         |                   | item that drops from this block, used for drills.       |
-    | isLiquid          | boolean      |                   | whether this block can be drowned in.                   |
-    | playerUnmineable  | boolean      | false             | block cannot be mined by players if true.               |
-    | blendGroup        | Block        | this              | group of blocks that this block does not draw edges on. |
-    | updateEffect      | Effect       | "none"            | effect displayed when randomly updated.                 |
-    | attributes        | Attributes   | `{ "array": [] }` | array of affinities to certain things.                  |
+   | field             | type         | default           | notes                                                   |
+   |-------------------+--------------+-------------------+---------------------------------------------------------|
+   | variants          | int          | 3                 | number of different variant regions to use.             |
+   | edge              | String       | "stone"           | edge fallback, used mainly for ores.                    |
+   | speedMultiplier   | float        | 1                 | multiplies unit velocity by this when walked on.        |
+   | dragMultiplier    | float        | 0                 | multiplies unit drag by this when walked on.            |
+   | damageTaken       | float        | 0                 | damage taken per tick on this tile.                     |
+   | drownTime         | float        | 0                 | how many ticks it takes to drown on this.               |
+   | walkEffect        | Effect       | "ripple"          | effect when walking on this floor.                      |
+   | drownUpdateEffect | Effect       | "bubble"          | effect displayed when drowning on this floor.           |
+   | status            | StatusEffect | "none"            | status effect applied when walking on.                  |
+   | statusDuration    | float        | 60                | intensity of applied status effect.                     |
+   | liquidDrop        | Liquid       |                   | liquids that drop from this block, used for pumps.      |
+   | itemDrop          | Item         |                   | item that drops from this block, used for drills.       |
+   | isLiquid          | boolean      |                   | whether this block can be drowned in.                   |
+   | playerUnmineable  | boolean      | false             | block cannot be mined by players if true.               |
+   | blendGroup        | Block        | this              | group of blocks that this block does not draw edges on. |
+   | updateEffect      | Effect       | "none"            | effect displayed when randomly updated.                 |
+   | attributes        | Attributes   | `{ "array": [] }` | array of affinities to certain things.                  |
 
-**** OverlayFloor
+*** OverlayFloor
 
-     ~extends Floor~ -- A type of floor that is overlaid on top of over floors.
+    ~extends Floor~ -- A type of floor that is overlaid on top of over floors.
 
-     For example:
-     * ~spawn~
-     * ~tendrils~
+    For example:
+    * ~spawn~
+    * ~tendrils~
 
-**** DoubleOverlayFloor
+*** DoubleOverlayFloor
 
-     ~extends OverlayFloor~
+    ~extends OverlayFloor~
 
-     For example:
-     * ~pebbles~
-**** OreBlock
-     ~extends OverlayFloor~ -- An overlay ore for a specific item type.
+    For example:
+    * ~pebbles~
+*** OreBlock
+    ~extends OverlayFloor~ -- An overlay ore for a specific item type.
 
-     | field    | type |
-     |----------+------|
-     | variants | 3    |
+    | field    | type |
+    |----------+------|
+    | variants | 3    |
 *** StaticWalls
 **** Rock
      ~extends Block~ 
