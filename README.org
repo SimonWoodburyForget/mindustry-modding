@@ -70,7 +70,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
    }
    #+END_SRC
 
-** ItemStack
+** <<itemstack>>ItemStack
 
     This type is used by blocks, to consume/output items. 
 
@@ -92,7 +92,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** LiquidStack
 
-   This type is used by blocks, to consume a liquid, just like ~ItemStack~ except that it can only contain 1 liquid.
+   This type is used by blocks, to consume a liquid, just like [[itemstack]] ~ItemStack~ except that it can only contain 1 liquid.
 
    | field  | type   |
    |--------+--------|
@@ -110,7 +110,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** Attributes
 
-   Used inside of ~Floor~ type, to give a tile attributes, like ~heat~. This is an object with an array of attributes, with specific attribute values at each index.
+   Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors. `Attributes` is an object with an array of attributes:
 
     * index ~0~ is ~heat~,
     * index ~1~ is ~spores~,
@@ -614,6 +614,23 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** Power
 *** TODO PowerNode
+    ~extends PowerBlock~
+
+    | field      | type  | default |
+    |------------+-------+---------|
+    | laserRange | float |       6 |
+    | maxNodes   | int   |       3 |
+
+    Defaults:
+
+    | field         | default |
+    |---------------+---------|
+    | expanded      | true    |
+    | layer         | "power" |
+    | configurable  | true    |
+    | consumesPower | false   |
+    | outputsPower  | false   |
+
 *** TODO Battery
 *** TODO BurnerGenerator
 *** TODO ThermalGenerator
@@ -633,10 +650,15 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 *** TODO Unloader
 *** TODO LaunchPad
 ** Turret
+*** TODO ArtilleryTurret
+    ~extends ItemTurret~ -- Artillery turrets have special shooting calculations done to hit targets.
+
+    | field     | default |
+    |-----------+---------|
+    | targetAir | false   |
 *** TODO ItemTurret
 *** TODO DoubleTurret
 *** TODO BurstTurret
-*** TODO ArtilleryTurret
 *** TODO LiquidTurret
 *** TODO PowerTurret
 *** TODO ChargeTurret
