@@ -51,11 +51,11 @@
   }
   #+END_SRC
 
-Here you can see, the type of the top level object is `Revenant`, but the type of the `bullet` which needs to be a `BulletType` is actually `MissileBulletType`, which gives you attributes, behaviors and effects that missiles should have.
+Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ which needs to be a ~BulletType~ is actually ~MissileBulletType~, which gives you attributes, behaviors and effects that missiles should have.
 
 ** UnlockableContent and MappableContent 
 
-   Types that can have a display name and description. /Most content in other words/ but not everything. `ItemStack` isn't `UnlockableContent` because it's not content, it's just a stack of items.
+   Types that can have a display name and description. /Most content in other words/ but not everything. ~ItemStack~ isn't ~UnlockableContent~ because it's not content, it's just a stack of items.
 
    | field       | type   |
    |-------------+--------|
@@ -92,7 +92,7 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
 
 ** LiquidStack
 
-   This type is used by blocks, to consume a liquid, just like `ItemStack` except that it can only contain 1 liquid.
+   This type is used by blocks, to consume a liquid, just like ~ItemStack~ except that it can only contain 1 liquid.
 
    | field  | type   |
    |--------+--------|
@@ -110,7 +110,7 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
 
 ** Attributes
 
-   Used inside of `Foor` type, to give a tile attributes, like `heat`. This is an object with an array of attributes, with specific attribute values at each index.
+   Used inside of ~Foor~ type, to give a tile attributes, like ~heat~. This is an object with an array of attributes, with specific attribute values at each index.
 
     * index ~0~ is ~heat~,
     * index ~1~ is ~spores~,
@@ -125,7 +125,7 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
 }
     #+END_SRC
 
-    You could use it inside of `Floor` type as such:
+    You could use it inside of ~Floor~ type as such:
 
     #+BEGIN_SRC json
 {
@@ -283,7 +283,7 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
    | playerUnmineable  | boolean      | false             | block cannot be mined by players if true.               |
    | blendGroup        | Block        | this              | group of blocks that this block does not draw edges on. |
    | updateEffect      | Effect       | "none"            | effect displayed when randomly updated.                 |
-   | attributes        | Attributes   | `{ "array": [] }` | array of affinities to certain things.                  |
+   | attributes        | Attributes   | ~{ "array": [] }~ | array of affinities to certain things.                  |
 
 *** OverlayFloor
 
@@ -379,7 +379,7 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
     | flameColor | Color | "ffc999" |
 
     Sprite suffix:
-    * `-top`
+    * ~-top~
 
 *** TODO Separator
     ~extends Block~ -- Extracts a random list of items from an input item and an input liquid.
@@ -404,7 +404,7 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
     | hasLiquids | true    |
 
     Sprite suffixes:
-    * `-liquid`
+    * ~-liquid~
 
 ** Sandbox
 *** TODO Incinerator
@@ -457,11 +457,11 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
 
     Defaults:
 
-    | field       | default   |
-    |-------------+-------|
-    | solid       | false |
-    | solidfies   | true  | 
-    | consumesTap | true  | 
+    | field       | default |
+    |-------------+---------|
+    | solid       | false   |
+    | solidfies   | true    |
+    | consumesTap | true    |
 *** MendProjector
     ~extends Block~
 
@@ -523,7 +523,7 @@ Here you can see, the type of the top level object is `Revenant`, but the type o
 *** TODO Drill
 *** TODO SolidPump
 *** TODO Cultivator
-*** TODO Fracker`
+*** TODO Fracker
 ** Storage
 *** TODO CoreBlock
 *** TODO Vault
