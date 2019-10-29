@@ -55,7 +55,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** UnlockableContent and MappableContent 
 
-   Types that can have a display name and description. /Most content in other words/ but not everything. ~ItemStack~ isn't ~UnlockableContent~ because it's not content, it's just a stack of items.
+   Types that can have a display name and description. /Most content in other words/ but not everything. [[#ItemStack][ItemStack]] isn't ~UnlockableContent~ because it's not content, it's just a stack of items.
 
    | field       | type   |
    |-------------+--------|
@@ -79,7 +79,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | field  | type | default |
     |--------+------+---------|
     | amount | int  |       1 |
-    | item   | Item |         |
+    | item   | [[#Item][Item]] |         |
 
     For example:
 
@@ -92,11 +92,11 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
 ** LiquidStack
 
-   This type is used by blocks, to consume a liquid, just like [[#ItemStack][~ItemStack~]] except that it can only contain 1 liquid.
+   This type is used by blocks, to consume a liquid, just like [[#ItemStack][ItemStack]] except that it can only contain 1 liquid.
 
    | field  | type   |
    |--------+--------|
-   | liquid | Liquid |
+   | liquid | [[#Liquid][Liquid]] |
    | amount | float  |
 
    For example:
@@ -253,7 +253,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 | activeSoundVolume   | float           | 0.5          | Active sound base volume.                                                          |
 | idleSound           | Sound           | none         | The sound that this block makes while idle. Uses one sound loop for all blocks.    |
 | idleSoundVolume     | float           | 0.5          | Idle sound base volume.                                                            |
-| requirements        | ItemStack       | []           | Cost of constructing this block.                                                   |
+| requirements        | [[#ItemStack][ItemStack]] | []           | Cost of constructing this block.                                                   |
 | category            | Category        | distribution | Category in place menu.                                                            |
 | buildCost           | float           |              | Cost of building this block; do not modify directly!                               |
 | buildVisibility     | BuildVisibility | hidden       | Whether this block is visible and can currently be built.                          |
@@ -354,7 +354,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 
     | field              | type        | default |
     |--------------------+-------------+---------|
-    | outputItem         | ItemStack   |         |
+    | outputItem         | [[#ItemStack][ItemStack]] |         |
     | outputLiquid       | LiquidStack |         |
     | craftTime          | float       | 80      |
     | craftEffect        | Effect      | "none"  |
@@ -386,7 +386,7 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
       
     | field            | type      |  default | notes        |
     |------------------+-----------+----------+--------------|
-    | results          | ItemStack |          | *[required]* |
+    | results          | [[#ItemStack][ItemStack]] |          | *[required]* |
     | craftTime        | float     |          |              |
     | spinnerRadius    | float     |      2.5 |              |
     | spinnerLength    | float     |        1 |              |
