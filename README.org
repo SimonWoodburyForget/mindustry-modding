@@ -490,7 +490,21 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | useTime         | float |      400 |
     | phaseRangeBoost | float |       20 |
 
-*** TODO ForceProjector
+*** ForceProjector
+    ~extends Block~
+
+    | field              | type  | default |
+    |--------------------+-------+---------|
+    | phaseUseTime       | float |     350 |
+    | phaseRadiusBoost   | float |      80 |
+    | radius             | float |   101.7 |
+    | breakage           | float |     550 |
+    | cooldownNormal     | float |    1.75 |
+    | cooldownLiquid     | float |     1.5 |
+    | cooldownBrokenBase | float |    0.35 |
+    | basePowerDraw      | float |     0.2 |
+    | powerDamage        | float |     0.1 |
+
 *** TODO ShockMine
 ** Distribution
 *** TODO Conveyor
