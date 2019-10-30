@@ -850,7 +850,7 @@
     | hasPower | true    |
 
 *** TODO ChargeTurret
-*** TODO LaserTurret
+*** LaserTurret
     Extends [[#PowerTurret][PowerTurret]] 
 
     | field           | type  | default | notes |
