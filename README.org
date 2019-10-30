@@ -1,9 +1,14 @@
 /Disclaimer: This is a work in progress, things may not work as expected./
 
 * Overview
-** Directory Structure
 
-   At the root of your project you should have a ~content/~ directory, this is where all the JSON data goes, and in that directory you have other directories for various types of units, these are the current common ones:
+** =mod.json=
+
+   At the root of your project directory, you'll need a `mod.json`
+
+** Content
+
+   At the root of your project directory you can have a =content/= directory, this is where all the JSON data goes for your content types, and in this directory you have subdirectories for the various types of units, these are the current common ones:
 
    * ~content/items/~ for things like copper and surge-alloy,
    * ~content/blocks/~ for things like turrets and floors,
@@ -394,9 +399,10 @@
 *** OreBlock
     Extends [[#OverlayFloor][OverlayFloor]] -- An overlay ore for a specific item type.
 
-    | field    | type |
-    |----------+------|
-    | variants | 3    |
+    | field    | default |
+    |----------+---------|
+    | variants |       3 |
+
 *** StaticWalls
 **** Rock
      Extends [[#Block][Block]] 
@@ -406,21 +412,21 @@
      | variants | int  |
 
      Defaults:
-     | field         | type |
-     |---------------+------|
-     | breakable     | true |
-     | alwaysReplace | true |
+     | field         | default |
+     |---------------+---------|
+     | breakable     | true    |
+     | alwaysReplace | true    |
 
 **** StaticWall
      Extends [[#Rock][Rock]]
 
      Defaults:
-     | field         | type  |
-     |---------------+-------|
-     | breakable     | false |
-     | alwaysReplace | false |
-     | solid         | true  |
-     | variants      | 2     |
+     | field         | default |
+     |---------------+---------|
+     | breakable     | false   |
+     | alwaysReplace | false   |
+     | solid         | true    |
+     | variants      | 2       |
 
      Extra Sprites:
      * =<name>-large.png= which is a 2x2 variant. 
@@ -452,8 +458,8 @@
     | outputItem         | [[#ItemStack][ItemStack]]   |         |
     | outputLiquid       | [[#LiquidStack][LiquidStack]] |         |
     | craftTime          | float       | 80      |
-    | craftEffect        | [[#Effect][Effect]]      | "none"  |
-    | updateEffect       | [[#Effect][Effect]]      | "none"  |
+    | craftEffect        | [[#Effect][Effect]]      | none    |
+    | updateEffect       | [[#Effect][Effect]]      | none    |
     | updateEffectChance | float       | 0.04    |
 
     Defaults:
@@ -463,18 +469,18 @@
     | solid           | true      |
     | hasItems        | true      |
     | health          | 60        |
-    | idleSound       | "machine" |
+    | idleSound       | machine  |
     | idleSoundVolume | 0.03      |
 
 *** GenericSmelter
     Extends [[#GenericCrafter][GenericCrafter]] -- A GenericCrafter with a new glowing region drawn on top.
 
-    | field      | type  | defaults |
+    | field      | type  | default  |
     |------------+-------+----------|
-    | flameColor | [[#Color][Color]] | "ffc999" |
+    | flameColor | [[#Color][Color]] | ffc999   |
 
     Sprite suffix:
-    * ~-top~
+    * =-top=
 
 *** Separator
     Extends [[#Block][Block]] -- Extracts a random list of items from an input item and an input liquid.
@@ -487,7 +493,7 @@
     | spinnerLength    | float     |        1 |              |
     | spinnerThickness | float     |        1 |              |
     | spinnerSpeed     | float     |        2 |              |
-    | color            | [[#Color][Color]] | "858585" |              |
+    | color            | [[#Color][Color]] | 858585 |              |
     | liquidRegion     | int       |          |              |
 
     Defaults:
@@ -499,7 +505,7 @@
     | hasLiquids | true    |
 
     Sprite suffixes:
-    * ~-liquid~
+    * =-liquid=
 
 ** Sandbox
 *** TODO Incinerator
@@ -574,16 +580,16 @@
 *** OverdriveProjector
     Extends [[#Block][Block]]
 
-    | field           | type  |  default |
-    |-----------------+-------+----------|
-    | color           | [[#Color][Color]] | "feb380" |
-    | phase           | [[#Color][Color]] | "ffd59e" |
-    | reload          | float |       60 |
-    | range           | float |       80 |
-    | speedBoost      | float |      1.5 |
-    | speedBoostPhase | float |     0.75 |
-    | useTime         | float |      400 |
-    | phaseRangeBoost | float |       20 |
+    | field           | type  | default |
+    |-----------------+-------+---------|
+    | color           | [[#Color][Color]] |  feb380 |
+    | phase           | [[#Color][Color]] |  ffd59e |
+    | reload          | float |      60 |
+    | range           | float |      80 |
+    | speedBoost      | float |     1.5 |
+    | speedBoostPhase | float |    0.75 |
+    | useTime         | float |     400 |
+    | phaseRangeBoost | float |      20 |
 
 *** ForceProjector
     Extends [[#Block][Block]]
@@ -1367,4 +1373,3 @@ Defaults:
 * TODO Rules
 * TODO Objective
 * TODO UnitType
-* TODO Sprites
