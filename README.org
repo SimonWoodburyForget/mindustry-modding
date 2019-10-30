@@ -214,7 +214,6 @@
    * ~effect~ Things for storage or passive effects.
 
 ** Color
-
    Color is a hexadecimal string, =<rr><gg><bb>= for example:
 
    * =ff0000= is read,
@@ -740,9 +739,36 @@
     Extends [[#PowerGenerator][PowerGenerator]] -- A generator that always produces 100% efficiency power.
 
     Notes: 
-    * Lower targetting priority then regular generators.
+    * Lower targetting priority then other generators.
 
 *** TODO NuclearReactor
+    Expands [[#PowerGenerator][PowerGenerator]]
+
+    | field           | type  |  default | notes                               |
+    |-----------------+-------+----------+-------------------------------------|
+    | coolColor       | Color | ffffff00 |                                     |
+    | hotColor        | Color | ff9575a3 |                                     |
+    | itemDuration    | float |      120 | time to consume 1 fuel              |
+    | heating         | float |     0.01 | heating per frame * fullness        |
+    | smokeThreshold  | float |      0.3 | heat at which blocks start smoking  |
+    | explosionRadius | int   |       40 |                                     |
+    | explosionDamage | int   |     1350 |                                     |
+    | flashThreshold  | float |     0.46 | heat at which lights start flashing |
+    | coolantPower    | float |      0.5 |                                     |
+
+    Defaults:
+    
+    | field          | default |
+    |----------------+---------|
+    | itemCapacity   | 30      |
+    | liquidCapacity | 30      |
+    | hasItems       | true    |
+    | hasLiquids     | true    |
+
+    Extra Sprites:
+    * =<name>-center= top region
+    * =<name>-lights= lights region
+
 *** TODO ImpactReactor
 ** Production
 *** TODO Drill
