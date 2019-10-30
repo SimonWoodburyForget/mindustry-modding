@@ -673,9 +673,9 @@
     | group        | transportation |
 
     Sprites:
-    * =<name>-end= [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-end.png][ex.]]
-    * =<name>-bridge= [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-bridge.png][ex.]]
-    * =<name>-arrow= [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-arrow.png][ex.]]
+    * =<name>-end= example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-end.png][bridge-conveyor-end]]
+    * =<name>-bridge= example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-bridge.png][bridge-conveyor-bridge]]
+    * =<name>-arrow= example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-arrow.png][bridge-conveyor-arrow]]
 
 *** TODO Sorter
 *** TODO OverflowGate
@@ -694,7 +694,7 @@
    | group         | liquids |
    | outputsLiquid | true    |
 
-   Sprite lookup templates:
+   Sprites:
    * ~<name>-liquid~
    * ~<name>-top~
    * ~<name>-bottom~
