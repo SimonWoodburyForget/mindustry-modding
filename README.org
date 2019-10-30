@@ -649,7 +649,7 @@
 *** TODO ArmoredConveyor
 *** TODO Junction
 *** TODO BufferedItemBridge
-*** TODO ItemBridge
+*** ItemBridge
     Extends [[#Block][Block]]
 
     | field         | type  | default |
@@ -676,6 +676,13 @@
     * =<name>-end= example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-end.png][bridge-conveyor-end]]
     * =<name>-bridge= example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-bridge.png][bridge-conveyor-bridge]]
     * =<name>-arrow= example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-arrow.png][bridge-conveyor-arrow]]
+*** ExtendingItemBridge
+    Extends [[#ItemBridge][ItemBridge]]
+
+    Defaults:
+    | field    | default |
+    |----------+---------|
+    | hasItems | true    |
 
 *** TODO Sorter
 *** TODO OverflowGate
