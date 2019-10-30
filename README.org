@@ -746,8 +746,8 @@
 
     | field           | type  |  default | notes                               |
     |-----------------+-------+----------+-------------------------------------|
-    | coolColor       | Color | ffffff00 |                                     |
-    | hotColor        | Color | ff9575a3 |                                     |
+    | coolColor       | [[#Color][Color]] | ffffff00 |                                     |
+    | hotColor        | [[#Color][Color]] | ff9575a3 |                                     |
     | itemDuration    | float |      120 | time to consume 1 fuel              |
     | heating         | float |     0.01 | heating per frame * fullness        |
     | smokeThreshold  | float |      0.3 | heat at which blocks start smoking  |
