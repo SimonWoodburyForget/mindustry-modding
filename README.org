@@ -658,19 +658,19 @@
     | transportTime | float |       2 |
 
     Defaults:
-    | field        | default                   |
-    |--------------+---------------------------|
-    | update       | true                      |
-    | solid        | true                      |
-    | hasPower     | true                      |
-    | layer        | power                     |
-    | expanded     | true                      |
-    | itemCapacity | 10                        |
-    | posConfig    | true                      |
-    | configurable | true                      |
-    | hasItems     | true                      |
-    | unloadable   | false                     |
-    | group        | BlockGroup.transportation |
+    | field        | default        |
+    |--------------+----------------|
+    | update       | true           |
+    | solid        | true           |
+    | hasPower     | true           |
+    | layer        | power          |
+    | expanded     | true           |
+    | itemCapacity | 10             |
+    | posConfig    | true           |
+    | configurable | true           |
+    | hasItems     | true           |
+    | unloadable   | false          |
+    | group        | transportation |
 
     Sprites:
     * =<name>-end=
