@@ -673,10 +673,9 @@
     | group        | transportation |
 
     Sprites:
-    * =<name>-end=
-    * =<name>-bridge=
-    * =<name>-arrow=
-
+    * =<name>-end= [[https://raw.github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-end.png][example]]
+    * =<name>-bridge= [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-bridge.png][example]]
+    * =<name>-arrow= [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-arrow.png][example]]
 
 *** TODO Sorter
 *** TODO OverflowGate
@@ -687,13 +686,13 @@
 
     Defaults:
 
-   | field         | default   |
-   |---------------+-----------|
-   | update        | true      |
-   | solid         | true      |
-   | hasLiquids    | true      |
-   | group         | "liquids" |
-   | outputsLiquid | true      |
+   | field         | default |
+   |---------------+---------|
+   | update        | true    |
+   | solid         | true    |
+   | hasLiquids    | true    |
+   | group         | liquids |
+   | outputsLiquid | true    |
 
    Sprite lookup templates:
    * ~<name>-liquid~
@@ -743,12 +742,12 @@
 *** LiquidBridge
     Extends [[#LiquidBridge][LiquidBridge]]
 
-    | field         | default   |
-    |---------------+-----------|
-    | hasItems      | false     |
-    | hasLiquids    | true      |
-    | outputsLiquid | true      |
-    | group         | "liquids" |
+    | field         | default |
+    |---------------+---------|
+    | hasItems      | false   |
+    | hasLiquids    | true    |
+    | outputsLiquid | true    |
+    | group         | liquids |
 
 *** LiquidExtendingBridge
     Extends [[#ExtendingItemBridge][ExtendingItemBridge]]
@@ -758,7 +757,7 @@
     | hasItems      | false   |
     | hasLiquids    | true    |
     | outputsLiquid | true    |
-    | group         | "liquids" |
+    | group         | liquids |
 
 ** Power
 *** PowerBlock
