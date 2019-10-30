@@ -701,7 +701,7 @@
     | generateEffect | [[#Effect][Effect]] | none    |       |
 
 *** ItemLiquidGenerator
-    Extends [[#powergenerator][PowerGenerator]] -- Power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items.
+    Extends [[#powergenerator][PowerGenerator]] -- Base power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items.
 
    | field               | type    | default       | notes                                                          |
    |---------------------+---------+---------------+----------------------------------------------------------------|
@@ -716,7 +716,8 @@
    | defaults            | boolean | false         |                                                                |
 
    Notes:
-   * Doesn't account for item or liquid efficiency.
+   * item efficiency is always 0.0
+   * liquid efficiency is always 0.0
 
    Extra sprites:
    * =<name>-top= if =hasItems= is =true=
@@ -725,7 +726,11 @@
 *** BurnerGenerator
     Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- An item-liquid-generator that generates power relative to the item flamability. 
 
-*** TODO SingleTypeGenerator
+*** SingleTypeGenerator
+    Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- An item liquid generator that only takes 
+
+    Overrides:
+    * item efficiency is always 1.0,
 
 *** TODO DecayGenerator
 *** TODO SolarGenerator
