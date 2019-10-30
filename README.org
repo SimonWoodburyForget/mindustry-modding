@@ -233,6 +233,11 @@
    * =00ffff= is cyan,
    * /ect../
 
+** TODO TargetPriority
+
+   * =base=
+   * =turret=
+
 * Block Types
 ** Block
    
@@ -810,8 +815,8 @@
     * =<name>-plasma-<i>= plasma regions, where `i` is `0` to `plasmas - 1`.
 
 ** Production
-*** TODO Drill
-    Extends [[#block][Block]] 
+*** Drill
+    Extends [[#block][Block]] -- Types that can be placed on ore blocks to extract the ore blocks items.
 
     | field                | type    | default        | notes                                                                 |
     |----------------------+---------+----------------+-----------------------------------------------------------------------|
