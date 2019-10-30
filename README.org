@@ -835,10 +835,31 @@
 *** TODO LaserTurret
 *** TODO LiquidTurret
 ** Units
+*** RepairPoint
+    Extends [[#Block][Block]] -- Block which can repair units within range, with a laser.
+
+    | field        | type          | default |
+    |--------------+---------------+---------|
+    | repairRadius | float         |      50 |
+    | repairSpeed  | float         |     0.3 |
+    | powerUse     | float         |         |
+    | baseRegion   | TextureRegion |         |
+    | laser        | TextureRegion |         |
+
+    Defaults:
+    | field       | default |
+    |-------------+---------|
+    | update      | true    |
+    | solid       | true    |
+    | hasPower    | true    |
+    | outlineIcon | true    |
+
+    Extra sprites:
+    * =<name>-base=
+
 *** TODO UnitFactory
 *** TODO CommandCenter
 *** TODO UnitFactory
-*** TODO RepairPoint
 *** TODO MechPad    
 * Entity Types
 ** Content
