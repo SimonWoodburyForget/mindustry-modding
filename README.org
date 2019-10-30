@@ -1013,7 +1013,7 @@
     * =<name>-rotator=
     * =<name>-top=
 
-*** TODO SolidPump
+*** SolidPump
     Extends [[#Pump][Pump]] -- Pump that makes liquid from solids and takes in power. Only works on solid floor blocks.
 
     | field              | type      | default |
