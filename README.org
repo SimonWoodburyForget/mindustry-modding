@@ -742,7 +742,7 @@
     * Lower targetting priority then other generators.
 
 *** TODO NuclearReactor
-    Expands [[#PowerGenerator][PowerGenerator]]
+    Extends [[#PowerGenerator][PowerGenerator]] -- Generates power relative to how many items are in storage, and explodes if it runs out of coolant. 
 
     | field           | type  |  default | notes                               |
     |-----------------+-------+----------+-------------------------------------|
