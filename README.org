@@ -686,11 +686,17 @@
 *** BufferedItemBridge
     Extends [[#extendingitembridge][ExtendingItemBridge]]
 
+    | field          | type  | default |
+    |----------------+-------+---------|
+    | speed          | float |      40 |
+    | bufferCapacity | int   |      50 |
+
     Defaults:
-    | field          | type  | default | notes |
-    |----------------+-------+---------+-------|
-    | speed          | float | 40      |       |
-    | bufferCapacity | int   | 50      |       |
+    | field    | default |
+    |----------+---------|
+    | hasItems | true    |
+    | hasPower | false   |
+    
 
 *** TODO Sorter
 *** TODO OverflowGate
