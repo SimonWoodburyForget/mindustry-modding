@@ -140,14 +140,14 @@
 
    | field          | type     | default | notes                                                                 |
    |----------------+----------+---------+-----------------------------------------------------------------------|
-   | color          | [[#Color][Color]] |         | hex string of color                                                   |
+   | color          | [[#Color][Color]]    |         | hex string of color                                                   |
    | type           | [[#ItemType][ItemType]] |         | resource or material; used for tabs and core acceptance               |
-   | explosiveness  | float    |       0 | how explosive this item is.                                           |
-   | flammability   | float    |       0 | flammability above 0.3 makes this eleigible for item burners.         |
+   | explosiveness  | float    | =0=     | how explosive this item is.                                           |
+   | flammability   | float    | =0=     | flammability above 0.3 makes this eleigible for item burners.         |
    | radioactivity  | float    |         | how radioactive this item is. 0=none, 1=chernobyl ground zero         |
-   | hardness       | int      |       0 | drill hardness of the item                                            |
-   | cost           | float    |       1 | used for calculating place times; 1 cost = 1 tick added to build time |
-   | alwaysUnlocked | boolean  |   false | If true, item is always unlocked.                                     |
+   | hardness       | int      | ~0~   | drill hardness of the item                                            |
+   | cost           | float    | ~1~     | used for calculating place times; 1 cost = 1 tick added to build time |
+   | alwaysUnlocked | boolean  | =false= | If true, item is always unlocked.                                     |
 
 ** Liquid
    Extends [[#unlockablecontent-and-mappablecontent][UnlockableContent]] -- Object that defines the properties of a liquid.
