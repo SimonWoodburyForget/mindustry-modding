@@ -843,6 +843,11 @@
     | shootType | [[#BulletType][BulletType]] |         |
     | powerUse  | float      |       1 |
 
+    Defaults: 
+    | field    | default |
+    |----------+---------|
+    | hasPower | true    |
+
 *** TODO ChargeTurret
 *** TODO LaserTurret
 *** TODO LiquidTurret
