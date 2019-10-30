@@ -1254,7 +1254,11 @@ Defaults:
 
   Built-in status effects:
   * =none= 
-  * =burning=
+  * =burning= 
+    | field  | value   |
+    |--------+---------|
+    | damage | 0.06    |
+    | effect | burning |
   * =freezing=
   * =wet=
   * =melting=
