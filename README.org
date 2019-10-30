@@ -736,7 +736,12 @@
     | hasItems   | true    |
     | hasLiquids | false   |
 
-*** TODO SolarGenerator
+*** SolarGenerator
+    Extends [[#PowerGenerator][PowerGenerator]] -- A generator that always produces 100% efficiency power.
+
+    Notes: 
+    * Lower targetting priority then regular generators.
+
 *** TODO NuclearReactor
 *** TODO ImpactReactor
 ** Production
