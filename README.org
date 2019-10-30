@@ -835,7 +835,14 @@
     | field        | type  | default |
     |--------------+-------+---------|
     | burstSpacing | float |       5 |
-*** TODO PowerTurret
+*** PowerTurret
+    Extends [[#CooledTurret][CooledTurret]] -- Turret which uses power has ammo to shoot.
+
+    | field     | type       | default |
+    |-----------+------------+---------|
+    | shootType | [[#BulletType][BulletType]] |         |
+    | powerUse  | float      |       1 |
+
 *** TODO ChargeTurret
 *** TODO LaserTurret
 *** TODO LiquidTurret
