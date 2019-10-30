@@ -1250,15 +1250,11 @@ Defaults:
 
 * TODO StatusEffect
 
-  Not be be confused with [[#Effect][Effect]], is a modifier that has an effect.
+  /Not be be confused with [[#Effect][Effect]]./
 
   Built-in status effects:
   * =none= 
   * =burning= 
-    | field  | value   |
-    |--------+---------|
-    | damage | 0.06    |
-    | effect | burning |
   * =freezing=
   * =wet=
   * =melting=
