@@ -834,6 +834,16 @@
     | targetAir     | boolean |       true |                     |
     | targetGround  | boolean |       true |                     |
 
+    Defaults:
+    | field       | default |
+    |-------------+---------|
+    | priority    | turret  |
+    | update      | true    |
+    | solid       | true    |
+    | layer       | turret  |
+    | group       | turrets |
+    | outlineIcon | true    |
+
 *** CooledTurret
     Extends [[#Turret][Turret]] -- Extends turret with cooling behavior.
 
