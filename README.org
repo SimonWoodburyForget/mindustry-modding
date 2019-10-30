@@ -188,6 +188,16 @@
    * ~sandboxOnly~
    * ~campaignOnly~
 
+** Layer
+
+   Layers is an enumeration type, which the renderer will use to group rendering order:
+    
+   * =block=, base block layer;
+   * =placement=, for placement;
+   * =overlay=, first overlay stuff like conveyor items;
+   * =turret=, "high" blocks like turrets;
+   * =power= power lasers
+
 ** BlockGroup
 
    Groups for blocks to build on top of each other:
@@ -268,6 +278,8 @@
    | buildCostMultiplier | float           | 1            | Multiplier for speed of building this block.                                       |
    | instantTransfer     | boolean         | false        | Whether this block has instant transfer.                                           |
    | alwaysUnlocked      | boolean         | false        |                                                                                    |
+   | layer               | [[#Layer][Layer]]           | null         | Layer to draw extra stuff on.                                                      |
+   | layer2              | [[#Layer][Layer]]           | null         | Extra layer to draw extra stuff on.                                                |
 
    Notes:
    * research cost is ~30 + <requirements> * 6~
@@ -362,7 +374,7 @@
     | field    | default |
     |----------+---------|
     | solid    | true    |
-    | layer    | "power" |
+    | layer    | power   |
     | expanded | true    |
 
 ** Crafting
@@ -540,7 +552,8 @@
     | destructible | true      |
     | solid        | false     |
     | targetable   | false     |
-    | layer        | "overlay" |
+    | layer        | overlay   |
+
 ** Distribution
 *** TODO Conveyor
 *** TODO ArmoredConveyor
@@ -576,11 +589,11 @@
     |------------+-------+---------|
     | pumpAmount | float |       1 |
 
-    | field    | default   |
-    |----------+-----------|
-    | layer    | "overlay" |
-    | group    | "liquids" |
-    | floating | true      |
+    | field    | default |
+    |----------+---------|
+    | layer    | overlay |
+    | group    | liquids |
+    | floating | true    |
 
 *** Conduit
     Extends [[#LiquidBlock][LiquidBlock]]
@@ -655,7 +668,7 @@
     | field         | default |
     |---------------+---------|
     | expanded      | true    |
-    | layer         | "power" |
+    | layer         | power   |
     | configurable  | true    |
     | consumesPower | false   |
     | outputsPower  | false   |
@@ -943,13 +956,11 @@
 *** RepairPoint
     Extends [[#Block][Block]] -- Block which can repair units within range, with a laser.
 
-    | field        | type          | default |
-    |--------------+---------------+---------|
-    | repairRadius | float         |      50 |
-    | repairSpeed  | float         |     0.3 |
-    | powerUse     | float         |         |
-    | baseRegion   | TextureRegion |         |
-    | laser        | TextureRegion |         |
+    | field        | type  | default |
+    |--------------+-------+---------|
+    | repairRadius | float |      50 |
+    | repairSpeed  | float |     0.3 |
+    | powerUse     | float |         |
 
     Defaults:
     | field       | default |
@@ -958,6 +969,8 @@
     | solid       | true    |
     | hasPower    | true    |
     | outlineIcon | true    |
+    | layer       | turret  |
+    | layer2      | power   | 
 
     Extra sprites:
     * =<name>-base=
