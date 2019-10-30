@@ -673,9 +673,9 @@
     | group        | transportation |
 
     Sprites:
-    * =<name>-end= [[https://raw.github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-end.png][example]]
-    * =<name>-bridge= [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-bridge.png][example]]
-    * =<name>-arrow= [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-arrow.png][example]]
+    * =<name>-end= [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-end.png][ex.]]
+    * =<name>-bridge= [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-bridge.png][ex.]]
+    * =<name>-arrow= [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-arrow.png][ex.]]
 
 *** TODO Sorter
 *** TODO OverflowGate
