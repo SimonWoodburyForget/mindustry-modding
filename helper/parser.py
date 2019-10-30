@@ -54,11 +54,13 @@ def build_rows(string):
         yield (f, v, t, comment)
 
         
-def build_table(string):
+def build_definition_table(string):
+    """ For typical definitions: `public Color color = new Color("ffffff"); ` with prefixed multiline comments. """
     colnames = "|field|type|default|notes|\n|-\n"
     return colnames + "| " + "|\n| ".join([ " | ".join(x) for x in build_rows(string) ])
 
-def build_defaults(string):
+def build_defaults_table(string):
+    """ For typical overwrites: `itemCapacity = 30;` """
     colnames = "|field|default|\n|-\n"
     return colnames + "\n".join([ "| " + x.replace("=", "|").replace(";", " |")
                        for x in string.splitlines() ])
