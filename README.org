@@ -1016,13 +1016,22 @@
 *** TODO SolidPump
     Extends [[#Pump][Pump]] -- Pump that makes liquid from solids and takes in power. Only works on solid floor blocks.
 
-    | field              | type      | default       |
-    |--------------------+-----------+---------------|
-    | result             | Liquid    | Liquids.water |
-    | updateEffect       | Effect    | Fx.none       |
-    | updateEffectChance | float     | 0.02f         |
-    | rotateSpeed        | float     | 1f            |
-    | attribute          | Attribute |               |
+    | field              | type      | default |
+    |--------------------+-----------+---------|
+    | result             | [[#Liquid][Liquid]]    | water   |
+    | updateEffect       | [[#Effect][Effect]]    | none    |
+    | updateEffectChance | float     | 0.02    |
+    | rotateSpeed        | float     | 1       |
+    | attribute          | [[#Attribute][Attribute]] |         |
+
+    Defaults:
+    | field    | default |
+    |----------+---------|
+    | hasPower | true    |
+
+    Sprites:
+    * =<name>-liquid=
+
 *** TODO Cultivator
 *** TODO Fracker
 ** Storage
