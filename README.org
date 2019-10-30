@@ -769,7 +769,33 @@
     * =<name>-center= top region
     * =<name>-lights= lights region
 
-*** TODO ImpactReactor
+*** ImpactReactor
+    Extends [[#powergenerator][PowerGenerator]] -- Generator that uses power and has a startup time.
+
+    | field           | type  | default | notes                    |
+    |-----------------+-------+---------+--------------------------|
+    | plasmas         | int   |       4 | number of plasma sprites |
+    | warmupSpeed     | float |   0.001 |                          |
+    | itemDuration    | float |      60 |                          |
+    | explosionRadius | int   |      50 |                          |
+    | explosionDamage | int   |    2000 |                          |
+    | plasma1         | [[#Color][Color]] |  ffd06b |                          |
+    | plasma2         | [[#Color][Color]] |  ff361b |                          |
+
+    Defaults:
+    | field          | default |
+    |----------------+---------|
+    | hasPower       | true    |
+    | hasLiquids     | true    |
+    | liquidCapacity | 30f     |
+    | hasItems       | true    |
+    | outputsPower   | true    |
+    | consumesPower  | true    |
+
+    Sprites:
+    * =<name>-bottom= bottom region
+    * =<name>-plasma-<i>= plasma regions, where `i` is `0` to `plasmas - 1`.
+
 ** Production
 *** TODO Drill
 *** TODO SolidPump
