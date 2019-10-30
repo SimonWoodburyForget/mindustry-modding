@@ -191,14 +191,28 @@
 }
    #+END_SRC
 
+** TODO Consumers
+   
+
+   This type is commonly used in blocks with the field `consumes`, it's a type that allows your block to consume something.
+
+** Attribute
+   A specific attribute.
+
+   * =heat=
+   * =spores=
+   * =water=
+   * =oil=
+
 ** Attributes
 
-   Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors. =Attributes= is an object with an array of attributes:
+   An object with an array of [[#attribute][attribute]]. Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors.
 
+   `array` has 4 items:
     * index ~0~ is ~heat~,
     * index ~1~ is ~spores~,
     * index ~2~ is ~water~,
-    * indeb ~3~ is ~oil~.
+    * index ~3~ is ~oil~.
 
     For example, this would give you ~100~ heat, ~1~ spores, ~0.5~ water and ~0.1~ oil.
 
@@ -321,7 +335,6 @@
 
    * =base=
    * =turret=
-
 * Block Types
 ** Block
    
@@ -647,7 +660,23 @@
 ** Distribution
 *** TODO Conveyor
 *** TODO ArmoredConveyor
-*** TODO Junction
+*** Junction
+    Extends [[#block][Block]]
+
+    | field    | type     | default | notes                                      |
+    |----------+----------+---------+--------------------------------------------|
+    | speed    | float    |      26 | frames taken to go through this junction   |
+    | capacity | capacity |       6 |                                            |
+
+    Defaults:
+    | field           | default        |
+    |-----------------+----------------|
+    | update          | true           |
+    | solid           | true           |
+    | instantTransfer | true           |
+    | group           | transportation |
+    | unloadable      | false          |
+
 *** ItemBridge
     Extends [[#Block][Block]]
 
@@ -675,6 +704,7 @@
     * =<name>-end= example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-end.png][bridge-conveyor-end]]
     * =<name>-bridge= example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-bridge.png][bridge-conveyor-bridge]]
     * =<name>-arrow= example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-arrow.png][bridge-conveyor-arrow]]
+
 *** ExtendingItemBridge
     Extends [[#ItemBridge][ItemBridge]]
 
@@ -984,7 +1014,15 @@
     * =<name>-top=
 
 *** TODO SolidPump
-    
+    Extends [[#Pump][Pump]] -- Pump that makes liquid from solids and takes in power. Only works on solid floor blocks.
+
+    | field              | type      | default       |
+    |--------------------+-----------+---------------|
+    | result             | Liquid    | Liquids.water |
+    | updateEffect       | Effect    | Fx.none       |
+    | updateEffectChance | float     | 0.02f         |
+    | rotateSpeed        | float     | 1f            |
+    | attribute          | Attribute |               |
 *** TODO Cultivator
 *** TODO Fracker
 ** Storage
