@@ -811,6 +811,35 @@
 
 ** Production
 *** TODO Drill
+    Extends [[#block][Block]] 
+
+    | field                | type    | default        | notes                                                                 |
+    |----------------------+---------+----------------+-----------------------------------------------------------------------|
+    | tier                 | int     |                | Maximum tier of blocks this drill can mine.                           |
+    | drillTime            | float   | 300            | Base time to drill one ore, in frames.                                |
+    | liquidBoostIntensity | float   | 1.6            | How many times faster the drill will progress when boosted by liquid. |
+    | warmupSpeed          | float   | 0.02           | Speed at which the drill speeds up.                                   |
+    | drawMineItem         | boolean | false          | Whether to draw the item this drill is mining.                        |
+    | drillEffect          | [[#Effect][Effect]]  | mine           | Effect played when an item is produced. This is colored.              |
+    | rotateSpeed          | float   | 2              | Speed the drill bit rotates at.                                       |
+    | updateEffect         | [[#Effect][Effect]]  | pulverizeSmall | Effect randomly played while drilling.                                |
+    | updateEffectChance   | float   | 0.02           | Chance the update effect will appear.                                 |
+    | drawRim              | boolean | false          |                                                                       |
+    | heatColor            | [[#Color][Color]]   | ff5512         |                                                                       |
+
+    Defaults:
+    | field           | default |
+    |-----------------+---------|
+    | update          | true    |
+    | solid           | true    |
+    | layer           | overlay |
+    | group           | drills  |
+    | hasLiquids      | true    |
+    | liquidCapacity  | 5       |
+    | hasItems        | true    |
+    | idleSound       | drill   |
+    | idleSoundVolume | 0.003   |
+
 *** TODO SolidPump
 *** TODO Cultivator
 *** TODO Fracker
