@@ -631,7 +631,19 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | group         | "liquids" |
 
 ** Power
-*** TODO PowerNode
+*** PowerBlock
+    Extends [[#Block][Block]] -- Just a simple overwrite of the defaults.
+
+    Defaults:
+
+    | field    | default |
+    |----------+---------|
+    | update   | true    |
+    | solid    | true    |
+    | hasPower | true    |
+    | group    | power   |
+
+*** PowerNode
     Extends [[#PowerBlock][PowerBlock]]
 
     | field      | type  | default |
@@ -649,8 +661,50 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | consumesPower | false   |
     | outputsPower  | false   |
 
-*** TODO Battery
-*** TODO BurnerGenerator
+*** PowerDistributor
+    Extends [[#PowerBlock][PowerBlock]] -- Just a change of defaults for power distributors.
+
+    Defaults:
+    | field         | default |
+    |---------------+---------|
+    | consumesPower | false   |
+    | outputsPower  | true    |
+
+*** Battery
+    Extends [[#PowerDistributor][PowerDistributor]] -- Just a change of defaults for batteries.
+
+    Defauts:
+
+    | field         | default |
+    |---------------+---------|
+    | outputsPower  | true    |
+    | consumesPower | true    |
+
+*** ItemLiquidGenerator
+    Extends [[#powergenerator][PowerGenerator]] -- Power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items.
+
+   | field               | type    | default       | notes                                                          |
+   |---------------------+---------+---------------+----------------------------------------------------------------|
+   | minItemEfficiency   | float   | 0.2           |                                                                |
+   | itemDuration        | float   | 70            | number of ticks during which a single item will produce power. |
+   | minLiquidEfficiency | float   | 0.2           |                                                                |
+   | maxLiquidGenerate   | float   | 0.4           | Maximum liquid used per frame.                                 |
+   | generateEffect      | [[#Effect][Effect]]  | generatespark |                                                                |
+   | explodeEffect       | [[#Effect][Effect]]  | generatespark |                                                                |
+   | heatColor           | [[#Color][Color]]   | ff9b59        |                                                                |
+   | randomlyExplode     | boolean | true          |                                                                |
+   | defaults            | boolean | false         |                                                                |
+
+   Notes:
+   * Doesn't account for item or liquid efficiency.
+
+   Extra sprites:
+   * =<name>-top= if =hasItems= is =true=
+   * =<name>-liquid=
+
+*** BurnerGenerator
+    Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- An item-liquid-generator that generates power relative to the item flamability. 
+
 *** TODO ThermalGenerator
 *** TODO SingleTypeGenerator
 *** TODO DecayGenerator
