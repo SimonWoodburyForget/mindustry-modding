@@ -865,8 +865,8 @@
     | coolantMultiplier | 1       |
 
     Doesn't update shoot if:
-    * liquid temperature greater or equal to `0.5`
-    * liquid flammability greater then `0.1` 
+    * liquid temperature greater or equal to =0.5=
+    * liquid flammability greater then =0.1=
 
 *** TODO LiquidTurret
 ** Units
