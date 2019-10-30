@@ -95,7 +95,7 @@
 
 ** Dependencies
 
-   You can add dependencies to your mod, and be able to have access to them. Add the root directory name of the other mod, this in your ~mod.json~:
+   You can add dependencies to your mod, by simple adding other mods name in your ~mod.json~:
 
    #+BEGIN_SRC json
 {
@@ -106,11 +106,14 @@
 }
 #+END_SRC
 
-   The name is the mod's name lower cased, with special characters replaced with ~-~, and then from your mod, you can now use anything in the other mod by prefixing it with said name, for example:
+   The other mods name needs to be lower cased and spaces replaced with hyphens (=-=), for example =Other MOD NamE= -> =other-mod-name=. 
 
-   * ~other-mod-name-not-copper~ would reference ~not-copper~ in ~other-mod-name~,
-   * ~other-mod-name-angry-dagger~ would reference ~angry-dagger~ in ~other-mod-name~,
-   * ~not-a-mod-angry-dagger~ would reference ~angry-dagger~ in ~not-a-mod~.
+   To reference the other mods assets, you must prefix the asset with the other mods name:
+
+   * ~other-mod-name-not-copper~ would reference ~not-copper~ in ~other-mod-name~
+   * ~other-mod-name-angry-dagger~ would reference ~angry-dagger~ in ~other-mod-name~
+   * ~not-a-mod-angry-dagger~ would reference ~angry-dagger~ in ~not-a-mod~
+
 * Type
 
   Types have numerous fields, but the important one is ~type~. Types /extend/ each other, and what that means is if =MissileBulletType= extends =BasicBulletType=, then you'll have all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~. A ~Turret~ type is also a ~Block~ type, so it can also have ~health~, which is a ~Block~ field.
@@ -784,7 +787,7 @@
 
     | field           | type      | default             | notes                                              |
     |-----------------+-----------+---------------------+----------------------------------------------------|
-    | powerProduction | float     |                     | power produced per tick at 100% (`1.0`) efficiency |
+    | powerProduction | float     |                     | power produced per tick at 100% (=1.0=) efficiency |
     | generationType  | BlockStat | basePowerGeneration |                                                    |
 
     Defaults:
