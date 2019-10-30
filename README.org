@@ -680,6 +680,26 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
     | outputsPower  | true    |
     | consumesPower | true    |
 
+*** PowerGenerator
+    Extends [[#PowerDistributor][PowerDistributor]] -- Base of power generators.
+
+    | field           | type      | default             | notes                                              |
+    |-----------------+-----------+---------------------+----------------------------------------------------|
+    | powerProduction | float     |                     | power produced per tick at 100% (`1.0`) efficiency |
+    | generationType  | BlockStat | basePowerGeneration |                                                    |
+
+    Defaults:
+    | field             | default |
+    |-------------------+---------|
+    | baseExplosiveness | 5       |
+
+*** ThermalGenerator
+    Extends [[#PowerGenerator][PowerGenerator]] -- Generates power with the heat [[#attributes][attribute]] of a tile. Power production is =powerProduction * heat=, and =heat= must be greater then =0.01=.
+
+    | field          | type   | default | notes |
+    |----------------+--------+---------+-------|
+    | generateEffect | [[#Effect][Effect]] | none    |       |
+
 *** ItemLiquidGenerator
     Extends [[#powergenerator][PowerGenerator]] -- Power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items.
 
@@ -705,8 +725,8 @@ Here you can see, the type of the top level object is ~Revenant~, but the type o
 *** BurnerGenerator
     Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- An item-liquid-generator that generates power relative to the item flamability. 
 
-*** TODO ThermalGenerator
 *** TODO SingleTypeGenerator
+
 *** TODO DecayGenerator
 *** TODO SolarGenerator
 *** TODO NuclearReactor
