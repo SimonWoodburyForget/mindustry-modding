@@ -845,7 +845,13 @@
     | idleSound       | drill   |
     | idleSoundVolume | 0.003   |
 
+    Sprites:
+    * =<name>-rim=
+    * =<name>-rotator=
+    * =<name>-top=
+
 *** TODO SolidPump
+    
 *** TODO Cultivator
 *** TODO Fracker
 ** Storage
