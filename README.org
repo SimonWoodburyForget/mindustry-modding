@@ -723,16 +723,19 @@
    * =<name>-top= if =hasItems= is =true=
    * =<name>-liquid=
 
-*** BurnerGenerator
-    Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- An item-liquid-generator that generates power relative to the item flamability. 
-
 *** SingleTypeGenerator
-    Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- An item liquid generator that only takes 
+    Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from an item.
+*** BurnerGenerator
+    Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item flamability. 
+*** DecayGenerator
+    Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item radioactivity.
 
-    Overrides:
-    * item efficiency is always 1.0,
+    Defaults:
+    | field      | default |
+    |------------+---------|
+    | hasItems   | true    |
+    | hasLiquids | false   |
 
-*** TODO DecayGenerator
 *** TODO SolarGenerator
 *** TODO NuclearReactor
 *** TODO ImpactReactor
