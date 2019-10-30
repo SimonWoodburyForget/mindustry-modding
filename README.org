@@ -648,7 +648,6 @@
 *** TODO Conveyor
 *** TODO ArmoredConveyor
 *** TODO Junction
-*** TODO BufferedItemBridge
 *** ItemBridge
     Extends [[#Block][Block]]
 
@@ -683,6 +682,15 @@
     | field    | default |
     |----------+---------|
     | hasItems | true    |
+
+*** BufferedItemBridge
+    Extends [[#extendingitembridge][ExtendingItemBridge]]
+
+    Defaults:
+    | field          | type  | default | notes |
+    |----------------+-------+---------+-------|
+    | speed          | float | 40      |       |
+    | bufferCapacity | int   | 50      |       |
 
 *** TODO Sorter
 *** TODO OverflowGate
