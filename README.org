@@ -1210,10 +1210,10 @@
 *** LaserTurret
     Extends [[#PowerTurret][PowerTurret]] 
 
-    | field           | type  | default | notes |
-    |-----------------+-------+---------+-------|
-    | firingMoveFract | float | 0.25f   |       |
-    | shootDuration   | float | 100f    |       |
+    | field           | type  | default | notes                                        |
+    |-----------------+-------+---------+----------------------------------------------|
+    | firingMoveFract | float |    0.25 | rotatespeed fraction when turret is shooting |
+    | shootDuration   | float |     100 |                                              |
 
     Defaults:
     | field             | default |
