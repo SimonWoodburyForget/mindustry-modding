@@ -51,6 +51,7 @@
     * [[#MissileBulletType][MissileBulletType]]
   * [[#UnitTypes][UnitTypes]]
     * [[#UnitType][UnitType]]
+    * [[#BaseUnit][BaseUnit]]
   * [[#Mech][Mech]]
   * [[#Weapon][Weapon]]
   * [[#Effect][Effect]]
