@@ -40,12 +40,18 @@
 
    On top of this, content type may even look for two or more sprites, either through numbering or/and suffixes: =sprites/<name>-<i>.png= for example =sprites/my-hail-heat.png= for the =heat= map used when the turret is shooting, coloring parts of the turret red for a moment.
 
+   Note that you may put your files in any sub-directory of =sprites/=:
+   * =sounds/egg/teleporter/train/wall.png=
+
 ** Sound
   
   Custom sounds can be added through the modding system in the `sounds/` directory, of which two formats are needed:
 
   * =.ogg= required for Desktop/Android
   * =.mp3= required for iOS
+
+  Note that you may put your files in any sub-directory of =sounds/=:
+  * =sounds/egg/teleporter/train/wall.ogg=
 
   Just like any other assets, you reference them by the stem of your filename(s).
 
@@ -261,8 +267,7 @@
    | effect        | StatusEffect |    none | the associated status effect.                                                        |
 
 ** BlockStorage
-
-   Extends [[#unlockablecontent-and-mappablecontent][UnlockableContent]]
+   Extends [[#unlockablecontent-and-mappablecontent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
 
    | field         | type      | default | notes |
    |---------------+-----------+---------+-------|
