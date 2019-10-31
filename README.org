@@ -14,7 +14,7 @@
     * [[#UnlockableContent-and-MappableContent][UnlockableContent and MappableContent]]
     * [[#ItemStack][ItemStack]]
     * [[#LiquidStack][LiquidStack]]
-    * [[#Consumers][TODO Consumers]]
+    * [[#Consumers][Consumers]]
     * [[#Attribute][Attribute]]
     * [[#Attributes][Attributes]]
     * [[#Item][Item]]
@@ -1683,9 +1683,9 @@ Defaults:
   * =unitSpawn= =spawnShockwave= =magmasmoke= =impactShockwave= 
       =impactcloud= =impactsmoke= =dynamicExplosion= =padlaunch= =commandSend= =coreLand=
 
-* StatusEffect
+* TODO StatusEffect
 
-  /Not be be confused with [[#Effect][Effect]]./
+  /Not be be confused with [[#Effect][Effect]],/ a status effect will give an entity special properties. 
 
   Built-in status effects:
   * =none= 
