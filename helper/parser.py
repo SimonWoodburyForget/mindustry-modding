@@ -72,6 +72,30 @@ def build_defaults_table(string):
     return colnames + "\n".join([ "| " + x.replace("=", "|").replace(";", " |")
                        for x in string.splitlines() ])
 
+def build_content_tables(string):
+    """ Reads an org file and makes a content table. """
+    def format(x):
+        if "*****" in x:
+            raise ValueError("*****", f"unsupported header: {x}")
+
+        x = ( x.replace("****", " " * 6 + "*")
+               .replace("***", " " * 4 + "*")
+               .replace("**", " " * 2 + "*") )
+
+        l = ( x.replace("*", " ")
+               .replace("TODO", " ")
+               .strip()
+               .replace(" ", "-")
+               .replace("=", "")
+               .replace(".", "")
+
+        h, n = x.split("*")
+        n = n.strip()
+        
+        return f"\n  {h}* [[#{l}][{n}]]"
+        
+    return "".join([ format(x) for x in string.splitlines() if x.startswith("*") ])
+
 TEST = """
     public float splashDamage = 0f;
     /** Knockback in velocity. */

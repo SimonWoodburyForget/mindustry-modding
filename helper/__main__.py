@@ -1,6 +1,7 @@
 import click
 import parser
 import pyperclip
+from pathlib import Path
 
 @click.group()
 def cli():
@@ -24,5 +25,14 @@ def defaults():
     pyperclip.copy(o)
     click.echo(o)
 
-    
+@cli.command()
+@click.argument("path")
+def contents(path):
+    """ Makes content table out of org file. """
+    path = Path(path)
+    with open(path, "r") as f:
+        i = f.read()
+    o = parser.build_content_tables(i)
+    click.echo(o)
+
 cli()
