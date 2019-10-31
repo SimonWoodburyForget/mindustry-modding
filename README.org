@@ -766,7 +766,6 @@
     * range is limited by =driverBolt='s max range.
 
     Defaults:
-
     | field        | default |
     |--------------+---------|
     | update       | true    |
@@ -777,6 +776,9 @@
     | layer        | turret  |
     | hasPower     | true    |
     | outlineIcon  | true    |
+
+    Sprites:
+    * =<name>-base=
 
 ** Liquid
 *** LiquidBlock
