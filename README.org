@@ -339,9 +339,58 @@
 }
    #+END_SRC
 
-** Consumers
-   
+** TODO Consumers
    This type is commonly used in block type with it's field `consumes`, it's a type that allows your block to consume something, and how this field works is up to the specific type extension you're using.
+
+   | field         | type                  | notes               |
+   |---------------+-----------------------+---------------------|
+   | item          | String                | shorthand for items |
+   | items         | ConsumeItems          |                     |
+   | liquid        | ConsumeLiquid         |                     |
+   | power         | float or ConsumePower |                     |
+   | powerBuffered | float                 | for batteries       |
+
+   Notes:
+   * you shouldn't have =power= and =powerBuffered=
+
+   For example with [[#ConsumeItems][ConsumeItems]]:
+   #+BEGIN_SRC json
+{
+    "item": "copper",
+    "items": {
+        "items": [ { "amount": 10, "item": "copper" } ],
+        "booster": true,
+        "optional": true
+    }
+}
+   #+END_SRC
+
+*** TODO Consume   
+    An abstract base that defines a type of resource that a block can consume.
+
+    | field    | type    | default | notes                                          |
+    |----------+---------+---------+------------------------------------------------|
+    | optional | boolean |         | consumer will not influence consumer validity. |
+    | booster  | boolean |         | consumer will be displayed as a boost input.   |
+    | update   | boolean | true    |                                                |
+
+*** TODO ConsumeItems
+    Extends [[#Consume][Consume]] -- To consume an itemstack of item types.
+
+    | field | type      |
+    |-------+-----------|
+    | items | [[#ItemStack][ItemStack]] |
+
+*** TODO ConsumeLiquid
+    Extends [[#ConsumeLiquidBase][ConsumeLiquidBase]]  -- To consume a liquid type.
+
+    | field  | type   | default |
+    |--------+--------+---------|
+    | liquid | [[#Liquid][Liquid]] | null    |
+    | amount | float  | 0       |
+
+*** TODO ConsumePower
+    Extends [[#Consume][Consume]] -- 
 
 ** Attribute
    A specific attribute.
@@ -481,6 +530,7 @@
 
    * =base=
    * =turret=
+
 * Block Types
 ** Block
    
@@ -515,7 +565,7 @@
    | outlineIcon         | boolean         | false        | Whether the icon region has an outline added.                                      |
    | hasShadow           | boolean         | true         | Whether this block has a shadow under it.                                          |
    | breakSound          | [[#Sound][Sound]]           | boom         | Sounds made when this block breaks.                                                |
-   | activeSound         | [[#Sound][Sound]]           | none         | The sound that this block makes while active. One sound loop. Do not overuse.      |
+   | activeSound         | [[#Sound][Sound]] | none         | The sound that this block makes while active. One sound loop. Do not overuse.      |
    | activeSoundVolume   | float           | 0.5          | Active sound base volume.                                                          |
    | idleSound           | [[#Sound][Sound]]           | none         | The sound that this block makes while idle. Uses one sound loop for all blocks.    |
    | idleSoundVolume     | float           | 0.5          | Idle sound base volume.                                                            |
@@ -708,6 +758,7 @@
     | destructible        | true    |
     | group               | "walls" |
     | buildCostMultiplier | 5       |
+
 *** DeflectorWall
     Extends [[#Wall][Wall]] -- Wall that deflects low damage bullets.
 
@@ -740,6 +791,7 @@
     | solid       | false   |
     | solidfies   | true    |
     | consumesTap | true    |
+
 *** MendProjector
     Extends [[#Block][Block]]
 
@@ -802,6 +854,140 @@
     | solid        | false     |
     | targetable   | false     |
     | layer        | overlay   |
+
+** Turrets
+*** Turret
+    Extends [[#Block][Block]] -- Base extended to make turrets types.
+
+    | field         | type    |    default | notes               |
+    |---------------+---------+------------+---------------------|
+    | heatColor     | [[#Color][Color]]   | turretHeat |                     |
+    | shootEffect   | [[#Effect][Effect]]  |       none |                     |
+    | smokeEffect   | [[#Effect][Effect]]  |       none |                     |
+    | ammoUseEffect | [[#Effect][Effect]]  |       none |                     |
+    | shootSound    | [[#Sound][Sound]]   |      shoot |                     |
+    | ammoPerShot   | int     |          1 |                     |
+    | ammoEjectBack | float   |          1 |                     |
+    | range         | float   |         50 |                     |
+    | reload        | float   |         10 |                     |
+    | inaccuracy    | float   |          0 |                     |
+    | shots         | int     |          1 |                     |
+    | spread        | float   |          4 |                     |
+    | recoil        | float   |          1 |                     |
+    | restitution   | float   |       0.02 |                     |
+    | cooldown      | float   |       0.02 |                     |
+    | rotatespeed   | float   |          5 | in degrees per tick |
+    | shootCone     | float   |          8 |                     |
+    | shootShake    | float   |          0 |                     |
+    | xRand         | float   |          0 |                     |
+    | targetAir     | boolean |       true |                     |
+    | targetGround  | boolean |       true |                     |
+
+    Defaults:
+    | field       | default |
+    |-------------+---------|
+    | priority    | turret  |
+    | update      | true    |
+    | solid       | true    |
+    | layer       | turret  |
+    | group       | turrets |
+    | outlineIcon | true    |
+
+*** CooledTurret
+    Extends [[#Turret][Turret]] -- Extends turret with cooling behavior.
+
+    | field             | type   | default | notes                                                                   |
+    |-------------------+--------+---------+-------------------------------------------------------------------------|
+    | coolantMultiplier | float  | 5       | How much reload is lowered by for each unit of liquid of heat capacity. |
+    | coolEffect        | [[#Effect][Effect]] | shoot   |                                                                         |
+
+*** ItemTurret
+    Extends [[#CooledTurret][CooledTurret]] -- Turrets that uses items as ammo.
+
+    | field   | type                 | default |
+    |---------+----------------------+---------|
+    | maxAmmo | int                  |      30 |
+    | ammo    | { [[#Item][Item]]: [[#BulletType][BulletType]] } |         |
+
+    Defaults:
+    
+    | field    | default |
+    |----------+---------|
+    | hasItems | true    |
+
+    Ammo is an object of item:bullet-type pairs, for example:
+
+    #+BEGIN_SRC json
+    {
+        "ammo": {
+            "copper": "standardCopper",
+            "metaglass": {
+                "type": "MissileBulletType",
+                "damage": 2
+            }
+        }
+    }
+    #+END_SRC
+
+*** DoubleTurret
+    Extends [[#ItemTurret][ItemTurret]] -- Turret that shoots from two side by side barrels.
+
+    | field     | type  | default |
+    |-----------+-------+---------|
+    | shotWidth | float |       2 |
+
+    Default:
+    | field | default |
+    |-------+---------|
+    | shots |       2 |
+
+*** ArtilleryTurret
+    Extends [[#ItemTurret][ItemTurret]] -- Artillery turrets have special shooting calculations done to hit targets.
+
+    | field     | default |
+    |-----------+---------|
+    | targetAir | false   |
+
+*** BurstTurret
+    Extends [[#ItemTurret][ItemTurret]] -- Turrets capable of bursts of specially spaced bullets, separated by long reload times.
+
+    | field        | type  | default |
+    |--------------+-------+---------|
+    | burstSpacing | float |       5 |
+*** PowerTurret
+    Extends [[#CooledTurret][CooledTurret]] -- Turret which uses power has ammo to shoot.
+
+    | field     | type       | default |
+    |-----------+------------+---------|
+    | shootType | [[#BulletType][BulletType]] |         |
+    | powerUse  | float      |       1 |
+
+    Defaults: 
+
+    | field    | default |
+    |----------+---------|
+    | hasPower | true    |
+
+*** TODO ChargeTurret
+*** LaserTurret
+    Extends [[#PowerTurret][PowerTurret]] 
+
+    | field           | type  | default | notes                                        |
+    |-----------------+-------+---------+----------------------------------------------|
+    | firingMoveFract | float |    0.25 | rotatespeed fraction when turret is shooting |
+    | shootDuration   | float |     100 |                                              |
+
+    Defaults:
+    | field             | default |
+    |-------------------+---------|
+    | canOverdrive      | false   |
+    | coolantMultiplier | 1       |
+
+    Doesn't update shoot if:
+    * liquid temperature greater or equal to =0.5=
+    * liquid flammability greater then =0.1=
+
+*** TODO LiquidTurret
 
 ** Distribution
 *** TODO Conveyor
@@ -926,7 +1112,6 @@
 
     Sprites:
     * =<name>-base=
-
 ** Liquid
 *** LiquidBlock
     Extends [[#Block][Block]] -- For blocks that can carry liquids. Apart from the better defaults, it also fetches extra sprites.
@@ -1005,7 +1190,6 @@
     | hasLiquids    | true    |
     | outputsLiquid | true    |
     | group         | liquids |
-
 ** Power
 *** PowerBlock
     Extends [[#Block][Block]] -- Just a simple overwrite of the defaults.
@@ -1172,7 +1356,6 @@
     Sprites:
     * =<name>-bottom= bottom region
     * =<name>-plasma-<i>= plasma regions, where `i` is `0` to `plasmas - 1`.
-
 ** Production
 *** Drill
     Extends [[#block][Block]] -- Types that can be placed on ore blocks to extract the ore blocks items.
@@ -1235,139 +1418,6 @@
 *** TODO Vault
 *** TODO Unloader
 *** TODO LaunchPad
-** Turrets
-*** Turret
-    Extends [[#Block][Block]] -- Base extended to make turrets types.
-
-    | field         | type    |    default | notes               |
-    |---------------+---------+------------+---------------------|
-    | heatColor     | [[#Color][Color]]   | turretHeat |                     |
-    | shootEffect   | [[#Effect][Effect]]  |       none |                     |
-    | smokeEffect   | [[#Effect][Effect]]  |       none |                     |
-    | ammoUseEffect | [[#Effect][Effect]]  |       none |                     |
-    | shootSound    | [[#Sound][Sound]]   |      shoot |                     |
-    | ammoPerShot   | int     |          1 |                     |
-    | ammoEjectBack | float   |          1 |                     |
-    | range         | float   |         50 |                     |
-    | reload        | float   |         10 |                     |
-    | inaccuracy    | float   |          0 |                     |
-    | shots         | int     |          1 |                     |
-    | spread        | float   |          4 |                     |
-    | recoil        | float   |          1 |                     |
-    | restitution   | float   |       0.02 |                     |
-    | cooldown      | float   |       0.02 |                     |
-    | rotatespeed   | float   |          5 | in degrees per tick |
-    | shootCone     | float   |          8 |                     |
-    | shootShake    | float   |          0 |                     |
-    | xRand         | float   |          0 |                     |
-    | targetAir     | boolean |       true |                     |
-    | targetGround  | boolean |       true |                     |
-
-    Defaults:
-    | field       | default |
-    |-------------+---------|
-    | priority    | turret  |
-    | update      | true    |
-    | solid       | true    |
-    | layer       | turret  |
-    | group       | turrets |
-    | outlineIcon | true    |
-
-*** CooledTurret
-    Extends [[#Turret][Turret]] -- Extends turret with cooling behavior.
-
-    | field             | type   | default | notes                                                                   |
-    |-------------------+--------+---------+-------------------------------------------------------------------------|
-    | coolantMultiplier | float  | 5       | How much reload is lowered by for each unit of liquid of heat capacity. |
-    | coolEffect        | [[#Effect][Effect]] | shoot   |                                                                         |
-
-*** ItemTurret
-    Extends [[#CooledTurret][CooledTurret]] -- Turrets that uses items as ammo.
-
-    | field   | type                 | default |
-    |---------+----------------------+---------|
-    | maxAmmo | int                  |      30 |
-    | ammo    | { [[#Item][Item]]: [[#BulletType][BulletType]] } |         |
-
-    Defaults:
-    
-    | field    | default |
-    |----------+---------|
-    | hasItems | true    |
-
-    Ammo is an object of item:bullet-type pairs, for example:
-
-    #+BEGIN_SRC json
-    {
-        "ammo": {
-            "copper": "standardCopper",
-            "metaglass": {
-                "type": "MissileBulletType",
-                "damage": 2
-            }
-        }
-    }
-    #+END_SRC
-
-*** DoubleTurret
-    Extends [[#ItemTurret][ItemTurret]] -- Turret that shoots from two side by side barrels.
-
-    | field     | type  | default |
-    |-----------+-------+---------|
-    | shotWidth | float |       2 |
-
-    Default:
-    | field | default |
-    |-------+---------|
-    | shots |       2 |
-
-*** ArtilleryTurret
-    Extends [[#ItemTurret][ItemTurret]] -- Artillery turrets have special shooting calculations done to hit targets.
-
-    | field     | default |
-    |-----------+---------|
-    | targetAir | false   |
-
-*** BurstTurret
-    Extends [[#ItemTurret][ItemTurret]] -- Turrets capable of bursts of specially spaced bullets, separated by long reload times.
-
-    | field        | type  | default |
-    |--------------+-------+---------|
-    | burstSpacing | float |       5 |
-*** PowerTurret
-    Extends [[#CooledTurret][CooledTurret]] -- Turret which uses power has ammo to shoot.
-
-    | field     | type       | default |
-    |-----------+------------+---------|
-    | shootType | [[#BulletType][BulletType]] |         |
-    | powerUse  | float      |       1 |
-
-    Defaults: 
-
-    | field    | default |
-    |----------+---------|
-    | hasPower | true    |
-
-*** TODO ChargeTurret
-*** LaserTurret
-    Extends [[#PowerTurret][PowerTurret]] 
-
-    | field           | type  | default | notes                                        |
-    |-----------------+-------+---------+----------------------------------------------|
-    | firingMoveFract | float |    0.25 | rotatespeed fraction when turret is shooting |
-    | shootDuration   | float |     100 |                                              |
-
-    Defaults:
-    | field             | default |
-    |-------------------+---------|
-    | canOverdrive      | false   |
-    | coolantMultiplier | 1       |
-
-    Doesn't update shoot if:
-    * liquid temperature greater or equal to =0.5=
-    * liquid flammability greater then =0.1=
-
-*** TODO LiquidTurret
 ** Units
 *** RepairPoint
     Extends [[#Block][Block]] -- Block which can repair units within range, with a laser.
