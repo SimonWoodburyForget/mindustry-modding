@@ -1721,7 +1721,7 @@ Defaults:
 
 * StatusEffect
 
-  /Not be be confused with [[#Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects,* but here are it's fields to compare them:
+  /Not be be confused with [[#Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects,* but here are it's fields:
 
   | field            | type   | default |                                                     |
   |------------------+--------+---------+-----------------------------------------------------|
@@ -1732,11 +1732,13 @@ Defaults:
   | damage           | float  |         | Damage (or healing) per frame.                      |
   | effect           | [[#Effect][Effect]] |    none | Random effect (0.15% per frame), on affected units. |
 
-  When two status effects happen at once, the transition each other, for example:
-  * opposite: counters the ongoing status effect.
+  Status effects are used as transitions between intermediate effects. If some =wet= unit gets =shocked= it then causes 20 damage.
+
+  * opposites: effect which reduces anothers lifetime.
 
   Built-in status effects:
-  * =none= -- Nothing here.
+
+  * =none= -- Does nothing.
 
   * =burning=
     | field    | default |
@@ -1744,7 +1746,7 @@ Defaults:
     | damage   | 0.06    |
     | effect   | burning |
     * opposites: =wet= =freezing=
-    * tarred: 1 damage
+    * tarred: 1 damage and keeps burning
 
   * =freezing=
     | field           |  default |
@@ -1770,16 +1772,15 @@ Defaults:
     | damage          |     0.3 |
     | effect          | melting |
     * opposites: =wet= =freezing=
-    * tarred
+    * tarred: keeps melting
 
   * =tarred=
     | field           | default |
     |-----------------+---------|
     | speedMultiplier | 0.6     |
     | effect          | oily    |
-    * opposites: melting, burning
-    * burning
-    * melting
+    * burning: keeps burning
+    * melting: keeps burning
 
   * =overdrive=
     | field            |    default |
@@ -1802,7 +1803,7 @@ Defaults:
     | damageMultiplier |       3 |
     | speedMultiplier  |     1.1 |
 
-  * =shocked= -- Nothing here.
+  * =shocked= -- Does nothing.
 
   * =corroded=
     * 0.1 damage
