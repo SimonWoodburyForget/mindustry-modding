@@ -57,7 +57,6 @@
   * [[#Effect][Effect]]
   * [[#StatusEffect][StatusEffect]]
   * [[#Zone][TODO Zone]]
-  * [[#Consumer][TODO Consumer]]
   * [[#Rules][TODO Rules]]
   * [[#Objective][TODO Objective]]
   * [[#UnitType][TODO UnitType]]
@@ -1810,7 +1809,6 @@ Defaults:
 
 
 * TODO Zone
-* TODO Consumer
 * TODO Rules
 * TODO Objective
 * TODO UnitType
