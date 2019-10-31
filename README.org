@@ -1697,7 +1697,7 @@ Defaults:
 
 * TODO StatusEffect
 
-  /Not be be confused with [[#Effect][Effect]],/ a status effect will give an entity special properties. 
+  /Not be be confused with [[#Effect][Effect]]/, a status effect will give an entity special properties. 
 
   Built-in status effects:
   * =none= 
