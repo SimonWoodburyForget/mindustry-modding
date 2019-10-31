@@ -5,7 +5,7 @@
   Content Table:
 
   * [[#Overview][Overview]]
-    * [[#modjson][mod.json]]
+    * [[#modjson][=mod.json=]]
     * [[#Content][Content]]
     * [[#Sprites][Sprites]]
     * [[#Sound][Sound]]
@@ -14,7 +14,7 @@
     * [[#UnlockableContent-and-MappableContent][UnlockableContent and MappableContent]]
     * [[#ItemStack][ItemStack]]
     * [[#LiquidStack][LiquidStack]]
-    * [[#Consumers][Consumers]]
+    * [[#Consumers][TODO Consumers]]
     * [[#Attribute][Attribute]]
     * [[#Attributes][Attributes]]
     * [[#Item][Item]]
@@ -39,9 +39,18 @@
     * [[#Production][Production]]
     * [[#Storage][Storage]]
     * [[#Units][Units]]
-  * [[#Entity-Types][Entity Types]]
-    * [[#Content][Content]]
+  * [[#BulletTypes][BulletTypes]]
     * [[#BulletType][BulletType]]
+    * [[#BasicBulletType][BasicBulletType]]
+    * [[#ArtilleryBulletType][ArtilleryBulletType]]
+    * [[#BombBulletType][BombBulletType]]
+    * [[#FlakBulletType][FlakBulletType]]
+    * [[#HealBulletType][HealBulletType]]
+    * [[#LiquidBulletType][LiquidBulletType]]
+    * [[#MassDriverBolt][MassDriverBolt]]
+    * [[#MissileBulletType][MissileBulletType]]
+  * [[#UnitTypes][UnitTypes]]
+    * [[#UnitType][UnitType]]
   * [[#Mech][Mech]]
   * [[#Weapon][Weapon]]
   * [[#Effect][Effect]]
@@ -1352,9 +1361,8 @@
 *** TODO UnitFactory
 *** TODO CommandCenter
 *** TODO UnitFactory
-*** TODO MechPad    
-* Entity Types
-** Content
+*** TODO MechPad
+* BulletTypes
 ** BulletType
    Extends [[#Content][Content]] -- Bullet can either be an object or a string, where a string would be reusing a built-in one and an object would be making a custom one.
 
@@ -1418,8 +1426,7 @@
    * bombs:
      * =bombExplosive= =bombIncendiary= =bombOil=
 
-
-*** BasicBulletType
+** BasicBulletType
 
 The actual bullet type.
 
@@ -1432,7 +1439,7 @@ The actual bullet type.
 | bulletShrink | float  |              0.5 |
 | bulletSprite | String |                  |
 
-**** ArtilleryBulletType
+** ArtilleryBulletType
 
 | field       | type   | default        |
 |-------------+--------+----------------|
@@ -1448,7 +1455,7 @@ Defaults:
 | hitShake      | 1         |
 | hitSound      | explosion |
 
-**** BombBulletType
+** BombBulletType
 
 Defaults:
 
@@ -1463,8 +1470,7 @@ Defaults:
 | collidesAir   | false     |
 | hitSound      | explosion |
 
-    
-**** FlakBulletType
+** FlakBulletType
 
 Bullets that explode near enemies.
 
@@ -1482,8 +1488,7 @@ Defaults:
 | bulletWidth        |                8 |
 | bulletHeight       |               10 |
 
-
-**** HealBulletType
+** HealBulletType
 
 Bullets that can heal blocks of the same team as the shooter.
 
@@ -1501,8 +1506,7 @@ Defaults:
 | despawnEffect | hitLaser  |
 | collidesTeam  | true      |
 
-
-**** LiquidBulletType
+** LiquidBulletType
 
 | field  | type   | default |                |
 |--------+--------+---------+----------------|
@@ -1521,8 +1525,7 @@ Defaults:
 | drag           | 0.009     |
 | knockback      | 0.55      |
 
-
-**** MassDriverBolt
+** MassDriverBolt
 
 Defaults:
 
@@ -1534,13 +1537,55 @@ Defaults:
 | hitEffect     | hitBulletBig |
 | drag          | 0.005        |
 
-**** MissileBulletType
+** MissileBulletType
 
 | field      | type  |           default |
 |------------+-------+-------------------|
 | trailColor | [[#Color][Color]] | missileYellowBack |
 | weaveScale | float |                 0 |
 | weaveMag   | float |                -1 |    
+* UnitTypes
+** UnitType
+   Extends [[#UnlockableContent][UnlockableContent]] -- Unit types go in their own special directory: `units/`
+
+   | field           | type     | default |
+   |-----------------+----------+---------|
+   | type            | [[#BaseUnit][BaseUnit]] |         |
+   | health          | float    |      60 |
+   | hitsize         | float    |       7 |
+   | hitsizeTile     | float    |       4 |
+   | speed           | float    |     0.4 |
+   | range           | float    |       0 |
+   | attackLength    | float    |     150 |
+   | rotatespeed     | float    |     0.2 |
+   | baseRotateSpeed | float    |     0.1 |
+   | shootCone       | float    |      15 |
+   | mass            | float    |       1 |
+   | flying          | boolean  |         |
+   | targetAir       | boolean  |    true |
+   | rotateWeapon    | boolean  |   false |
+   | drag            | float    |     0.1 |
+   | maxVelocity     | float    |       5 |
+   | retreatPercent  | float    |     0.6 |
+   | itemCapacity    | int      |      30 |
+   | buildPower      | float    |     0.3 |
+   | minePower       | float    |     0.7 |
+   | weapon          | [[#Weapon][Weapon]]   |         |
+   | weaponOffsetY   | float    |         |
+   | engineOffset    | float    |         |
+   | engineSize      | float    |         |
+
+** BaseUnit
+
+   There are a few useful bases:
+   * =FlyingUnit=
+     * =Revenant=
+     * =BaseDrone=
+       * =BuilderDrone=
+       * =MinerDrone=
+       * =RepairDrone=
+   * =GroundUnit=
+
 * Mech
   Extends [[#unlockablecontent-and-mappablecontent][UnlockableContent]] -- Mechs are the player controlled entities.
 

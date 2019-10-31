@@ -87,14 +87,15 @@ def build_content_tables(string):
                .strip()
                .replace(" ", "-")
                .replace("=", "")
-               .replace(".", "")
+               .replace(".", "") )
 
         h, n = x.split("*")
         n = n.strip()
         
         return f"\n  {h}* [[#{l}][{n}]]"
         
-    return "".join([ format(x) for x in string.splitlines() if x.startswith("*") ])
+    return "".join([ format(x) for x in string.splitlines() if ( x.startswith("* ") or 
+                                                                 x.startswith("** ") ) ])
 
 TEST = """
     public float splashDamage = 0f;
