@@ -729,7 +729,38 @@
 
 *** TODO Sorter
 *** TODO OverflowGate
-*** TODO MassDriver
+*** MassDriver
+    Extends [[#Block][Block]] -- Uses =driverBolt= to transfer items. 
+
+    | field         | type   |        default |
+    |---------------+--------+----------------|
+    | range         | float  |                |
+    | rotateSpeed   | float  |           0.04 |
+    | translation   | float  |              7 |
+    | minDistribute | int    |             10 |
+    | knockback     | float  |              4 |
+    | reloadTime    | float  |            100 |
+    | shootEffect   | [[#Effect][Effect]] |      shootBig2 |
+    | smokeEffect   | [[#Effect][Effect]] | shootBigSmoke2 |
+    | recieveEffect | [[#Effect][Effect]] |        mineBig |
+    | shake         | float  |              3 |
+
+    Notes: 
+    * range is limited by =driverBolt='s max range.
+
+    Defaults:
+
+    | field        | default |
+    |--------------+---------|
+    | update       | true    |
+    | solid        | true    |
+    | posConfig    | true    |
+    | configurable | true    |
+    | hasItems     | true    |
+    | layer        | turret  |
+    | hasPower     | true    |
+    | outlineIcon  | true    |
+
 ** Liquid
 *** LiquidBlock
     Extends [[#Block][Block]] -- For blocks that can carry liquids. Apart from the better defaults, it also fetches extra sprites.
