@@ -116,9 +116,9 @@
 
 * Type
 
-  Types have numerous fields, but the important one is ~type~. Types /extend/ each other, and what that means is if =MissileBulletType= extends =BasicBulletType=, then you'll have all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~. A ~Turret~ type is also a ~Block~ type, so it can also have ~health~, which is a ~Block~ field.
+  Types have numerous fields, but the important one is =type=. Types /extend/ each other, and what that means is if =MissileBulletType= extends =BasicBulletType=, then you'll have all the fields of =BasicBulletType= inside of =MissileBulletType= like =damage=.
 
-  Whether the behavior is what you'd expect is at the type's discretion, some fields aren't actually really used by their extenders/childrens, resulting in no behavior at all.
+   is what you'd expect is at the type's discretion, some fields aren't actually really used by their extenders/childrens, resulting in no behavior at all.
 
   A type can be specified in the field of an object, but this is not all a type is. A type is the type of something ~float~ is a type so ~0.3~ is type float. ~Block~ is a type, which isn't something you'll be using by itself, but instead you use ~Floor~ which is a ~Block~ type topped with behavior that is floor specific. 
 
@@ -191,10 +191,9 @@
 }
    #+END_SRC
 
-** TODO Consumers
+** Consumers
    
-
-   This type is commonly used in blocks with the field `consumes`, it's a type that allows your block to consume something.
+   This type is commonly used in block type with it's field `consumes`, it's a type that allows your block to consume something, and how this field works is up to the specific type extension you're using.
 
 ** Attribute
    A specific attribute.
@@ -384,7 +383,7 @@
    | layer2              | [[#Layer][Layer]]           | null         | Extra layer to draw extra stuff on.                                                |
 
    Notes:
-   * research cost is ~30 + <requirements> * 6~
+   * research cost is =30 + <requirements> * 6=
 
 ** Environment
 *** Floor
