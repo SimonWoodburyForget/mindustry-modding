@@ -1185,6 +1185,9 @@
     | powerProduction | float     |                     | power produced per tick at 100% (=1.0=) efficiency |
     | generationType  | BlockStat | basePowerGeneration |                                                    |
 
+    Notes:
+    * =1 powerProduction = 60 pu/s=
+
     Defaults:
     | field             | default |
     |-------------------+---------|
