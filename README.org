@@ -320,7 +320,16 @@
     | amount | float  | 0       |
 
 *** TODO ConsumePower
-    Extends [[#Consume][Consume]]
+    Extends [[#Consume][Consume]] -- To consume or buffer power.
+
+    | field    | type    | default | notes                                                        |
+    |----------+---------+---------+--------------------------------------------------------------|
+    | usage    | float   |         | The maximum amount of power which can be processed per tick. |
+    | capacity | float   |         | The maximum power capacity in power units.                   |
+    | buffered | boolean |         | True if the module can store power.                          |
+
+    Notes:
+    * =usage= might influence efficiency or load a buffer.
 
 ** Attribute
    A specific attribute.
