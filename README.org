@@ -331,14 +331,6 @@
     Notes:
     * =usage= might influence efficiency or load a buffer.
 
-** Attribute
-   A specific attribute.
-
-   * =heat=
-   * =spores=
-   * =water=
-   * =oil=
-
 ** Attributes
 
    An object with an array of [[#attribute][attribute]]. Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors.
@@ -366,6 +358,15 @@
     "attributes": { "array": [ 0.75, 0, 0, 0 ] }
 }
     #+END_SRC
+
+** Attribute
+
+   New attributes cannot be added. List of built-in attributes:
+
+   * =heat=
+   * =spores=
+   * =water=
+   * =oil=
 
 ** Item
 
@@ -1201,7 +1202,7 @@
     | generateEffect | [[#Effect][Effect]] | none    |       |
 
 *** ItemLiquidGenerator
-    Extends [[#powergenerator][PowerGenerator]] -- Base power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items.
+    Extends [[#powergenerator][PowerGenerator]] -- Base power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items. 
 
    | field               | type    | default       | notes                                                          |
    |---------------------+---------+---------------+----------------------------------------------------------------|
