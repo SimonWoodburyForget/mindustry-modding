@@ -5,7 +5,7 @@
   Content Table:
 
   * [[#Overview][Overview]]
-    * [[#modjson][=mod.json=]]
+    * [[#modjson][mod.json]]
     * [[#Content][Content]]
     * [[#Sprites][Sprites]]
     * [[#Sound][Sound]]
