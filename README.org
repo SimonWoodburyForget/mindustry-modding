@@ -257,12 +257,12 @@
 }
    #+END_SRC
 
-** TODO Consumers
+** Consumers
    This type is commonly used in block type with it's field `consumes`, it's a type that allows your block to consume something, and how this field works is up to the specific type extension you're using.
 
    | field         | type                  | notes               |
    |---------------+-----------------------+---------------------|
-   | item          | String                | shorthand for items |
+   | item          | String                | shorthand for =items= |
    | items         | ConsumeItems          |                     |
    | liquid        | ConsumeLiquid         |                     |
    | power         | float or ConsumePower |                     |
@@ -283,7 +283,7 @@
 }
    #+END_SRC
 
-*** TODO Consume   
+*** Consume   
     An abstract base that defines a type of resource that a block can consume.
 
     | field    | type    | default | notes                                          |
@@ -292,15 +292,27 @@
     | booster  | boolean |         | consumer will be displayed as a boost input.   |
     | update   | boolean | true    |                                                |
 
-*** TODO ConsumeItems
-    Extends [[#Consume][Consume]] -- To consume an itemstack of item types.
+*** ConsumeItems
+    Extends [[#Consume][Consume]] -- To consume an itemstack.
 
     | field | type      |
     |-------+-----------|
     | items | [[#ItemStack][ItemStack]] |
 
-*** TODO ConsumeLiquid
-    Extends [[#ConsumeLiquidBase][ConsumeLiquidBase]]  -- To consume a liquid type.
+
+*** ConsumeLiquidBase
+    Extends [[#Consume][Consume]]
+
+    | field      | type  | default | notes                                     |
+    |------------+-------+---------+-------------------------------------------|
+    | float      | final |         | amount used per frame                     |
+    | timePeriod | float |      60 | how much time is taken to use this liquid |
+
+    Notes:
+    * =timePeriod= example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as "100 seconds", but without a time override it would display as "10 liquid/second". This is used for generic crafters.
+
+*** ConsumeLiquid
+    Extends [[#ConsumeLiquidBase][ConsumeLiquidBase]] -- To consume a liquid type.
 
     | field  | type   | default |
     |--------+--------+---------|
@@ -308,7 +320,7 @@
     | amount | float  | 0       |
 
 *** TODO ConsumePower
-    Extends [[#Consume][Consume]] -- 
+    Extends [[#Consume][Consume]]
 
 ** Attribute
    A specific attribute.
@@ -435,6 +447,7 @@
    * ~effect~ Things for storage or passive effects.
 
 ** Color
+
    Color is a hexadecimal string, =<rr><gg><bb>= for example:
 
    * =ff0000= is read,
@@ -483,7 +496,7 @@
    | outlineIcon         | boolean         | false        | Whether the icon region has an outline added.                                      |
    | hasShadow           | boolean         | true         | Whether this block has a shadow under it.                                          |
    | breakSound          | [[#Sound][Sound]]           | boom         | Sounds made when this block breaks.                                                |
-   | activeSound         | [[#Sound][Sound]] | none         | The sound that this block makes while active. One sound loop. Do not overuse.      |
+   | activeSound         | [[#Sound][Sound]]           | none         | The sound that this block makes while active. One sound loop. Do not overuse.      |
    | activeSoundVolume   | float           | 0.5          | Active sound base volume.                                                          |
    | idleSound           | [[#Sound][Sound]]           | none         | The sound that this block makes while idle. Uses one sound loop for all blocks.    |
    | idleSoundVolume     | float           | 0.5          | Idle sound base volume.                                                            |
@@ -651,7 +664,6 @@
 
     Sprite suffixes:
     * =-liquid=
-
 ** Sandbox
 *** TODO Incinerator
 *** TODO PowerVoid
@@ -772,7 +784,6 @@
     | solid        | false     |
     | targetable   | false     |
     | layer        | overlay   |
-
 ** Turrets
 *** Turret
     Extends [[#Block][Block]] -- Base extended to make turrets types.
@@ -906,7 +917,6 @@
     * liquid flammability greater then =0.1=
 
 *** TODO LiquidTurret
-
 ** Distribution
 *** TODO Conveyor
 *** TODO ArmoredConveyor
@@ -1664,7 +1674,7 @@ Defaults:
   * =unitSpawn= =spawnShockwave= =magmasmoke= =impactShockwave= 
       =impactcloud= =impactsmoke= =dynamicExplosion= =padlaunch= =commandSend= =coreLand=
 
-* TODO StatusEffect
+* StatusEffect
 
   /Not be be confused with [[#Effect][Effect]]./
 
