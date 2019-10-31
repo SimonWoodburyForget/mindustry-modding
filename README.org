@@ -95,7 +95,7 @@
    This is important, because it's how Mindustry will know which types to lookup. -- How you name your files is also important as the stem =name= of your path =content/blocks/<name>.json= is going to be used to reference it.
 
 ** Sprites
-  
+
    Custom sprites can be added by simply dropping them in the =sprites/= subdirectory, and be =.png= file, and content which requires a sprite is going to fetch the sprite relative to the filename of the sprite: =sprites/<name>.png=, for example =sprites/my-hail.png= would be used on =content/blocks/my-hail.json=.
 
    On top of this, content type may even look for two or more sprites, either through numbering or/and suffixes: =sprites/<name>-<i>.png= for example =sprites/my-hail-heat.png= for the =heat= map used when the turret is shooting, coloring parts of the turret red for a moment.
@@ -104,7 +104,7 @@
    * =sounds/egg/teleporter/train/wall.png=
 
 ** Sound
-  
+
   Custom sounds can be added through the modding system in the `sounds/` directory, of which two formats are needed:
 
   * =.ogg= required for Desktop/Android
@@ -172,7 +172,7 @@
 }
 #+END_SRC
 
-   The other mods name needs to be lower cased and spaces replaced with hyphens (=-=), for example =Other MOD NamE= -> =other-mod-name=. 
+   The other mods name needs to be lower cased and spaces replaced with hyphens (=-=), for example =Other MOD NamE= -> =other-mod-name=.
 
    To reference the other mods assets, you must prefix the asset with the other mods name:
 
@@ -186,12 +186,12 @@
 
    is what you'd expect is at the type's discretion, some fields aren't actually really used by their extenders/childrens, resulting in no behavior at all.
 
-  A type can be specified in the field of an object, but this is not all a type is. A type is the type of something ~float~ is a type so ~0.3~ is type float. ~Block~ is a type, which isn't something you'll be using by itself, but instead you use ~Floor~ which is a ~Block~ type topped with behavior that is floor specific. 
+  A type can be specified in the field of an object, but this is not all a type is. A type is the type of something ~float~ is a type so ~0.3~ is type float. ~Block~ is a type, which isn't something you'll be using by itself, but instead you use ~Floor~ which is a ~Block~ type topped with behavior that is floor specific.
 
   #+BEGIN_SRC json
   {
       "type": "Revenant",
-          "weapon": { 
+          "weapon": {
               "bullet": {
                   "type": "MissileBulletType",
               "damage": 9000
@@ -202,7 +202,7 @@
 
   Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ which needs to be a ~BulletType~ is actually ~MissileBulletType~, which gives you the behaviors and effects that missiles should have.
 
-** UnlockableContent and MappableContent 
+** UnlockableContent and MappableContent
 
    Types that can have a display name and description. /Most content in other words/ but not everything. [[#ItemStack][ItemStack]] isn't ~UnlockableContent~ because it's not content, it's just a stack of items.
 
@@ -210,7 +210,7 @@
    |-------------+--------|
    | name        | String |
    | description | String |
-   
+
    #+BEGIN_SRC json
    {
        "type": "Revenant",
@@ -221,7 +221,7 @@
 
 ** ItemStack
 
-   This type is used by blocks, to consume/output items. 
+   This type is used by blocks, to consume/output items.
 
    An item stack is simply an array of objects with these fields:
 
@@ -283,7 +283,7 @@
    }
    #+END_SRC
 
-*** Consume   
+*** Consume
     An abstract base that defines a type of resource that a block can consume.
 
     | field    | type    | default | notes                                          |
@@ -415,8 +415,8 @@
 
 ** BuildVisibility
 
-   Options for build visibility include: 
-   * ~hidden~ 
+   Options for build visibility include:
+   * ~hidden~
    * ~shown~
    * ~debugOnly~
    * ~sandboxOnly~
@@ -425,7 +425,7 @@
 ** Layer
 
    Layers is an enumeration type, which the renderer will use to group rendering order:
-    
+
    * =block=, base block layer;
    * =placement=, for placement;
    * =overlay=, first overlay stuff like conveyor items;
@@ -475,7 +475,7 @@
 
 * Block Types
 ** Block
-   
+
    Extends [[#BlockStorage][BlockStorage]] -- Fields for all objects that are blocks.
 
    | field               | type            | default      | notes                                                                              |
@@ -574,7 +574,7 @@
 
 *** StaticWalls
 **** Rock
-     Extends [[#Block][Block]] 
+     Extends [[#Block][Block]]
 
      | field    | type |
      |----------+------|
@@ -598,11 +598,11 @@
      | variants      | 2       |
 
      Extra Sprites:
-     * =<name>-large.png= which is a 2x2 variant. 
+     * =<name>-large.png= which is a 2x2 variant.
 
 **** StaticTree
-     Extends [[#StaticWall][StaticWall]] 
-       
+     Extends [[#StaticWall][StaticWall]]
+
      For example:
      * ~spore-pine~
      * ~snow-pine~
@@ -653,7 +653,7 @@
 
 *** Separator
     Extends [[#Block][Block]] -- Extracts a random list of items from an input item and an input liquid.
-      
+
     | field            | type      |  default | notes        |
     |------------------+-----------+----------+--------------|
     | results          | [[#ItemStack][ItemStack]] |          | *[required]* |
@@ -684,7 +684,7 @@
 *** TODO LiquidSource
 *** TODO MessageBlock
 ** Defense
-*** Wall 
+*** Wall
     Extends [[#Block][Block]]
 
     | field    | type | default |
@@ -719,7 +719,7 @@
 
 *** Door
     Extends [[#Wall][Wall]]
-     
+
     | field   | type   | default   |
     |---------+--------+-----------|
     | openfx  | [[#Effect][Effect]] | dooropen  |
@@ -850,7 +850,7 @@
     | ammo    | { [[#Item][Item]]: [[#BulletType][BulletType]] } |         |
 
     Defaults:
-    
+
     | field    | default |
     |----------+---------|
     | hasItems | true    |
@@ -902,7 +902,7 @@
     | shootType | [[#BulletType][BulletType]] |         |
     | powerUse  | float      |       1 |
 
-    Defaults: 
+    Defaults:
 
     | field    | default |
     |----------+---------|
@@ -910,7 +910,7 @@
 
 *** TODO ChargeTurret
 *** LaserTurret
-    Extends [[#PowerTurret][PowerTurret]] 
+    Extends [[#PowerTurret][PowerTurret]]
 
     | field           | type  | default | notes                                        |
     |-----------------+-------+---------+----------------------------------------------|
@@ -997,11 +997,11 @@
     |----------+---------|
     | hasItems | true    |
     | hasPower | false   |
-    
+
 
 *** Sorter
     Extends [[#Block][Block]]
-    
+
     | field  | type    |
     |--------+---------|
     | invert | boolean |
@@ -1019,7 +1019,7 @@
 
 *** TODO OverflowGate
 *** MassDriver
-    Extends [[#Block][Block]] -- Uses =driverBolt= to transfer items. 
+    Extends [[#Block][Block]] -- Uses =driverBolt= to transfer items.
 
     | field         | type   |        default |
     |---------------+--------+----------------|
@@ -1034,7 +1034,7 @@
     | recieveEffect | [[#Effect][Effect]] |        mineBig |
     | shake         | float  |              3 |
 
-    Notes: 
+    Notes:
     * range is limited by =driverBolt='s max range.
 
     Defaults:
@@ -1203,7 +1203,7 @@
     | generateEffect | [[#Effect][Effect]] | none    |       |
 
 *** ItemLiquidGenerator
-    Extends [[#powergenerator][PowerGenerator]] -- Base power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items. 
+    Extends [[#powergenerator][PowerGenerator]] -- Base power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items.
 
    | field               | type    | default       | notes                                                          |
    |---------------------+---------+---------------+----------------------------------------------------------------|
@@ -1228,7 +1228,7 @@
 *** SingleTypeGenerator
     Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from an item.
 *** BurnerGenerator
-    Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item flamability. 
+    Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item flamability.
 *** DecayGenerator
     Extends [[#ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item radioactivity.
 
@@ -1241,11 +1241,11 @@
 *** SolarGenerator
     Extends [[#PowerGenerator][PowerGenerator]] -- A generator that always produces 100% efficiency power.
 
-    Notes: 
+    Notes:
     * Lower targetting priority then other generators.
 
 *** NuclearReactor
-    Extends [[#PowerGenerator][PowerGenerator]] -- Generates power relative to how many items are in storage, and explodes if it runs out of coolant. 
+    Extends [[#PowerGenerator][PowerGenerator]] -- Generates power relative to how many items are in storage, and explodes if it runs out of coolant.
 
     | field           | type  |  default | notes                               |
     |-----------------+-------+----------+-------------------------------------|
@@ -1260,7 +1260,7 @@
     | coolantPower    | float |      0.5 |                                     |
 
     Defaults:
-    
+
     | field          | default |
     |----------------+---------|
     | itemCapacity   | 30      |
@@ -1385,7 +1385,7 @@
     * =<name>-liquid=
     * =<name>-rotater=
     * =<name>-top=
-    
+
 ** Storage
 *** TODO CoreBlock
 *** TODO Vault
@@ -1409,7 +1409,7 @@
     | hasPower    | true    |
     | outlineIcon | true    |
     | layer       | turret  |
-    | layer2      | power   | 
+    | layer2      | power   |
 
     Extra sprites:
     * =<name>-base=
@@ -1599,7 +1599,7 @@ Defaults:
 |------------+-------+-------------------|
 | trailColor | [[#Color][Color]] | missileYellowBack |
 | weaveScale | float |                 0 |
-| weaveMag   | float |                -1 |    
+| weaveMag   | float |                -1 |
 * UnitTypes
 ** UnitType
    Extends [[#UnlockableContent][UnlockableContent]] -- Unit types go in their own special directory: `units/`
@@ -1670,7 +1670,7 @@ Defaults:
   | engineOffset       | float   |       5 |
   | engineSize         | float   |     2.5 |
   | weapon             | [[#Weapon][Weapon]] |    null |
-   
+
 * Weapon
   Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
 
@@ -1700,32 +1700,32 @@ Defaults:
   Type should be a ~string~. You can't currently create custom effects. List of built-in effects are as follows:
 
   * =none= =placeBlock= =breakBlock= =smoke= =spawn= =tapBlock= =select=
-  * =vtolHover= =unitDrop= =unitPickup= =unitLand= =pickup= =healWave= =heal= 
+  * =vtolHover= =unitDrop= =unitPickup= =unitLand= =pickup= =healWave= =heal=
       =landShock= =reactorsmoke= =nuclearsmoke= =nuclearcloud=
-  * =redgeneratespark= =generatespark= =fuelburn= =plasticburn= =pulverize= 
+  * =redgeneratespark= =generatespark= =fuelburn= =plasticburn= =pulverize=
       =pulverizeRed= =pulverizeRedder= =pulverizeSmall= =pulverizeMedium=
-  * =producesmoke= =smeltsmoke= =formsmoke= =blastsmoke= =lava= =doorclose= 
+  * =producesmoke= =smeltsmoke= =formsmoke= =blastsmoke= =lava= =doorclose=
       =dooropen= =dooropenlarge= =doorcloselarge= =purify= =purifyoil= =purifystone= =generate=
   * =mine= =mineBig= =mineHuge= =smelt= =teleportActivate= =teleport= =teleportOut= =ripple= =bubble= =launch=
   * =healBlock= =healBlockFull= =healWaveMend= =overdriveWave= =overdriveBlockFull= =shieldBreak= =hitBulletSmall= =hitFuse=
   * =hitBulletBig= =hitFlameSmall= =hitLiquid= =hitLaser= =hitLancer= =hitMeltdown= =despawn= =flakExplosion= =blastExplosion=
   * =plasticExplosion= =artilleryTrail= =incendTrail= =missileTrail= =absorb= =flakExplosionBig= =plasticExplosionFlak= =burning= =fire=
   * =fireSmoke= =steam= =fireballsmoke= =ballfire= =freezing= =melting= =wet= =oily= =overdriven= =dropItem= =shockwave=
-  * =bigShockwave= =nuclearShockwave= =explosion= =blockExplosion= 
+  * =bigShockwave= =nuclearShockwave= =explosion= =blockExplosion=
       =blockExplosionSmoke= =shootSmall= =shootHeal= =shootSmallSmoke= =shootBig= =shootBig2= =shootBigSmoke=
   * =shootBigSmoke2= =shootSmallFlame= =shootPyraFlame= =shootLiquid= =shellEjectSmall= =shellEjectMedium=
   * =shellEjectBig= =lancerLaserShoot= =lancerLaserShootSmoke= =lancerLaserCharge=
       =lancerLaserChargeBegin= =lightningCharge= =lightningShoot=
-  * =unitSpawn= =spawnShockwave= =magmasmoke= =impactShockwave= 
+  * =unitSpawn= =spawnShockwave= =magmasmoke= =impactShockwave=
       =impactcloud= =impactsmoke= =dynamicExplosion= =padlaunch= =commandSend= =coreLand=
 
 * TODO StatusEffect
 
-  /Not be be confused with [[#Effect][Effect]]/, a status effect will give an entity special properties. 
+  /Not be be confused with [[#Effect][Effect]]/, a status effect will give an entity special properties.
 
   Built-in status effects:
-  * =none= 
-  * =burning= 
+  * =none=
+  * =burning=
   * =freezing=
   * =wet=
   * =melting=
