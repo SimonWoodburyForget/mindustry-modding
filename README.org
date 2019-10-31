@@ -59,7 +59,6 @@
   * [[#Zone][TODO Zone]]
   * [[#Rules][TODO Rules]]
   * [[#Objective][TODO Objective]]
-  * [[#UnitType][TODO UnitType]]
 
 ** =mod.json=
 
@@ -1809,4 +1808,3 @@ Defaults:
 * TODO Zone
 * TODO Rules
 * TODO Objective
-* TODO UnitType
