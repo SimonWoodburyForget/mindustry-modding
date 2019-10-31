@@ -200,7 +200,7 @@
   }
   #+END_SRC
 
-    Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ which needs to be a ~BulletType~ is actually ~MissileBulletType~, which gives you the behaviors and effects that missiles should have.
+  Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ which needs to be a ~BulletType~ is actually ~MissileBulletType~, which gives you the behaviors and effects that missiles should have.
 
 ** UnlockableContent and MappableContent 
 
@@ -260,27 +260,27 @@
 ** Consumers
    This type is commonly used in block type with it's field `consumes`, it's a type that allows your block to consume something, and how this field works is up to the specific type extension you're using.
 
-   | field         | type                  | notes               |
-   |---------------+-----------------------+---------------------|
+   | field         | type                  | notes                 |
+   |---------------+-----------------------+-----------------------|
    | item          | String                | shorthand for =items= |
-   | items         | ConsumeItems          |                     |
-   | liquid        | ConsumeLiquid         |                     |
-   | power         | float or ConsumePower |                     |
-   | powerBuffered | float                 | for batteries       |
+   | items         | ConsumeItems          |                       |
+   | liquid        | ConsumeLiquid         |                       |
+   | power         | float or ConsumePower |                       |
+   | powerBuffered | float                 | for batteries         |
 
    Notes:
    * you shouldn't have =power= and =powerBuffered=
 
    For example with [[#ConsumeItems][ConsumeItems]]:
    #+BEGIN_SRC json
-{
-    "item": "copper",
-    "items": {
-        "items": [ { "amount": 10, "item": "copper" } ],
-        "booster": true,
-        "optional": true
-    }
-}
+   {
+       "item": "copper",
+       "items": {
+           "items": [ { "amount": 10, "item": "copper" } ],
+           "booster": true,
+           "optional": true
+       }
+   }
    #+END_SRC
 
 *** Consume   
@@ -298,7 +298,6 @@
     | field | type      |
     |-------+-----------|
     | items | [[#ItemStack][ItemStack]] |
-
 
 *** ConsumeLiquidBase
     Extends [[#Consume][Consume]]
@@ -345,19 +344,19 @@
     For example, this would give you ~100~ heat, ~1~ spores, ~0.5~ water and ~0.1~ oil.
 
     #+BEGIN_SRC json
-{
-    "array": [ 100, 1, 0.5, 0.1]
-}
+    {
+        "array": [ 100, 1, 0.5, 0.1]
+    }
     #+END_SRC
 
     You could use it inside of [[#Floor][Floor]] type as such:
 
     #+BEGIN_SRC json
-{
-    "type": "Floor",
-    "name": "magma",
-    "attributes": { "array": [ 0.75, 0, 0, 0 ] }
-}
+    {
+        "type": "Floor",
+        "name": "magma",
+        "attributes": { "array": [ 0.75, 0, 0, 0 ] }
+    }
     #+END_SRC
 
 ** Attribute
@@ -389,14 +388,15 @@
 
    | field         | type         | default | notes                                                                                |
    |---------------+--------------+---------+--------------------------------------------------------------------------------------|
-   | color         | [[#Color][Color]] |         | color of liquid                                                                      |
+   | color         | [[#Color][Color]]        |         | color of liquid                                                                      |
    | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
    | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot                           |
    | heatCapacity  | float        |     0.5 | used in cooling; water is 0.4                                                        |
-   | viscosity     | float        |     0.5 | how thick this liquid is; water is 0.5, tar is 1 (very slow)                         |
+   | viscosity     | float        |     0.5 | how thick this liquid is; water is 0.5, tar is 1.                                    |
    | explosiveness | float        |         | explosiveness when heated; 0 is nothing, 1 is nuke                                   |
-   | flameColor    | [[#Color][Color]] |  ffb763 | the burning color of this liquid                                                     |
-   | effect        | StatusEffect |    none | the associated status effect.                                                        |
+   | flameColor    | [[#Color][Color]]        |  ffb763 | the burning color of this liquid                                                     |
+   | effect        | [[#StatusEffect][StatusEffect]] |    none | the associated status effect.                                                        |
+
 
 ** BlockStorage
    Extends [[#unlockablecontent-and-mappablecontent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
@@ -1353,7 +1353,14 @@
     Sprites:
     * =<name>-liquid=
 
-*** TODO Cultivator
+*** Cultivator
+    Extends [[#GenericCrafter][GenericCrafter]]
+
+    protected TextureRegion middleRegion, topRegion;
+    protected RandomXS128 random = new RandomXS128(0);
+    protected float recurrence = 6f;
+
+
 *** TODO Fracker
 ** Storage
 *** TODO CoreBlock
