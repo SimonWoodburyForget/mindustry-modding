@@ -4,6 +4,7 @@
 
   Content Table:
 
+
   * [[#Overview][Overview]]
     * [[#modjson][=mod.json=]]
     * [[#Content][Content]]
@@ -15,8 +16,8 @@
     * [[#ItemStack][ItemStack]]
     * [[#LiquidStack][LiquidStack]]
     * [[#Consumers][Consumers]]
-    * [[#Attribute][Attribute]]
     * [[#Attributes][Attributes]]
+    * [[#Attribute][Attribute]]
     * [[#Item][Item]]
     * [[#Liquid][Liquid]]
     * [[#BlockStorage][BlockStorage]]
@@ -1369,7 +1370,23 @@
     * =<name>-middle=
     * =<name>-top=
 
-*** TODO Fracker
+*** Fracker
+    Extends [[#SolidPump][SolidPump]]
+
+    | field       | default |
+    |-------------+---------|
+    | itemUseTime |     100 |
+
+    Defaults:
+    | field    | default |
+    |----------+---------|
+    | hasItems | true    |
+
+    Sprites:
+    * =<name>-liquid=
+    * =<name>-rotater=
+    * =<name>-top=
+    
 ** Storage
 *** TODO CoreBlock
 *** TODO Vault
