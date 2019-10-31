@@ -319,7 +319,7 @@
     | liquid | [[#Liquid][Liquid]] | null    |
     | amount | float  | 0       |
 
-*** TODO ConsumePower
+*** ConsumePower
     Extends [[#Consume][Consume]] -- To consume or buffer power.
 
     | field    | type    | default | notes                                                        |
