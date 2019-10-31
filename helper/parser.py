@@ -3,10 +3,11 @@ import re
 
 def parse_lines(string):
     """ Splits document into terminations (;)"""
-    return [ x.strip() for x in string.split(";") ]    # FIXME: this needs to check for comments.
+    # NOTE: splitting strings into substrings is stupid
+    return [ x.strip() for x in string.split(";") ] # FIXME: this needs to check for comments.
 
 def parse_comment_ml(string):
-    """ Parses multiline comment. """
+    """ Parses multi-line comment. `/** <comment> */` """
     multi = r"/\*[^*]*\*+(?:([^/*][^*]*)\*+)*/"
     r = re.match(multi, string)
     if r is not None:
@@ -17,6 +18,8 @@ def parse_comment_ml(string):
         return 0, 0, ""
 
 def parse_comment_sl(string):
+    """ Parses single-line comment. `// <comment>` """
+    # NOTE: single line comments are often trailing comments
     pattern = r"//[^\n\r]+.*[\n\r]"
     r = re.search(pattern, string)
     if r is not None:
@@ -24,7 +27,11 @@ def parse_comment_sl(string):
         return a, b
     else:
         return 0, 0
-    
+
+def parse_terminator(string):
+    """ Parses `;` outside of comments. """
+    pass
+
 def parse_definition(string):
     """ Parses definition without comment. """
     string = string.strip()
