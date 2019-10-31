@@ -395,7 +395,6 @@
    | flameColor    | [[#Color][Color]]        |  ffb763 | the burning color of this liquid                                                     |
    | effect        | [[#StatusEffect][StatusEffect]] |    none | the associated status effect.                                                        |
 
-
 ** BlockStorage
    Extends [[#unlockablecontent-and-mappablecontent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
 
@@ -1806,7 +1805,6 @@ Defaults:
     | field  | default |
     |--------+---------|
     | damage |     0.1 |
-
 
 * TODO Zone
 * TODO Rules

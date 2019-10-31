@@ -1,4 +1,4 @@
-""" Stupid simple Java parser. """
+""" Stupid simple Java and Org parsers. """
 import re
 
 def parse_lines(string):
