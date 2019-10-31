@@ -1806,7 +1806,9 @@ Defaults:
   * =shocked= -- Does nothing.
 
   * =corroded=
-    * 0.1 damage
+    | field  | default |
+    |--------+---------|
+    | damage |     0.1 |
 
 
 * TODO Zone
