@@ -727,7 +727,24 @@
     | hasPower | false   |
     
 
-*** TODO Sorter
+*** Sorter
+    Extends [[#Block][Block]]
+    
+    | field  | type    |
+    |--------+---------|
+    | invert | boolean |
+
+    Defaults:
+
+    | field           | default        |
+    |-----------------+----------------|
+    | update          | true           |
+    | solid           | true           |
+    | instantTransfer | true           |
+    | group           | transportation |
+    | configurable    | true           |
+    | unloadable      | false          |
+
 *** TODO OverflowGate
 *** MassDriver
     Extends [[#Block][Block]] -- Uses =driverBolt= to transfer items. 
