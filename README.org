@@ -3,8 +3,7 @@
 * Overview
 
   Content Table:
-
-
+ 
   * [[#Overview][Overview]]
     * [[#modjson][=mod.json=]]
     * [[#Content][Content]]
