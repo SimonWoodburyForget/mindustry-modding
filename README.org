@@ -274,7 +274,6 @@
    For example with [[#ConsumeItems][ConsumeItems]]:
    #+BEGIN_SRC json
    {
-       "item": "copper",
        "items": {
            "items": [ { "amount": 10, "item": "copper" } ],
            "booster": true,
