@@ -1,0 +1,7182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-10-31 Thu 03:39 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Simon" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd1d1c3e">1. Overview</a>
+<ul>
+<li><a href="#org49cd1cd">1.1. <code>mod.json</code></a></li>
+<li><a href="#orgbe80387">1.2. Content</a></li>
+<li><a href="#org6be34dc">1.3. Sprites</a></li>
+<li><a href="#orgf5a0695">1.4. Sound</a></li>
+<li><a href="#org99814e9">1.5. </a></li>
+</ul>
+</li>
+<li><a href="#orgd8c88f2">2. Type</a>
+<ul>
+<li><a href="#org7c98d4a">2.1. UnlockableContent and MappableContent</a></li>
+<li><a href="#orgd441c4b">2.2. ItemStack</a></li>
+<li><a href="#org3724383">2.3. LiquidStack</a></li>
+<li><a href="#org4f5b8e3">2.4. <span class="todo TODO">TODO</span> Consumers</a>
+<ul>
+<li><a href="#org35857a1">2.4.1. <span class="todo TODO">TODO</span> Consume</a></li>
+<li><a href="#org4c9ff12">2.4.2. <span class="todo TODO">TODO</span> ConsumeItems</a></li>
+<li><a href="#org2b3393f">2.4.3. <span class="todo TODO">TODO</span> ConsumeLiquidBase</a></li>
+<li><a href="#org0ba7739">2.4.4. <span class="todo TODO">TODO</span> ConsumeLiquid</a></li>
+<li><a href="#orgbe55d4b">2.4.5. <span class="todo TODO">TODO</span> ConsumePower</a></li>
+</ul>
+</li>
+<li><a href="#org8dd03a6">2.5. Attribute</a></li>
+<li><a href="#org3c1e18c">2.6. Attributes</a></li>
+<li><a href="#orga6db1ba">2.7. Item</a></li>
+<li><a href="#org9a9084b">2.8. Liquid</a></li>
+<li><a href="#org68d7d15">2.9. BlockStorage</a></li>
+<li><a href="#orgd5a4a5f">2.10. BuildVisibility</a></li>
+<li><a href="#orgeccb919">2.11. Layer</a></li>
+<li><a href="#orgd528c1a">2.12. BlockGroup</a></li>
+<li><a href="#orgf861fb7">2.13. Category</a></li>
+<li><a href="#org5710deb">2.14. Color</a></li>
+<li><a href="#orge3c24a6">2.15. <span class="todo TODO">TODO</span> TargetPriority</a></li>
+</ul>
+</li>
+<li><a href="#org64522e7">3. Block Types</a>
+<ul>
+<li><a href="#org093a785">3.1. Block</a></li>
+<li><a href="#org6a6fa79">3.2. Environment</a>
+<ul>
+<li><a href="#orgbeb8e20">3.2.1. Floor</a></li>
+<li><a href="#org00cc9b0">3.2.2. OverlayFloor</a></li>
+<li><a href="#orga6a62b8">3.2.3. DoubleOverlayFloor</a></li>
+<li><a href="#orgbd1f72f">3.2.4. OreBlock</a></li>
+<li><a href="#org68a48c9">3.2.5. StaticWalls</a></li>
+<li><a href="#org4d76b06">3.2.6. TreeBlock</a></li>
+</ul>
+</li>
+<li><a href="#orgf64cef6">3.3. Crafting</a>
+<ul>
+<li><a href="#org9ccc356">3.3.1. GenericCrafter</a></li>
+<li><a href="#orgb74e0a6">3.3.2. GenericSmelter</a></li>
+<li><a href="#orgf1c19a7">3.3.3. Separator</a></li>
+</ul>
+</li>
+<li><a href="#org5aafc5a">3.4. Sandbox</a>
+<ul>
+<li><a href="#orgc1f3c9c">3.4.1. <span class="todo TODO">TODO</span> Incinerator</a></li>
+<li><a href="#org95aa0fe">3.4.2. <span class="todo TODO">TODO</span> PowerVoid</a></li>
+<li><a href="#orgafde3d2">3.4.3. <span class="todo TODO">TODO</span> PowerSource</a></li>
+<li><a href="#org3e15fd5">3.4.4. <span class="todo TODO">TODO</span> ItemSource</a></li>
+<li><a href="#orge64d74b">3.4.5. <span class="todo TODO">TODO</span> ItemVoid</a></li>
+<li><a href="#orgd07df5b">3.4.6. <span class="todo TODO">TODO</span> LiquidSource</a></li>
+<li><a href="#orgb0e9c9b">3.4.7. <span class="todo TODO">TODO</span> MessageBlock</a></li>
+</ul>
+</li>
+<li><a href="#orgad9d6d2">3.5. Defense</a>
+<ul>
+<li><a href="#org88e1215">3.5.1. Wall</a></li>
+<li><a href="#orgee00b5d">3.5.2. DeflectorWall</a></li>
+<li><a href="#orgd9c6f76">3.5.3. SurgeWall</a></li>
+<li><a href="#orgb885735">3.5.4. Door</a></li>
+<li><a href="#orge068b87">3.5.5. MendProjector</a></li>
+<li><a href="#orgf1515c2">3.5.6. OverdriveProjector</a></li>
+<li><a href="#org71d4cb8">3.5.7. ForceProjector</a></li>
+<li><a href="#org95f1099">3.5.8. ShockMine</a></li>
+</ul>
+</li>
+<li><a href="#org8f23192">3.6. Turrets</a>
+<ul>
+<li><a href="#org22bdbf7">3.6.1. Turret</a></li>
+<li><a href="#org525e411">3.6.2. CooledTurret</a></li>
+<li><a href="#org74f9808">3.6.3. ItemTurret</a></li>
+<li><a href="#org8091799">3.6.4. DoubleTurret</a></li>
+<li><a href="#org7ac5cb5">3.6.5. ArtilleryTurret</a></li>
+<li><a href="#orge164fc6">3.6.6. BurstTurret</a></li>
+<li><a href="#org1f594a7">3.6.7. PowerTurret</a></li>
+<li><a href="#org414928c">3.6.8. <span class="todo TODO">TODO</span> ChargeTurret</a></li>
+<li><a href="#orge7a2299">3.6.9. LaserTurret</a></li>
+<li><a href="#org97fc8e0">3.6.10. <span class="todo TODO">TODO</span> LiquidTurret</a></li>
+</ul>
+</li>
+<li><a href="#orgd35b3f8">3.7. Distribution</a>
+<ul>
+<li><a href="#org951a6ed">3.7.1. <span class="todo TODO">TODO</span> Conveyor</a></li>
+<li><a href="#orga4ce804">3.7.2. <span class="todo TODO">TODO</span> ArmoredConveyor</a></li>
+<li><a href="#orge76bdc2">3.7.3. Junction</a></li>
+<li><a href="#org214cc27">3.7.4. ItemBridge</a></li>
+<li><a href="#orgb313b76">3.7.5. ExtendingItemBridge</a></li>
+<li><a href="#org4ef5404">3.7.6. BufferedItemBridge</a></li>
+<li><a href="#orgb0b9a3f">3.7.7. Sorter</a></li>
+<li><a href="#org747c1f3">3.7.8. <span class="todo TODO">TODO</span> OverflowGate</a></li>
+<li><a href="#orge5d38de">3.7.9. MassDriver</a></li>
+</ul>
+</li>
+<li><a href="#org57d2d1c">3.8. Liquid</a>
+<ul>
+<li><a href="#orgf2c35f1">3.8.1. LiquidBlock</a></li>
+<li><a href="#org08d90b4">3.8.2. Pump</a></li>
+<li><a href="#org662c2f4">3.8.3. Conduit</a></li>
+<li><a href="#org43d924d">3.8.4. LiquidRouter</a></li>
+<li><a href="#orgb55af63">3.8.5. LiquidTank</a></li>
+<li><a href="#orge1cfc81">3.8.6. LiquidJunction</a></li>
+<li><a href="#orgf346f08">3.8.7. LiquidBridge</a></li>
+<li><a href="#orgf0636f3">3.8.8. LiquidExtendingBridge</a></li>
+</ul>
+</li>
+<li><a href="#org73a3f62">3.9. Power</a>
+<ul>
+<li><a href="#org2c46cb9">3.9.1. PowerBlock</a></li>
+<li><a href="#org48f8f15">3.9.2. PowerNode</a></li>
+<li><a href="#org4e05b93">3.9.3. PowerDistributor</a></li>
+<li><a href="#orgd20b4ad">3.9.4. Battery</a></li>
+<li><a href="#orgce79077">3.9.5. PowerGenerator</a></li>
+<li><a href="#org638f1d8">3.9.6. ThermalGenerator</a></li>
+<li><a href="#org799e351">3.9.7. ItemLiquidGenerator</a></li>
+<li><a href="#orgf3656c6">3.9.8. SingleTypeGenerator</a></li>
+<li><a href="#orgf978411">3.9.9. BurnerGenerator</a></li>
+<li><a href="#orge6f988b">3.9.10. DecayGenerator</a></li>
+<li><a href="#org5634d56">3.9.11. SolarGenerator</a></li>
+<li><a href="#orgeb5ab5c">3.9.12. NuclearReactor</a></li>
+<li><a href="#org28c8e81">3.9.13. ImpactReactor</a></li>
+</ul>
+</li>
+<li><a href="#orgf71c67e">3.10. Production</a>
+<ul>
+<li><a href="#org8694a3a">3.10.1. Drill</a></li>
+<li><a href="#org1ed95d4">3.10.2. SolidPump</a></li>
+<li><a href="#orgaf8ad5d">3.10.3. <span class="todo TODO">TODO</span> Cultivator</a></li>
+<li><a href="#orgb7f9aca">3.10.4. <span class="todo TODO">TODO</span> Fracker</a></li>
+</ul>
+</li>
+<li><a href="#org5daab8e">3.11. Storage</a>
+<ul>
+<li><a href="#org53e9844">3.11.1. <span class="todo TODO">TODO</span> CoreBlock</a></li>
+<li><a href="#orgbf1a9a6">3.11.2. <span class="todo TODO">TODO</span> Vault</a></li>
+<li><a href="#orge1ba04c">3.11.3. <span class="todo TODO">TODO</span> Unloader</a></li>
+<li><a href="#orga09958b">3.11.4. <span class="todo TODO">TODO</span> LaunchPad</a></li>
+</ul>
+</li>
+<li><a href="#org1e40b6e">3.12. Units</a>
+<ul>
+<li><a href="#org64a491d">3.12.1. RepairPoint</a></li>
+<li><a href="#orgc0bcd1e">3.12.2. <span class="todo TODO">TODO</span> UnitFactory</a></li>
+<li><a href="#orgd8332c1">3.12.3. <span class="todo TODO">TODO</span> CommandCenter</a></li>
+<li><a href="#org6690060">3.12.4. <span class="todo TODO">TODO</span> UnitFactory</a></li>
+<li><a href="#orgf2dfc28">3.12.5. <span class="todo TODO">TODO</span> MechPad</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgcc5ebaf">4. Entity Types</a>
+<ul>
+<li><a href="#orgeae7a53">4.1. Content</a></li>
+<li><a href="#org23a5763">4.2. BulletType</a>
+<ul>
+<li><a href="#org1dd30d4">4.2.1. BasicBulletType</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org8c7fa30">5. Mech</a></li>
+<li><a href="#orge7c4cdb">6. Weapon</a></li>
+<li><a href="#org98b22e5">7. Effect</a></li>
+<li><a href="#org8880a2b">8. <span class="todo TODO">TODO</span> StatusEffect</a></li>
+<li><a href="#orga556319">9. <span class="todo TODO">TODO</span> Zone</a></li>
+<li><a href="#org57f45bb">10. <span class="todo TODO">TODO</span> Consumer</a></li>
+<li><a href="#org13099f4">11. <span class="todo TODO">TODO</span> Rules</a></li>
+<li><a href="#orgba792ab">12. <span class="todo TODO">TODO</span> Objective</a></li>
+<li><a href="#orgf05db83">13. <span class="todo TODO">TODO</span> UnitType</a></li>
+</ul>
+</div>
+</div>
+<p>
+<i>Disclaimer: This is a work in progress, things may not work as expected.</i>
+</p>
+<div id="outline-container-orgd1d1c3e" class="outline-2">
+<h2 id="orgd1d1c3e"><span class="section-number-2">1</span> Overview</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<a href="#orgd1d1c3e">1</a>
+</p>
+</div>
+
+<div id="outline-container-org49cd1cd" class="outline-3">
+<h3 id="org49cd1cd"><span class="section-number-3">1.1</span> <code>mod.json</code></h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+At the root of your project directory, you must have a `mod.json` which defines the basic metadata for your project.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+    <span style="color: #c1caa1;">"name"</span>: <span style="color: #dddddd;">"Mod Name"</span>,
+    <span style="color: #c1caa1;">"author"</span>: <span style="color: #dddddd;">"Yourself"</span>,
+    <span style="color: #c1caa1;">"description"</span>: <span style="color: #dddddd;">"This is a useless description."</span>,
+    <span style="color: #c1caa1;">"version"</span>: <span style="color: #dddddd;">"1.0"</span>,
+    <span style="color: #c1caa1;">"dependencies"</span>: [ ]
+}
+</pre>
+</div>
+
+<p>
+Notes:
+</p>
+<ul class="org-ul">
+<li><code>name</code> will be used to reference to your mod, so name it carefully, and avoid giving it the same name as another mod.</li>
+<li><code>description</code> of the mod will be rendered in the mod manager.</li>
+<li><code>dependencies</code> is optional, if you want to know more about that, go to the <a href="#orgd252160">dependencies</a> section.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbe80387" class="outline-3">
+<h3 id="orgbe80387"><span class="section-number-3">1.2</span> Content</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+At the root of your project directory you can have a <code>content/</code> directory, this is where all the JSON data goes for your content types, and in this directory you have subdirectories for the various types of units, these are the current common ones:
+</p>
+
+<ul class="org-ul">
+<li><code>content/items/</code> for things like copper and surge-alloy,</li>
+<li><code>content/blocks/</code> for things like turrets and floors,</li>
+<li><code>content/mechs/</code> for player controlled mechs tau and dagger,</li>
+<li><code>content/liquids/</code> for liquids like water and slag,</li>
+<li><code>content/units/</code> for flying or ground units like reaper and dagger,</li>
+<li><code>content/zones/</code> for configuration of campaign maps.</li>
+</ul>
+
+<p>
+This is important, because it's how Mindustry will know which types to lookup. &#x2013; How you name your files is also important as the stem <code>name</code> of your path <code>content/blocks/&lt;name&gt;.json</code> is going to be used to reference it.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6be34dc" class="outline-3">
+<h3 id="org6be34dc"><span class="section-number-3">1.3</span> Sprites</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Custom sprites can be added by simply dropping them in the <code>sprites/</code> subdirectory, and be <code>.png</code> file, and content which requires a sprite is going to fetch the sprite relative to the filename of the sprite: <code>sprites/&lt;name&gt;.png</code>, for example <code>sprites/my-hail.png</code> would be used on <code>content/blocks/my-hail.json</code>.
+</p>
+
+<p>
+On top of this, content type may even look for two or more sprites, either through numbering or/and suffixes: <code>sprites/&lt;name&gt;-&lt;i&gt;.png</code> for example <code>sprites/my-hail-heat.png</code> for the <code>heat</code> map used when the turret is shooting, coloring parts of the turret red for a moment.
+</p>
+
+<p>
+Note that you may put your files in any sub-directory of <code>sprites/</code>:
+</p>
+<ul class="org-ul">
+<li><code>sounds/egg/teleporter/train/wall.png</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf5a0695" class="outline-3">
+<h3 id="orgf5a0695"><span class="section-number-3">1.4</span> Sound</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Custom sounds can be added through the modding system in the `sounds/` directory, of which two formats are needed:
+</p>
+
+<ul class="org-ul">
+<li><code>.ogg</code> required for Desktop/Android</li>
+<li><code>.mp3</code> required for iOS</li>
+</ul>
+
+<p>
+Note that you may put your files in any sub-directory of <code>sounds/</code>:
+</p>
+<ul class="org-ul">
+<li><code>sounds/egg/teleporter/train/wall.ogg</code></li>
+</ul>
+
+<p>
+Just like any other assets, you reference them by the stem of your filename(s).
+</p>
+
+<p>
+Here's a list of built-in sounds:
+</p>
+<ul class="org-ul">
+<li><code>artillery</code></li>
+<li><code>back</code></li>
+<li><code>bang</code></li>
+<li><code>beam</code></li>
+<li><code>bigshot</code></li>
+<li><code>boom</code></li>
+<li><code>break</code></li>
+<li><code>build</code></li>
+<li><code>buttonClick</code></li>
+<li><code>click</code></li>
+<li><code>conveyor</code></li>
+<li><code>corexplode</code></li>
+<li><code>door</code></li>
+<li><code>drill</code></li>
+<li><code>empty</code></li>
+<li><code>explosionbig</code></li>
+<li><code>explosion</code></li>
+<li><code>fire</code></li>
+<li><code>flame2</code></li>
+<li><code>flame</code></li>
+<li><code>laserbig</code></li>
+<li><code>laser</code></li>
+<li><code>machine</code></li>
+<li><code>message</code></li>
+<li><code>missile</code></li>
+<li><code>pew</code></li>
+<li><code>place</code></li>
+<li><code>press</code></li>
+<li><code>release</code></li>
+<li><code>respawning</code></li>
+<li><code>respawn</code></li>
+<li><code>shootBig</code></li>
+<li><code>shoot</code></li>
+<li><code>shootSnap</code></li>
+<li><code>shotgun</code></li>
+<li><code>spark</code></li>
+<li><code>splash</code></li>
+<li><code>spray</code></li>
+<li><code>thruster</code></li>
+<li><code>unlock</code></li>
+<li><code>wave</code></li>
+<li><code>windowHide</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org99814e9" class="outline-3">
+<h3 id="org99814e9"><span class="section-number-3">1.5</span> <a id="orgd252160"></a></h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+You can add dependencies to your mod, by simple adding other mods name in your <code>mod.json</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+    <span style="color: #c1caa1;">"dependencies"</span>: [
+        <span style="color: #dddddd;">"other-mod-name"</span>,
+        <span style="color: #dddddd;">"not-a-mod"</span>
+    ]
+}
+</pre>
+</div>
+
+<p>
+The other mods name needs to be lower cased and spaces replaced with hyphens (<code>-</code>), for example <code>Other MOD NamE</code> -&gt; <code>other-mod-name</code>. 
+</p>
+
+<p>
+To reference the other mods assets, you must prefix the asset with the other mods name:
+</p>
+
+<ul class="org-ul">
+<li><code>other-mod-name-not-copper</code> would reference <code>not-copper</code> in <code>other-mod-name</code></li>
+<li><code>other-mod-name-angry-dagger</code> would reference <code>angry-dagger</code> in <code>other-mod-name</code></li>
+<li><code>not-a-mod-angry-dagger</code> would reference <code>angry-dagger</code> in <code>not-a-mod</code></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd8c88f2" class="outline-2">
+<h2 id="orgd8c88f2"><span class="section-number-2">2</span> Type</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Types have numerous fields, but the important one is <code>type</code>. Types <i>extend</i> each other, and what that means is if <code>MissileBulletType</code> extends <code>BasicBulletType</code>, then you'll have all the fields of <code>BasicBulletType</code> inside of <code>MissileBulletType</code> like <code>damage</code>.
+</p>
+
+<p>
+is what you'd expect is at the type's discretion, some fields aren't actually really used by their extenders/childrens, resulting in no behavior at all.
+</p>
+
+<p>
+A type can be specified in the field of an object, but this is not all a type is. A type is the type of something <code>float</code> is a type so <code>0.3</code> is type float. <code>Block</code> is a type, which isn't something you'll be using by itself, but instead you use <code>Floor</code> which is a <code>Block</code> type topped with behavior that is floor specific. 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+    <span style="color: #c1caa1;">"type"</span>: <span style="color: #dddddd;">"Revenant"</span>,
+        <span style="color: #c1caa1;">"weapon"</span>: { 
+            <span style="color: #c1caa1;">"bullet"</span>: {
+                <span style="color: #c1caa1;">"type"</span>: <span style="color: #dddddd;">"MissileBulletType"</span>,
+            <span style="color: #c1caa1;">"damage"</span>: <span style="color: #90afc5;">9000</span>
+        }
+    }
+}
+</pre>
+</div>
+
+<p>
+Here you can see, the type of the top level object is <code>Revenant</code>, but the type of the <code>bullet</code> which needs to be a <code>BulletType</code> is actually <code>MissileBulletType</code>, which gives you the behaviors and effects that missiles should have.
+</p>
+</div>
+
+<div id="outline-container-org7c98d4a" class="outline-3">
+<h3 id="org7c98d4a"><span class="section-number-3">2.1</span> UnlockableContent and MappableContent</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Types that can have a display name and description. <i>Most content in other words</i> but not everything. <a href="#orgd441c4b">ItemStack</a> isn't <code>UnlockableContent</code> because it's not content, it's just a stack of items.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">name</td>
+<td class="org-left">String</td>
+</tr>
+
+<tr>
+<td class="org-left">description</td>
+<td class="org-left">String</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+    <span style="color: #c1caa1;">"type"</span>: <span style="color: #dddddd;">"Revenant"</span>,
+    <span style="color: #c1caa1;">"name"</span>: <span style="color: #dddddd;">"Mammoth"</span>,
+    <span style="color: #c1caa1;">"description"</span>: <span style="color: #dddddd;">"Not a description."</span>
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd441c4b" class="outline-3">
+<h3 id="orgd441c4b"><span class="section-number-3">2.2</span> ItemStack</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+This type is used by blocks, to consume/output items. 
+</p>
+
+<p>
+An item stack is simply an array of objects with these fields:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">amount</td>
+<td class="org-left">int</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">item</td>
+<td class="org-left"><a href="#orga6db1ba">Item</a></td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+For example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">[
+    { <span style="color: #c1caa1;">"amount"</span>: <span style="color: #90afc5;">30</span>, <span style="color: #c1caa1;">"item"</span>: <span style="color: #dddddd;">"surge-alloy"</span> },
+    { <span style="color: #c1caa1;">"amount"</span>: <span style="color: #90afc5;">90</span>, <span style="color: #c1caa1;">"item"</span>: <span style="color: #dddddd;">"copper"</span> }
+]
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3724383" class="outline-3">
+<h3 id="org3724383"><span class="section-number-3">2.3</span> LiquidStack</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+This type is used by blocks, to consume a liquid, just like <a href="#orgd441c4b">ItemStack</a> except that it can only contain 1 liquid.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">liquid</td>
+<td class="org-left"><a href="#org9a9084b">Liquid</a></td>
+</tr>
+
+<tr>
+<td class="org-left">amount</td>
+<td class="org-left">float</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+For example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+   <span style="color: #c1caa1;">"liquid"</span>: <span style="color: #dddddd;">"water"</span>,
+   <span style="color: #c1caa1;">"amount"</span>: <span style="color: #90afc5;">0.5</span>
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4f5b8e3" class="outline-3">
+<h3 id="org4f5b8e3"><span class="section-number-3">2.4</span> <span class="todo TODO">TODO</span> Consumers</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+This type is commonly used in block type with it's field `consumes`, it's a type that allows your block to consume something, and how this field works is up to the specific type extension you're using.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">item</td>
+<td class="org-left">String</td>
+<td class="org-left">shorthand for items</td>
+</tr>
+
+<tr>
+<td class="org-left">items</td>
+<td class="org-left">ConsumeItems</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">liquid</td>
+<td class="org-left">ConsumeLiquid</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">power</td>
+<td class="org-left">float or ConsumePower</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">powerBuffered</td>
+<td class="org-left">float</td>
+<td class="org-left">for batteries</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Notes:
+</p>
+<ul class="org-ul">
+<li>you shouldn't have <code>power</code> and <code>powerBuffered</code></li>
+</ul>
+
+<p>
+For example with <a href="#org4c9ff12">ConsumeItems</a>:
+</p>
+<div class="org-src-container">
+<pre class="src src-json">{
+    <span style="color: #c1caa1;">"item"</span>: <span style="color: #dddddd;">"copper"</span>,
+    <span style="color: #c1caa1;">"items"</span>: {
+        <span style="color: #c1caa1;">"items"</span>: [ { <span style="color: #c1caa1;">"amount"</span>: <span style="color: #90afc5;">10</span>, <span style="color: #c1caa1;">"item"</span>: <span style="color: #dddddd;">"copper"</span> } ],
+        <span style="color: #c1caa1;">"booster"</span>: <span style="color: #90afc5;">true</span>,
+        <span style="color: #c1caa1;">"optional"</span>: <span style="color: #90afc5;">true</span>
+    }
+}
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org35857a1" class="outline-4">
+<h4 id="org35857a1"><span class="section-number-4">2.4.1</span> <span class="todo TODO">TODO</span> Consume</h4>
+<div class="outline-text-4" id="text-2-4-1">
+<p>
+An abstract base that defines a type of resource that a block can consume.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">optional</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">consumer will not influence consumer validity.</td>
+</tr>
+
+<tr>
+<td class="org-left">booster</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">consumer will be displayed as a boost input.</td>
+</tr>
+
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">boolean</td>
+<td class="org-left">true</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org4c9ff12" class="outline-4">
+<h4 id="org4c9ff12"><span class="section-number-4">2.4.2</span> <span class="todo TODO">TODO</span> ConsumeItems</h4>
+<div class="outline-text-4" id="text-2-4-2">
+<p>
+Extends <a href="#org35857a1">Consume</a> &#x2013; To consume an itemstack of item types.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">items</td>
+<td class="org-left"><a href="#orgd441c4b">ItemStack</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org2b3393f" class="outline-4">
+<h4 id="org2b3393f"><span class="section-number-4">2.4.3</span> <span class="todo TODO">TODO</span> ConsumeLiquidBase</h4>
+</div>
+
+<div id="outline-container-org0ba7739" class="outline-4">
+<h4 id="org0ba7739"><span class="section-number-4">2.4.4</span> <span class="todo TODO">TODO</span> ConsumeLiquid</h4>
+<div class="outline-text-4" id="text-2-4-4">
+<p>
+Extends <a href="#org2b3393f">ConsumeLiquidBase</a>  &#x2013; To consume a liquid type.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">liquid</td>
+<td class="org-left"><a href="#org9a9084b">Liquid</a></td>
+<td class="org-left">null</td>
+</tr>
+
+<tr>
+<td class="org-left">amount</td>
+<td class="org-left">float</td>
+<td class="org-left">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgbe55d4b" class="outline-4">
+<h4 id="orgbe55d4b"><span class="section-number-4">2.4.5</span> <span class="todo TODO">TODO</span> ConsumePower</h4>
+<div class="outline-text-4" id="text-2-4-5">
+<p>
+Extends <a href="#org35857a1">Consume</a> &#x2013; 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8dd03a6" class="outline-3">
+<h3 id="org8dd03a6"><span class="section-number-3">2.5</span> Attribute</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+A specific attribute.
+</p>
+
+<ul class="org-ul">
+<li><code>heat</code></li>
+<li><code>spores</code></li>
+<li><code>water</code></li>
+<li><code>oil</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3c1e18c" class="outline-3">
+<h3 id="org3c1e18c"><span class="section-number-3">2.6</span> Attributes</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+An object with an array of <a href="#org8dd03a6">attribute</a>. Used in the <code>Floor</code> type to give a tile specific properties, like <i>hottness</i> or <i>sporness</i> for efficiency of various systems, like ThermalPumps and WaterExtractors.
+</p>
+
+<p>
+`array` has 4 items:
+</p>
+<ul class="org-ul">
+<li>index <code>0</code> is <code>heat</code>,</li>
+<li>index <code>1</code> is <code>spores</code>,</li>
+<li>index <code>2</code> is <code>water</code>,</li>
+<li>index <code>3</code> is <code>oil</code>.</li>
+</ul>
+
+<p>
+For example, this would give you <code>100</code> heat, <code>1</code> spores, <code>0.5</code> water and <code>0.1</code> oil.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+    <span style="color: #c1caa1;">"array"</span>: [ <span style="color: #90afc5;">100</span>, <span style="color: #90afc5;">1</span>, <span style="color: #90afc5;">0.5</span>, <span style="color: #90afc5;">0.1</span>]
+}
+</pre>
+</div>
+
+<p>
+You could use it inside of <a href="#orgbeb8e20">Floor</a> type as such:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+    <span style="color: #c1caa1;">"type"</span>: <span style="color: #dddddd;">"Floor"</span>,
+    <span style="color: #c1caa1;">"name"</span>: <span style="color: #dddddd;">"magma"</span>,
+    <span style="color: #c1caa1;">"attributes"</span>: { <span style="color: #c1caa1;">"array"</span>: [ <span style="color: #90afc5;">0.75</span>, <span style="color: #90afc5;">0</span>, <span style="color: #90afc5;">0</span>, <span style="color: #90afc5;">0</span> ] }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga6db1ba" class="outline-3">
+<h3 id="orga6db1ba"><span class="section-number-3">2.7</span> Item</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+Extends <a href="#org7c98d4a">UnlockableContent</a> &#x2013; It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">color</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">hex string of color</td>
+</tr>
+
+<tr>
+<td class="org-left">type</td>
+<td class="org-left"><a href="#orga6db1ba">ItemType</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">resource or material; used for tabs and core acceptance</td>
+</tr>
+
+<tr>
+<td class="org-left">explosiveness</td>
+<td class="org-left">float</td>
+<td class="org-left"><code>0</code></td>
+<td class="org-left">how explosive this item is.</td>
+</tr>
+
+<tr>
+<td class="org-left">flammability</td>
+<td class="org-left">float</td>
+<td class="org-left"><code>0</code></td>
+<td class="org-left">flammability above 0.3 makes this eleigible for item burners.</td>
+</tr>
+
+<tr>
+<td class="org-left">radioactivity</td>
+<td class="org-left">float</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">how radioactive this item is. 0=none, 1=chernobyl ground zero</td>
+</tr>
+
+<tr>
+<td class="org-left">hardness</td>
+<td class="org-left">int</td>
+<td class="org-left"><code>0</code></td>
+<td class="org-left">drill hardness of the item</td>
+</tr>
+
+<tr>
+<td class="org-left">cost</td>
+<td class="org-left">float</td>
+<td class="org-left"><code>1</code></td>
+<td class="org-left">used for calculating place times; 1 cost = 1 tick added to build time</td>
+</tr>
+
+<tr>
+<td class="org-left">alwaysUnlocked</td>
+<td class="org-left">boolean</td>
+<td class="org-left"><code>false</code></td>
+<td class="org-left">If true, item is always unlocked.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org9a9084b" class="outline-3">
+<h3 id="org9a9084b"><span class="section-number-3">2.8</span> Liquid</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+Extends <a href="#org7c98d4a">UnlockableContent</a> &#x2013; Object that defines the properties of a liquid.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">color</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">color of liquid</td>
+</tr>
+
+<tr>
+<td class="org-left">flammability</td>
+<td class="org-left">float</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat.</td>
+</tr>
+
+<tr>
+<td class="org-left">temperature</td>
+<td class="org-left">float</td>
+<td class="org-left">0.5</td>
+<td class="org-left">0.5 is 'room' temperature, 0 is very cold, 1 is molten hot</td>
+</tr>
+
+<tr>
+<td class="org-left">heatCapacity</td>
+<td class="org-left">float</td>
+<td class="org-left">0.5</td>
+<td class="org-left">used in cooling; water is 0.4</td>
+</tr>
+
+<tr>
+<td class="org-left">viscosity</td>
+<td class="org-left">float</td>
+<td class="org-left">0.5</td>
+<td class="org-left">how thick this liquid is; water is 0.5, tar is 1 (very slow)</td>
+</tr>
+
+<tr>
+<td class="org-left">explosiveness</td>
+<td class="org-left">float</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">explosiveness when heated; 0 is nothing, 1 is nuke</td>
+</tr>
+
+<tr>
+<td class="org-left">flameColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-left">ffb763</td>
+<td class="org-left">the burning color of this liquid</td>
+</tr>
+
+<tr>
+<td class="org-left">effect</td>
+<td class="org-left">StatusEffect</td>
+<td class="org-left">none</td>
+<td class="org-left">the associated status effect.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org68d7d15" class="outline-3">
+<h3 id="org68d7d15"><span class="section-number-3">2.9</span> BlockStorage</h3>
+<div class="outline-text-3" id="text-2-9">
+<p>
+Extends <a href="#org7c98d4a">UnlockableContent</a> &#x2013; This is for blocks that can store a buffer of items.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">hasLiquids</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">hasPower</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">outputsLiquid</td>
+<td class="org-left">boolean</td>
+<td class="org-left">false</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">consumesPower</td>
+<td class="org-left">boolean</td>
+<td class="org-left">true</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">outputsPower</td>
+<td class="org-left">bolean</td>
+<td class="org-left">false</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">itemCapacity</td>
+<td class="org-left">int</td>
+<td class="org-left">10</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">item</td>
+<td class="org-left">float</td>
+<td class="org-left">10</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">consumes</td>
+<td class="org-left"><a href="#org4f5b8e3">Consumers</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgd5a4a5f" class="outline-3">
+<h3 id="orgd5a4a5f"><span class="section-number-3">2.10</span> BuildVisibility</h3>
+<div class="outline-text-3" id="text-2-10">
+<p>
+Options for build visibility include: 
+</p>
+<ul class="org-ul">
+<li><code>hidden</code></li>
+<li><code>shown</code></li>
+<li><code>debugOnly</code></li>
+<li><code>sandboxOnly</code></li>
+<li><code>campaignOnly</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgeccb919" class="outline-3">
+<h3 id="orgeccb919"><span class="section-number-3">2.11</span> Layer</h3>
+<div class="outline-text-3" id="text-2-11">
+<p>
+Layers is an enumeration type, which the renderer will use to group rendering order:
+</p>
+
+<ul class="org-ul">
+<li><code>block</code>, base block layer;</li>
+<li><code>placement</code>, for placement;</li>
+<li><code>overlay</code>, first overlay stuff like conveyor items;</li>
+<li><code>turret</code>, "high" blocks like turrets;</li>
+<li><code>power</code> power lasers</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd528c1a" class="outline-3">
+<h3 id="orgd528c1a"><span class="section-number-3">2.12</span> BlockGroup</h3>
+<div class="outline-text-3" id="text-2-12">
+<p>
+Groups for blocks to build on top of each other:
+</p>
+<ul class="org-ul">
+<li><code>none</code></li>
+<li><code>walls</code></li>
+<li><code>turrets</code></li>
+<li><code>transportation</code></li>
+<li><code>power</code></li>
+<li><code>liquids</code></li>
+<li><code>drills</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf861fb7" class="outline-3">
+<h3 id="orgf861fb7"><span class="section-number-3">2.13</span> Category</h3>
+<div class="outline-text-3" id="text-2-13">
+<p>
+Categories for building menu:
+</p>
+<ul class="org-ul">
+<li><code>turret</code> Offensive turrets;</li>
+<li><code>production</code> Blocks that produce raw resources, such as drills;</li>
+<li><code>distribution</code> Blocks that move items around;</li>
+<li><code>liquid</code> Blocks that move liquids around;</li>
+<li><code>power</code> Blocks that generate or transport power;</li>
+<li><code>defense</code> Walls and other defensive structures;</li>
+<li><code>crafting</code> Blocks that craft things;</li>
+<li><code>units</code> Blocks that create units;</li>
+<li><code>upgrade</code> Things that upgrade the player such as mech pads;</li>
+<li><code>effect</code> Things for storage or passive effects.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5710deb" class="outline-3">
+<h3 id="org5710deb"><span class="section-number-3">2.14</span> Color</h3>
+<div class="outline-text-3" id="text-2-14">
+<p>
+Color is a hexadecimal string, <code>&lt;rr&gt;&lt;gg&gt;&lt;bb&gt;</code> for example:
+</p>
+
+<ul class="org-ul">
+<li><code>ff0000</code> is read,</li>
+<li><code>00ff00</code> is green,</li>
+<li><code>00ffff</code> is blue,</li>
+<li><code>ffff00</code> is yellow,</li>
+<li><code>00ffff</code> is cyan,</li>
+<li><i>ect..</i></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge3c24a6" class="outline-3">
+<h3 id="orge3c24a6"><span class="section-number-3">2.15</span> <span class="todo TODO">TODO</span> TargetPriority</h3>
+<div class="outline-text-3" id="text-2-15">
+<ul class="org-ul">
+<li><code>base</code></li>
+<li><code>turret</code></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org64522e7" class="outline-2">
+<h2 id="org64522e7"><span class="section-number-2">3</span> Block Types</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org093a785" class="outline-3">
+<h3 id="org093a785"><span class="section-number-3">3.1</span> Block</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Extends <a href="#org68d7d15">BlockStorage</a> &#x2013; Fields for all objects that are blocks.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">whether this block has a tile entity that updates</td>
+</tr>
+
+<tr>
+<td class="org-left">destructible</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">whether this block has health and can be destroyed</td>
+</tr>
+
+<tr>
+<td class="org-left">unloadable</td>
+<td class="org-left">boolean</td>
+<td class="org-left">true</td>
+<td class="org-left">whether unloaders work on this block</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">whether this is solid</td>
+</tr>
+
+<tr>
+<td class="org-left">solidifes</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">whether this block CAN be solid.</td>
+</tr>
+
+<tr>
+<td class="org-left">rotate</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">whether this is rotateable</td>
+</tr>
+
+<tr>
+<td class="org-left">breakable</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">whether you can break this with rightclick</td>
+</tr>
+
+<tr>
+<td class="org-left">placeableOn</td>
+<td class="org-left">boolean</td>
+<td class="org-left">true</td>
+<td class="org-left">whether this <a href="#orgbeb8e20">floor</a> can be placed on.</td>
+</tr>
+
+<tr>
+<td class="org-left">health</td>
+<td class="org-left">int</td>
+<td class="org-left">-1</td>
+<td class="org-left">tile entity health</td>
+</tr>
+
+<tr>
+<td class="org-left">baseExplosiveness</td>
+<td class="org-left">float</td>
+<td class="org-left">0</td>
+<td class="org-left">base block explosiveness</td>
+</tr>
+
+<tr>
+<td class="org-left">floating</td>
+<td class="org-left">boolean</td>
+<td class="org-left">false</td>
+<td class="org-left">whether this block can be placed on edges of liquids.</td>
+</tr>
+
+<tr>
+<td class="org-left">size</td>
+<td class="org-left">int</td>
+<td class="org-left">1</td>
+<td class="org-left">multiblock size</td>
+</tr>
+
+<tr>
+<td class="org-left">expanded</td>
+<td class="org-left">boolean</td>
+<td class="org-left">false</td>
+<td class="org-left">Whether to draw this block in the expanded draw range.</td>
+</tr>
+
+<tr>
+<td class="org-left">timers</td>
+<td class="org-left">int</td>
+<td class="org-left">0</td>
+<td class="org-left">Max of timers used.</td>
+</tr>
+
+<tr>
+<td class="org-left">fillesTile</td>
+<td class="org-left">true</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Special flag; if false, <a href="#orgbeb8e20">floor</a> will be drawn under this block even if it is cached.</td>
+</tr>
+
+<tr>
+<td class="org-left">alwaysReplace</td>
+<td class="org-left">boolean</td>
+<td class="org-left">false</td>
+<td class="org-left">whether this block can be replaced in all cases</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left"><a href="#orgd528c1a">BlockGroup</a></td>
+<td class="org-left">none</td>
+<td class="org-left">Unless <code>canReplace</code> is overriden, blocks in the same group can replace each other.</td>
+</tr>
+
+<tr>
+<td class="org-left">priority</td>
+<td class="org-left">TargetPriority</td>
+<td class="org-left">base</td>
+<td class="org-left">Targeting priority of this block, as seen by enemies.</td>
+</tr>
+
+<tr>
+<td class="org-left">configurable</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Whether the block can be tapped and selected to configure.</td>
+</tr>
+
+<tr>
+<td class="org-left">consumesTap</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Whether this block consumes touchDown events when tapped.</td>
+</tr>
+
+<tr>
+<td class="org-left">posConfig</td>
+<td class="org-left">boolean</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Whether the config is positional and needs to be shifted.</td>
+</tr>
+
+<tr>
+<td class="org-left">targetable</td>
+<td class="org-left">boolean</td>
+<td class="org-left">true</td>
+<td class="org-left">Whether units target this block.</td>
+</tr>
+
+<tr>
+<td class="org-left">canOverdrive</td>
+<td class="org-left">boolean</td>
+<td class="org-left">true</td>
+<td class="org-left">Whether the overdrive core has any effect on this block.</td>
+</tr>
+
+<tr>
+<td class="org-left">outlineColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-left">404049</td>
+<td class="org-left">Outlined icon color.</td>
+</tr>
+
+<tr>
+<td class="org-left">outlineIcon</td>
+<td class="org-left">boolean</td>
+<td class="org-left">false</td>
+<td class="org-left">Whether the icon region has an outline added.</td>
+</tr>
+
+<tr>
+<td class="org-left">hasShadow</td>
+<td class="org-left">boolean</td>
+<td class="org-left">true</td>
+<td class="org-left">Whether this block has a shadow under it.</td>
+</tr>
+
+<tr>
+<td class="org-left">breakSound</td>
+<td class="org-left"><a href="#orgf5a0695">Sound</a></td>
+<td class="org-left">boom</td>
+<td class="org-left">Sounds made when this block breaks.</td>
+</tr>
+
+<tr>
+<td class="org-left">activeSound</td>
+<td class="org-left"><a href="#orgf5a0695">Sound</a></td>
+<td class="org-left">none</td>
+<td class="org-left">The sound that this block makes while active. One sound loop. Do not overuse.</td>
+</tr>
+
+<tr>
+<td class="org-left">activeSoundVolume</td>
+<td class="org-left">float</td>
+<td class="org-left">0.5</td>
+<td class="org-left">Active sound base volume.</td>
+</tr>
+
+<tr>
+<td class="org-left">idleSound</td>
+<td class="org-left"><a href="#orgf5a0695">Sound</a></td>
+<td class="org-left">none</td>
+<td class="org-left">The sound that this block makes while idle. Uses one sound loop for all blocks.</td>
+</tr>
+
+<tr>
+<td class="org-left">idleSoundVolume</td>
+<td class="org-left">float</td>
+<td class="org-left">0.5</td>
+<td class="org-left">Idle sound base volume.</td>
+</tr>
+
+<tr>
+<td class="org-left">requirements</td>
+<td class="org-left"><a href="#orgd441c4b">ItemStack</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Cost of constructing and researching this block.</td>
+</tr>
+
+<tr>
+<td class="org-left">category</td>
+<td class="org-left"><a href="#orgf861fb7">Category</a></td>
+<td class="org-left">distribution</td>
+<td class="org-left">Category in place menu.</td>
+</tr>
+
+<tr>
+<td class="org-left">buildCost</td>
+<td class="org-left">float</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Cost of building this block; do not modify directly!</td>
+</tr>
+
+<tr>
+<td class="org-left">buildVisibility</td>
+<td class="org-left"><a href="#orgd5a4a5f">BuildVisibility</a></td>
+<td class="org-left">hidden</td>
+<td class="org-left">Whether this block is visible and can currently be built.</td>
+</tr>
+
+<tr>
+<td class="org-left">buildCostMultiplier</td>
+<td class="org-left">float</td>
+<td class="org-left">1</td>
+<td class="org-left">Multiplier for speed of building this block.</td>
+</tr>
+
+<tr>
+<td class="org-left">instantTransfer</td>
+<td class="org-left">boolean</td>
+<td class="org-left">false</td>
+<td class="org-left">Whether this block has instant transfer.</td>
+</tr>
+
+<tr>
+<td class="org-left">alwaysUnlocked</td>
+<td class="org-left">boolean</td>
+<td class="org-left">false</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">layer</td>
+<td class="org-left"><a href="#orgeccb919">Layer</a></td>
+<td class="org-left">null</td>
+<td class="org-left">Layer to draw extra stuff on.</td>
+</tr>
+
+<tr>
+<td class="org-left">layer2</td>
+<td class="org-left"><a href="#orgeccb919">Layer</a></td>
+<td class="org-left">null</td>
+<td class="org-left">Extra layer to draw extra stuff on.</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Notes:
+</p>
+<ul class="org-ul">
+<li>research cost is <code>30 + &lt;requirements&gt; * 6</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6a6fa79" class="outline-3">
+<h3 id="org6a6fa79"><span class="section-number-3">3.2</span> Environment</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-orgbeb8e20" class="outline-4">
+<h4 id="orgbeb8e20"><span class="section-number-4">3.2.1</span> Floor</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<p>
+Extends <a href="#org093a785">Block</a> &#x2013; Environmental floors. Requires a sprite, so to be visible in the map editor.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">variants</td>
+<td class="org-left">int</td>
+<td class="org-right">3</td>
+<td class="org-left">number of different variant regions to use.</td>
+</tr>
+
+<tr>
+<td class="org-left">edge</td>
+<td class="org-left">String</td>
+<td class="org-right">"stone"</td>
+<td class="org-left">edge fallback, used mainly for ores.</td>
+</tr>
+
+<tr>
+<td class="org-left">speedMultiplier</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+<td class="org-left">multiplies unit velocity by this when walked on.</td>
+</tr>
+
+<tr>
+<td class="org-left">dragMultiplier</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">multiplies unit drag by this when walked on.</td>
+</tr>
+
+<tr>
+<td class="org-left">damageTaken</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">damage taken per tick on this tile.</td>
+</tr>
+
+<tr>
+<td class="org-left">drownTime</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">how many ticks it takes to drown on this.</td>
+</tr>
+
+<tr>
+<td class="org-left">walkEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">"ripple"</td>
+<td class="org-left">effect when walking on this <a href="#orgbeb8e20">floor</a>.</td>
+</tr>
+
+<tr>
+<td class="org-left">drownUpdateEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">"bubble"</td>
+<td class="org-left">effect displayed when drowning on this <a href="#orgbeb8e20">floor</a>.</td>
+</tr>
+
+<tr>
+<td class="org-left">status</td>
+<td class="org-left">StatusEffect</td>
+<td class="org-right">"none"</td>
+<td class="org-left">status effect applied when walking on.</td>
+</tr>
+
+<tr>
+<td class="org-left">statusDuration</td>
+<td class="org-left">float</td>
+<td class="org-right">60</td>
+<td class="org-left">intensity of applied status effect.</td>
+</tr>
+
+<tr>
+<td class="org-left">liquidDrop</td>
+<td class="org-left"><a href="#org9a9084b">Liquid</a></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">liquids that drop from this block, used for pumps.</td>
+</tr>
+
+<tr>
+<td class="org-left">itemDrop</td>
+<td class="org-left"><a href="#orga6db1ba">Item</a></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">item that drops from this block, used for drills.</td>
+</tr>
+
+<tr>
+<td class="org-left">isLiquid</td>
+<td class="org-left">boolean</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">whether this block can be drowned in.</td>
+</tr>
+
+<tr>
+<td class="org-left">playerUnmineable</td>
+<td class="org-left">boolean</td>
+<td class="org-right">false</td>
+<td class="org-left">block cannot be mined by players if true.</td>
+</tr>
+
+<tr>
+<td class="org-left">blendGroup</td>
+<td class="org-left"><a href="#org093a785">Block</a></td>
+<td class="org-right">this</td>
+<td class="org-left">group of blocks that this block does not draw edges on.</td>
+</tr>
+
+<tr>
+<td class="org-left">updateEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">"none"</td>
+<td class="org-left">effect displayed when randomly updated.</td>
+</tr>
+
+<tr>
+<td class="org-left">attributes</td>
+<td class="org-left"><a href="#org3c1e18c">Attributes</a></td>
+<td class="org-right"><code>{ "array": [] }</code></td>
+<td class="org-left">array of affinities to certain things.</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sprite lookup name, where <code>i</code> is the variant:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;&lt;i&gt;.png</code> variants start at <code>1</code>.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org00cc9b0" class="outline-4">
+<h4 id="org00cc9b0"><span class="section-number-4">3.2.2</span> OverlayFloor</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+Extends <a href="#orgbeb8e20">Floor</a> &#x2013; A type of floor that is overlaid on top of over floors.
+</p>
+
+<p>
+For example:
+</p>
+<ul class="org-ul">
+<li><code>spawn</code></li>
+<li><code>tendrils</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga6a62b8" class="outline-4">
+<h4 id="orga6a62b8"><span class="section-number-4">3.2.3</span> DoubleOverlayFloor</h4>
+<div class="outline-text-4" id="text-3-2-3">
+<p>
+Extends <a href="#org00cc9b0">OverlayFloor</a>
+</p>
+
+<p>
+For example:
+</p>
+<ul class="org-ul">
+<li><code>pebbles</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbd1f72f" class="outline-4">
+<h4 id="orgbd1f72f"><span class="section-number-4">3.2.4</span> OreBlock</h4>
+<div class="outline-text-4" id="text-3-2-4">
+<p>
+Extends <a href="#org00cc9b0">OverlayFloor</a> &#x2013; An overlay ore for a specific item type.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">variants</td>
+<td class="org-right">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org68a48c9" class="outline-4">
+<h4 id="org68a48c9"><span class="section-number-4">3.2.5</span> StaticWalls</h4>
+<div class="outline-text-4" id="text-3-2-5">
+</div>
+<ol class="org-ol">
+<li><a id="org30379cc"></a>Rock<br />
+<div class="outline-text-5" id="text-3-2-5-1">
+<p>
+Extends <a href="#org093a785">Block</a> 
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">variants</td>
+<td class="org-left">int</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">breakable</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">alwaysReplace</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="orgfebf526"></a>StaticWall<br />
+<div class="outline-text-5" id="text-3-2-5-2">
+<p>
+Extends <a href="#org30379cc">Rock</a>
+</p>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">breakable</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">alwaysReplace</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">variants</td>
+<td class="org-left">2</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Extra Sprites:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-large.png</code> which is a 2x2 variant.</li>
+</ul>
+</div>
+</li>
+
+<li><a id="org6317a84"></a>StaticTree<br />
+<div class="outline-text-5" id="text-3-2-5-3">
+<p>
+Extends <a href="#orgfebf526">StaticWall</a> 
+</p>
+
+<p>
+For example:
+</p>
+<ul class="org-ul">
+<li><code>spore-pine</code></li>
+<li><code>snow-pine</code></li>
+<li><code>pine</code></li>
+<li><code>shrubs</code></li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org4d76b06" class="outline-4">
+<h4 id="org4d76b06"><span class="section-number-4">3.2.6</span> TreeBlock</h4>
+<div class="outline-text-4" id="text-3-2-6">
+<p>
+Extends <a href="#org093a785">Block</a>
+</p>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">layer</td>
+<td class="org-left">power</td>
+</tr>
+
+<tr>
+<td class="org-left">expanded</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf64cef6" class="outline-3">
+<h3 id="orgf64cef6"><span class="section-number-3">3.3</span> Crafting</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-org9ccc356" class="outline-4">
+<h4 id="org9ccc356"><span class="section-number-4">3.3.1</span> GenericCrafter</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<p>
+Extends <a href="#org093a785">Block</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">outputItem</td>
+<td class="org-left"><a href="#orgd441c4b">ItemStack</a></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">outputLiquid</td>
+<td class="org-left"><a href="#org3724383">LiquidStack</a></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">craftTime</td>
+<td class="org-left">float</td>
+<td class="org-left">80</td>
+</tr>
+
+<tr>
+<td class="org-left">craftEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-left">none</td>
+</tr>
+
+<tr>
+<td class="org-left">updateEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-left">none</td>
+</tr>
+
+<tr>
+<td class="org-left">updateEffectChance</td>
+<td class="org-left">float</td>
+<td class="org-left">0.04</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">health</td>
+<td class="org-left">60</td>
+</tr>
+
+<tr>
+<td class="org-left">idleSound</td>
+<td class="org-left">machine</td>
+</tr>
+
+<tr>
+<td class="org-left">idleSoundVolume</td>
+<td class="org-left">0.03</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgb74e0a6" class="outline-4">
+<h4 id="orgb74e0a6"><span class="section-number-4">3.3.2</span> GenericSmelter</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<p>
+Extends <a href="#org9ccc356">GenericCrafter</a> &#x2013; A GenericCrafter with a new glowing region drawn on top.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">flameColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-left">ffc999</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sprite suffix:
+</p>
+<ul class="org-ul">
+<li><code>-top</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf1c19a7" class="outline-4">
+<h4 id="orgf1c19a7"><span class="section-number-4">3.3.3</span> Separator</h4>
+<div class="outline-text-4" id="text-3-3-3">
+<p>
+Extends <a href="#org093a785">Block</a> &#x2013; Extracts a random list of items from an input item and an input liquid.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">results</td>
+<td class="org-left"><a href="#orgd441c4b">ItemStack</a></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left"><b>[required]</b></td>
+</tr>
+
+<tr>
+<td class="org-left">craftTime</td>
+<td class="org-left">float</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">spinnerRadius</td>
+<td class="org-left">float</td>
+<td class="org-right">2.5</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">spinnerLength</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">spinnerThickness</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">spinnerSpeed</td>
+<td class="org-left">float</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">color</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">858585</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">liquidRegion</td>
+<td class="org-left">int</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasLiquids</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sprite suffixes:
+</p>
+<ul class="org-ul">
+<li><code>-liquid</code></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5aafc5a" class="outline-3">
+<h3 id="org5aafc5a"><span class="section-number-3">3.4</span> Sandbox</h3>
+<div class="outline-text-3" id="text-3-4">
+</div>
+<div id="outline-container-orgc1f3c9c" class="outline-4">
+<h4 id="orgc1f3c9c"><span class="section-number-4">3.4.1</span> <span class="todo TODO">TODO</span> Incinerator</h4>
+</div>
+<div id="outline-container-org95aa0fe" class="outline-4">
+<h4 id="org95aa0fe"><span class="section-number-4">3.4.2</span> <span class="todo TODO">TODO</span> PowerVoid</h4>
+</div>
+<div id="outline-container-orgafde3d2" class="outline-4">
+<h4 id="orgafde3d2"><span class="section-number-4">3.4.3</span> <span class="todo TODO">TODO</span> PowerSource</h4>
+</div>
+<div id="outline-container-org3e15fd5" class="outline-4">
+<h4 id="org3e15fd5"><span class="section-number-4">3.4.4</span> <span class="todo TODO">TODO</span> ItemSource</h4>
+</div>
+<div id="outline-container-orge64d74b" class="outline-4">
+<h4 id="orge64d74b"><span class="section-number-4">3.4.5</span> <span class="todo TODO">TODO</span> ItemVoid</h4>
+</div>
+<div id="outline-container-orgd07df5b" class="outline-4">
+<h4 id="orgd07df5b"><span class="section-number-4">3.4.6</span> <span class="todo TODO">TODO</span> LiquidSource</h4>
+</div>
+<div id="outline-container-orgb0e9c9b" class="outline-4">
+<h4 id="orgb0e9c9b"><span class="section-number-4">3.4.7</span> <span class="todo TODO">TODO</span> MessageBlock</h4>
+</div>
+</div>
+<div id="outline-container-orgad9d6d2" class="outline-3">
+<h3 id="orgad9d6d2"><span class="section-number-3">3.5</span> Defense</h3>
+<div class="outline-text-3" id="text-3-5">
+</div>
+<div id="outline-container-org88e1215" class="outline-4">
+<h4 id="org88e1215"><span class="section-number-4">3.5.1</span> Wall</h4>
+<div class="outline-text-4" id="text-3-5-1">
+<p>
+Extends <a href="#org093a785">Block</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">variants</td>
+<td class="org-left">int</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">destructible</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left">"walls"</td>
+</tr>
+
+<tr>
+<td class="org-left">buildCostMultiplier</td>
+<td class="org-left">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgee00b5d" class="outline-4">
+<h4 id="orgee00b5d"><span class="section-number-4">3.5.2</span> DeflectorWall</h4>
+<div class="outline-text-4" id="text-3-5-2">
+<p>
+Extends <a href="#org88e1215">Wall</a> &#x2013; Wall that deflects low damage bullets.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hitTime</td>
+<td class="org-left">float</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-left">maxDamageDeflect</td>
+<td class="org-left">float</td>
+<td class="org-right">10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgd9c6f76" class="outline-4">
+<h4 id="orgd9c6f76"><span class="section-number-4">3.5.3</span> SurgeWall</h4>
+<div class="outline-text-4" id="text-3-5-3">
+<p>
+Extends <a href="#org88e1215">Wall</a> &#x2013; Wall that creates lightning when shot.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">lightningChance</td>
+<td class="org-left">float</td>
+<td class="org-right">0.05</td>
+</tr>
+
+<tr>
+<td class="org-left">lightningDamage</td>
+<td class="org-left">float</td>
+<td class="org-right">15</td>
+</tr>
+
+<tr>
+<td class="org-left">lightningLength</td>
+<td class="org-left">int</td>
+<td class="org-right">17</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgb885735" class="outline-4">
+<h4 id="orgb885735"><span class="section-number-4">3.5.4</span> Door</h4>
+<div class="outline-text-4" id="text-3-5-4">
+<p>
+Extends <a href="#org88e1215">Wall</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">openfx</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-left">dooropen</td>
+</tr>
+
+<tr>
+<td class="org-left">closefx</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-left">doorclose</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">solidfies</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">consumesTap</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orge068b87" class="outline-4">
+<h4 id="orge068b87"><span class="section-number-4">3.5.5</span> MendProjector</h4>
+<div class="outline-text-4" id="text-3-5-5">
+<p>
+Extends <a href="#org093a785">Block</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">color</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">"84f491"</td>
+</tr>
+
+<tr>
+<td class="org-left">phase</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">"ffd59e"</td>
+</tr>
+
+<tr>
+<td class="org-left">reload</td>
+<td class="org-left">float</td>
+<td class="org-right">250</td>
+</tr>
+
+<tr>
+<td class="org-left">range</td>
+<td class="org-left">float</td>
+<td class="org-right">60</td>
+</tr>
+
+<tr>
+<td class="org-left">healPercent</td>
+<td class="org-left">float</td>
+<td class="org-right">12</td>
+</tr>
+
+<tr>
+<td class="org-left">phaseBoost</td>
+<td class="org-left">float</td>
+<td class="org-right">12</td>
+</tr>
+
+<tr>
+<td class="org-left">phaseRangeBoost</td>
+<td class="org-left">float</td>
+<td class="org-right">50</td>
+</tr>
+
+<tr>
+<td class="org-left">useTime</td>
+<td class="org-left">float</td>
+<td class="org-right">400</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgf1515c2" class="outline-4">
+<h4 id="orgf1515c2"><span class="section-number-4">3.5.6</span> OverdriveProjector</h4>
+<div class="outline-text-4" id="text-3-5-6">
+<p>
+Extends <a href="#org093a785">Block</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">color</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">feb380</td>
+</tr>
+
+<tr>
+<td class="org-left">phase</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">ffd59e</td>
+</tr>
+
+<tr>
+<td class="org-left">reload</td>
+<td class="org-left">float</td>
+<td class="org-right">60</td>
+</tr>
+
+<tr>
+<td class="org-left">range</td>
+<td class="org-left">float</td>
+<td class="org-right">80</td>
+</tr>
+
+<tr>
+<td class="org-left">speedBoost</td>
+<td class="org-left">float</td>
+<td class="org-right">1.5</td>
+</tr>
+
+<tr>
+<td class="org-left">speedBoostPhase</td>
+<td class="org-left">float</td>
+<td class="org-right">0.75</td>
+</tr>
+
+<tr>
+<td class="org-left">useTime</td>
+<td class="org-left">float</td>
+<td class="org-right">400</td>
+</tr>
+
+<tr>
+<td class="org-left">phaseRangeBoost</td>
+<td class="org-left">float</td>
+<td class="org-right">20</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org71d4cb8" class="outline-4">
+<h4 id="org71d4cb8"><span class="section-number-4">3.5.7</span> ForceProjector</h4>
+<div class="outline-text-4" id="text-3-5-7">
+<p>
+Extends <a href="#org093a785">Block</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">phaseUseTime</td>
+<td class="org-left">float</td>
+<td class="org-right">350</td>
+</tr>
+
+<tr>
+<td class="org-left">phaseRadiusBoost</td>
+<td class="org-left">float</td>
+<td class="org-right">80</td>
+</tr>
+
+<tr>
+<td class="org-left">radius</td>
+<td class="org-left">float</td>
+<td class="org-right">101.7</td>
+</tr>
+
+<tr>
+<td class="org-left">breakage</td>
+<td class="org-left">float</td>
+<td class="org-right">550</td>
+</tr>
+
+<tr>
+<td class="org-left">cooldownNormal</td>
+<td class="org-left">float</td>
+<td class="org-right">1.75</td>
+</tr>
+
+<tr>
+<td class="org-left">cooldownLiquid</td>
+<td class="org-left">float</td>
+<td class="org-right">1.5</td>
+</tr>
+
+<tr>
+<td class="org-left">cooldownBrokenBase</td>
+<td class="org-left">float</td>
+<td class="org-right">0.35</td>
+</tr>
+
+<tr>
+<td class="org-left">basePowerDraw</td>
+<td class="org-left">float</td>
+<td class="org-right">0.2</td>
+</tr>
+
+<tr>
+<td class="org-left">powerDamage</td>
+<td class="org-left">float</td>
+<td class="org-right">0.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org95f1099" class="outline-4">
+<h4 id="org95f1099"><span class="section-number-4">3.5.8</span> ShockMine</h4>
+<div class="outline-text-4" id="text-3-5-8">
+<p>
+Extends <a href="#org093a785">Block</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">cooldown</td>
+<td class="org-left">float</td>
+<td class="org-right">80</td>
+</tr>
+
+<tr>
+<td class="org-left">tileDamage</td>
+<td class="org-left">float</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">damage</td>
+<td class="org-left">float</td>
+<td class="org-right">13</td>
+</tr>
+
+<tr>
+<td class="org-left">length</td>
+<td class="org-left">int</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-left">tendrils</td>
+<td class="org-left">int</td>
+<td class="org-right">6</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">destructible</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">targetable</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">layer</td>
+<td class="org-left">overlay</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8f23192" class="outline-3">
+<h3 id="org8f23192"><span class="section-number-3">3.6</span> Turrets</h3>
+<div class="outline-text-3" id="text-3-6">
+</div>
+<div id="outline-container-org22bdbf7" class="outline-4">
+<h4 id="org22bdbf7"><span class="section-number-4">3.6.1</span> Turret</h4>
+<div class="outline-text-4" id="text-3-6-1">
+<p>
+Extends <a href="#org093a785">Block</a> &#x2013; Base extended to make turrets types.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">heatColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">turretHeat</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">shootEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">none</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">smokeEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">none</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ammoUseEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">none</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">shootSound</td>
+<td class="org-left"><a href="#orgf5a0695">Sound</a></td>
+<td class="org-right">shoot</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ammoPerShot</td>
+<td class="org-left">int</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ammoEjectBack</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">range</td>
+<td class="org-left">float</td>
+<td class="org-right">50</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">reload</td>
+<td class="org-left">float</td>
+<td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">inaccuracy</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">shots</td>
+<td class="org-left">int</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">spread</td>
+<td class="org-left">float</td>
+<td class="org-right">4</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">recoil</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">restitution</td>
+<td class="org-left">float</td>
+<td class="org-right">0.02</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">cooldown</td>
+<td class="org-left">float</td>
+<td class="org-right">0.02</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">rotatespeed</td>
+<td class="org-left">float</td>
+<td class="org-right">5</td>
+<td class="org-left">in degrees per tick</td>
+</tr>
+
+<tr>
+<td class="org-left">shootCone</td>
+<td class="org-left">float</td>
+<td class="org-right">8</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">shootShake</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">xRand</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">targetAir</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">targetGround</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">priority</td>
+<td class="org-left">turret</td>
+</tr>
+
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">layer</td>
+<td class="org-left">turret</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left">turrets</td>
+</tr>
+
+<tr>
+<td class="org-left">outlineIcon</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org525e411" class="outline-4">
+<h4 id="org525e411"><span class="section-number-4">3.6.2</span> CooledTurret</h4>
+<div class="outline-text-4" id="text-3-6-2">
+<p>
+Extends <a href="#org22bdbf7">Turret</a> &#x2013; Extends turret with cooling behavior.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">coolantMultiplier</td>
+<td class="org-left">float</td>
+<td class="org-left">5</td>
+<td class="org-left">How much reload is lowered by for each unit of liquid of heat capacity.</td>
+</tr>
+
+<tr>
+<td class="org-left">coolEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-left">shoot</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org74f9808" class="outline-4">
+<h4 id="org74f9808"><span class="section-number-4">3.6.3</span> ItemTurret</h4>
+<div class="outline-text-4" id="text-3-6-3">
+<p>
+Extends <a href="#org525e411">CooledTurret</a> &#x2013; Turrets that uses items as ammo.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">maxAmmo</td>
+<td class="org-left">int</td>
+<td class="org-right">30</td>
+</tr>
+
+<tr>
+<td class="org-left">ammo</td>
+<td class="org-left">{ <a href="#orga6db1ba">Item</a>: <a href="#org23a5763">BulletType</a> }</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Ammo is an object of item:bullet-type pairs, for example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-json">{
+    <span style="color: #c1caa1;">"ammo"</span>: {
+        <span style="color: #c1caa1;">"copper"</span>: <span style="color: #dddddd;">"standardCopper"</span>,
+        <span style="color: #c1caa1;">"metaglass"</span>: {
+            <span style="color: #c1caa1;">"type"</span>: <span style="color: #dddddd;">"MissileBulletType"</span>,
+            <span style="color: #c1caa1;">"damage"</span>: <span style="color: #90afc5;">2</span>
+        }
+    }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8091799" class="outline-4">
+<h4 id="org8091799"><span class="section-number-4">3.6.4</span> DoubleTurret</h4>
+<div class="outline-text-4" id="text-3-6-4">
+<p>
+Extends <a href="#org74f9808">ItemTurret</a> &#x2013; Turret that shoots from two side by side barrels.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">shotWidth</td>
+<td class="org-left">float</td>
+<td class="org-right">2</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Default:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">shots</td>
+<td class="org-right">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org7ac5cb5" class="outline-4">
+<h4 id="org7ac5cb5"><span class="section-number-4">3.6.5</span> ArtilleryTurret</h4>
+<div class="outline-text-4" id="text-3-6-5">
+<p>
+Extends <a href="#org74f9808">ItemTurret</a> &#x2013; Artillery turrets have special shooting calculations done to hit targets.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">targetAir</td>
+<td class="org-left">false</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orge164fc6" class="outline-4">
+<h4 id="orge164fc6"><span class="section-number-4">3.6.6</span> BurstTurret</h4>
+<div class="outline-text-4" id="text-3-6-6">
+<p>
+Extends <a href="#org74f9808">ItemTurret</a> &#x2013; Turrets capable of bursts of specially spaced bullets, separated by long reload times.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">burstSpacing</td>
+<td class="org-left">float</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org1f594a7" class="outline-4">
+<h4 id="org1f594a7"><span class="section-number-4">3.6.7</span> PowerTurret</h4>
+<div class="outline-text-4" id="text-3-6-7">
+<p>
+Extends <a href="#org525e411">CooledTurret</a> &#x2013; Turret which uses power has ammo to shoot.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">shootType</td>
+<td class="org-left"><a href="#org23a5763">BulletType</a></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">powerUse</td>
+<td class="org-left">float</td>
+<td class="org-left">1</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults: 
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasPower</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org414928c" class="outline-4">
+<h4 id="org414928c"><span class="section-number-4">3.6.8</span> <span class="todo TODO">TODO</span> ChargeTurret</h4>
+</div>
+<div id="outline-container-orge7a2299" class="outline-4">
+<h4 id="orge7a2299"><span class="section-number-4">3.6.9</span> LaserTurret</h4>
+<div class="outline-text-4" id="text-3-6-9">
+<p>
+Extends <a href="#org1f594a7">PowerTurret</a> 
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">firingMoveFract</td>
+<td class="org-left">float</td>
+<td class="org-right">0.25</td>
+<td class="org-left">rotatespeed fraction when turret is shooting</td>
+</tr>
+
+<tr>
+<td class="org-left">shootDuration</td>
+<td class="org-left">float</td>
+<td class="org-right">100</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">canOverdrive</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">coolantMultiplier</td>
+<td class="org-left">1</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Doesn't update shoot if:
+</p>
+<ul class="org-ul">
+<li>liquid temperature greater or equal to <code>0.5</code></li>
+<li>liquid flammability greater then <code>0.1</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org97fc8e0" class="outline-4">
+<h4 id="org97fc8e0"><span class="section-number-4">3.6.10</span> <span class="todo TODO">TODO</span> LiquidTurret</h4>
+</div>
+</div>
+
+<div id="outline-container-orgd35b3f8" class="outline-3">
+<h3 id="orgd35b3f8"><span class="section-number-3">3.7</span> Distribution</h3>
+<div class="outline-text-3" id="text-3-7">
+</div>
+<div id="outline-container-org951a6ed" class="outline-4">
+<h4 id="org951a6ed"><span class="section-number-4">3.7.1</span> <span class="todo TODO">TODO</span> Conveyor</h4>
+</div>
+<div id="outline-container-orga4ce804" class="outline-4">
+<h4 id="orga4ce804"><span class="section-number-4">3.7.2</span> <span class="todo TODO">TODO</span> ArmoredConveyor</h4>
+</div>
+<div id="outline-container-orge76bdc2" class="outline-4">
+<h4 id="orge76bdc2"><span class="section-number-4">3.7.3</span> Junction</h4>
+<div class="outline-text-4" id="text-3-7-3">
+<p>
+Extends <a href="#org093a785">Block</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">speed</td>
+<td class="org-left">float</td>
+<td class="org-right">26</td>
+<td class="org-left">frames taken to go through this junction</td>
+</tr>
+
+<tr>
+<td class="org-left">capacity</td>
+<td class="org-left">capacity</td>
+<td class="org-right">6</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">instantTransfer</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left">transportation</td>
+</tr>
+
+<tr>
+<td class="org-left">unloadable</td>
+<td class="org-left">false</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org214cc27" class="outline-4">
+<h4 id="org214cc27"><span class="section-number-4">3.7.4</span> ItemBridge</h4>
+<div class="outline-text-4" id="text-3-7-4">
+<p>
+Extends <a href="#org093a785">Block</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">range</td>
+<td class="org-left">int</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">transportTime</td>
+<td class="org-left">float</td>
+<td class="org-left">2</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasPower</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">layer</td>
+<td class="org-left">power</td>
+</tr>
+
+<tr>
+<td class="org-left">expanded</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">itemCapacity</td>
+<td class="org-left">10</td>
+</tr>
+
+<tr>
+<td class="org-left">posConfig</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">configurable</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">unloadable</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left">transportation</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sprites:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-end</code> example: <a href="https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-end.png">bridge-conveyor-end</a></li>
+<li><code>&lt;name&gt;-bridge</code> example: <a href="https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-bridge.png">bridge-conveyor-bridge</a></li>
+<li><code>&lt;name&gt;-arrow</code> example: <a href="https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-arrow.png">bridge-conveyor-arrow</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgb313b76" class="outline-4">
+<h4 id="orgb313b76"><span class="section-number-4">3.7.5</span> ExtendingItemBridge</h4>
+<div class="outline-text-4" id="text-3-7-5">
+<p>
+Extends <a href="#org214cc27">ItemBridge</a>
+</p>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org4ef5404" class="outline-4">
+<h4 id="org4ef5404"><span class="section-number-4">3.7.6</span> BufferedItemBridge</h4>
+<div class="outline-text-4" id="text-3-7-6">
+<p>
+Extends <a href="#orgb313b76">ExtendingItemBridge</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">speed</td>
+<td class="org-left">float</td>
+<td class="org-right">40</td>
+</tr>
+
+<tr>
+<td class="org-left">bufferCapacity</td>
+<td class="org-left">int</td>
+<td class="org-right">50</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasPower</td>
+<td class="org-left">false</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orgb0b9a3f" class="outline-4">
+<h4 id="orgb0b9a3f"><span class="section-number-4">3.7.7</span> Sorter</h4>
+<div class="outline-text-4" id="text-3-7-7">
+<p>
+Extends <a href="#org093a785">Block</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">invert</td>
+<td class="org-left">boolean</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">instantTransfer</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left">transportation</td>
+</tr>
+
+<tr>
+<td class="org-left">configurable</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">unloadable</td>
+<td class="org-left">false</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org747c1f3" class="outline-4">
+<h4 id="org747c1f3"><span class="section-number-4">3.7.8</span> <span class="todo TODO">TODO</span> OverflowGate</h4>
+</div>
+<div id="outline-container-orge5d38de" class="outline-4">
+<h4 id="orge5d38de"><span class="section-number-4">3.7.9</span> MassDriver</h4>
+<div class="outline-text-4" id="text-3-7-9">
+<p>
+Extends <a href="#org093a785">Block</a> &#x2013; Uses <code>driverBolt</code> to transfer items. 
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">range</td>
+<td class="org-left">float</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">rotateSpeed</td>
+<td class="org-left">float</td>
+<td class="org-right">0.04</td>
+</tr>
+
+<tr>
+<td class="org-left">translation</td>
+<td class="org-left">float</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">minDistribute</td>
+<td class="org-left">int</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-left">knockback</td>
+<td class="org-left">float</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">reloadTime</td>
+<td class="org-left">float</td>
+<td class="org-right">100</td>
+</tr>
+
+<tr>
+<td class="org-left">shootEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">shootBig2</td>
+</tr>
+
+<tr>
+<td class="org-left">smokeEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">shootBigSmoke2</td>
+</tr>
+
+<tr>
+<td class="org-left">recieveEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">mineBig</td>
+</tr>
+
+<tr>
+<td class="org-left">shake</td>
+<td class="org-left">float</td>
+<td class="org-right">3</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Notes: 
+</p>
+<ul class="org-ul">
+<li>range is limited by <code>driverBolt</code>'s max range.</li>
+</ul>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">posConfig</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">configurable</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">layer</td>
+<td class="org-left">turret</td>
+</tr>
+
+<tr>
+<td class="org-left">hasPower</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">outlineIcon</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sprites:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-base</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org57d2d1c" class="outline-3">
+<h3 id="org57d2d1c"><span class="section-number-3">3.8</span> Liquid</h3>
+<div class="outline-text-3" id="text-3-8">
+</div>
+<div id="outline-container-orgf2c35f1" class="outline-4">
+<h4 id="orgf2c35f1"><span class="section-number-4">3.8.1</span> LiquidBlock</h4>
+<div class="outline-text-4" id="text-3-8-1">
+<p>
+Extends <a href="#org093a785">Block</a> &#x2013; For blocks that can carry liquids. Apart from the better defaults, it also fetches extra sprites.
+</p>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasLiquids</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left">liquids</td>
+</tr>
+
+<tr>
+<td class="org-left">outputsLiquid</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sprites:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-liquid</code></li>
+<li><code>&lt;name&gt;-top</code></li>
+<li><code>&lt;name&gt;-bottom</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org08d90b4" class="outline-4">
+<h4 id="org08d90b4"><span class="section-number-4">3.8.2</span> Pump</h4>
+<div class="outline-text-4" id="text-3-8-2">
+<p>
+Extends <a href="#orgf2c35f1">LiquidBlock</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">pumpAmount</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">layer</td>
+<td class="org-left">overlay</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left">liquids</td>
+</tr>
+
+<tr>
+<td class="org-left">floating</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org662c2f4" class="outline-4">
+<h4 id="org662c2f4"><span class="section-number-4">3.8.3</span> Conduit</h4>
+<div class="outline-text-4" id="text-3-8-3">
+<p>
+Extends <a href="#orgf2c35f1">LiquidBlock</a>
+</p>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">rotate</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">floating</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sprite lookup name <i>(where <code>i</code> can be anything from 0-6)</i>:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-top-&lt;i&gt;</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org43d924d" class="outline-4">
+<h4 id="org43d924d"><span class="section-number-4">3.8.4</span> LiquidRouter</h4>
+<div class="outline-text-4" id="text-3-8-4">
+<p>
+Extends <a href="#orgf2c35f1">LiquidBlock</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb55af63" class="outline-4">
+<h4 id="orgb55af63"><span class="section-number-4">3.8.5</span> LiquidTank</h4>
+<div class="outline-text-4" id="text-3-8-5">
+<p>
+Extends <a href="#org43d924d">LiquidRouter</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge1cfc81" class="outline-4">
+<h4 id="orge1cfc81"><span class="section-number-4">3.8.6</span> LiquidJunction</h4>
+<div class="outline-text-4" id="text-3-8-6">
+<p>
+Extends <a href="#orgf2c35f1">LiquidBlock</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasLiquids</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgf346f08" class="outline-4">
+<h4 id="orgf346f08"><span class="section-number-4">3.8.7</span> LiquidBridge</h4>
+<div class="outline-text-4" id="text-3-8-7">
+<p>
+Extends <a href="#orgf346f08">LiquidBridge</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">hasLiquids</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">outputsLiquid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left">liquids</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgf0636f3" class="outline-4">
+<h4 id="orgf0636f3"><span class="section-number-4">3.8.8</span> LiquidExtendingBridge</h4>
+<div class="outline-text-4" id="text-3-8-8">
+<p>
+Extends <a href="#orgb313b76">ExtendingItemBridge</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">hasLiquids</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">outputsLiquid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left">liquids</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-org73a3f62" class="outline-3">
+<h3 id="org73a3f62"><span class="section-number-3">3.9</span> Power</h3>
+<div class="outline-text-3" id="text-3-9">
+</div>
+<div id="outline-container-org2c46cb9" class="outline-4">
+<h4 id="org2c46cb9"><span class="section-number-4">3.9.1</span> PowerBlock</h4>
+<div class="outline-text-4" id="text-3-9-1">
+<p>
+Extends <a href="#org093a785">Block</a> &#x2013; Just a simple overwrite of the defaults.
+</p>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasPower</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left">power</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org48f8f15" class="outline-4">
+<h4 id="org48f8f15"><span class="section-number-4">3.9.2</span> PowerNode</h4>
+<div class="outline-text-4" id="text-3-9-2">
+<p>
+Extends <a href="#org2c46cb9">PowerBlock</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">laserRange</td>
+<td class="org-left">float</td>
+<td class="org-right">6</td>
+</tr>
+
+<tr>
+<td class="org-left">maxNodes</td>
+<td class="org-left">int</td>
+<td class="org-right">3</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">expanded</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">layer</td>
+<td class="org-left">power</td>
+</tr>
+
+<tr>
+<td class="org-left">configurable</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">consumesPower</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">outputsPower</td>
+<td class="org-left">false</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org4e05b93" class="outline-4">
+<h4 id="org4e05b93"><span class="section-number-4">3.9.3</span> PowerDistributor</h4>
+<div class="outline-text-4" id="text-3-9-3">
+<p>
+Extends <a href="#org2c46cb9">PowerBlock</a> &#x2013; Just a change of defaults for power distributors.
+</p>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">consumesPower</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">outputsPower</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgd20b4ad" class="outline-4">
+<h4 id="orgd20b4ad"><span class="section-number-4">3.9.4</span> Battery</h4>
+<div class="outline-text-4" id="text-3-9-4">
+<p>
+Extends <a href="#org4e05b93">PowerDistributor</a> &#x2013; Just a change of defaults for batteries.
+</p>
+
+<p>
+Defauts:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">outputsPower</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">consumesPower</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgce79077" class="outline-4">
+<h4 id="orgce79077"><span class="section-number-4">3.9.5</span> PowerGenerator</h4>
+<div class="outline-text-4" id="text-3-9-5">
+<p>
+Extends <a href="#org4e05b93">PowerDistributor</a> &#x2013; Base of power generators.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">powerProduction</td>
+<td class="org-left">float</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">power produced per tick at 100% (<code>1.0</code>) efficiency</td>
+</tr>
+
+<tr>
+<td class="org-left">generationType</td>
+<td class="org-left">BlockStat</td>
+<td class="org-left">basePowerGeneration</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">baseExplosiveness</td>
+<td class="org-right">5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org638f1d8" class="outline-4">
+<h4 id="org638f1d8"><span class="section-number-4">3.9.6</span> ThermalGenerator</h4>
+<div class="outline-text-4" id="text-3-9-6">
+<p>
+Extends <a href="#orgce79077">PowerGenerator</a> &#x2013; Generates power with the heat <a href="#org3c1e18c">attribute</a> of a tile. Power production is <code>powerProduction * heat</code>, and <code>heat</code> must be greater then <code>0.01</code>.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">generateEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-left">none</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org799e351" class="outline-4">
+<h4 id="org799e351"><span class="section-number-4">3.9.7</span> ItemLiquidGenerator</h4>
+<div class="outline-text-4" id="text-3-9-7">
+<p>
+Extends <a href="#orgce79077">PowerGenerator</a> &#x2013; Base power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">minItemEfficiency</td>
+<td class="org-left">float</td>
+<td class="org-left">0.2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">itemDuration</td>
+<td class="org-left">float</td>
+<td class="org-left">70</td>
+<td class="org-left">number of ticks during which a single item will produce power.</td>
+</tr>
+
+<tr>
+<td class="org-left">minLiquidEfficiency</td>
+<td class="org-left">float</td>
+<td class="org-left">0.2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">maxLiquidGenerate</td>
+<td class="org-left">float</td>
+<td class="org-left">0.4</td>
+<td class="org-left">Maximum liquid used per frame.</td>
+</tr>
+
+<tr>
+<td class="org-left">generateEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-left">generatespark</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">explodeEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-left">generatespark</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">heatColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-left">ff9b59</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">randomlyExplode</td>
+<td class="org-left">boolean</td>
+<td class="org-left">true</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">defaults</td>
+<td class="org-left">boolean</td>
+<td class="org-left">false</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Notes:
+</p>
+<ul class="org-ul">
+<li>item efficiency is always 0.0</li>
+<li>liquid efficiency is always 0.0</li>
+</ul>
+
+<p>
+Extra sprites:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-top</code> if <code>hasItems</code> is <code>true</code></li>
+<li><code>&lt;name&gt;-liquid</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf3656c6" class="outline-4">
+<h4 id="orgf3656c6"><span class="section-number-4">3.9.8</span> SingleTypeGenerator</h4>
+<div class="outline-text-4" id="text-3-9-8">
+<p>
+Extends <a href="#org799e351">ItemLiquidGenerator</a> &#x2013; Generates power from an item.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf978411" class="outline-4">
+<h4 id="orgf978411"><span class="section-number-4">3.9.9</span> BurnerGenerator</h4>
+<div class="outline-text-4" id="text-3-9-9">
+<p>
+Extends <a href="#org799e351">ItemLiquidGenerator</a> &#x2013; Generates power from item flamability. 
+</p>
+</div>
+</div>
+<div id="outline-container-orge6f988b" class="outline-4">
+<h4 id="orge6f988b"><span class="section-number-4">3.9.10</span> DecayGenerator</h4>
+<div class="outline-text-4" id="text-3-9-10">
+<p>
+Extends <a href="#org799e351">ItemLiquidGenerator</a> &#x2013; Generates power from item radioactivity.
+</p>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasLiquids</td>
+<td class="org-left">false</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org5634d56" class="outline-4">
+<h4 id="org5634d56"><span class="section-number-4">3.9.11</span> SolarGenerator</h4>
+<div class="outline-text-4" id="text-3-9-11">
+<p>
+Extends <a href="#orgce79077">PowerGenerator</a> &#x2013; A generator that always produces 100% efficiency power.
+</p>
+
+<p>
+Notes: 
+</p>
+<ul class="org-ul">
+<li>Lower targetting priority then other generators.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgeb5ab5c" class="outline-4">
+<h4 id="orgeb5ab5c"><span class="section-number-4">3.9.12</span> NuclearReactor</h4>
+<div class="outline-text-4" id="text-3-9-12">
+<p>
+Extends <a href="#orgce79077">PowerGenerator</a> &#x2013; Generates power relative to how many items are in storage, and explodes if it runs out of coolant. 
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">coolColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">ffffff00</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">hotColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">ff9575a3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">itemDuration</td>
+<td class="org-left">float</td>
+<td class="org-right">120</td>
+<td class="org-left">time to consume 1 fuel</td>
+</tr>
+
+<tr>
+<td class="org-left">heating</td>
+<td class="org-left">float</td>
+<td class="org-right">0.01</td>
+<td class="org-left">heating per frame * fullness</td>
+</tr>
+
+<tr>
+<td class="org-left">smokeThreshold</td>
+<td class="org-left">float</td>
+<td class="org-right">0.3</td>
+<td class="org-left">heat at which blocks start smoking</td>
+</tr>
+
+<tr>
+<td class="org-left">explosionRadius</td>
+<td class="org-left">int</td>
+<td class="org-right">40</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">explosionDamage</td>
+<td class="org-left">int</td>
+<td class="org-right">1350</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">flashThreshold</td>
+<td class="org-left">float</td>
+<td class="org-right">0.46</td>
+<td class="org-left">heat at which lights start flashing</td>
+</tr>
+
+<tr>
+<td class="org-left">coolantPower</td>
+<td class="org-left">float</td>
+<td class="org-right">0.5</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">itemCapacity</td>
+<td class="org-left">30</td>
+</tr>
+
+<tr>
+<td class="org-left">liquidCapacity</td>
+<td class="org-left">30</td>
+</tr>
+
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasLiquids</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Extra Sprites:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-center</code> top region</li>
+<li><code>&lt;name&gt;-lights</code> lights region</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org28c8e81" class="outline-4">
+<h4 id="org28c8e81"><span class="section-number-4">3.9.13</span> ImpactReactor</h4>
+<div class="outline-text-4" id="text-3-9-13">
+<p>
+Extends <a href="#orgce79077">PowerGenerator</a> &#x2013; Generator that uses power and has a startup time.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">plasmas</td>
+<td class="org-left">int</td>
+<td class="org-right">4</td>
+<td class="org-left">number of plasma sprites</td>
+</tr>
+
+<tr>
+<td class="org-left">warmupSpeed</td>
+<td class="org-left">float</td>
+<td class="org-right">0.001</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">itemDuration</td>
+<td class="org-left">float</td>
+<td class="org-right">60</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">explosionRadius</td>
+<td class="org-left">int</td>
+<td class="org-right">50</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">explosionDamage</td>
+<td class="org-left">int</td>
+<td class="org-right">2000</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">plasma1</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">ffd06b</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">plasma2</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">ff361b</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasPower</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasLiquids</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">liquidCapacity</td>
+<td class="org-left">30f</td>
+</tr>
+
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">outputsPower</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">consumesPower</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sprites:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-bottom</code> bottom region</li>
+<li><code>&lt;name&gt;-plasma-&lt;i&gt;</code> plasma regions, where `i` is `0` to `plasmas - 1`.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf71c67e" class="outline-3">
+<h3 id="orgf71c67e"><span class="section-number-3">3.10</span> Production</h3>
+<div class="outline-text-3" id="text-3-10">
+</div>
+<div id="outline-container-org8694a3a" class="outline-4">
+<h4 id="org8694a3a"><span class="section-number-4">3.10.1</span> Drill</h4>
+<div class="outline-text-4" id="text-3-10-1">
+<p>
+Extends <a href="#org093a785">Block</a> &#x2013; Types that can be placed on ore blocks to extract the ore blocks items.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">tier</td>
+<td class="org-left">int</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Maximum tier of blocks this drill can mine.</td>
+</tr>
+
+<tr>
+<td class="org-left">drillTime</td>
+<td class="org-left">float</td>
+<td class="org-left">300</td>
+<td class="org-left">Base time to drill one ore, in frames.</td>
+</tr>
+
+<tr>
+<td class="org-left">liquidBoostIntensity</td>
+<td class="org-left">float</td>
+<td class="org-left">1.6</td>
+<td class="org-left">How many times faster the drill will progress when boosted by liquid.</td>
+</tr>
+
+<tr>
+<td class="org-left">warmupSpeed</td>
+<td class="org-left">float</td>
+<td class="org-left">0.02</td>
+<td class="org-left">Speed at which the drill speeds up.</td>
+</tr>
+
+<tr>
+<td class="org-left">drawMineItem</td>
+<td class="org-left">boolean</td>
+<td class="org-left">false</td>
+<td class="org-left">Whether to draw the item this drill is mining.</td>
+</tr>
+
+<tr>
+<td class="org-left">drillEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-left">mine</td>
+<td class="org-left">Effect played when an item is produced. This is colored.</td>
+</tr>
+
+<tr>
+<td class="org-left">rotateSpeed</td>
+<td class="org-left">float</td>
+<td class="org-left">2</td>
+<td class="org-left">Speed the drill bit rotates at.</td>
+</tr>
+
+<tr>
+<td class="org-left">updateEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-left">pulverizeSmall</td>
+<td class="org-left">Effect randomly played while drilling.</td>
+</tr>
+
+<tr>
+<td class="org-left">updateEffectChance</td>
+<td class="org-left">float</td>
+<td class="org-left">0.02</td>
+<td class="org-left">Chance the update effect will appear.</td>
+</tr>
+
+<tr>
+<td class="org-left">drawRim</td>
+<td class="org-left">boolean</td>
+<td class="org-left">false</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">heatColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-left">ff5512</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">layer</td>
+<td class="org-left">overlay</td>
+</tr>
+
+<tr>
+<td class="org-left">group</td>
+<td class="org-left">drills</td>
+</tr>
+
+<tr>
+<td class="org-left">hasLiquids</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">liquidCapacity</td>
+<td class="org-left">5</td>
+</tr>
+
+<tr>
+<td class="org-left">hasItems</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">idleSound</td>
+<td class="org-left">drill</td>
+</tr>
+
+<tr>
+<td class="org-left">idleSoundVolume</td>
+<td class="org-left">0.003</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sprites:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-rim</code></li>
+<li><code>&lt;name&gt;-rotator</code></li>
+<li><code>&lt;name&gt;-top</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1ed95d4" class="outline-4">
+<h4 id="org1ed95d4"><span class="section-number-4">3.10.2</span> SolidPump</h4>
+<div class="outline-text-4" id="text-3-10-2">
+<p>
+Extends <a href="#org08d90b4">Pump</a> &#x2013; Pump that makes liquid from solids and takes in power. Only works on solid floor blocks.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">result</td>
+<td class="org-left"><a href="#org9a9084b">Liquid</a></td>
+<td class="org-right">water</td>
+</tr>
+
+<tr>
+<td class="org-left">updateEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">none</td>
+</tr>
+
+<tr>
+<td class="org-left">updateEffectChance</td>
+<td class="org-left">float</td>
+<td class="org-right">0.02</td>
+</tr>
+
+<tr>
+<td class="org-left">rotateSpeed</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">attribute</td>
+<td class="org-left"><a href="#org8dd03a6">Attribute</a></td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasPower</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sprites:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-liquid</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgaf8ad5d" class="outline-4">
+<h4 id="orgaf8ad5d"><span class="section-number-4">3.10.3</span> <span class="todo TODO">TODO</span> Cultivator</h4>
+</div>
+<div id="outline-container-orgb7f9aca" class="outline-4">
+<h4 id="orgb7f9aca"><span class="section-number-4">3.10.4</span> <span class="todo TODO">TODO</span> Fracker</h4>
+</div>
+</div>
+<div id="outline-container-org5daab8e" class="outline-3">
+<h3 id="org5daab8e"><span class="section-number-3">3.11</span> Storage</h3>
+<div class="outline-text-3" id="text-3-11">
+</div>
+<div id="outline-container-org53e9844" class="outline-4">
+<h4 id="org53e9844"><span class="section-number-4">3.11.1</span> <span class="todo TODO">TODO</span> CoreBlock</h4>
+</div>
+<div id="outline-container-orgbf1a9a6" class="outline-4">
+<h4 id="orgbf1a9a6"><span class="section-number-4">3.11.2</span> <span class="todo TODO">TODO</span> Vault</h4>
+</div>
+<div id="outline-container-orge1ba04c" class="outline-4">
+<h4 id="orge1ba04c"><span class="section-number-4">3.11.3</span> <span class="todo TODO">TODO</span> Unloader</h4>
+</div>
+<div id="outline-container-orga09958b" class="outline-4">
+<h4 id="orga09958b"><span class="section-number-4">3.11.4</span> <span class="todo TODO">TODO</span> LaunchPad</h4>
+</div>
+</div>
+<div id="outline-container-org1e40b6e" class="outline-3">
+<h3 id="org1e40b6e"><span class="section-number-3">3.12</span> Units</h3>
+<div class="outline-text-3" id="text-3-12">
+</div>
+<div id="outline-container-org64a491d" class="outline-4">
+<h4 id="org64a491d"><span class="section-number-4">3.12.1</span> RepairPoint</h4>
+<div class="outline-text-4" id="text-3-12-1">
+<p>
+Extends <a href="#org093a785">Block</a> &#x2013; Block which can repair units within range, with a laser.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">repairRadius</td>
+<td class="org-left">float</td>
+<td class="org-right">50</td>
+</tr>
+
+<tr>
+<td class="org-left">repairSpeed</td>
+<td class="org-left">float</td>
+<td class="org-right">0.3</td>
+</tr>
+
+<tr>
+<td class="org-left">powerUse</td>
+<td class="org-left">float</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">hasPower</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">outlineIcon</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">layer</td>
+<td class="org-left">turret</td>
+</tr>
+
+<tr>
+<td class="org-left">layer2</td>
+<td class="org-left">power</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Extra sprites:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-base</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc0bcd1e" class="outline-4">
+<h4 id="orgc0bcd1e"><span class="section-number-4">3.12.2</span> <span class="todo TODO">TODO</span> UnitFactory</h4>
+</div>
+<div id="outline-container-orgd8332c1" class="outline-4">
+<h4 id="orgd8332c1"><span class="section-number-4">3.12.3</span> <span class="todo TODO">TODO</span> CommandCenter</h4>
+</div>
+<div id="outline-container-org6690060" class="outline-4">
+<h4 id="org6690060"><span class="section-number-4">3.12.4</span> <span class="todo TODO">TODO</span> UnitFactory</h4>
+</div>
+<div id="outline-container-orgf2dfc28" class="outline-4">
+<h4 id="orgf2dfc28"><span class="section-number-4">3.12.5</span> <span class="todo TODO">TODO</span> MechPad</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcc5ebaf" class="outline-2">
+<h2 id="orgcc5ebaf"><span class="section-number-2">4</span> Entity Types</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgeae7a53" class="outline-3">
+<h3 id="orgeae7a53"><span class="section-number-3">4.1</span> Content</h3>
+</div>
+<div id="outline-container-org23a5763" class="outline-3">
+<h3 id="org23a5763"><span class="section-number-3">4.2</span> BulletType</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Extends <a href="#orgbe80387">Content</a> &#x2013; Bullet can either be an object or a string, where a string would be reusing a built-in one and an object would be making a custom one.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">lifetime</td>
+<td class="org-left">float</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">amount of ticks it lasts</td>
+</tr>
+
+<tr>
+<td class="org-left">speed</td>
+<td class="org-left">float</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">inital speed of bullet</td>
+</tr>
+
+<tr>
+<td class="org-left">damage</td>
+<td class="org-left">float</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">collision damage</td>
+</tr>
+
+<tr>
+<td class="org-left">hitSize</td>
+<td class="org-left">float</td>
+<td class="org-right">4</td>
+<td class="org-left">collision radius</td>
+</tr>
+
+<tr>
+<td class="org-left">drawSize</td>
+<td class="org-left">float</td>
+<td class="org-right">40</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">drag</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">decelleration per tick</td>
+</tr>
+
+<tr>
+<td class="org-left">pierce</td>
+<td class="org-left">boolean</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">whether it can collide</td>
+</tr>
+
+<tr>
+<td class="org-left">hitEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">created when bullet hits something</td>
+</tr>
+
+<tr>
+<td class="org-left">despawnEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">created when bullet despawns</td>
+</tr>
+
+<tr>
+<td class="org-left">shootEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">created when shooting</td>
+</tr>
+
+<tr>
+<td class="org-left">smokeEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">created when shooting</td>
+</tr>
+
+<tr>
+<td class="org-left">hitSound</td>
+<td class="org-left">Sound</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">made when hitting something or getting removed</td>
+</tr>
+
+<tr>
+<td class="org-left">inaccuracy</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">extra inaccuracy</td>
+</tr>
+
+<tr>
+<td class="org-left">ammoMultiplier</td>
+<td class="org-left">float</td>
+<td class="org-right">2</td>
+<td class="org-left">how many bullets get created per item/liquid</td>
+</tr>
+
+<tr>
+<td class="org-left">reloadMultiplier</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+<td class="org-left">multiplied by turret reload speed</td>
+</tr>
+
+<tr>
+<td class="org-left">recoil</td>
+<td class="org-left">float</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">recoil from shooter entities</td>
+</tr>
+
+<tr>
+<td class="org-left">splashDamage</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">knockback</td>
+<td class="org-left">float</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">Knockback in velocity.</td>
+</tr>
+
+<tr>
+<td class="org-left">hitTiles</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+<td class="org-left">Whether this bullet hits tiles.</td>
+</tr>
+
+<tr>
+<td class="org-left">status</td>
+<td class="org-left"><a href="#org8880a2b">StatusEffect</a></td>
+<td class="org-right">none</td>
+<td class="org-left">Status effect applied on hit.</td>
+</tr>
+
+<tr>
+<td class="org-left">statusDuration</td>
+<td class="org-left">float</td>
+<td class="org-right">600</td>
+<td class="org-left">Intensity of applied status effect in terms of duration.</td>
+</tr>
+
+<tr>
+<td class="org-left">collidesTiles</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+<td class="org-left">Whether this bullet type collides with tiles.</td>
+</tr>
+
+<tr>
+<td class="org-left">collidesTeam</td>
+<td class="org-left">boolean</td>
+<td class="org-right">false</td>
+<td class="org-left">Whether this bullet type collides with tiles that are of the same team.</td>
+</tr>
+
+<tr>
+<td class="org-left">collidesAir</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+<td class="org-left">Whether this bullet type collides with air units.</td>
+</tr>
+
+<tr>
+<td class="org-left">collides</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+<td class="org-left">Whether this bullet types collides with anything at all.</td>
+</tr>
+
+<tr>
+<td class="org-left">keepVelocity</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+<td class="org-left">Whether velocity is inherited from the shooter.</td>
+</tr>
+
+<tr>
+<td class="org-left">fragBullets</td>
+<td class="org-left">int</td>
+<td class="org-right">9</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">fragVelocityMin</td>
+<td class="org-left">float</td>
+<td class="org-right">0.2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">fragVelocityMax</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">fragBullet</td>
+<td class="org-left"><a href="#org23a5763">BulletType</a></td>
+<td class="org-right">null</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">splashDamageRadius</td>
+<td class="org-left">float</td>
+<td class="org-right">-1</td>
+<td class="org-left">Use a negative value to disable splash damage.</td>
+</tr>
+
+<tr>
+<td class="org-left">incendAmount</td>
+<td class="org-left">int</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">incendSpread</td>
+<td class="org-left">float</td>
+<td class="org-right">8</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">incendChance</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">homingPower</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">homingRange</td>
+<td class="org-left">float</td>
+<td class="org-right">50</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">lightining</td>
+<td class="org-left">int</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">lightningLength</td>
+<td class="org-left">int</td>
+<td class="org-right">5</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">hitShake</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Built-in bullets:
+</p>
+<ul class="org-ul">
+<li>artillery:
+<ul class="org-ul">
+<li><code>artilleryDense</code> <code>arilleryPlastic</code> <code>artilleryPlasticFrag</code> <code>artilleryHoming</code> <code>artlleryIncendiary</code> <code>artilleryExplosive</code> <code>artilleryUnit</code></li>
+</ul></li>
+<li>flak:
+<ul class="org-ul">
+<li><code>flakScrap</code> <code>flakLead</code> <code>flakPlastic</code> <code>flakExplosive</code> <code>flakSurge</code> <code>flakGlass</code> <code>glassFrag</code></li>
+</ul></li>
+<li>missiles:
+<ul class="org-ul">
+<li><code>missileExplosive</code> <code>missileIncendiary</code> <code>missileSurge</code> <code>missileJavelin</code> <code>missileSwarm</code> <code>missileRevenant</code></li>
+</ul></li>
+<li>standard:
+<ul class="org-ul">
+<li><code>standardCopper</code> <code>standardDense</code> <code>standardThorium</code> <code>standardHoming</code> <code>standardIncendiary</code> <code>standardMechSmall</code> <code>standardGlaive</code> <code>standardDenseBig</code> <code>standardThoriumBig</code> <code>standardIncendiaryBig</code></li>
+</ul></li>
+<li>electric:
+<ul class="org-ul">
+<li><code>lancerLaser</code> <code>meltdownLaser</code> <code>lightning</code> <code>arc</code> <code>damageLightning</code></li>
+</ul></li>
+<li>liquid:
+<ul class="org-ul">
+<li><code>waterShot</code> <code>cryoShot</code> <code>slagShot</code> <code>oilShot</code></li>
+</ul></li>
+<li>environment &amp; misc:
+<ul class="org-ul">
+<li><code>fireball</code> <code>basicFlame</code> <code>pyraFlame</code> <code>driverBolt</code> <code>healBullet</code> <code>healBulletBig</code> <code>frag</code> <code>eruptorShot</code></li>
+</ul></li>
+<li>bombs:
+<ul class="org-ul">
+<li><code>bombExplosive</code> <code>bombIncendiary</code> <code>bombOil</code></li>
+</ul></li>
+</ul>
+</div>
+
+
+<div id="outline-container-org1dd30d4" class="outline-4">
+<h4 id="org1dd30d4"><span class="section-number-4">4.2.1</span> BasicBulletType</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+The actual bullet type.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">backColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">bulletYellowBack</td>
+</tr>
+
+<tr>
+<td class="org-left">frontColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">bulletYellow</td>
+</tr>
+
+<tr>
+<td class="org-left">bulletWidth</td>
+<td class="org-left">float</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">bulletHeight</td>
+<td class="org-left">float</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">bulletShrink</td>
+<td class="org-left">float</td>
+<td class="org-right">0.5</td>
+</tr>
+
+<tr>
+<td class="org-left">bulletSprite</td>
+<td class="org-left">String</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<ol class="org-ol">
+<li><a id="orgb98ccd5"></a>ArtilleryBulletType<br />
+<div class="outline-text-5" id="text-4-2-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">trailEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-left">artilleryTrail</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">collidesTiles</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">collides</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">hitShake</td>
+<td class="org-left">1</td>
+</tr>
+
+<tr>
+<td class="org-left">hitSound</td>
+<td class="org-left">explosion</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="org7d9bd01"></a>BombBulletType<br />
+<div class="outline-text-5" id="text-4-2-1-2">
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">collidesTiles</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">collides</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">bulletShrink</td>
+<td class="org-left">0.7</td>
+</tr>
+
+<tr>
+<td class="org-left">lifetime</td>
+<td class="org-left">30</td>
+</tr>
+
+<tr>
+<td class="org-left">drag</td>
+<td class="org-left">0.05</td>
+</tr>
+
+<tr>
+<td class="org-left">keepVelocity</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">collidesAir</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">hitSound</td>
+<td class="org-left">explosion</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+
+<li><a id="org711684b"></a>FlakBulletType<br />
+<div class="outline-text-5" id="text-4-2-1-3">
+<p>
+Bullets that explode near enemies.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">explodeRange</td>
+<td class="org-left">float</td>
+<td class="org-right">30</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-right">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">splashDamage</td>
+<td class="org-right">15</td>
+</tr>
+
+<tr>
+<td class="org-left">splashDamageRadius</td>
+<td class="org-right">34</td>
+</tr>
+
+<tr>
+<td class="org-left">hitEffect</td>
+<td class="org-right">flakExplosionBig</td>
+</tr>
+
+<tr>
+<td class="org-left">bulletWidth</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-left">bulletHeight</td>
+<td class="org-right">10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+
+<li><a id="org158fe21"></a>HealBulletType<br />
+<div class="outline-text-5" id="text-4-2-1-4">
+<p>
+Bullets that can heal blocks of the same team as the shooter.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">healPercent</td>
+<td class="org-left">float</td>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">shootEffect</td>
+<td class="org-left">shootHeal</td>
+</tr>
+
+<tr>
+<td class="org-left">smokeEffect</td>
+<td class="org-left">hitLaser</td>
+</tr>
+
+<tr>
+<td class="org-left">hitEffect</td>
+<td class="org-left">hitLaser</td>
+</tr>
+
+<tr>
+<td class="org-left">despawnEffect</td>
+<td class="org-left">hitLaser</td>
+</tr>
+
+<tr>
+<td class="org-left">collidesTeam</td>
+<td class="org-left">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+
+<li><a id="org6ba9642"></a>LiquidBulletType<br />
+<div class="outline-text-5" id="text-4-2-1-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">liquid</td>
+<td class="org-left">Liquid</td>
+<td class="org-left">null</td>
+<td class="org-left">required field</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">lifetime</td>
+<td class="org-left">74</td>
+</tr>
+
+<tr>
+<td class="org-left">statusDuration</td>
+<td class="org-left">90</td>
+</tr>
+
+<tr>
+<td class="org-left">despawnEffect</td>
+<td class="org-left">none</td>
+</tr>
+
+<tr>
+<td class="org-left">hitEffect</td>
+<td class="org-left">hitLiquid</td>
+</tr>
+
+<tr>
+<td class="org-left">smokeEffect</td>
+<td class="org-left">none</td>
+</tr>
+
+<tr>
+<td class="org-left">shootEffect</td>
+<td class="org-left">none</td>
+</tr>
+
+<tr>
+<td class="org-left">drag</td>
+<td class="org-left">0.009</td>
+</tr>
+
+<tr>
+<td class="org-left">knockback</td>
+<td class="org-left">0.55</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+
+<li><a id="orgb7e1b16"></a>MassDriverBolt<br />
+<div class="outline-text-5" id="text-4-2-1-6">
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">collidesTiles</td>
+<td class="org-left">false</td>
+</tr>
+
+<tr>
+<td class="org-left">lifetime</td>
+<td class="org-left">200</td>
+</tr>
+
+<tr>
+<td class="org-left">despawnEffect</td>
+<td class="org-left">smeltsmoke</td>
+</tr>
+
+<tr>
+<td class="org-left">hitEffect</td>
+<td class="org-left">hitBulletBig</td>
+</tr>
+
+<tr>
+<td class="org-left">drag</td>
+<td class="org-left">0.005</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+
+<li><a id="org1738cec"></a>MissileBulletType<br />
+<div class="outline-text-5" id="text-4-2-1-7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">trailColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">missileYellowBack</td>
+</tr>
+
+<tr>
+<td class="org-left">weaveScale</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">weaveMag</td>
+<td class="org-left">float</td>
+<td class="org-right">-1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org8c7fa30" class="outline-2">
+<h2 id="org8c7fa30"><span class="section-number-2">5</span> Mech</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Extends <a href="#org7c98d4a">UnlockableContent</a> &#x2013; Mechs are the player controlled entities.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">flying</td>
+<td class="org-left">boolean</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">speed</td>
+<td class="org-left">float</td>
+<td class="org-right">1.1</td>
+</tr>
+
+<tr>
+<td class="org-left">maxSpeed</td>
+<td class="org-left">float</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-left">boostSpeed</td>
+<td class="org-left">float</td>
+<td class="org-right">0.75</td>
+</tr>
+
+<tr>
+<td class="org-left">drag</td>
+<td class="org-left">float</td>
+<td class="org-right">0.4</td>
+</tr>
+
+<tr>
+<td class="org-left">mass</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">shake</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">health</td>
+<td class="org-left">float</td>
+<td class="org-right">200</td>
+</tr>
+
+<tr>
+<td class="org-left">hitsize</td>
+<td class="org-left">float</td>
+<td class="org-right">6</td>
+</tr>
+
+<tr>
+<td class="org-left">cellTrnsY</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">mineSpeed</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">drillPower</td>
+<td class="org-left">int</td>
+<td class="org-right">-1</td>
+</tr>
+
+<tr>
+<td class="org-left">buildPower</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">engineColor</td>
+<td class="org-left"><a href="#org5710deb">Color</a></td>
+<td class="org-right">boostTo</td>
+</tr>
+
+<tr>
+<td class="org-left">itemCapacity</td>
+<td class="org-left">int</td>
+<td class="org-right">30</td>
+</tr>
+
+<tr>
+<td class="org-left">turnCursor</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+</tr>
+
+<tr>
+<td class="org-left">canHeal</td>
+<td class="org-left">boolean</td>
+<td class="org-right">false</td>
+</tr>
+
+<tr>
+<td class="org-left">compoundSpeed</td>
+<td class="org-left">float</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">compoundSpeedBoost</td>
+<td class="org-left">float</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">weaponOffsetY</td>
+<td class="org-left">float</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">engineOffset</td>
+<td class="org-left">float</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">engineSize</td>
+<td class="org-left">float</td>
+<td class="org-right">2.5</td>
+</tr>
+
+<tr>
+<td class="org-left">weapon</td>
+<td class="org-left"><a href="#orge7c4cdb">Weapon</a></td>
+<td class="org-right">null</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orge7c4cdb" class="outline-2">
+<h2 id="orge7c4cdb"><span class="section-number-2">6</span> Weapon</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">name</td>
+<td class="org-left">string</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">nimPlayerDist</td>
+<td class="org-left">float</td>
+<td class="org-right">20</td>
+<td class="org-left">minimum cursor distance from player, fixes 'cross-eyed' shooting.</td>
+</tr>
+
+<tr>
+<td class="org-left">sequenceNum</td>
+<td class="org-left">int</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">bullet</td>
+<td class="org-left"><a href="#org23a5763">BulletType</a></td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">bullet shot</td>
+</tr>
+
+<tr>
+<td class="org-left">ejectEffect</td>
+<td class="org-left"><a href="#org98b22e5">Effect</a></td>
+<td class="org-right">none</td>
+<td class="org-left">shell ejection effect</td>
+</tr>
+
+<tr>
+<td class="org-left">reload</td>
+<td class="org-left">float</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">weapon reload in frames</td>
+</tr>
+
+<tr>
+<td class="org-left">shots</td>
+<td class="org-left">int</td>
+<td class="org-right">1</td>
+<td class="org-left">amount of shots per fire</td>
+</tr>
+
+<tr>
+<td class="org-left">spacing</td>
+<td class="org-left">float</td>
+<td class="org-right">12</td>
+<td class="org-left">spacing in degrees between multiple shots, if applicable</td>
+</tr>
+
+<tr>
+<td class="org-left">inaccuracy</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">inaccuracy of degrees of each shot</td>
+</tr>
+
+<tr>
+<td class="org-left">shake</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">intensity and duration of each shot's screen shake</td>
+</tr>
+
+<tr>
+<td class="org-left">recoil</td>
+<td class="org-left">float</td>
+<td class="org-right">1.5</td>
+<td class="org-left">visual weapon knockback.</td>
+</tr>
+
+<tr>
+<td class="org-left">length</td>
+<td class="org-left">float</td>
+<td class="org-right">3</td>
+<td class="org-left">shoot barrel y offset</td>
+</tr>
+
+<tr>
+<td class="org-left">width</td>
+<td class="org-left">float</td>
+<td class="org-right">4</td>
+<td class="org-left">shoot barrel x offset.</td>
+</tr>
+
+<tr>
+<td class="org-left">velocityRnd</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">fraction of velocity that is random</td>
+</tr>
+
+<tr>
+<td class="org-left">alternate</td>
+<td class="org-left">bool</td>
+<td class="org-right">false</td>
+<td class="org-left">shoot one arm after another, rather than all at once</td>
+</tr>
+
+<tr>
+<td class="org-left">lengthRand</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">randomization of shot length</td>
+</tr>
+
+<tr>
+<td class="org-left">shotDelay</td>
+<td class="org-left">float</td>
+<td class="org-right">0</td>
+<td class="org-left">delay in ticks between shots</td>
+</tr>
+
+<tr>
+<td class="org-left">ignoreRotation</td>
+<td class="org-left">boolean</td>
+<td class="org-right">false</td>
+<td class="org-left">whether shooter rotation is ignored when shooting.</td>
+</tr>
+
+<tr>
+<td class="org-left">shootSound</td>
+<td class="org-left"><a href="#orgf5a0695">Sound</a></td>
+<td class="org-right">pew</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org98b22e5" class="outline-2">
+<h2 id="org98b22e5"><span class="section-number-2">7</span> Effect</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Type should be a <code>string</code>. You can't currently create custom effects. List of built-in effects are as follows:
+</p>
+
+<ul class="org-ul">
+<li><code>none</code> <code>placeBlock</code> <code>breakBlock</code> <code>smoke</code> <code>spawn</code> <code>tapBlock</code> <code>select</code></li>
+<li><code>vtolHover</code> <code>unitDrop</code> <code>unitPickup</code> <code>unitLand</code> <code>pickup</code> <code>healWave</code> <code>heal</code> 
+<code>landShock</code> <code>reactorsmoke</code> <code>nuclearsmoke</code> <code>nuclearcloud</code></li>
+<li><code>redgeneratespark</code> <code>generatespark</code> <code>fuelburn</code> <code>plasticburn</code> <code>pulverize</code> 
+<code>pulverizeRed</code> <code>pulverizeRedder</code> <code>pulverizeSmall</code> <code>pulverizeMedium</code></li>
+<li><code>producesmoke</code> <code>smeltsmoke</code> <code>formsmoke</code> <code>blastsmoke</code> <code>lava</code> <code>doorclose</code> 
+<code>dooropen</code> <code>dooropenlarge</code> <code>doorcloselarge</code> <code>purify</code> <code>purifyoil</code> <code>purifystone</code> <code>generate</code></li>
+<li><code>mine</code> <code>mineBig</code> <code>mineHuge</code> <code>smelt</code> <code>teleportActivate</code> <code>teleport</code> <code>teleportOut</code> <code>ripple</code> <code>bubble</code> <code>launch</code></li>
+<li><code>healBlock</code> <code>healBlockFull</code> <code>healWaveMend</code> <code>overdriveWave</code> <code>overdriveBlockFull</code> <code>shieldBreak</code> <code>hitBulletSmall</code> <code>hitFuse</code></li>
+<li><code>hitBulletBig</code> <code>hitFlameSmall</code> <code>hitLiquid</code> <code>hitLaser</code> <code>hitLancer</code> <code>hitMeltdown</code> <code>despawn</code> <code>flakExplosion</code> <code>blastExplosion</code></li>
+<li><code>plasticExplosion</code> <code>artilleryTrail</code> <code>incendTrail</code> <code>missileTrail</code> <code>absorb</code> <code>flakExplosionBig</code> <code>plasticExplosionFlak</code> <code>burning</code> <code>fire</code></li>
+<li><code>fireSmoke</code> <code>steam</code> <code>fireballsmoke</code> <code>ballfire</code> <code>freezing</code> <code>melting</code> <code>wet</code> <code>oily</code> <code>overdriven</code> <code>dropItem</code> <code>shockwave</code></li>
+<li><code>bigShockwave</code> <code>nuclearShockwave</code> <code>explosion</code> <code>blockExplosion</code> 
+<code>blockExplosionSmoke</code> <code>shootSmall</code> <code>shootHeal</code> <code>shootSmallSmoke</code> <code>shootBig</code> <code>shootBig2</code> <code>shootBigSmoke</code></li>
+<li><code>shootBigSmoke2</code> <code>shootSmallFlame</code> <code>shootPyraFlame</code> <code>shootLiquid</code> <code>shellEjectSmall</code> <code>shellEjectMedium</code></li>
+<li><code>shellEjectBig</code> <code>lancerLaserShoot</code> <code>lancerLaserShootSmoke</code> <code>lancerLaserCharge</code>
+<code>lancerLaserChargeBegin</code> <code>lightningCharge</code> <code>lightningShoot</code></li>
+<li><code>unitSpawn</code> <code>spawnShockwave</code> <code>magmasmoke</code> <code>impactShockwave</code> 
+<code>impactcloud</code> <code>impactsmoke</code> <code>dynamicExplosion</code> <code>padlaunch</code> <code>commandSend</code> <code>coreLand</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8880a2b" class="outline-2">
+<h2 id="org8880a2b"><span class="section-number-2">8</span> <span class="todo TODO">TODO</span> StatusEffect</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+<i>Not be be confused with <a href="#org98b22e5">Effect</a>.</i>
+</p>
+
+<p>
+Built-in status effects:
+</p>
+<ul class="org-ul">
+<li><code>none</code></li>
+<li><code>burning</code></li>
+<li><code>freezing</code></li>
+<li><code>wet</code></li>
+<li><code>melting</code></li>
+<li><code>tarred</code></li>
+<li><code>overdrive</code></li>
+<li><code>shielded</code></li>
+<li><code>shocked</code></li>
+<li><code>corroded</code></li>
+<li><code>boss</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga556319" class="outline-2">
+<h2 id="orga556319"><span class="section-number-2">9</span> <span class="todo TODO">TODO</span> Zone</h2>
+</div>
+<div id="outline-container-org57f45bb" class="outline-2">
+<h2 id="org57f45bb"><span class="section-number-2">10</span> <span class="todo TODO">TODO</span> Consumer</h2>
+</div>
+<div id="outline-container-org13099f4" class="outline-2">
+<h2 id="org13099f4"><span class="section-number-2">11</span> <span class="todo TODO">TODO</span> Rules</h2>
+</div>
+<div id="outline-container-orgba792ab" class="outline-2">
+<h2 id="orgba792ab"><span class="section-number-2">12</span> <span class="todo TODO">TODO</span> Objective</h2>
+</div>
+<div id="outline-container-orgf05db83" class="outline-2">
+<h2 id="orgf05db83"><span class="section-number-2">13</span> <span class="todo TODO">TODO</span> UnitType</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Simon</p>
+<p class="date">Created: 2019-10-31 Thu 03:39</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

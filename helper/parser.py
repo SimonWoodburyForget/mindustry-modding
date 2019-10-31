@@ -28,9 +28,10 @@ def parse_comment_sl(string):
     else:
         return 0, 0
 
-def parse_terminator(string):
-    """ Parses `;` outside of comments. """
-    pass
+def parse_terminator(a: int, string):
+    """ Returns the next termination including and after `a` """
+    span = string[a:]
+    return span.find(";")
 
 def parse_definition(string):
     """ Parses definition without comment. """
@@ -59,7 +60,6 @@ def build_rows(string):
             continue
         f, v, t = f_v
         yield (f, v, t, comment)
-
         
 def build_definition_table(string):
     """ For typical definitions: `public Color color = new Color("ffffff"); ` with prefixed multiline comments. """
