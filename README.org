@@ -1721,7 +1721,7 @@ Defaults:
 
 * StatusEffect
 
-  /Not be be confused with [[#Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects*. -- Status effects are used as transitions between intermediate effects. If some =wet= unit gets =shocked= it then causes 20 damage.
+  /Not be be confused with [[#Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects*. -- Status effects are used as transitions between intermediate effects. If some a =wet= unit gets =shocked= it then gets 20 damage.
 
   | field            | type   | default |                                                     |
   |------------------+--------+---------+-----------------------------------------------------|
