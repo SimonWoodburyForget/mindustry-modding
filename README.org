@@ -159,7 +159,7 @@
    #+END_SRC
 
    Notes:
-   * =name= inside will be used to reference to your mod internally, so name it carefully, and avoid giving it the same name as another mod.
+   * =name= will be used to reference to your mod, so name it carefully, and avoid giving it the same name as another mod.
    * =description= of the mod will be rendered in the mod manager.
    * =dependencies= is optional, if you want to know more about that, go to the [[#dependencies][dependencies]] section.
 
