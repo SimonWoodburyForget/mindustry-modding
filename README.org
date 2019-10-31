@@ -1721,7 +1721,16 @@ Defaults:
 
 * TODO StatusEffect
 
-  /Not be be confused with [[#Effect][Effect]]/, a status effect will give an entity special properties.
+  /Not be be confused with [[#Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects,* but here are it's fields:
+
+  | field            | type   | default |                                                     |
+  |------------------+--------+---------+-----------------------------------------------------|
+  | damageMultiplier | float  |       1 |                                                     |
+  | armorMultiplier  | float  |       1 |                                                     |
+  | speedMultiplier  | float  |       1 |                                                     |
+  | color            | [[#Color][Color]]  |   white |                                                     |
+  | damage           | float  |         | Damage (or healing) per frame.                      |
+  | effect           | [[#Effect][Effect]] |    none | Random effect (0.15% per frame), on affected units. |
 
   Built-in status effects:
   * =none=
