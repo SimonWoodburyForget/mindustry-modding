@@ -515,10 +515,11 @@ body
     </ul></li>
     <li><a name="toc-Storage-1" href="#Storage">2.14 Storage</a>
     <ul class="no-bullet">
-      <li><a name="toc-TODO-CoreBlock" href="#CoreBlock">2.14.1 <strong>TODO</strong> CoreBlock</a></li>
-      <li><a name="toc-TODO-Vault" href="#Vault">2.14.2 <strong>TODO</strong> Vault</a></li>
-      <li><a name="toc-TODO-Unloader" href="#Unloader">2.14.3 <strong>TODO</strong> Unloader</a></li>
-      <li><a name="toc-TODO-LaunchPad" href="#LaunchPad">2.14.4 <strong>TODO</strong> LaunchPad</a></li>
+      <li><a name="toc-StorageBlock-1" href="#StorageBlock">2.14.1 StorageBlock</a></li>
+      <li><a name="toc-CoreBlock-1" href="#CoreBlock">2.14.2 CoreBlock</a></li>
+      <li><a name="toc-TODO-Vault" href="#Vault">2.14.3 <strong>TODO</strong> Vault</a></li>
+      <li><a name="toc-TODO-Unloader" href="#Unloader">2.14.4 <strong>TODO</strong> Unloader</a></li>
+      <li><a name="toc-TODO-LaunchPad" href="#LaunchPad">2.14.5 <strong>TODO</strong> LaunchPad</a></li>
     </ul></li>
     <li><a name="toc-Attributes-1" href="#Attributes">2.15 Attributes</a></li>
     <li><a name="toc-Attribute-1" href="#Attribute">2.16 Attribute</a></li>
@@ -883,7 +884,9 @@ Unit Blocks
 
 Storage
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#CoreBlock">CoreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#StorageBlock">StorageBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#CoreBlock">CoreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Vault">Vault</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -2189,7 +2192,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.8.1 Turret</h4>
 
-<p>Extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
+<p><a href="#Abstract">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -3447,24 +3450,61 @@ Next: <a href="#Attributes" accesskey="n" rel="next">Attributes</a>, Previous: <
 <h3 class="section">2.14 Storage</h3>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#CoreBlock" accesskey="1">CoreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#StorageBlock" accesskey="1">StorageBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Vault" accesskey="2">Vault</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#CoreBlock" accesskey="2">CoreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Unloader" accesskey="3">Unloader</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Vault" accesskey="3">Vault</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#LaunchPad" accesskey="4">LaunchPad</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Unloader" accesskey="4">Unloader</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#LaunchPad" accesskey="5">LaunchPad</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="StorageBlock"></a>
+<div class="header">
+<p>
+Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="#Storage" accesskey="u" rel="up">Storage</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="StorageBlock-1"></a>
+<h4 class="subsection">2.14.1 StorageBlock</h4>
+
+<p><a href="#Abstract">Abstract</a> type which extends <a href="#Block">Block</a>
+</p>
+<p>Defaults:
+</p><table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>hasItems</td><td>true</td></tr>
 </table>
 
 <hr>
 <a name="CoreBlock"></a>
 <div class="header">
 <p>
-Next: <a href="#Vault" accesskey="n" rel="next">Vault</a>, Up: <a href="#Storage" accesskey="u" rel="up">Storage</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Vault" accesskey="n" rel="next">Vault</a>, Previous: <a href="#StorageBlock" accesskey="p" rel="prev">StorageBlock</a>, Up: <a href="#Storage" accesskey="u" rel="up">Storage</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="TODO-CoreBlock"></a>
-<h4 class="subsection">2.14.1 <strong>TODO</strong> CoreBlock</h4>
+<a name="CoreBlock-1"></a>
+<h4 class="subsection">2.14.2 CoreBlock</h4>
+
+<p>Extends <a href="#StorageBlock">StorageBlock</a>
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
+<tr><td>mech</td><td>Mech</td><td>starter</td></tr>
+</table>
+
+<p>Defaults:
+</p><table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>solid</td><td>true</td></tr>
+<tr><td>update</td><td>true</td></tr>
+<tr><td>hasItems</td><td>true</td></tr>
+<tr><td>activeSound</td><td>respawning</td></tr>
+<tr><td>activeSoundVolume</td><td>1</td></tr>
+<tr><td>layer</td><td>overlay</td></tr>
+</table>
 
 <hr>
 <a name="Vault"></a>
@@ -3473,7 +3513,7 @@ Next: <a href="#Vault" accesskey="n" rel="next">Vault</a>, Up: <a href="#Storage
 Next: <a href="#Unloader" accesskey="n" rel="next">Unloader</a>, Previous: <a href="#CoreBlock" accesskey="p" rel="prev">CoreBlock</a>, Up: <a href="#Storage" accesskey="u" rel="up">Storage</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="TODO-Vault"></a>
-<h4 class="subsection">2.14.2 <strong>TODO</strong> Vault</h4>
+<h4 class="subsection">2.14.3 <strong>TODO</strong> Vault</h4>
 
 <hr>
 <a name="Unloader"></a>
@@ -3482,7 +3522,7 @@ Next: <a href="#Unloader" accesskey="n" rel="next">Unloader</a>, Previous: <a hr
 Next: <a href="#LaunchPad" accesskey="n" rel="next">LaunchPad</a>, Previous: <a href="#Vault" accesskey="p" rel="prev">Vault</a>, Up: <a href="#Storage" accesskey="u" rel="up">Storage</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="TODO-Unloader"></a>
-<h4 class="subsection">2.14.3 <strong>TODO</strong> Unloader</h4>
+<h4 class="subsection">2.14.4 <strong>TODO</strong> Unloader</h4>
 
 <hr>
 <a name="LaunchPad"></a>
@@ -3491,7 +3531,7 @@ Next: <a href="#LaunchPad" accesskey="n" rel="next">LaunchPad</a>, Previous: <a 
 Previous: <a href="#Unloader" accesskey="p" rel="prev">Unloader</a>, Up: <a href="#Storage" accesskey="u" rel="up">Storage</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="TODO-LaunchPad"></a>
-<h4 class="subsection">2.14.4 <strong>TODO</strong> LaunchPad</h4>
+<h4 class="subsection">2.14.5 <strong>TODO</strong> LaunchPad</h4>
 
 <hr>
 <a name="Attributes"></a>
@@ -4121,7 +4161,7 @@ Next: <a href="#BasicBulletType" accesskey="n" rel="next">BasicBulletType</a>, U
 <a name="BulletType-1"></a>
 <h4 class="subsection">5.1.1 BulletType</h4>
 
-<p>Extends <a href="#Content">Content</a> &ndash; Bullet can either be an object or a string, where a string would be reusing a built-in one and an object would be making a custom one.
+<p><a href="#Abstract">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; Bullet can either be an object or a string, where a string would be reusing a built-in one and an object would be making a custom one.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -4286,7 +4326,7 @@ Next: <a href="#HealBulletType" accesskey="n" rel="next">HealBulletType</a>, Pre
 <a name="FlakBulletType-1"></a>
 <h4 class="subsection">5.1.5 FlakBulletType</h4>
 
-<p>Bullets that explode near enemies.
+<p><a href="#Abstract">Abstract</a> type which extends <a href="#BasicBulletType">BasicBulletType</a> &ndash; Bullets that explode near enemies.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
