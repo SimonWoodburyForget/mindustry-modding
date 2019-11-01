@@ -163,29 +163,30 @@ Modding documentation for Mindustry.
 
   Types have numerous fields, but the important one is ~type~; this is a special field used by the content parser, that changes which type your object is. /No a ~Router~ type can't be a ~Turret~ type/, they have completely different methods and fields.
 
-  Types /extend/ each other, and what that means is if ~MissileBulletType~ extends ~BasicBulletType~, then you'll have all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~.
+  Types /extend/ each other, and what that means is if ~MissileBulletType~ extends ~BasicBulletType~, then you'll have access to all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~, ~lifetime~ and ~speed~. Fields are case sensitive: ~hitSize~ =/= ~hitsize~.
 
-   is what you'd expect is at the type's discretion, some fields aren't actually really used by their extenders/childrens, resulting in no behavior at all.
+  What you can expect a field to do is up to the specific type, some types do absolutely nothing with their fields, and work mostly as a base types will extend from. One such type is ~Block~.
 
-  A type can be specified in the field of an object, but this is not all a type is. A type is the type of something ~float~ is a type so ~0.3~ is type float. ~Block~ is a type, which isn't something you'll be using by itself, but instead you use ~Floor~ which is a ~Block~ type topped with behavior that is floor specific.
+  ~type~ can be refer to the actual type field of the object. A type may also refer to other things like ~float~ is a type so it means you can type ~0.3~ in a field.
+
 
   #+BEGIN_SRC json
   {
       "type": "Revenant",
-          "weapon": {
-              "bullet": {
-                  "type": "MissileBulletType",
+      "weapon": {
+          "bullet": {
+              "type": "MissileBulletType",
               "damage": 9000
           }
       }
   }
   #+END_SRC
 
-  Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ which needs to be a ~BulletType~ is actually ~MissileBulletType~, which gives you the behaviors and effects that missiles should have.
+  Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ is ~BulletType~ so you can use ~MissileBulletType~, because ~MissileBulletType~ extends ~BulletType~.
 
 ** UnlockableContent and MappableContent
 
-   Types that can have a display name and description. /Most content in other words/ but not everything. [[ItemStack][ItemStack]] isn't ~UnlockableContent~ because it's not content, it's just a stack of items.
+   Types that can have a display name and description. /Most content in other words/. [[ItemStack][ItemStack]] for example isn't ~UnlockableContent~.
 
    | field       | type   |
    |-------------+--------|
@@ -202,9 +203,7 @@ Modding documentation for Mindustry.
 
 ** ItemStack
 
-   This type is used by blocks, to consume/output items.
-
-   An item stack is simply an array of objects with these fields:
+   This type is used to tell blocks to calculate their output/input rates. An item stack is simply an array of objects with the following fields:
 
    | field  | type | default |
    |--------+------+---------|
