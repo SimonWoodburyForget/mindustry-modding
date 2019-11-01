@@ -326,7 +326,6 @@ Modding documentation for Mindustry.
 
 
 
-
 ** Environment
 
    Environmental blocks are blocks that must be placed from the editor, and they're the ones that will generally dictate how the game can or will be played. These blocks wont appear on a map unless you've built a map to support them.
@@ -841,11 +840,12 @@ Modding documentation for Mindustry.
     | hasPower | false   |
 
 *** Sorter
+
     Extends [[Block][Block]]
 
-    | field  | type    |
-    |--------+---------|
-    | invert | boolean |
+    | field  | type    | default | notes        |
+    |--------+---------+---------+--------------|
+    | invert | boolean |         | *[optional]* |
 
     Defaults:
 
