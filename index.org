@@ -1750,13 +1750,14 @@ Defaults:
 
   /Not be be confused with [[Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects*. -- Status effects are used as transitions between intermediate effects. If some a ~wet~ unit gets ~shocked~ it then gets 20 damage.
 
-  | field            | type   | default |                                                     |
-  |------------------+--------+---------+-----------------------------------------------------|
-  | damageMultiplier | float  |       1 |                                                     |
-  | armorMultiplier  | float  |       1 |                                                     |
-  | speedMultiplier  | float  |       1 |                                                     |
-  | color            | [[Color][Color]]  |   white |                                                     |
-  | damage           | float  |         | Damage (or healing) per frame.                      |
+  | field            | type   | default |            |
+  |------------------+--------+---------+------------|
+  |                  |        |         | <10>       |
+  | damageMultiplier | float  |       1 |            |
+  | armorMultiplier  | float  |       1 |            |
+  | speedMultiplier  | float  |       1 |            |
+  | color            | [[Color][Color]]  |   white |            |
+  | damage           | float  |         | Damage (or healing) per frame. |
   | effect           | [[Effect][Effect]] |    none | Random effect (0.15% per frame), on affected units. |
 
   * opposites: effect which reduces anothers lifetime.
@@ -1766,15 +1767,15 @@ Defaults:
   * ~none~ -- Does nothing.
 
   * ~burning~
-    | field    | default |
-    |----------+---------|
-    | damage   | 0.06    |
-    | effect   | burning |
+    | field  | value   |
+    |--------+---------|
+    | damage | 0.06    |
+    | effect | burning |
     * opposites: ~wet~ ~freezing~
     * tarred: 1 damage and keeps burning
 
   * ~freezing~
-    | field           |  default |
+    | field           |    value |
     |-----------------+----------|
     | speedMultiplier |      0.6 |
     | armorMultiplier |      0.8 |
@@ -1782,15 +1783,15 @@ Defaults:
     * opposites: ~melting~ ~burning~
 
   * ~wet~
-    | field           | default |
-    |-----------------+---------|
-    | speedMultiplier | 0.9     |
-    | effect          | wet     |
+    | field           | value |
+    |-----------------+-------|
+    | speedMultiplier | 0.9   |
+    | effect          | wet   |
     * opposites: ~burning~
     * shocked: 20 damage
 
   * ~melting~
-    | field           | default |
+    | field           |   value |
     |-----------------+---------|
     | speedMultiplier |     0.8 |
     | armorMultiplier |     0.8 |
@@ -1800,7 +1801,7 @@ Defaults:
     * tarred: keeps melting
 
   * ~tarred~
-    | field           | default |
+    | field           | value |
     |-----------------+---------|
     | speedMultiplier | 0.6     |
     | effect          | oily    |
@@ -1808,7 +1809,7 @@ Defaults:
     * melting: keeps burning
 
   * ~overdrive~
-    | field            |    default |
+    | field            |      value |
     |------------------+------------|
     | armorMultiplier  |       0.95 |
     | speedMultiplier  |       1.15 |
@@ -1817,23 +1818,23 @@ Defaults:
     | effect           | overdriven |
 
   * ~shielded~
-    | field           | default |
-    |-----------------+---------|
-    | armorMultiplier |       3 |
+    | field           | value |
+    |-----------------+-------|
+    | armorMultiplier |     3 |
 
   * ~boss~
-    | field            | default |
-    |------------------+---------|
-    | armorMultiplier  |       3 |
-    | damageMultiplier |       3 |
-    | speedMultiplier  |     1.1 |
+    | field            | value |
+    |------------------+-------|
+    | armorMultiplier  |     3 |
+    | damageMultiplier |     3 |
+    | speedMultiplier  |   1.1 |
 
   * ~shocked~ -- Does nothing.
 
   * ~corroded~
-    | field  | default |
-    |--------+---------|
-    | damage |     0.1 |
+    | field  | value |
+    |--------+-------|
+    | damage |   0.1 |
 
 * TODO Zone
 * TODO Rules

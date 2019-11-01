@@ -1168,7 +1168,9 @@ Next: <a href="#Block-Types" accesskey="n" rel="next">Block Types</a>, Previous:
 <a name="Type-1"></a>
 <h2 class="chapter">2 Type</h2>
 
-<p>Types have numerous fields, but the important one is <code>type</code>. Types <em>extend</em> each other, and what that means is if <code>MissileBulletType</code> extends <code>BasicBulletType</code>, then you&rsquo;ll have all the fields of <code>BasicBulletType</code> inside of <code>MissileBulletType</code> like <code>damage</code>.
+<p>Types have numerous fields, but the important one is <code>type</code>; this is a special field used by the content parser, that changes which type your object is. <em>No a <code>Router</code> type can&rsquo;t be a <code>Turret</code> type</em>, they have completely different methods and fields.
+</p>
+<p>Types <em>extend</em> each other, and what that means is if <code>MissileBulletType</code> extends <code>BasicBulletType</code>, then you&rsquo;ll have all the fields of <code>BasicBulletType</code> inside of <code>MissileBulletType</code> like <code>damage</code>.
 </p>
 <p>is what you&rsquo;d expect is at the type&rsquo;s discretion, some fields aren&rsquo;t actually really used by their extenders/childrens, resulting in no behavior at all.
 </p>
