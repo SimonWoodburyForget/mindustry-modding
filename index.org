@@ -866,20 +866,8 @@ Modding documentation for Mindustry.
     * doesn't take hot fluid
 
 *** ItemTurret
-    Extends [[CooledTurret][CooledTurret]] -- Turrets that uses items as ammo.
 
-    | field   | type                 | default |
-    |---------+----------------------+---------|
-    | maxAmmo | int                  |      30 |
-    | ammo    | { [[Item][Item]]: [[BulletType][BulletType]] } |         |
-
-    Defaults:
-
-    | field    | default |
-    |----------+---------|
-    | hasItems | true    |
-
-    Ammo is an object of item:bullet-type pairs, for example:
+    Extends [[CooledTurret][CooledTurret]] -- Turrets that uses items as ammo. The ~ammo~ field is simple an object of items names, paired with an [[BulletType]].
 
     #+BEGIN_SRC json
     {
@@ -892,6 +880,19 @@ Modding documentation for Mindustry.
         }
     }
     #+END_SRC
+
+    Here we're using ~copper~ to shoot ~standardCopper~ (built-in bullet) and ~metalglass~ to shoot a custom bullet type.
+
+    | field   | type                 | default |
+    |---------+----------------------+---------|
+    | maxAmmo | int                  |      30 |
+    | ammo    | { [[Item][Item]]: [[BulletType][BulletType]] } |         |
+
+    Defaults:
+
+    | field    | default |
+    |----------+---------|
+    | hasItems | true    |
 
 *** DoubleTurret
     Extends [[ItemTurret][ItemTurret]] -- Turret that shoots from two side by side barrels.
@@ -1636,8 +1637,12 @@ Defaults:
    | weaveMag   | float |                -1 |
 
 * UnitTypes
+
+  Unit types should go in their own special directory: ~units~
+
 ** UnitType
-   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Unit types go in their own special directory: ~units~
+
+   Extends [[UnlockableContent and MappableContent][UnlockableContent]]
 
    | field           | type     | default |
    |-----------------+----------+---------|
