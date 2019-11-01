@@ -1,0 +1,3028 @@
+This is README.info, produced by makeinfo version 6.5 from README.texi.
+
+
+File: README.info,  Node: Top,  Next: Overview,  Up: (dir)
+
+_Disclaimer: This is a work in progress, things may not work as
+expected._
+
+* Menu:
+
+* Overview::
+* Type::
+* Block Types::
+* BulletTypes::
+* UnitTypes::
+* Mech::
+* Weapon::
+* Effect::
+* StatusEffect::
+* Zone::
+* Rules::
+* Objective::
+
+— The Detailed Node Listing —
+
+Overview
+
+* ‘mod.json’: modjson.
+* Content::
+* Sprites::
+* Sound::
+* ::
+
+Type
+
+* UnlockableContent and MappableContent::
+* ItemStack::
+* LiquidStack::
+* Consumers::
+* Attributes::
+* Attribute::
+* Item::
+* Liquid::
+* BlockStorage::
+* BuildVisibility::
+* Layer::
+* BlockGroup::
+* Category::
+* Color::
+* TargetPriority::
+
+Consumers
+
+* Consume::
+* ConsumeItems::
+* ConsumeLiquidBase::
+* ConsumeLiquid::
+* ConsumePower::
+
+Block Types
+
+* Block::
+* Environment::
+* Crafting::
+* Sandbox::
+* Defense::
+* Turrets::
+* Distribution::
+* Liquid: Liquid 1.
+* Power::
+* Production::
+* Storage::
+* Units::
+
+Environment
+
+* Floor::
+* OverlayFloor::
+* DoubleOverlayFloor::
+* OreBlock::
+* StaticWalls::
+* TreeBlock::
+
+Crafting
+
+* GenericCrafter::
+* GenericSmelter::
+* Separator::
+
+Sandbox
+
+* Incinerator::
+* PowerVoid::
+* PowerSource::
+* ItemSource::
+* ItemVoid::
+* LiquidSource::
+* MessageBlock::
+
+Defense
+
+* Wall::
+* DeflectorWall::
+* SurgeWall::
+* Door::
+* MendProjector::
+* OverdriveProjector::
+* ForceProjector::
+* ShockMine::
+
+Turrets
+
+* Turret::
+* CooledTurret::
+* ItemTurret::
+* DoubleTurret::
+* ArtilleryTurret::
+* BurstTurret::
+* PowerTurret::
+* ChargeTurret::
+* LaserTurret::
+* LiquidTurret::
+
+Distribution
+
+* Conveyor::
+* ArmoredConveyor::
+* Junction::
+* ItemBridge::
+* ExtendingItemBridge::
+* BufferedItemBridge::
+* Sorter::
+* OverflowGate::
+* MassDriver::
+
+Liquid
+
+* LiquidBlock::
+* Pump::
+* Conduit::
+* LiquidRouter::
+* LiquidTank::
+* LiquidJunction::
+* LiquidBridge::
+* LiquidExtendingBridge::
+
+Power
+
+* PowerBlock::
+* PowerNode::
+* PowerDistributor::
+* Battery::
+* PowerGenerator::
+* ThermalGenerator::
+* ItemLiquidGenerator::
+* SingleTypeGenerator::
+* BurnerGenerator::
+* DecayGenerator::
+* SolarGenerator::
+* NuclearReactor::
+* ImpactReactor::
+
+Production
+
+* Drill::
+* SolidPump::
+* Cultivator::
+* Fracker::
+
+Storage
+
+* CoreBlock::
+* Vault::
+* Unloader::
+* LaunchPad::
+
+Units
+
+* RepairPoint::
+* UnitFactory::
+* CommandCenter::
+* UnitFactory: UnitFactory 1.
+* MechPad::
+
+BulletTypes
+
+* BulletType::
+* BasicBulletType::
+* ArtilleryBulletType::
+* BombBulletType::
+* FlakBulletType::
+* HealBulletType::
+* LiquidBulletType::
+* MassDriverBolt::
+* MissileBulletType::
+
+UnitTypes
+
+* UnitType::
+* BaseUnit::
+
+
+
+File: README.info,  Node: Overview,  Next: Type,  Prev: Top,  Up: Top
+
+1 Overview
+**********
+
+* Menu:
+
+* ‘mod.json’: modjson.
+* Content::
+* Sprites::
+* Sound::
+* ::
+
+
+File: README.info,  Node: modjson,  Next: Content,  Up: Overview
+
+1.1 ‘mod.json’
+==============
+
+At the root of your project directory, you must have a ‘mod.json‘ which
+defines the basic metadata for your project.
+
+     {
+         "name": "Mod Name",
+         "author": "Yourself",
+         "description": "This is a useless description.",
+         "version": "1.0",
+         "dependencies": [ ]
+     }
+
+   Notes:
+   • ‘name’ will be used to reference to your mod, so name it carefully,
+     and avoid giving it the same name as another mod.
+   • ‘description’ of the mod will be rendered in the mod manager.
+   • ‘dependencies’ is optional, if you want to know more about that, go
+     to the *note dependencies: . section.
+
+
+File: README.info,  Node: Content,  Next: Sprites,  Prev: modjson,  Up: Overview
+
+1.2 Content
+===========
+
+At the root of your project directory you can have a ‘content/’
+directory, this is where all the JSON data goes for your content types,
+and in this directory you have subdirectories for the various types of
+units, these are the current common ones:
+
+   • ‘content/items/’ for things like copper and surge-alloy,
+   • ‘content/blocks/’ for things like turrets and floors,
+   • ‘content/mechs/’ for player controlled mechs tau and dagger,
+   • ‘content/liquids/’ for liquids like water and slag,
+   • ‘content/units/’ for flying or ground units like reaper and dagger,
+   • ‘content/zones/’ for configuration of campaign maps.
+
+   This is important, because it’s how Mindustry will know which types
+to lookup.  – How you name your files is also important as the stem
+‘name’ of your path ‘content/blocks/<name>.json’ is going to be used to
+reference it.
+
+
+File: README.info,  Node: Sprites,  Next: Sound,  Prev: Content,  Up: Overview
+
+1.3 Sprites
+===========
+
+Custom sprites can be added by simply dropping them in the ‘sprites/’
+subdirectory, and be ‘.png’ file, and content which requires a sprite is
+going to fetch the sprite relative to the filename of the sprite:
+‘sprites/<name>.png’, for example ‘sprites/my-hail.png’ would be used on
+‘content/blocks/my-hail.json’.
+
+   On top of this, content type may even look for two or more sprites,
+either through numbering or/and suffixes: ‘sprites/<name>-<i>.png’ for
+example ‘sprites/my-hail-heat.png’ for the ‘heat’ map used when the
+turret is shooting, coloring parts of the turret red for a moment.
+
+   Note that you may put your files in any sub-directory of ‘sprites/’:
+   • ‘sounds/egg/teleporter/train/wall.png’
+
+
+File: README.info,  Node: Sound,  Next: ,  Prev: Sprites,  Up: Overview
+
+1.4 Sound
+=========
+
+Custom sounds can be added through the modding system in the ‘sounds/‘
+directory, of which two formats are needed:
+
+   • ‘.ogg’ required for Desktop/Android
+   • ‘.mp3’ required for iOS
+
+   Note that you may put your files in any sub-directory of ‘sounds/’:
+   • ‘sounds/egg/teleporter/train/wall.ogg’
+
+   Just like any other assets, you reference them by the stem of your
+filename(s).
+
+   Here’s a list of built-in sounds:
+   • ‘artillery’
+   • ‘back’
+   • ‘bang’
+   • ‘beam’
+   • ‘bigshot’
+   • ‘boom’
+   • ‘break’
+   • ‘build’
+   • ‘buttonClick’
+   • ‘click’
+   • ‘conveyor’
+   • ‘corexplode’
+   • ‘door’
+   • ‘drill’
+   • ‘empty’
+   • ‘explosionbig’
+   • ‘explosion’
+   • ‘fire’
+   • ‘flame2’
+   • ‘flame’
+   • ‘laserbig’
+   • ‘laser’
+   • ‘machine’
+   • ‘message’
+   • ‘missile’
+   • ‘pew’
+   • ‘place’
+   • ‘press’
+   • ‘release’
+   • ‘respawning’
+   • ‘respawn’
+   • ‘shootBig’
+   • ‘shoot’
+   • ‘shootSnap’
+   • ‘shotgun’
+   • ‘spark’
+   • ‘splash’
+   • ‘spray’
+   • ‘thruster’
+   • ‘unlock’
+   • ‘wave’
+   • ‘windowHide’
+
+You can add dependencies to your mod, by simple adding other mods name
+in your ‘mod.json’:
+
+     {
+         "dependencies": [
+             "other-mod-name",
+             "not-a-mod"
+         ]
+     }
+
+   The other mods name needs to be lower cased and spaces replaced with
+hyphens (‘-’), for example ‘Other MOD NamE’ -> ‘other-mod-name’.
+
+   To reference the other mods assets, you must prefix the asset with
+the other mods name:
+
+   • ‘other-mod-name-not-copper’ would reference ‘not-copper’ in
+     ‘other-mod-name’
+   • ‘other-mod-name-angry-dagger’ would reference ‘angry-dagger’ in
+     ‘other-mod-name’
+   • ‘not-a-mod-angry-dagger’ would reference ‘angry-dagger’ in
+     ‘not-a-mod’
+
+
+File: README.info,  Node: Type,  Next: Block Types,  Prev: Overview,  Up: Top
+
+2 Type
+******
+
+Types have numerous fields, but the important one is ‘type’.  Types
+_extend_ each other, and what that means is if ‘MissileBulletType’
+extends ‘BasicBulletType’, then you’ll have all the fields of
+‘BasicBulletType’ inside of ‘MissileBulletType’ like ‘damage’.
+
+   is what you’d expect is at the type’s discretion, some fields aren’t
+actually really used by their extenders/childrens, resulting in no
+behavior at all.
+
+   A type can be specified in the field of an object, but this is not
+all a type is.  A type is the type of something ‘float’ is a type so
+‘0.3’ is type float.  ‘Block’ is a type, which isn’t something you’ll be
+using by itself, but instead you use ‘Floor’ which is a ‘Block’ type
+topped with behavior that is floor specific.
+
+     {
+         "type": "Revenant",
+             "weapon": {
+                 "bullet": {
+                     "type": "MissileBulletType",
+                 "damage": 9000
+             }
+         }
+     }
+
+   Here you can see, the type of the top level object is ‘Revenant’, but
+the type of the ‘bullet’ which needs to be a ‘BulletType’ is actually
+‘MissileBulletType’, which gives you the behaviors and effects that
+missiles should have.
+
+* Menu:
+
+* UnlockableContent and MappableContent::
+* ItemStack::
+* LiquidStack::
+* Consumers::
+* Attributes::
+* Attribute::
+* Item::
+* Liquid::
+* BlockStorage::
+* BuildVisibility::
+* Layer::
+* BlockGroup::
+* Category::
+* Color::
+* TargetPriority::
+
+
+File: README.info,  Node: UnlockableContent and MappableContent,  Next: ItemStack,  Up: Type
+
+2.1 UnlockableContent and MappableContent
+=========================================
+
+Types that can have a display name and description.  _Most content in
+other words_ but not everything.  *note ItemStack:: isn’t
+‘UnlockableContent’ because it’s not content, it’s just a stack of
+items.
+
+field         type
+-----------------------
+name          String
+description   String
+
+     {
+         "type": "Revenant",
+         "name": "Mammoth",
+         "description": "Not a description."
+     }
+
+
+File: README.info,  Node: ItemStack,  Next: LiquidStack,  Prev: UnlockableContent and MappableContent,  Up: Type
+
+2.2 ItemStack
+=============
+
+This type is used by blocks, to consume/output items.
+
+   An item stack is simply an array of objects with these fields:
+
+field    type             default
+------------------------------------
+amount   int              1
+item     *note Item::
+
+   For example:
+
+     [
+         { "amount": 30, "item": "surge-alloy" },
+         { "amount": 90, "item": "copper" }
+     ]
+
+
+File: README.info,  Node: LiquidStack,  Next: Consumers,  Prev: ItemStack,  Up: Type
+
+2.3 LiquidStack
+===============
+
+This type is used by blocks, to consume a liquid, just like *note
+ItemStack:: except that it can only contain 1 liquid.
+
+field    type
+------------------------------
+liquid   *note Liquid::
+amount   float
+
+   For example:
+
+     {
+        "liquid": "water",
+        "amount": 0.5
+     }
+
+
+File: README.info,  Node: Consumers,  Next: Attributes,  Prev: LiquidStack,  Up: Type
+
+2.4 Consumers
+=============
+
+This type is commonly used in block type with it’s field ‘consumes‘,
+it’s a type that allows your block to consume something, and how this
+field works is up to the specific type extension you’re using.
+
+field           type                    notes
+----------------------------------------------------------------
+item            String                  shorthand for ‘items’
+items           ConsumeItems
+liquid          ConsumeLiquid
+power           float or ConsumePower
+powerBuffered   float                   for batteries
+
+   Notes:
+   • you shouldn’t have ‘power’ and ‘powerBuffered’
+
+   For example with *note ConsumeItems:::
+     {
+         "items": {
+             "items": [ { "amount": 10, "item": "copper" } ],
+             "booster": true,
+             "optional": true
+         }
+     }
+
+* Menu:
+
+* Consume::
+* ConsumeItems::
+* ConsumeLiquidBase::
+* ConsumeLiquid::
+* ConsumePower::
+
+
+File: README.info,  Node: Consume,  Next: ConsumeItems,  Up: Consumers
+
+2.4.1 Consume
+-------------
+
+An abstract base that defines a type of resource that a block can
+consume.
+
+field      type      default   notes
+--------------------------------------------------------------------------------
+optional   boolean             consumer will not influence consumer validity.
+booster    boolean             consumer will be displayed as a boost input.
+update     boolean   true
+
+
+File: README.info,  Node: ConsumeItems,  Next: ConsumeLiquidBase,  Prev: Consume,  Up: Consumers
+
+2.4.2 ConsumeItems
+------------------
+
+Extends *note Consume:: – To consume an itemstack.
+
+field   type
+-----------------------------------
+items   *note ItemStack::
+
+
+File: README.info,  Node: ConsumeLiquidBase,  Next: ConsumeLiquid,  Prev: ConsumeItems,  Up: Consumers
+
+2.4.3 ConsumeLiquidBase
+-----------------------
+
+Extends *note Consume::
+
+field        type    default   notes
+---------------------------------------------------------------------------
+float        final             amount used per frame
+timePeriod   float   60        how much time is taken to use this liquid
+
+   Notes:
+   • ‘timePeriod’ example: a normal ConsumeLiquid with 10/s and a 10
+     second timePeriod would display as "100 seconds", but without a
+     time override it would display as "10 liquid/second".  This is used
+     for generic crafters.
+
+
+File: README.info,  Node: ConsumeLiquid,  Next: ConsumePower,  Prev: ConsumeLiquidBase,  Up: Consumers
+
+2.4.4 ConsumeLiquid
+-------------------
+
+Extends *note ConsumeLiquidBase:: – To consume a liquid type.
+
+field    type                 default
+----------------------------------------
+liquid   *note Liquid::       null
+amount   float                0
+
+
+File: README.info,  Node: ConsumePower,  Prev: ConsumeLiquid,  Up: Consumers
+
+2.4.5 ConsumePower
+------------------
+
+Extends *note Consume:: – To consume or buffer power.
+
+field      type      default   notes
+----------------------------------------------------------------------------------------------
+usage      float               The maximum amount of power which can be processed per tick.
+capacity   float               The maximum power capacity in power units.
+buffered   boolean             True if the module can store power.
+
+   Notes:
+   • ‘usage’ might influence efficiency or load a buffer.
+
+
+File: README.info,  Node: Attributes,  Next: Attribute,  Prev: Consumers,  Up: Type
+
+2.5 Attributes
+==============
+
+An object with an array of *note attribute: Attribute.  Used in the
+‘Floor’ type to give a tile specific properties, like _hottness_ or
+_sporness_ for efficiency of various systems, like ThermalPumps and
+WaterExtractors.
+
+   ‘array’ has 4 items:
+
+   • index ‘0’ is ‘heat’,
+   • index ‘1’ is ‘spores’,
+   • index ‘2’ is ‘water’,
+   • index ‘3’ is ‘oil’.
+
+     For example, this would give you ‘100’ heat, ‘1’ spores, ‘0.5’
+     water and ‘0.1’ oil.
+
+          {
+              "array": [ 100, 1, 0.5, 0.1]
+          }
+
+     You could use it inside of *note Floor:: type as such:
+
+          {
+              "type": "Floor",
+              "name": "magma",
+              "attributes": { "array": [ 0.75, 0, 0, 0 ] }
+          }
+
+
+File: README.info,  Node: Attribute,  Next: Item,  Prev: Attributes,  Up: Type
+
+2.6 Attribute
+=============
+
+New attributes cannot be added.  List of built-in attributes:
+
+   • ‘heat’
+   • ‘spores’
+   • ‘water’
+   • ‘oil’
+
+
+File: README.info,  Node: Item,  Next: Liquid,  Prev: Attribute,  Up: Type
+
+2.7 Item
+========
+
+Extends *note UnlockableContent: UnlockableContent and MappableContent.
+– It’s the object that can ride conveyors, sorters and be stored in
+containers, and is commonly used in crafters.
+
+field            type                 default   notes
+------------------------------------------------------------------------------------------------------------------------
+color            *note Color::                  hex string of color
+type             *note ItemType: Item.          resource or material; used for tabs and core acceptance
+explosiveness    float                ‘0’       how explosive this item is.
+flammability     float                ‘0’       flammability above 0.3 makes this eleigible for item burners.
+radioactivity    float                          how radioactive this item is.  0=none, 1=chernobyl ground zero
+hardness         int                  ‘0’       drill hardness of the item
+cost             float                ‘1’       used for calculating place times; 1 cost = 1 tick added to build time
+alwaysUnlocked   boolean              ‘false’   If true, item is always unlocked.
+
+
+File: README.info,  Node: Liquid,  Next: BlockStorage,  Prev: Item,  Up: Type
+
+2.8 Liquid
+==========
+
+Extends *note UnlockableContent: UnlockableContent and MappableContent.
+– Object that defines the properties of a liquid.
+
+field           type                             default   notes
+--------------------------------------------------------------------------------------------------------------------------------------------------
+color           *note Color::                              color of liquid
+flammability    float                                      0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat.
+temperature     float                            0.5       0.5 is ’room’ temperature, 0 is very cold, 1 is molten hot
+heatCapacity    float                            0.5       used in cooling; water is 0.4
+viscosity       float                            0.5       how thick this liquid is; water is 0.5, tar is 1.
+explosiveness   float                                      explosiveness when heated; 0 is nothing, 1 is nuke
+flameColor      *note Color::                    ffb763    the burning color of this liquid
+effect          *note StatusEffect::             none      the associated status effect.
+
+
+File: README.info,  Node: BlockStorage,  Next: BuildVisibility,  Prev: Liquid,  Up: Type
+
+2.9 BlockStorage
+================
+
+Extends *note UnlockableContent: UnlockableContent and MappableContent.
+– This is for blocks that can store a buffer of items.
+
+field           type                       default   notes
+-------------------------------------------------------------
+hasItems        boolean
+hasLiquids      boolean
+hasPower        boolean
+outputsLiquid   boolean                    false
+consumesPower   boolean                    true
+outputsPower    bolean                     false
+itemCapacity    int                        10
+item            float                      10
+consumes        *note Consumers::
+
+
+File: README.info,  Node: BuildVisibility,  Next: Layer,  Prev: BlockStorage,  Up: Type
+
+2.10 BuildVisibility
+====================
+
+Options for build visibility include:
+   • ‘hidden’
+   • ‘shown’
+   • ‘debugOnly’
+   • ‘sandboxOnly’
+   • ‘campaignOnly’
+
+
+File: README.info,  Node: Layer,  Next: BlockGroup,  Prev: BuildVisibility,  Up: Type
+
+2.11 Layer
+==========
+
+Layers is an enumeration type, which the renderer will use to group
+rendering order:
+
+   • ‘block’, base block layer;
+   • ‘placement’, for placement;
+   • ‘overlay’, first overlay stuff like conveyor items;
+   • ‘turret’, "high" blocks like turrets;
+   • ‘power’ power lasers
+
+
+File: README.info,  Node: BlockGroup,  Next: Category,  Prev: Layer,  Up: Type
+
+2.12 BlockGroup
+===============
+
+Groups for blocks to build on top of each other:
+   • ‘none’
+   • ‘walls’
+   • ‘turrets’
+   • ‘transportation’
+   • ‘power’
+   • ‘liquids’
+   • ‘drills’
+
+
+File: README.info,  Node: Category,  Next: Color,  Prev: BlockGroup,  Up: Type
+
+2.13 Category
+=============
+
+Categories for building menu:
+   • ‘turret’ Offensive turrets;
+   • ‘production’ Blocks that produce raw resources, such as drills;
+   • ‘distribution’ Blocks that move items around;
+   • ‘liquid’ Blocks that move liquids around;
+   • ‘power’ Blocks that generate or transport power;
+   • ‘defense’ Walls and other defensive structures;
+   • ‘crafting’ Blocks that craft things;
+   • ‘units’ Blocks that create units;
+   • ‘upgrade’ Things that upgrade the player such as mech pads;
+   • ‘effect’ Things for storage or passive effects.
+
+
+File: README.info,  Node: Color,  Next: TargetPriority,  Prev: Category,  Up: Type
+
+2.14 Color
+==========
+
+Color is a hexadecimal string, ‘<rr><gg><bb>’ for example:
+
+   • ‘ff0000’ is read,
+   • ‘00ff00’ is green,
+   • ‘00ffff’ is blue,
+   • ‘ffff00’ is yellow,
+   • ‘00ffff’ is cyan,
+   • _ect.._
+
+
+File: README.info,  Node: TargetPriority,  Prev: Color,  Up: Type
+
+2.15 *TODO* TargetPriority
+==========================
+
+   • ‘base’
+   • ‘turret’
+
+
+File: README.info,  Node: Block Types,  Next: BulletTypes,  Prev: Type,  Up: Top
+
+3 Block Types
+*************
+
+* Menu:
+
+* Block::
+* Environment::
+* Crafting::
+* Sandbox::
+* Defense::
+* Turrets::
+* Distribution::
+* Liquid: Liquid 1.
+* Power::
+* Production::
+* Storage::
+* Units::
+
+
+File: README.info,  Node: Block,  Next: Environment,  Up: Block Types
+
+3.1 Block
+=========
+
+Extends *note BlockStorage:: – Fields for all objects that are blocks.
+
+field                 type                                   default        notes
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+update                boolean                                               whether this block has a tile entity that updates
+destructible          boolean                                               whether this block has health and can be destroyed
+unloadable            boolean                                true           whether unloaders work on this block
+solid                 boolean                                               whether this is solid
+solidifes             boolean                                               whether this block CAN be solid.
+rotate                boolean                                               whether this is rotateable
+breakable             boolean                                               whether you can break this with rightclick
+placeableOn           boolean                                true           whether this *note floor: Floor. can be placed on.
+health                int                                    -1             tile entity health
+baseExplosiveness     float                                  0              base block explosiveness
+floating              boolean                                false          whether this block can be placed on edges of liquids.
+size                  int                                    1              multiblock size
+expanded              boolean                                false          Whether to draw this block in the expanded draw range.
+timers                int                                    0              Max of timers used.
+fillesTile            true                                                  Special flag; if false, *note floor: Floor. will be drawn under this block even if it is
+                                                                            cached.
+alwaysReplace         boolean                                false          whether this block can be replaced in all cases
+group                 *note BlockGroup::                     none           Unless ‘canReplace’ is overriden, blocks in the same group can replace each other.
+priority              TargetPriority                         base           Targeting priority of this block, as seen by enemies.
+configurable          boolean                                               Whether the block can be tapped and selected to configure.
+consumesTap           boolean                                               Whether this block consumes touchDown events when tapped.
+posConfig             boolean                                               Whether the config is positional and needs to be shifted.
+targetable            boolean                                true           Whether units target this block.
+canOverdrive          boolean                                true           Whether the overdrive core has any effect on this block.
+outlineColor          *note Color::                          404049         Outlined icon color.
+outlineIcon           boolean                                false          Whether the icon region has an outline added.
+hasShadow             boolean                                true           Whether this block has a shadow under it.
+breakSound            *note Sound::                          boom           Sounds made when this block breaks.
+activeSound           *note Sound::                          none           The sound that this block makes while active.  One sound loop.  Do not overuse.
+activeSoundVolume     float                                  0.5            Active sound base volume.
+idleSound             *note Sound::                          none           The sound that this block makes while idle.  Uses one sound loop for all blocks.
+idleSoundVolume       float                                  0.5            Idle sound base volume.
+requirements          *note ItemStack::                                     Cost of constructing and researching this block.
+category              *note Category::                       distribution   Category in place menu.
+buildCost             float                                                 Cost of building this block; do not modify directly!
+buildVisibility       *note BuildVisibility::                hidden         Whether this block is visible and can currently be built.
+buildCostMultiplier   float                                  1              Multiplier for speed of building this block.
+instantTransfer       boolean                                false          Whether this block has instant transfer.
+alwaysUnlocked        boolean                                false
+layer                 *note Layer::                          null           Layer to draw extra stuff on.
+layer2                *note Layer::                          null           Extra layer to draw extra stuff on.
+
+   Notes:
+   • research cost is ‘30 + <requirements> * 6’
+
+
+File: README.info,  Node: Environment,  Next: Crafting,  Prev: Block,  Up: Block Types
+
+3.2 Environment
+===============
+
+* Menu:
+
+* Floor::
+* OverlayFloor::
+* DoubleOverlayFloor::
+* OreBlock::
+* StaticWalls::
+* TreeBlock::
+
+
+File: README.info,  Node: Floor,  Next: OverlayFloor,  Up: Environment
+
+3.2.1 Floor
+-----------
+
+Extends *note Block:: – Environmental floors.  Requires a sprite, so to
+be visible in the map editor.
+
+field               type                         default             notes
+--------------------------------------------------------------------------------------------------------------------------------
+variants            int                          3                   number of different variant regions to use.
+edge                String                       "stone"             edge fallback, used mainly for ores.
+speedMultiplier     float                        1                   multiplies unit velocity by this when walked on.
+dragMultiplier      float                        0                   multiplies unit drag by this when walked on.
+damageTaken         float                        0                   damage taken per tick on this tile.
+drownTime           float                        0                   how many ticks it takes to drown on this.
+walkEffect          *note Effect::               "ripple"            effect when walking on this *note floor: Floor.
+drownUpdateEffect   *note Effect::               "bubble"            effect displayed when drowning on this
+                                                                     *note floor: Floor.
+status              StatusEffect                 "none"              status effect applied when walking on.
+statusDuration      float                        60                  intensity of applied status effect.
+liquidDrop          *note Liquid::                                   liquids that drop from this block, used for pumps.
+itemDrop            *note Item::                                     item that drops from this block, used for drills.
+isLiquid            boolean                                          whether this block can be drowned in.
+playerUnmineable    boolean                      false               block cannot be mined by players if true.
+blendGroup          *note Block::                this                group of blocks that this block does not draw edges on.
+updateEffect        *note Effect::               "none"              effect displayed when randomly updated.
+attributes          *note Attributes::           ‘{ "array": [] }’   array of affinities to certain things.
+
+   Sprite lookup name, where ‘i’ is the variant:
+   • ‘<name><i>.png’ variants start at ‘1’.
+
+
+File: README.info,  Node: OverlayFloor,  Next: DoubleOverlayFloor,  Prev: Floor,  Up: Environment
+
+3.2.2 OverlayFloor
+------------------
+
+Extends *note Floor:: – A type of floor that is overlaid on top of over
+floors.
+
+   For example:
+   • ‘spawn’
+   • ‘tendrils’
+
+
+File: README.info,  Node: DoubleOverlayFloor,  Next: OreBlock,  Prev: OverlayFloor,  Up: Environment
+
+3.2.3 DoubleOverlayFloor
+------------------------
+
+Extends *note OverlayFloor::
+
+   For example:
+   • ‘pebbles’
+
+
+File: README.info,  Node: OreBlock,  Next: StaticWalls,  Prev: DoubleOverlayFloor,  Up: Environment
+
+3.2.4 OreBlock
+--------------
+
+Extends *note OverlayFloor:: – An overlay ore for a specific item type.
+
+field      default
+---------------------
+variants   3
+
+
+File: README.info,  Node: StaticWalls,  Next: TreeBlock,  Prev: OreBlock,  Up: Environment
+
+3.2.5 StaticWalls
+-----------------
+
+  1. Rock
+
+     Extends *note Block::
+
+     field      type
+     ------------------
+     variants   int
+
+     Defaults:
+     field           default
+     --------------------------
+     breakable       true
+     alwaysReplace   true
+
+  2. StaticWall
+
+     Extends *note Rock::
+
+     Defaults:
+     field           default
+     --------------------------
+     breakable       false
+     alwaysReplace   false
+     solid           true
+     variants        2
+
+     Extra Sprites:
+        • ‘<name>-large.png’ which is a 2x2 variant.
+
+  3. StaticTree
+
+     Extends *note StaticWall::
+
+     For example:
+        • ‘spore-pine’
+        • ‘snow-pine’
+        • ‘pine’
+        • ‘shrubs’
+
+
+File: README.info,  Node: TreeBlock,  Prev: StaticWalls,  Up: Environment
+
+3.2.6 TreeBlock
+---------------
+
+Extends *note Block::
+
+   Defaults:
+field      default
+---------------------
+solid      true
+layer      power
+expanded   true
+
+
+File: README.info,  Node: Crafting,  Next: Sandbox,  Prev: Environment,  Up: Block Types
+
+3.3 Crafting
+============
+
+* Menu:
+
+* GenericCrafter::
+* GenericSmelter::
+* Separator::
+
+
+File: README.info,  Node: GenericCrafter,  Next: GenericSmelter,  Up: Crafting
+
+3.3.1 GenericCrafter
+--------------------
+
+Extends *note Block::
+
+field                type                           default
+--------------------------------------------------------------
+outputItem           *note ItemStack::
+outputLiquid         *note LiquidStack::
+craftTime            float                          80
+craftEffect          *note Effect::                 none
+updateEffect         *note Effect::                 none
+updateEffectChance   float                          0.04
+
+   Defaults:
+field             default
+----------------------------
+update            true
+solid             true
+hasItems          true
+health            60
+idleSound         machine
+idleSoundVolume   0.03
+
+
+File: README.info,  Node: GenericSmelter,  Next: Separator,  Prev: GenericCrafter,  Up: Crafting
+
+3.3.2 GenericSmelter
+--------------------
+
+Extends *note GenericCrafter:: – A GenericCrafter with a new glowing
+region drawn on top.
+
+field        type               default
+------------------------------------------
+flameColor   *note Color::      ffc999
+
+   Sprite suffix:
+   • ‘-top’
+
+
+File: README.info,  Node: Separator,  Prev: GenericSmelter,  Up: Crafting
+
+3.3.3 Separator
+---------------
+
+Extends *note Block:: – Extracts a random list of items from an input
+item and an input liquid.
+
+field              type                       default   notes
+-----------------------------------------------------------------------
+results            *note ItemStack::                    *[required]*
+craftTime          float
+spinnerRadius      float                      2.5
+spinnerLength      float                      1
+spinnerThickness   float                      1
+spinnerSpeed       float                      2
+color              *note Color::              858585
+liquidRegion       int
+
+   Defaults:
+field        default
+-----------------------
+update       true
+solid        true
+hasItems     true
+hasLiquids   true
+
+   Sprite suffixes:
+   • ‘-liquid’
+
+
+File: README.info,  Node: Sandbox,  Next: Defense,  Prev: Crafting,  Up: Block Types
+
+3.4 Sandbox
+===========
+
+* Menu:
+
+* Incinerator::
+* PowerVoid::
+* PowerSource::
+* ItemSource::
+* ItemVoid::
+* LiquidSource::
+* MessageBlock::
+
+
+File: README.info,  Node: Incinerator,  Next: PowerVoid,  Up: Sandbox
+
+3.4.1 *TODO* Incinerator
+------------------------
+
+
+File: README.info,  Node: PowerVoid,  Next: PowerSource,  Prev: Incinerator,  Up: Sandbox
+
+3.4.2 *TODO* PowerVoid
+----------------------
+
+
+File: README.info,  Node: PowerSource,  Next: ItemSource,  Prev: PowerVoid,  Up: Sandbox
+
+3.4.3 *TODO* PowerSource
+------------------------
+
+
+File: README.info,  Node: ItemSource,  Next: ItemVoid,  Prev: PowerSource,  Up: Sandbox
+
+3.4.4 *TODO* ItemSource
+-----------------------
+
+
+File: README.info,  Node: ItemVoid,  Next: LiquidSource,  Prev: ItemSource,  Up: Sandbox
+
+3.4.5 *TODO* ItemVoid
+---------------------
+
+
+File: README.info,  Node: LiquidSource,  Next: MessageBlock,  Prev: ItemVoid,  Up: Sandbox
+
+3.4.6 *TODO* LiquidSource
+-------------------------
+
+
+File: README.info,  Node: MessageBlock,  Prev: LiquidSource,  Up: Sandbox
+
+3.4.7 *TODO* MessageBlock
+-------------------------
+
+
+File: README.info,  Node: Defense,  Next: Turrets,  Prev: Sandbox,  Up: Block Types
+
+3.5 Defense
+===========
+
+* Menu:
+
+* Wall::
+* DeflectorWall::
+* SurgeWall::
+* Door::
+* MendProjector::
+* OverdriveProjector::
+* ForceProjector::
+* ShockMine::
+
+
+File: README.info,  Node: Wall,  Next: DeflectorWall,  Up: Defense
+
+3.5.1 Wall
+----------
+
+Extends *note Block::
+
+field      type   default
+----------------------------
+variants   int    0
+
+   Defaults:
+
+field                 default
+--------------------------------
+solid                 true
+destructible          true
+group                 "walls"
+buildCostMultiplier   5
+
+
+File: README.info,  Node: DeflectorWall,  Next: SurgeWall,  Prev: Wall,  Up: Defense
+
+3.5.2 DeflectorWall
+-------------------
+
+Extends *note Wall:: – Wall that deflects low damage bullets.
+
+field              type    default
+-------------------------------------
+hitTime            float   10
+maxDamageDeflect   float   10
+
+
+File: README.info,  Node: SurgeWall,  Next: Door,  Prev: DeflectorWall,  Up: Defense
+
+3.5.3 SurgeWall
+---------------
+
+Extends *note Wall:: – Wall that creates lightning when shot.
+
+field             type    default
+------------------------------------
+lightningChance   float   0.05
+lightningDamage   float   15
+lightningLength   int     17
+
+
+File: README.info,  Node: Door,  Next: MendProjector,  Prev: SurgeWall,  Up: Defense
+
+3.5.4 Door
+----------
+
+Extends *note Wall::
+
+field     type                 default
+-------------------------------------------
+openfx    *note Effect::       dooropen
+closefx   *note Effect::       doorclose
+
+   Defaults:
+
+field         default
+------------------------
+solid         false
+solidfies     true
+consumesTap   true
+
+
+File: README.info,  Node: MendProjector,  Next: OverdriveProjector,  Prev: Door,  Up: Defense
+
+3.5.5 MendProjector
+-------------------
+
+Extends *note Block::
+
+field             type               default
+------------------------------------------------
+color             *note Color::      "84f491"
+phase             *note Color::      "ffd59e"
+reload            float              250
+range             float              60
+healPercent       float              12
+phaseBoost        float              12
+phaseRangeBoost   float              50
+useTime           float              400
+
+
+File: README.info,  Node: OverdriveProjector,  Next: ForceProjector,  Prev: MendProjector,  Up: Defense
+
+3.5.6 OverdriveProjector
+------------------------
+
+Extends *note Block::
+
+field             type               default
+-----------------------------------------------
+color             *note Color::      feb380
+phase             *note Color::      ffd59e
+reload            float              60
+range             float              80
+speedBoost        float              1.5
+speedBoostPhase   float              0.75
+useTime           float              400
+phaseRangeBoost   float              20
+
+
+File: README.info,  Node: ForceProjector,  Next: ShockMine,  Prev: OverdriveProjector,  Up: Defense
+
+3.5.7 ForceProjector
+--------------------
+
+Extends *note Block::
+
+field                type    default
+---------------------------------------
+phaseUseTime         float   350
+phaseRadiusBoost     float   80
+radius               float   101.7
+breakage             float   550
+cooldownNormal       float   1.75
+cooldownLiquid       float   1.5
+cooldownBrokenBase   float   0.35
+basePowerDraw        float   0.2
+powerDamage          float   0.1
+
+
+File: README.info,  Node: ShockMine,  Prev: ForceProjector,  Up: Defense
+
+3.5.8 ShockMine
+---------------
+
+Extends *note Block::
+
+field        type    default
+-------------------------------
+cooldown     float   80
+tileDamage   float   5
+damage       float   13
+length       int     10
+tendrils     int     6
+
+   Defaults:
+field          default
+-------------------------
+update         false
+destructible   true
+solid          false
+targetable     false
+layer          overlay
+
+
+File: README.info,  Node: Turrets,  Next: Distribution,  Prev: Defense,  Up: Block Types
+
+3.6 Turrets
+===========
+
+* Menu:
+
+* Turret::
+* CooledTurret::
+* ItemTurret::
+* DoubleTurret::
+* ArtilleryTurret::
+* BurstTurret::
+* PowerTurret::
+* ChargeTurret::
+* LaserTurret::
+* LiquidTurret::
+
+
+File: README.info,  Node: Turret,  Next: CooledTurret,  Up: Turrets
+
+3.6.1 Turret
+------------
+
+Extends *note Block:: – Base extended to make turrets types.
+
+field           type                 default      notes
+------------------------------------------------------------------------
+heatColor       *note Color::        turretHeat
+shootEffect     *note Effect::       none
+smokeEffect     *note Effect::       none
+ammoUseEffect   *note Effect::       none
+shootSound      *note Sound::        shoot
+ammoPerShot     int                  1
+ammoEjectBack   float                1
+range           float                50
+reload          float                10
+inaccuracy      float                0
+shots           int                  1
+spread          float                4
+recoil          float                1
+restitution     float                0.02
+cooldown        float                0.02
+rotatespeed     float                5            in degrees per tick
+shootCone       float                8
+shootShake      float                0
+xRand           float                0
+targetAir       boolean              true
+targetGround    boolean              true
+
+   Defaults:
+field         default
+------------------------
+priority      turret
+update        true
+solid         true
+layer         turret
+group         turrets
+outlineIcon   true
+
+
+File: README.info,  Node: CooledTurret,  Next: ItemTurret,  Prev: Turret,  Up: Turrets
+
+3.6.2 CooledTurret
+------------------
+
+Extends *note Turret:: – Extends turret with cooling behavior.
+
+field               type                 default   notes
+-----------------------------------------------------------------------------------------------------------------------------
+coolantMultiplier   float                5         How much reload is lowered by for each unit of liquid of heat capacity.
+coolEffect          *note Effect::       shoot
+
+
+File: README.info,  Node: ItemTurret,  Next: DoubleTurret,  Prev: CooledTurret,  Up: Turrets
+
+3.6.3 ItemTurret
+----------------
+
+Extends *note CooledTurret:: – Turrets that uses items as ammo.
+
+field     type                                             default
+---------------------------------------------------------------------
+maxAmmo   int                                              30
+ammo      { *note Item::: *note BulletType:: }
+
+   Defaults:
+
+field      default
+---------------------
+hasItems   true
+
+   Ammo is an object of item:bullet-type pairs, for example:
+
+     {
+         "ammo": {
+             "copper": "standardCopper",
+             "metaglass": {
+                 "type": "MissileBulletType",
+                 "damage": 2
+             }
+         }
+     }
+
+
+File: README.info,  Node: DoubleTurret,  Next: ArtilleryTurret,  Prev: ItemTurret,  Up: Turrets
+
+3.6.4 DoubleTurret
+------------------
+
+Extends *note ItemTurret:: – Turret that shoots from two side by side
+barrels.
+
+field       type    default
+------------------------------
+shotWidth   float   2
+
+   Default:
+field   default
+------------------
+shots   2
+
+
+File: README.info,  Node: ArtilleryTurret,  Next: BurstTurret,  Prev: DoubleTurret,  Up: Turrets
+
+3.6.5 ArtilleryTurret
+---------------------
+
+Extends *note ItemTurret:: – Artillery turrets have special shooting
+calculations done to hit targets.
+
+field       default
+----------------------
+targetAir   false
+
+
+File: README.info,  Node: BurstTurret,  Next: PowerTurret,  Prev: ArtilleryTurret,  Up: Turrets
+
+3.6.6 BurstTurret
+-----------------
+
+Extends *note ItemTurret:: – Turrets capable of bursts of specially
+spaced bullets, separated by long reload times.
+
+field          type    default
+---------------------------------
+burstSpacing   float   5
+
+
+File: README.info,  Node: PowerTurret,  Next: ChargeTurret,  Prev: BurstTurret,  Up: Turrets
+
+3.6.7 PowerTurret
+-----------------
+
+Extends *note CooledTurret:: – Turret which uses power has ammo to
+shoot.
+
+field       type                         default
+---------------------------------------------------
+shootType   *note BulletType::
+powerUse    float                        1
+
+   Defaults:
+
+field      default
+---------------------
+hasPower   true
+
+
+File: README.info,  Node: ChargeTurret,  Next: LaserTurret,  Prev: PowerTurret,  Up: Turrets
+
+3.6.8 *TODO* ChargeTurret
+-------------------------
+
+
+File: README.info,  Node: LaserTurret,  Next: LiquidTurret,  Prev: ChargeTurret,  Up: Turrets
+
+3.6.9 LaserTurret
+-----------------
+
+Extends *note PowerTurret::
+
+field             type    default   notes
+-----------------------------------------------------------------------------------
+firingMoveFract   float   0.25      rotatespeed fraction when turret is shooting
+shootDuration     float   100
+
+   Defaults:
+field               default
+------------------------------
+canOverdrive        false
+coolantMultiplier   1
+
+   Doesn’t update shoot if:
+   • liquid temperature greater or equal to ‘0.5’
+   • liquid flammability greater then ‘0.1’
+
+
+File: README.info,  Node: LiquidTurret,  Prev: LaserTurret,  Up: Turrets
+
+3.6.10 *TODO* LiquidTurret
+--------------------------
+
+
+File: README.info,  Node: Distribution,  Next: Liquid 1,  Prev: Turrets,  Up: Block Types
+
+3.7 Distribution
+================
+
+* Menu:
+
+* Conveyor::
+* ArmoredConveyor::
+* Junction::
+* ItemBridge::
+* ExtendingItemBridge::
+* BufferedItemBridge::
+* Sorter::
+* OverflowGate::
+* MassDriver::
+
+
+File: README.info,  Node: Conveyor,  Next: ArmoredConveyor,  Up: Distribution
+
+3.7.1 *TODO* Conveyor
+---------------------
+
+
+File: README.info,  Node: ArmoredConveyor,  Next: Junction,  Prev: Conveyor,  Up: Distribution
+
+3.7.2 *TODO* ArmoredConveyor
+----------------------------
+
+
+File: README.info,  Node: Junction,  Next: ItemBridge,  Prev: ArmoredConveyor,  Up: Distribution
+
+3.7.3 Junction
+--------------
+
+Extends *note Block::
+
+field      type       default   notes
+---------------------------------------------------------------------------
+speed      float      26        frames taken to go through this junction
+capacity   capacity   6
+
+   Defaults:
+field             default
+-----------------------------------
+update            true
+solid             true
+instantTransfer   true
+group             transportation
+unloadable        false
+
+
+File: README.info,  Node: ItemBridge,  Next: ExtendingItemBridge,  Prev: Junction,  Up: Distribution
+
+3.7.4 ItemBridge
+----------------
+
+Extends *note Block::
+
+field           type    default
+----------------------------------
+range           int
+transportTime   float   2
+
+   Defaults:
+field          default
+--------------------------------
+update         true
+solid          true
+hasPower       true
+layer          power
+expanded       true
+itemCapacity   10
+posConfig      true
+configurable   true
+hasItems       true
+unloadable     false
+group          transportation
+
+   Sprites:
+   • ‘<name>-end’ example: bridge-conveyor-end
+     (https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-end.png)
+   • ‘<name>-bridge’ example: bridge-conveyor-bridge
+     (https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-bridge.png)
+   • ‘<name>-arrow’ example: bridge-conveyor-arrow
+     (https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-arrow.png)
+
+
+File: README.info,  Node: ExtendingItemBridge,  Next: BufferedItemBridge,  Prev: ItemBridge,  Up: Distribution
+
+3.7.5 ExtendingItemBridge
+-------------------------
+
+Extends *note ItemBridge::
+
+   Defaults:
+field      default
+---------------------
+hasItems   true
+
+
+File: README.info,  Node: BufferedItemBridge,  Next: Sorter,  Prev: ExtendingItemBridge,  Up: Distribution
+
+3.7.6 BufferedItemBridge
+------------------------
+
+Extends *note ExtendingItemBridge::
+
+field            type    default
+-----------------------------------
+speed            float   40
+bufferCapacity   int     50
+
+   Defaults:
+field      default
+---------------------
+hasItems   true
+hasPower   false
+
+
+File: README.info,  Node: Sorter,  Next: OverflowGate,  Prev: BufferedItemBridge,  Up: Distribution
+
+3.7.7 Sorter
+------------
+
+Extends *note Block::
+
+field    type
+-------------------
+invert   boolean
+
+   Defaults:
+
+field             default
+-----------------------------------
+update            true
+solid             true
+instantTransfer   true
+group             transportation
+configurable      true
+unloadable        false
+
+
+File: README.info,  Node: OverflowGate,  Next: MassDriver,  Prev: Sorter,  Up: Distribution
+
+3.7.8 *TODO* OverflowGate
+-------------------------
+
+
+File: README.info,  Node: MassDriver,  Prev: OverflowGate,  Up: Distribution
+
+3.7.9 MassDriver
+----------------
+
+Extends *note Block:: – Uses ‘driverBolt’ to transfer items.
+
+field           type                 default
+------------------------------------------------------
+range           float
+rotateSpeed     float                0.04
+translation     float                7
+minDistribute   int                  10
+knockback       float                4
+reloadTime      float                100
+shootEffect     *note Effect::       shootBig2
+smokeEffect     *note Effect::       shootBigSmoke2
+recieveEffect   *note Effect::       mineBig
+shake           float                3
+
+   Notes:
+   • range is limited by ‘driverBolt’’s max range.
+
+   Defaults:
+field          default
+-------------------------
+update         true
+solid          true
+posConfig      true
+configurable   true
+hasItems       true
+layer          turret
+hasPower       true
+outlineIcon    true
+
+   Sprites:
+   • ‘<name>-base’
+
+
+File: README.info,  Node: Liquid 1,  Next: Power,  Prev: Distribution,  Up: Block Types
+
+3.8 Liquid
+==========
+
+* Menu:
+
+* LiquidBlock::
+* Pump::
+* Conduit::
+* LiquidRouter::
+* LiquidTank::
+* LiquidJunction::
+* LiquidBridge::
+* LiquidExtendingBridge::
+
+
+File: README.info,  Node: LiquidBlock,  Next: Pump,  Up: Liquid 1
+
+3.8.1 LiquidBlock
+-----------------
+
+Extends *note Block:: – For blocks that can carry liquids.  Apart from
+the better defaults, it also fetches extra sprites.
+
+   Defaults:
+
+field           default
+--------------------------
+update          true
+solid           true
+hasLiquids      true
+group           liquids
+outputsLiquid   true
+
+   Sprites:
+   • ‘<name>-liquid’
+   • ‘<name>-top’
+   • ‘<name>-bottom’
+
+
+File: README.info,  Node: Pump,  Next: Conduit,  Prev: LiquidBlock,  Up: Liquid 1
+
+3.8.2 Pump
+----------
+
+Extends *note LiquidBlock::
+
+field        type    default
+-------------------------------
+pumpAmount   float   1
+
+field      default
+---------------------
+layer      overlay
+group      liquids
+floating   true
+
+
+File: README.info,  Node: Conduit,  Next: LiquidRouter,  Prev: Pump,  Up: Liquid 1
+
+3.8.3 Conduit
+-------------
+
+Extends *note LiquidBlock::
+
+   Defaults:
+
+field      default
+---------------------
+rotate     true
+solid      false
+floating   true
+
+   Sprite lookup name _(where ‘i’ can be anything from 0-6)_:
+   • ‘<name>-top-<i>’
+
+
+File: README.info,  Node: LiquidRouter,  Next: LiquidTank,  Prev: Conduit,  Up: Liquid 1
+
+3.8.4 LiquidRouter
+------------------
+
+Extends *note LiquidBlock::
+
+
+File: README.info,  Node: LiquidTank,  Next: LiquidJunction,  Prev: LiquidRouter,  Up: Liquid 1
+
+3.8.5 LiquidTank
+----------------
+
+Extends *note LiquidRouter::
+
+
+File: README.info,  Node: LiquidJunction,  Next: LiquidBridge,  Prev: LiquidTank,  Up: Liquid 1
+
+3.8.6 LiquidJunction
+--------------------
+
+Extends *note LiquidBlock::
+
+field        default
+-----------------------
+hasLiquids   true
+
+
+File: README.info,  Node: LiquidBridge,  Next: LiquidExtendingBridge,  Prev: LiquidJunction,  Up: Liquid 1
+
+3.8.7 LiquidBridge
+------------------
+
+Extends *note LiquidBridge::
+
+field           default
+--------------------------
+hasItems        false
+hasLiquids      true
+outputsLiquid   true
+group           liquids
+
+
+File: README.info,  Node: LiquidExtendingBridge,  Prev: LiquidBridge,  Up: Liquid 1
+
+3.8.8 LiquidExtendingBridge
+---------------------------
+
+Extends *note ExtendingItemBridge::
+
+field           default
+--------------------------
+hasItems        false
+hasLiquids      true
+outputsLiquid   true
+group           liquids
+
+
+File: README.info,  Node: Power,  Next: Production,  Prev: Liquid 1,  Up: Block Types
+
+3.9 Power
+=========
+
+* Menu:
+
+* PowerBlock::
+* PowerNode::
+* PowerDistributor::
+* Battery::
+* PowerGenerator::
+* ThermalGenerator::
+* ItemLiquidGenerator::
+* SingleTypeGenerator::
+* BurnerGenerator::
+* DecayGenerator::
+* SolarGenerator::
+* NuclearReactor::
+* ImpactReactor::
+
+
+File: README.info,  Node: PowerBlock,  Next: PowerNode,  Up: Power
+
+3.9.1 PowerBlock
+----------------
+
+Extends *note Block:: – Just a simple overwrite of the defaults.
+
+   Defaults:
+
+field      default
+---------------------
+update     true
+solid      true
+hasPower   true
+group      power
+
+
+File: README.info,  Node: PowerNode,  Next: PowerDistributor,  Prev: PowerBlock,  Up: Power
+
+3.9.2 PowerNode
+---------------
+
+Extends *note PowerBlock::
+
+field        type    default
+-------------------------------
+laserRange   float   6
+maxNodes     int     3
+
+   Defaults:
+
+field           default
+--------------------------
+expanded        true
+layer           power
+configurable    true
+consumesPower   false
+outputsPower    false
+
+
+File: README.info,  Node: PowerDistributor,  Next: Battery,  Prev: PowerNode,  Up: Power
+
+3.9.3 PowerDistributor
+----------------------
+
+Extends *note PowerBlock:: – Just a change of defaults for power
+distributors.
+
+   Defaults:
+field           default
+--------------------------
+consumesPower   false
+outputsPower    true
+
+
+File: README.info,  Node: Battery,  Next: PowerGenerator,  Prev: PowerDistributor,  Up: Power
+
+3.9.4 Battery
+-------------
+
+Extends *note PowerDistributor:: – Just a change of defaults for
+batteries.
+
+   Defauts:
+
+field           default
+--------------------------
+outputsPower    true
+consumesPower   true
+
+
+File: README.info,  Node: PowerGenerator,  Next: ThermalGenerator,  Prev: Battery,  Up: Power
+
+3.9.5 PowerGenerator
+--------------------
+
+Extends *note PowerDistributor:: – Base of power generators.
+
+field             type        default               notes
+---------------------------------------------------------------------------------------------------------
+powerProduction   float                             power produced per tick at 100% (‘1.0’) efficiency
+generationType    BlockStat   basePowerGeneration
+
+   Notes:
+   • ‘1 powerProduction = 60 pu/s’
+
+   Defaults:
+field               default
+------------------------------
+baseExplosiveness   5
+
+
+File: README.info,  Node: ThermalGenerator,  Next: ItemLiquidGenerator,  Prev: PowerGenerator,  Up: Power
+
+3.9.6 ThermalGenerator
+----------------------
+
+Extends *note PowerGenerator:: – Generates power with the heat *note
+attribute: Attributes. of a tile.  Power production is ‘powerProduction
+* heat’, and ‘heat’ must be greater then ‘0.01’.
+
+field            type                 default   notes
+--------------------------------------------------------
+generateEffect   *note Effect::       none
+
+
+File: README.info,  Node: ItemLiquidGenerator,  Next: SingleTypeGenerator,  Prev: ThermalGenerator,  Up: Power
+
+3.9.7 ItemLiquidGenerator
+-------------------------
+
+Extends *note PowerGenerator:: – Base power generation block which can
+use items, liquids or both as input sources for power production.
+Liquids will take priority over items.
+
+field                 type                 default         notes
+----------------------------------------------------------------------------------------------------------------------------
+minItemEfficiency     float                0.2
+itemDuration          float                70              number of ticks during which a single item will produce power.
+minLiquidEfficiency   float                0.2
+maxLiquidGenerate     float                0.4             Maximum liquid used per frame.
+generateEffect        *note Effect::       generatespark
+explodeEffect         *note Effect::       generatespark
+heatColor             *note Color::        ff9b59
+randomlyExplode       boolean              true
+defaults              boolean              false
+
+   Notes:
+   • item efficiency is always 0.0
+   • liquid efficiency is always 0.0
+
+   Extra sprites:
+   • ‘<name>-top’ if ‘hasItems’ is ‘true’
+   • ‘<name>-liquid’
+
+
+File: README.info,  Node: SingleTypeGenerator,  Next: BurnerGenerator,  Prev: ItemLiquidGenerator,  Up: Power
+
+3.9.8 SingleTypeGenerator
+-------------------------
+
+Extends *note ItemLiquidGenerator:: – Generates power from an item.
+
+
+File: README.info,  Node: BurnerGenerator,  Next: DecayGenerator,  Prev: SingleTypeGenerator,  Up: Power
+
+3.9.9 BurnerGenerator
+---------------------
+
+Extends *note ItemLiquidGenerator:: – Generates power from item
+flamability.
+
+
+File: README.info,  Node: DecayGenerator,  Next: SolarGenerator,  Prev: BurnerGenerator,  Up: Power
+
+3.9.10 DecayGenerator
+---------------------
+
+Extends *note ItemLiquidGenerator:: – Generates power from item
+radioactivity.
+
+   Defaults:
+field        default
+-----------------------
+hasItems     true
+hasLiquids   false
+
+
+File: README.info,  Node: SolarGenerator,  Next: NuclearReactor,  Prev: DecayGenerator,  Up: Power
+
+3.9.11 SolarGenerator
+---------------------
+
+Extends *note PowerGenerator:: – A generator that always produces 100%
+efficiency power.
+
+   Notes:
+   • Lower targetting priority then other generators.
+
+
+File: README.info,  Node: NuclearReactor,  Next: ImpactReactor,  Prev: SolarGenerator,  Up: Power
+
+3.9.12 NuclearReactor
+---------------------
+
+Extends *note PowerGenerator:: – Generates power relative to how many
+items are in storage, and explodes if it runs out of coolant.
+
+field             type               default    notes
+--------------------------------------------------------------------------------------
+coolColor         *note Color::      ffffff00
+hotColor          *note Color::      ff9575a3
+itemDuration      float              120        time to consume 1 fuel
+heating           float              0.01       heating per frame * fullness
+smokeThreshold    float              0.3        heat at which blocks start smoking
+explosionRadius   int                40
+explosionDamage   int                1350
+flashThreshold    float              0.46       heat at which lights start flashing
+coolantPower      float              0.5
+
+   Defaults:
+
+field            default
+---------------------------
+itemCapacity     30
+liquidCapacity   30
+hasItems         true
+hasLiquids       true
+
+   Extra Sprites:
+   • ‘<name>-center’ top region
+   • ‘<name>-lights’ lights region
+
+
+File: README.info,  Node: ImpactReactor,  Prev: NuclearReactor,  Up: Power
+
+3.9.13 ImpactReactor
+--------------------
+
+Extends *note PowerGenerator:: – Generator that uses power and has a
+startup time.
+
+field             type               default   notes
+--------------------------------------------------------------------------
+plasmas           int                4         number of plasma sprites
+warmupSpeed       float              0.001
+itemDuration      float              60
+explosionRadius   int                50
+explosionDamage   int                2000
+plasma1           *note Color::      ffd06b
+plasma2           *note Color::      ff361b
+
+   Defaults:
+field            default
+---------------------------
+hasPower         true
+hasLiquids       true
+liquidCapacity   30f
+hasItems         true
+outputsPower     true
+consumesPower    true
+
+   Sprites:
+   • ‘<name>-bottom’ bottom region
+   • ‘<name>-plasma-<i>’ plasma regions, where ‘i‘ is ‘0‘ to ‘plasmas -
+     1‘.
+
+
+File: README.info,  Node: Production,  Next: Storage,  Prev: Power,  Up: Block Types
+
+3.10 Production
+===============
+
+* Menu:
+
+* Drill::
+* SolidPump::
+* Cultivator::
+* Fracker::
+
+
+File: README.info,  Node: Drill,  Next: SolidPump,  Up: Production
+
+3.10.1 Drill
+------------
+
+Extends *note Block:: – Types that can be placed on ore blocks to
+extract the ore blocks items.
+
+field                  type                 default          notes
+-------------------------------------------------------------------------------------------------------------------------------------
+tier                   int                                   Maximum tier of blocks this drill can mine.
+drillTime              float                300              Base time to drill one ore, in frames.
+liquidBoostIntensity   float                1.6              How many times faster the drill will progress when boosted by liquid.
+warmupSpeed            float                0.02             Speed at which the drill speeds up.
+drawMineItem           boolean              false            Whether to draw the item this drill is mining.
+drillEffect            *note Effect::       mine             Effect played when an item is produced.  This is colored.
+rotateSpeed            float                2                Speed the drill bit rotates at.
+updateEffect           *note Effect::       pulverizeSmall   Effect randomly played while drilling.
+updateEffectChance     float                0.02             Chance the update effect will appear.
+drawRim                boolean              false
+heatColor              *note Color::        ff5512
+
+   Defaults:
+field             default
+----------------------------
+update            true
+solid             true
+layer             overlay
+group             drills
+hasLiquids        true
+liquidCapacity    5
+hasItems          true
+idleSound         drill
+idleSoundVolume   0.003
+
+   Sprites:
+   • ‘<name>-rim’
+   • ‘<name>-rotator’
+   • ‘<name>-top’
+
+
+File: README.info,  Node: SolidPump,  Next: Cultivator,  Prev: Drill,  Up: Production
+
+3.10.2 SolidPump
+----------------
+
+Extends *note Pump:: – Pump that makes liquid from solids and takes in
+power.  Only works on solid floor blocks.
+
+field                type                       default
+----------------------------------------------------------
+result               *note Liquid::             water
+updateEffect         *note Effect::             none
+updateEffectChance   float                      0.02
+rotateSpeed          float                      1
+attribute            *note Attribute::
+
+   Defaults:
+field      default
+---------------------
+hasPower   true
+
+   Sprites:
+   • ‘<name>-liquid’
+
+
+File: README.info,  Node: Cultivator,  Next: Fracker,  Prev: SolidPump,  Up: Production
+
+3.10.3 Cultivator
+-----------------
+
+Extends *note GenericCrafter::
+
+field        type    default
+-------------------------------
+recurrence   float   6
+
+   Defaults:
+field         default
+------------------------
+craftEffect   none
+
+   Sprites:
+   • ‘<name>-middle’
+   • ‘<name>-top’
+
+
+File: README.info,  Node: Fracker,  Prev: Cultivator,  Up: Production
+
+3.10.4 Fracker
+--------------
+
+Extends *note SolidPump::
+
+field         default
+------------------------
+itemUseTime   100
+
+   Defaults:
+field      default
+---------------------
+hasItems   true
+
+   Sprites:
+   • ‘<name>-liquid’
+   • ‘<name>-rotater’
+   • ‘<name>-top’
+
+
+File: README.info,  Node: Storage,  Next: Units,  Prev: Production,  Up: Block Types
+
+3.11 Storage
+============
+
+* Menu:
+
+* CoreBlock::
+* Vault::
+* Unloader::
+* LaunchPad::
+
+
+File: README.info,  Node: CoreBlock,  Next: Vault,  Up: Storage
+
+3.11.1 *TODO* CoreBlock
+-----------------------
+
+
+File: README.info,  Node: Vault,  Next: Unloader,  Prev: CoreBlock,  Up: Storage
+
+3.11.2 *TODO* Vault
+-------------------
+
+
+File: README.info,  Node: Unloader,  Next: LaunchPad,  Prev: Vault,  Up: Storage
+
+3.11.3 *TODO* Unloader
+----------------------
+
+
+File: README.info,  Node: LaunchPad,  Prev: Unloader,  Up: Storage
+
+3.11.4 *TODO* LaunchPad
+-----------------------
+
+
+File: README.info,  Node: Units,  Prev: Storage,  Up: Block Types
+
+3.12 Units
+==========
+
+* Menu:
+
+* RepairPoint::
+* UnitFactory::
+* CommandCenter::
+* UnitFactory: UnitFactory 1.
+* MechPad::
+
+
+File: README.info,  Node: RepairPoint,  Next: UnitFactory,  Up: Units
+
+3.12.1 RepairPoint
+------------------
+
+Extends *note Block:: – Block which can repair units within range, with
+a laser.
+
+field          type    default
+---------------------------------
+repairRadius   float   50
+repairSpeed    float   0.3
+powerUse       float
+
+   Defaults:
+field         default
+------------------------
+update        true
+solid         true
+hasPower      true
+outlineIcon   true
+layer         turret
+layer2        power
+
+   Extra sprites:
+   • ‘<name>-base’
+
+
+File: README.info,  Node: UnitFactory,  Next: CommandCenter,  Prev: RepairPoint,  Up: Units
+
+3.12.2 *TODO* UnitFactory
+-------------------------
+
+
+File: README.info,  Node: CommandCenter,  Next: UnitFactory 1,  Prev: UnitFactory,  Up: Units
+
+3.12.3 *TODO* CommandCenter
+---------------------------
+
+
+File: README.info,  Node: UnitFactory 1,  Next: MechPad,  Prev: CommandCenter,  Up: Units
+
+3.12.4 *TODO* UnitFactory
+-------------------------
+
+
+File: README.info,  Node: MechPad,  Prev: UnitFactory 1,  Up: Units
+
+3.12.5 *TODO* MechPad
+---------------------
+
+
+File: README.info,  Node: BulletTypes,  Next: UnitTypes,  Prev: Block Types,  Up: Top
+
+4 BulletTypes
+*************
+
+* Menu:
+
+* BulletType::
+* BasicBulletType::
+* ArtilleryBulletType::
+* BombBulletType::
+* FlakBulletType::
+* HealBulletType::
+* LiquidBulletType::
+* MassDriverBolt::
+* MissileBulletType::
+
+
+File: README.info,  Node: BulletType,  Next: BasicBulletType,  Up: BulletTypes
+
+4.1 BulletType
+==============
+
+Extends *note Content:: – Bullet can either be an object or a string,
+where a string would be reusing a built-in one and an object would be
+making a custom one.
+
+field                type                             default   notes
+------------------------------------------------------------------------------------------------------------------------------------------
+lifetime             float                                      amount of ticks it lasts
+speed                float                                      inital speed of bullet
+damage               float                                      collision damage
+hitSize              float                            4         collision radius
+drawSize             float                            40
+drag                 float                            0         decelleration per tick
+pierce               boolean                                    whether it can collide
+hitEffect            *note Effect::                             created when bullet hits something
+despawnEffect        *note Effect::                             created when bullet despawns
+shootEffect          *note Effect::                             created when shooting
+smokeEffect          *note Effect::                             created when shooting
+hitSound             Sound                                      made when hitting something or getting removed
+inaccuracy           float                            0         extra inaccuracy
+ammoMultiplier       float                            2         how many bullets get created per item/liquid
+reloadMultiplier     float                            1         multiplied by turret reload speed
+recoil               float                                      recoil from shooter entities
+splashDamage         float                            0
+knockback            float                                      Knockback in velocity.
+hitTiles             boolean                          true      Whether this bullet hits tiles.
+status               *note StatusEffect::             none      Status effect applied on hit.
+statusDuration       float                            600       Intensity of applied status effect in terms of duration.
+collidesTiles        boolean                          true      Whether this bullet type collides with tiles.
+collidesTeam         boolean                          false     Whether this bullet type collides with tiles that are of the same team.
+collidesAir          boolean                          true      Whether this bullet type collides with air units.
+collides             boolean                          true      Whether this bullet types collides with anything at all.
+keepVelocity         boolean                          true      Whether velocity is inherited from the shooter.
+fragBullets          int                              9
+fragVelocityMin      float                            0.2
+fragVelocityMax      float                            1
+fragBullet           *note BulletType::               null
+splashDamageRadius   float                            -1        Use a negative value to disable splash damage.
+incendAmount         int                              0
+incendSpread         float                            8
+incendChance         float                            1
+homingPower          float                            0
+homingRange          float                            50
+lightining           int
+lightningLength      int                              5
+hitShake             float                            0
+
+   Built-in bullets:
+   • artillery:
+        • ‘artilleryDense’ ‘arilleryPlastic’ ‘artilleryPlasticFrag’
+          ‘artilleryHoming’ ‘artlleryIncendiary’ ‘artilleryExplosive’
+          ‘artilleryUnit’
+   • flak:
+        • ‘flakScrap’ ‘flakLead’ ‘flakPlastic’ ‘flakExplosive’
+          ‘flakSurge’ ‘flakGlass’ ‘glassFrag’
+   • missiles:
+        • ‘missileExplosive’ ‘missileIncendiary’ ‘missileSurge’
+          ‘missileJavelin’ ‘missileSwarm’ ‘missileRevenant’
+   • standard:
+        • ‘standardCopper’ ‘standardDense’ ‘standardThorium’
+          ‘standardHoming’ ‘standardIncendiary’ ‘standardMechSmall’
+          ‘standardGlaive’ ‘standardDenseBig’ ‘standardThoriumBig’
+          ‘standardIncendiaryBig’
+   • electric:
+        • ‘lancerLaser’ ‘meltdownLaser’ ‘lightning’ ‘arc’
+          ‘damageLightning’
+   • liquid:
+        • ‘waterShot’ ‘cryoShot’ ‘slagShot’ ‘oilShot’
+   • environment & misc:
+        • ‘fireball’ ‘basicFlame’ ‘pyraFlame’ ‘driverBolt’ ‘healBullet’
+          ‘healBulletBig’ ‘frag’ ‘eruptorShot’
+   • bombs:
+        • ‘bombExplosive’ ‘bombIncendiary’ ‘bombOil’
+
+
+File: README.info,  Node: BasicBulletType,  Next: ArtilleryBulletType,  Prev: BulletType,  Up: BulletTypes
+
+4.2 BasicBulletType
+===================
+
+The actual bullet type.
+
+field          type               default
+-----------------------------------------------------
+backColor      *note Color::      bulletYellowBack
+frontColor     *note Color::      bulletYellow
+bulletWidth    float              5
+bulletHeight   float              7
+bulletShrink   float              0.5
+bulletSprite   String
+
+
+File: README.info,  Node: ArtilleryBulletType,  Next: BombBulletType,  Prev: BasicBulletType,  Up: BulletTypes
+
+4.3 ArtilleryBulletType
+=======================
+
+field         type                 default
+----------------------------------------------------
+trailEffect   *note Effect::       artilleryTrail
+
+   Defaults:
+
+field           type
+----------------------------
+collidesTiles   false
+collides        false
+hitShake        1
+hitSound        explosion
+
+
+File: README.info,  Node: BombBulletType,  Next: FlakBulletType,  Prev: ArtilleryBulletType,  Up: BulletTypes
+
+4.4 BombBulletType
+==================
+
+Defaults:
+
+field           type
+----------------------------
+collidesTiles   false
+collides        false
+bulletShrink    0.7
+lifetime        30
+drag            0.05
+keepVelocity    false
+collidesAir     false
+hitSound        explosion
+
+
+File: README.info,  Node: FlakBulletType,  Next: HealBulletType,  Prev: BombBulletType,  Up: BulletTypes
+
+4.5 FlakBulletType
+==================
+
+Bullets that explode near enemies.
+
+field          type    default   notes
+-----------------------------------------
+explodeRange   float   30
+
+   Defaults:
+
+field                type
+----------------------------------------
+splashDamage         15
+splashDamageRadius   34
+hitEffect            flakExplosionBig
+bulletWidth          8
+bulletHeight         10
+
+
+File: README.info,  Node: HealBulletType,  Next: LiquidBulletType,  Prev: FlakBulletType,  Up: BulletTypes
+
+4.6 HealBulletType
+==================
+
+Bullets that can heal blocks of the same team as the shooter.
+
+field         type    default   notes
+----------------------------------------
+healPercent   float   3
+
+   Defaults:
+
+field           type
+----------------------------
+shootEffect     shootHeal
+smokeEffect     hitLaser
+hitEffect       hitLaser
+despawnEffect   hitLaser
+collidesTeam    true
+
+
+File: README.info,  Node: LiquidBulletType,  Next: MassDriverBolt,  Prev: HealBulletType,  Up: BulletTypes
+
+4.7 LiquidBulletType
+====================
+
+field    type     default
+---------------------------------------------
+liquid   Liquid   null      required field
+
+   Defaults:
+
+field            type
+-----------------------------
+lifetime         74
+statusDuration   90
+despawnEffect    none
+hitEffect        hitLiquid
+smokeEffect      none
+shootEffect      none
+drag             0.009
+knockback        0.55
+
+
+File: README.info,  Node: MassDriverBolt,  Next: MissileBulletType,  Prev: LiquidBulletType,  Up: BulletTypes
+
+4.8 MassDriverBolt
+==================
+
+Defaults:
+
+field           type
+-------------------------------
+collidesTiles   false
+lifetime        200
+despawnEffect   smeltsmoke
+hitEffect       hitBulletBig
+drag            0.005
+
+
+File: README.info,  Node: MissileBulletType,  Prev: MassDriverBolt,  Up: BulletTypes
+
+4.9 MissileBulletType
+=====================
+
+field        type               default
+----------------------------------------------------
+trailColor   *note Color::      missileYellowBack
+weaveScale   float              0
+weaveMag     float              -1
+
+
+File: README.info,  Node: UnitTypes,  Next: Mech,  Prev: BulletTypes,  Up: Top
+
+5 UnitTypes
+***********
+
+* Menu:
+
+* UnitType::
+* BaseUnit::
+
+
+File: README.info,  Node: UnitType,  Next: BaseUnit,  Up: UnitTypes
+
+5.1 UnitType
+============
+
+Extends *note UnlockableContent: UnlockableContent and MappableContent.
+– Unit types go in their own special directory: ‘units/‘
+
+field             type                     default
+-----------------------------------------------------
+type              *note BaseUnit::
+health            float                    60
+hitsize           float                    7
+hitsizeTile       float                    4
+speed             float                    0.4
+range             float                    0
+attackLength      float                    150
+rotatespeed       float                    0.2
+baseRotateSpeed   float                    0.1
+shootCone         float                    15
+mass              float                    1
+flying            boolean
+targetAir         boolean                  true
+rotateWeapon      boolean                  false
+drag              float                    0.1
+maxVelocity       float                    5
+retreatPercent    float                    0.6
+itemCapacity      int                      30
+buildPower        float                    0.3
+minePower         float                    0.7
+weapon            *note Weapon::
+weaponOffsetY     float
+engineOffset      float
+engineSize        float
+
+
+File: README.info,  Node: BaseUnit,  Prev: UnitType,  Up: UnitTypes
+
+5.2 BaseUnit
+============
+
+There are a few useful bases:
+   • ‘FlyingUnit’
+        • ‘Revenant’
+        • ‘BaseDrone’
+             • ‘BuilderDrone’
+             • ‘MinerDrone’
+             • ‘RepairDrone’
+   • ‘GroundUnit’
+
+
+File: README.info,  Node: Mech,  Next: Weapon,  Prev: UnitTypes,  Up: Top
+
+6 Mech
+******
+
+Extends *note UnlockableContent: UnlockableContent and MappableContent.
+– Mechs are the player controlled entities.
+
+field                type                 default
+----------------------------------------------------
+flying               boolean
+speed                float                1.1
+maxSpeed             float                10
+boostSpeed           float                0.75
+drag                 float                0.4
+mass                 float                1
+shake                float                0
+health               float                200
+hitsize              float                6
+cellTrnsY            float                0
+mineSpeed            float                1
+drillPower           int                  -1
+buildPower           float                1
+engineColor          *note Color::        boostTo
+itemCapacity         int                  30
+turnCursor           boolean              true
+canHeal              boolean              false
+compoundSpeed        float                5
+compoundSpeedBoost   float                5
+weaponOffsetY        float                5
+engineOffset         float                5
+engineSize           float                2.5
+weapon               *note Weapon::       null
+
+
+File: README.info,  Node: Weapon,  Next: Effect,  Prev: Mech,  Up: Top
+
+7 Weapon
+********
+
+Weapons are used by units types, flying or ground, and mechs alike.
+They’re what actually shoots the bullets.
+
+field            type                         default   notes
+----------------------------------------------------------------------------------------------------------------------------
+name             string
+nimPlayerDist    float                        20        minimum cursor distance from player, fixes ’cross-eyed’ shooting.
+sequenceNum      int                          0
+bullet           *note BulletType::                     bullet shot
+ejectEffect      *note Effect::               none      shell ejection effect
+reload           float                                  weapon reload in frames
+shots            int                          1         amount of shots per fire
+spacing          float                        12        spacing in degrees between multiple shots, if applicable
+inaccuracy       float                        0         inaccuracy of degrees of each shot
+shake            float                        0         intensity and duration of each shot’s screen shake
+recoil           float                        1.5       visual weapon knockback.
+length           float                        3         shoot barrel y offset
+width            float                        4         shoot barrel x offset.
+velocityRnd      float                        0         fraction of velocity that is random
+alternate        bool                         false     shoot one arm after another, rather than all at once
+lengthRand       float                        0         randomization of shot length
+shotDelay        float                        0         delay in ticks between shots
+ignoreRotation   boolean                      false     whether shooter rotation is ignored when shooting.
+shootSound       *note Sound::                pew
+
+
+File: README.info,  Node: Effect,  Next: StatusEffect,  Prev: Weapon,  Up: Top
+
+8 Effect
+********
+
+Type should be a ‘string’.  You can’t currently create custom effects.
+List of built-in effects are as follows:
+
+   • ‘none’ ‘placeBlock’ ‘breakBlock’ ‘smoke’ ‘spawn’ ‘tapBlock’
+     ‘select’
+   • ‘vtolHover’ ‘unitDrop’ ‘unitPickup’ ‘unitLand’ ‘pickup’ ‘healWave’
+     ‘heal’ ‘landShock’ ‘reactorsmoke’ ‘nuclearsmoke’ ‘nuclearcloud’
+   • ‘redgeneratespark’ ‘generatespark’ ‘fuelburn’ ‘plasticburn’
+     ‘pulverize’ ‘pulverizeRed’ ‘pulverizeRedder’ ‘pulverizeSmall’
+     ‘pulverizeMedium’
+   • ‘producesmoke’ ‘smeltsmoke’ ‘formsmoke’ ‘blastsmoke’ ‘lava’
+     ‘doorclose’ ‘dooropen’ ‘dooropenlarge’ ‘doorcloselarge’ ‘purify’
+     ‘purifyoil’ ‘purifystone’ ‘generate’
+   • ‘mine’ ‘mineBig’ ‘mineHuge’ ‘smelt’ ‘teleportActivate’ ‘teleport’
+     ‘teleportOut’ ‘ripple’ ‘bubble’ ‘launch’
+   • ‘healBlock’ ‘healBlockFull’ ‘healWaveMend’ ‘overdriveWave’
+     ‘overdriveBlockFull’ ‘shieldBreak’ ‘hitBulletSmall’ ‘hitFuse’
+   • ‘hitBulletBig’ ‘hitFlameSmall’ ‘hitLiquid’ ‘hitLaser’ ‘hitLancer’
+     ‘hitMeltdown’ ‘despawn’ ‘flakExplosion’ ‘blastExplosion’
+   • ‘plasticExplosion’ ‘artilleryTrail’ ‘incendTrail’ ‘missileTrail’
+     ‘absorb’ ‘flakExplosionBig’ ‘plasticExplosionFlak’ ‘burning’ ‘fire’
+   • ‘fireSmoke’ ‘steam’ ‘fireballsmoke’ ‘ballfire’ ‘freezing’ ‘melting’
+     ‘wet’ ‘oily’ ‘overdriven’ ‘dropItem’ ‘shockwave’
+   • ‘bigShockwave’ ‘nuclearShockwave’ ‘explosion’ ‘blockExplosion’
+     ‘blockExplosionSmoke’ ‘shootSmall’ ‘shootHeal’ ‘shootSmallSmoke’
+     ‘shootBig’ ‘shootBig2’ ‘shootBigSmoke’
+   • ‘shootBigSmoke2’ ‘shootSmallFlame’ ‘shootPyraFlame’ ‘shootLiquid’
+     ‘shellEjectSmall’ ‘shellEjectMedium’
+   • ‘shellEjectBig’ ‘lancerLaserShoot’ ‘lancerLaserShootSmoke’
+     ‘lancerLaserCharge’ ‘lancerLaserChargeBegin’ ‘lightningCharge’
+     ‘lightningShoot’
+   • ‘unitSpawn’ ‘spawnShockwave’ ‘magmasmoke’ ‘impactShockwave’
+     ‘impactcloud’ ‘impactsmoke’ ‘dynamicExplosion’ ‘padlaunch’
+     ‘commandSend’ ‘coreLand’
+
+
+File: README.info,  Node: StatusEffect,  Next: Zone,  Prev: Effect,  Up: Top
+
+9 StatusEffect
+**************
+
+_Not be be confused with *note Effect::_, a status effect will give an
+entity special properties.  It is currently *not possible to add custom
+status effects*.  – Status effects are used as transitions between
+intermediate effects.  If some a ‘wet’ unit gets ‘shocked’ it then gets
+20 damage.
+
+field              type                 default
+--------------------------------------------------------------------------------------------------------
+damageMultiplier   float                1
+armorMultiplier    float                1
+speedMultiplier    float                1
+color              *note Color::        white
+damage             float                          Damage (or healing) per frame.
+effect             *note Effect::       none      Random effect (0.15% per frame), on affected units.
+
+   • opposites: effect which reduces anothers lifetime.
+
+   Built-in status effects:
+
+   • ‘none’ – Does nothing.
+
+   • ‘burning’
+     field    default
+     -------------------
+     damage   0.06
+     effect   burning
+        • opposites: ‘wet’ ‘freezing’
+        • tarred: 1 damage and keeps burning
+
+   • ‘freezing’
+     field             default
+     -----------------------------
+     speedMultiplier   0.6
+     armorMultiplier   0.8
+     effect            freezing
+        • opposites: ‘melting’ ‘burning’
+
+   • ‘wet’
+     field             default
+     ----------------------------
+     speedMultiplier   0.9
+     effect            wet
+        • opposites: ‘burning’
+        • shocked: 20 damage
+
+   • ‘melting’
+     field             default
+     ----------------------------
+     speedMultiplier   0.8
+     armorMultiplier   0.8
+     damage            0.3
+     effect            melting
+        • opposites: ‘wet’ ‘freezing’
+        • tarred: keeps melting
+
+   • ‘tarred’
+     field             default
+     ----------------------------
+     speedMultiplier   0.6
+     effect            oily
+        • burning: keeps burning
+        • melting: keeps burning
+
+   • ‘overdrive’
+     field              default
+     --------------------------------
+     armorMultiplier    0.95
+     speedMultiplier    1.15
+     damageMultiplier   1.4
+     damage             -0.01
+     effect             overdriven
+
+   • ‘shielded’
+     field             default
+     ----------------------------
+     armorMultiplier   3
+
+   • ‘boss’
+     field              default
+     -----------------------------
+     armorMultiplier    3
+     damageMultiplier   3
+     speedMultiplier    1.1
+
+   • ‘shocked’ – Does nothing.
+
+   • ‘corroded’
+     field    default
+     -------------------
+     damage   0.1
+
+
+File: README.info,  Node: Zone,  Next: Rules,  Prev: StatusEffect,  Up: Top
+
+10 *TODO* Zone
+**************
+
+
+File: README.info,  Node: Rules,  Next: Objective,  Prev: Zone,  Up: Top
+
+11 *TODO* Rules
+***************
+
+
+File: README.info,  Node: Objective,  Prev: Rules,  Up: Top
+
+12 *TODO* Objective
+*******************
+
+
+
+Tag Table:
+Node: Top73
+Node: Overview2608
+Node: modjson2780
+Node: Content3534
+Node: Sprites4547
+Node: Sound5405
+Node: Type7561
+Node: UnlockableContent and MappableContent9163
+Node: ItemStack9760
+Node: LiquidStack10275
+Node: Consumers10683
+Node: Consume11724
+Node: ConsumeItems12202
+Node: ConsumeLiquidBase12471
+Node: ConsumeLiquid13146
+Node: ConsumePower13505
+Node: Attributes14122
+Node: Attribute15028
+Node: Item15277
+Node: Liquid16505
+Node: BlockStorage17777
+Node: BuildVisibility18500
+Node: Layer18786
+Node: BlockGroup19206
+Node: Category19517
+Node: Color20225
+Node: TargetPriority20562
+Node: Block Types20725
+Node: Block21007
+Node: Environment26349
+Node: Floor26575
+Node: OverlayFloor29089
+Node: DoubleOverlayFloor29370
+Node: OreBlock29593
+Node: StaticWalls29857
+Node: TreeBlock30700
+Node: Crafting30937
+Node: GenericCrafter31118
+Node: GenericSmelter31904
+Node: Separator32300
+Node: Sandbox33181
+Node: Incinerator33412
+Node: PowerVoid33536
+Node: PowerSource33676
+Node: ItemSource33819
+Node: ItemVoid33959
+Node: LiquidSource34096
+Node: MessageBlock34243
+Node: Defense34373
+Node: Wall34619
+Node: DeflectorWall34997
+Node: SurgeWall35325
+Node: Door35672
+Node: MendProjector36090
+Node: OverdriveProjector36680
+Node: ForceProjector37287
+Node: ShockMine37834
+Node: Turrets38315
+Node: Turret38604
+Node: CooledTurret39964
+Node: ItemTurret40513
+Node: DoubleTurret41296
+Node: ArtilleryTurret41656
+Node: BurstTurret41969
+Node: PowerTurret42315
+Node: ChargeTurret42773
+Node: LaserTurret42922
+Node: LiquidTurret43581
+Node: Distribution43712
+Node: Conveyor44001
+Node: ArmoredConveyor44127
+Node: Junction44284
+Node: ItemBridge44852
+Node: ExtendingItemBridge46014
+Node: BufferedItemBridge46280
+Node: Sorter46692
+Node: OverflowGate47123
+Node: MassDriver47271
+Node: Liquid 148294
+Node: LiquidBlock48549
+Node: Pump49046
+Node: Conduit49364
+Node: LiquidRouter49708
+Node: LiquidTank49868
+Node: LiquidJunction50032
+Node: LiquidBridge50267
+Node: LiquidExtendingBridge50586
+Node: Power50907
+Node: PowerBlock51272
+Node: PowerNode51566
+Node: PowerDistributor52004
+Node: Battery52333
+Node: PowerGenerator52645
+Node: ThermalGenerator53318
+Node: ItemLiquidGenerator53834
+Node: SingleTypeGenerator55127
+Node: BurnerGenerator55364
+Node: DecayGenerator55597
+Node: SolarGenerator55923
+Node: NuclearReactor56229
+Node: ImpactReactor57432
+Node: Production58444
+Node: Drill58626
+Node: SolidPump60446
+Node: Cultivator61162
+Node: Fracker61551
+Node: Storage61911
+Node: CoreBlock62087
+Node: Vault62203
+Node: Unloader62328
+Node: LaunchPad62459
+Node: Units62578
+Node: RepairPoint62772
+Node: UnitFactory63330
+Node: CommandCenter63478
+Node: UnitFactory 163632
+Node: MechPad63778
+Node: BulletTypes63894
+Node: BulletType64200
+Node: BasicBulletType69232
+Node: ArtilleryBulletType69735
+Node: BombBulletType70198
+Node: FlakBulletType70586
+Node: HealBulletType71092
+Node: LiquidBulletType71595
+Node: MassDriverBolt72109
+Node: MissileBulletType72446
+Node: UnitTypes72792
+Node: UnitType72935
+Node: BaseUnit74277
+Node: Mech74614
+Node: Weapon75956
+Node: Effect77934
+Node: StatusEffect80476
+Node: Zone83305
+Node: Rules83415
+Node: Objective83524
+
+End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
