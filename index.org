@@ -180,336 +180,152 @@ Modding documentation for Mindustry.
 
    Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ is ~BulletType~ so you can use ~MissileBulletType~, because ~MissileBulletType~ extends ~BulletType~.
 
-* UnlockableContent and MappableContent
+* World
+** Block
 
-  Types that can have a display name and description. /Most content in other words/. [[ItemStack][ItemStack]] for example isn't ~UnlockableContent~. 
+  Extends [[BlockStorage][BlockStorage]] -- Fields for all objects that are blocks.
 
-  #+BEGIN_SRC json
-  {
-      "type": "Revenant",
-      "name": "Mammoth",
-      "description": "Not a description."
-  }
-  #+END_SRC
-
-  | field       | type   | notes      |
-  |-------------+--------+------------|
-  |             |        | <10>       |
-  | name        | String | Used to display a name in the user. This is the name the user will see. |
-  | description | String | Used display a description to the user. |
-
-* ItemStack
-
-  This type is used to tell blocks to calculate their output/input rates. An item stack is simply an array of objects with the following fields:
-
-  | field  | type | default |
-  |--------+------+---------|
-  | amount | int  |       1 |
-  | item   | [[Item][Item]] |         |
-
-  For example:
-
-  #+BEGIN_SRC json
-  [
-      { "amount": 30, "item": "surge-alloy" },
-      { "amount": 90, "item": "copper" }
-  ]
-  #+END_SRC
-
-* LiquidStack
-
-   This type is used by blocks, to consume a liquid, just like [[ItemStack][ItemStack]] except that it can only contain 1 liquid.
-
-   | field  | type   |
-   |--------+--------|
-   | liquid | [[Liquid][Liquid]] |
-   | amount | float  |
-
-   For example:
-
-   #+BEGIN_SRC json
-{
-   "liquid": "water",
-   "amount": 0.5
-}
-   #+END_SRC
-
-* Consumers
-  This type is commonly used in block type with it's field ~consumes~, it's a type that allows your block to consume something, and how this field works is up to the specific type extension you're using.
-
-  | field         | type                  | notes      |
-  |---------------+-----------------------+------------|
-  |               |                       | <10>       |
-  | item          | String                | shorthand for =items= |
-  | items         | ConsumeItems          |            |
-  | liquid        | ConsumeLiquid         |            |
-  | power         | float or ConsumePower |            |
-  | powerBuffered | float                 | for batteries |
+  | field               | type            |      default | notes      |
+  |---------------------+-----------------+--------------+------------|
+  |                     |                 |          <r> | <10>       |
+  | update              | boolean         |              | whether this block has a tile entity that updates |
+  | destructible        | boolean         |              | whether this block has health and can be destroyed |
+  | unloadable          | boolean         |         true | whether unloaders work on this block |
+  | solid               | boolean         |              | whether this is solid |
+  | solidifes           | boolean         |              | whether this block CAN be solid. |
+  | rotate              | boolean         |              | whether this is rotateable |
+  | breakable           | boolean         |              | whether you can break this with rightclick |
+  | placeableOn         | boolean         |         true | whether this [[Floor][floor]] can be placed on. |
+  | health              | int             |           -1 | tile entity health |
+  | baseExplosiveness   | float           |            0 | base block explosiveness |
+  | floating            | boolean         |        false | whether this block can be placed on edges of liquids. |
+  | size                | int             |            1 | multiblock size |
+  | expanded            | boolean         |        false | Whether to draw this block in the expanded draw range. |
+  | timers              | int             |            0 | Max of timers used. |
+  | fillesTile          | true            |              | Special flag; if false, [[Floor][floor]] will be drawn under this block even if it is cached. |
+  | alwaysReplace       | boolean         |        false | whether this block can be replaced in all cases |
+  | group               | [[BlockGroup][BlockGroup]]      |         none | Unless ~canReplace~ is overriden, blocks in the same group can replace each other. |
+  | priority            | TargetPriority  |         base | Targeting priority of this block, as seen by enemies. |
+  | configurable        | boolean         |              | Whether the block can be tapped and selected to configure. |
+  | consumesTap         | boolean         |              | Whether this block consumes touchDown events when tapped. |
+  | posConfig           | boolean         |              | Whether the config is positional and needs to be shifted. |
+  | targetable          | boolean         |         true | Whether units target this block. |
+  | canOverdrive        | boolean         |         true | Whether the overdrive core has any effect on this block. |
+  | outlineColor        | [[Color][Color]]           |       404049 | Outlined icon color. |
+  | outlineIcon         | boolean         |        false | Whether the icon region has an outline added. |
+  | hasShadow           | boolean         |         true | Whether this block has a shadow under it. |
+  | breakSound          | [[Sound][Sound]]           |         boom | Sounds made when this block breaks. |
+  | activeSound         | [[Sound][Sound]]           |         none | The sound that this block makes while active. One sound loop. Do not overuse. |
+  | activeSoundVolume   | float           |          0.5 | Active sound base volume. |
+  | idleSound           | [[Sound][Sound]]           |         none | The sound that this block makes while idle. Uses one sound loop for all blocks. |
+  | idleSoundVolume     | float           |          0.5 | Idle sound base volume. |
+  | requirements        | [[ItemStack][ItemStack]]       |              | Cost of constructing and researching this block. |
+  | category            | [[Category][Category]]        | distribution | Category in place menu. |
+  | buildCost           | float           |              | Cost of building this block; do not modify directly! |
+  | buildVisibility     | [[BuildVisibility][BuildVisibility]] |       hidden | Whether this block is visible and can currently be built. |
+  | buildCostMultiplier | float           |            1 | Multiplier for speed of building this block. |
+  | instantTransfer     | boolean         |        false | Whether this block has instant transfer. |
+  | alwaysUnlocked      | boolean         |        false |            |
+  | layer               | [[Layer][Layer]]           |         null | Layer to draw extra stuff on. |
+  | layer2              | [[Layer][Layer]]           |         null | Extra layer to draw extra stuff on. |
 
   Notes:
-  * you shouldn't have ~power~ and ~powerBuffered~
+  * research cost is ~30 + <requirements> * 6~
 
-  For example with [[ConsumeItems][ConsumeItems]]:
-  #+BEGIN_SRC json
-  {
-      "items": {
-          "items": [ { "amount": 10, "item": "copper" } ],
-          "booster": true,
-          "optional": true
-      }
-  }
-  #+END_SRC
+** Consumers
 
-** Consume
-   An abstract base that defines a type of resource that a block can consume.
+   This type is commonly used in block type with it's field ~consumes~, it's a type that allows your block to consume something, and how this field works is up to the specific type extension you're using.
 
-   | field    | type    | default | notes      |
-   |----------+---------+---------+------------|
-   |          |         |         | <10>       |
-   | optional | boolean |         | consumer will not influence consumer validity. |
-   | booster  | boolean |         | consumer will be displayed as a boost input. |
-   | update   | boolean | true    |            |
-
-
-** ConsumeItems
-   Extends [[Consume][Consume]] -- To consume an itemstack.
-
-   | field | type      |
-   |-------+-----------|
-   | items | [[ItemStack][ItemStack]] |
-
-** ConsumeLiquidBase
-   Extends [[Consume][Consume]]
-
-   | field      | type  | default | notes      |
-   |------------+-------+---------+------------|
-   |            |       |         | <10>       |
-   | float      | final |         | amount used per frame |
-   | timePeriod | float |      60 | how much time is taken to use this liquid |
+   | field         | type                  | notes      |
+   |---------------+-----------------------+------------|
+   |               |                       | <10>       |
+   | item          | String                | shorthand for =items= |
+   | items         | ConsumeItems          |            |
+   | liquid        | ConsumeLiquid         |            |
+   | power         | float or ConsumePower |            |
+   | powerBuffered | float                 | for batteries |
 
    Notes:
-   * ~timePeriod~ example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as "100 seconds", but without a time override it would display as "10 liquid/second". This is used for generic crafters.
+   * you shouldn't have ~power~ and ~powerBuffered~
 
-** ConsumeLiquid
-   Extends [[ConsumeLiquidBase][ConsumeLiquidBase]] -- To consume a liquid type.
-
-
-   | field  | type   | default |
-   |--------+--------+---------|
-   | liquid | [[Liquid][Liquid]] | null    |
-   | amount | float  | 0       |
-
-** ConsumePower
-   Extends [[Consume][Consume]] -- To consume or buffer power.
-
-   | field    | type    | default | notes      |
-   |----------+---------+---------+------------|
-   |          |         |         | <10>       |
-   | usage    | float   |         | The maximum amount of power which can be processed per tick. |
-   | capacity | float   |         | The maximum power capacity in power units. |
-   | buffered | boolean |         | True if the module can store power. |
-
-   Notes:
-   * ~usage~ might influence efficiency or load a buffer.
-
-* Attributes
-
-  An object with an array of [[Attribute][attribute]]. Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors.
-
-  ~array~ has 4 items:
-
-  * index ~0~ is ~heat~,
-  * index ~1~ is ~spores~,
-  * index ~2~ is ~water~,
-  * index ~3~ is ~oil~.
-
-   For example, this would give you ~100~ heat, ~1~ spores, ~0.5~ water and ~0.1~ oil.
-
+   For example with [[ConsumeItems][ConsumeItems]]:
    #+BEGIN_SRC json
    {
-       "array": [ 100, 1, 0.5, 0.1]
+       "items": {
+           "items": [ { "amount": 10, "item": "copper" } ],
+           "booster": true,
+           "optional": true
+       }
    }
    #+END_SRC
+*** Consume
+    An abstract base that defines a type of resource that a block can consume.
 
-   You could use it inside of [[Floor][Floor]] type as such:
+    | field    | type    | default | notes      |
+    |----------+---------+---------+------------|
+    |          |         |         | <10>       |
+    | optional | boolean |         | consumer will not influence consumer validity. |
+    | booster  | boolean |         | consumer will be displayed as a boost input. |
+    | update   | boolean | true    |            |
 
-   #+BEGIN_SRC json
-   {
-       "type": "Floor",
-       "name": "magma",
-       "attributes": { "array": [ 0.75, 0, 0, 0 ] }
-   }
-   #+END_SRC
+*** ConsumeItems
+    Extends [[Consume][Consume]] -- To consume an itemstack.
 
-* Attribute
+    | field | type      |
+    |-------+-----------|
+    | items | [[ItemStack][ItemStack]] |
 
-  New attributes cannot be added. List of built-in attributes:
+*** ConsumeLiquidBase
+    Extends [[Consume][Consume]]
 
-  * ~heat~
-  * ~spores~
-  * ~water~
-  * ~oil~
+    | field      | type  | default | notes      |
+    |------------+-------+---------+------------|
+    |            |       |         | <10>       |
+    | float      | final |         | amount used per frame |
+    | timePeriod | float |      60 | how much time is taken to use this liquid |
 
-* Item
+    Notes:
+    * ~timePeriod~ example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as "100 seconds", but without a time override it would display as "10 liquid/second". This is used for generic crafters.
 
-  Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
+*** ConsumeLiquid
+    Extends [[ConsumeLiquidBase][ConsumeLiquidBase]] -- To consume a liquid type.
 
-  | field          | type     | default | notes      |
-  |----------------+----------+---------+------------|
-  |                |          |         | <10>       |
-  | color          | [[Color][Color]]    |         | hex string of color |
-  | type           | [[Item][ItemType]] |         | resource or material; used for tabs and core acceptance |
-  | explosiveness  | float    | ~0~     | how explosive this item is. |
-  | flammability   | float    | ~0~     | flammability above 0.3 makes this eleigible for item burners. |
-  | radioactivity  | float    |         | how radioactive this item is. 0=none, 1=chernobyl ground zero |
-  | hardness       | int      | ~0~     | drill hardness of the item |
-  | cost           | float    | ~1~     | used for calculating place times; 1 cost = 1 tick added to build time |
-  | alwaysUnlocked | boolean  | ~false~ | If true, item is always unlocked. |
 
-* Liquid
-  Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Object that defines the properties of a liquid.
+    | field  | type   | default |
+    |--------+--------+---------|
+    | liquid | [[Liquid][Liquid]] | null    |
+    | amount | float  | 0       |
 
-  | field         | type         | default | notes      |
-  |---------------+--------------+---------+------------|
-  |               |              |    <r>  | <10>       |
-  | color         | [[Color][Color]]        |         | color of liquid |
-  | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
-  | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot |
-  | heatCapacity  | float        |     0.5 | used in cooling; water is 0.4 |
-  | viscosity     | float        |     0.5 | how thick this liquid is; water is 0.5, tar is 1. |
-  | explosiveness | float        |         | explosiveness when heated; 0 is nothing, 1 is nuke |
-  | flameColor    | [[Color][Color]]        |  ffb763 | the burning color of this liquid |
-  | effect        | [[StatusEffect][StatusEffect]] |    none | the associated status effect. |
+*** ConsumePower
+    Extends [[Consume][Consume]] -- To consume or buffer power.
 
-* BlockStorage
-  Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
+    | field    | type    | default | notes      |
+    |----------+---------+---------+------------|
+    |          |         |         | <10>       |
+    | usage    | float   |         | The maximum amount of power which can be processed per tick. |
+    | capacity | float   |         | The maximum power capacity in power units. |
+    | buffered | boolean |         | True if the module can store power. |
 
-  | field         | type      | default | notes      |
-  |---------------+-----------+---------+------------|
-  |               |           |     <r> | <10>       |
-  | hasItems      | boolean   |         |            |
-  | hasLiquids    | boolean   |         |            |
-  | hasPower      | boolean   |         |            |
-  | outputsLiquid | boolean   |   false |            |
-  | consumesPower | boolean   |    true |            |
-  | outputsPower  | bolean    |   false |            |
-  | itemCapacity  | int       |      10 |            |
-  | item          | float     |      10 |            |
-  | consumes      | [[Consumers][Consumers]] |         |            |
+    Notes:
+    * ~usage~ might influence efficiency or load a buffer.   
+** BlockStorage
+   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
 
-* BuildVisibility
+   | field         | type      | default | notes      |
+   |---------------+-----------+---------+------------|
+   |               |           |     <r> | <10>       |
+   | hasItems      | boolean   |         |            |
+   | hasLiquids    | boolean   |         |            |
+   | hasPower      | boolean   |         |            |
+   | outputsLiquid | boolean   |   false |            |
+   | consumesPower | boolean   |    true |            |
+   | outputsPower  | bolean    |   false |            |
+   | itemCapacity  | int       |      10 |            |
+   | item          | float     |      10 |            |
+   | consumes      | [[Consumers][Consumers]] |         |            |
 
-  Options for build visibility include:
-  * ~hidden~
-  * ~shown~
-  * ~debugOnly~
-  * ~sandboxOnly~
-  * ~campaignOnly~
 
-* Layer
 
-  Layers is an enumeration type, which the renderer will use to group rendering order:
-
-  * ~block~, base block layer;
-  * ~placement~, for placement;
-  * ~overlay~, first overlay stuff like conveyor items;
-  * ~turret~, "high" blocks like turrets;
-  * ~power~ power lasers
-
-* BlockGroup
-
-  Groups for blocks to build on top of each other:
-  * ~none~
-  * ~walls~
-  * ~turrets~
-  * ~transportation~
-  * ~power~
-  * ~liquids~
-  * ~drills~
-
-* Category
-
-  Categories for building menu:
-  * ~turret~ Offensive turrets;
-  * ~production~ Blocks that produce raw resources, such as drills;
-  * ~distribution~ Blocks that move items around;
-  * ~liquid~ Blocks that move liquids around;
-  * ~power~ Blocks that generate or transport power;
-  * ~defense~ Walls and other defensive structures;
-  * ~crafting~ Blocks that craft things;
-  * ~units~ Blocks that create units;
-  * ~upgrade~ Things that upgrade the player such as mech pads;
-  * ~effect~ Things for storage or passive effects.
-
-* Color
-
-  Color is a hexadecimal string, ~<rr><gg><bb>~ for example:
-
-  * ~ff0000~ is red,
-  * ~00ff00~ is green,
-  * ~00ffff~ is blue,
-  * ~ffff00~ is yellow,
-  * ~00ffff~ is cyan,
-  * /ect../
-
-* TODO TargetPriority
-
-  * ~base~
-  * ~turret~
-
-* Block Types
-   
-  This section for types that are blocks. 
-
-** Block
-   Extends [[BlockStorage][BlockStorage]] -- Fields for all objects that are blocks.
-
-   | field               | type            |      default | notes      |
-   |---------------------+-----------------+--------------+------------|
-   |                     |                 |          <r> | <10>       |
-   | update              | boolean         |              | whether this block has a tile entity that updates |
-   | destructible        | boolean         |              | whether this block has health and can be destroyed |
-   | unloadable          | boolean         |         true | whether unloaders work on this block |
-   | solid               | boolean         |              | whether this is solid |
-   | solidifes           | boolean         |              | whether this block CAN be solid. |
-   | rotate              | boolean         |              | whether this is rotateable |
-   | breakable           | boolean         |              | whether you can break this with rightclick |
-   | placeableOn         | boolean         |         true | whether this [[Floor][floor]] can be placed on. |
-   | health              | int             |           -1 | tile entity health |
-   | baseExplosiveness   | float           |            0 | base block explosiveness |
-   | floating            | boolean         |        false | whether this block can be placed on edges of liquids. |
-   | size                | int             |            1 | multiblock size |
-   | expanded            | boolean         |        false | Whether to draw this block in the expanded draw range. |
-   | timers              | int             |            0 | Max of timers used. |
-   | fillesTile          | true            |              | Special flag; if false, [[Floor][floor]] will be drawn under this block even if it is cached. |
-   | alwaysReplace       | boolean         |        false | whether this block can be replaced in all cases |
-   | group               | [[BlockGroup][BlockGroup]]      |         none | Unless ~canReplace~ is overriden, blocks in the same group can replace each other. |
-   | priority            | TargetPriority  |         base | Targeting priority of this block, as seen by enemies. |
-   | configurable        | boolean         |              | Whether the block can be tapped and selected to configure. |
-   | consumesTap         | boolean         |              | Whether this block consumes touchDown events when tapped. |
-   | posConfig           | boolean         |              | Whether the config is positional and needs to be shifted. |
-   | targetable          | boolean         |         true | Whether units target this block. |
-   | canOverdrive        | boolean         |         true | Whether the overdrive core has any effect on this block. |
-   | outlineColor        | [[Color][Color]]           |       404049 | Outlined icon color. |
-   | outlineIcon         | boolean         |        false | Whether the icon region has an outline added. |
-   | hasShadow           | boolean         |         true | Whether this block has a shadow under it. |
-   | breakSound          | [[Sound][Sound]]           |         boom | Sounds made when this block breaks. |
-   | activeSound         | [[Sound][Sound]]           |         none | The sound that this block makes while active. One sound loop. Do not overuse. |
-   | activeSoundVolume   | float           |          0.5 | Active sound base volume. |
-   | idleSound           | [[Sound][Sound]]           |         none | The sound that this block makes while idle. Uses one sound loop for all blocks. |
-   | idleSoundVolume     | float           |          0.5 | Idle sound base volume. |
-   | requirements        | [[ItemStack][ItemStack]]       |              | Cost of constructing and researching this block. |
-   | category            | [[Category][Category]]        | distribution | Category in place menu. |
-   | buildCost           | float           |              | Cost of building this block; do not modify directly! |
-   | buildVisibility     | [[BuildVisibility][BuildVisibility]] |       hidden | Whether this block is visible and can currently be built. |
-   | buildCostMultiplier | float           |            1 | Multiplier for speed of building this block. |
-   | instantTransfer     | boolean         |        false | Whether this block has instant transfer. |
-   | alwaysUnlocked      | boolean         |        false |            |
-   | layer               | [[Layer][Layer]]           |         null | Layer to draw extra stuff on. |
-   | layer2              | [[Layer][Layer]]           |         null | Extra layer to draw extra stuff on. |
-
-   Notes:
-   * research cost is ~30 + <requirements> * 6~
 
 ** Environment
 
@@ -616,7 +432,6 @@ Modding documentation for Mindustry.
     | solid    | true    |
     | layer    | power   |
     | expanded | true    |
-
 ** Crafting
 *** GenericCrafter
     Extends [[Block][Block]]
@@ -1025,7 +840,6 @@ Modding documentation for Mindustry.
     | hasItems | true    |
     | hasPower | false   |
 
-
 *** Sorter
     Extends [[Block][Block]]
 
@@ -1078,7 +892,7 @@ Modding documentation for Mindustry.
 
     Sprites:
     * ~<name>-base~
-** Liquid
+** Liquid Blocks
 *** LiquidBlock
     Extends [[Block][Block]] -- For blocks that can carry liquids. Apart from the better defaults, it also fetches extra sprites.
 
@@ -1418,13 +1232,7 @@ Modding documentation for Mindustry.
     * ~<name>-liquid~
     * ~<name>-rotater~
     * ~<name>-top~
-
-** Storage
-*** TODO CoreBlock
-*** TODO Vault
-*** TODO Unloader
-*** TODO LaunchPad
-** Units
+** Unit Blocks
 *** RepairPoint
     Extends [[Block][Block]] -- Block which can repair units within range, with a laser.
 
@@ -1451,6 +1259,373 @@ Modding documentation for Mindustry.
 *** TODO CommandCenter
 *** TODO UnitFactory
 *** TODO MechPad
+** Storage
+*** TODO CoreBlock
+*** TODO Vault
+*** TODO Unloader
+*** TODO LaunchPad
+** Attributes
+
+   An object with an array of [[Attribute][attribute]]. Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors.
+
+   ~array~ has 4 items:
+
+   * index ~0~ is ~heat~,
+   * index ~1~ is ~spores~,
+   * index ~2~ is ~water~,
+   * index ~3~ is ~oil~.
+
+    For example, this would give you ~100~ heat, ~1~ spores, ~0.5~ water and ~0.1~ oil.
+
+    #+BEGIN_SRC json
+    {
+        "array": [ 100, 1, 0.5, 0.1]
+    }
+    #+END_SRC
+
+    You could use it inside of [[Floor][Floor]] type as such:
+
+    #+BEGIN_SRC json
+    {
+        "type": "Floor",
+        "name": "magma",
+        "attributes": { "array": [ 0.75, 0, 0, 0 ] }
+    }
+    #+END_SRC
+
+** Attribute
+
+   New attributes cannot be added. List of built-in attributes:
+
+   * ~heat~
+   * ~spores~
+   * ~water~
+   * ~oil~
+** BuildVisibility
+
+   Options for build visibility include:
+   * ~hidden~
+   * ~shown~
+   * ~debugOnly~
+   * ~sandboxOnly~
+   * ~campaignOnly~
+** BlockGroup
+
+   Groups for blocks to build on top of each other:
+   * ~none~
+   * ~walls~
+   * ~turrets~
+   * ~transportation~
+   * ~power~
+   * ~liquids~
+   * ~drills~
+
+
+
+
+
+
+
+
+
+
+* Type
+** UnlockableContent and MappableContent
+
+   that can have a display name and description. /Most content in other words/. [[ItemStack][ItemStack]] for example isn't ~UnlockableContent~. 
+
+   #+BEGIN_SRC json
+   {
+       "type": "Revenant",
+       "name": "Mammoth",
+       "description": "Not a description."
+   }
+   #+END_SRC
+
+   | field       | type   | notes      |
+   |-------------+--------+------------|
+   |             |        | <10>       |
+   | name        | String | Used to display a name in the user. This is the name the user will see. |
+   | description | String | Used display a description to the user. |
+** Item
+
+   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
+
+   | field          | type     | default | notes      |
+   |----------------+----------+---------+------------|
+   |                |          |         | <10>       |
+   | color          | [[Color][Color]]    |         | hex string of color |
+   | type           | [[Item][ItemType]] |         | resource or material; used for tabs and core acceptance |
+   | explosiveness  | float    | ~0~     | how explosive this item is. |
+   | flammability   | float    | ~0~     | flammability above 0.3 makes this eleigible for item burners. |
+   | radioactivity  | float    |         | how radioactive this item is. 0=none, 1=chernobyl ground zero |
+   | hardness       | int      | ~0~     | drill hardness of the item |
+   | cost           | float    | ~1~     | used for calculating place times; 1 cost = 1 tick added to build time |
+   | alwaysUnlocked | boolean  | ~false~ | If true, item is always unlocked. |
+** ItemStack
+
+   This type is used to tell blocks to calculate their output/input rates. An item stack is simply an array of objects with the following fields:
+
+   | field  | type | default |
+   |--------+------+---------|
+   | amount | int  |       1 |
+   | item   | [[Item][Item]] |         |
+
+   For example:
+
+   #+BEGIN_SRC json
+   [
+       { "amount": 30, "item": "surge-alloy" },
+       { "amount": 90, "item": "copper" }
+   ]
+   #+END_SRC
+
+** Liquid
+
+   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Object that defines the properties of a liquid.
+
+   | field         | type         | default | notes      |
+   |---------------+--------------+---------+------------|
+   |               |              |    <r>  | <10>       |
+   | color         | [[Color][Color]]        |         | color of liquid |
+   | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
+   | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot |
+   | heatCapacity  | float        |     0.5 | used in cooling; water is 0.4 |
+   | viscosity     | float        |     0.5 | how thick this liquid is; water is 0.5, tar is 1. |
+   | explosiveness | float        |         | explosiveness when heated; 0 is nothing, 1 is nuke |
+   | flameColor    | [[Color][Color]]        |  ffb763 | the burning color of this liquid |
+   | effect        | [[StatusEffect][StatusEffect]] |    none | the associated status effect. |
+
+** LiquidStack
+
+    This type is used by blocks, to consume a liquid, just like [[ItemStack][ItemStack]] except that it can only contain 1 liquid.
+
+    | field  | type   |
+    |--------+--------|
+    | liquid | [[Liquid][Liquid]] |
+    | amount | float  |
+
+    For example:
+
+    #+BEGIN_SRC json
+ {
+    "liquid": "water",
+    "amount": 0.5
+ }
+    #+END_SRC
+
+** Weapon
+
+   Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
+
+   | field          | type       | default | notes      |
+   |----------------+------------+---------+------------|
+   |                |            |         | <10>       |
+   | name           | string     |         |            |
+   | nimPlayerDist  | float      |      20 | minimum cursor distance from player, fixes 'cross-eyed' shooting. |
+   | sequenceNum    | int        |       0 |            |
+   | bullet         | [[BulletType][BulletType]] |         | bullet shot |
+   | ejectEffect    | [[Effect][Effect]]     |    none | shell ejection effect |
+   | reload         | float      |         | weapon reload in frames |
+   | shots          | int        |       1 | amount of shots per fire |
+   | spacing        | float      |      12 | spacing in degrees between multiple shots, if applicable |
+   | inaccuracy     | float      |       0 | inaccuracy of degrees of each shot |
+   | shake          | float      |       0 | intensity and duration of each shot's screen shake |
+   | recoil         | float      |     1.5 | visual weapon knockback. |
+   | length         | float      |       3 | shoot barrel y offset |
+   | width          | float      |       4 | shoot barrel x offset. |
+   | velocityRnd    | float      |       0 | fraction of velocity that is random |
+   | alternate      | bool       |   false | shoot one arm after another, rather than all at once |
+   | lengthRand     | float      |       0 | randomization of shot length |
+   | shotDelay      | float      |       0 | delay in ticks between shots |
+   | ignoreRotation | boolean    |   false | whether shooter rotation is ignored when shooting. |
+   | shootSound     | [[Sound][Sound]]      |     pew |            |
+** UnitType
+
+   Extends [[UnlockableContent and MappableContent][UnlockableContent]]
+
+   | field           | type     | default |
+   |-----------------+----------+---------|
+   | type            | [[BaseUnit][BaseUnit]] |         |
+   | health          | float    |      60 |
+   | hitsize         | float    |       7 |
+   | hitsizeTile     | float    |       4 |
+   | speed           | float    |     0.4 |
+   | range           | float    |       0 |
+   | attackLength    | float    |     150 |
+   | rotatespeed     | float    |     0.2 |
+   | baseRotateSpeed | float    |     0.1 |
+   | shootCone       | float    |      15 |
+   | mass            | float    |       1 |
+   | flying          | boolean  |         |
+   | targetAir       | boolean  |    true |
+   | rotateWeapon    | boolean  |   false |
+   | drag            | float    |     0.1 |
+   | maxVelocity     | float    |       5 |
+   | retreatPercent  | float    |     0.6 |
+   | itemCapacity    | int      |      30 |
+   | buildPower      | float    |     0.3 |
+   | minePower       | float    |     0.7 |
+   | weapon          | [[Weapon][Weapon]]   |         |
+   | weaponOffsetY   | float    |         |
+   | engineOffset    | float    |         |
+   | engineSize      | float    |         |
+** Mech
+   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Mechs are the player controlled entities.
+
+   | field              | type    | default |
+   |--------------------+---------+---------|
+   | flying             | boolean |         |
+   | speed              | float   |     1.1 |
+   | maxSpeed           | float   |      10 |
+   | boostSpeed         | float   |    0.75 |
+   | drag               | float   |     0.4 |
+   | mass               | float   |       1 |
+   | shake              | float   |       0 |
+   | health             | float   |     200 |
+   | hitsize            | float   |       6 |
+   | cellTrnsY          | float   |       0 |
+   | mineSpeed          | float   |       1 |
+   | drillPower         | int     |      -1 |
+   | buildPower         | float   |       1 |
+   | engineColor        | [[Color][Color]]   | boostTo |
+   | itemCapacity       | int     |      30 |
+   | turnCursor         | boolean |    true |
+   | canHeal            | boolean |   false |
+   | compoundSpeed      | float   |       5 |
+   | compoundSpeedBoost | float   |       5 |
+   | weaponOffsetY      | float   |       5 |
+   | engineOffset       | float   |       5 |
+   | engineSize         | float   |     2.5 |
+   | weapon             | [[Weapon][Weapon]]  |    null |
+
+** Category
+
+   Categories for building menu:
+   * ~turret~ Offensive turrets;
+   * ~production~ Blocks that produce raw resources, such as drills;
+   * ~distribution~ Blocks that move items around;
+   * ~liquid~ Blocks that move liquids around;
+   * ~power~ Blocks that generate or transport power;
+   * ~defense~ Walls and other defensive structures;
+   * ~crafting~ Blocks that craft things;
+   * ~units~ Blocks that create units;
+   * ~upgrade~ Things that upgrade the player such as mech pads;
+   * ~effect~ Things for storage or passive effects.
+** Zone
+** StatusEffect
+
+   /Not be be confused with [[Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects*. -- Status effects are used as transitions between intermediate effects. If some a ~wet~ unit gets ~shocked~ it then gets 20 damage.
+
+   | field            | type   | default |            |
+   |------------------+--------+---------+------------|
+   |                  |        |         | <10>       |
+   | damageMultiplier | float  |       1 |            |
+   | armorMultiplier  | float  |       1 |            |
+   | speedMultiplier  | float  |       1 |            |
+   | color            | [[Color][Color]]  |   white |            |
+   | damage           | float  |         | Damage (or healing) per frame. |
+   | effect           | [[Effect][Effect]] |    none | Random effect (0.15% per frame), on affected units. |
+
+   * opposites: effect which reduces anothers lifetime.
+
+   Built-in status effects:
+
+   * ~none~ -- Does nothing.
+
+   * ~burning~
+     | field  | value   |
+     |--------+---------|
+     | damage | 0.06    |
+     | effect | burning |
+     * opposites: ~wet~ ~freezing~
+     * tarred: 1 damage and keeps burning
+
+   * ~freezing~
+     | field           |    value |
+     |-----------------+----------|
+     | speedMultiplier |      0.6 |
+     | armorMultiplier |      0.8 |
+     | effect          | freezing |
+     * opposites: ~melting~ ~burning~
+
+   * ~wet~
+     | field           | value |
+     |-----------------+-------|
+     | speedMultiplier | 0.9   |
+     | effect          | wet   |
+     * opposites: ~burning~
+     * shocked: 20 damage
+
+   * ~melting~
+     | field           |   value |
+     |-----------------+---------|
+     | speedMultiplier |     0.8 |
+     | armorMultiplier |     0.8 |
+     | damage          |     0.3 |
+     | effect          | melting |
+     * opposites: ~wet~ ~freezing~
+     * tarred: keeps melting
+
+   * ~tarred~
+     | field           | value |
+     |-----------------+---------|
+     | speedMultiplier | 0.6     |
+     | effect          | oily    |
+     * burning: keeps burning
+     * melting: keeps burning
+
+   * ~overdrive~
+     | field            |      value |
+     |------------------+------------|
+     | armorMultiplier  |       0.95 |
+     | speedMultiplier  |       1.15 |
+     | damageMultiplier |        1.4 |
+     | damage           |      -0.01 |
+     | effect           | overdriven |
+
+   * ~shielded~
+     | field           | value |
+     |-----------------+-------|
+     | armorMultiplier |     3 |
+
+   * ~boss~
+     | field            | value |
+     |------------------+-------|
+     | armorMultiplier  |     3 |
+     | damageMultiplier |     3 |
+     | speedMultiplier  |   1.1 |
+
+   * ~shocked~ -- Does nothing.
+
+   * ~corroded~
+     | field  | value |
+     |--------+-------|
+     | damage |   0.1 |
+
+
+* Graphics
+** Layer
+
+   Layers is an enumeration type, which the renderer will use to group rendering order:
+
+   * ~block~, base block layer;
+   * ~placement~, for placement;
+   * ~overlay~, first overlay stuff like conveyor items;
+   * ~turret~, "high" blocks like turrets;
+   * ~power~ power lasers
+** Color
+
+   Color is a hexadecimal string, ~<rr><gg><bb>~ for example:
+
+   * ~ff0000~ is red,
+   * ~00ff00~ is green,
+   * ~00ffff~ is blue,
+   * ~ffff00~ is yellow,
+   * ~00ffff~ is cyan,
+   * /ect../
+
+* Entities
 ** BulletTypes
 *** BulletType
 
@@ -1636,45 +1811,10 @@ Modding documentation for Mindustry.
     | trailColor | [[Color][Color]] | missileYellowBack |
     | weaveScale | float |                 0 |
     | weaveMag   | float |                -1 |
-
-* UnitTypes
-
-  Unit types should go in their own special directory: ~units~
-
-** UnitType
-
-   Extends [[UnlockableContent and MappableContent][UnlockableContent]]
-
-   | field           | type     | default |
-   |-----------------+----------+---------|
-   | type            | [[BaseUnit][BaseUnit]] |         |
-   | health          | float    |      60 |
-   | hitsize         | float    |       7 |
-   | hitsizeTile     | float    |       4 |
-   | speed           | float    |     0.4 |
-   | range           | float    |       0 |
-   | attackLength    | float    |     150 |
-   | rotatespeed     | float    |     0.2 |
-   | baseRotateSpeed | float    |     0.1 |
-   | shootCone       | float    |      15 |
-   | mass            | float    |       1 |
-   | flying          | boolean  |         |
-   | targetAir       | boolean  |    true |
-   | rotateWeapon    | boolean  |   false |
-   | drag            | float    |     0.1 |
-   | maxVelocity     | float    |       5 |
-   | retreatPercent  | float    |     0.6 |
-   | itemCapacity    | int      |      30 |
-   | buildPower      | float    |     0.3 |
-   | minePower       | float    |     0.7 |
-   | weapon          | [[Weapon][Weapon]]   |         |
-   | weaponOffsetY   | float    |         |
-   | engineOffset    | float    |         |
-   | engineSize      | float    |         |
-
 ** BaseUnit
 
-   There are a few useful bases:
+   There are a few useful base unit types:
+
    * ~FlyingUnit~
      * ~Revenant~
      * ~BaseDrone~
@@ -1683,174 +1823,523 @@ Modding documentation for Mindustry.
        * ~RepairDrone~
    * ~GroundUnit~
 
-* Mech
-  Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Mechs are the player controlled entities.
+** Effect
 
-  | field              | type    | default |
-  |--------------------+---------+---------|
-  | flying             | boolean |         |
-  | speed              | float   |     1.1 |
-  | maxSpeed           | float   |      10 |
-  | boostSpeed         | float   |    0.75 |
-  | drag               | float   |     0.4 |
-  | mass               | float   |       1 |
-  | shake              | float   |       0 |
-  | health             | float   |     200 |
-  | hitsize            | float   |       6 |
-  | cellTrnsY          | float   |       0 |
-  | mineSpeed          | float   |       1 |
-  | drillPower         | int     |      -1 |
-  | buildPower         | float   |       1 |
-  | engineColor        | [[Color][Color]]   | boostTo |
-  | itemCapacity       | int     |      30 |
-  | turnCursor         | boolean |    true |
-  | canHeal            | boolean |   false |
-  | compoundSpeed      | float   |       5 |
-  | compoundSpeedBoost | float   |       5 |
-  | weaponOffsetY      | float   |       5 |
-  | engineOffset       | float   |       5 |
-  | engineSize         | float   |     2.5 |
-  | weapon             | [[Weapon][Weapon]]  |    null |
-   
-* Weapon
-  Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
+   Type should be a ~string~. You can't currently create custom effects. List of built-in effects are as follows:
 
-  | field          | type       | default | notes      |
-  |----------------+------------+---------+------------|
-  |                |            |         | <10>       |
-  | name           | string     |         |            |
-  | nimPlayerDist  | float      |      20 | minimum cursor distance from player, fixes 'cross-eyed' shooting. |
-  | sequenceNum    | int        |       0 |            |
-  | bullet         | [[BulletType][BulletType]] |         | bullet shot |
-  | ejectEffect    | [[Effect][Effect]]     |    none | shell ejection effect |
-  | reload         | float      |         | weapon reload in frames |
-  | shots          | int        |       1 | amount of shots per fire |
-  | spacing        | float      |      12 | spacing in degrees between multiple shots, if applicable |
-  | inaccuracy     | float      |       0 | inaccuracy of degrees of each shot |
-  | shake          | float      |       0 | intensity and duration of each shot's screen shake |
-  | recoil         | float      |     1.5 | visual weapon knockback. |
-  | length         | float      |       3 | shoot barrel y offset |
-  | width          | float      |       4 | shoot barrel x offset. |
-  | velocityRnd    | float      |       0 | fraction of velocity that is random |
-  | alternate      | bool       |   false | shoot one arm after another, rather than all at once |
-  | lengthRand     | float      |       0 | randomization of shot length |
-  | shotDelay      | float      |       0 | delay in ticks between shots |
-  | ignoreRotation | boolean    |   false | whether shooter rotation is ignored when shooting. |
-  | shootSound     | [[Sound][Sound]]      |     pew |            |
-* Effect
+   * ~none~ ~placeBlock~ ~breakBlock~ ~smoke~ ~spawn~ ~tapBlock~ ~select~
+   * ~vtolHover~ ~unitDrop~ ~unitPickup~ ~unitLand~ ~pickup~ ~healWave~ ~heal~
+       ~landShock~ ~reactorsmoke~ ~nuclearsmoke~ ~nuclearcloud~
+   * ~redgeneratespark~ ~generatespark~ ~fuelburn~ ~plasticburn~ ~pulverize~
+       ~pulverizeRed~ ~pulverizeRedder~ ~pulverizeSmall~ ~pulverizeMedium~
+   * ~producesmoke~ ~smeltsmoke~ ~formsmoke~ ~blastsmoke~ ~lava~ ~doorclose~
+       ~dooropen~ ~dooropenlarge~ ~doorcloselarge~ ~purify~ ~purifyoil~ ~purifystone~ ~generate~
+   * ~mine~ ~mineBig~ ~mineHuge~ ~smelt~ ~teleportActivate~ ~teleport~ ~teleportOut~ ~ripple~ ~bubble~ ~launch~
+   * ~healBlock~ ~healBlockFull~ ~healWaveMend~ ~overdriveWave~ ~overdriveBlockFull~ ~shieldBreak~ ~hitBulletSmall~ ~hitFuse~
+   * ~hitBulletBig~ ~hitFlameSmall~ ~hitLiquid~ ~hitLaser~ ~hitLancer~ ~hitMeltdown~ ~despawn~ ~flakExplosion~ ~blastExplosion~
+   * ~plasticExplosion~ ~artilleryTrail~ ~incendTrail~ ~missileTrail~ ~absorb~ ~flakExplosionBig~ ~plasticExplosionFlak~ ~burning~ ~fire~
+   * ~fireSmoke~ ~steam~ ~fireballsmoke~ ~ballfire~ ~freezing~ ~melting~ ~wet~ ~oily~ ~overdriven~ ~dropItem~ ~shockwave~
+   * ~bigShockwave~ ~nuclearShockwave~ ~explosion~ ~blockExplosion~
+       ~blockExplosionSmoke~ ~shootSmall~ ~shootHeal~ ~shootSmallSmoke~ ~shootBig~ ~shootBig2~ ~shootBigSmoke~
+   * ~shootBigSmoke2~ ~shootSmallFlame~ ~shootPyraFlame~ ~shootLiquid~ ~shellEjectSmall~ ~shellEjectMedium~
+   * ~shellEjectBig~ ~lancerLaserShoot~ ~lancerLaserShootSmoke~ ~lancerLaserCharge~
+       ~lancerLaserChargeBegin~ ~lightningCharge~ ~lightningShoot~
+   * ~unitSpawn~ ~spawnShockwave~ ~magmasmoke~ ~impactShockwave~
+       ~impactcloud~ ~impactsmoke~ ~dynamicExplosion~ ~padlaunch~ ~commandSend~ ~coreLand~
+** TargetPriority
 
-  Type should be a ~string~. You can't currently create custom effects. List of built-in effects are as follows:
+   * ~base~
+   * ~turret~
 
-  * ~none~ ~placeBlock~ ~breakBlock~ ~smoke~ ~spawn~ ~tapBlock~ ~select~
-  * ~vtolHover~ ~unitDrop~ ~unitPickup~ ~unitLand~ ~pickup~ ~healWave~ ~heal~
-      ~landShock~ ~reactorsmoke~ ~nuclearsmoke~ ~nuclearcloud~
-  * ~redgeneratespark~ ~generatespark~ ~fuelburn~ ~plasticburn~ ~pulverize~
-      ~pulverizeRed~ ~pulverizeRedder~ ~pulverizeSmall~ ~pulverizeMedium~
-  * ~producesmoke~ ~smeltsmoke~ ~formsmoke~ ~blastsmoke~ ~lava~ ~doorclose~
-      ~dooropen~ ~dooropenlarge~ ~doorcloselarge~ ~purify~ ~purifyoil~ ~purifystone~ ~generate~
-  * ~mine~ ~mineBig~ ~mineHuge~ ~smelt~ ~teleportActivate~ ~teleport~ ~teleportOut~ ~ripple~ ~bubble~ ~launch~
-  * ~healBlock~ ~healBlockFull~ ~healWaveMend~ ~overdriveWave~ ~overdriveBlockFull~ ~shieldBreak~ ~hitBulletSmall~ ~hitFuse~
-  * ~hitBulletBig~ ~hitFlameSmall~ ~hitLiquid~ ~hitLaser~ ~hitLancer~ ~hitMeltdown~ ~despawn~ ~flakExplosion~ ~blastExplosion~
-  * ~plasticExplosion~ ~artilleryTrail~ ~incendTrail~ ~missileTrail~ ~absorb~ ~flakExplosionBig~ ~plasticExplosionFlak~ ~burning~ ~fire~
-  * ~fireSmoke~ ~steam~ ~fireballsmoke~ ~ballfire~ ~freezing~ ~melting~ ~wet~ ~oily~ ~overdriven~ ~dropItem~ ~shockwave~
-  * ~bigShockwave~ ~nuclearShockwave~ ~explosion~ ~blockExplosion~
-      ~blockExplosionSmoke~ ~shootSmall~ ~shootHeal~ ~shootSmallSmoke~ ~shootBig~ ~shootBig2~ ~shootBigSmoke~
-  * ~shootBigSmoke2~ ~shootSmallFlame~ ~shootPyraFlame~ ~shootLiquid~ ~shellEjectSmall~ ~shellEjectMedium~
-  * ~shellEjectBig~ ~lancerLaserShoot~ ~lancerLaserShootSmoke~ ~lancerLaserCharge~
-      ~lancerLaserChargeBegin~ ~lightningCharge~ ~lightningShoot~
-  * ~unitSpawn~ ~spawnShockwave~ ~magmasmoke~ ~impactShockwave~
-      ~impactcloud~ ~impactsmoke~ ~dynamicExplosion~ ~padlaunch~ ~commandSend~ ~coreLand~
+* Game
+** Rules
+** Objective
 
-* StatusEffect
+* Other
+** Mindustry Source Structure
 
-  /Not be be confused with [[Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects*. -- Status effects are used as transitions between intermediate effects. If some a ~wet~ unit gets ~shocked~ it then gets 20 damage.
-
-  | field            | type   | default |            |
-  |------------------+--------+---------+------------|
-  |                  |        |         | <10>       |
-  | damageMultiplier | float  |       1 |            |
-  | armorMultiplier  | float  |       1 |            |
-  | speedMultiplier  | float  |       1 |            |
-  | color            | [[Color][Color]]  |   white |            |
-  | damage           | float  |         | Damage (or healing) per frame. |
-  | effect           | [[Effect][Effect]] |    none | Random effect (0.15% per frame), on affected units. |
-
-  * opposites: effect which reduces anothers lifetime.
-
-  Built-in status effects:
-
-  * ~none~ -- Does nothing.
-
-  * ~burning~
-    | field  | value   |
-    |--------+---------|
-    | damage | 0.06    |
-    | effect | burning |
-    * opposites: ~wet~ ~freezing~
-    * tarred: 1 damage and keeps burning
-
-  * ~freezing~
-    | field           |    value |
-    |-----------------+----------|
-    | speedMultiplier |      0.6 |
-    | armorMultiplier |      0.8 |
-    | effect          | freezing |
-    * opposites: ~melting~ ~burning~
-
-  * ~wet~
-    | field           | value |
-    |-----------------+-------|
-    | speedMultiplier | 0.9   |
-    | effect          | wet   |
-    * opposites: ~burning~
-    * shocked: 20 damage
-
-  * ~melting~
-    | field           |   value |
-    |-----------------+---------|
-    | speedMultiplier |     0.8 |
-    | armorMultiplier |     0.8 |
-    | damage          |     0.3 |
-    | effect          | melting |
-    * opposites: ~wet~ ~freezing~
-    * tarred: keeps melting
-
-  * ~tarred~
-    | field           | value |
-    |-----------------+---------|
-    | speedMultiplier | 0.6     |
-    | effect          | oily    |
-    * burning: keeps burning
-    * melting: keeps burning
-
-  * ~overdrive~
-    | field            |      value |
-    |------------------+------------|
-    | armorMultiplier  |       0.95 |
-    | speedMultiplier  |       1.15 |
-    | damageMultiplier |        1.4 |
-    | damage           |      -0.01 |
-    | effect           | overdriven |
-
-  * ~shielded~
-    | field           | value |
-    |-----------------+-------|
-    | armorMultiplier |     3 |
-
-  * ~boss~
-    | field            | value |
-    |------------------+-------|
-    | armorMultiplier  |     3 |
-    | damageMultiplier |     3 |
-    | speedMultiplier  |   1.1 |
-
-  * ~shocked~ -- Does nothing.
-
-  * ~corroded~
-    | field  | value |
-    |--------+-------|
-    | damage |   0.1 |
-
-* TODO Zone
-* TODO Rules
-* TODO Objective
+   #+BEGIN_SRC fundamental
+   core/src/io/anuke/mindustry/
+   ├── ai
+   │   ├── BlockIndexer.java
+   │   ├── Pathfinder.java
+   │   └── WaveSpawner.java
+   ├── ClientLauncher.java
+   ├── content
+   │   ├── Blocks.java
+   │   ├── Bullets.java
+   │   ├── Fx.java
+   │   ├── Items.java
+   │   ├── Liquids.java
+   │   ├── Loadouts.java
+   │   ├── Mechs.java
+   │   ├── StatusEffects.java
+   │   ├── TechTree.java
+   │   ├── TypeIDs.java
+   │   ├── UnitTypes.java
+   │   └── Zones.java
+   ├── core
+   │   ├── ContentLoader.java
+   │   ├── Control.java
+   │   ├── FileTree.java
+   │   ├── GameState.java
+   │   ├── Logic.java
+   │   ├── NetClient.java
+   │   ├── NetServer.java
+   │   ├── Platform.java
+   │   ├── Renderer.java
+   │   ├── UI.java
+   │   ├── Version.java
+   │   └── World.java
+   ├── ctype
+   │   ├── Content.java
+   │   ├── ContentList.java
+   │   ├── MappableContent.java
+   │   └── UnlockableContent.java
+   ├── editor
+   │   ├── DrawOperation.java
+   │   ├── EditorTile.java
+   │   ├── EditorTool.java
+   │   ├── MapEditorDialog.java
+   │   ├── MapEditor.java
+   │   ├── MapGenerateDialog.java
+   │   ├── MapInfoDialog.java
+   │   ├── MapLoadDialog.java
+   │   ├── MapRenderer.java
+   │   ├── MapResizeDialog.java
+   │   ├── MapSaveDialog.java
+   │   ├── MapView.java
+   │   ├── OperationStack.java
+   │   └── WaveInfoDialog.java
+   ├── entities
+   │   ├── bullet
+   │   │   ├── ArtilleryBulletType.java
+   │   │   ├── BasicBulletType.java
+   │   │   ├── BombBulletType.java
+   │   │   ├── BulletType.java
+   │   │   ├── FlakBulletType.java
+   │   │   ├── HealBulletType.java
+   │   │   ├── LiquidBulletType.java
+   │   │   ├── MassDriverBolt.java
+   │   │   └── MissileBulletType.java
+   │   ├── Damage.java
+   │   ├── effect
+   │   │   ├── Decal.java
+   │   │   ├── Fire.java
+   │   │   ├── GroundEffectEntity.java
+   │   │   ├── ItemTransfer.java
+   │   │   ├── Lightning.java
+   │   │   ├── Puddle.java
+   │   │   ├── RubbleDecal.java
+   │   │   └── ScorchDecal.java
+   │   ├── Effects.java
+   │   ├── Entities.java
+   │   ├── EntityCollisions.java
+   │   ├── EntityGroup.java
+   │   ├── Predict.java
+   │   ├── TargetPriority.java
+   │   ├── traits
+   │   │   ├── AbsorbTrait.java
+   │   │   ├── BelowLiquidTrait.java
+   │   │   ├── BuilderMinerTrait.java
+   │   │   ├── BuilderTrait.java
+   │   │   ├── DamageTrait.java
+   │   │   ├── DrawTrait.java
+   │   │   ├── Entity.java
+   │   │   ├── HealthTrait.java
+   │   │   ├── KillerTrait.java
+   │   │   ├── MinerTrait.java
+   │   │   ├── MoveTrait.java
+   │   │   ├── Saveable.java
+   │   │   ├── SaveTrait.java
+   │   │   ├── ScaleTrait.java
+   │   │   ├── ShooterTrait.java
+   │   │   ├── SolidTrait.java
+   │   │   ├── SpawnerTrait.java
+   │   │   ├── SyncTrait.java
+   │   │   ├── TargetTrait.java
+   │   │   ├── TeamTrait.java
+   │   │   ├── TimeTrait.java
+   │   │   ├── TypeTrait.java
+   │   │   └── VelocityTrait.java
+   │   ├── type
+   │   │   ├── base
+   │   │   │   ├── BaseDrone.java
+   │   │   │   ├── BuilderDrone.java
+   │   │   │   ├── Crawler.java
+   │   │   │   ├── Dagger.java
+   │   │   │   ├── Draug.java
+   │   │   │   ├── Eruptor.java
+   │   │   │   ├── FlyingUnit.java
+   │   │   │   ├── Fortress.java
+   │   │   │   ├── Ghoul.java
+   │   │   │   ├── GroundUnit.java
+   │   │   │   ├── MinerDrone.java
+   │   │   │   ├── Phantom.java
+   │   │   │   ├── RepairDrone.java
+   │   │   │   ├── Revenant.java
+   │   │   │   ├── Spirit.java
+   │   │   │   ├── Titan.java
+   │   │   │   └── Wraith.java
+   │   │   ├── BaseEntity.java
+   │   │   ├── BaseUnit.java
+   │   │   ├── Bullet.java
+   │   │   ├── DestructibleEntity.java
+   │   │   ├── EffectEntity.java
+   │   │   ├── Player.java
+   │   │   ├── SolidEntity.java
+   │   │   ├── TileEntity.java
+   │   │   ├── TimedEntity.java
+   │   │   └── Unit.java
+   │   ├── units
+   │   │   ├── StateMachine.java
+   │   │   ├── Statuses.java
+   │   │   ├── UnitCommand.java
+   │   │   ├── UnitDrops.java
+   │   │   └── UnitState.java
+   │   └── Units.java
+   ├── game
+   │   ├── DefaultWaves.java
+   │   ├── Difficulty.java
+   │   ├── EventType.java
+   │   ├── Gamemode.java
+   │   ├── GlobalData.java
+   │   ├── LoopControl.java
+   │   ├── MusicControl.java
+   │   ├── Objective.java
+   │   ├── Objectives.java
+   │   ├── Rules.java
+   │   ├── Saves.java
+   │   ├── Schematic.java
+   │   ├── Schematics.java
+   │   ├── SoundLoop.java
+   │   ├── SpawnGroup.java
+   │   ├── Stats.java
+   │   ├── Team.java
+   │   ├── Teams.java
+   │   └── Tutorial.java
+   ├── graphics
+   │   ├── BlockRenderer.java
+   │   ├── Bloom.java
+   │   ├── CacheLayer.java
+   │   ├── Drawf.java
+   │   ├── FloorRenderer.java
+   │   ├── IndexedRenderer.java
+   │   ├── Layer.java
+   │   ├── MenuRenderer.java
+   │   ├── MinimapRenderer.java
+   │   ├── OverlayRenderer.java
+   │   ├── Pal.java
+   │   ├── Pixelator.java
+   │   └── Shaders.java
+   ├── input
+   │   ├── Binding.java
+   │   ├── DesktopInput.java
+   │   ├── InputHandler.java
+   │   ├── MobileInput.java
+   │   ├── PlaceMode.java
+   │   └── PlaceUtils.java
+   ├── io
+   │   ├── JsonIO.java
+   │   ├── LegacyMapIO.java
+   │   ├── MapIO.java
+   │   ├── SaveFileReader.java
+   │   ├── SaveIO.java
+   │   ├── SaveMeta.java
+   │   ├── SavePreviewLoader.java
+   │   ├── SaveVersion.java
+   │   ├── TypeIO.java
+   │   └── versions
+   │       ├── LegacyTypeTable.java
+   │       ├── Save1.java
+   │       ├── Save2.java
+   │       └── Save3.java
+   ├── maps
+   │   ├── filters
+   │   │   ├── BlendFilter.java
+   │   │   ├── ClearFilter.java
+   │   │   ├── DistortFilter.java
+   │   │   ├── FilterOption.java
+   │   │   ├── GenerateFilter.java
+   │   │   ├── MedianFilter.java
+   │   │   ├── MirrorFilter.java
+   │   │   ├── NoiseFilter.java
+   │   │   ├── OreFilter.java
+   │   │   ├── OreMedianFilter.java
+   │   │   ├── RiverNoiseFilter.java
+   │   │   ├── ScatterFilter.java
+   │   │   └── TerrainFilter.java
+   │   ├── generators
+   │   │   ├── BasicGenerator.java
+   │   │   ├── Generator.java
+   │   │   ├── MapGenerator.java
+   │   │   └── RandomGenerator.java
+   │   ├── MapException.java
+   │   ├── Map.java
+   │   ├── MapPreviewLoader.java
+   │   ├── Maps.java
+   │   └── zonegen
+   │       ├── DesertWastesGenerator.java
+   │       └── OvergrowthGenerator.java
+   ├── mod
+   │   ├── ContentParser.java
+   │   ├── ModCrashHandler.java
+   │   ├── Mod.java
+   │   ├── ModLoadingSound.java
+   │   └── Mods.java
+   ├── net
+   │   ├── Administration.java
+   │   ├── ArcNetImpl.java
+   │   ├── CrashSender.java
+   │   ├── Host.java
+   │   ├── Interpolator.java
+   │   ├── NetConnection.java
+   │   ├── Net.java
+   │   ├── NetworkIO.java
+   │   ├── Packet.java
+   │   ├── Packets.java
+   │   ├── Registrator.java
+   │   ├── Streamable.java
+   │   └── ValidateException.java
+   ├── plugin
+   │   └── Plugin.java
+   ├── type
+   │   ├── Category.java
+   │   ├── ContentType.java
+   │   ├── Item.java
+   │   ├── ItemStack.java
+   │   ├── ItemType.java
+   │   ├── Liquid.java
+   │   ├── LiquidStack.java
+   │   ├── Loadout.java
+   │   ├── Mech.java
+   │   ├── Publishable.java
+   │   ├── StatusEffect.java
+   │   ├── TypeID.java
+   │   ├── UnitType.java
+   │   ├── Weapon.java
+   │   ├── WeatherEvent.java
+   │   └── Zone.java
+   ├── ui
+   │   ├── Bar.java
+   │   ├── BorderImage.java
+   │   ├── Cicon.java
+   │   ├── ContentDisplay.java
+   │   ├── dialogs
+   │   │   ├── AboutDialog.java
+   │   │   ├── AdminsDialog.java
+   │   │   ├── BansDialog.java
+   │   │   ├── ColorPickDialog.java
+   │   │   ├── ContentInfoDialog.java
+   │   │   ├── ControlsDialog.java
+   │   │   ├── CustomGameDialog.java
+   │   │   ├── CustomRulesDialog.java
+   │   │   ├── DatabaseDialog.java
+   │   │   ├── DeployDialog.java
+   │   │   ├── DiscordDialog.java
+   │   │   ├── FileChooser.java
+   │   │   ├── FloatingDialog.java
+   │   │   ├── GameOverDialog.java
+   │   │   ├── HostDialog.java
+   │   │   ├── JoinDialog.java
+   │   │   ├── LanguageDialog.java
+   │   │   ├── LoadDialog.java
+   │   │   ├── LoadoutDialog.java
+   │   │   ├── MapPlayDialog.java
+   │   │   ├── MapsDialog.java
+   │   │   ├── MinimapDialog.java
+   │   │   ├── ModsDialog.java
+   │   │   ├── PausedDialog.java
+   │   │   ├── SaveDialog.java
+   │   │   ├── SchematicsDialog.java
+   │   │   ├── SettingsMenuDialog.java
+   │   │   ├── TechTreeDialog.java
+   │   │   ├── TraceDialog.java
+   │   │   └── ZoneInfoDialog.java
+   │   ├── Fonts.java
+   │   ├── fragments
+   │   │   ├── BlockConfigFragment.java
+   │   │   ├── BlockInventoryFragment.java
+   │   │   ├── ChatFragment.java
+   │   │   ├── FadeInFragment.java
+   │   │   ├── Fragment.java
+   │   │   ├── HudFragment.java
+   │   │   ├── LoadingFragment.java
+   │   │   ├── MenuFragment.java
+   │   │   ├── OverlayFragment.java
+   │   │   ├── PlacementFragment.java
+   │   │   └── PlayerListFragment.java
+   │   ├── GridImage.java
+   │   ├── IconSize.java
+   │   ├── IntFormat.java
+   │   ├── ItemDisplay.java
+   │   ├── ItemImage.java
+   │   ├── ItemsDisplay.java
+   │   ├── layout
+   │   │   ├── BranchTreeLayout.java
+   │   │   ├── RadialTreeLayout.java
+   │   │   └── TreeLayout.java
+   │   ├── Links.java
+   │   ├── LiquidDisplay.java
+   │   ├── Minimap.java
+   │   ├── MobileButton.java
+   │   ├── MultiReqImage.java
+   │   ├── ReqImage.java
+   │   └── Styles.java
+   ├── Vars.java
+   └── world
+       ├── Block.java
+       ├── blocks
+       │   ├── Attributes.java
+       │   ├── Autotiler.java
+       │   ├── BlockPart.java
+       │   ├── BuildBlock.java
+       │   ├── defense
+       │   │   ├── DeflectorWall.java
+       │   │   ├── Door.java
+       │   │   ├── ForceProjector.java
+       │   │   ├── MendProjector.java
+       │   │   ├── OverdriveProjector.java
+       │   │   ├── ShockMine.java
+       │   │   ├── SurgeWall.java
+       │   │   ├── turrets
+       │   │   │   ├── ArtilleryTurret.java
+       │   │   │   ├── BurstTurret.java
+       │   │   │   ├── ChargeTurret.java
+       │   │   │   ├── CooledTurret.java
+       │   │   │   ├── DoubleTurret.java
+       │   │   │   ├── ItemTurret.java
+       │   │   │   ├── LaserTurret.java
+       │   │   │   ├── LiquidTurret.java
+       │   │   │   ├── PowerTurret.java
+       │   │   │   └── Turret.java
+       │   │   └── Wall.java
+       │   ├── distribution
+       │   │   ├── ArmoredConveyor.java
+       │   │   ├── BufferedItemBridge.java
+       │   │   ├── Conduit.java
+       │   │   ├── Conveyor.java
+       │   │   ├── ExtendingItemBridge.java
+       │   │   ├── ItemBridge.java
+       │   │   ├── Junction.java
+       │   │   ├── LiquidBridge.java
+       │   │   ├── LiquidExtendingBridge.java
+       │   │   ├── LiquidJunction.java
+       │   │   ├── LiquidRouter.java
+       │   │   ├── LiquidTank.java
+       │   │   ├── MassDriver.java
+       │   │   ├── OverflowGate.java
+       │   │   ├── Router.java
+       │   │   └── Sorter.java
+       │   ├── DoubleOverlayFloor.java
+       │   ├── Floor.java
+       │   ├── ItemSelection.java
+       │   ├── LiquidBlock.java
+       │   ├── logic
+       │   │   ├── LogicBlock.java
+       │   │   └── MessageBlock.java
+       │   ├── OreBlock.java
+       │   ├── OverlayFloor.java
+       │   ├── power
+       │   │   ├── Battery.java
+       │   │   ├── BurnerGenerator.java
+       │   │   ├── ConditionalConsumePower.java
+       │   │   ├── DecayGenerator.java
+       │   │   ├── ImpactReactor.java
+       │   │   ├── ItemLiquidGenerator.java
+       │   │   ├── NuclearReactor.java
+       │   │   ├── PowerDistributor.java
+       │   │   ├── PowerGenerator.java
+       │   │   ├── PowerGraph.java
+       │   │   ├── PowerNode.java
+       │   │   ├── SingleTypeGenerator.java
+       │   │   ├── SolarGenerator.java
+       │   │   └── ThermalGenerator.java
+       │   ├── PowerBlock.java
+       │   ├── production
+       │   │   ├── Cultivator.java
+       │   │   ├── Drill.java
+       │   │   ├── Fracker.java
+       │   │   ├── GenericCrafter.java
+       │   │   ├── GenericSmelter.java
+       │   │   ├── Incinerator.java
+       │   │   ├── LiquidConverter.java
+       │   │   ├── Pump.java
+       │   │   ├── Separator.java
+       │   │   └── SolidPump.java
+       │   ├── RespawnBlock.java
+       │   ├── Rock.java
+       │   ├── sandbox
+       │   │   ├── ItemSource.java
+       │   │   ├── ItemVoid.java
+       │   │   ├── LiquidSource.java
+       │   │   ├── PowerSource.java
+       │   │   └── PowerVoid.java
+       │   ├── StaticWall.java
+       │   ├── storage
+       │   │   ├── CoreBlock.java
+       │   │   ├── LaunchPad.java
+       │   │   ├── StorageBlock.java
+       │   │   ├── Unloader.java
+       │   │   └── Vault.java
+       │   ├── TreeBlock.java
+       │   └── units
+       │       ├── CommandCenter.java
+       │       ├── MechPad.java
+       │       ├── RallyPoint.java
+       │       ├── RepairPoint.java
+       │       └── UnitFactory.java
+       ├── BlockStorage.java
+       ├── Build.java
+       ├── CachedTile.java
+       ├── consumers
+       │   ├── ConsumeItemFilter.java
+       │   ├── ConsumeItems.java
+       │   ├── Consume.java
+       │   ├── ConsumeLiquidBase.java
+       │   ├── ConsumeLiquidFilter.java
+       │   ├── ConsumeLiquid.java
+       │   ├── ConsumePower.java
+       │   ├── Consumers.java
+       │   └── ConsumeType.java
+       ├── DirectionalItemBuffer.java
+       ├── Edges.java
+       ├── ItemBuffer.java
+       ├── LegacyColorMapper.java
+       ├── meta
+       │   ├── Attribute.java
+       │   ├── BlockBars.java
+       │   ├── BlockFlag.java
+       │   ├── BlockGroup.java
+       │   ├── BlockStat.java
+       │   ├── BlockStats.java
+       │   ├── BuildVisibility.java
+       │   ├── PowerType.java
+       │   ├── Producers.java
+       │   ├── StatCategory.java
+       │   ├── StatUnit.java
+       │   ├── StatValue.java
+       │   └── values
+       │       ├── AmmoListValue.java
+       │       ├── BooleanValue.java
+       │       ├── BoosterListValue.java
+       │       ├── ItemFilterValue.java
+       │       ├── ItemListValue.java
+       │       ├── LiquidFilterValue.java
+       │       ├── LiquidValue.java
+       │       ├── NumberValue.java
+       │       └── StringValue.java
+       ├── modules
+       │   ├── BlockModule.java
+       │   ├── ConsumeModule.java
+       │   ├── ItemModule.java
+       │   ├── LiquidModule.java
+       │   └── PowerModule.java
+       ├── Pos.java
+       ├── producers
+       │   ├── ProduceItem.java
+       │   └── Produce.java
+       ├── StaticTree.java
+       ├── Tile.java
+       └── WorldContext.java
+   #+END_SRC
