@@ -2559,8 +2559,8 @@ Next: <a href="#OverflowGate" accesskey="n" rel="next">OverflowGate</a>, Previou
 <p>Extends <a href="#Block">Block</a>
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th></tr></thead>
-<tr><td>invert</td><td>boolean</td></tr>
+<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
+<tr><td>invert</td><td>boolean</td><td></td><td><strong>[optional]</strong></td></tr>
 </table>
 
 <p>Defaults:
@@ -4173,17 +4173,23 @@ Next: <a href="#ArtilleryBulletType" accesskey="n" rel="next">ArtilleryBulletTyp
 <a name="BasicBulletType-1"></a>
 <h4 class="subsection">5.1.2 BasicBulletType</h4>
 
-<p>The actual bullet type.
+<p>Extends <a href="#BulletType">BulletType</a> &ndash; An extended BulletType for most ammo-based bullets shot from turrets and units. It&rsquo;s purpose is mostly to style the bullet.
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
-<tr><td>backColor</td><td><a href="#Color">Color</a></td><td>bulletYellowBack</td></tr>
-<tr><td>frontColor</td><td><a href="#Color">Color</a></td><td>bulletYellow</td></tr>
-<tr><td>bulletWidth</td><td>float</td><td>5</td></tr>
-<tr><td>bulletHeight</td><td>float</td><td>7</td></tr>
-<tr><td>bulletShrink</td><td>float</td><td>0.5</td></tr>
-<tr><td>bulletSprite</td><td>String</td><td></td></tr>
+<thead><tr><th>field</th><th>type</th><th>default</th><th></th></tr></thead>
+<tr><td>backColor</td><td><a href="#Color">Color</a></td><td>bulletYellowBack</td><td>Color of <code>&lt;name&gt;-back</code> sprite.</td></tr>
+<tr><td>frontColor</td><td><a href="#Color">Color</a></td><td>bulletYellow</td><td>Color of <code>&lt;name&gt;</code> sprite.</td></tr>
+<tr><td>bulletWidth</td><td>float</td><td>5</td><td></td></tr>
+<tr><td>bulletHeight</td><td>float</td><td>7</td><td></td></tr>
+<tr><td>bulletShrink</td><td>float</td><td>0.5</td><td></td></tr>
+<tr><td>bulletSprite</td><td>String</td><td></td><td>Mapping sprite used to make the shape of the bullet.</td></tr>
 </table>
+
+<p>Sprites:
+</p><ul>
+<li> <code>&lt;name&gt;</code> top layer sprite
+</li><li> <code>&lt;name&gt;-back</code> bottom layer sprite
+</li></ul>
 
 <hr>
 <a name="ArtilleryBulletType"></a>
