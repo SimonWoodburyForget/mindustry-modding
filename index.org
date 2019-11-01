@@ -775,7 +775,19 @@ Modding documentation for Mindustry.
     * liquid temperature greater or equal to ~0.5~
     * liquid flammability greater then ~0.1~
 
-*** TODO LiquidTurret
+*** LiquidTurret
+    [[Abstract]] type that extends [[Turret]]
+
+    | fields | type                 |
+    |--------+----------------------|
+    | ammo   | { [[Item]]: [[BulletType]] } |
+
+    Defaults:
+    | fields      | default |
+    |-------------+---------|
+    | hasLiquids  | true    |
+    | activeSound | spray   |
+
 ** Distribution
 *** TODO Conveyor
 *** TODO ArmoredConveyor
