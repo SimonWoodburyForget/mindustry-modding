@@ -42,11 +42,7 @@ margin: 1em 0em 1em 0em;
 border-top: 1px solid #C2C2C2;
 }
 
-body
-{
-margin: 2% 7% 3% 7%;
-font-size: 125%;
-}
+
 
 div.smallexample, div.example
 {
@@ -323,3 +319,14 @@ thead th
 {
     border-bottom: 1px solid #a3a3a3; 
 }
+ 
+body
+{
+    margin: 2% 5% 3% 5%;
+
+    font-size: 105%;
+    max-width: 800px;
+    
+}
+
+

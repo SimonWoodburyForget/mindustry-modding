@@ -518,26 +518,26 @@ Modding documentation for Mindustry.
 *** Floor
     Extends [[Block][Block]] -- Environmental floors. Requires a sprite, so to be visible in the map editor.
 
-    | field             | type         |           default | notes      |
-    |-------------------+--------------+-------------------+------------|
-    |                   |              |               <r> | <10>       |
-    | variants          | int          |                 3 | number of different variant regions to use. |
-    | edge              | String       |           "stone" | edge fallback, used mainly for ores. |
-    | speedMultiplier   | float        |                 1 | multiplies unit velocity by this when walked on. |
-    | dragMultiplier    | float        |                 0 | multiplies unit drag by this when walked on. |
-    | damageTaken       | float        |                 0 | damage taken per tick on this tile. |
-    | drownTime         | float        |                 0 | how many ticks it takes to drown on this. |
-    | walkEffect        | [[Effect][Effect]]       |          "ripple" | effect when walking on this [[Floor][floor]]. |
-    | drownUpdateEffect | [[Effect][Effect]]       |          "bubble" | effect displayed when drowning on this [[Floor][floor]]. |
-    | status            | StatusEffect |            "none" | status effect applied when walking on. |
-    | statusDuration    | float        |                60 | intensity of applied status effect. |
-    | liquidDrop        | [[Liquid][Liquid]]       |                   | liquids that drop from this block, used for pumps. |
-    | itemDrop          | [[Item][Item]]         |                   | item that drops from this block, used for drills. |
-    | isLiquid          | boolean      |                   | whether this block can be drowned in. |
-    | playerUnmineable  | boolean      |             false | block cannot be mined by players if true. |
-    | blendGroup        | [[Block][Block]]        |              this | group of blocks that this block does not draw edges on. |
-    | updateEffect      | [[Effect][Effect]]       |            "none" | effect displayed when randomly updated. |
-    | attributes        | [[Attributes][Attributes]]   | ~{ "array": [] }~ | array of affinities to certain things. |
+    | field             | type         | default | notes      |
+    |-------------------+--------------+---------+------------|
+    |                   |              |     <r> | <10>       |
+    | variants          | int          |       3 | number of different variant regions to use. |
+    | edge              | String       |   stone | edge fallback, used mainly for ores. |
+    | speedMultiplier   | float        |       1 | multiplies unit velocity by this when walked on. |
+    | dragMultiplier    | float        |       0 | multiplies unit drag by this when walked on. |
+    | damageTaken       | float        |       0 | damage taken per tick on this tile. |
+    | drownTime         | float        |       0 | how many ticks it takes to drown on this. |
+    | walkEffect        | [[Effect][Effect]]       |  ripple | effect when walking on this [[Floor][floor]]. |
+    | drownUpdateEffect | [[Effect][Effect]]       |  bubble | effect displayed when drowning on this [[Floor][floor]]. |
+    | status            | StatusEffect |    none | status effect applied when walking on. |
+    | statusDuration    | float        |      60 | intensity of applied status effect. |
+    | liquidDrop        | [[Liquid][Liquid]]       |         | liquids that drop from this block, used for pumps. |
+    | itemDrop          | [[Item][Item]]         |         | item that drops from this block, used for drills. |
+    | isLiquid          | boolean      |         | whether this block can be drowned in. |
+    | playerUnmineable  | boolean      |   false | block cannot be mined by players if true. |
+    | blendGroup        | [[Block][Block]]        |    this | group of blocks that this block does not draw edges on. |
+    | updateEffect      | [[Effect][Effect]]       |    none | effect displayed when randomly updated. |
+    | attributes        | [[Attributes][Attributes]]   |         | array of affinities to certain things. |
 
     Sprite lookup name, where ~i~ is the variant:
     - ~<name><i>.png~ variants start at ~1~.
@@ -808,8 +808,12 @@ Modding documentation for Mindustry.
     | targetable   |   false |
     | layer        | overlay |
 ** Turrets
+
+   This section is for turret, all turrets shoot [[BulletType]], this means [[LaserTurret]] can shoot [[MissileBulletType]] and Duo can shoot [[LiquidBulletType]]. 
+
 *** Turret
-    Extends [[Block][Block]] -- Base extended to make turrets types.
+
+    Extends [[Block][Block]] -- All turrets extend from [[Turret]], which holds all the common fields.
 
     | field         | type    |    default | notes      |
     |---------------+---------+------------+------------|
@@ -837,6 +841,7 @@ Modding documentation for Mindustry.
     | targetGround  | boolean |       true |            |
 
     Defaults:
+
     | field       | default |
     |-------------+---------|
     | priority    | turret  |
@@ -847,13 +852,18 @@ Modding documentation for Mindustry.
     | outlineIcon | true    |
 
 *** CooledTurret
-    Extends [[Turret][Turret]] -- Extends turret with cooling behavior.
+
+    Extends [[Turret][Turret]] -- This is a base type that turrets which use [[Liquid]] to cool themselves extend from.
 
     | field             | type   | default | notes      |
     |-------------------+--------+---------+------------|
     |                   |        |         | <10>       |
     | coolantMultiplier | float  | 5       | How much reload is lowered by for each unit of liquid of heat capacity. |
     | coolEffect        | [[Effect][Effect]] | shoot   |            |
+
+    Notes:
+    * doesn't take flammable fluid
+    * doesn't take hot fluid
 
 *** ItemTurret
     Extends [[CooledTurret][CooledTurret]] -- Turrets that uses items as ammo.
@@ -1538,7 +1548,7 @@ Defaults:
 
 Defaults:
 
-| field         | type      |
+| field         | default   |
 |---------------+-----------|
 | collidesTiles | false     |
 | collides      | false     |
@@ -1553,10 +1563,10 @@ Defaults:
 
    Bullets that explode near enemies.
 
-   | field        | type  | default | notes      |
-   |--------------+-------+---------+------------|
-   |              |       |         | <10>       |
-   | explodeRange | float |      30 |            |
+   | field        | type  | default |
+   |--------------+-------+---------|
+   |              |       |         |
+   | explodeRange | float |      30 |
 
    Defaults:
 
@@ -1572,14 +1582,13 @@ Defaults:
 
    Bullets that can heal blocks of the same team as the shooter.
     
-   | field       | type  | default | notes      |
-   |-------------+-------+---------+------------|
-   |             |       |         | <10>       |
-   | healPercent | float |       3 |            |
+   | field       | type  | default |
+   |-------------+-------+---------|
+   | healPercent | float |       3 |
 
    Defaults:
 
-   | field         | type      |
+   | field         | default  |
    |---------------+-----------|
    | shootEffect   | shootHeal |
    | smokeEffect   | hitLaser  |
@@ -1589,42 +1598,43 @@ Defaults:
 
 ** LiquidBulletType
 
-| field  | type   | default |                |
-|--------+--------+---------+----------------|
-| liquid | Liquid | null    | required field |
+   | field  | type   | default |                |
+   |--------+--------+---------+----------------|
+   | liquid | Liquid | null    | required field |
 
-Defaults:
+   Defaults:
 
-| field          | type      |
-|----------------+-----------|
-| lifetime       | 74        |
-| statusDuration | 90        |
-| despawnEffect  | none      |
-| hitEffect      | hitLiquid |
-| smokeEffect    | none      |
-| shootEffect    | none      |
-| drag           | 0.009     |
-| knockback      | 0.55      |
+   | field          | default   |
+   |----------------+-----------|
+   | lifetime       | 74        |
+   | statusDuration | 90        |
+   | despawnEffect  | none      |
+   | hitEffect      | hitLiquid |
+   | smokeEffect    | none      |
+   | shootEffect    | none      |
+   | drag           | 0.009     |
+   | knockback      | 0.55      |
 
 ** MassDriverBolt
 
-Defaults:
+   Defaults:
 
-| field         | type         |
-|---------------+--------------|
-| collidesTiles | false        |
-| lifetime      | 200          |
-| despawnEffect | smeltsmoke   |
-| hitEffect     | hitBulletBig |
-| drag          | 0.005        |
+   | field         | default      |
+   |---------------+--------------|
+   | collidesTiles | false        |
+   | lifetime      | 200          |
+   | despawnEffect | smeltsmoke   |
+   | hitEffect     | hitBulletBig |
+   | drag          | 0.005        |
 
 ** MissileBulletType
 
-| field      | type  |           default |
-|------------+-------+-------------------|
-| trailColor | [[Color][Color]] | missileYellowBack |
-| weaveScale | float |                 0 |
-| weaveMag   | float |                -1 |
+   | field      | type  |           default |
+   |------------+-------+-------------------|
+   | trailColor | [[Color][Color]] | missileYellowBack |
+   | weaveScale | float |                 0 |
+   | weaveMag   | float |                -1 |
+
 * UnitTypes
 ** UnitType
    Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Unit types go in their own special directory: ~units~

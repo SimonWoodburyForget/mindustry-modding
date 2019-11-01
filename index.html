@@ -83,11 +83,7 @@ margin: 1em 0em 1em 0em;
 border-top: 1px solid #C2C2C2;
 }
 
-body
-{
-margin: 2% 7% 3% 7%;
-font-size: 125%;
-}
+
 
 div.smallexample, div.example
 {
@@ -364,6 +360,15 @@ thead th
 {
     border-bottom: 1px solid #a3a3a3; 
 }
+ 
+body
+{
+    margin: 2% 5% 3% 5%;
+    font-size: 105%;
+    max-width: 800px;
+}
+
+
 
 -->
 </style>
@@ -1170,25 +1175,26 @@ Next: <a href="#Block-Types" accesskey="n" rel="next">Block Types</a>, Previous:
 
 <p>Types have numerous fields, but the important one is <code>type</code>; this is a special field used by the content parser, that changes which type your object is. <em>No a <code>Router</code> type can&rsquo;t be a <code>Turret</code> type</em>, they have completely different methods and fields.
 </p>
-<p>Types <em>extend</em> each other, and what that means is if <code>MissileBulletType</code> extends <code>BasicBulletType</code>, then you&rsquo;ll have all the fields of <code>BasicBulletType</code> inside of <code>MissileBulletType</code> like <code>damage</code>.
+<p>Types <em>extend</em> each other, and what that means is if <code>MissileBulletType</code> extends <code>BasicBulletType</code>, then you&rsquo;ll have access to all the fields of <code>BasicBulletType</code> inside of <code>MissileBulletType</code> like <code>damage</code>, <code>lifetime</code> and <code>speed</code>. Fields are case sensitive: <code>hitSize</code> &lsquo;<samp>/</samp>&rsquo; <code>hitsize</code>.
 </p>
-<p>is what you&rsquo;d expect is at the type&rsquo;s discretion, some fields aren&rsquo;t actually really used by their extenders/childrens, resulting in no behavior at all.
+<p>What you can expect a field to do is up to the specific type, some types do absolutely nothing with their fields, and work mostly as a base types will extend from. One such type is <code>Block</code>.
 </p>
-<p>A type can be specified in the field of an object, but this is not all a type is. A type is the type of something <code>float</code> is a type so <code>0.3</code> is type float. <code>Block</code> is a type, which isn&rsquo;t something you&rsquo;ll be using by itself, but instead you use <code>Floor</code> which is a <code>Block</code> type topped with behavior that is floor specific.
+<p><code>type</code> can be refer to the actual type field of the object. A type may also refer to other things like <code>float</code> is a type so it means you can type <code>0.3</code> in a field.
 </p>
+
 <div class="example">
 <pre class="example">{
     &quot;type&quot;: &quot;Revenant&quot;,
-        &quot;weapon&quot;: {
-            &quot;bullet&quot;: {
-                &quot;type&quot;: &quot;MissileBulletType&quot;,
+    &quot;weapon&quot;: {
+        &quot;bullet&quot;: {
+            &quot;type&quot;: &quot;MissileBulletType&quot;,
             &quot;damage&quot;: 9000
         }
     }
 }
 </pre></div>
 
-<p>Here you can see, the type of the top level object is <code>Revenant</code>, but the type of the <code>bullet</code> which needs to be a <code>BulletType</code> is actually <code>MissileBulletType</code>, which gives you the behaviors and effects that missiles should have.
+<p>Here you can see, the type of the top level object is <code>Revenant</code>, but the type of the <code>bullet</code> is <code>BulletType</code> so you can use <code>MissileBulletType</code>, because <code>MissileBulletType</code> extends <code>BulletType</code>.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#UnlockableContent-and-MappableContent" accesskey="1">UnlockableContent and MappableContent</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -1232,7 +1238,7 @@ Next: <a href="#ItemStack" accesskey="n" rel="next">ItemStack</a>, Up: <a href="
 <a name="UnlockableContent-and-MappableContent-1"></a>
 <h3 class="section">2.1 UnlockableContent and MappableContent</h3>
 
-<p>Types that can have a display name and description. <em>Most content in other words</em> but not everything. <a href="#ItemStack">ItemStack</a> isn&rsquo;t <code>UnlockableContent</code> because it&rsquo;s not content, it&rsquo;s just a stack of items.
+<p>Types that can have a display name and description. <em>Most content in other words</em>. <a href="#ItemStack">ItemStack</a> for example isn&rsquo;t <code>UnlockableContent</code>.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th></tr></thead>
@@ -1257,9 +1263,7 @@ Next: <a href="#LiquidStack" accesskey="n" rel="next">LiquidStack</a>, Previous:
 <a name="ItemStack-1"></a>
 <h3 class="section">2.2 ItemStack</h3>
 
-<p>This type is used by blocks, to consume/output items.
-</p>
-<p>An item stack is simply an array of objects with these fields:
+<p>This type is used to tell blocks to calculate their output/input rates. An item stack is simply an array of objects with the following fields:
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -1828,22 +1832,22 @@ Next: <a href="#OverlayFloor" accesskey="n" rel="next">OverlayFloor</a>, Up: <a 
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>variants</td><td>int</td><td>3</td><td>number of different variant regions to use.</td></tr>
-<tr><td>edge</td><td>String</td><td>&quot;stone&quot;</td><td>edge fallback, used mainly for ores.</td></tr>
+<tr><td>edge</td><td>String</td><td>stone</td><td>edge fallback, used mainly for ores.</td></tr>
 <tr><td>speedMultiplier</td><td>float</td><td>1</td><td>multiplies unit velocity by this when walked on.</td></tr>
 <tr><td>dragMultiplier</td><td>float</td><td>0</td><td>multiplies unit drag by this when walked on.</td></tr>
 <tr><td>damageTaken</td><td>float</td><td>0</td><td>damage taken per tick on this tile.</td></tr>
 <tr><td>drownTime</td><td>float</td><td>0</td><td>how many ticks it takes to drown on this.</td></tr>
-<tr><td>walkEffect</td><td><a href="#Effect">Effect</a></td><td>&quot;ripple&quot;</td><td>effect when walking on this <a href="#Floor">floor</a>.</td></tr>
-<tr><td>drownUpdateEffect</td><td><a href="#Effect">Effect</a></td><td>&quot;bubble&quot;</td><td>effect displayed when drowning on this <a href="#Floor">floor</a>.</td></tr>
-<tr><td>status</td><td>StatusEffect</td><td>&quot;none&quot;</td><td>status effect applied when walking on.</td></tr>
+<tr><td>walkEffect</td><td><a href="#Effect">Effect</a></td><td>ripple</td><td>effect when walking on this <a href="#Floor">floor</a>.</td></tr>
+<tr><td>drownUpdateEffect</td><td><a href="#Effect">Effect</a></td><td>bubble</td><td>effect displayed when drowning on this <a href="#Floor">floor</a>.</td></tr>
+<tr><td>status</td><td>StatusEffect</td><td>none</td><td>status effect applied when walking on.</td></tr>
 <tr><td>statusDuration</td><td>float</td><td>60</td><td>intensity of applied status effect.</td></tr>
 <tr><td>liquidDrop</td><td><a href="#Liquid">Liquid</a></td><td></td><td>liquids that drop from this block, used for pumps.</td></tr>
 <tr><td>itemDrop</td><td><a href="#Item">Item</a></td><td></td><td>item that drops from this block, used for drills.</td></tr>
 <tr><td>isLiquid</td><td>boolean</td><td></td><td>whether this block can be drowned in.</td></tr>
 <tr><td>playerUnmineable</td><td>boolean</td><td>false</td><td>block cannot be mined by players if true.</td></tr>
 <tr><td>blendGroup</td><td><a href="#Block">Block</a></td><td>this</td><td>group of blocks that this block does not draw edges on.</td></tr>
-<tr><td>updateEffect</td><td><a href="#Effect">Effect</a></td><td>&quot;none&quot;</td><td>effect displayed when randomly updated.</td></tr>
-<tr><td>attributes</td><td><a href="#Attributes">Attributes</a></td><td><code>{ &quot;array&quot;: [] }</code></td><td>array of affinities to certain things.</td></tr>
+<tr><td>updateEffect</td><td><a href="#Effect">Effect</a></td><td>none</td><td>effect displayed when randomly updated.</td></tr>
+<tr><td>attributes</td><td><a href="#Attributes">Attributes</a></td><td></td><td>array of affinities to certain things.</td></tr>
 </table>
 
 <p>Sprite lookup name, where <code>i</code> is the variant:
