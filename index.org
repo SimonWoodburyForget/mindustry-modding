@@ -16,7 +16,7 @@ Modding documentation for Mindustry.
 
   Mindustry mods are simply directories of assests. You reuse existing types and can use different values to initialize them, and you can even overwrite initialization of vanilla content. 
 
-  On new content you can't add custom sprites and sounds, and sharing your mod is as simple as giving someone your project directory. Mods are also cross platfrom to any platform that supports them.
+  You can add custom sprites and sounds; sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them.
 
 ** Directory Structure
 
