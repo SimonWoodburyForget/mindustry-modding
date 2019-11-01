@@ -22,6 +22,25 @@ Modding documentation for Mindustry.
 
   On new content you can't add custom sprites and sounds, and sharing your mod is as simple as giving someone your project directory. Mods are also cross platfrom to any platform that supports them.
 
+** Directory Structure
+
+   Your project directory should look something like this:
+
+   #+BEGIN_SRC
+   project
+   ├── content
+   │   ├── blocks
+   │   └── items
+   ├── mod.json
+   ├── sounds
+   └── sprites
+   #+END_SRC
+
+   Every platform has a different user application data directory, and this is where your mods should be placed:
+   * Linux: =~/.local/share/Mindustry/mods/=
+   * Steam: =steam/steamapps/common/Mindustry/mods/=
+   * Windows: =%appdata%/Mindustry/mods/=
+
 ** ~mod.json~
 
    At the root of your project directory, you must have a ~mod.json~ which defines the basic metadata for your project.
