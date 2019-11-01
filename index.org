@@ -1668,7 +1668,7 @@ Modding documentation for Mindustry.
     | incendAmount       | int          |       0 |            |
     | incendSpread       | float        |       8 |            |
     | incendChance       | float        |       1 |            |
-    | homingPower        | float        |       0 | Doesn't do anything specific; if ~homingPower~ larger then ~0.01~ gets displayed in the UI, if ~homingPower~ is larger then ~0.0001~ it tracks enemies. |
+    | homingPower        | float        |       0 |            |
     | homingRange        | float        |      50 |            |
     | lightining         | int          |         |            |
     | lightningLength    | int          |       5 |            |
