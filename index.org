@@ -1,5 +1,5 @@
-#+TITLE: Mindustry Modding Guide
-:PREAMBLE:
+#+TITLE: Mindustry Modding Guide:
+PREAMBLE:
 #+AUTHOR: Simon Woodbury-Forget
 #+EMAIL: simonwoodburyforget@gmail.com
 #+DATE: 2019-10-31
@@ -1350,7 +1350,6 @@ Modding documentation for Mindustry.
    }
    #+END_SRC
 
-   #+TBLNAME: name
    | field       | type   | notes      |
    |-------------+--------+------------|
    |             |        | <10>       |

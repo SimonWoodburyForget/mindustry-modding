@@ -3,10 +3,10 @@
 <!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Mindustry Modding Guide</title>
+<title>Mindustry Modding Guide:</title>
 
-<meta name="description" content="Mindustry Modding Guide">
-<meta name="keywords" content="Mindustry Modding Guide">
+<meta name="description" content="Mindustry Modding Guide:">
+<meta name="keywords" content="Mindustry Modding Guide:">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
 <meta name="Generator" content="makeinfo">
@@ -376,7 +376,7 @@ body
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">Mindustry Modding Guide</h1>
+<h1 class="settitle" align="center">Mindustry Modding Guide:</h1>
 
 
 <a name="SEC_Contents"></a>
@@ -394,6 +394,7 @@ body
     <li><a name="toc-Sound-1" href="#Sound">1.5 Sound</a></li>
     <li><a name="toc-Dependencies-1" href="#Dependencies">1.6 Dependencies</a></li>
     <li><a name="toc-Type-2" href="#Type">1.7 Type</a></li>
+    <li><a name="toc-Abstract-1" href="#Abstract">1.8 Abstract</a></li>
   </ul></li>
   <li><a name="toc-World-1" href="#World">2 World</a>
   <ul class="no-bullet">
@@ -535,7 +536,7 @@ body
     <li><a name="toc-UnitType-1" href="#UnitType">3.7 UnitType</a></li>
     <li><a name="toc-Mech-1" href="#Mech">3.8 Mech</a></li>
     <li><a name="toc-Category-1" href="#Category">3.9 Category</a></li>
-    <li><a name="toc-Zone-1" href="#Zone">3.10 Zone</a></li>
+    <li><a name="toc-TODO-Zone" href="#Zone">3.10 <strong>TODO</strong> Zone</a></li>
     <li><a name="toc-StatusEffect-1" href="#StatusEffect">3.11 StatusEffect</a></li>
   </ul></li>
   <li><a name="toc-Graphics-1" href="#Graphics">4 Graphics</a>
@@ -579,11 +580,13 @@ body
 <p>
 Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="Mindustry-Modding-Guide"></a>
-<h1 class="top">Mindustry Modding Guide</h1>
+<a name="Mindustry-Modding-Guide_003a"></a>
+<h1 class="top">Mindustry Modding Guide:</h1>
 
-<p>Modding documentation for Mindustry. 
+<p>PREAMBLE:
+Modding documentation for Mindustry. 
 </p>
+
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Overview" accesskey="1">Overview</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -618,6 +621,8 @@ Overview
 <tr><td align="left" valign="top">&bull; <a href="#Dependencies">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Type">Type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -1002,6 +1007,8 @@ Next: <a href="#World" accesskey="n" rel="next">World</a>, Previous: <a href="#T
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Type" accesskey="7">Type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Abstract" accesskey="8">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
 </table>
 
 <hr>
@@ -1208,7 +1215,7 @@ Next: <a href="#Type" accesskey="n" rel="next">Type</a>, Previous: <a href="#Sou
 <a name="Type"></a>
 <div class="header">
 <p>
-Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Abstract" accesskey="n" rel="next">Abstract</a>, Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Type-2"></a>
 <h3 class="section">1.7 Type</h3>
@@ -1235,6 +1242,17 @@ Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up:
 </pre></div>
 
 <p>Here you can see, the type of the top level object is <code>Revenant</code>, but the type of the <code>bullet</code> is <code>BulletType</code> so you can use <code>MissileBulletType</code>, because <code>MissileBulletType</code> extends <code>BulletType</code>.
+</p>
+<hr>
+<a name="Abstract"></a>
+<div class="header">
+<p>
+Previous: <a href="#Type" accesskey="p" rel="prev">Type</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Abstract-1"></a>
+<h3 class="section">1.8 Abstract</h3>
+
+<p>All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself.
 </p>
 <hr>
 <a name="World"></a>
@@ -2334,7 +2352,7 @@ Next: <a href="#ChargeTurret" accesskey="n" rel="next">ChargeTurret</a>, Previou
 <a name="PowerTurret-1"></a>
 <h4 class="subsection">2.8.7 PowerTurret</h4>
 
-<p>Extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
+<p><a href="#Abstract">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3852,8 +3870,8 @@ Next: <a href="#Zone" accesskey="n" rel="next">Zone</a>, Previous: <a href="#Mec
 <p>
 Next: <a href="#StatusEffect" accesskey="n" rel="next">StatusEffect</a>, Previous: <a href="#Category" accesskey="p" rel="prev">Category</a>, Up: <a href="#Type-1" accesskey="u" rel="up">Type 1</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="Zone-1"></a>
-<h3 class="section">3.10 Zone</h3>
+<a name="TODO-Zone"></a>
+<h3 class="section">3.10 <strong>TODO</strong> Zone</h3>
 
 <hr>
 <a name="StatusEffect"></a>
