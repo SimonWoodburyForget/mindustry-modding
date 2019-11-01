@@ -96,8 +96,9 @@ def build_content_tables(string):
         # splite bullet list and names
         h, n = x.split("*")
         n = n.strip()
-        
-        return f"\n  {h}* [[#{l}][{n}]]"
+
+        pre = "https://simonwoodburyforget.github.io/mindustry-modding/#"
+        return f"\n  {h}* [[{pre}{l}][{n}]]"
         
     return "".join([ format(x) for x in string.splitlines() if ( x.startswith("* ") or 
                                                                  x.startswith("** ") ) ])
