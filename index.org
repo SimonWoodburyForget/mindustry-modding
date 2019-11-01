@@ -1547,18 +1547,18 @@ Defaults:
 
 ** BombBulletType
 
-Defaults:
+   Defaults:
 
-| field         | default   |
-|---------------+-----------|
-| collidesTiles | false     |
-| collides      | false     |
-| bulletShrink  | 0.7       |
-| lifetime      | 30        |
-| drag          | 0.05      |
-| keepVelocity  | false     |
-| collidesAir   | false     |
-| hitSound      | explosion |
+   | field         | default   |
+   |---------------+-----------|
+   | collidesTiles | false     |
+   | collides      | false     |
+   | bulletShrink  | 0.7       |
+   | lifetime      | 30        |
+   | drag          | 0.05      |
+   | keepVelocity  | false     |
+   | collidesAir   | false     |
+   | hitSound      | explosion |
 
 ** FlakBulletType
 
