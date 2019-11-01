@@ -1280,6 +1280,15 @@ Modding documentation for Mindustry.
 *** TODO UnitFactory
 *** TODO MechPad
 ** Storage
+*** StorageBlock
+
+    [[Abstract]] type which extends [[Block]]
+
+    Defaults:
+    | field    | default |
+    |----------+---------|
+    | hasItems | true    |
+
 *** CoreBlock
 
     Extends [[StorageBlock]]
