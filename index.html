@@ -383,11 +383,12 @@ thead th
 <ul class="no-bullet">
   <li><a name="toc-Overview-1" href="#Overview">1 Overview</a>
   <ul class="no-bullet">
-    <li><a name="toc-mod_002ejson" href="#modjson">1.1 <code>mod.json</code></a></li>
-    <li><a name="toc-Content-1" href="#Content">1.2 Content</a></li>
-    <li><a name="toc-Sprites-1" href="#Sprites">1.3 Sprites</a></li>
-    <li><a name="toc-Sound-1" href="#Sound">1.4 Sound</a></li>
-    <li><a name="toc-Dependencies-1" href="#Dependencies">1.5 Dependencies</a></li>
+    <li><a name="toc-Directory-Structure-1" href="#Directory-Structure">1.1 Directory Structure</a></li>
+    <li><a name="toc-mod_002ejson" href="#modjson">1.2 <code>mod.json</code></a></li>
+    <li><a name="toc-Content-1" href="#Content">1.3 Content</a></li>
+    <li><a name="toc-Sprites-1" href="#Sprites">1.4 Sprites</a></li>
+    <li><a name="toc-Sound-1" href="#Sound">1.5 Sound</a></li>
+    <li><a name="toc-Dependencies-1" href="#Dependencies">1.6 Dependencies</a></li>
   </ul></li>
   <li><a name="toc-Type-1" href="#Type">2 Type</a>
   <ul class="no-bullet">
@@ -599,7 +600,9 @@ Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="di
 
 Overview
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#modjson"><code>mod.json</code></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Directory-Structure">Directory Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#modjson"><code>mod.json</code></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Content">Content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -942,29 +945,61 @@ Next: <a href="#Type" accesskey="n" rel="next">Type</a>, Previous: <a href="#Top
 <a name="Overview-1"></a>
 <h2 class="chapter">1 Overview</h2>
 
-<p><em>Disclaimer: This is a work in progress, things may not work as expected.</em>
+<p>Mindustry mods are simply directories of assests. You reuse existing types and can use different values to initialize them, and you can even overwrite initialization of vanilla content. 
+</p>
+<p>On new content you can&rsquo;t add custom sprites and sounds, and sharing your mod is as simple as giving someone your project directory. Mods are also cross platfrom to any platform that supports them.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#modjson" accesskey="1"><code>mod.json</code></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Directory-Structure" accesskey="1">Directory Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content" accesskey="2">Content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#modjson" accesskey="2"><code>mod.json</code></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sprites" accesskey="3">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Content" accesskey="3">Content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sound" accesskey="4">Sound</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Sprites" accesskey="4">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="5">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Sound" accesskey="5">Sound</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="6">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
+
+<hr>
+<a name="Directory-Structure"></a>
+<div class="header">
+<p>
+Next: <a href="#modjson" accesskey="n" rel="next"><code>modjson</code></a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Directory-Structure-1"></a>
+<h3 class="section">1.1 Directory Structure</h3>
+
+<p>Your project directory should look something like this:
+</p>
+<div class="example">
+<pre class="example">project
+├── content
+│   ├── blocks
+│   └── items
+├── mod.json
+├── sounds
+└── sprites
+</pre></div>
+
+<p>Every platform has a different user application data directory, and this is where your mods should be placed:
+</p><ul>
+<li> Linux: &lsquo;<samp>~/.local/share/Mindustry/mods/</samp>&rsquo;
+</li><li> Steam: &lsquo;<samp>steam/steamapps/common/Mindustry/mods/</samp>&rsquo;
+</li><li> Windows: &lsquo;<samp>%appdata%/Mindustry/mods/</samp>&rsquo;
+</li></ul>
 
 <hr>
 <a name="modjson"></a>
 <div class="header">
 <p>
-Next: <a href="#Content" accesskey="n" rel="next">Content</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Content" accesskey="n" rel="next">Content</a>, Previous: <a href="#Directory-Structure" accesskey="p" rel="prev">Directory Structure</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="mod_002ejson"></a>
-<h3 class="section">1.1 <code>mod.json</code></h3>
+<h3 class="section">1.2 <code>mod.json</code></h3>
 
 <p>At the root of your project directory, you must have a <code>mod.json</code> which defines the basic metadata for your project.
 </p>
@@ -992,7 +1027,7 @@ Next: <a href="#Content" accesskey="n" rel="next">Content</a>, Up: <a href="#Ove
 Next: <a href="#Sprites" accesskey="n" rel="next">Sprites</a>, Previous: <a href="#modjson" accesskey="p" rel="prev"><code>modjson</code></a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Content-1"></a>
-<h3 class="section">1.2 Content</h3>
+<h3 class="section">1.3 Content</h3>
 
 <p>At the root of your project directory you can have a <code>content/</code> directory, this is where all the JSON data goes for your content types, and in this directory you have subdirectories for the various types of units, these are the current common ones:
 </p>
@@ -1014,7 +1049,7 @@ Next: <a href="#Sprites" accesskey="n" rel="next">Sprites</a>, Previous: <a href
 Next: <a href="#Sound" accesskey="n" rel="next">Sound</a>, Previous: <a href="#Content" accesskey="p" rel="prev">Content</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Sprites-1"></a>
-<h3 class="section">1.3 Sprites</h3>
+<h3 class="section">1.4 Sprites</h3>
 
 <p>Custom sprites can be added by simply dropping them in the <code>sprites/</code> subdirectory, and be <code>.png</code> file, and content which requires a sprite is going to fetch the sprite relative to the filename of the sprite: <code>sprites/&lt;name&gt;.png</code>, for example <code>sprites/my-hail.png</code> would be used on <code>content/blocks/my-hail.json</code>.
 </p>
@@ -1032,7 +1067,7 @@ Next: <a href="#Sound" accesskey="n" rel="next">Sound</a>, Previous: <a href="#C
 Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previous: <a href="#Sprites" accesskey="p" rel="prev">Sprites</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Sound-1"></a>
-<h3 class="section">1.4 Sound</h3>
+<h3 class="section">1.5 Sound</h3>
 
 <p>Custom sounds can be added through the modding system in the <code>sounds/</code> directory, of which two formats are needed:
 </p>
@@ -1101,7 +1136,7 @@ Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previou
 Previous: <a href="#Sound" accesskey="p" rel="prev">Sound</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Dependencies-1"></a>
-<h3 class="section">1.5 Dependencies</h3>
+<h3 class="section">1.6 Dependencies</h3>
 
 <p>You can add dependencies to your mod, by simple adding other mods name in your <code>mod.json</code>:
 </p>

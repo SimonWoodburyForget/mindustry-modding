@@ -26,7 +26,7 @@ Modding documentation for Mindustry.
 
    Your project directory should look something like this:
 
-   #+BEGIN_SRC
+   #+BEGIN_SRC fundamental
    project
    ├── content
    │   ├── blocks
