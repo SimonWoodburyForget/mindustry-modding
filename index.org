@@ -78,7 +78,7 @@ Modding documentation for Mindustry.
    Note that you may put your files in any sub-directory of ~sprites/~:
    * ~sounds/egg/teleporter/train/wall.png~
 
-   You can find the vanilla sprites as reference here:
+   You can find all the vanilla sprites as reference here:
    * https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites
 
 ** Sound
