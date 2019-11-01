@@ -1,4 +1,4 @@
-""" Stupid simple Java parser. """
+""" Stupid simple Java and Org parsers. """
 import re
 
 def parse_lines(string):
@@ -78,23 +78,29 @@ def build_content_tables(string):
         if "*****" in x:
             raise ValueError("*****", f"unsupported header: {x}")
 
+        # remove all code blocks
+        x = x.replace("=", "")
+
+        # make headers into list
         x = ( x.replace("****", " " * 6 + "*")
                .replace("***", " " * 4 + "*")
                .replace("**", " " * 2 + "*") )
 
+        # make github hyperlink
         l = ( x.replace("*", " ")
                .replace("TODO", " ")
                .strip()
                .replace(" ", "-")
-               .replace("=", "")
-               .replace(".", "")
+               .replace(".", "") )
 
+        # splite bullet list and names
         h, n = x.split("*")
         n = n.strip()
         
         return f"\n  {h}* [[#{l}][{n}]]"
         
-    return "".join([ format(x) for x in string.splitlines() if x.startswith("*") ])
+    return "".join([ format(x) for x in string.splitlines() if ( x.startswith("* ") or 
+                                                                 x.startswith("** ") ) ])
 
 TEST = """
     public float splashDamage = 0f;

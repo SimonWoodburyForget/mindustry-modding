@@ -6,8 +6,6 @@
 
 * Overview
 
-  [[Overview]]
-
 ** =mod.json=
 
    At the root of your project directory, you must have a `mod.json` which defines the basic metadata for your project.
@@ -41,7 +39,7 @@
    This is important, because it's how Mindustry will know which types to lookup. -- How you name your files is also important as the stem =name= of your path =content/blocks/<name>.json= is going to be used to reference it.
 
 ** Sprites
-  
+
    Custom sprites can be added by simply dropping them in the =sprites/= subdirectory, and be =.png= file, and content which requires a sprite is going to fetch the sprite relative to the filename of the sprite: =sprites/<name>.png=, for example =sprites/my-hail.png= would be used on =content/blocks/my-hail.json=.
 
    On top of this, content type may even look for two or more sprites, either through numbering or/and suffixes: =sprites/<name>-<i>.png= for example =sprites/my-hail-heat.png= for the =heat= map used when the turret is shooting, coloring parts of the turret red for a moment.
@@ -50,7 +48,7 @@
    * =sounds/egg/teleporter/train/wall.png=
 
 ** Sound
-  
+
   Custom sounds can be added through the modding system in the `sounds/` directory, of which two formats are needed:
 
   * =.ogg= required for Desktop/Android
@@ -118,7 +116,7 @@
 }
 #+END_SRC
 
-   The other mods name needs to be lower cased and spaces replaced with hyphens (=-=), for example =Other MOD NamE= -> =other-mod-name=. 
+   The other mods name needs to be lower cased and spaces replaced with hyphens (=-=), for example =Other MOD NamE= -> =other-mod-name=.
 
    To reference the other mods assets, you must prefix the asset with the other mods name:
 
@@ -132,12 +130,12 @@
 
    is what you'd expect is at the type's discretion, some fields aren't actually really used by their extenders/childrens, resulting in no behavior at all.
 
-  A type can be specified in the field of an object, but this is not all a type is. A type is the type of something ~float~ is a type so ~0.3~ is type float. ~Block~ is a type, which isn't something you'll be using by itself, but instead you use ~Floor~ which is a ~Block~ type topped with behavior that is floor specific. 
+  A type can be specified in the field of an object, but this is not all a type is. A type is the type of something ~float~ is a type so ~0.3~ is type float. ~Block~ is a type, which isn't something you'll be using by itself, but instead you use ~Floor~ which is a ~Block~ type topped with behavior that is floor specific.
 
   #+BEGIN_SRC json
   {
       "type": "Revenant",
-          "weapon": { 
+          "weapon": {
               "bullet": {
                   "type": "MissileBulletType",
               "damage": 9000
@@ -146,9 +144,9 @@
   }
   #+END_SRC
 
-    Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ which needs to be a ~BulletType~ is actually ~MissileBulletType~, which gives you the behaviors and effects that missiles should have.
+  Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ which needs to be a ~BulletType~ is actually ~MissileBulletType~, which gives you the behaviors and effects that missiles should have.
 
-** UnlockableContent and MappableContent 
+** UnlockableContent and MappableContent
 
    Types that can have a display name and description. /Most content in other words/ but not everything. [[ItemStack][ItemStack]] isn't ~UnlockableContent~ because it's not content, it's just a stack of items.
 
@@ -156,7 +154,7 @@
    |-------------+--------|
    | name        | String |
    | description | String |
-   
+
    #+BEGIN_SRC json
    {
        "type": "Revenant",
@@ -167,7 +165,7 @@
 
 ** ItemStack
 
-   This type is used by blocks, to consume/output items. 
+   This type is used by blocks, to consume/output items.
 
    An item stack is simply an array of objects with these fields:
 
@@ -203,33 +201,32 @@
 }
    #+END_SRC
 
-** TODO Consumers
+** Consumers
    This type is commonly used in block type with it's field `consumes`, it's a type that allows your block to consume something, and how this field works is up to the specific type extension you're using.
 
-   | field         | type                  | notes               |
-   |---------------+-----------------------+---------------------|
-   | item          | String                | shorthand for items |
-   | items         | ConsumeItems          |                     |
-   | liquid        | ConsumeLiquid         |                     |
-   | power         | float or ConsumePower |                     |
-   | powerBuffered | float                 | for batteries       |
+   | field         | type                  | notes                 |
+   |---------------+-----------------------+-----------------------|
+   | item          | String                | shorthand for =items= |
+   | items         | ConsumeItems          |                       |
+   | liquid        | ConsumeLiquid         |                       |
+   | power         | float or ConsumePower |                       |
+   | powerBuffered | float                 | for batteries         |
 
    Notes:
    * you shouldn't have =power= and =powerBuffered=
 
    For example with [[ConsumeItems][ConsumeItems]]:
    #+BEGIN_SRC json
-{
-    "item": "copper",
-    "items": {
-        "items": [ { "amount": 10, "item": "copper" } ],
-        "booster": true,
-        "optional": true
-    }
-}
+   {
+       "items": {
+           "items": [ { "amount": 10, "item": "copper" } ],
+           "booster": true,
+           "optional": true
+       }
+   }
    #+END_SRC
 
-*** TODO Consume   
+*** Consume
     An abstract base that defines a type of resource that a block can consume.
 
     | field    | type    | default | notes                                          |
@@ -238,61 +235,83 @@
     | booster  | boolean |         | consumer will be displayed as a boost input.   |
     | update   | boolean | true    |                                                |
 
-*** TODO ConsumeItems
-    Extends [[Consume][Consume]] -- To consume an itemstack of item types.
+
+*** ConsumeItems
+    Extends [[Consume][Consume]] -- To consume an itemstack.
 
     | field | type      |
     |-------+-----------|
     | items | [[ItemStack][ItemStack]] |
 
-*** TODO ConsumeLiquidBase
+*** ConsumeLiquidBase
+    Extends [[Consume][Consume]]
 
-*** TODO ConsumeLiquid
-    Extends [[ConsumeLiquidBase][ConsumeLiquidBase]]  -- To consume a liquid type.
+    | field      | type  | default | notes                                     |
+    |------------+-------+---------+-------------------------------------------|
+    | float      | final |         | amount used per frame                     |
+    | timePeriod | float |      60 | how much time is taken to use this liquid |
+
+    Notes:
+    * =timePeriod= example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as "100 seconds", but without a time override it would display as "10 liquid/second". This is used for generic crafters.
+
+*** ConsumeLiquid
+    Extends [[ConsumeLiquidBase][ConsumeLiquidBase]] -- To consume a liquid type.
+
 
     | field  | type   | default |
     |--------+--------+---------|
     | liquid | [[Liquid][Liquid]] | null    |
     | amount | float  | 0       |
 
-*** TODO ConsumePower
-    Extends [[Consume][Consume]] -- 
+*** ConsumePower
+    Extends [[Consume][Consume]] -- To consume or buffer power.
 
-** Attribute
-   A specific attribute.
+    | field    | type    | default | notes                                                        |
+    |----------+---------+---------+--------------------------------------------------------------|
+    | usage    | float   |         | The maximum amount of power which can be processed per tick. |
+    | capacity | float   |         | The maximum power capacity in power units.                   |
+    | buffered | boolean |         | True if the module can store power.                          |
 
-   * =heat=
-   * =spores=
-   * =water=
-   * =oil=
+    Notes:
+    * =usage= might influence efficiency or load a buffer.
 
 ** Attributes
 
    An object with an array of [[Attribute][attribute]]. Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors.
 
-   `array` has 4 items:
-    * index ~0~ is ~heat~,
-    * index ~1~ is ~spores~,
-    * index ~2~ is ~water~,
-    * index ~3~ is ~oil~.
+   =array= has 4 items:
+
+   * index ~0~ is ~heat~,
+   * index ~1~ is ~spores~,
+   * index ~2~ is ~water~,
+   * index ~3~ is ~oil~.
 
     For example, this would give you ~100~ heat, ~1~ spores, ~0.5~ water and ~0.1~ oil.
 
     #+BEGIN_SRC json
-{
-    "array": [ 100, 1, 0.5, 0.1]
-}
+    {
+        "array": [ 100, 1, 0.5, 0.1]
+    }
     #+END_SRC
 
     You could use it inside of [[Floor][Floor]] type as such:
 
     #+BEGIN_SRC json
-{
-    "type": "Floor",
-    "name": "magma",
-    "attributes": { "array": [ 0.75, 0, 0, 0 ] }
-}
+    {
+        "type": "Floor",
+        "name": "magma",
+        "attributes": { "array": [ 0.75, 0, 0, 0 ] }
+    }
     #+END_SRC
+
+** Attribute
+
+   New attributes cannot be added. List of built-in attributes:
+
+   * =heat=
+   * =spores=
+   * =water=
+   * =oil=
 
 ** Item
 
@@ -314,14 +333,14 @@
 
    | field         | type         | default | notes                                                                                |
    |---------------+--------------+---------+--------------------------------------------------------------------------------------|
-   | color         | [[Color][Color]] |         | color of liquid                                                                      |
+   | color         | [[Color][Color]]        |         | color of liquid                                                                      |
    | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
    | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot                           |
    | heatCapacity  | float        |     0.5 | used in cooling; water is 0.4                                                        |
-   | viscosity     | float        |     0.5 | how thick this liquid is; water is 0.5, tar is 1 (very slow)                         |
+   | viscosity     | float        |     0.5 | how thick this liquid is; water is 0.5, tar is 1.                                    |
    | explosiveness | float        |         | explosiveness when heated; 0 is nothing, 1 is nuke                                   |
-   | flameColor    | [[Color][Color]] |  ffb763 | the burning color of this liquid                                                     |
-   | effect        | StatusEffect |    none | the associated status effect.                                                        |
+   | flameColor    | [[Color][Color]]        |  ffb763 | the burning color of this liquid                                                     |
+   | effect        | [[StatusEffect][StatusEffect]] |    none | the associated status effect.                                                        |
 
 ** BlockStorage
    Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
@@ -340,8 +359,8 @@
 
 ** BuildVisibility
 
-   Options for build visibility include: 
-   * ~hidden~ 
+   Options for build visibility include:
+   * ~hidden~
    * ~shown~
    * ~debugOnly~
    * ~sandboxOnly~
@@ -350,7 +369,7 @@
 ** Layer
 
    Layers is an enumeration type, which the renderer will use to group rendering order:
-    
+
    * =block=, base block layer;
    * =placement=, for placement;
    * =overlay=, first overlay stuff like conveyor items;
@@ -383,6 +402,7 @@
    * ~effect~ Things for storage or passive effects.
 
 ** Color
+
    Color is a hexadecimal string, =<rr><gg><bb>= for example:
 
    * =ff0000= is read,
@@ -399,7 +419,6 @@
 
 * Block Types
 ** Block
-   
    Extends [[BlockStorage][BlockStorage]] -- Fields for all objects that are blocks.
 
    | field               | type            | default      | notes                                                                              |
@@ -431,7 +450,7 @@
    | outlineIcon         | boolean         | false        | Whether the icon region has an outline added.                                      |
    | hasShadow           | boolean         | true         | Whether this block has a shadow under it.                                          |
    | breakSound          | [[Sound][Sound]]           | boom         | Sounds made when this block breaks.                                                |
-   | activeSound         | [[Sound][Sound]] | none         | The sound that this block makes while active. One sound loop. Do not overuse.      |
+   | activeSound         | [[Sound][Sound]]           | none         | The sound that this block makes while active. One sound loop. Do not overuse.      |
    | activeSoundVolume   | float           | 0.5          | Active sound base volume.                                                          |
    | idleSound           | [[Sound][Sound]]           | none         | The sound that this block makes while idle. Uses one sound loop for all blocks.    |
    | idleSoundVolume     | float           | 0.5          | Idle sound base volume.                                                            |
@@ -522,7 +541,7 @@
      | variants      | 2       |
 
      Extra Sprites:
-     * =<name>-large.png= which is a 2x2 variant. 
+     * =<name>-large.png= which is a 2x2 variant.
 
 **** StaticTree
      Extends [[StaticWall][StaticWall]] 
@@ -577,17 +596,17 @@
 
 *** Separator
     Extends [[Block][Block]] -- Extracts a random list of items from an input item and an input liquid.
-      
-    | field            | type      |  default | notes        |
-    |------------------+-----------+----------+--------------|
-    | results          | [[ItemStack][ItemStack]] |          | *[required]* |
-    | craftTime        | float     |          |              |
-    | spinnerRadius    | float     |      2.5 |              |
-    | spinnerLength    | float     |        1 |              |
-    | spinnerThickness | float     |        1 |              |
-    | spinnerSpeed     | float     |        2 |              |
-    | color            | [[Color][Color]] | 858585 |              |
-    | liquidRegion     | int       |          |              |
+
+    | field            | type      | default | notes        |
+    |------------------+-----------+---------+--------------|
+    | results          | [[ItemStack][ItemStack]] |         | *[required]* |
+    | craftTime        | float     |         |              |
+    | spinnerRadius    | float     |     2.5 |              |
+    | spinnerLength    | float     |       1 |              |
+    | spinnerThickness | float     |       1 |              |
+    | spinnerSpeed     | float     |       2 |              |
+    | color            | [[Color][Color]]     |  858585 |              |
+    | liquidRegion     | int       |         |              |
 
     Defaults:
     | field      | default |
@@ -599,7 +618,6 @@
 
     Sprite suffixes:
     * =-liquid=
-
 ** Sandbox
 *** TODO Incinerator
 *** TODO PowerVoid
@@ -720,7 +738,6 @@
     | solid        | false     |
     | targetable   | false     |
     | layer        | overlay   |
-
 ** Turrets
 *** Turret
     Extends [[Block][Block]] -- Base extended to make turrets types.
@@ -776,7 +793,7 @@
     | ammo    | { [[Item][Item]]: [[BulletType][BulletType]] } |         |
 
     Defaults:
-    
+
     | field    | default |
     |----------+---------|
     | hasItems | true    |
@@ -828,7 +845,7 @@
     | shootType | [[BulletType][BulletType]] |         |
     | powerUse  | float      |       1 |
 
-    Defaults: 
+    Defaults:
 
     | field    | default |
     |----------+---------|
@@ -854,7 +871,6 @@
     * liquid flammability greater then =0.1=
 
 *** TODO LiquidTurret
-
 ** Distribution
 *** TODO Conveyor
 *** TODO ArmoredConveyor
@@ -924,11 +940,11 @@
     |----------+---------|
     | hasItems | true    |
     | hasPower | false   |
-    
+
 
 *** Sorter
     Extends [[Block][Block]]
-    
+
     | field  | type    |
     |--------+---------|
     | invert | boolean |
@@ -961,7 +977,7 @@
     | recieveEffect | [[Effect][Effect]] |        mineBig |
     | shake         | float  |              3 |
 
-    Notes: 
+    Notes:
     * range is limited by =driverBolt='s max range.
 
     Defaults:
@@ -1114,6 +1130,9 @@
     | powerProduction | float     |                     | power produced per tick at 100% (=1.0=) efficiency |
     | generationType  | BlockStat | basePowerGeneration |                                                    |
 
+    Notes:
+    * =1 powerProduction = 60 pu/s=
+
     Defaults:
     | field             | default |
     |-------------------+---------|
@@ -1165,7 +1184,7 @@
 *** SolarGenerator
     Extends [[PowerGenerator][PowerGenerator]] -- A generator that always produces 100% efficiency power.
 
-    Notes: 
+    Notes:
     * Lower targetting priority then other generators.
 
 *** NuclearReactor
@@ -1184,7 +1203,7 @@
     | coolantPower    | float |      0.5 |                                     |
 
     Defaults:
-    
+
     | field          | default |
     |----------------+---------|
     | itemCapacity   | 30      |
@@ -1277,8 +1296,39 @@
     Sprites:
     * =<name>-liquid=
 
-*** TODO Cultivator
-*** TODO Fracker
+*** Cultivator
+    Extends [[GenericCrafter][GenericCrafter]]
+
+    | field      | type  | default |
+    |------------+-------+---------|
+    | recurrence | float |       6 |
+
+    Defaults:
+    | field       | default |
+    |-------------+---------|
+    | craftEffect | none    |
+
+    Sprites:
+    * =<name>-middle=
+    * =<name>-top=
+
+*** Fracker
+    Extends [[SolidPump][SolidPump]]
+
+    | field       | default |
+    |-------------+---------|
+    | itemUseTime |     100 |
+
+    Defaults:
+    | field    | default |
+    |----------+---------|
+    | hasItems | true    |
+
+    Sprites:
+    * =<name>-liquid=
+    * =<name>-rotater=
+    * =<name>-top=
+
 ** Storage
 *** TODO CoreBlock
 *** TODO Vault
@@ -1302,7 +1352,7 @@
     | hasPower    | true    |
     | outlineIcon | true    |
     | layer       | turret  |
-    | layer2      | power   | 
+    | layer2      | power   |
 
     Extra sprites:
     * =<name>-base=
@@ -1310,9 +1360,8 @@
 *** TODO UnitFactory
 *** TODO CommandCenter
 *** TODO UnitFactory
-*** TODO MechPad    
-* Entity Types
-** Content
+*** TODO MechPad
+* BulletTypes
 ** BulletType
    Extends [[Content][Content]] -- Bullet can either be an object or a string, where a string would be reusing a built-in one and an object would be making a custom one.
 
@@ -1376,8 +1425,7 @@
    * bombs:
      * =bombExplosive= =bombIncendiary= =bombOil=
 
-
-*** BasicBulletType
+** BasicBulletType
 
 The actual bullet type.
 
@@ -1390,7 +1438,7 @@ The actual bullet type.
 | bulletShrink | float  |              0.5 |
 | bulletSprite | String |                  |
 
-**** ArtilleryBulletType
+** ArtilleryBulletType
 
 | field       | type   | default        |
 |-------------+--------+----------------|
@@ -1406,7 +1454,7 @@ Defaults:
 | hitShake      | 1         |
 | hitSound      | explosion |
 
-**** BombBulletType
+** BombBulletType
 
 Defaults:
 
@@ -1421,8 +1469,7 @@ Defaults:
 | collidesAir   | false     |
 | hitSound      | explosion |
 
-    
-**** FlakBulletType
+** FlakBulletType
 
 Bullets that explode near enemies.
 
@@ -1440,8 +1487,7 @@ Defaults:
 | bulletWidth        |                8 |
 | bulletHeight       |               10 |
 
-
-**** HealBulletType
+** HealBulletType
 
 Bullets that can heal blocks of the same team as the shooter.
 
@@ -1459,8 +1505,7 @@ Defaults:
 | despawnEffect | hitLaser  |
 | collidesTeam  | true      |
 
-
-**** LiquidBulletType
+** LiquidBulletType
 
 | field  | type   | default |                |
 |--------+--------+---------+----------------|
@@ -1479,8 +1524,7 @@ Defaults:
 | drag           | 0.009     |
 | knockback      | 0.55      |
 
-
-**** MassDriverBolt
+** MassDriverBolt
 
 Defaults:
 
@@ -1492,13 +1536,55 @@ Defaults:
 | hitEffect     | hitBulletBig |
 | drag          | 0.005        |
 
-**** MissileBulletType
+** MissileBulletType
 
 | field      | type  |           default |
 |------------+-------+-------------------|
 | trailColor | [[Color][Color]] | missileYellowBack |
 | weaveScale | float |                 0 |
-| weaveMag   | float |                -1 |    
+| weaveMag   | float |                -1 |
+* UnitTypes
+** UnitType
+   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Unit types go in their own special directory: `units/`
+
+   | field           | type     | default |
+   |-----------------+----------+---------|
+   | type            | [[BaseUnit][BaseUnit]] |         |
+   | health          | float    |      60 |
+   | hitsize         | float    |       7 |
+   | hitsizeTile     | float    |       4 |
+   | speed           | float    |     0.4 |
+   | range           | float    |       0 |
+   | attackLength    | float    |     150 |
+   | rotatespeed     | float    |     0.2 |
+   | baseRotateSpeed | float    |     0.1 |
+   | shootCone       | float    |      15 |
+   | mass            | float    |       1 |
+   | flying          | boolean  |         |
+   | targetAir       | boolean  |    true |
+   | rotateWeapon    | boolean  |   false |
+   | drag            | float    |     0.1 |
+   | maxVelocity     | float    |       5 |
+   | retreatPercent  | float    |     0.6 |
+   | itemCapacity    | int      |      30 |
+   | buildPower      | float    |     0.3 |
+   | minePower       | float    |     0.7 |
+   | weapon          | [[Weapon][Weapon]]   |         |
+   | weaponOffsetY   | float    |         |
+   | engineOffset    | float    |         |
+   | engineSize      | float    |         |
+
+** BaseUnit
+
+   There are a few useful bases:
+   * =FlyingUnit=
+     * =Revenant=
+     * =BaseDrone=
+       * =BuilderDrone=
+       * =MinerDrone=
+       * =RepairDrone=
+   * =GroundUnit=
+
 * Mech
   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Mechs are the player controlled entities.
 
@@ -1517,7 +1603,7 @@ Defaults:
   | mineSpeed          | float   |       1 |
   | drillPower         | int     |      -1 |
   | buildPower         | float   |       1 |
-  | engineColor        | [[Color][Color]]  | boostTo |
+  | engineColor        | [[Color][Color]]   | boostTo |
   | itemCapacity       | int     |      30 |
   | turnCursor         | boolean |    true |
   | canHeal            | boolean |   false |
@@ -1526,7 +1612,7 @@ Defaults:
   | weaponOffsetY      | float   |       5 |
   | engineOffset       | float   |       5 |
   | engineSize         | float   |     2.5 |
-  | weapon             | [[Weapon][Weapon]] |    null |
+  | weapon             | [[Weapon][Weapon]]  |    null |
    
 * Weapon
   Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
@@ -1557,44 +1643,114 @@ Defaults:
   Type should be a ~string~. You can't currently create custom effects. List of built-in effects are as follows:
 
   * =none= =placeBlock= =breakBlock= =smoke= =spawn= =tapBlock= =select=
-  * =vtolHover= =unitDrop= =unitPickup= =unitLand= =pickup= =healWave= =heal= 
+  * =vtolHover= =unitDrop= =unitPickup= =unitLand= =pickup= =healWave= =heal=
       =landShock= =reactorsmoke= =nuclearsmoke= =nuclearcloud=
-  * =redgeneratespark= =generatespark= =fuelburn= =plasticburn= =pulverize= 
+  * =redgeneratespark= =generatespark= =fuelburn= =plasticburn= =pulverize=
       =pulverizeRed= =pulverizeRedder= =pulverizeSmall= =pulverizeMedium=
-  * =producesmoke= =smeltsmoke= =formsmoke= =blastsmoke= =lava= =doorclose= 
+  * =producesmoke= =smeltsmoke= =formsmoke= =blastsmoke= =lava= =doorclose=
       =dooropen= =dooropenlarge= =doorcloselarge= =purify= =purifyoil= =purifystone= =generate=
   * =mine= =mineBig= =mineHuge= =smelt= =teleportActivate= =teleport= =teleportOut= =ripple= =bubble= =launch=
   * =healBlock= =healBlockFull= =healWaveMend= =overdriveWave= =overdriveBlockFull= =shieldBreak= =hitBulletSmall= =hitFuse=
   * =hitBulletBig= =hitFlameSmall= =hitLiquid= =hitLaser= =hitLancer= =hitMeltdown= =despawn= =flakExplosion= =blastExplosion=
   * =plasticExplosion= =artilleryTrail= =incendTrail= =missileTrail= =absorb= =flakExplosionBig= =plasticExplosionFlak= =burning= =fire=
   * =fireSmoke= =steam= =fireballsmoke= =ballfire= =freezing= =melting= =wet= =oily= =overdriven= =dropItem= =shockwave=
-  * =bigShockwave= =nuclearShockwave= =explosion= =blockExplosion= 
+  * =bigShockwave= =nuclearShockwave= =explosion= =blockExplosion=
       =blockExplosionSmoke= =shootSmall= =shootHeal= =shootSmallSmoke= =shootBig= =shootBig2= =shootBigSmoke=
   * =shootBigSmoke2= =shootSmallFlame= =shootPyraFlame= =shootLiquid= =shellEjectSmall= =shellEjectMedium=
   * =shellEjectBig= =lancerLaserShoot= =lancerLaserShootSmoke= =lancerLaserCharge=
       =lancerLaserChargeBegin= =lightningCharge= =lightningShoot=
-  * =unitSpawn= =spawnShockwave= =magmasmoke= =impactShockwave= 
+  * =unitSpawn= =spawnShockwave= =magmasmoke= =impactShockwave=
       =impactcloud= =impactsmoke= =dynamicExplosion= =padlaunch= =commandSend= =coreLand=
 
-* TODO StatusEffect
+* StatusEffect
 
-  /Not be be confused with [[Effect][Effect]]./
+  /Not be be confused with [[Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects*. -- Status effects are used as transitions between intermediate effects. If some a =wet= unit gets =shocked= it then gets 20 damage.
+
+  | field            | type   | default |                                                     |
+  |------------------+--------+---------+-----------------------------------------------------|
+  | damageMultiplier | float  |       1 |                                                     |
+  | armorMultiplier  | float  |       1 |                                                     |
+  | speedMultiplier  | float  |       1 |                                                     |
+  | color            | [[Color][Color]]  |   white |                                                     |
+  | damage           | float  |         | Damage (or healing) per frame.                      |
+  | effect           | [[Effect][Effect]] |    none | Random effect (0.15% per frame), on affected units. |
+
+  * opposites: effect which reduces anothers lifetime.
 
   Built-in status effects:
-  * =none= 
-  * =burning= 
+
+  * =none= -- Does nothing.
+
+  * =burning=
+    | field    | default |
+    |----------+---------|
+    | damage   | 0.06    |
+    | effect   | burning |
+    * opposites: =wet= =freezing=
+    * tarred: 1 damage and keeps burning
+
   * =freezing=
+    | field           |  default |
+    |-----------------+----------|
+    | speedMultiplier |      0.6 |
+    | armorMultiplier |      0.8 |
+    | effect          | freezing |
+    * opposites: =melting= =burning=
+
   * =wet=
+    | field           | default |
+    |-----------------+---------|
+    | speedMultiplier | 0.9     |
+    | effect          | wet     |
+    * opposites: =burning=
+    * shocked: 20 damage
+
   * =melting=
+    | field           | default |
+    |-----------------+---------|
+    | speedMultiplier |     0.8 |
+    | armorMultiplier |     0.8 |
+    | damage          |     0.3 |
+    | effect          | melting |
+    * opposites: =wet= =freezing=
+    * tarred: keeps melting
+
   * =tarred=
+    | field           | default |
+    |-----------------+---------|
+    | speedMultiplier | 0.6     |
+    | effect          | oily    |
+    * burning: keeps burning
+    * melting: keeps burning
+
   * =overdrive=
+    | field            |    default |
+    |------------------+------------|
+    | armorMultiplier  |       0.95 |
+    | speedMultiplier  |       1.15 |
+    | damageMultiplier |        1.4 |
+    | damage           |      -0.01 |
+    | effect           | overdriven |
+
   * =shielded=
-  * =shocked=
-  * =corroded=
+    | field           | default |
+    |-----------------+---------|
+    | armorMultiplier |       3 |
+
   * =boss=
+    | field            | default |
+    |------------------+---------|
+    | armorMultiplier  |       3 |
+    | damageMultiplier |       3 |
+    | speedMultiplier  |     1.1 |
+
+  * =shocked= -- Does nothing.
+
+  * =corroded=
+    | field  | default |
+    |--------+---------|
+    | damage |     0.1 |
 
 * TODO Zone
-* TODO Consumer
 * TODO Rules
 * TODO Objective
-* TODO UnitType
