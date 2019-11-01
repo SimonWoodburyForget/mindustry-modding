@@ -80,6 +80,7 @@ def build_content_tables(string):
 
         # remove all code blocks
         x = x.replace("=", "")
+        x = x.replace("~", "")
 
         # make headers into list
         x = ( x.replace("****", " " * 6 + "*")
