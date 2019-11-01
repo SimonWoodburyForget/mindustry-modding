@@ -363,9 +363,8 @@ thead th
  
 body
 {
-    margin: 2% 5% 3% 5%;
+    margin: 1% 4% 2% 4%;
     font-size: 105%;
-    max-width: 800px;
 }
 
 
@@ -2410,6 +2409,8 @@ Next: <a href="#Distribution" accesskey="n" rel="next">Distribution</a>, Previou
 <a name="Turrets-1"></a>
 <h3 class="section">3.6 Turrets</h3>
 
+<p>This section is for turret, all turrets shoot <a href="#BulletType">BulletType</a>, this means <a href="#LaserTurret">LaserTurret</a> can shoot <a href="#MissileBulletType">MissileBulletType</a> and Duo can shoot <a href="#LiquidBulletType">LiquidBulletType</a>. 
+</p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Turret" accesskey="1">Turret</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -2442,7 +2443,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="unnumberedsubsec">Turret</h4>
 
-<p>Extends <a href="#Block">Block</a> &ndash; Base extended to make turrets types.
+<p>Extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -2470,7 +2471,8 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 </table>
 
 <p>Defaults:
-</p><table>
+</p>
+<table>
 <thead><tr><th>field</th><th>default</th></tr></thead>
 <tr><td>priority</td><td>turret</td></tr>
 <tr><td>update</td><td>true</td></tr>
@@ -2489,13 +2491,19 @@ Next: <a href="#ItemTurret" accesskey="n" rel="next">ItemTurret</a>, Previous: <
 <a name="CooledTurret-1"></a>
 <h4 class="unnumberedsubsec">CooledTurret</h4>
 
-<p>Extends <a href="#Turret">Turret</a> &ndash; Extends turret with cooling behavior.
+<p>Extends <a href="#Turret">Turret</a> &ndash; This is a base type that turrets which use <a href="#Liquid">Liquid</a> to cool themselves extend from.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>coolantMultiplier</td><td>float</td><td>5</td><td>How much reload is lowered by for each unit of liquid of heat capacity.</td></tr>
 <tr><td>coolEffect</td><td><a href="#Effect">Effect</a></td><td>shoot</td><td></td></tr>
 </table>
+
+<p>Notes:
+</p><ul>
+<li> doesn&rsquo;t take flammable fluid
+</li><li> doesn&rsquo;t take hot fluid
+</li></ul>
 
 <hr>
 <a name="ItemTurret"></a>
@@ -3903,7 +3911,7 @@ Next: <a href="#FlakBulletType" accesskey="n" rel="next">FlakBulletType</a>, Pre
 <p>Defaults:
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th></tr></thead>
+<thead><tr><th>field</th><th>default</th></tr></thead>
 <tr><td>collidesTiles</td><td>false</td></tr>
 <tr><td>collides</td><td>false</td></tr>
 <tr><td>bulletShrink</td><td>0.7</td></tr>
@@ -3926,8 +3934,9 @@ Next: <a href="#HealBulletType" accesskey="n" rel="next">HealBulletType</a>, Pre
 <p>Bullets that explode near enemies.
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
-<tr><td>explodeRange</td><td>float</td><td>30</td><td></td></tr>
+<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
+<tr><td></td><td></td><td></td></tr>
+<tr><td>explodeRange</td><td>float</td><td>30</td></tr>
 </table>
 
 <p>Defaults:
@@ -3953,14 +3962,14 @@ Next: <a href="#LiquidBulletType" accesskey="n" rel="next">LiquidBulletType</a>,
 <p>Bullets that can heal blocks of the same team as the shooter.
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
-<tr><td>healPercent</td><td>float</td><td>3</td><td></td></tr>
+<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
+<tr><td>healPercent</td><td>float</td><td>3</td></tr>
 </table>
 
 <p>Defaults:
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th></tr></thead>
+<thead><tr><th>field</th><th>default</th></tr></thead>
 <tr><td>shootEffect</td><td>shootHeal</td></tr>
 <tr><td>smokeEffect</td><td>hitLaser</td></tr>
 <tr><td>hitEffect</td><td>hitLaser</td></tr>
@@ -3985,7 +3994,7 @@ Next: <a href="#MassDriverBolt" accesskey="n" rel="next">MassDriverBolt</a>, Pre
 <p>Defaults:
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th></tr></thead>
+<thead><tr><th>field</th><th>default</th></tr></thead>
 <tr><td>lifetime</td><td>74</td></tr>
 <tr><td>statusDuration</td><td>90</td></tr>
 <tr><td>despawnEffect</td><td>none</td></tr>
@@ -4008,7 +4017,7 @@ Next: <a href="#MissileBulletType" accesskey="n" rel="next">MissileBulletType</a
 <p>Defaults:
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th></tr></thead>
+<thead><tr><th>field</th><th>default</th></tr></thead>
 <tr><td>collidesTiles</td><td>false</td></tr>
 <tr><td>lifetime</td><td>200</td></tr>
 <tr><td>despawnEffect</td><td>smeltsmoke</td></tr>
