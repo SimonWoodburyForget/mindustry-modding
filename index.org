@@ -161,7 +161,9 @@ Modding documentation for Mindustry.
 
 * Type
 
-  Types have numerous fields, but the important one is ~type~. Types /extend/ each other, and what that means is if ~MissileBulletType~ extends ~BasicBulletType~, then you'll have all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~.
+  Types have numerous fields, but the important one is ~type~; this is a special field used by the content parser, that changes which type your object is. /No a ~Router~ type can't be a ~Turret~ type/, they have completely different methods and fields.
+
+  Types /extend/ each other, and what that means is if ~MissileBulletType~ extends ~BasicBulletType~, then you'll have all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~.
 
    is what you'd expect is at the type's discretion, some fields aren't actually really used by their extenders/childrens, resulting in no behavior at all.
 
