@@ -192,7 +192,6 @@ Modding documentation for Mindustry.
   }
   #+END_SRC
 
-
   | field       | type   | notes      |
   |-------------+--------+------------|
   |             |        | <10>       |
