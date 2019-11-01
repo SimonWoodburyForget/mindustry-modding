@@ -2,7 +2,7 @@
 :PREAMBLE:
 #+AUTHOR: Simon Woodbury-Forget
 #+EMAIL: simonwoodburyforget@gmail.com
-#+DATE: 2019
+#+DATE: 2019-10-31
 #+LANGUAGE: en
 
 #+TEXINFO_DIR_TITLE: Modding: (modding).
