@@ -306,3 +306,8 @@ ul.no-bullet {list-style: none}
 END OF janix-texinfo.css
 --------------------------------------------------------------------------
 */
+
+td
+{
+    padding-right: 2em;
+}

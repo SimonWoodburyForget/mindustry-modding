@@ -6,3 +6,6 @@ build: clean
 clean:
 	rm index.texi -f
 	rm index.html -f
+
+dist: build
+	rm index.texi -f
