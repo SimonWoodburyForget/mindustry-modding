@@ -1694,16 +1694,21 @@ Modding documentation for Mindustry.
 
 *** BasicBulletType
 
- The actual bullet type.
+    Extends [[BulletType]] -- An extended BulletType for most ammo-based bullets shot from turrets and units. It's purpose is mostly to style the bullet.
 
- | field        | type   |          default |
- |--------------+--------+------------------|
- | backColor    | [[Color][Color]]  | bulletYellowBack |
- | frontColor   | [[Color][Color]]  |     bulletYellow |
- | bulletWidth  | float  |                5 |
- | bulletHeight | float  |                7 |
- | bulletShrink | float  |              0.5 |
- | bulletSprite | String |                  |
+ | field        | type   |          default |            |
+ |--------------+--------+------------------+------------|
+ |              |        |                  | <10>       |
+ | backColor    | [[Color][Color]]  | bulletYellowBack | Color of ~<name>-back~ sprite. |
+ | frontColor   | [[Color][Color]]  |     bulletYellow | Color of ~<name>~ sprite. |
+ | bulletWidth  | float  |                5 |            |
+ | bulletHeight | float  |                7 |            |
+ | bulletShrink | float  |              0.5 |            |
+ | bulletSprite | String |                  | Mapping sprite used to make the shape of the bullet. |
+
+ Sprites:
+ * ~<name>~ top layer sprite
+ * ~<name>-back~ bottom layer sprite
 
 *** ArtilleryBulletType
 
