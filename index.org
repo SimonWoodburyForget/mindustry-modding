@@ -490,39 +490,41 @@ Modding documentation for Mindustry.
    * research cost is ~30 + <requirements> * 6~
 
 ** Environment
+
+   Environmental blocks are blocks that must be placed from the editor, and they're the ones that will generally dictate how the game can or will be played. These blocks wont appear on a map unless you've built a map to support them.
+
 *** Floor
     Extends [[Block][Block]] -- Environmental floors. Requires a sprite, so to be visible in the map editor.
 
-   | field             | type         |           default | notes      |
-   |-------------------+--------------+-------------------+------------|
-   |                   |              |               <r> | <10>       |
-   | variants          | int          |                 3 | number of different variant regions to use. |
-   | edge              | String       |           "stone" | edge fallback, used mainly for ores. |
-   | speedMultiplier   | float        |                 1 | multiplies unit velocity by this when walked on. |
-   | dragMultiplier    | float        |                 0 | multiplies unit drag by this when walked on. |
-   | damageTaken       | float        |                 0 | damage taken per tick on this tile. |
-   | drownTime         | float        |                 0 | how many ticks it takes to drown on this. |
-   | walkEffect        | [[Effect][Effect]]       |          "ripple" | effect when walking on this [[Floor][floor]]. |
-   | drownUpdateEffect | [[Effect][Effect]]       |          "bubble" | effect displayed when drowning on this [[Floor][floor]]. |
-   | status            | StatusEffect |            "none" | status effect applied when walking on. |
-   | statusDuration    | float        |                60 | intensity of applied status effect. |
-   | liquidDrop        | [[Liquid][Liquid]]       |                   | liquids that drop from this block, used for pumps. |
-   | itemDrop          | [[Item][Item]]         |                   | item that drops from this block, used for drills. |
-   | isLiquid          | boolean      |                   | whether this block can be drowned in. |
-   | playerUnmineable  | boolean      |             false | block cannot be mined by players if true. |
-   | blendGroup        | [[Block][Block]]        |              this | group of blocks that this block does not draw edges on. |
-   | updateEffect      | [[Effect][Effect]]       |            "none" | effect displayed when randomly updated. |
-   | attributes        | [[Attributes][Attributes]]   | ~{ "array": [] }~ | array of affinities to certain things. |
+    | field             | type         |           default | notes      |
+    |-------------------+--------------+-------------------+------------|
+    |                   |              |               <r> | <10>       |
+    | variants          | int          |                 3 | number of different variant regions to use. |
+    | edge              | String       |           "stone" | edge fallback, used mainly for ores. |
+    | speedMultiplier   | float        |                 1 | multiplies unit velocity by this when walked on. |
+    | dragMultiplier    | float        |                 0 | multiplies unit drag by this when walked on. |
+    | damageTaken       | float        |                 0 | damage taken per tick on this tile. |
+    | drownTime         | float        |                 0 | how many ticks it takes to drown on this. |
+    | walkEffect        | [[Effect][Effect]]       |          "ripple" | effect when walking on this [[Floor][floor]]. |
+    | drownUpdateEffect | [[Effect][Effect]]       |          "bubble" | effect displayed when drowning on this [[Floor][floor]]. |
+    | status            | StatusEffect |            "none" | status effect applied when walking on. |
+    | statusDuration    | float        |                60 | intensity of applied status effect. |
+    | liquidDrop        | [[Liquid][Liquid]]       |                   | liquids that drop from this block, used for pumps. |
+    | itemDrop          | [[Item][Item]]         |                   | item that drops from this block, used for drills. |
+    | isLiquid          | boolean      |                   | whether this block can be drowned in. |
+    | playerUnmineable  | boolean      |             false | block cannot be mined by players if true. |
+    | blendGroup        | [[Block][Block]]        |              this | group of blocks that this block does not draw edges on. |
+    | updateEffect      | [[Effect][Effect]]       |            "none" | effect displayed when randomly updated. |
+    | attributes        | [[Attributes][Attributes]]   | ~{ "array": [] }~ | array of affinities to certain things. |
 
-   Sprite lookup name, where ~i~ is the variant:
-   - ~<name><i>.png~ variants start at ~1~.
+    Sprite lookup name, where ~i~ is the variant:
+    - ~<name><i>.png~ variants start at ~1~.
 
 *** OverlayFloor
 
-    Extends [[Floor][Floor]] -- A type of floor that is overlaid on top of over floors.
+    Extends [[Floor][Floor]] -- A type of floor that is overlaid on top of other floors.
 
     For example:
-    * ~spawn~
     * ~tendrils~
 
 *** DoubleOverlayFloor
@@ -531,7 +533,9 @@ Modding documentation for Mindustry.
 
     For example:
     * ~pebbles~
+
 *** OreBlock
+
     Extends [[OverlayFloor][OverlayFloor]] -- An overlay ore for a specific item type.
 
     | field    | default |
@@ -539,45 +543,49 @@ Modding documentation for Mindustry.
     |          |     <r> |
     | variants |       3 |
 
-*** StaticWalls
-**** Rock
-     Extends [[Block][Block]] 
+*** Rock
 
-     | field    | type |
-     |----------+------|
-     | variants | int  |
+    Extends [[Block][Block]] 
 
-     Defaults:
-     | field         | default |
-     |---------------+---------|
-     |               |     <r> |
-     | breakable     |    true |
-     | alwaysReplace |    true |
+    | field    | type |
+    |----------+------|
+    | variants | int  |
 
-**** StaticWall
-     Extends [[Rock][Rock]]
+    Defaults:
+    | field         | default |
+    |---------------+---------|
+    |               |     <r> |
+    | breakable     |    true |
+    | alwaysReplace |    true |
 
-     Defaults:
-     | field         | default |
-     |---------------+---------|
-     |               |     <r> |
-     | breakable     |   false |
-     | alwaysReplace |   false |
-     | solid         |    true |
-     | variants      |       2 |
+*** StaticWall
 
-     Extra Sprites:
-     * ~<name>-large.png~ which is a 2x2 variant.
+    Extends [[Rock][Rock]]
 
-**** StaticTree
-     Extends [[StaticWall][StaticWall]] 
+    Defaults:
+    | field         | default |
+    |---------------+---------|
+    |               |     <r> |
+    | breakable     |   false |
+    | alwaysReplace |   false |
+    | solid         |    true |
+    | variants      |       2 |
+
+    Extra Sprites:
+    * ~<name>-large.png~ which is a 2x2 variant of the block.
+
+*** StaticTree
+
+    Extends [[StaticWall][StaticWall]] 
        
-     For example:
-     * ~spore-pine~
-     * ~snow-pine~
-     * ~pine~
-     * ~shrubs~
+    For example:
+    * ~spore-pine~
+    * ~snow-pine~
+    * ~pine~
+    * ~shrubs~
+
 *** TreeBlock
+
     Extends [[Block][Block]]
 
     Defaults:

@@ -15,6 +15,7 @@
 <link href="dir.html#Top" rel="up" title="(dir)">
 <style type="text/css">
 <!--
+
 /*
 #+##############################################################################
 #
@@ -351,6 +352,17 @@ END OF janix-texinfo.css
 td
 {
     padding-right: 2em;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+thead tr
+{
+    text-align: left;
+}
+
+thead th
+{
+    border-bottom: 1px solid #aaa; 
 }
 
 -->
@@ -411,12 +423,9 @@ td
       <li><a name="toc-OverlayFloor-1" href="#OverlayFloor">OverlayFloor</a></li>
       <li><a name="toc-DoubleOverlayFloor-1" href="#DoubleOverlayFloor">DoubleOverlayFloor</a></li>
       <li><a name="toc-OreBlock-1" href="#OreBlock">OreBlock</a></li>
-      <li><a name="toc-StaticWalls-1" href="#StaticWalls">StaticWalls</a>
-      <ul class="no-bullet">
-        <li><a name="toc-Rock-1" href="#Rock">Rock</a></li>
-        <li><a name="toc-StaticWall-1" href="#StaticWall">StaticWall</a></li>
-        <li><a name="toc-StaticTree-1" href="#StaticTree">StaticTree</a></li>
-      </ul></li>
+      <li><a name="toc-Rock-1" href="#Rock">Rock</a></li>
+      <li><a name="toc-StaticWall-1" href="#StaticWall">StaticWall</a></li>
+      <li><a name="toc-StaticTree-1" href="#StaticTree">StaticTree</a></li>
       <li><a name="toc-TreeBlock-1" href="#TreeBlock">TreeBlock</a></li>
     </ul></li>
     <li><a name="toc-Crafting-1" href="#Crafting">3.3 Crafting</a>
@@ -689,7 +698,11 @@ Environment
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#OreBlock">OreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#StaticWalls">StaticWalls</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Rock">Rock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#StaticWall">StaticWall</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#StaticTree">StaticTree</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#TreeBlock">TreeBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1743,6 +1756,8 @@ Next: <a href="#Crafting" accesskey="n" rel="next">Crafting</a>, Previous: <a hr
 <a name="Environment-1"></a>
 <h3 class="section">3.2 Environment</h3>
 
+<p>Environmental blocks are blocks that must be placed from the editor, and they&rsquo;re the ones that will generally dictate how the game can or will be played. These blocks wont appear on a map unless you&rsquo;ve built a map to support them.
+</p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Floor" accesskey="1">Floor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1752,9 +1767,13 @@ Next: <a href="#Crafting" accesskey="n" rel="next">Crafting</a>, Previous: <a hr
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#OreBlock" accesskey="4">OreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#StaticWalls" accesskey="5">StaticWalls</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Rock" accesskey="5">Rock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#TreeBlock" accesskey="6">TreeBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#StaticWall" accesskey="6">StaticWall</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#StaticTree" accesskey="7">StaticTree</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#TreeBlock" accesskey="8">TreeBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -1804,12 +1823,11 @@ Next: <a href="#DoubleOverlayFloor" accesskey="n" rel="next">DoubleOverlayFloor<
 <a name="OverlayFloor-1"></a>
 <h4 class="unnumberedsubsec">OverlayFloor</h4>
 
-<p>Extends <a href="#Floor">Floor</a> &ndash; A type of floor that is overlaid on top of over floors.
+<p>Extends <a href="#Floor">Floor</a> &ndash; A type of floor that is overlaid on top of other floors.
 </p>
 <p>For example:
 </p><ul>
-<li> <code>spawn</code>
-</li><li> <code>tendrils</code>
+<li> <code>tendrils</code>
 </li></ul>
 
 <hr>
@@ -1832,7 +1850,7 @@ Next: <a href="#OreBlock" accesskey="n" rel="next">OreBlock</a>, Previous: <a hr
 <a name="OreBlock"></a>
 <div class="header">
 <p>
-Next: <a href="#StaticWalls" accesskey="n" rel="next">StaticWalls</a>, Previous: <a href="#DoubleOverlayFloor" accesskey="p" rel="prev">DoubleOverlayFloor</a>, Up: <a href="#Environment" accesskey="u" rel="up">Environment</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Rock" accesskey="n" rel="next">Rock</a>, Previous: <a href="#DoubleOverlayFloor" accesskey="p" rel="prev">DoubleOverlayFloor</a>, Up: <a href="#Environment" accesskey="u" rel="up">Environment</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="OreBlock-1"></a>
 <h4 class="unnumberedsubsec">OreBlock</h4>
@@ -1845,31 +1863,13 @@ Next: <a href="#StaticWalls" accesskey="n" rel="next">StaticWalls</a>, Previous:
 </table>
 
 <hr>
-<a name="StaticWalls"></a>
-<div class="header">
-<p>
-Next: <a href="#TreeBlock" accesskey="n" rel="next">TreeBlock</a>, Previous: <a href="#OreBlock" accesskey="p" rel="prev">OreBlock</a>, Up: <a href="#Environment" accesskey="u" rel="up">Environment</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="StaticWalls-1"></a>
-<h4 class="unnumberedsubsec">StaticWalls</h4>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Rock" accesskey="1">Rock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#StaticWall" accesskey="2">StaticWall</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#StaticTree" accesskey="3">StaticTree</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr>
 <a name="Rock"></a>
 <div class="header">
 <p>
-Next: <a href="#StaticWall" accesskey="n" rel="next">StaticWall</a>, Up: <a href="#StaticWalls" accesskey="u" rel="up">StaticWalls</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#StaticWall" accesskey="n" rel="next">StaticWall</a>, Previous: <a href="#OreBlock" accesskey="p" rel="prev">OreBlock</a>, Up: <a href="#Environment" accesskey="u" rel="up">Environment</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Rock-1"></a>
-<h4 class="unnumberedsubsubsec">Rock</h4>
+<h4 class="unnumberedsubsec">Rock</h4>
 
 <p>Extends <a href="#Block">Block</a> 
 </p>
@@ -1889,10 +1889,10 @@ Next: <a href="#StaticWall" accesskey="n" rel="next">StaticWall</a>, Up: <a href
 <a name="StaticWall"></a>
 <div class="header">
 <p>
-Next: <a href="#StaticTree" accesskey="n" rel="next">StaticTree</a>, Previous: <a href="#Rock" accesskey="p" rel="prev">Rock</a>, Up: <a href="#StaticWalls" accesskey="u" rel="up">StaticWalls</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#StaticTree" accesskey="n" rel="next">StaticTree</a>, Previous: <a href="#Rock" accesskey="p" rel="prev">Rock</a>, Up: <a href="#Environment" accesskey="u" rel="up">Environment</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="StaticWall-1"></a>
-<h4 class="unnumberedsubsubsec">StaticWall</h4>
+<h4 class="unnumberedsubsec">StaticWall</h4>
 
 <p>Extends <a href="#Rock">Rock</a>
 </p>
@@ -1907,17 +1907,17 @@ Next: <a href="#StaticTree" accesskey="n" rel="next">StaticTree</a>, Previous: <
 
 <p>Extra Sprites:
 </p><ul>
-<li> <code>&lt;name&gt;-large.png</code> which is a 2x2 variant.
+<li> <code>&lt;name&gt;-large.png</code> which is a 2x2 variant of the block.
 </li></ul>
 
 <hr>
 <a name="StaticTree"></a>
 <div class="header">
 <p>
-Previous: <a href="#StaticWall" accesskey="p" rel="prev">StaticWall</a>, Up: <a href="#StaticWalls" accesskey="u" rel="up">StaticWalls</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#TreeBlock" accesskey="n" rel="next">TreeBlock</a>, Previous: <a href="#StaticWall" accesskey="p" rel="prev">StaticWall</a>, Up: <a href="#Environment" accesskey="u" rel="up">Environment</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="StaticTree-1"></a>
-<h4 class="unnumberedsubsubsec">StaticTree</h4>
+<h4 class="unnumberedsubsec">StaticTree</h4>
 
 <p>Extends <a href="#StaticWall">StaticWall</a> 
 </p>
@@ -1933,7 +1933,7 @@ Previous: <a href="#StaticWall" accesskey="p" rel="prev">StaticWall</a>, Up: <a 
 <a name="TreeBlock"></a>
 <div class="header">
 <p>
-Previous: <a href="#StaticWalls" accesskey="p" rel="prev">StaticWalls</a>, Up: <a href="#Environment" accesskey="u" rel="up">Environment</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#StaticTree" accesskey="p" rel="prev">StaticTree</a>, Up: <a href="#Environment" accesskey="u" rel="up">Environment</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="TreeBlock-1"></a>
 <h4 class="unnumberedsubsec">TreeBlock</h4>

@@ -1,3 +1,4 @@
+
 /*
 #+##############################################################################
 #
@@ -310,4 +311,15 @@ END OF janix-texinfo.css
 td
 {
     padding-right: 2em;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+thead tr
+{
+    text-align: left;
+}
+
+thead th
+{
+    border-bottom: 1px solid #a3a3a3; 
 }
