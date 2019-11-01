@@ -53,8 +53,8 @@ Modding documentation for Mindustry.
 
    Notes:
    * ~name~ will be used to reference to your mod, so name it carefully, and avoid giving it the same name as another mod.
-   * ~description~ of the mod will be rendered in the mod manager.
-   * ~dependencies~ is optional, if you want to know more about that, go to the [[Dependencies][dependencies]] section.
+   * ~description~ of the mod will be rendered in the ingame mod manager, so keep it short and to the point.
+   * ~dependencies~ is optional; if you want to know more about that, go to the [[Dependencies][dependencies]] section.
 
 ** Content
 
@@ -136,7 +136,7 @@ Modding documentation for Mindustry.
 
 ** Dependencies
 
-   You can add dependencies to your mod, by simple adding other mods name in your ~mod.json~:
+   You can add dependencies to your mod by simple adding other mods name in your ~mod.json~:
 
    #+BEGIN_SRC json
    {
@@ -147,7 +147,7 @@ Modding documentation for Mindustry.
    }
    #+END_SRC
 
-   The other mods name needs to be lower cased and spaces replaced with hyphens (~-~), for example ~Other MOD NamE~ -> ~other-mod-name~.
+   The name of dependencies are lower cased and spaces are replaced with ~-~ hyphens, for example ~Other MOD NamE~ becomes ~other-mod-name~.
 
    To reference the other mods assets, you must prefix the asset with the other mods name:
 
