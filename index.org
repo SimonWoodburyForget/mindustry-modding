@@ -196,7 +196,7 @@ Modding documentation for Mindustry.
   | rotate              | boolean         |              | whether this is rotateable |
   | breakable           | boolean         |              | whether you can break this with rightclick |
   | placeableOn         | boolean         |         true | whether this [[Floor][floor]] can be placed on. |
-  | insulated           | boolean         |        false | whether this block has insulating properties. */ |
+  | insulated           | boolean         |        false | whether this block has insulating properties. |
   | health              | int             |           -1 | tile entity health |
   | baseExplosiveness   | float           |            0 | base block explosiveness |
   | floating            | boolean         |        false | whether this block can be placed on edges of liquids. |
