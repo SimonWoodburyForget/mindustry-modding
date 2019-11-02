@@ -73,25 +73,23 @@ Modding documentation for Mindustry: /this is a work in progress./
 
 ** Sprites
 
-   Custom sprites can be added by simply dropping them in the ~sprites/~ subdirectory, and be ~.png~ file, and content which requires a sprite is going to fetch the sprite relative to the filename of the sprite: ~sprites/<name>.png~, for example ~sprites/my-hail.png~ would be used on ~content/blocks/my-hail.json~.
+   Custom sprites can be added by simply dropping them in the ~sprites/~ subdirectory. The content parser will look through it recursively. One format is needed.
 
-   On top of this, content type may even look for two or more sprites, either through numbering or/and suffixes: ~sprites/<name>-<i>.png~ for example ~sprites/my-hail-heat.png~ for the ~heat~ map used when the turret is shooting, coloring parts of the turret red for a moment.
+   Content is going to look for sprites relative to it's own name. ~content/blocks/my-hail.json~ has the name ~my-hail~ and similarly ~sprites/my-hail.png~ has the name ~my-hail~ and will be used for that specific block.
 
-   Note that you may put your files in any sub-directory of ~sprites/~:
-   * ~sounds/egg/teleporter/train/wall.png~
+   Content may look for multiple sprites, and this is done by looking for suffixes. ~my-hail~ could be a turret and it could look for the suffix ~<name>-heat~ and what this means is it'll look for ~my-hail-heat~.
 
-   You can find all the vanilla sprites as reference here:
+   You can find all the vanilla sprites here:
    * https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites
+
+   Another thing to know about sprites is that they're passed through /anti-aliasing filters/ and what that means is that they may look a little different in game. The turrets specifically have a black border added to them, meaning you must draw them smaller then the image itself.
 
 ** Sound
 
-  Custom sounds can be added through the modding system in the ~sounds/~ directory, of which two formats are needed:
+  Custom sounds can be added through the modding system by dropping them in the ~sounds/~ subdirectory. It doesn't matter where you put them. Two formats are needed:
 
   * ~.ogg~ required for Desktop/Android
   * ~.mp3~ required for iOS
-
-  Note that you may put your files in any sub-directory of ~sounds/~:
-  * ~sounds/egg/teleporter/train/wall.ogg~
 
   Just like any other assets, you reference them by the stem of your filename(s).
 
