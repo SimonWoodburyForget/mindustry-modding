@@ -1406,10 +1406,61 @@ Modding documentation for Mindustry.
     Extra sprites:
     * ~<name>-base~
 
-*** TODO UnitFactory
-*** TODO CommandCenter
-*** TODO UnitFactory
-*** TODO MechPad
+*** UnitFactory
+    Extends [[Block][block]] -A block can produce units
+    
+    | field          | type                   | default |
+    |----------------+------------------------+---------|
+    | produceTime    | float                  | 1000    |
+    | launchVelocity | float                  | 0       |
+    | maxSpawn       | int                    | 4       |
+    | unitType       | [[UnitType][UnitType]] | none    |
+    
+    Defaults:
+    
+    | field    | default  |
+    |----------+----------|
+    | update   | true     |
+    | hasPower | true     |
+    | hasItems | true     |
+    | soild    | false    |
+    | flags    | producer |
+    
+*** CommandCenter
+    Extends [[Block][Block]] -a block can issue command to your unit
+    
+    | field       | type               | default     |
+    |-------------+--------------------+-------------|
+    | topColor    | [[Color][Color]]   | command     |
+    | bottomColor | [[Color][Color]]   | 5e5e5e      |
+    | effect      | [[Effect][Effect]] | commandSend |
+    
+    Defaults:
+    
+    | field        | default      |
+    |--------------+--------------|
+    | flags        | comandCenter |
+    | destructible | true         |
+    | soild        | true         |
+    | configurable | true         |
+    
+*** MechPad
+    Extends [[Block][Block]] -A block can produce player's mech
+    
+    | field     | type           | default |
+    |-----------+----------------+---------|
+    | mech      | [[Mech][Mech]] | none    |
+    | buildTime | float          | 60 * 5  |
+    
+    Defaults:
+    | field    | default |
+    |----------+---------|
+    | update   | true    |
+    | soild    | true    |
+    | hasPower | true    |
+    | layer    | overlay |
+    | flags    | mechpad |
+    
 ** Storage
 *** StorageBlock
 
