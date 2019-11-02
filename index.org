@@ -839,8 +839,8 @@ Modding documentation for Mindustry: /this is a work in progress./
     | chargeTime        | float  |      30 |
     | chargeEffects     | int    |       5 |
     | chargeMaxDelay    | float  |      10 |
-    | chargeEffect      | Effect |    none |
-    | chargeBeginEffect | Effect |    none |
+    | chargeEffect      | [[Effect]] |    none |
+    | chargeBeginEffect | [[Effect]] |    none |
 
 *** LaserTurret
     Extends [[PowerTurret][PowerTurret]] 
