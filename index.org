@@ -864,7 +864,6 @@ Modding documentation for Mindustry: /this is a work in progress./
     |-------------+---------|
     | hasLiquids  | true    |
     | activeSound | spray   |
-
 ** Distribution
 *** Conveyor
     Extends [[Block][Block]]
