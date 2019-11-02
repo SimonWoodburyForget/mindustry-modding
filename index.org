@@ -268,7 +268,7 @@ Modding documentation for Mindustry.
    #+END_SRC
 *** Consume
 
-    An abstract base that defines a type of resource that a block can consume.
+    [[Abstract]] type base, that defines a type of resource that a block can consume.
 
     | field    | type    | default | notes      |
     |----------+---------+---------+------------|
