@@ -830,7 +830,18 @@ Modding documentation for Mindustry: /this is a work in progress./
     |----------+---------|
     | hasPower | true    |
 
-*** TODO ChargeTurret
+*** ChargeTurret
+
+    Extends [[PowerTurret]]
+
+    | field             | type   | default |
+    |-------------------+--------+---------|
+    | chargeTime        | float  |      30 |
+    | chargeEffects     | int    |       5 |
+    | chargeMaxDelay    | float  |      10 |
+    | chargeEffect      | Effect |    none |
+    | chargeBeginEffect | Effect |    none |
+
 *** LaserTurret
     Extends [[PowerTurret][PowerTurret]] 
 
