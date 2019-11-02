@@ -1788,7 +1788,75 @@ Modding documentation for Mindustry.
    * ~units~ Blocks that create units;
    * ~upgrade~ Things that upgrade the player such as mech pads;
    * ~effect~ Things for storage or passive effects.
-** TODO Zone
+** Zone
+    You can add your mod's campaign map by this
+    
+    | field              | type            | default    |
+    |--------------------+-----------------+------------|
+    | generator          | [[Generator]]   |            |
+    | baseLaunchCost     | [[ItemStack]]   |            |
+    | launchCost         | [[ItemStack]]   |            |
+    | startingItems      | [[ItemStack]]   |            |
+    | conditionWave      | int             | MAX_VALVE  |
+    | alwaysUnlocked     | boolean         |            |
+    | launchPeriod       | int             | 10         |
+    | loadout            | [[Loadout]]     | basicShard |
+    | resources          | [[Item]]        |            |
+    | rules              | [[Rules]]       |            |
+    | requirements       | [[Objective]]   |            |
+    | configureObjective | [[Objective]]   |            |
+    | defaultStartingItems | [[ItemStack]] |            |
+    
+*** Loadout
+    Loadout is the blueprint when your core landed.
+    
+    In Loadout:
+    | '>' is stands for conveyor face to right |
+    | '^' is stands for conveyor face to up |
+    | '<' is stands for conveyor face to left |
+    | 'v' is stands for conveyor face to down |
+    | '1' is stands for coreShard |
+    | '2' is stands for coreFoundation |
+    | '3' is stands for coreNucleus |
+    | 'C' is stands for mechicalDrill with four copper ore |
+    
+    Note:
+    You must set a core in your custom Loadout
+    
+    Built-in loadout:
+    * ~basicShard~
+        ("  ###  ",
+        "  #1#  ",
+        "  ###  ",
+        "  ^ ^  ",
+        " ## ## ",
+        " C# C# ")
+    * ~advancedShard~
+        ("  ###  ",
+        "  #1#  ",
+        "#######",
+        "C#^ ^C#",
+        " ## ## ",
+        " C# C# ")
+    * ~basicFoundation~
+       ("  ####  ",
+        "  ####  ",
+        "  #2##  ",
+        "  ####  ",
+        "  ^^^^  ",
+        " ###### ",
+        " C#C#C# ")
+    * ~basicNucleus~
+        ("  #####  ",
+        "  #####  ",
+        "  ##3##  ",
+        "  #####  ",
+        " >#####< ",
+        " ^ ^ ^ ^ ",
+        "#### ####",
+        "C#C# C#C#")
+    
+*** TODO Generator
 ** StatusEffect
 
    /Not be be confused with [[Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects*. -- Status effects are used as transitions between intermediate effects. If some a ~wet~ unit gets ~shocked~ it then gets 20 damage.
@@ -2185,6 +2253,13 @@ Modding documentation for Mindustry.
     | effect      | [[StatusEffect]] |           | Status effect applied to the spawned unit. Null to disable. |
     | items       | [[ItemStack]]    |           | Items this unit spawns with. Null to disable. |
     
+    Built-in gamemode:
+        * ~survival~
+        * ~sandbox~
+        * ~attack~
+        * ~pvp~
+        * ~editor~
+
 ** Objective
 
 
