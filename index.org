@@ -366,8 +366,8 @@ Modding documentation for Mindustry: /this is a work in progress./
     | updateEffect      | [[Effect][Effect]]       |    none | effect displayed when randomly updated. |
     | attributes        | [[Attributes][Attributes]]   |         | array of affinities to certain things. |
 
-    Sprite lookup name, where ~i~ is the variant:
-    - ~<name><i>.png~ variants start at ~1~.
+    Sprite lookup name:
+    - ~<name><1..>.png~ [[
 
 *** OverlayFloor
 
@@ -506,104 +506,86 @@ Modding documentation for Mindustry: /this is a work in progress./
     Sprite suffixes:
     * ~-liquid~
 ** Sandbox
-*** Incinerator
-    Extends [[Block][Block]]
-    
-    | field    | type | default |
-    |----------+------+---------|
-    |          |      | <r>     |
-    | effect   | [[Effect][Effect]] | fuelburn |
-    | flameColor | [[Color][Color]] | ffad9d |
-    
-    Defaults:
-    
-    | field               | default |
-    |----------+--------------------|
-    |          | <r>                |
-    | hasPower            | true    |
-    | hasLiquid           | true    |
-    | update              | true    |
-    | soild               | true    |
-    
 *** PowerVoid
     Extends [[PowerBlock][PowerBlock]]
     
     Deafults:
     
-    | field          | default   |
-    |----------+-----------------|
-    |          | <r>             |
-    | consumesPower  | MAX_VALUE |
+    | field         |   default |
+    |---------------+-----------|
+    |               |       <r> |
+    | consumesPower | MAX_VALUE |
     
 *** PowerSource
     Extends [[PowerNode][PowerNode]]
     
     Defaults:
     
-    | field         | type    |
-    |----------+--------------|
-    |          | <r>          |
-    | maxNodes      | int     |
-    | outputsPower  | boolean |
-    | consumesPower | boolean |
+    | field         | default |
+    |---------------+---------|
+    |               |     <r> |
+    | maxNodes      |     100 |
+    | outputsPower  |    true |
+    | consumesPower |   false |
     
 *** ItemSource
     Extends [[Block][Block]]
     
     Defaults:
     
-    | field        | default        |
-    |----------+--------------------|
-    |          | <r>                |
-    | hasItems     | true           |
-    | update       | true           |
-    | soild        | true           |
+    | field        |        default |
+    |--------------+----------------|
+    |              |            <r> |
+    | hasItems     |           true |
+    | update       |           true |
+    | soild        |           true |
     | group        | transportation |
-    | configurable | true           |
+    | configurable |           true |
     
 *** ItemVoid
     Extends [[Block][Block]]
     
     Defaults:
     
-    | field        | default        |
-    |----------+--------------------|
-    |              | <r>            |
-    | update       | true           |
-    | soild        | true           |
+    | field  | default |
+    |--------+---------|
+    |        |     <r> |
+    | update |    true |
+    | soild  |    true |
     
 *** LiquidSource
     Extends [[Block][Block]]
     
     Defaults:
     
-    | field        | default        |
-    |----------+--------------------|
-    |          |            <r>     |
-    | hasLiquids     | true         |
-    | update       | true           |
-    | soild        | true           |
-    | liquidCapacity   | 100        |
-    | configurable | true           |
-    | outputsLiquid | true          |
-    
+    | field          | default |
+    |----------------+---------|
+    |                |     <r> |
+    | hasLiquids     |    true |
+    | update         |    true |
+    | soild          |    true |
+    | liquidCapacity |     100 |
+    | configurable   |    true |
+    | outputsLiquid  |    true |
+
+** Logic
 *** MessageBlock
     Extends [[Block][Block]]
     
     | field         | type | default |
-    |----------+------+---------|
-    |          |      | <r>     |
-    | maxTextLength | int  | 220     |
-    | maxNewlines   | int  | 24      |
+    |---------------+------+---------|
+    |               |      |     <r> |
+    | maxTextLength | int  |     220 |
+    | maxNewlines   | int  |      24 |
     
     Defaults:
     
-    | field        | default        |
-    |----------+--------------------|
-    |              | <r>            |
-    | soild        | true           |
-    | configurable | true           |
-    | destructible | true           |
+    | field        | default |
+    |--------------+---------|
+    |              |     <r> |
+    | soild        |    true |
+    | configurable |    true |
+    | destructible |    true |
 ** Defense
 *** Wall 
     Extends [[Block][Block]]
@@ -888,25 +870,27 @@ Modding documentation for Mindustry: /this is a work in progress./
     Extends [[Block][Block]]
     
     | field | type  | default |
-    |-------+-----+---------|
-    | speed | float | 0       |
+    |-------+-------+---------|
+    | speed | float |       0 |
     
     Default:
     
-    | field           | default        |
+    | field           |        default |
     |-----------------+----------------|
-    | rotate          | true           |
-    | update          | true           |
-    | layer           | overlay        |
+    |                 |            <r> |
+    | rotate          |           true |
+    | update          |           true |
+    | layer           |        overlay |
     | group           | transportation |
-    | hasItems        | true           |
-    | itemCapacity    | 4              |
-    | idleSound       | conveyor       |
-    | idleSoundVolume | 0.004          |
-    | unloadable      | false          |
+    | hasItems        |           true |
+    | itemCapacity    |              4 |
+    | idleSound       |       conveyor |
+    | idleSoundVolume |          0.004 |
+    | unloadable      |          false |
     
     Sprite suffix:
-      * ~-<0..4>-<0..3>~ Example: [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/conveyors][Conveyors-sprites]]
+    * ~-<0..4>-<0..3>~ example: [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/conveyors][Conveyors-sprites]]
+
 *** ArmoredConveyor
     Extends [[Conveyor][Conveyor]]  -A type of conveyor don't accept item coming from side
     
@@ -1387,6 +1371,24 @@ Modding documentation for Mindustry: /this is a work in progress./
     * ~<name>-liquid~
     * ~<name>-rotater~
     * ~<name>-top~
+*** Incinerator
+    Extends [[Block][Block]]
+
+    | field      | type   |  default |
+    |------------+--------+----------|
+    |            |        |      <r> |
+    | effect     | [[Effect][Effect]] | fuelburn |
+    | flameColor | [[Color][Color]]  |   ffad9d |
+    
+    Defaults:
+    
+    | field     | default |
+    |-----------+---------|
+    |           |     <r> |
+    | hasPower  |    true |
+    | hasLiquid |    true |
+    | update    |    true |
+    | soild     |    true |
 ** Unit Blocks
 *** RepairPoint
     Extends [[Block][Block]] -- Block which can repair units within range, with a laser.
