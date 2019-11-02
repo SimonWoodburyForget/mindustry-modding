@@ -9,11 +9,17 @@
 #+TEXINFO_DEFFN: t
 #+OPTIONS: H:4 num:3 toc:2
 
-Modding documentation for Mindustry: /this is a work in progress./ This documentation is being written for bleeding edge.
+#+TEXINFO_FILENAME: index
 
+#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (v5)
+
+#+TEXINFO_DIR_TITLE: 
 :END:
 
 * Overview
+  :PROPERTIES:
+  :DESCRIPTION: the things you may not know.
+  :END:
 
   Mindustry mods are simply directories of assests. You reuse existing types and can use different values to initialize them, and you can even overwrite initialization of vanilla content. 
 
@@ -188,10 +194,14 @@ Modding documentation for Mindustry: /this is a work in progress./ This document
 
 
 * World
+  :PROPERTIES:
+  :DESCRIPTION: the universe and everything in it.
+  :END:
 ** Block
 
   Extends [[BlockStorage][BlockStorage]] -- Fields for all objects that are blocks.
 
+  #+ATTR_TEXINFO: :name name
   | field               | type            |      default | notes      |
   |---------------------+-----------------+--------------+------------|
   |                     |                 |          <r> | <10>       |
@@ -1621,6 +1631,9 @@ Modding documentation for Mindustry: /this is a work in progress./ This document
 
 
 * Type
+  :PROPERTIES:
+  :DESCRIPTION: the building blocks of the universe.
+  :END:
 ** UnlockableContent and MappableContent
 
    that can have a display name and description. /Most content in other words/. [[ItemStack][ItemStack]] for example isn't ~UnlockableContent~. 
@@ -1762,6 +1775,7 @@ Modding documentation for Mindustry: /this is a work in progress./ This document
    | engineOffset    | float    |         |
    | engineSize      | float    |         |
 ** Mech
+
    Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Mechs are the player controlled entities.
 
    | field              | type    | default |
@@ -1803,6 +1817,7 @@ Modding documentation for Mindustry: /this is a work in progress./ This document
    * ~units~ Blocks that create units;
    * ~upgrade~ Things that upgrade the player such as mech pads;
    * ~effect~ Things for storage or passive effects.
+
 ** TODO Zone
 ** StatusEffect
 
@@ -1896,6 +1911,9 @@ Modding documentation for Mindustry: /this is a work in progress./ This document
 
 
 * Graphics
+  :PROPERTIES:
+  :DESCRIPTION: the rendering specific stuff.
+  :END:
 ** Layer
 
    Layers is an enumeration type, which the renderer will use to group rendering order:
@@ -1918,83 +1936,61 @@ Modding documentation for Mindustry: /this is a work in progress./ This document
 
 
 * Entities
-** BulletTypes
+  :PROPERTIES:
+  :DESCRIPTION: the things that exists as themselves.
+  :END:
+** BulletType
 
-   Bullet is the type typically used to cause damage. It doesn't actually have to be a bullet at all. There are two major categories of bullet types:
+   [[Abstract]] type which extends [[Content][Content]] -- BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
    * [[BasicBulletType]]
    * /everything else/
 
-*** BulletType
-
-    [[Abstract]] type which extends [[Content][Content]] -- Bullet can either be an object or a string, where a string would be reusing a built-in one and an object would be making a custom one.
-
-    | field              | type         | default | notes      |
-    |--------------------+--------------+---------+------------|
-    |                    |              |         | <10>       |
-    | lifetime           | float        |         | amount of ticks it will lasts |
-    | speed              | float        |         | inital speed of bullet |
-    | damage             | float        |         | collision damage |
-    | hitSize            | float        |       4 | collision radius |
-    | drawSize           | float        |      40 |            |
-    | drag               | float        |       0 | decelleration per tick |
-    | pierce             | boolean      |         | whether it can collide |
-    | hitEffect          | [[Effect][Effect]]       |         | created when bullet hits something |
-    | despawnEffect      | [[Effect][Effect]]       |         | created when bullet despawns |
-    | shootEffect        | [[Effect][Effect]]       |         | created when shooting |
-    | smokeEffect        | [[Effect][Effect]]       |         | created when shooting |
-    | hitSound           | Sound        |         | made when hitting something or getting removed |
-    | inaccuracy         | float        |       0 | extra inaccuracy |
-    | ammoMultiplier     | float        |       2 | how many bullets get created per item/liquid |
-    | reloadMultiplier   | float        |       1 | multiplied by turret reload speed |
-    | recoil             | float        |         | recoil from shooter entities |
-    | splashDamage       | float        |       0 |            |
-    | knockback          | float        |         | Knockback in velocity. |
-    | hitTiles           | boolean      |    true | Whether this bullet hits tiles. |
-    | status             | [[StatusEffect][StatusEffect]] |    none | Status effect applied on hit. |
-    | statusDuration     | float        |     600 | Intensity of applied status effect in terms of duration. |
-    | collidesTiles      | boolean      |    true | Whether this bullet type collides with tiles. |
-    | collidesTeam       | boolean      |   false | Whether this bullet type collides with tiles that are of the same team. |
-    | collidesAir        | boolean      |    true | Whether this bullet type collides with air units. |
-    | collides           | boolean      |    true | Whether this bullet types collides with anything at all. |
-    | keepVelocity       | boolean      |    true | Whether velocity is inherited from the shooter. |
-    | fragBullets        | int          |       9 |            |
-    | fragVelocityMin    | float        |     0.2 |            |
-    | fragVelocityMax    | float        |       1 |            |
-    | fragBullet         | [[BulletType][BulletType]]   |    null |            |
-    | splashDamageRadius | float        |      -1 | Use a negative value to disable splash damage. |
-    | incendAmount       | int          |       0 |            |
-    | incendSpread       | float        |       8 |            |
-    | incendChance       | float        |       1 |            |
-    | homingPower        | float        |       0 | Doesn't do anything complicated; if ~homingPower~ larger then ~0.01~ it gets rendered in the UI, if ~homingPower~ is larger then ~0.0001~ it allows ~homingRange~ to work. |
-    | homingRange        | float        |      50 | How far the bullet can home towards target from itself. |
-    | lightining         | int          |         |            |
-    | lightningLength    | int          |       5 |            |
-    | hitShake           | float        |       0 |            |
-
-    Built-in bullets:
-    * artillery:
-      * ~artilleryDense~ ~arilleryPlastic~ ~artilleryPlasticFrag~ ~artilleryHoming~ ~artlleryIncendiary~ ~artilleryExplosive~ ~artilleryUnit~
-    * flak:
-      * ~flakScrap~ ~flakLead~ ~flakPlastic~ ~flakExplosive~ ~flakSurge~ ~flakGlass~ ~glassFrag~
-    * missiles:
-      * ~missileExplosive~ ~missileIncendiary~ ~missileSurge~ ~missileJavelin~ ~missileSwarm~ ~missileRevenant~
-    * standard:
-      * ~standardCopper~ ~standardDense~ ~standardThorium~ ~standardHoming~ ~standardIncendiary~ ~standardMechSmall~ ~standardGlaive~ ~standardDenseBig~ ~standardThoriumBig~ ~standardIncendiaryBig~
-    * electric:
-      * ~lancerLaser~ ~meltdownLaser~ ~lightning~ ~arc~ ~damageLightning~
-    * liquid:
-      * ~waterShot~ ~cryoShot~ ~slagShot~ ~oilShot~
-    * environment & misc:
-      * ~fireball~ ~basicFlame~ ~pyraFlame~ ~driverBolt~ ~healBullet~ ~healBulletBig~ ~frag~ ~eruptorShot~
-    * bombs:
-      * ~bombExplosive~ ~bombIncendiary~ ~bombOil~
+   | field              | type         | default | notes      |
+   |--------------------+--------------+---------+------------|
+   |                    |              |         | <10>       |
+   | lifetime           | float        |         | amount of ticks it will lasts |
+   | speed              | float        |         | inital speed of bullet |
+   | damage             | float        |         | collision damage |
+   | hitSize            | float        |       4 | collision radius |
+   | drawSize           | float        |      40 |            |
+   | drag               | float        |       0 | decelleration per tick |
+   | pierce             | boolean      |         | whether it can collide |
+   | hitEffect          | [[Effect][Effect]]       |         | created when bullet hits something |
+   | despawnEffect      | [[Effect][Effect]]       |         | created when bullet despawns |
+   | shootEffect        | [[Effect][Effect]]       |         | created when shooting |
+   | smokeEffect        | [[Effect][Effect]]       |         | created when shooting |
+   | hitSound           | Sound        |         | made when hitting something or getting removed |
+   | inaccuracy         | float        |       0 | extra inaccuracy |
+   | ammoMultiplier     | float        |       2 | how many bullets get created per item/liquid |
+   | reloadMultiplier   | float        |       1 | multiplied by turret reload speed |
+   | recoil             | float        |         | recoil from shooter entities |
+   | splashDamage       | float        |       0 |            |
+   | knockback          | float        |         | Knockback in velocity. |
+   | hitTiles           | boolean      |    true | Whether this bullet hits tiles. |
+   | status             | [[StatusEffect][StatusEffect]] |    none | Status effect applied on hit. |
+   | statusDuration     | float        |     600 | Intensity of applied status effect in terms of duration. |
+   | collidesTiles      | boolean      |    true | Whether this bullet type collides with tiles. |
+   | collidesTeam       | boolean      |   false | Whether this bullet type collides with tiles that are of the same team. |
+   | collidesAir        | boolean      |    true | Whether this bullet type collides with air units. |
+   | collides           | boolean      |    true | Whether this bullet types collides with anything at all. |
+   | keepVelocity       | boolean      |    true | Whether velocity is inherited from the shooter. |
+   | fragBullets        | int          |       9 |            |
+   | fragVelocityMin    | float        |     0.2 |            |
+   | fragVelocityMax    | float        |       1 |            |
+   | fragBullet         | [[BulletType][BulletType]]   |    null |            |
+   | splashDamageRadius | float        |      -1 | Use a negative value to disable splash damage. |
+   | incendAmount       | int          |       0 |            |
+   | incendSpread       | float        |       8 |            |
+   | incendChance       | float        |       1 |            |
+   | homingPower        | float        |       0 | Doesn't do anything complicated; if ~homingPower~ larger then ~0.01~ it gets rendered in the UI, if ~homingPower~ is larger then ~0.0001~ it allows ~homingRange~ to work. |
+   | homingRange        | float        |      50 | How far the bullet can home towards target from itself. |
+   | lightining         | int          |         |            |
+   | lightningLength    | int          |       5 |            |
+   | hitShake           | float        |       0 |            |
 
 *** BasicBulletType
 
-    Extends [[BulletType]]
-
-    This type is special in that it allows you to set colors and sprites.
-
+    Extends [[BulletType]] -- This type is special in it allows you to set colors and sprites.
 
     | field        | type   |          default |            |
     |--------------+--------+------------------+------------|
@@ -2065,6 +2061,7 @@ Modding documentation for Mindustry: /this is a work in progress./ This document
      | hitEffect          | flakExplosionBig |
      | bulletWidth        |                8 |
      | bulletHeight       |               10 |
+
 **** MissileBulletType
 
      Extends [[BasicBulletType]]
@@ -2128,6 +2125,25 @@ Modding documentation for Mindustry: /this is a work in progress./ This document
     | hitEffect     | hitBulletBig |
     | drag          | 0.005        |
 
+*** Built-in Bullets
+
+   * artillery:
+     * ~artilleryDense~ ~arilleryPlastic~ ~artilleryPlasticFrag~ ~artilleryHoming~ ~artlleryIncendiary~ ~artilleryExplosive~ ~artilleryUnit~
+   * flak:
+     * ~flakScrap~ ~flakLead~ ~flakPlastic~ ~flakExplosive~ ~flakSurge~ ~flakGlass~ ~glassFrag~
+   * missiles:
+     * ~missileExplosive~ ~missileIncendiary~ ~missileSurge~ ~missileJavelin~ ~missileSwarm~ ~missileRevenant~
+   * standard:
+     * ~standardCopper~ ~standardDense~ ~standardThorium~ ~standardHoming~ ~standardIncendiary~ ~standardMechSmall~ ~standardGlaive~ ~standardDenseBig~ ~standardThoriumBig~ ~standardIncendiaryBig~
+   * electric:
+     * ~lancerLaser~ ~meltdownLaser~ ~lightning~ ~arc~ ~damageLightning~
+   * liquid:
+     * ~waterShot~ ~cryoShot~ ~slagShot~ ~oilShot~
+   * environment & misc:
+     * ~fireball~ ~basicFlame~ ~pyraFlame~ ~driverBolt~ ~healBullet~ ~healBulletBig~ ~frag~ ~eruptorShot~
+   * bombs:
+     * ~bombExplosive~ ~bombIncendiary~ ~bombOil~
+
 ** BaseUnit
 
    There are a few useful base unit types:
@@ -2170,11 +2186,17 @@ Modding documentation for Mindustry: /this is a work in progress./ This document
 
 
 * Game
+  :PROPERTIES:
+  :DESCRIPTION: the rules and goals of it all.
+  :END:
 ** Rules
 ** Objective
 
 
 * Other
+  :PROPERTIES:
+  :DESCRIPTION: ...
+  :END:
 ** Mindustry Source Structure
 
    #+BEGIN_SRC fundamental
