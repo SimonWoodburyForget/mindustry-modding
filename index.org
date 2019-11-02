@@ -1426,6 +1426,9 @@ Modding documentation for Mindustry.
     | soild    | false    |
     | flags    | producer |
     
+    Sprite suffix:
+    * ~-top~
+    
 *** CommandCenter
     Extends [[Block][Block]] -a block can issue command to your unit
     
@@ -1453,6 +1456,7 @@ Modding documentation for Mindustry.
     | buildTime | float          | 60 * 5  |
     
     Defaults:
+    
     | field    | default |
     |----------+---------|
     | update   | true    |
@@ -1480,6 +1484,7 @@ Modding documentation for Mindustry.
     | mech  | Mech | starter |
 
     Defaults:
+    
     | field             | default    |
     |-------------------+------------|
     | solid             | true       |
@@ -1489,9 +1494,50 @@ Modding documentation for Mindustry.
     | activeSoundVolume | 1          |
     | layer             | overlay    |
 
-*** TODO Vault
-*** TODO Unloader
-*** TODO LaunchPad
+*** Vault
+    Extends [[StorageBlock][StorageBlock]] -a type of storage block
+    
+    Defaults:
+    
+    | field             | default    |
+    |-------------------+------------|
+    | solid             | true       |
+    | destructible      | true       |
+    | update            | false      |
+    
+*** Unloader
+    Extends [[Block][Block]] -a block can unload items from storage block and machine
+    
+    | field | type  | default |
+    |-------+-------+---------|
+    | speed | float | 1       |
+    
+    Defaults:
+    
+    | field             | default    |
+    |-------------------+------------|
+    | solid             | true       |
+    | health            | 70         |
+    | update            | false      |
+    | hasItems          | true       |
+    | confugurable      | true       |
+    
+    Sprite suffix:
+    * ~-center~
+    
+*** LaunchPad
+    Extends [[StorageBlock][StroageBlock]] -a block can launch materials without coreblock
+    
+    | field      | type  | default |
+    | launchTime | float | none    |
+    
+    Defaults:
+    
+    | field    | default |
+    | update   | true    |
+    | hasItems | true    |
+    | soild    | true    |
+    
 ** Attributes
 
    An object with an array of [[Attribute][attribute]]. Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors.
