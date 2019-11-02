@@ -1424,7 +1424,7 @@ Next: <a href="#ConsumeItems" accesskey="n" rel="next">ConsumeItems</a>, Up: <a 
 <a name="Consume-1"></a>
 <h4 class="subsection">2.2.1 Consume</h4>
 
-<p>An abstract base that defines a type of resource that a block can consume.
+<p><a href="#Abstract">Abstract</a> type base, that defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1458,7 +1458,7 @@ Next: <a href="#ConsumeLiquid" accesskey="n" rel="next">ConsumeLiquid</a>, Previ
 <a name="ConsumeLiquidBase-1"></a>
 <h4 class="subsection">2.2.3 ConsumeLiquidBase</h4>
 
-<p>Extends <a href="#Consume">Consume</a>
+<p><a href="#Abstract">Abstract</a> type which extends <a href="#Consume">Consume</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1521,19 +1521,20 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.3 BlockStorage</h3>
 
-<p>Extends <a href="#UnlockableContent-and-MappableContent">UnlockableContent</a> &ndash; This is for blocks that can store a buffer of items.
+<p><a href="#Abstract">Abstract</a> type that extends <a href="#UnlockableContent-and-MappableContent">UnlockableContent</a> &ndash; This is for blocks that can store a buffer of items.
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
-<tr><td>hasItems</td><td>boolean</td><td></td><td></td></tr>
-<tr><td>hasLiquids</td><td>boolean</td><td></td><td></td></tr>
-<tr><td>hasPower</td><td>boolean</td><td></td><td></td></tr>
-<tr><td>outputsLiquid</td><td>boolean</td><td>false</td><td></td></tr>
-<tr><td>consumesPower</td><td>boolean</td><td>true</td><td></td></tr>
-<tr><td>outputsPower</td><td>bolean</td><td>false</td><td></td></tr>
-<tr><td>itemCapacity</td><td>int</td><td>10</td><td></td></tr>
-<tr><td>item</td><td>float</td><td>10</td><td></td></tr>
-<tr><td>consumes</td><td><a href="#Consumers">Consumers</a></td><td></td><td></td></tr>
+<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
+<tr><td>hasItems</td><td>boolean</td><td></td></tr>
+<tr><td>hasLiquids</td><td>boolean</td><td></td></tr>
+<tr><td>hasPower</td><td>boolean</td><td></td></tr>
+<tr><td>outputsLiquid</td><td>boolean</td><td>false</td></tr>
+<tr><td>consumesPower</td><td>boolean</td><td>true</td></tr>
+<tr><td>outputsPower</td><td>bolean</td><td>false</td></tr>
+<tr><td>itemCapacity</td><td>int</td><td>10</td></tr>
+<tr><td>liquidCapacity</td><td>float</td><td>10</td></tr>
+<tr><td>item</td><td>float</td><td>10</td></tr>
+<tr><td>consumes</td><td><a href="#Consumers">Consumers</a></td><td></td></tr>
 </table>
 
 <hr>
