@@ -3,7 +3,7 @@ texi:
 	emacs index.org --batch -f org-texinfo-export-to-texinfo
 
 html: clean texi
-	makeinfo index.texi --html --force --no-split --css-include style.css
+	makeinfo index.texi --html --no-split --css-include style.css
 
 clean:
 	rm index.texi -f

@@ -1,16 +1,18 @@
-#+TITLE: Mindustry Modding Guide:
-PREAMBLE:
+#+TITLE: Mindustry Modding Guide
+:PREAMBLE:
 #+AUTHOR: Simon Woodbury-Forget
 #+EMAIL: simonwoodburyforget@gmail.com
 #+DATE: 2019-10-31
+
+#+SUBTITLE: for build v99 (release v48)
 #+LANGUAGE: en
-#+SUBTITLE: for build v99 (release v5)
 #+TEXINFO_DEFFN: t
 #+OPTIONS: H:4 num:3 toc:2
 
-Modding documentation for Mindustry. 
+Modding documentation for Mindustry: /this is a work in progress./
 
 :END:
+
 
 * Overview
 
@@ -158,7 +160,7 @@ Modding documentation for Mindustry.
    * ~other-mod-name-angry-dagger~ would reference ~angry-dagger~ in ~other-mod-name~
    * ~not-a-mod-angry-dagger~ would reference ~angry-dagger~ in ~not-a-mod~
 
-** Type
+** Types
 
    Types have numerous fields, but the important one is ~type~; this is a special field used by the content parser, that changes which type your object is. /No a ~Router~ type can't be a ~Turret~ type/, they have completely different methods and fields.
 
@@ -186,6 +188,7 @@ Modding documentation for Mindustry.
 ** Abstract
 
    All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself.
+
 
 * World
 ** Block
