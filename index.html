@@ -394,8 +394,10 @@ body
     <li><a name="toc-Sprites-1" href="#Sprites">1.4 Sprites</a></li>
     <li><a name="toc-Sound-1" href="#Sound">1.5 Sound</a></li>
     <li><a name="toc-Dependencies-1" href="#Dependencies">1.6 Dependencies</a></li>
-    <li><a name="toc-Types-1" href="#Types">1.7 Types</a></li>
-    <li><a name="toc-Abstract-1" href="#Abstract">1.8 Abstract</a></li>
+    <li><a name="toc-Types-1" href="#Types">1.7 Types</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Abstract-1" href="#Abstract">1.7.1 Abstract</a></li>
+    </ul></li>
   </ul></li>
   <li><a name="toc-World-1" href="#World">2 World</a>
   <ul class="no-bullet">
@@ -610,23 +612,28 @@ Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="di
 
 Overview
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Directory-Structure" accesskey="8">Directory Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Directory-Structure" accesskey="8">Directory Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">how things should look.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#modjson" accesskey="9"><code>mod.json</code></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#modjson" accesskey="9"><code>mod.json</code></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the project configuration file.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content">Content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Content">Content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">content configuration directory
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sprites">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Sprites">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">image files and how to name them
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sound">Sound</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Sound">Sound</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">sound files and where to put them
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Dependencies">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Dependencies">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mods extending mods
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Types">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Types">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">things to know about types
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Types
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 
 World
 
@@ -994,21 +1001,19 @@ Next: <a href="#World" accesskey="n" rel="next">World</a>, Previous: <a href="#T
 <p>You can add custom sprites and sounds; sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Directory-Structure" accesskey="1">Directory Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Directory-Structure" accesskey="1">Directory Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">how things should look.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#modjson" accesskey="2"><code>mod.json</code></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#modjson" accesskey="2"><code>mod.json</code></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the project configuration file.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Content" accesskey="3">Content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Content" accesskey="3">Content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">content configuration directory
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sprites" accesskey="4">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Sprites" accesskey="4">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">image files and how to name them
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sound" accesskey="5">Sound</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Sound" accesskey="5">Sound</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">sound files and where to put them
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="6">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="6">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mods extending mods
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Types" accesskey="7">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Abstract" accesskey="8">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Types" accesskey="7">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">things to know about types
 </td></tr>
 </table>
 
@@ -1128,7 +1133,7 @@ Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previou
 </li><li> <code>.mp3</code> required for iOS
 </li></ul>
 
-<p>Just like any other assets, you reference them by the stem of your filename(s).
+<p>Just like any other assets, you reference them by the stem of your filename(s): <code>pewpew.ogg</code> and <code>pewpew.mp3</code> is referenced with <code>pewpew</code> from a field of type <code>Sound</code>.
 </p>
 <p>Here&rsquo;s a list of built-in sounds:
 </p><ul>
@@ -1196,7 +1201,7 @@ Next: <a href="#Types" accesskey="n" rel="next">Types</a>, Previous: <a href="#S
 }
 </pre></div>
 
-<p>The name of dependencies are lower cased and spaces are replaced with <code>-</code> hyphens, for example <code>Other MOD NamE</code> becomes <code>other-mod-name</code>.
+<p>The name of dependencies are lower-cased and spaces are replaced with <code>-</code> hyphens, for example <code>Other MOD NamE</code> becomes <code>other-mod-name</code>.
 </p>
 <p>To reference the other mods assets, you must prefix the asset with the other mods name:
 </p>
@@ -1210,14 +1215,14 @@ Next: <a href="#Types" accesskey="n" rel="next">Types</a>, Previous: <a href="#S
 <a name="Types"></a>
 <div class="header">
 <p>
-Next: <a href="#Abstract" accesskey="n" rel="next">Abstract</a>, Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Types-1"></a>
 <h3 class="section">1.7 Types</h3>
 
 <p>Types have numerous fields, but the important one is <code>type</code>; this is a special field used by the content parser, that changes which type your object is. <em>No a <code>Router</code> type can&rsquo;t be a <code>Turret</code> type</em>, they have completely different methods and fields.
 </p>
-<p>Types <em>extend</em> each other, and what that means is if <code>MissileBulletType</code> extends <code>BasicBulletType</code>, then you&rsquo;ll have access to all the fields of <code>BasicBulletType</code> inside of <code>MissileBulletType</code> like <code>damage</code>, <code>lifetime</code> and <code>speed</code>. Fields are case sensitive: <code>hitSize</code> &lsquo;<samp>/</samp>&rsquo; <code>hitsize</code>.
+<p>Types <em>extend</em> each other, and what that means is if <code>MissileBulletType</code> extends <code>BasicBulletType</code>, then you&rsquo;ll have access to all the fields of <code>BasicBulletType</code> inside of <code>MissileBulletType</code> like <code>damage</code>, <code>lifetime</code> and <code>speed</code>. Fields are case sensitive: <code>hitSize =/= hitsize</code>.
 </p>
 <p>What you can expect a field to do is up to the specific type, some types do absolutely nothing with their fields, and work mostly as a base types will extend from. One such type is <code>Block</code>.
 </p>
@@ -1238,16 +1243,21 @@ Next: <a href="#Abstract" accesskey="n" rel="next">Abstract</a>, Previous: <a hr
 
 <p>Here you can see, the type of the top level object is <code>Revenant</code>, but the type of the <code>bullet</code> is <code>BulletType</code> so you can use <code>MissileBulletType</code>, because <code>MissileBulletType</code> extends <code>BulletType</code>.
 </p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Abstract" accesskey="1">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
 <hr>
 <a name="Abstract"></a>
 <div class="header">
 <p>
-Previous: <a href="#Types" accesskey="p" rel="prev">Types</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Up: <a href="#Types" accesskey="u" rel="up">Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Abstract-1"></a>
-<h3 class="section">1.8 Abstract</h3>
+<h4 class="subsection">1.7.1 Abstract</h4>
 
-<p>All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself.
+<p>All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you&rsquo;ll probably get an <em>initialization exception</em> of some kind.
 </p>
 <hr>
 <a name="World"></a>

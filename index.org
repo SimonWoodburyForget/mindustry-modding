@@ -71,7 +71,7 @@
 
 ** Content
    :PROPERTIES:
-   :DESCRIPTION: game content configuration directory
+   :DESCRIPTION: content configuration directory
    :END:
 
    At the root of your project directory you can have a ~content/~ directory, this is where all the JSON data goes for your content types, and in this directory you have subdirectories for the various types of units, these are the current common ones:
@@ -183,12 +183,12 @@
 
 ** Types
    :PROPERTIES:
-   :DESCRIPTION: the things to know about types
+   :DESCRIPTION: things to know about types
    :END:
 
    Types have numerous fields, but the important one is ~type~; this is a special field used by the content parser, that changes which type your object is. /No a ~Router~ type can't be a ~Turret~ type/, they have completely different methods and fields.
 
-   Types /extend/ each other, and what that means is if ~MissileBulletType~ extends ~BasicBulletType~, then you'll have access to all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~, ~lifetime~ and ~speed~. Fields are case sensitive: ~hitSize~ =/= ~hitsize~.
+   Types /extend/ each other, and what that means is if ~MissileBulletType~ extends ~BasicBulletType~, then you'll have access to all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~, ~lifetime~ and ~speed~. Fields are case sensitive: ~hitSize =/= hitsize~.
 
    What you can expect a field to do is up to the specific type, some types do absolutely nothing with their fields, and work mostly as a base types will extend from. One such type is ~Block~.
 
