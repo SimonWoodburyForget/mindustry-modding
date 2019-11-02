@@ -1106,20 +1106,19 @@ Next: <a href="#Sound" accesskey="n" rel="next">Sound</a>, Previous: <a href="#C
 <a name="Sprites-1"></a>
 <h3 class="section">1.4 Sprites</h3>
 
-<p>Custom sprites can be added by simply dropping them in the <code>sprites/</code> subdirectory, and be <code>.png</code> file, and content which requires a sprite is going to fetch the sprite relative to the filename of the sprite: <code>sprites/&lt;name&gt;.png</code>, for example <code>sprites/my-hail.png</code> would be used on <code>content/blocks/my-hail.json</code>.
+<p>Custom sprites can be added by simply dropping them in the <code>sprites/</code> subdirectory. The content parser will look through it recursively. One format is needed.
 </p>
-<p>On top of this, content type may even look for two or more sprites, either through numbering or/and suffixes: <code>sprites/&lt;name&gt;-&lt;i&gt;.png</code> for example <code>sprites/my-hail-heat.png</code> for the <code>heat</code> map used when the turret is shooting, coloring parts of the turret red for a moment.
+<p>Content is going to look for sprites relative to it&rsquo;s own name. <code>content/blocks/my-hail.json</code> has the name <code>my-hail</code> and similarly <code>sprites/my-hail.png</code> has the name <code>my-hail</code> and will be used for that specific block.
 </p>
-<p>Note that you may put your files in any sub-directory of <code>sprites/</code>:
-</p><ul>
-<li> <code>sounds/egg/teleporter/train/wall.png</code>
-</li></ul>
-
-<p>You can find all the vanilla sprites as reference here:
+<p>Content may look for multiple sprites, and this is done by looking for suffixes. <code>my-hail</code> could be a turret and it could look for the suffix <code>&lt;name&gt;-heat</code> and what this means is it&rsquo;ll look for <code>my-hail-heat</code>.
+</p>
+<p>You can find all the vanilla sprites here:
 </p><ul>
 <li> <a href="https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites">https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites</a>
 </li></ul>
 
+<p>Another thing to know about sprites is that they&rsquo;re passed through <em>anti-aliasing filters</em> and what that means is that they may look a little different in game. The turrets specifically have a black border added to them, meaning you must draw them smaller then the image itself.
+</p>
 <hr>
 <a name="Sound"></a>
 <div class="header">
@@ -1129,16 +1128,11 @@ Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previou
 <a name="Sound-1"></a>
 <h3 class="section">1.5 Sound</h3>
 
-<p>Custom sounds can be added through the modding system in the <code>sounds/</code> directory, of which two formats are needed:
+<p>Custom sounds can be added through the modding system by dropping them in the <code>sounds/</code> subdirectory. It doesn&rsquo;t matter where you put them. Two formats are needed:
 </p>
 <ul>
 <li> <code>.ogg</code> required for Desktop/Android
 </li><li> <code>.mp3</code> required for iOS
-</li></ul>
-
-<p>Note that you may put your files in any sub-directory of <code>sounds/</code>:
-</p><ul>
-<li> <code>sounds/egg/teleporter/train/wall.ogg</code>
 </li></ul>
 
 <p>Just like any other assets, you reference them by the stem of your filename(s).
@@ -2241,7 +2235,7 @@ Next: <a href="#Distribution" accesskey="n" rel="next">Distribution</a>, Previou
 <a name="Turrets-1"></a>
 <h3 class="section">2.9 Turrets</h3>
 
-<p>This section is for turret, all turrets shoot <a href="#BulletType">BulletType</a>, this means <a href="#LaserTurret">LaserTurret</a> can shoot <a href="#MissileBulletType">MissileBulletType</a> and Duo can shoot <a href="#LiquidBulletType">LiquidBulletType</a>. 
+<p>This section is for turret types. All turrets shoot <a href="#BulletType">BulletType</a>, and this means <a href="#LiquidTurret">LiquidTurret</a> can shoot <a href="#MissileBulletType">MissileBulletType</a> and <a href="#ItemTurret">ItemTurret</a> can shoot <a href="#LiquidBulletType">LiquidBulletType</a>. 
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Turret" accesskey="1">Turret</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -2501,7 +2495,7 @@ Previous: <a href="#LaserTurret" accesskey="p" rel="prev">LaserTurret</a>, Up: <
 <a name="LiquidTurret-1"></a>
 <h4 class="subsection">2.9.10 LiquidTurret</h4>
 
-<p><a href="#Abstract">Abstract</a> type that extends <a href="#Turret">Turret</a>
+<p>Extends <a href="#Turret">Turret</a>
 </p>
 <table>
 <thead><tr><th>fields</th><th>type</th></tr></thead>
