@@ -1807,6 +1807,9 @@ Modding documentation for Mindustry.
     | configureObjective | [[Objective]]   |            |
     | defaultStartingItems | [[ItemStack]] |            |
     
+    note:
+    The JSON name in ~content/zones/~ must as same as your maps name in ~maps/~ 
+    
 *** Loadout
     Loadout is the blueprint when your core landed.
     
