@@ -906,7 +906,7 @@ Modding documentation for Mindustry: /this is a work in progress./
     | unloadable      | false          |
     
     Sprite suffix:
-      * ~-(0~4)-(0~3)~ Example: [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/conveyors][Conveyors-sprites]]
+      * ~-<0..4>-<0..3>~ Example: [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/conveyors][Conveyors-sprites]]
 *** ArmoredConveyor
     Extends [[Conveyor][Conveyor]]  -A type of conveyor don't accept item coming from side
     
