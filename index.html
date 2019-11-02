@@ -1606,9 +1606,9 @@ Next: <a href="#OverlayFloor" accesskey="n" rel="next">OverlayFloor</a>, Up: <a 
 <tr><td>attributes</td><td><a href="#Attributes">Attributes</a></td><td></td><td>array of affinities to certain things.</td></tr>
 </table>
 
-<p>Sprite lookup name:
+<p>Sprite lookup names:
 </p><ul>
-<li> <code>&lt;name&gt;&lt;1..&gt;.png</code> [[
+<li> <code>&lt;name&gt;&lt;1..&gt;</code>
 </li></ul>
 
 <hr>
@@ -2782,7 +2782,7 @@ Previous: <a href="#OverflowGate" accesskey="p" rel="prev">OverflowGate</a>, Up:
 
 <p>Notes:
 </p><ul>
-<li> range is limited by <code>driverBolt</code>&rsquo;s max range.
+<li> range is limited by <code>driverBolt</code>&rsquo;s max range, which is hard coded, so you cannot change it.
 </li></ul>
 
 <p>Defaults:
@@ -3031,7 +3031,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.12.1 PowerBlock</h4>
 
-<p>Extends <a href="#Block">Block</a> &ndash; Just a simple overwrite of the defaults.
+<p><a href="#Abstract">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -3080,7 +3080,7 @@ Next: <a href="#Battery" accesskey="n" rel="next">Battery</a>, Previous: <a href
 <a name="PowerDistributor-1"></a>
 <h4 class="subsection">2.12.3 PowerDistributor</h4>
 
-<p>Extends <a href="#PowerBlock">PowerBlock</a> &ndash; Just a change of defaults for power distributors.
+<p>Extends <a href="#PowerBlock">PowerBlock</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -3354,7 +3354,7 @@ Next: <a href="#SolidPump" accesskey="n" rel="next">SolidPump</a>, Up: <a href="
 <a name="Drill-1"></a>
 <h4 class="subsection">2.13.1 Drill</h4>
 
-<p>Extends <a href="#Block">Block</a> &ndash; Types that can be placed on ore blocks to extract the ore blocks items.
+<p>Extends <a href="#Block">Block</a> &ndash; Types which can be placed on ore blocks to extract the <a href="#OreBlock">OreBlock</a>&rsquo;s item.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -3570,7 +3570,7 @@ Next: <a href="#CommandCenter" accesskey="n" rel="next">CommandCenter</a>, Previ
 <a name="UnitFactory-1"></a>
 <h4 class="subsection">2.14.2 UnitFactory</h4>
 
-<p>Extends <a href="#Block">block</a> -A block can produce units
+<p>Extends <a href="#Block">block</a> &ndash; A block can produce units
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3605,7 +3605,7 @@ Next: <a href="#MechPad" accesskey="n" rel="next">MechPad</a>, Previous: <a href
 <a name="CommandCenter-1"></a>
 <h4 class="subsection">2.14.3 CommandCenter</h4>
 
-<p>Extends <a href="#Block">Block</a> -a block can issue command to your unit
+<p>Extends <a href="#Block">Block</a> &ndash; A block which can issue commands to your unit.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3633,7 +3633,7 @@ Previous: <a href="#CommandCenter" accesskey="p" rel="prev">CommandCenter</a>, U
 <a name="MechPad-1"></a>
 <h4 class="subsection">2.14.4 MechPad</h4>
 
-<p>Extends <a href="#Block">Block</a> -A block can produce player&rsquo;s mech
+<p>Extends <a href="#Block">Block</a> &ndash; A block which will spawn a player in a mech.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3728,7 +3728,7 @@ Next: <a href="#Unloader" accesskey="n" rel="next">Unloader</a>, Previous: <a hr
 <a name="Vault-1"></a>
 <h4 class="subsection">2.15.3 Vault</h4>
 
-<p>Extends <a href="#StorageBlock">StorageBlock</a> -a type of storage block
+<p>Extends <a href="#StorageBlock">StorageBlock</a> &ndash; A type of storage block
 </p>
 <p>Defaults:
 </p>
@@ -3748,7 +3748,7 @@ Next: <a href="#LaunchPad" accesskey="n" rel="next">LaunchPad</a>, Previous: <a 
 <a name="Unloader-1"></a>
 <h4 class="subsection">2.15.4 Unloader</h4>
 
-<p>Extends <a href="#Block">Block</a> -a block can unload items from storage block and machine
+<p>Extends <a href="#Block">Block</a> &ndash; A block can unload items from storage block and machine
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -4541,11 +4541,12 @@ Next: <a href="#BombBulletType" accesskey="n" rel="next">BombBulletType</a>, Pre
 <a name="ArtilleryBulletType-1"></a>
 <h4 class="subsection">5.1.3 ArtilleryBulletType</h4>
 
+<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
+</p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
 <tr><td>trailEffect</td><td><a href="#Effect">Effect</a></td><td>artilleryTrail</td></tr>
 </table>
-
 
 <p>Defaults:
 </p>
@@ -4553,6 +4554,7 @@ Next: <a href="#BombBulletType" accesskey="n" rel="next">BombBulletType</a>, Pre
 <thead><tr><th>field</th><th>type</th></tr></thead>
 <tr><td>collidesTiles</td><td>false</td></tr>
 <tr><td>collides</td><td>false</td></tr>
+<tr><td>collidesAir</td><td>false</td></tr>
 <tr><td>hitShake</td><td>1</td></tr>
 <tr><td>hitSound</td><td>explosion</td></tr>
 </table>
@@ -4566,6 +4568,8 @@ Next: <a href="#FlakBulletType" accesskey="n" rel="next">FlakBulletType</a>, Pre
 <a name="BombBulletType-1"></a>
 <h4 class="subsection">5.1.4 BombBulletType</h4>
 
+<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
+</p>
 <p>Defaults:
 </p>
 <table>
@@ -4617,7 +4621,7 @@ Next: <a href="#LiquidBulletType" accesskey="n" rel="next">LiquidBulletType</a>,
 <a name="HealBulletType-1"></a>
 <h4 class="subsection">5.1.6 HealBulletType</h4>
 
-<p>Bullets that can heal blocks of the same team as the shooter.
+<p>Extends <a href="#BulletType">BulletType</a> &ndash; Bullets that can heal blocks of the same team as the shooter.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -4644,9 +4648,11 @@ Next: <a href="#MassDriverBolt" accesskey="n" rel="next">MassDriverBolt</a>, Pre
 <a name="LiquidBulletType-1"></a>
 <h4 class="subsection">5.1.7 LiquidBulletType</h4>
 
+<p>Extends <a href="#BulletType">BulletType</a>
+</p>
 <table>
-<thead><tr><th>field</th><th>type</th><th>default</th><th></th></tr></thead>
-<tr><td>liquid</td><td>Liquid</td><td>null</td><td>required field</td></tr>
+<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
+<tr><td>liquid</td><td>Liquid</td><td>null</td><td><strong>[required]</strong></td></tr>
 </table>
 
 <p>Defaults:
@@ -4672,6 +4678,8 @@ Next: <a href="#MissileBulletType" accesskey="n" rel="next">MissileBulletType</a
 <a name="MassDriverBolt-1"></a>
 <h4 class="subsection">5.1.8 MassDriverBolt</h4>
 
+<p>Extends <a href="#BulletType">BulletType</a>
+</p>
 <p>Defaults:
 </p>
 <table>
@@ -4692,6 +4700,8 @@ Previous: <a href="#MassDriverBolt" accesskey="p" rel="prev">MassDriverBolt</a>,
 <a name="MissileBulletType-1"></a>
 <h4 class="subsection">5.1.9 MissileBulletType</h4>
 
+<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
+</p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
 <tr><td>trailColor</td><td><a href="#Color">Color</a></td><td>missileYellowBack</td></tr>
