@@ -2010,59 +2010,70 @@ Modding documentation for Mindustry: /this is a work in progress./ This document
     * ~<name>~ top layer sprite
     * ~<name>-back~ bottom layer sprite
 
-*** ArtilleryBulletType
+**** ArtilleryBulletType
 
-    Extends [[BasicBulletType]]
+     Extends [[BasicBulletType]]
 
-    | field       | type   | default        |
-    |-------------+--------+----------------|
-    | trailEffect | [[Effect][Effect]] | artilleryTrail |
+     | field       | type   | default        |
+     |-------------+--------+----------------|
+     | trailEffect | [[Effect][Effect]] | artilleryTrail |
 
-    Defaults:
+     Defaults:
 
-    | field         | type      |
-    |---------------+-----------|
-    | collidesTiles | false     |
-    | collides      | false     |
-    | collidesAir   | false     |
-    | hitShake      | 1         |
-    | hitSound      | explosion |
+     | field         | type      |
+     |---------------+-----------|
+     | collidesTiles | false     |
+     | collides      | false     |
+     | collidesAir   | false     |
+     | hitShake      | 1         |
+     | hitSound      | explosion |
 
-*** BombBulletType
+**** BombBulletType
 
-    Extends [[BasicBulletType]]
+     Extends [[BasicBulletType]]
 
-    Defaults:
+     Defaults:
 
-    | field         | default   |
-    |---------------+-----------|
-    | collidesTiles | false     |
-    | collides      | false     |
-    | bulletShrink  | 0.7       |
-    | lifetime      | 30        |
-    | drag          | 0.05      |
-    | keepVelocity  | false     |
-    | collidesAir   | false     |
-    | hitSound      | explosion |
+     | field         | default   |
+     |---------------+-----------|
+     | collidesTiles | false     |
+     | collides      | false     |
+     | bulletShrink  | 0.7       |
+     | lifetime      | 30        |
+     | drag          | 0.05      |
+     | keepVelocity  | false     |
+     | collidesAir   | false     |
+     | hitSound      | explosion |
 
-*** FlakBulletType
+**** FlakBulletType
 
-    [[Abstract]] type which extends [[BasicBulletType]] -- Bullets that explode near enemies.
+     Extends [[BasicBulletType]] 
 
-    | field        | type  | default |
-    |--------------+-------+---------|
-    |              |       |         |
-    | explodeRange | float |      30 |
+     Bullets that explode near enemies.
 
-    Defaults:
+     | field        | type  | default |
+     |--------------+-------+---------|
+     |              |       |         |
+     | explodeRange | float |      30 |
 
-    | field              |             type |
-    |--------------------+------------------|
-    | splashDamage       |               15 |
-    | splashDamageRadius |               34 |
-    | hitEffect          | flakExplosionBig |
-    | bulletWidth        |                8 |
-    | bulletHeight       |               10 |
+     Defaults:
+
+     | field              |             type |
+     |--------------------+------------------|
+     | splashDamage       |               15 |
+     | splashDamageRadius |               34 |
+     | hitEffect          | flakExplosionBig |
+     | bulletWidth        |                8 |
+     | bulletHeight       |               10 |
+**** MissileBulletType
+
+     Extends [[BasicBulletType]]
+
+     | field      | type  |           default |
+     |------------+-------+-------------------|
+     | trailColor | [[Color][Color]] | missileYellowBack |
+     | weaveScale | float |                 0 |
+     | weaveMag   | float |                -1 |
 
 *** HealBulletType
 
@@ -2116,16 +2127,6 @@ Modding documentation for Mindustry: /this is a work in progress./ This document
     | despawnEffect | smeltsmoke   |
     | hitEffect     | hitBulletBig |
     | drag          | 0.005        |
-
-*** MissileBulletType
-
-    Extends [[BasicBulletType]]
-
-    | field      | type  |           default |
-    |------------+-------+-------------------|
-    | trailColor | [[Color][Color]] | missileYellowBack |
-    | weaveScale | float |                 0 |
-    | weaveMag   | float |                -1 |
 
 ** BaseUnit
 
