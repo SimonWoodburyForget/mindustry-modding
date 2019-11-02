@@ -11,6 +11,10 @@
 
 #+TEXINFO_FILENAME: index
 
+#+TEXINFO_DIR_CATEGORY: modding guide
+#+TEXINFO_DIR_TITLE: modding guide: (mindustry)
+#+TEXINFO_DIR_DESC: for build v99
+
 #+TEXINFO_HEADER: Modding documentation for Mindustry v99 (81)
 
 :END:
