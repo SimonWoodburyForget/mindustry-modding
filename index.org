@@ -366,8 +366,8 @@ Modding documentation for Mindustry: /this is a work in progress./
     | updateEffect      | [[Effect][Effect]]       |    none | effect displayed when randomly updated. |
     | attributes        | [[Attributes][Attributes]]   |         | array of affinities to certain things. |
 
-    Sprite lookup name:
-    - ~<name><1..>.png~ [[
+    Sprite lookup names:
+    - ~<name><1..>~
 
 *** OverlayFloor
 
@@ -1014,7 +1014,7 @@ Modding documentation for Mindustry: /this is a work in progress./
     | shake         | float  |              3 |
 
     Notes:
-    * range is limited by ~driverBolt~'s max range.
+    * range is limited by ~driverBolt~'s max range, which is hard coded, so you cannot change it.
 
     Defaults:
     | field        | default |
@@ -1110,7 +1110,7 @@ Modding documentation for Mindustry: /this is a work in progress./
     | group         | liquids |
 ** Power
 *** PowerBlock
-    Extends [[Block][Block]] -- Just a simple overwrite of the defaults.
+    [[Abstract]] type which extends [[Block][Block]]
 
     Defaults:
 
@@ -1140,7 +1140,7 @@ Modding documentation for Mindustry: /this is a work in progress./
     | outputsPower  | false   |
 
 *** PowerDistributor
-    Extends [[PowerBlock][PowerBlock]] -- Just a change of defaults for power distributors.
+    Extends [[PowerBlock][PowerBlock]]
 
     Defaults:
     | field         | default |
@@ -1284,7 +1284,7 @@ Modding documentation for Mindustry: /this is a work in progress./
     * ~<name>-plasma-<i>~ plasma regions, where ~i~ is ~0~ to ~plasmas - 1~.
 ** Production
 *** Drill
-    Extends [[Block][Block]] -- Types that can be placed on ore blocks to extract the ore blocks items.
+    Extends [[Block][Block]] -- Types which can be placed on ore blocks to extract the [[OreBlock]]'s item.
 
     | field                | type    | default        | notes      |
     |----------------------+---------+----------------+------------|
@@ -1412,14 +1412,14 @@ Modding documentation for Mindustry: /this is a work in progress./
     * ~<name>-base~
 
 *** UnitFactory
-    Extends [[Block][block]] -A block can produce units
+    Extends [[Block][block]] -- A block can produce units
     
-    | field          | type                   | default |
-    |----------------+------------------------+---------|
-    | produceTime    | float                  | 1000    |
-    | launchVelocity | float                  | 0       |
-    | maxSpawn       | int                    | 4       |
-    | unitType       | [[UnitType][UnitType]] | none    |
+    | field          | type     | default |
+    |----------------+----------+---------|
+    | produceTime    | float    |    1000 |
+    | launchVelocity | float    |       0 |
+    | maxSpawn       | int      |       4 |
+    | unitType       | [[UnitType][UnitType]] |    none |
     
     Defaults:
     
@@ -1435,12 +1435,12 @@ Modding documentation for Mindustry: /this is a work in progress./
     * ~-top~
     
 *** CommandCenter
-    Extends [[Block][Block]] -a block can issue command to your unit
+    Extends [[Block][Block]] -- A block which can issue commands to your unit.
     
-    | field       | type               | default     |
-    |-------------+--------------------+-------------|
-    | topColor    | [[Color][Color]]   | command     |
-    | bottomColor | [[Color][Color]]   | 5e5e5e      |
+    | field       | type   | default     |
+    |-------------+--------+-------------|
+    | topColor    | [[Color][Color]]  | command     |
+    | bottomColor | [[Color][Color]]  | 5e5e5e      |
     | effect      | [[Effect][Effect]] | commandSend |
     
     Defaults:
@@ -1453,12 +1453,12 @@ Modding documentation for Mindustry: /this is a work in progress./
     | configurable | true         |
     
 *** MechPad
-    Extends [[Block][Block]] -A block can produce player's mech
+    Extends [[Block][Block]] -- A block which will spawn a player in a mech.
     
-    | field     | type           | default |
-    |-----------+----------------+---------|
-    | mech      | [[Mech][Mech]] | none    |
-    | buildTime | float          | 60 * 5  |
+    | field     | type  | default |
+    |-----------+-------+---------|
+    | mech      | [[Mech][Mech]]  | none    |
+    | buildTime | float | 60 * 5  |
     
     Defaults:
     
@@ -1500,7 +1500,8 @@ Modding documentation for Mindustry: /this is a work in progress./
     | layer             | overlay    |
 
 *** Vault
-    Extends [[StorageBlock][StorageBlock]] -a type of storage block
+
+    Extends [[StorageBlock][StorageBlock]] -- A type of storage block
     
     Defaults:
     
@@ -1511,7 +1512,8 @@ Modding documentation for Mindustry: /this is a work in progress./
     | update            | false      |
     
 *** Unloader
-    Extends [[Block][Block]] -a block can unload items from storage block and machine
+
+    Extends [[Block][Block]] -- A block can unload items from storage block and machine
     
     | field | type  | default |
     |-------+-------+---------|
@@ -1519,13 +1521,13 @@ Modding documentation for Mindustry: /this is a work in progress./
     
     Defaults:
     
-    | field             | default    |
-    |-------------------+------------|
-    | solid             | true       |
-    | health            | 70         |
-    | update            | false      |
-    | hasItems          | true       |
-    | confugurable      | true       |
+    | field        | default |
+    |--------------+---------|
+    | solid        | true    |
+    | health       | 70      |
+    | update       | false   |
+    | hasItems     | true    |
+    | confugurable | true    |
     
     Sprite suffix:
     * ~-center~
@@ -1978,37 +1980,41 @@ Modding documentation for Mindustry: /this is a work in progress./
 
     Extends [[BulletType]] -- An extended BulletType for most ammo-based bullets shot from turrets and units. It's purpose is mostly to style the bullet.
 
- | field        | type   |          default |            |
- |--------------+--------+------------------+------------|
- |              |        |                  | <10>       |
- | backColor    | [[Color][Color]]  | bulletYellowBack | Color of ~<name>-back~ sprite. |
- | frontColor   | [[Color][Color]]  |     bulletYellow | Color of ~<name>~ sprite. |
- | bulletWidth  | float  |                5 |            |
- | bulletHeight | float  |                7 |            |
- | bulletShrink | float  |              0.5 |            |
- | bulletSprite | String |                  | Mapping sprite used to make the shape of the bullet. |
+    | field        | type   |          default |            |
+    |--------------+--------+------------------+------------|
+    |              |        |                  | <10>       |
+    | backColor    | [[Color][Color]]  | bulletYellowBack | Color of ~<name>-back~ sprite. |
+    | frontColor   | [[Color][Color]]  |     bulletYellow | Color of ~<name>~ sprite. |
+    | bulletWidth  | float  |                5 |            |
+    | bulletHeight | float  |                7 |            |
+    | bulletShrink | float  |              0.5 |            |
+    | bulletSprite | String |                  | Mapping sprite used to make the shape of the bullet. |
 
- Sprites:
- * ~<name>~ top layer sprite
- * ~<name>-back~ bottom layer sprite
+    Sprites:
+    * ~<name>~ top layer sprite
+    * ~<name>-back~ bottom layer sprite
 
 *** ArtilleryBulletType
 
- | field       | type   | default        |
- |-------------+--------+----------------|
- | trailEffect | [[Effect][Effect]]  | artilleryTrail |
+    Extends [[BasicBulletType]]
 
+    | field       | type   | default        |
+    |-------------+--------+----------------|
+    | trailEffect | [[Effect][Effect]] | artilleryTrail |
 
- Defaults:
+    Defaults:
 
- | field         | type      |
- |---------------+-----------|
- | collidesTiles | false     |
- | collides      | false     |
- | hitShake      | 1         |
- | hitSound      | explosion |
+    | field         | type      |
+    |---------------+-----------|
+    | collidesTiles | false     |
+    | collides      | false     |
+    | collidesAir   | false     |
+    | hitShake      | 1         |
+    | hitSound      | explosion |
 
 *** BombBulletType
+
+    Extends [[BasicBulletType]]
 
     Defaults:
 
@@ -2044,7 +2050,7 @@ Modding documentation for Mindustry: /this is a work in progress./
 
 *** HealBulletType
 
-    Bullets that can heal blocks of the same team as the shooter.
+    Extends [[BulletType]] -- Bullets that can heal blocks of the same team as the shooter.
     
     | field       | type  | default |
     |-------------+-------+---------|
@@ -2062,9 +2068,11 @@ Modding documentation for Mindustry: /this is a work in progress./
 
 *** LiquidBulletType
 
-    | field  | type   | default |                |
-    |--------+--------+---------+----------------|
-    | liquid | Liquid | null    | required field |
+    Extends [[BulletType]]
+
+    | field  | type   | default | notes        |
+    |--------+--------+---------+--------------|
+    | liquid | Liquid | null    | *[required]* |
 
     Defaults:
 
@@ -2081,6 +2089,8 @@ Modding documentation for Mindustry: /this is a work in progress./
 
 *** MassDriverBolt
 
+    Extends [[BulletType]]
+
     Defaults:
 
     | field         | default      |
@@ -2093,11 +2103,14 @@ Modding documentation for Mindustry: /this is a work in progress./
 
 *** MissileBulletType
 
+    Extends [[BasicBulletType]]
+
     | field      | type  |           default |
     |------------+-------+-------------------|
     | trailColor | [[Color][Color]] | missileYellowBack |
     | weaveScale | float |                 0 |
     | weaveMag   | float |                -1 |
+
 ** BaseUnit
 
    There are a few useful base unit types:
