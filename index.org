@@ -25,6 +25,9 @@
   You can add custom sprites and sounds; sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them.
 
 ** Directory Structure
+   :PROPERTIES:
+   :DESCRIPTION: how things should look.
+   :END:
 
    Your project directory should look something like this:
    
@@ -44,6 +47,10 @@
    * Windows: =%appdata%/Mindustry/mods/=
 
 ** ~mod.json~
+   :PROPERTIES:
+   :DESCRIPTION: the project configuration file.
+   :END:
+
 
    At the root of your project directory, you must have a ~mod.json~ which defines the basic metadata for your project.
 
@@ -63,6 +70,9 @@
    * ~dependencies~ is optional; if you want to know more about that, go to the [[Dependencies][dependencies]] section.
 
 ** Content
+   :PROPERTIES:
+   :DESCRIPTION: game content configuration directory
+   :END:
 
    At the root of your project directory you can have a ~content/~ directory, this is where all the JSON data goes for your content types, and in this directory you have subdirectories for the various types of units, these are the current common ones:
 
@@ -76,6 +86,9 @@
    This is important, because it's how Mindustry will know which types to lookup. -- How you name your files is also important as the stem ~name~ of your path ~content/blocks/<name>.json~ is going to be used to reference it.
 
 ** Sprites
+   :PROPERTIES:
+   :DESCRIPTION: image files and how to name them
+   :END:
 
    Custom sprites can be added by simply dropping them in the ~sprites/~ subdirectory. The content parser will look through it recursively. One format is needed.
 
@@ -89,13 +102,16 @@
    Another thing to know about sprites is that they're passed through /anti-aliasing filters/ and what that means is that they may look a little different in game. The turrets specifically have a black border added to them, meaning you must draw them smaller then the image itself.
 
 ** Sound
+   :PROPERTIES:
+   :DESCRIPTION: sound files and where to put them
+   :END:
 
   Custom sounds can be added through the modding system by dropping them in the ~sounds/~ subdirectory. It doesn't matter where you put them. Two formats are needed:
 
   * ~.ogg~ required for Desktop/Android
   * ~.mp3~ required for iOS
 
-  Just like any other assets, you reference them by the stem of your filename(s).
+  Just like any other assets, you reference them by the stem of your filename(s): ~pewpew.ogg~ and ~pewpew.mp3~ is referenced with ~pewpew~ from a field of type ~Sound~.
 
   Here's a list of built-in sounds:
   * ~artillery~
@@ -142,6 +158,9 @@
   * ~windowHide~
 
 ** Dependencies
+   :PROPERTIES:
+   :DESCRIPTION: mods extending mods
+   :END:
 
    You can add dependencies to your mod by simple adding other mods name in your ~mod.json~:
 
@@ -154,7 +173,7 @@
    }
    #+END_SRC
 
-   The name of dependencies are lower cased and spaces are replaced with ~-~ hyphens, for example ~Other MOD NamE~ becomes ~other-mod-name~.
+   The name of dependencies are lower-cased and spaces are replaced with ~-~ hyphens, for example ~Other MOD NamE~ becomes ~other-mod-name~.
 
    To reference the other mods assets, you must prefix the asset with the other mods name:
 
@@ -163,6 +182,9 @@
    * ~not-a-mod-angry-dagger~ would reference ~angry-dagger~ in ~not-a-mod~
 
 ** Types
+   :PROPERTIES:
+   :DESCRIPTION: the things to know about types
+   :END:
 
    Types have numerous fields, but the important one is ~type~; this is a special field used by the content parser, that changes which type your object is. /No a ~Router~ type can't be a ~Turret~ type/, they have completely different methods and fields.
 
@@ -187,9 +209,9 @@
 
    Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ is ~BulletType~ so you can use ~MissileBulletType~, because ~MissileBulletType~ extends ~BulletType~.
 
-** Abstract
+*** Abstract
 
-   All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself.
+    All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you'll probably get an /initialization exception/ of some kind.
 
 
 * World
