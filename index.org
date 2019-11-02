@@ -267,6 +267,7 @@ Modding documentation for Mindustry.
    }
    #+END_SRC
 *** Consume
+
     An abstract base that defines a type of resource that a block can consume.
 
     | field    | type    | default | notes      |
@@ -284,7 +285,8 @@ Modding documentation for Mindustry.
     | items | [[ItemStack][ItemStack]] |
 
 *** ConsumeLiquidBase
-    Extends [[Consume][Consume]]
+
+    [[Abstract]] type which extends [[Consume][Consume]]
 
     | field      | type  | default | notes      |
     |------------+-------+---------+------------|
@@ -317,22 +319,21 @@ Modding documentation for Mindustry.
     Notes:
     * ~usage~ might influence efficiency or load a buffer.   
 ** BlockStorage
-   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
+   [[Abstract]] type that extends [[UnlockableContent and MappableContent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
 
-   | field         | type      | default | notes      |
-   |---------------+-----------+---------+------------|
-   |               |           |     <r> | <10>       |
-   | hasItems      | boolean   |         |            |
-   | hasLiquids    | boolean   |         |            |
-   | hasPower      | boolean   |         |            |
-   | outputsLiquid | boolean   |   false |            |
-   | consumesPower | boolean   |    true |            |
-   | outputsPower  | bolean    |   false |            |
-   | itemCapacity  | int       |      10 |            |
-   | item          | float     |      10 |            |
-   | consumes      | [[Consumers][Consumers]] |         |            |
-
-
+   | field          | type      | default |
+   |----------------+-----------+---------|
+   |                |           |     <r> |
+   | hasItems       | boolean   |         |
+   | hasLiquids     | boolean   |         |
+   | hasPower       | boolean   |         |
+   | outputsLiquid  | boolean   |   false |
+   | consumesPower  | boolean   |    true |
+   | outputsPower   | bolean    |   false |
+   | itemCapacity   | int       |      10 |
+   | liquidCapacity | float     |      10 |
+   | item           | float     |      10 |
+   | consumes       | [[Consumers][Consumers]] |         |
 
 ** Environment
 
@@ -1283,7 +1284,7 @@ Modding documentation for Mindustry.
 *** StorageBlock
 
     [[Abstract]] type which extends [[Block]]
-
+    
     Defaults:
     | field    | default |
     |----------+---------|
