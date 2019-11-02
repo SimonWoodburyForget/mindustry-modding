@@ -880,8 +880,32 @@ Modding documentation for Mindustry.
     | activeSound | spray   |
 
 ** Distribution
-*** TODO Conveyor
-*** TODO ArmoredConveyor
+*** Conveyor
+    Extends [[Block][Block]]
+    
+    | field | type  | default |
+    |-------+-----+---------|
+    | speed | float | 0       |
+    
+    Default:
+    
+    | field           | default        |
+    |-----------------+----------------|
+    | rotate          | true           |
+    | update          | true           |
+    | layer           | overlay        |
+    | group           | transportation |
+    | hasItems        | true           |
+    | itemCapacity    | 4              |
+    | idleSound       | conveyor       |
+    | idleSoundVolume | 0.004          |
+    | unloadable      | false          |
+    
+    Sprite suffix:
+      * ~-(0~4)-(0~3)~ Example: [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/conveyors][Conveyors-sprites]]
+*** ArmoredConveyor
+    Extends [[Conveyor][Conveyor]]  -A type of conveyor don't accept item coming from side
+    
 *** Junction
     Extends [[Block][Block]]
 
@@ -969,7 +993,23 @@ Modding documentation for Mindustry.
     | configurable    | true           |
     | unloadable      | false          |
 
-*** TODO OverflowGate
+*** OverflowGate
+    Extends [[Block][Block]]
+    
+    | field | type  | default |
+    |-------+-------+---------|
+    | speed | float | 1       |
+    
+    Defaults:
+    
+    | field      | default        |
+    |------------+----------------|
+    | hasItems   | true           |
+    | soild      | true           |
+    | update     | true           |
+    | group      | transportation |
+    | unloadable | false          |
+    
 *** MassDriver
     Extends [[Block][Block]] -- Uses ~driverBolt~ to transfer items. 
 
