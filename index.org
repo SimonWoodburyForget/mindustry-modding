@@ -11,9 +11,8 @@
 
 #+TEXINFO_FILENAME: index
 
-#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (v5)
+#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (81)
 
-#+TEXINFO_DIR_TITLE: 
 :END:
 
 * Overview
