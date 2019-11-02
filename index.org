@@ -706,7 +706,7 @@ Modding documentation for Mindustry: /this is a work in progress./
     | layer        | overlay |
 ** Turrets
 
-   This section is for turret, all turrets shoot [[BulletType]], this means [[LaserTurret]] can shoot [[MissileBulletType]] and Duo can shoot [[LiquidBulletType]]. 
+   This section is for turret types. All turrets shoot [[BulletType]], and this means [[LiquidTurret]] can shoot [[MissileBulletType]] and [[ItemTurret]] can shoot [[LiquidBulletType]]. 
 
 *** Turret
 
