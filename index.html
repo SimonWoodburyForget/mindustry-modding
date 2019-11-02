@@ -377,7 +377,8 @@ body
 
 <body lang="en">
 <h1 class="settitle" align="center">Mindustry Modding Guide</h1>
-
+<p>Modding documentation for Mindustry v99 (81)
+</p>
 
 <a name="SEC_Contents"></a>
 <h2 class="contents-heading">Table of Contents</h2>
@@ -549,17 +550,19 @@ body
   </ul></li>
   <li><a name="toc-Entities-1" href="#Entities">5 Entities</a>
   <ul class="no-bullet">
-    <li><a name="toc-BulletTypes-1" href="#BulletTypes">5.1 BulletTypes</a>
+    <li><a name="toc-BulletType-1" href="#BulletType">5.1 BulletType</a>
     <ul class="no-bullet">
-      <li><a name="toc-BulletType-1" href="#BulletType">5.1.1 BulletType</a></li>
-      <li><a name="toc-BasicBulletType-1" href="#BasicBulletType">5.1.2 BasicBulletType</a></li>
-      <li><a name="toc-ArtilleryBulletType-1" href="#ArtilleryBulletType">5.1.3 ArtilleryBulletType</a></li>
-      <li><a name="toc-BombBulletType-1" href="#BombBulletType">5.1.4 BombBulletType</a></li>
-      <li><a name="toc-FlakBulletType-1" href="#FlakBulletType">5.1.5 FlakBulletType</a></li>
-      <li><a name="toc-HealBulletType-1" href="#HealBulletType">5.1.6 HealBulletType</a></li>
-      <li><a name="toc-LiquidBulletType-1" href="#LiquidBulletType">5.1.7 LiquidBulletType</a></li>
-      <li><a name="toc-MassDriverBolt-1" href="#MassDriverBolt">5.1.8 MassDriverBolt</a></li>
-      <li><a name="toc-MissileBulletType-1" href="#MissileBulletType">5.1.9 MissileBulletType</a></li>
+      <li><a name="toc-BasicBulletType-1" href="#BasicBulletType">5.1.1 BasicBulletType</a>
+      <ul class="no-bullet">
+        <li><a name="toc-ArtilleryBulletType-1" href="#ArtilleryBulletType">ArtilleryBulletType</a></li>
+        <li><a name="toc-BombBulletType-1" href="#BombBulletType">BombBulletType</a></li>
+        <li><a name="toc-FlakBulletType-1" href="#FlakBulletType">FlakBulletType</a></li>
+        <li><a name="toc-MissileBulletType-1" href="#MissileBulletType">MissileBulletType</a></li>
+      </ul></li>
+      <li><a name="toc-HealBulletType-1" href="#HealBulletType">5.1.2 HealBulletType</a></li>
+      <li><a name="toc-LiquidBulletType-1" href="#LiquidBulletType">5.1.3 LiquidBulletType</a></li>
+      <li><a name="toc-MassDriverBolt-1" href="#MassDriverBolt">5.1.4 MassDriverBolt</a></li>
+      <li><a name="toc-Built_002din-Bullets-1" href="#Built_002din-Bullets">5.1.5 Built-in Bullets</a></li>
     </ul></li>
     <li><a name="toc-BaseUnit-1" href="#BaseUnit">5.2 BaseUnit</a></li>
     <li><a name="toc-Effect-1" href="#Effect">5.3 Effect</a></li>
@@ -586,22 +589,20 @@ Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="di
 <a name="Mindustry-Modding-Guide"></a>
 <h1 class="top">Mindustry Modding Guide</h1>
 
-<p>Modding documentation for Mindustry: <em>this is a work in progress.</em> This documentation is being written for bleeding edge.
-</p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Overview" accesskey="1">Overview</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Overview" accesskey="1">Overview</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the things you may not know.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#World" accesskey="2">World</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#World" accesskey="2">World</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the universe and everything in it.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Type" accesskey="3">Type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Type" accesskey="3">Type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the building blocks of the universe.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Graphics" accesskey="4">Graphics</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Graphics" accesskey="4">Graphics</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the rendering specific stuff.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Entities" accesskey="5">Entities</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Entities" accesskey="5">Entities</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the things that exists as themselves.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Game" accesskey="6">Game</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Game" accesskey="6">Game</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the rules and goals of it all.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Other" accesskey="7">Other</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Other" accesskey="7">Other</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">...
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -938,7 +939,7 @@ Graphics
 
 Entities
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#BulletTypes">BulletTypes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#BulletType">BulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#BaseUnit">BaseUnit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -948,17 +949,9 @@ Entities
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-BulletTypes
+BulletType
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#BulletType">BulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#BasicBulletType">BasicBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#ArtilleryBulletType">ArtilleryBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#BombBulletType">BombBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#FlakBulletType">FlakBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#BasicBulletType">BasicBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#HealBulletType">HealBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -966,7 +959,7 @@ BulletTypes
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#MassDriverBolt">MassDriverBolt</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MissileBulletType">MissileBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Built_002din-Bullets">Built-in Bullets</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -4380,7 +4373,7 @@ Next: <a href="#Game" accesskey="n" rel="next">Game</a>, Previous: <a href="#Gra
 <h2 class="chapter">5 Entities</h2>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#BulletTypes" accesskey="1">BulletTypes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#BulletType" accesskey="1">BulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#BaseUnit" accesskey="2">BaseUnit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -4391,52 +4384,20 @@ Next: <a href="#Game" accesskey="n" rel="next">Game</a>, Previous: <a href="#Gra
 </table>
 
 <hr>
-<a name="BulletTypes"></a>
+<a name="BulletType"></a>
 <div class="header">
 <p>
 Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#Entities" accesskey="u" rel="up">Entities</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="BulletTypes-1"></a>
-<h3 class="section">5.1 BulletTypes</h3>
+<a name="BulletType-1"></a>
+<h3 class="section">5.1 BulletType</h3>
 
-<p>Bullet is the type typically used to cause damage. It doesn&rsquo;t actually have to be a bullet at all. There are two major categories of bullet types:
+<p><a href="#Abstract">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
 </p><ul>
 <li> <a href="#BasicBulletType">BasicBulletType</a>
 </li><li> <em>everything else</em>
 </li></ul>
 
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#BulletType" accesskey="1">BulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#BasicBulletType" accesskey="2">BasicBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#ArtilleryBulletType" accesskey="3">ArtilleryBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#BombBulletType" accesskey="4">BombBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#FlakBulletType" accesskey="5">FlakBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#HealBulletType" accesskey="6">HealBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#LiquidBulletType" accesskey="7">LiquidBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MassDriverBolt" accesskey="8">MassDriverBolt</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MissileBulletType" accesskey="9">MissileBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr>
-<a name="BulletType"></a>
-<div class="header">
-<p>
-Next: <a href="#BasicBulletType" accesskey="n" rel="next">BasicBulletType</a>, Up: <a href="#BulletTypes" accesskey="u" rel="up">BulletTypes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="BulletType-1"></a>
-<h4 class="subsection">5.1.1 BulletType</h4>
-
-<p><a href="#Abstract">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; Bullet can either be an object or a string, where a string would be reusing a built-in one and an object would be making a custom one.
-</p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>lifetime</td><td>float</td><td></td><td>amount of ticks it will lasts</td></tr>
@@ -4480,8 +4441,246 @@ Next: <a href="#BasicBulletType" accesskey="n" rel="next">BasicBulletType</a>, U
 <tr><td>hitShake</td><td>float</td><td>0</td><td></td></tr>
 </table>
 
-<p>Built-in bullets:
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#BasicBulletType" accesskey="1">BasicBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#HealBulletType" accesskey="2">HealBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#LiquidBulletType" accesskey="3">LiquidBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#MassDriverBolt" accesskey="4">MassDriverBolt</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Built_002din-Bullets" accesskey="5">Built-in Bullets</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="BasicBulletType"></a>
+<div class="header">
+<p>
+Next: <a href="#HealBulletType" accesskey="n" rel="next">HealBulletType</a>, Up: <a href="#BulletType" accesskey="u" rel="up">BulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="BasicBulletType-1"></a>
+<h4 class="subsection">5.1.1 BasicBulletType</h4>
+
+<p>Extends <a href="#BulletType">BulletType</a> &ndash; This type is special in it allows you to set colors and sprites.
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th><th></th></tr></thead>
+<tr><td>backColor</td><td><a href="#Color">Color</a></td><td>bulletYellowBack</td><td>Color of <code>&lt;name&gt;-back</code> sprite.</td></tr>
+<tr><td>frontColor</td><td><a href="#Color">Color</a></td><td>bulletYellow</td><td>Color of <code>&lt;name&gt;</code> sprite.</td></tr>
+<tr><td>bulletWidth</td><td>float</td><td>5</td><td></td></tr>
+<tr><td>bulletHeight</td><td>float</td><td>7</td><td></td></tr>
+<tr><td>bulletShrink</td><td>float</td><td>0.5</td><td></td></tr>
+<tr><td>bulletSprite</td><td>String</td><td></td><td>Mapping sprite used to make the shape of the bullet.</td></tr>
+</table>
+
+<p>Sprites:
 </p><ul>
+<li> <code>&lt;name&gt;</code> top layer sprite
+</li><li> <code>&lt;name&gt;-back</code> bottom layer sprite
+</li></ul>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#ArtilleryBulletType" accesskey="1">ArtilleryBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#BombBulletType" accesskey="2">BombBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#FlakBulletType" accesskey="3">FlakBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#MissileBulletType" accesskey="4">MissileBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="ArtilleryBulletType"></a>
+<div class="header">
+<p>
+Next: <a href="#BombBulletType" accesskey="n" rel="next">BombBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="ArtilleryBulletType-1"></a>
+<h4 class="unnumberedsubsubsec">ArtilleryBulletType</h4>
+
+<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
+<tr><td>trailEffect</td><td><a href="#Effect">Effect</a></td><td>artilleryTrail</td></tr>
+</table>
+
+<p>Defaults:
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th></tr></thead>
+<tr><td>collidesTiles</td><td>false</td></tr>
+<tr><td>collides</td><td>false</td></tr>
+<tr><td>collidesAir</td><td>false</td></tr>
+<tr><td>hitShake</td><td>1</td></tr>
+<tr><td>hitSound</td><td>explosion</td></tr>
+</table>
+
+<hr>
+<a name="BombBulletType"></a>
+<div class="header">
+<p>
+Next: <a href="#FlakBulletType" accesskey="n" rel="next">FlakBulletType</a>, Previous: <a href="#ArtilleryBulletType" accesskey="p" rel="prev">ArtilleryBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="BombBulletType-1"></a>
+<h4 class="unnumberedsubsubsec">BombBulletType</h4>
+
+<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
+</p>
+<p>Defaults:
+</p>
+<table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>collidesTiles</td><td>false</td></tr>
+<tr><td>collides</td><td>false</td></tr>
+<tr><td>bulletShrink</td><td>0.7</td></tr>
+<tr><td>lifetime</td><td>30</td></tr>
+<tr><td>drag</td><td>0.05</td></tr>
+<tr><td>keepVelocity</td><td>false</td></tr>
+<tr><td>collidesAir</td><td>false</td></tr>
+<tr><td>hitSound</td><td>explosion</td></tr>
+</table>
+
+<hr>
+<a name="FlakBulletType"></a>
+<div class="header">
+<p>
+Next: <a href="#MissileBulletType" accesskey="n" rel="next">MissileBulletType</a>, Previous: <a href="#BombBulletType" accesskey="p" rel="prev">BombBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="FlakBulletType-1"></a>
+<h4 class="unnumberedsubsubsec">FlakBulletType</h4>
+
+<p>Extends <a href="#BasicBulletType">BasicBulletType</a> 
+</p>
+<p>Bullets that explode near enemies.
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
+<tr><td></td><td></td><td></td></tr>
+<tr><td>explodeRange</td><td>float</td><td>30</td></tr>
+</table>
+
+<p>Defaults:
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th></tr></thead>
+<tr><td>splashDamage</td><td>15</td></tr>
+<tr><td>splashDamageRadius</td><td>34</td></tr>
+<tr><td>hitEffect</td><td>flakExplosionBig</td></tr>
+<tr><td>bulletWidth</td><td>8</td></tr>
+<tr><td>bulletHeight</td><td>10</td></tr>
+</table>
+
+<hr>
+<a name="MissileBulletType"></a>
+<div class="header">
+<p>
+Previous: <a href="#FlakBulletType" accesskey="p" rel="prev">FlakBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="MissileBulletType-1"></a>
+<h4 class="unnumberedsubsubsec">MissileBulletType</h4>
+
+<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
+<tr><td>trailColor</td><td><a href="#Color">Color</a></td><td>missileYellowBack</td></tr>
+<tr><td>weaveScale</td><td>float</td><td>0</td></tr>
+<tr><td>weaveMag</td><td>float</td><td>-1</td></tr>
+</table>
+
+<hr>
+<a name="HealBulletType"></a>
+<div class="header">
+<p>
+Next: <a href="#LiquidBulletType" accesskey="n" rel="next">LiquidBulletType</a>, Previous: <a href="#BasicBulletType" accesskey="p" rel="prev">BasicBulletType</a>, Up: <a href="#BulletType" accesskey="u" rel="up">BulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="HealBulletType-1"></a>
+<h4 class="subsection">5.1.2 HealBulletType</h4>
+
+<p>Extends <a href="#BulletType">BulletType</a> &ndash; Bullets that can heal blocks of the same team as the shooter.
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
+<tr><td>healPercent</td><td>float</td><td>3</td></tr>
+</table>
+
+<p>Defaults:
+</p>
+<table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>shootEffect</td><td>shootHeal</td></tr>
+<tr><td>smokeEffect</td><td>hitLaser</td></tr>
+<tr><td>hitEffect</td><td>hitLaser</td></tr>
+<tr><td>despawnEffect</td><td>hitLaser</td></tr>
+<tr><td>collidesTeam</td><td>true</td></tr>
+</table>
+
+<hr>
+<a name="LiquidBulletType"></a>
+<div class="header">
+<p>
+Next: <a href="#MassDriverBolt" accesskey="n" rel="next">MassDriverBolt</a>, Previous: <a href="#HealBulletType" accesskey="p" rel="prev">HealBulletType</a>, Up: <a href="#BulletType" accesskey="u" rel="up">BulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="LiquidBulletType-1"></a>
+<h4 class="subsection">5.1.3 LiquidBulletType</h4>
+
+<p>Extends <a href="#BulletType">BulletType</a>
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
+<tr><td>liquid</td><td>Liquid</td><td>null</td><td><strong>[required]</strong></td></tr>
+</table>
+
+<p>Defaults:
+</p>
+<table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>lifetime</td><td>74</td></tr>
+<tr><td>statusDuration</td><td>90</td></tr>
+<tr><td>despawnEffect</td><td>none</td></tr>
+<tr><td>hitEffect</td><td>hitLiquid</td></tr>
+<tr><td>smokeEffect</td><td>none</td></tr>
+<tr><td>shootEffect</td><td>none</td></tr>
+<tr><td>drag</td><td>0.009</td></tr>
+<tr><td>knockback</td><td>0.55</td></tr>
+</table>
+
+<hr>
+<a name="MassDriverBolt"></a>
+<div class="header">
+<p>
+Next: <a href="#Built_002din-Bullets" accesskey="n" rel="next">Built-in Bullets</a>, Previous: <a href="#LiquidBulletType" accesskey="p" rel="prev">LiquidBulletType</a>, Up: <a href="#BulletType" accesskey="u" rel="up">BulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="MassDriverBolt-1"></a>
+<h4 class="subsection">5.1.4 MassDriverBolt</h4>
+
+<p>Extends <a href="#BulletType">BulletType</a>
+</p>
+<p>Defaults:
+</p>
+<table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>collidesTiles</td><td>false</td></tr>
+<tr><td>lifetime</td><td>200</td></tr>
+<tr><td>despawnEffect</td><td>smeltsmoke</td></tr>
+<tr><td>hitEffect</td><td>hitBulletBig</td></tr>
+<tr><td>drag</td><td>0.005</td></tr>
+</table>
+
+<hr>
+<a name="Built_002din-Bullets"></a>
+<div class="header">
+<p>
+Previous: <a href="#MassDriverBolt" accesskey="p" rel="prev">MassDriverBolt</a>, Up: <a href="#BulletType" accesskey="u" rel="up">BulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Built_002din-Bullets-1"></a>
+<h4 class="subsection">5.1.5 Built-in Bullets</h4>
+
+<ul>
 <li> artillery:
 <ul>
 <li> <code>artilleryDense</code> <code>arilleryPlastic</code> <code>artilleryPlasticFrag</code> <code>artilleryHoming</code> <code>artlleryIncendiary</code> <code>artilleryExplosive</code> <code>artilleryUnit</code>
@@ -4517,217 +4716,10 @@ Next: <a href="#BasicBulletType" accesskey="n" rel="next">BasicBulletType</a>, U
 </li></ul>
 
 <hr>
-<a name="BasicBulletType"></a>
-<div class="header">
-<p>
-Next: <a href="#ArtilleryBulletType" accesskey="n" rel="next">ArtilleryBulletType</a>, Previous: <a href="#BulletType" accesskey="p" rel="prev">BulletType</a>, Up: <a href="#BulletTypes" accesskey="u" rel="up">BulletTypes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="BasicBulletType-1"></a>
-<h4 class="subsection">5.1.2 BasicBulletType</h4>
-
-<p>Extends <a href="#BulletType">BulletType</a>
-</p>
-<p>This type is special in that it allows you to set colors and sprites.
-</p>
-
-<table>
-<thead><tr><th>field</th><th>type</th><th>default</th><th></th></tr></thead>
-<tr><td>backColor</td><td><a href="#Color">Color</a></td><td>bulletYellowBack</td><td>Color of <code>&lt;name&gt;-back</code> sprite.</td></tr>
-<tr><td>frontColor</td><td><a href="#Color">Color</a></td><td>bulletYellow</td><td>Color of <code>&lt;name&gt;</code> sprite.</td></tr>
-<tr><td>bulletWidth</td><td>float</td><td>5</td><td></td></tr>
-<tr><td>bulletHeight</td><td>float</td><td>7</td><td></td></tr>
-<tr><td>bulletShrink</td><td>float</td><td>0.5</td><td></td></tr>
-<tr><td>bulletSprite</td><td>String</td><td></td><td>Mapping sprite used to make the shape of the bullet.</td></tr>
-</table>
-
-<p>Sprites:
-</p><ul>
-<li> <code>&lt;name&gt;</code> top layer sprite
-</li><li> <code>&lt;name&gt;-back</code> bottom layer sprite
-</li></ul>
-
-<hr>
-<a name="ArtilleryBulletType"></a>
-<div class="header">
-<p>
-Next: <a href="#BombBulletType" accesskey="n" rel="next">BombBulletType</a>, Previous: <a href="#BasicBulletType" accesskey="p" rel="prev">BasicBulletType</a>, Up: <a href="#BulletTypes" accesskey="u" rel="up">BulletTypes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="ArtilleryBulletType-1"></a>
-<h4 class="subsection">5.1.3 ArtilleryBulletType</h4>
-
-<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
-</p>
-<table>
-<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
-<tr><td>trailEffect</td><td><a href="#Effect">Effect</a></td><td>artilleryTrail</td></tr>
-</table>
-
-<p>Defaults:
-</p>
-<table>
-<thead><tr><th>field</th><th>type</th></tr></thead>
-<tr><td>collidesTiles</td><td>false</td></tr>
-<tr><td>collides</td><td>false</td></tr>
-<tr><td>collidesAir</td><td>false</td></tr>
-<tr><td>hitShake</td><td>1</td></tr>
-<tr><td>hitSound</td><td>explosion</td></tr>
-</table>
-
-<hr>
-<a name="BombBulletType"></a>
-<div class="header">
-<p>
-Next: <a href="#FlakBulletType" accesskey="n" rel="next">FlakBulletType</a>, Previous: <a href="#ArtilleryBulletType" accesskey="p" rel="prev">ArtilleryBulletType</a>, Up: <a href="#BulletTypes" accesskey="u" rel="up">BulletTypes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="BombBulletType-1"></a>
-<h4 class="subsection">5.1.4 BombBulletType</h4>
-
-<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
-</p>
-<p>Defaults:
-</p>
-<table>
-<thead><tr><th>field</th><th>default</th></tr></thead>
-<tr><td>collidesTiles</td><td>false</td></tr>
-<tr><td>collides</td><td>false</td></tr>
-<tr><td>bulletShrink</td><td>0.7</td></tr>
-<tr><td>lifetime</td><td>30</td></tr>
-<tr><td>drag</td><td>0.05</td></tr>
-<tr><td>keepVelocity</td><td>false</td></tr>
-<tr><td>collidesAir</td><td>false</td></tr>
-<tr><td>hitSound</td><td>explosion</td></tr>
-</table>
-
-<hr>
-<a name="FlakBulletType"></a>
-<div class="header">
-<p>
-Next: <a href="#HealBulletType" accesskey="n" rel="next">HealBulletType</a>, Previous: <a href="#BombBulletType" accesskey="p" rel="prev">BombBulletType</a>, Up: <a href="#BulletTypes" accesskey="u" rel="up">BulletTypes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="FlakBulletType-1"></a>
-<h4 class="subsection">5.1.5 FlakBulletType</h4>
-
-<p><a href="#Abstract">Abstract</a> type which extends <a href="#BasicBulletType">BasicBulletType</a> &ndash; Bullets that explode near enemies.
-</p>
-<table>
-<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
-<tr><td></td><td></td><td></td></tr>
-<tr><td>explodeRange</td><td>float</td><td>30</td></tr>
-</table>
-
-<p>Defaults:
-</p>
-<table>
-<thead><tr><th>field</th><th>type</th></tr></thead>
-<tr><td>splashDamage</td><td>15</td></tr>
-<tr><td>splashDamageRadius</td><td>34</td></tr>
-<tr><td>hitEffect</td><td>flakExplosionBig</td></tr>
-<tr><td>bulletWidth</td><td>8</td></tr>
-<tr><td>bulletHeight</td><td>10</td></tr>
-</table>
-
-<hr>
-<a name="HealBulletType"></a>
-<div class="header">
-<p>
-Next: <a href="#LiquidBulletType" accesskey="n" rel="next">LiquidBulletType</a>, Previous: <a href="#FlakBulletType" accesskey="p" rel="prev">FlakBulletType</a>, Up: <a href="#BulletTypes" accesskey="u" rel="up">BulletTypes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="HealBulletType-1"></a>
-<h4 class="subsection">5.1.6 HealBulletType</h4>
-
-<p>Extends <a href="#BulletType">BulletType</a> &ndash; Bullets that can heal blocks of the same team as the shooter.
-</p>
-<table>
-<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
-<tr><td>healPercent</td><td>float</td><td>3</td></tr>
-</table>
-
-<p>Defaults:
-</p>
-<table>
-<thead><tr><th>field</th><th>default</th></tr></thead>
-<tr><td>shootEffect</td><td>shootHeal</td></tr>
-<tr><td>smokeEffect</td><td>hitLaser</td></tr>
-<tr><td>hitEffect</td><td>hitLaser</td></tr>
-<tr><td>despawnEffect</td><td>hitLaser</td></tr>
-<tr><td>collidesTeam</td><td>true</td></tr>
-</table>
-
-<hr>
-<a name="LiquidBulletType"></a>
-<div class="header">
-<p>
-Next: <a href="#MassDriverBolt" accesskey="n" rel="next">MassDriverBolt</a>, Previous: <a href="#HealBulletType" accesskey="p" rel="prev">HealBulletType</a>, Up: <a href="#BulletTypes" accesskey="u" rel="up">BulletTypes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="LiquidBulletType-1"></a>
-<h4 class="subsection">5.1.7 LiquidBulletType</h4>
-
-<p>Extends <a href="#BulletType">BulletType</a>
-</p>
-<table>
-<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
-<tr><td>liquid</td><td>Liquid</td><td>null</td><td><strong>[required]</strong></td></tr>
-</table>
-
-<p>Defaults:
-</p>
-<table>
-<thead><tr><th>field</th><th>default</th></tr></thead>
-<tr><td>lifetime</td><td>74</td></tr>
-<tr><td>statusDuration</td><td>90</td></tr>
-<tr><td>despawnEffect</td><td>none</td></tr>
-<tr><td>hitEffect</td><td>hitLiquid</td></tr>
-<tr><td>smokeEffect</td><td>none</td></tr>
-<tr><td>shootEffect</td><td>none</td></tr>
-<tr><td>drag</td><td>0.009</td></tr>
-<tr><td>knockback</td><td>0.55</td></tr>
-</table>
-
-<hr>
-<a name="MassDriverBolt"></a>
-<div class="header">
-<p>
-Next: <a href="#MissileBulletType" accesskey="n" rel="next">MissileBulletType</a>, Previous: <a href="#LiquidBulletType" accesskey="p" rel="prev">LiquidBulletType</a>, Up: <a href="#BulletTypes" accesskey="u" rel="up">BulletTypes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="MassDriverBolt-1"></a>
-<h4 class="subsection">5.1.8 MassDriverBolt</h4>
-
-<p>Extends <a href="#BulletType">BulletType</a>
-</p>
-<p>Defaults:
-</p>
-<table>
-<thead><tr><th>field</th><th>default</th></tr></thead>
-<tr><td>collidesTiles</td><td>false</td></tr>
-<tr><td>lifetime</td><td>200</td></tr>
-<tr><td>despawnEffect</td><td>smeltsmoke</td></tr>
-<tr><td>hitEffect</td><td>hitBulletBig</td></tr>
-<tr><td>drag</td><td>0.005</td></tr>
-</table>
-
-<hr>
-<a name="MissileBulletType"></a>
-<div class="header">
-<p>
-Previous: <a href="#MassDriverBolt" accesskey="p" rel="prev">MassDriverBolt</a>, Up: <a href="#BulletTypes" accesskey="u" rel="up">BulletTypes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="MissileBulletType-1"></a>
-<h4 class="subsection">5.1.9 MissileBulletType</h4>
-
-<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
-</p>
-<table>
-<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
-<tr><td>trailColor</td><td><a href="#Color">Color</a></td><td>missileYellowBack</td></tr>
-<tr><td>weaveScale</td><td>float</td><td>0</td></tr>
-<tr><td>weaveMag</td><td>float</td><td>-1</td></tr>
-</table>
-
-<hr>
 <a name="BaseUnit"></a>
 <div class="header">
 <p>
-Next: <a href="#Effect" accesskey="n" rel="next">Effect</a>, Previous: <a href="#BulletTypes" accesskey="p" rel="prev">BulletTypes</a>, Up: <a href="#Entities" accesskey="u" rel="up">Entities</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Effect" accesskey="n" rel="next">Effect</a>, Previous: <a href="#BulletType" accesskey="p" rel="prev">BulletType</a>, Up: <a href="#Entities" accesskey="u" rel="up">Entities</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="BaseUnit-1"></a>
 <h3 class="section">5.2 BaseUnit</h3>
