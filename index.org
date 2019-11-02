@@ -1529,11 +1529,13 @@ Modding documentation for Mindustry.
     Extends [[StorageBlock][StroageBlock]] -a block can launch materials without coreblock
     
     | field      | type  | default |
+    |------------+-------+---------|
     | launchTime | float | none    |
     
     Defaults:
     
     | field    | default |
+    |----------+---------|
     | update   | true    |
     | hasItems | true    |
     | soild    | true    |
