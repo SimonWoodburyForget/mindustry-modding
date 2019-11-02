@@ -2136,6 +2136,55 @@ Modding documentation for Mindustry.
 
 * Game
 ** Rules
+    Rules is applied to map,it can be edited at map editor,you can edit your mod-added campaign map's rule through these fields.
+    
+    | field                    | type          | default    | description |
+    |--------------------------+---------------+------------+-------------|
+    | infiniteResources        | boolean       |            | Whether the player has infinite resources. |
+    | waveTimer                | boolean       | true       | Whether the waves come automatically on a timer. If not, waves come when the play button is pressed. |
+    | waves                    | boolean       |            | Whether waves are spawnable at all. |
+    | enemyCheat               | boolean       |            | Whether the enemy AI has infinite resources in most of their buildings and turrets. |
+    | pvp                      | boolean       |            | Whether the game objective is PvP. Note that this enables automatic hosting. |
+    | unitDrop                 | boolean       | true       | Whether enemy units drop random items on death. |
+    | unitBuildSpeedMultiplier | float         | 1          | How fast unit pads build units. |
+    | unitHealthMultiplier     | float         | 1          | How much health units start with. |
+    | playerHealthMultiplier   | float         | 1          | How much health players start with. |
+    | playerDamageMultiplier   | float         | 1          | How much damage player mechs deal. |
+    | unitDamageMultiplier     | float         | 1          | How much damage any other units deal. |
+    | buildCostMultiplier      | float         | 1          | Multiplier for buildings for the player. |
+    | buildSpeedMultiplier     | float         | 1          | Multiplier for building speed. |
+    | enemyCoreBuildRadius     | float         | 400        | No-build zone around enemy core radius. |
+    | dropZoneRadius           | float         | 300        | Radius around enemy wave drop zones. |
+    | respawnTime              | float         | 60 * 4     | Player respawn time in ticks. |
+    | waveSpacing              | float         | 60 * 60 * 2 | Time between waves in ticks. |
+    | bossWaveMultiplier       | float         | 3          | How many times longer a boss wave takes. |
+    | launchWaveMultiplier     | float         | 2          | How many times longer a launch wave takes. |
+    | zone                     | [[Zone]]      |            | Zone for saves that have them. |
+    | spawns                   | [[SpawnGroup]] |            | Enemy spawn layout. |
+    | limitedRespawns          | boolean       | false      | Determines if there should be limited respawns. |
+    | respawns                 | int           | 5          | How many times player can respawn during one wave. |
+    | waitForWaveToEnd         | boolean       | false      | Hold wave timer until all enemies are destroyed. |
+    | attackMode               | boolean       | false      | Determinates if gamemode is attack mode. |
+    | editor                   | boolean       | false      | Whether this is the editor gamemode. |
+    | tutorial                 | boolean       | false      | Whether the tutorial is enabled. |
+    | loadout                  | [[ItemStack]] | copper:100 | Starting items put in cores |
+    | bannedBlocks             | [[Block]]     |            | Blocks that cannot be placed. |
+    
+*** SpawnGroup
+    An array of enemy spawning rule
+    
+    | field       | type             | default   | description |
+    |-------------+------------------+-----------+-------------|
+    | unitType    | [[UnitType]]     |           | The unit type spawned |
+    | begin       | int              |           | When this spawn should start |
+    | end         | int              | MAX_VALUE | When this spawn should end |
+    | unitAmount  | int              | 1         | Amount of enemies spawned initially, with no scaling |
+    | spacing     | int              | 1         | The spacing, in waves, of spawns. For example, 2 = spawns every other wave |
+    | max         | int              | 100       | Maximum amount of units that spawn |
+    | unitScaling | float            | MAX_VALUE | How many waves need to pass before the amount of units spawned increases by 1 |
+    | effect      | [[StatusEffect]] |           | Status effect applied to the spawned unit. Null to disable. |
+    | items       | [[ItemStack]]    |           | Items this unit spawns with. Null to disable. |
+    
 ** Objective
 
 
