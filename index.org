@@ -853,7 +853,7 @@ Modding documentation for Mindustry: /this is a work in progress./
     * liquid flammability greater then ~0.1~
 
 *** LiquidTurret
-    [[Abstract]] type that extends [[Turret]]
+    Extends [[Turret]]
 
     | fields | type                 |
     |--------+----------------------|
