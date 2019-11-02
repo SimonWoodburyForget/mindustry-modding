@@ -586,7 +586,7 @@ Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="di
 <a name="Mindustry-Modding-Guide"></a>
 <h1 class="top">Mindustry Modding Guide</h1>
 
-<p>Modding documentation for Mindustry: <em>this is a work in progress.</em>
+<p>Modding documentation for Mindustry: <em>this is a work in progress.</em> This documentation is being written for bleeding edge.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Overview" accesskey="1">Overview</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -4399,6 +4399,12 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletTypes-1"></a>
 <h3 class="section">5.1 BulletTypes</h3>
 
+<p>Bullet is the type typically used to cause damage. It doesn&rsquo;t actually have to be a bullet at all. There are two major categories of bullet types:
+</p><ul>
+<li> <a href="#BasicBulletType">BasicBulletType</a>
+</li><li> <em>everything else</em>
+</li></ul>
+
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#BulletType" accesskey="1">BulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -4433,7 +4439,7 @@ Next: <a href="#BasicBulletType" accesskey="n" rel="next">BasicBulletType</a>, U
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
-<tr><td>lifetime</td><td>float</td><td></td><td>amount of ticks it lasts</td></tr>
+<tr><td>lifetime</td><td>float</td><td></td><td>amount of ticks it will lasts</td></tr>
 <tr><td>speed</td><td>float</td><td></td><td>inital speed of bullet</td></tr>
 <tr><td>damage</td><td>float</td><td></td><td>collision damage</td></tr>
 <tr><td>hitSize</td><td>float</td><td>4</td><td>collision radius</td></tr>
@@ -4519,8 +4525,11 @@ Next: <a href="#ArtilleryBulletType" accesskey="n" rel="next">ArtilleryBulletTyp
 <a name="BasicBulletType-1"></a>
 <h4 class="subsection">5.1.2 BasicBulletType</h4>
 
-<p>Extends <a href="#BulletType">BulletType</a> &ndash; An extended BulletType for most ammo-based bullets shot from turrets and units. It&rsquo;s purpose is mostly to style the bullet.
+<p>Extends <a href="#BulletType">BulletType</a>
 </p>
+<p>This type is special in that it allows you to set colors and sprites.
+</p>
+
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th></th></tr></thead>
 <tr><td>backColor</td><td><a href="#Color">Color</a></td><td>bulletYellowBack</td><td>Color of <code>&lt;name&gt;-back</code> sprite.</td></tr>
