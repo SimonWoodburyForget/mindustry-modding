@@ -544,11 +544,8 @@ body
     <li><a name="toc-UnitType-1" href="#UnitType">3.7 UnitType</a></li>
     <li><a name="toc-Mech-1" href="#Mech">3.8 Mech</a></li>
     <li><a name="toc-Category-1" href="#Category">3.9 Category</a></li>
-    <li><a name="toc-TODO-Zone" href="#Zone">3.10 <strong>TODO</strong> Zone</a></li>
-    <li><a name="toc-TODO-Loadout" href="#Loadout">3.11 <strong>TODO</strong> Loadout</a>
-    <ul class="no-bullet">
-      <li><a name="toc-TODO-Built_002dIn-Loadouts" href="#Built_002dIn-Loadouts">3.11.1 <strong>TODO</strong> Built-In Loadouts</a></li>
-    </ul></li>
+    <li><a name="toc-Zone-1" href="#Zone">3.10 Zone</a></li>
+    <li><a name="toc-UNTESTED-Loadout" href="#Loadout">3.11 <strong>UNTESTED</strong> Loadout</a></li>
     <li><a name="toc-StatusEffect-1" href="#StatusEffect">3.12 StatusEffect</a></li>
   </ul></li>
   <li><a name="toc-Graphics-1" href="#Graphics">4 Graphics</a>
@@ -578,8 +575,8 @@ body
   </ul></li>
   <li><a name="toc-Game-1" href="#Game">6 Game</a>
   <ul class="no-bullet">
-    <li><a name="toc-TODO-SpawnGroup" href="#SpawnGroup">6.1 <strong>TODO</strong> SpawnGroup</a></li>
-    <li><a name="toc-TODO-Rules" href="#Rules">6.2 <strong>TODO</strong> Rules</a></li>
+    <li><a name="toc-UNTESTED-SpawnGroup" href="#SpawnGroup">6.1 <strong>UNTESTED</strong> SpawnGroup</a></li>
+    <li><a name="toc-UNTESTED-Rules" href="#Rules">6.2 <strong>UNTESTED</strong> Rules</a></li>
     <li><a name="toc-Objective-1" href="#Objective">6.3 Objective</a>
     <ul class="no-bullet">
       <li><a name="toc-ZoneObjective-1" href="#ZoneObjective">6.3.1 ZoneObjective</a></li>
@@ -588,10 +585,18 @@ body
       <li><a name="toc-Unlock-1" href="#Unlock">6.3.4 Unlock</a></li>
     </ul></li>
   </ul></li>
-  <li><a name="toc-Other-1" href="#Other">7 Other</a>
+  <li><a name="toc-UNTESTED-Maps" href="#Maps">7 <strong>UNTESTED</strong> Maps</a>
   <ul class="no-bullet">
-    <li><a name="toc-Interface-2" href="#Interface-1">7.1 Interface</a></li>
-    <li><a name="toc-Mindustry-Source-Structure-1" href="#Mindustry-Source-Structure">7.2 Mindustry Source Structure</a></li>
+    <li><a name="toc-UNTESTED-Generator" href="#Generator">7.1 <strong>UNTESTED</strong> Generator</a>
+    <ul class="no-bullet">
+      <li><a name="toc-UNTESTED-MapGenerator" href="#MapGenerator">7.1.1 <strong>UNTESTED</strong> MapGenerator</a></li>
+      <li><a name="toc-UNTESTED-Decoration" href="#Decoration">7.1.2 <strong>UNTESTED</strong> Decoration</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Other-1" href="#Other">8 Other</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Interface-2" href="#Interface-1">8.1 Interface</a></li>
+    <li><a name="toc-Mindustry-Source-Structure-1" href="#Mindustry-Source-Structure">8.2 Mindustry Source Structure</a></li>
   </ul></li>
 </ul>
 </div>
@@ -618,7 +623,9 @@ Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="di
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Game" accesskey="6">Game</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the rules and goals of it all.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Other" accesskey="7">Other</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">...
+<tr><td align="left" valign="top">&bull; <a href="#Maps" accesskey="7">Maps</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Other" accesskey="8">Other</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">...
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -626,9 +633,9 @@ Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="di
 
 Overview
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Directory-Structure" accesskey="8">Directory Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">how things should look.
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Directory-Structure" accesskey="9">Directory Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">how things should look.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#modjson" accesskey="9"><code>mod.json</code></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the project configuration file.
+<tr><td align="left" valign="top">&bull; <a href="#modjson"><code>mod.json</code></a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the project configuration file.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Content">Content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">content configuration directory
 </td></tr>
@@ -956,13 +963,6 @@ Type
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
-Loadout
-
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Built_002dIn-Loadouts">Built-In Loadouts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
-
 Graphics
 
 </pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Layer">Layer</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -1017,6 +1017,21 @@ Objective
 <tr><td align="left" valign="top">&bull; <a href="#Launched">Launched</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Unlock">Unlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+
+Maps
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Generator">Generator</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Generator
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#MapGenerator">MapGenerator</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Decoration">Decoration</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -4272,25 +4287,25 @@ Next: <a href="#Zone" accesskey="n" rel="next">Zone</a>, Previous: <a href="#Mec
 <p>
 Next: <a href="#Loadout" accesskey="n" rel="next">Loadout</a>, Previous: <a href="#Category" accesskey="p" rel="prev">Category</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="TODO-Zone"></a>
-<h3 class="section">3.10 <strong>TODO</strong> Zone</h3>
+<a name="Zone-1"></a>
+<h3 class="section">3.10 Zone</h3>
 
 <p>Extends <a href="#UnlockableContent-and-MappableContent">UnlockableContent</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
-<tr><td>generator</td><td>Generator</td><td></td></tr>
-<tr><td>objective</td><td><a href="#Objective">Objective</a></td><td>wave 10</td></tr>
-<tr><td>requirements</td><td>[ <a href="#Objective">Objective</a> ]</td><td>[]</td></tr>
-<tr><td>resources</td><td>[ <a href="#Item">Item</a> ]</td><td>[]</td></tr>
-<tr><td>rules</td><td><a href="#Rules">Rules</a></td><td>rules-&gt;{}</td></tr>
+<tr><td>generator</td><td><a href="#Generator">Generator</a></td><td></td></tr>
+<tr><td>baseLaunchCost</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
+<tr><td>launchCost</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
+<tr><td>startingItems</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
+<tr><td>conditionWave</td><td>int</td><td>MAX<em>_VALVE</em></td></tr>
 <tr><td>alwaysUnlocked</td><td>boolean</td><td></td></tr>
-<tr><td>conditionWave</td><td>int</td><td>MAX<em>_VALUE</em></td></tr>
 <tr><td>launchPeriod</td><td>int</td><td>10</td></tr>
 <tr><td>loadout</td><td><a href="#Loadout">Loadout</a></td><td>basicShard</td></tr>
-<tr><td>baseLaunchCost</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
-<tr><td>startingItems</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
-<tr><td>launchCost</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
+<tr><td>resources</td><td><a href="#Item">Item</a></td><td></td></tr>
+<tr><td>rules</td><td><a href="#Rules">Rules</a></td><td></td></tr>
+<tr><td>requirements</td><td><a href="#Objective">Objective</a></td><td></td></tr>
+<tr><td>configureObjective</td><td><a href="#Objective">Objective</a></td><td></td></tr>
 <tr><td>defaultStartingItems</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
 </table>
 
@@ -4306,25 +4321,29 @@ Next: <a href="#Loadout" accesskey="n" rel="next">Loadout</a>, Previous: <a href
 <p>
 Next: <a href="#StatusEffect" accesskey="n" rel="next">StatusEffect</a>, Previous: <a href="#Zone" accesskey="p" rel="prev">Zone</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="TODO-Loadout"></a>
-<h3 class="section">3.11 <strong>TODO</strong> Loadout</h3>
+<a name="UNTESTED-Loadout"></a>
+<h3 class="section">3.11 <strong>UNTESTED</strong> Loadout</h3>
 
 <p>Extends <a href="#Content">Content</a>
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Built_002dIn-Loadouts" accesskey="1">Built-In Loadouts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
+<p>Loadout characters:
+</p><table>
+<thead><tr><th>char</th><th>definition</th></tr></thead>
+<tr><td><code>&quot; &quot;</code></td><td>air</td></tr>
+<tr><td><code>&quot;&gt;&quot;</code></td><td>conveyor right</td></tr>
+<tr><td><code>&quot;^&quot;</code></td><td>conveyor up</td></tr>
+<tr><td><code>&quot;&lt;&quot;</code></td><td>conveyor left</td></tr>
+<tr><td><code>&quot;v&quot;</code></td><td>conveyor down</td></tr>
+<tr><td><code>&quot;1&quot;</code></td><td>coreShard</td></tr>
+<tr><td><code>&quot;2&quot;</code></td><td>coreFoundation</td></tr>
+<tr><td><code>&quot;3&quot;</code></td><td>coreNucleus</td></tr>
+<tr><td><code>&quot;C&quot;</code></td><td>mechicalDrill on top of copper ore</td></tr>
+<tr><td><code>&quot;#&quot;</code></td><td>occupied by core or drill</td></tr>
 </table>
 
-<hr>
-<a name="Built_002dIn-Loadouts"></a>
-<div class="header">
-<p>
-Up: <a href="#Loadout" accesskey="u" rel="up">Loadout</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="TODO-Built_002dIn-Loadouts"></a>
-<h4 class="subsection">3.11.1 <strong>TODO</strong> Built-In Loadouts</h4>
 
+<p>Built-in loadouts:
+</p>
 <ul>
 <li> <code>basicShard</code> 
 <div class="example">
@@ -4981,7 +5000,7 @@ Previous: <a href="#Effect" accesskey="p" rel="prev">Effect</a>, Up: <a href="#E
 <a name="Game"></a>
 <div class="header">
 <p>
-Next: <a href="#Other" accesskey="n" rel="next">Other</a>, Previous: <a href="#Entities" accesskey="p" rel="prev">Entities</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Maps" accesskey="n" rel="next">Maps</a>, Previous: <a href="#Entities" accesskey="p" rel="prev">Entities</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Game-1"></a>
 <h2 class="chapter">6 Game</h2>
@@ -5001,8 +5020,8 @@ Next: <a href="#Other" accesskey="n" rel="next">Other</a>, Previous: <a href="#E
 <p>
 Next: <a href="#Rules" accesskey="n" rel="next">Rules</a>, Up: <a href="#Game" accesskey="u" rel="up">Game</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="TODO-SpawnGroup"></a>
-<h3 class="section">6.1 <strong>TODO</strong> SpawnGroup</h3>
+<a name="UNTESTED-SpawnGroup"></a>
+<h3 class="section">6.1 <strong>UNTESTED</strong> SpawnGroup</h3>
 
 <p>A spawn group defines spawn information for a specific type of unit, with optional extra information like weapon equipped, ammo used, and status effects. Each spawn group can have multiple sub-groups spawned in different areas of the map.
 </p>
@@ -5019,15 +5038,26 @@ Next: <a href="#Rules" accesskey="n" rel="next">Rules</a>, Up: <a href="#Game" a
 <tr><td>items</td><td><a href="#ItemStack">ItemStack</a></td><td></td><td>Items this unit spawns with. Null to disable.</td></tr>
 </table>
 
+<p>Built-in gamemode:
+</p><ul>
+<li> <code>survival</code>
+</li><li> <code>sandbox</code>
+</li><li> <code>attack</code>
+</li><li> <code>pvp</code>
+</li><li> <code>editor</code>
+</li></ul>
+
 <hr>
 <a name="Rules"></a>
 <div class="header">
 <p>
 Next: <a href="#Objective" accesskey="n" rel="next">Objective</a>, Previous: <a href="#SpawnGroup" accesskey="p" rel="prev">SpawnGroup</a>, Up: <a href="#Game" accesskey="u" rel="up">Game</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="TODO-Rules"></a>
-<h3 class="section">6.2 <strong>TODO</strong> Rules</h3>
+<a name="UNTESTED-Rules"></a>
+<h3 class="section">6.2 <strong>UNTESTED</strong> Rules</h3>
 
+<p>Rules is applied to map which can be edited the map editor, you can edit your mod-added campaign map&rsquo;s rule through these fields.
+</p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>infiniteResources</td><td>boolean</td><td></td><td>Whether the player has infinite resources.</td></tr>
@@ -5155,13 +5185,89 @@ Previous: <a href="#Launched" accesskey="p" rel="prev">Launched</a>, Up: <a href
 </li></ul>
 
 <hr>
+<a name="Maps"></a>
+<div class="header">
+<p>
+Next: <a href="#Other" accesskey="n" rel="next">Other</a>, Previous: <a href="#Game" accesskey="p" rel="prev">Game</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="UNTESTED-Maps"></a>
+<h2 class="chapter">7 <strong>UNTESTED</strong> Maps</h2>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Generator" accesskey="1">Generator</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="Generator"></a>
+<div class="header">
+<p>
+Up: <a href="#Maps" accesskey="u" rel="up">Maps</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="UNTESTED-Generator"></a>
+<h3 class="section">7.1 <strong>UNTESTED</strong> Generator</h3>
+
+<p><a href="#Abstract">Abstract</a> type to generate map.
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>note</th></tr></thead>
+<tr><td>width</td><td>int</td><td><a href="#MapGenerator">MapGenerator</a> will set it</td></tr>
+<tr><td>height</td><td>int</td><td><a href="#MapGenerator">MapGenerator</a> will set it</td></tr>
+</table>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#MapGenerator" accesskey="1">MapGenerator</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Decoration" accesskey="2">Decoration</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="MapGenerator"></a>
+<div class="header">
+<p>
+Next: <a href="#Decoration" accesskey="n" rel="next">Decoration</a>, Up: <a href="#Generator" accesskey="u" rel="up">Generator</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="UNTESTED-MapGenerator"></a>
+<h4 class="subsection">7.1.1 <strong>UNTESTED</strong> MapGenerator</h4>
+
+<p>Extends <a href="#Generator">Generator</a> &ndash; A basic map generator.
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
+<tr><td>map</td><td>Map</td><td></td><td>this is set in map editor</td></tr>
+<tr><td>mapName</td><td>String</td><td></td><td></td></tr>
+<tr><td>decorations</td><td><a href="#Decoration">Decoration</a></td><td></td><td></td></tr>
+<tr><td>enemySpawns</td><td>int</td><td>-1</td><td>The amount of final enemy spawns used. -1 to use everything in the map.This amount of enemy spawns is selected randomly from the map.</td></tr>
+<tr><td>distortFloor</td><td>boolean</td><td>false</td><td>Whether floor is distorted along with blocks.</td></tr>
+</table>
+
+<hr>
+<a name="Decoration"></a>
+<div class="header">
+<p>
+Previous: <a href="#MapGenerator" accesskey="p" rel="prev">MapGenerator</a>, Up: <a href="#Generator" accesskey="u" rel="up">Generator</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="UNTESTED-Decoration"></a>
+<h4 class="subsection">7.1.2 <strong>UNTESTED</strong> Decoration</h4>
+
+<p>A method in <a href="#MapGenerator">MapGenerator</a> &ndash; A decoration map generator.
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th></tr></thead>
+<tr><td>floor</td><td><a href="#Block">Block</a></td></tr>
+<tr><td>wall</td><td><a href="#Block">Block</a></td></tr>
+<tr><td>chance</td><td>double</td></tr>
+</table>
+
+<hr>
 <a name="Other"></a>
 <div class="header">
 <p>
-Previous: <a href="#Game" accesskey="p" rel="prev">Game</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Maps" accesskey="p" rel="prev">Maps</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Other-1"></a>
-<h2 class="chapter">7 Other</h2>
+<h2 class="chapter">8 Other</h2>
 
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Interface-1" accesskey="1">Interface</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -5177,7 +5283,7 @@ Previous: <a href="#Game" accesskey="p" rel="prev">Game</a>, Up: <a href="#Top" 
 Next: <a href="#Mindustry-Source-Structure" accesskey="n" rel="next">Mindustry Source Structure</a>, Up: <a href="#Other" accesskey="u" rel="up">Other</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Interface-2"></a>
-<h3 class="section">7.1 Interface</h3>
+<h3 class="section">8.1 Interface</h3>
 
 <hr>
 <a name="Mindustry-Source-Structure"></a>
@@ -5186,7 +5292,7 @@ Next: <a href="#Mindustry-Source-Structure" accesskey="n" rel="next">Mindustry S
 Previous: <a href="#Interface-1" accesskey="p" rel="prev">Interface 1</a>, Up: <a href="#Other" accesskey="u" rel="up">Other</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Mindustry-Source-Structure-1"></a>
-<h3 class="section">7.2 Mindustry Source Structure</h3>
+<h3 class="section">8.2 Mindustry Source Structure</h3>
 
 <div class="example">
 <pre class="example">core/src/io/anuke/mindustry/
