@@ -233,30 +233,30 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    List of filenames relative to languages:
 
-   * English ~bundle.properties~ 
-   * Czech ~bundle_cs.properties~ 
-   * German ~bundle_de.properties~ 
-   * Spanish ~bundle_es.properties~ 
-   * Estonian ~bundle_et.properties~ 
-   * Basque ~bundle_eu.properties~ 
-   * French BE ~bundle_fr_BE.properties~ 
-   * French ~bundle_fr.properties~ 
-   * Bergabung ~bundle_in_ID.properties~ 
-   * Italian ~bundle_it.properties~ 
-   * Japanese ~bundle_ja.properties~ 
-   * Korean ~bundle_ko.properties~ 
-   * Dutch BE ~bundle_nl_BE.properties~ 
-   * Dutch ~bundle_nl.properties~ 
-   * Polish ~bundle_pl.properties~ 
-   * Portuguese BR ~bundle_pt_BR.properties~ 
-   * Portuguese  ~bundle_pt.properties~ 
-   * Russian ~bundle_ru.properties~ 
-   * Danish ~bundle_sv.properties~ 
-   * Turkish ? ~bundle_tk.properties~ 
-   * Turkish ? ~bundle_tr.properties~ 
-   * Ukrainian ~bundle_uk_UA.properties~ 
-   * Chinese CN ~bundle_zh_CN.properties~ 
-   * Chinese TW ~bundle_zh_TW.properties~ 
+   * English ~bundle.properties~
+   * Czech ~bundle_cs.properties~
+   * German ~bundle_de.properties~
+   * Spanish ~bundle_es.properties~
+   * Estonian ~bundle_et.properties~
+   * Basque ~bundle_eu.properties~
+   * French BE ~bundle_fr_BE.properties~
+   * French ~bundle_fr.properties~
+   * Bergabung ~bundle_in_ID.properties~
+   * Italian ~bundle_it.properties~
+   * Japanese ~bundle_ja.properties~
+   * Korean ~bundle_ko.properties~
+   * Dutch BE ~bundle_nl_BE.properties~
+   * Dutch ~bundle_nl.properties~
+   * Polish ~bundle_pl.properties~
+   * Portuguese BR ~bundle_pt_BR.properties~
+   * Portuguese  ~bundle_pt.properties~
+   * Russian ~bundle_ru.properties~
+   * Danish ~bundle_sv.properties~
+   * Turkish ? ~bundle_tk.properties~
+   * Turkish ? ~bundle_tr.properties~
+   * Ukrainian ~bundle_uk_UA.properties~
+   * Chinese CN ~bundle_zh_CN.properties~
+   * Chinese TW ~bundle_zh_TW.properties~
 
 ** Types
    :PROPERTIES:
@@ -432,8 +432,8 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     * ~usage~ might influence efficiency or load a buffer.
 ** BlockStorage
    :PROPERTIES:
-   :DESCRIPTION: 
-   :END: 
+   :DESCRIPTION:
+   :END:
 
    [[Abstract]] type that extends [[Content Type][UnlockableContent]] -- This is for blocks that can store a buffer of items.
 
@@ -2433,7 +2433,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
   :END:
 ** Objective
 
-   Objective is a trait, of which a few types implement. It's used by [[Zone]] to give campaign objectives. 
+   Objective is a trait, of which a few types implement. It's used by [[Zone]] to give campaign objectives.
 
 *** ZoneObjective
     :PROPERTIES:
@@ -2447,7 +2447,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | zone  | Zone    |
 
 *** ZoneWave
-    :PROPERTIES: 
+    :PROPERTIES:
     :DESCRIPTION: zone and wave specific condition
     :END:
 
@@ -2460,7 +2460,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     * complete if zone best wave is larger then ~wave~.
 
 *** Launched
-    :PROPERTIES: 
+    :PROPERTIES:
     :DESCRIPTION: zone and launched specific condition
     :END:
 
