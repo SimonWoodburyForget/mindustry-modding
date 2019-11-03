@@ -284,10 +284,10 @@
 
    Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ is ~BulletType~ so you can use ~MissileBulletType~, because ~MissileBulletType~ extends ~BulletType~.
 
-*** Abstract
+** Abstract
 
 
-    All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you'll probably get an /initialization exception/ of some kind.
+   All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you'll probably get an /initialization exception/ of some kind.
 
 
 

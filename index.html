@@ -396,10 +396,8 @@ body
     <li><a name="toc-Dependencies-1" href="#Dependencies">1.6 Dependencies</a></li>
     <li><a name="toc-Units-1" href="#Units">1.7 Units</a></li>
     <li><a name="toc-Bundles-1" href="#Bundles">1.8 Bundles</a></li>
-    <li><a name="toc-Types-1" href="#Types">1.9 Types</a>
-    <ul class="no-bullet">
-      <li><a name="toc-Abstract-1" href="#Abstract">1.9.1 Abstract</a></li>
-    </ul></li>
+    <li><a name="toc-Types-1" href="#Types">1.9 Types</a></li>
+    <li><a name="toc-Abstract-1" href="#Abstract">1.10 Abstract</a></li>
   </ul></li>
   <li><a name="toc-World-1" href="#World">2 World</a>
   <ul class="no-bullet">
@@ -638,14 +636,9 @@ Overview
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Types">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">things to know about types
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
-Types
-
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
 
 World
 
@@ -1044,6 +1037,8 @@ Next: <a href="#World" accesskey="n" rel="next">World</a>, Previous: <a href="#T
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Types" accesskey="9">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">things to know about types
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
 </table>
 
 <hr>
@@ -1335,7 +1330,7 @@ block.example-mod-silver-wall.description = Стена из серебра.
 <a name="Types"></a>
 <div class="header">
 <p>
-Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Abstract" accesskey="n" rel="next">Abstract</a>, Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Types-1"></a>
 <h3 class="section">1.9 Types</h3>
@@ -1363,19 +1358,14 @@ Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="
 
 <p>Here you can see, the type of the top level object is <code>Revenant</code>, but the type of the <code>bullet</code> is <code>BulletType</code> so you can use <code>MissileBulletType</code>, because <code>MissileBulletType</code> extends <code>BulletType</code>.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Abstract" accesskey="1">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
 <hr>
 <a name="Abstract"></a>
 <div class="header">
 <p>
-Up: <a href="#Types" accesskey="u" rel="up">Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Types" accesskey="p" rel="prev">Types</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Abstract-1"></a>
-<h4 class="subsection">1.9.1 Abstract</h4>
+<h3 class="section">1.10 Abstract</h3>
 
 <p>All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you&rsquo;ll probably get an <em>initialization exception</em> of some kind.
 </p>
@@ -2356,10 +2346,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#org90b80e6">org90b80e6</a></td></tr>
+<tr><td>consumes</td><td><a href="#orgcd7dc06">orgcd7dc06</a></td></tr>
 </table>
 
-<a name="org90b80e6"></a><p>:
+<a name="orgcd7dc06"></a><p>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
