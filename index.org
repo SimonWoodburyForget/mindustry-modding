@@ -200,7 +200,7 @@
 
    The contents of this file is very simple:
 
-   #+BEING_SRC fundamental
+   #+BEGIN_SRC fundamental
    block.example-mod-silver-wall.name = Серебряная Стена
    block.example-mod-silver-wall.description = Стена из серебра.
    #+END_SRC
