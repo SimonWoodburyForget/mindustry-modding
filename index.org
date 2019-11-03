@@ -95,16 +95,18 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    :DESCRIPTION: image files and how to name them
    :END:
 
-   Custom sprites can be added by simply dropping them in the ~sprites/~ subdirectory. The content parser will look through it recursively. One format is needed.
+   All you need to make sprites, is an image editor that supports transparency /(aka: not paint)./ Block sprites should be ~32 * size~, so a ~2x2~ block would require a ~64x64~ image. Images must be ~.png~ files.
 
-   Content is going to look for sprites relative to it's own name. ~content/blocks/my-hail.json~ has the name ~my-hail~ and similarly ~sprites/my-hail.png~ has the name ~my-hail~ and will be used for that specific block.
+   Sprites can simply be dropped in the ~sprites/~ subdirectory. The content parser will look through it recursively, so you can organize them how ever you feel. 
 
-   Content may look for multiple sprites, and this is done by looking for suffixes. ~my-hail~ could be a turret and it could look for the suffix ~<name>-heat~ and what this means is it'll look for ~my-hail-heat~.
+   Content is going to look for sprites relative to it's own name. ~content/blocks/my-hail.json~ has the name ~my-hail~ and similarly ~sprites/my-hail.png~ has the name ~my-hail~, so it'll be used by this content.
+
+   Content may look for multiple sprites. ~my-hail~ could be a turret, and it could look for the suffix ~<name>-heat~ and what this means is it'll look for ~my-hail-heat~.
 
    You can find all the vanilla sprites here:
    * https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites
 
-   Another thing to know about sprites is that they're passed through /anti-aliasing filters/ and what that means is that they may look a little different in game. The turrets specifically have a black border added to them, meaning you must draw them smaller then the image itself.
+   Another thing to know about sprites is that they're passed through /anti-aliasing filters/ and what that means is that they may look a little different in game. -- The turrets specifically have a special black border filter added to them, so you must account for that while making your sprites, and leave a border of transparent space around them, for example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/turrets/ripple.png][Ripple]]
 
 ** Sound
    :PROPERTIES:
