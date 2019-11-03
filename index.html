@@ -396,8 +396,10 @@ body
     <li><a name="toc-Dependencies-1" href="#Dependencies">1.6 Dependencies</a></li>
     <li><a name="toc-Units-1" href="#Units">1.7 Units</a></li>
     <li><a name="toc-Bundles-1" href="#Bundles">1.8 Bundles</a></li>
-    <li><a name="toc-Types-1" href="#Types">1.9 Types</a></li>
-    <li><a name="toc-Abstract-1" href="#Abstract">1.10 Abstract</a></li>
+    <li><a name="toc-Types-1" href="#Types">1.9 Types</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Abstract-1" href="#Abstract">1.9.1 Abstract</a></li>
+    </ul></li>
   </ul></li>
   <li><a name="toc-World-1" href="#World">2 World</a>
   <ul class="no-bullet">
@@ -533,7 +535,7 @@ body
   </ul></li>
   <li><a name="toc-Type-1" href="#Type">3 Type</a>
   <ul class="no-bullet">
-    <li><a name="toc-UnlockableContent-and-MappableContent-1" href="#UnlockableContent-and-MappableContent">3.1 UnlockableContent and MappableContent</a></li>
+    <li><a name="toc-Content-Type-1" href="#Content-Type">3.1 Content Type</a></li>
     <li><a name="toc-Item-1" href="#Item">3.2 Item</a></li>
     <li><a name="toc-ItemStack-1" href="#ItemStack">3.3 ItemStack</a></li>
     <li><a name="toc-Liquid-1" href="#Liquid">3.4 Liquid</a></li>
@@ -597,6 +599,8 @@ Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="di
 <a name="Mindustry-Modding-Guide"></a>
 <h1 class="top">Mindustry Modding Guide</h1>
 
+<p>Submit pull requests, issues or suggestions on Github: <a href="https://github.com/SimonWoodburyForget/mindustry-modding">https://github.com/SimonWoodburyForget/mindustry-modding</a>
+</p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Overview" accesskey="1">Overview</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the things you may not know.
 </td></tr>
@@ -636,15 +640,20 @@ Overview
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Types">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">things to know about types
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Types
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
+
 World
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Block">Block</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Block">Block</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base type of types that go on tiles
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Consumers">Consumers</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Consumers">Consumers</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base type to consume liquid, items and power
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#BlockStorage">BlockStorage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -917,7 +926,7 @@ Storage
 
 Type
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#UnlockableContent-and-MappableContent">UnlockableContent and MappableContent</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Content-Type">Content Type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Item">Item</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1036,8 +1045,6 @@ Next: <a href="#World" accesskey="n" rel="next">World</a>, Previous: <a href="#T
 <tr><td align="left" valign="top">&bull; <a href="#Bundles" accesskey="8">Bundles</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">translations and renaming
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Types" accesskey="9">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">things to know about types
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -1330,7 +1337,7 @@ block.example-mod-silver-wall.description = Стена из серебра.
 <a name="Types"></a>
 <div class="header">
 <p>
-Next: <a href="#Abstract" accesskey="n" rel="next">Abstract</a>, Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Types-1"></a>
 <h3 class="section">1.9 Types</h3>
@@ -1358,16 +1365,21 @@ Next: <a href="#Abstract" accesskey="n" rel="next">Abstract</a>, Previous: <a hr
 
 <p>Here you can see, the type of the top level object is <code>Revenant</code>, but the type of the <code>bullet</code> is <code>BulletType</code> so you can use <code>MissileBulletType</code>, because <code>MissileBulletType</code> extends <code>BulletType</code>.
 </p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Abstract" accesskey="1">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
 <hr>
 <a name="Abstract"></a>
 <div class="header">
 <p>
-Previous: <a href="#Types" accesskey="p" rel="prev">Types</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Up: <a href="#Types" accesskey="u" rel="up">Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Abstract-1"></a>
-<h3 class="section">1.10 Abstract</h3>
+<h4 class="subsection">1.9.1 Abstract</h4>
 
-<p>All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you&rsquo;ll probably get an <em>initialization exception</em> of some kind.
+<p>All you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
 </p>
 <hr>
 <a name="World"></a>
@@ -1379,9 +1391,9 @@ Next: <a href="#Type" accesskey="n" rel="next">Type</a>, Previous: <a href="#Ove
 <h2 class="chapter">2 World</h2>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Block" accesskey="1">Block</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Block" accesskey="1">Block</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base type of types that go on tiles
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Consumers" accesskey="2">Consumers</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Consumers" accesskey="2">Consumers</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base type to consume liquid, items and power
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#BlockStorage" accesskey="3">BlockStorage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1635,7 +1647,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.3 BlockStorage</h3>
 
-<p><a href="#Abstract">Abstract</a> type that extends <a href="#UnlockableContent-and-MappableContent">UnlockableContent</a> &ndash; This is for blocks that can store a buffer of items.
+<p><a href="#Abstract">Abstract</a> type that extends <a href="#Content-Type">UnlockableContent</a> &ndash; This is for blocks that can store a buffer of items.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -2346,10 +2358,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#orgcd7dc06">orgcd7dc06</a></td></tr>
+<tr><td>consumes</td><td><a href="#orgea812c9">orgea812c9</a></td></tr>
 </table>
 
-<a name="orgcd7dc06"></a><p>:
+<a name="orgea812c9"></a><p>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -4072,7 +4084,7 @@ Next: <a href="#Graphics" accesskey="n" rel="next">Graphics</a>, Previous: <a hr
 <h2 class="chapter">3 Type</h2>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#UnlockableContent-and-MappableContent" accesskey="1">UnlockableContent and MappableContent</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Content-Type" accesskey="1">Content Type</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Item" accesskey="2">Item</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -4099,15 +4111,17 @@ Next: <a href="#Graphics" accesskey="n" rel="next">Graphics</a>, Previous: <a hr
 </table>
 
 <hr>
-<a name="UnlockableContent-and-MappableContent"></a>
+<a name="Content-Type"></a>
 <div class="header">
 <p>
 Next: <a href="#Item" accesskey="n" rel="next">Item</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="UnlockableContent-and-MappableContent-1"></a>
-<h3 class="section">3.1 UnlockableContent and MappableContent</h3>
+<a name="Content-Type-1"></a>
+<h3 class="section">3.1 Content Type</h3>
 
-<p>that can have a display name and description. <em>Most content in other words</em>. <a href="#ItemStack">ItemStack</a> for example isn&rsquo;t <code>UnlockableContent</code>.
+<p>At the base of all your content, there&rsquo;s a type called <code>Content</code>, with related <code>UnlockableContent</code> and <code>MappableContent</code>. This type is at the base of most your content; <a href="#ItemStack">ItemStack</a> for example isn&rsquo;t <code>UnlockableContent</code>, because obviously it&rsquo;s not content at all, it&rsquo;s just a stack of items.
+</p>
+<p>For purposes of JSON modding, all you need to know is this means your type can have <code>name</code> and <code>description</code> fields.
 </p>
 <div class="example">
 <pre class="example">{
@@ -4127,12 +4141,12 @@ Next: <a href="#Item" accesskey="n" rel="next">Item</a>, Up: <a href="#Type" acc
 <a name="Item"></a>
 <div class="header">
 <p>
-Next: <a href="#ItemStack" accesskey="n" rel="next">ItemStack</a>, Previous: <a href="#UnlockableContent-and-MappableContent" accesskey="p" rel="prev">UnlockableContent and MappableContent</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#ItemStack" accesskey="n" rel="next">ItemStack</a>, Previous: <a href="#Content-Type" accesskey="p" rel="prev">Content Type</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Item-1"></a>
 <h3 class="section">3.2 Item</h3>
 
-<p>Extends <a href="#UnlockableContent-and-MappableContent">UnlockableContent</a> &ndash; It&rsquo;s the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
+<p>Extends <a href="#Content-Type">UnlockableContent</a> &ndash; It&rsquo;s the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -4181,7 +4195,7 @@ Next: <a href="#LiquidStack" accesskey="n" rel="next">LiquidStack</a>, Previous:
 <a name="Liquid-1"></a>
 <h3 class="section">3.4 Liquid</h3>
 
-<p>Extends <a href="#UnlockableContent-and-MappableContent">UnlockableContent</a> &ndash; Object that defines the properties of a liquid.
+<p>Extends <a href="#Content-Type">UnlockableContent</a> &ndash; Object that defines the properties of a liquid.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -4264,7 +4278,7 @@ Next: <a href="#Mech" accesskey="n" rel="next">Mech</a>, Previous: <a href="#Wea
 <a name="UnitType-1"></a>
 <h3 class="section">3.7 UnitType</h3>
 
-<p>Extends <a href="#UnlockableContent-and-MappableContent">UnlockableContent</a>
+<p>Extends <a href="#Content-Type">UnlockableContent</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -4303,7 +4317,7 @@ Next: <a href="#Category" accesskey="n" rel="next">Category</a>, Previous: <a hr
 <a name="Mech-1"></a>
 <h3 class="section">3.8 Mech</h3>
 
-<p>Extends <a href="#UnlockableContent-and-MappableContent">UnlockableContent</a> &ndash; Mechs are the player controlled entities.
+<p>Extends <a href="#Content-Type">UnlockableContent</a> &ndash; Mechs are the player controlled entities.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -4364,7 +4378,7 @@ Next: <a href="#Loadout" accesskey="n" rel="next">Loadout</a>, Previous: <a href
 <a name="Zone-1"></a>
 <h3 class="section">3.10 Zone</h3>
 
-<p>Extends <a href="#UnlockableContent-and-MappableContent">UnlockableContent</a> &ndash; Type used to get maps into campaign.
+<p>Extends <a href="#Content-Type">UnlockableContent</a> &ndash; Type used to get maps into campaign.
 </p>
 
 <table>
