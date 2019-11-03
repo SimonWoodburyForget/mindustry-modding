@@ -1804,6 +1804,7 @@
    | weaponOffsetY   | float    |         |
    | engineOffset    | float    |         |
    | engineSize      | float    |         |
+
 ** Mech
 
    Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Mechs are the player controlled entities.
@@ -1855,21 +1856,22 @@
 
    Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Type used to get maps into campaign.
 
-   | field                | type          | default    | notes                                             |
-   |----------------------+---------------+------------+---------------------------------------------------|
-   | baseLaunchCost       | [[ItemStack]]     |            |                                                   |
-   | launchCost           | [[ItemStack]]     |            |                                                   |
-   | startingItems        | [[ItemStack]]     |            |                                                   |
-   | conditionWave        | int           | MAX_VALUE  |                                                   |
-   | alwaysUnlocked       | boolean       | false      | Whether this map is always unlocked               |
-   | launchPeriod         | int           | 10         | Wave multiples at which the core may be launched. |
-   | loadout              | [[Loadout]]       | basicShard |                                                   |
-   | resources            | [ String ]    | wave 15    | Array of item names.                              |
-   | requirements         | [[[ Objective ]]] |            |                                                   |
-   | configureObjective   | [[Objective]]     |            |                                                   |
-   | defaultStartingItems | [[ItemStack]]     |            |                                                   |
-   | generator            | [[Generator]]     |            | *[untested]*                                      |
-   | rules                | [[Rules]]         |            | *[untested]*                                      |
+
+   | field                | type          | default    | notes                                            |
+   |----------------------+---------------+------------+--------------------------------------------------|
+   | baseLaunchCost       | [[ItemStack]]     |            |                                                  |
+   | launchCost           | [[ItemStack]]     |            |                                                  |
+   | startingItems        | [[ItemStack]]     |            | Items you start with on the map.                 |
+   | conditionWave        | int           | MAX_VALUE  |                                                  |
+   | alwaysUnlocked       | boolean       | false      | Whether this map is always unlocked              |
+   | launchPeriod         | int           | 10         | Rate of waves at which the core may be launched. |
+   | loadout              | [[Loadout]]       | basicShard | The core size and drills.                        |
+   | resources            | [ String ]    |            | Array of item names.                             |
+   | requirements         | [ [[Objective]] ] |            |                                                  |
+   | configureObjective   | [[Objective]]     | wave 15    |                                                  |
+   | defaultStartingItems | [[ItemStack]]     |            |                                                  |
+   | generator            | [[Generator]]     |            | *[untested]*                                     |
+   | rules                | [[Rules]]         |            | *[untested]*                                     |
 
    Sprites:
    * ~zone-<name>~ preview
