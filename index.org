@@ -233,7 +233,6 @@
 
   Extends [[BlockStorage][BlockStorage]] -- Fields for all objects that are blocks.
 
-  #+ATTR_TEXINFO: :name name
   | field               | type            |      default | notes      |
   |---------------------+-----------------+--------------+------------|
   |                     |                 |          <r> | <10>       |
