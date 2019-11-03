@@ -1841,7 +1841,7 @@
    * ~upgrade~ Things that upgrade the player such as mech pads;
    * ~effect~ Things for storage or passive effects.
 
-** Zone
+** TODO Zone
 
    Extends [[UnlockableContent and MappableContent][UnlockableContent]]
 
@@ -1866,7 +1866,8 @@
    * ~zone-<name>~ preview
    * ~<name>-zone~ preview
 
-** Loadout
+** TODO Loadout
+
 ** StatusEffect
 
    /Not be be confused with [[Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects*. -- Status effects are used as transitions between intermediate effects. If some a ~wet~ unit gets ~shocked~ it then gets 20 damage.
@@ -2237,7 +2238,8 @@
   :PROPERTIES:
   :DESCRIPTION: the rules and goals of it all.
   :END:
-** SpawnGroup
+
+** TODO SpawnGroup
    A spawn group defines spawn information for a specific type of unit, with optional extra information like weapon equipped, ammo used, and status effects. Each spawn group can have multiple sub-groups spawned in different areas of the map.
 
    | field       | type         |   default | notes      |
@@ -2253,7 +2255,7 @@
    | effect      | [[StatusEffect]] |           | Status effect applied to the spawned unit. Null to disable. |
    | items       | [[ItemStack]]    |           | Items this unit spawns with. Null to disable. |
 
-** Rules
+** TODO Rules
 
    | field                    | type           |    default | notes      |
    |--------------------------+----------------+------------+------------|
