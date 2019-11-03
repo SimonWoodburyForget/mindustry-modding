@@ -186,16 +186,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~other-mod-name-angry-dagger~ would reference ~angry-dagger~ in ~other-mod-name~
    * ~not-a-mod-angry-dagger~ would reference ~angry-dagger~ in ~not-a-mod~
 
-** Units
-   :PROPERTIES:
-   :DESCRIPTION: conversion of units to real game time.
-   :END:
-
-   * ~time~ in game is calculated through ~ticks~;
-   * ~ticks~ (sometimes called ~frames~) are assumed to be 60/1 second;
-   * ~range~ or ~speed~ is calculated by 1/10 of a tile;
-   * to calculate range out of ~lifetime~ and ~speed~ you can do ~lifetime * speed = range~.
-
 ** Bundles
    :PROPERTIES:
    :DESCRIPTION: translations and renaming
@@ -286,9 +276,17 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ is ~BulletType~ so you can use ~MissileBulletType~, because ~MissileBulletType~ extends ~BulletType~.
 
-*** Abstract
+** FAQ
+    :PROPERTIES:
+    :DESCRIPTION: simple questions and awnsers
+    :END:
 
-    All you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an /"initialization exception"/ of some kind.
+    * ~time~ in game is calculated through ~ticks~;
+    * ~ticks~ /sometimes called ~frames~,/ are assumed to be 60/1 second;
+    * ~range~ or most forms of distance is 1/10 of a tile;
+    * to calculate range out of ~lifetime~ and ~speed~ you can do ~lifetime * speed = range~;
+    * <<Abstract>> *Abstract:* all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an /"initialization exception"/ of some kind.
+
 
 * World
   :PROPERTIES:
@@ -380,7 +378,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    #+END_SRC
 *** Consume
 
-    [[Abstract]] type base, that defines a type of resource that a block can consume.
+    [[Abstract][Abstract]] type base, that defines a type of resource that a block can consume.
 
     | field    | type    | default | notes      |
     |----------+---------+---------+------------|
@@ -398,7 +396,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 *** ConsumeLiquidBase
 
-    [[Abstract]] type which extends [[Consume][Consume]]
+    [[Abstract][Abstract]] type which extends [[Consume][Consume]]
 
     | field      | type  | default | notes      |
     |------------+-------+---------+------------|
@@ -435,7 +433,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    :DESCRIPTION:
    :END:
 
-   [[Abstract]] type that extends [[Content Type][UnlockableContent]] -- This is for blocks that can store a buffer of items.
+   [[Abstract][Abstract]] type that extends [[Content Type][UnlockableContent]] -- This is for blocks that can store a buffer of items.
 
    | field          | type      | default |
    |----------------+-----------+---------|
@@ -830,9 +828,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | canOverdrive | false       |
     | hasLiquids   | true        |
     | hasItems     | true        |
-    | consumes     | [[cold-liquid]] |
+    | consumes     | [[cold-liquid][cold-liquid]] |
 
-    <<cold-liquid>>:
+    <<cold-liquid>>[[cold-liquid][cold-liquid]]:
     * temperature less then 0.5
     * flammability less then 0.1
     * booster true
@@ -868,7 +866,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 *** Turret
 
-    [[Abstract]] type which extends [[Block][Block]] -- All turrets extend from [[Turret]], which holds all the common fields.
+    [[Abstract][Abstract]] type which extends [[Block][Block]] -- All turrets extend from [[Turret]], which holds all the common fields.
 
     | field         | type    |    default | notes      |
     |---------------+---------+------------+------------|
@@ -975,7 +973,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     |--------------+-------+---------|
     | burstSpacing | float |       5 |
 *** PowerTurret
-    [[Abstract]] type that extends [[CooledTurret][CooledTurret]] -- Turret which uses power has ammo to shoot.
+    [[Abstract][Abstract]] type that extends [[CooledTurret][CooledTurret]] -- Turret which uses power has ammo to shoot.
 
     | field     | type       | default |
     |-----------+------------+---------|
@@ -1277,7 +1275,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | group         | liquids |
 ** Power
 *** PowerBlock
-    [[Abstract]] type which extends [[Block][Block]]
+    [[Abstract][Abstract]] type which extends [[Block][Block]]
 
     Defaults:
 
@@ -1640,7 +1638,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 ** Storage
 *** StorageBlock
 
-    [[Abstract]] type which extends [[Block]]
+    [[Abstract][Abstract]] type which extends [[Block]]
 
     Defaults:
     | field    | default |
@@ -2183,7 +2181,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
   :END:
 ** BulletType
 
-   [[Abstract]] type which extends [[Content][Content]] -- BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
+   [[Abstract][Abstract]] type which extends [[Content][Content]] -- BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
    * [[BasicBulletType]]
    * /everything else/
 
@@ -2440,7 +2438,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     :DESCRIPTION: zone specific condition
     :END:
 
-    [[Abstract]] type that implements [[Objective]]
+    [[Abstract][Abstract]] type that implements [[Objective]]
 
     | field | default |
     |-------+---------|
