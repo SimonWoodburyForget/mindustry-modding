@@ -206,8 +206,22 @@
    #+END_SRC
 
    If you've read the first few sections of this guide, you'll spot it right away, it's simply:
-   * ~block.<mod name>-<content name>.name~ and,
-   * ~block.<mod name>-<content name>.description~.
+   * ~<content type>.<mod name>-<content name>.name~ and,
+   * ~<content type>.<mod name>-<content name>.description~.
+
+   Where content type can be:
+   * ~item~ 
+   * ~block~ 
+   * ~mech~ 
+   * ~bullet~ 
+   * ~liquid~ 
+   * ~status~ 
+   * ~unit~ 
+   * ~weather~ 
+   * ~effect~ 
+   * ~zone~ 
+   * ~loadout~ 
+   * ~typeid~
 
 ** Types
    :PROPERTIES:
@@ -701,6 +715,9 @@
     | solidfies   | true    |
     | consumesTap | true    |
 
+    Sprites:
+    * ~<name>-open~
+
 *** MendProjector
     Extends [[Block][Block]]
 
@@ -715,6 +732,9 @@
     | phaseBoost      | float |      12 |
     | phaseRangeBoost | float |      50 |
     | useTime         | float |     400 |
+
+    Sprites:
+    * ~<name>-top~
 
 *** OverdriveProjector
     Extends [[Block][Block]]
@@ -731,7 +751,21 @@
     | useTime         | float |     400 |
     | phaseRangeBoost | float |      20 |
 
+
+    Defaults:
+    | field        | default |
+    |--------------+---------|
+    | solid        | true    |
+    | update       | true    |
+    | hasPower     | true    |
+    | hasItems     | true    |
+    | canOverdrive | false   |
+
+    Sprites:
+    * ~<name>-top~
+
 *** ForceProjector
+
     Extends [[Block][Block]]
 
     | field              | type  | default |
@@ -745,6 +779,27 @@
     | cooldownBrokenBase | float |    0.35 |
     | basePowerDraw      | float |     0.2 |
     | powerDamage        | float |     0.1 |
+
+    Defaults:
+    | field        | default     |
+    |--------------+-------------|
+    | update       | true        |
+    | solid        | true        |
+    | hasPower     | true        |
+    | canOverdrive | false       |
+    | hasLiquids   | true        |
+    | hasItems     | true        |
+    | consumes     | [[cold-liquid]] |
+
+    <<cold-liquid>>:
+    * temperature less then 0.5
+    * flammability less then 0.1
+    * booster true
+    * optional true
+    * update false
+
+    Sprites:
+    * ~<name>-top~
 
 *** ShockMine
     Extends [[Block][Block]]
@@ -1680,6 +1735,13 @@
   :PROPERTIES:
   :DESCRIPTION: the building blocks of the universe.
   :END:
+** TODO ContentType
+   
+   ContentType is the core difference between all major content in the game. This is what the ~content/~ directory is referencing when it looks for ~content/units~ or ~content/blocks~, it's referencing ~ContentType.block~ + ~s~.
+
+   ~ContentType~ may include the following:
+
+
 ** UnlockableContent and MappableContent
 
    that can have a display name and description. /Most content in other words/. [[ItemStack][ItemStack]] for example isn't ~UnlockableContent~.
