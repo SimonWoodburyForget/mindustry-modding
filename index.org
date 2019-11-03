@@ -199,7 +199,7 @@
    :DESCRIPTION: translations and renaming
    :END:
 
-   An optional addition to your mod is called bundles. The main use of bundles are give translations of your content, but there's no reason you couldn't use them in English. These are plaintext files which go in the ~bundles/~ subdirectory, and they should be named something like ~bundle_ru.properties~ for Russian.
+   An optional addition to your mod is called bundles. The main use of bundles are give translations of your content, but there's no reason you couldn't use them in English. These are plaintext files which go in the ~bundles/~ subdirectory, and they should be named something like ~bundle_ru.properties~ (for Russian).
 
    The contents of this file is very simple:
 
