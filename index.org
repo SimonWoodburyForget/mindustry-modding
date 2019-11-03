@@ -2427,9 +2427,9 @@
 
 ** Objective
 
-   /Trait at the base of all objective types..../
+   Objective is a trait, of which a few types implement. It's used by [[Zone]] to give campaign objectives.
 
-*** UNTESTED ZoneObjective
+*** ZoneObjective
 
     [[Abstract]] type that implements [[Objective]]
 
@@ -2437,7 +2437,7 @@
     |-------+---------|
     | zone  | Zone    |
 
-*** UNTESTED ZoneWave
+*** ZoneWave
 
     Extends [[ZoneObjective]]
 
@@ -2447,13 +2447,13 @@
 
     * complete if zone best wave is larger then ~wave~.
 
-*** UNTESTED Launched
+*** Launched
 
     Extends [[ZoneObjective]]
 
     * complete if ~zone~ has launched.
 
-*** UNTESTED Unlock
+*** Unlock
 
     Extends [[Objective]]
 
