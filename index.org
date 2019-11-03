@@ -1855,22 +1855,21 @@
 
    Extends [[UnlockableContent and MappableContent][UnlockableContent]]
 
-   | field                | type          |    default |
-   |----------------------+---------------+------------|
-   |                      |               |        <r> |
-   | generator            | Generator     |            |
-   | objective            | [[Objective]]     |    wave 10 |
-   | requirements         | [ [[Objective]] ] |         [] |
-   | resources            | [ [[Item]] ]      |         [] |
-   | rules                | [[Rules]]         |  rules->{} |
-   | alwaysUnlocked       | boolean       |            |
-   | conditionWave        | int           |  MAX_VALUE |
-   | launchPeriod         | int           |         10 |
-   | loadout              | [[Loadout]]       | basicShard |
-   | baseLaunchCost       | [[ItemStack]]     |            |
-   | startingItems        | [[ItemStack]]     |            |
-   | launchCost           | [[ItemStack]]     |            |
-   | defaultStartingItems | [[ItemStack]]     |            |
+   | field              | type            | default    |
+   |--------------------+-----------------+------------|
+   | generator          | [[Generator]]   |            |
+   | baseLaunchCost     | [[ItemStack]]   |            |
+   | launchCost         | [[ItemStack]]   |            |
+   | startingItems      | [[ItemStack]]   |            |
+   | conditionWave      | int             | MAX_VALVE  |
+   | alwaysUnlocked     | boolean         |            |
+   | launchPeriod       | int             | 10         |
+   | loadout            | [[Loadout]]     | basicShard |
+   | resources          | [[Item]]        |            |
+   | rules              | [[Rules]]       |            |
+   | requirements       | [[Objective]]   |            |
+   | configureObjective | [[Objective]]   |            |
+   | defaultStartingItems | [[ItemStack]] |            |
 
    Sprites:
    * ~zone-<name>~ preview
@@ -1883,9 +1882,23 @@
 
    Extends [[Content]]
 
-   
+       
+    In Loadout:
+    | code  | means       |
+    |-------+-------------|
+    | ~>~ | conveyor face to right |
+    | ~^~ | conveyor face to up |
+    | ~<~ | conveyor face to left |
+    | ~v~ | conveyor face to down |
+    | ~1~ | coreShard |
+    | ~2~ | coreFoundation |
+    | ~3~ | coreNucleus |
+    | ~#~ | space that occupied by core and drill |
+    | ~　~ | air |
+    | ~C~ | mechicalDrill with four copper ore |
+    
 
-*** TODO Built-In Loadouts
+    built-in loadouts:
     
     * ~basicShard~ 
       #+BEGIN_SRC json
@@ -2308,14 +2321,14 @@
   :PROPERTIES:
   :DESCRIPTION: the rules and goals of it all.
   :END:
-
+  
 ** TODO SpawnGroup
    A spawn group defines spawn information for a specific type of unit, with optional extra information like weapon equipped, ammo used, and status effects. Each spawn group can have multiple sub-groups spawned in different areas of the map.
 
    | field       | type         |   default | notes      |
    |-------------+--------------+-----------+------------|
    |             |              |           | <10>       |
-   | type        | [[UnitType]]     |           | The unit type spawned |
+   | type        | [[UnitType]] |           | The unit type spawned |
    | end         | int          | MAX_VALUE | When this spawn should end |
    | begin       | int          |           | When this spawn should start |
    | spacing     | int          |         1 | The spacing, in waves, of spawns. For example, 2 = spawns every other wave |
@@ -2323,9 +2336,17 @@
    | unitScaling | float        | MAX_VALUE | How many waves need to pass before the amount of units spawned increases by 1 |
    | unitAmount  | int          |         1 | Amount of enemies spawned initially, with no scaling |
    | effect      | [[StatusEffect]] |           | Status effect applied to the spawned unit. Null to disable. |
-   | items       | [[ItemStack]]    |           | Items this unit spawns with. Null to disable. |
+   | items       | [[ItemStack]]    |           | Items this unit spawns with. Null to disable. |    
+   
+   Built-in gamemode:
+   * ~survival~
+   * ~sandbox~
+   * ~attack~
+   * ~pvp~
+   * ~editor~
 
 ** TODO Rules
+   Rules is applied to map,it can be edited at map editor, you can edit your mod-added campaign map's rule through these fields.
 
    | field                    | type           |    default | notes      |
    |--------------------------+----------------+------------+------------|
@@ -2359,6 +2380,7 @@
    | tutorial                 | boolean        |      false | Whether the tutorial is enabled. False by default. |
    | loadout                  | [[ItemStack]]      | [ "copper", 100 ] | Starting items put in cores |
    | bannedBlocks             | [[[ Block]] ]      |         {} | Blocks that cannot be placed. |
+   
 
 ** Objective
 
@@ -2397,6 +2419,37 @@
     | block | [[Block]] |
 
     * complete if ~block~ is unlocked.
+
+
+* TODO Maps
+** TODO Generator
+    [[Abstract]] type to generate map.
+    
+    | field  | type | note |
+    |--------+------+------|
+    | width  | int  | [[MapGenerator]] will set it |
+    | height | int  | [[MapGenerator]] will set it |
+    
+*** TODO MapGenerator
+    Extends [[Generator]] -- A basic map generator.
+    
+    | field        | type           | default | notes |
+    |--------------+----------------+---------+-------|
+    | map          | Map            |         | this is set in map editor |
+    | mapName      | String         |         | |
+    | decorations  | [[Decoration]] |         | |
+    | enemySpawns  | int            | -1      | The amount of final enemy spawns used. -1 to use everything in the map.This amount of enemy spawns is selected randomly from the map. |
+    | distortFloor | boolean        | false   | Whether floor is distorted along with blocks. |
+    
+*** TODO Decoration
+    A method in [[MapGenerator]] -Decoration is a random generator to generate some block in floor you set.
+    
+    | field   | type      |
+    |---------+-----------|
+    | floor   | [[Block]] |
+    | wall    | [[Block]] |
+    | chance  | double    |
+
 
 * Other
   :PROPERTIES:
