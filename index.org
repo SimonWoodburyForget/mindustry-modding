@@ -2360,7 +2360,7 @@
    | loadout                  | [[ItemStack]]      | [ "copper", 100 ] | Starting items put in cores |
    | bannedBlocks             | [[[ Block]] ]      |         {} | Blocks that cannot be placed. |
 
-** TODO Objective
+** Objective
 
    [[Interface]] which defines a specific objective for a game, like a wave to reach or an block to unlock.
 
