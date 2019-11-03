@@ -76,11 +76,11 @@
 
    At the root of your project directory you can have a ~content/~ directory, this is where all the JSON data goes for your content types, and in this directory you have subdirectories for the various types of units, these are the current common ones:
 
-   * ~content/items/~ for things like copper and surge-alloy,
-   * ~content/blocks/~ for things like turrets and floors,
-   * ~content/mechs/~ for player controlled mechs tau and dagger,
-   * ~content/liquids/~ for liquids like water and slag,
-   * ~content/units/~ for flying or ground units like reaper and dagger,
+   * ~content/items/~ for things like copper and surge-alloy;
+   * ~content/blocks/~ for things like turrets and floors;
+   * ~content/mechs/~ for player controlled mechs tau and dagger;
+   * ~content/liquids/~ for liquids like water and slag;
+   * ~content/units/~ for flying or ground units like reaper and dagger;
    * ~content/zones/~ for configuration of campaign maps.
 
    This is important, because it's how Mindustry will know which types to lookup. -- How you name your files is also important as the stem ~name~ of your path ~content/blocks/<name>.json~ is going to be used to reference it.
@@ -111,7 +111,7 @@
   * ~.ogg~ required for Desktop/Android
   * ~.mp3~ required for iOS
 
-  Just like any other assets, you reference them by the stem of your filename(s): ~pewpew.ogg~ and ~pewpew.mp3~ is referenced with ~pewpew~ from a field of type ~Sound~.
+  Just like any other assets, you reference them by the stem of your filenames, so ~pewpew.ogg~ and ~pewpew.mp3~ can be referenced with ~pewpew~ from a field of type ~Sound~.
 
   Here's a list of built-in sounds:
   * ~artillery~
@@ -508,7 +508,9 @@
     * ~-top~
 
 *** Separator
-    Extends [[Block][Block]] -- Extracts a random list of items from an input item and an input liquid.
+    Extends [[Block][Block]]
+
+    Separator will take liquid as an input and produce items from it's stack randomly relative to their amount.
 
     | field            | type      | default | notes      |
     |------------------+-----------+---------+------------|
@@ -1841,7 +1843,7 @@
 
 ** Zone
 
-   Extends [[UnlockableContent]]
+   Extends [[UnlockableContent and MappableContent][UnlockableContent]]
 
    | field                | type          |    default |
    |----------------------+---------------+------------|
