@@ -1,24 +1,33 @@
-#+TITLE: Mindustry Modding Guide:
-PREAMBLE:
+#+TITLE: Mindustry Modding Guide
+:PREAMBLE:
 #+AUTHOR: Simon Woodbury-Forget
 #+EMAIL: simonwoodburyforget@gmail.com
 #+DATE: 2019-10-31
-#+LANGUAGE: en
+
 #+SUBTITLE: for build v99 (release v5)
+#+LANGUAGE: en
 #+TEXINFO_DEFFN: t
 #+OPTIONS: H:4 num:3 toc:2
 
-Modding documentation for Mindustry. 
+#+TEXINFO_FILENAME: index
+
+#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (81)
 
 :END:
 
 * Overview
+  :PROPERTIES:
+  :DESCRIPTION: the things you may not know.
+  :END:
 
   Mindustry mods are simply directories of assests. You reuse existing types and can use different values to initialize them, and you can even overwrite initialization of vanilla content. 
 
   You can add custom sprites and sounds; sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them.
 
 ** Directory Structure
+   :PROPERTIES:
+   :DESCRIPTION: how things should look.
+   :END:
 
    Your project directory should look something like this:
    
@@ -38,6 +47,10 @@ Modding documentation for Mindustry.
    * Windows: =%appdata%/Mindustry/mods/=
 
 ** ~mod.json~
+   :PROPERTIES:
+   :DESCRIPTION: the project configuration file.
+   :END:
+
 
    At the root of your project directory, you must have a ~mod.json~ which defines the basic metadata for your project.
 
@@ -57,6 +70,9 @@ Modding documentation for Mindustry.
    * ~dependencies~ is optional; if you want to know more about that, go to the [[Dependencies][dependencies]] section.
 
 ** Content
+   :PROPERTIES:
+   :DESCRIPTION: content configuration directory
+   :END:
 
    At the root of your project directory you can have a ~content/~ directory, this is where all the JSON data goes for your content types, and in this directory you have subdirectories for the various types of units, these are the current common ones:
 
@@ -70,28 +86,32 @@ Modding documentation for Mindustry.
    This is important, because it's how Mindustry will know which types to lookup. -- How you name your files is also important as the stem ~name~ of your path ~content/blocks/<name>.json~ is going to be used to reference it.
 
 ** Sprites
+   :PROPERTIES:
+   :DESCRIPTION: image files and how to name them
+   :END:
 
-   Custom sprites can be added by simply dropping them in the ~sprites/~ subdirectory, and be ~.png~ file, and content which requires a sprite is going to fetch the sprite relative to the filename of the sprite: ~sprites/<name>.png~, for example ~sprites/my-hail.png~ would be used on ~content/blocks/my-hail.json~.
+   Custom sprites can be added by simply dropping them in the ~sprites/~ subdirectory. The content parser will look through it recursively. One format is needed.
 
-   On top of this, content type may even look for two or more sprites, either through numbering or/and suffixes: ~sprites/<name>-<i>.png~ for example ~sprites/my-hail-heat.png~ for the ~heat~ map used when the turret is shooting, coloring parts of the turret red for a moment.
+   Content is going to look for sprites relative to it's own name. ~content/blocks/my-hail.json~ has the name ~my-hail~ and similarly ~sprites/my-hail.png~ has the name ~my-hail~ and will be used for that specific block.
 
-   Note that you may put your files in any sub-directory of ~sprites/~:
-   * ~sounds/egg/teleporter/train/wall.png~
+   Content may look for multiple sprites, and this is done by looking for suffixes. ~my-hail~ could be a turret and it could look for the suffix ~<name>-heat~ and what this means is it'll look for ~my-hail-heat~.
 
-   You can find all the vanilla sprites as reference here:
+   You can find all the vanilla sprites here:
    * https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites
 
-** Sound
+   Another thing to know about sprites is that they're passed through /anti-aliasing filters/ and what that means is that they may look a little different in game. The turrets specifically have a black border added to them, meaning you must draw them smaller then the image itself.
 
-  Custom sounds can be added through the modding system in the ~sounds/~ directory, of which two formats are needed:
+** Sound
+   :PROPERTIES:
+   :DESCRIPTION: sound files and where to put them
+   :END:
+
+  Custom sounds can be added through the modding system by dropping them in the ~sounds/~ subdirectory. It doesn't matter where you put them. Two formats are needed:
 
   * ~.ogg~ required for Desktop/Android
   * ~.mp3~ required for iOS
 
-  Note that you may put your files in any sub-directory of ~sounds/~:
-  * ~sounds/egg/teleporter/train/wall.ogg~
-
-  Just like any other assets, you reference them by the stem of your filename(s).
+  Just like any other assets, you reference them by the stem of your filename(s): ~pewpew.ogg~ and ~pewpew.mp3~ is referenced with ~pewpew~ from a field of type ~Sound~.
 
   Here's a list of built-in sounds:
   * ~artillery~
@@ -138,6 +158,9 @@ Modding documentation for Mindustry.
   * ~windowHide~
 
 ** Dependencies
+   :PROPERTIES:
+   :DESCRIPTION: mods extending mods
+   :END:
 
    You can add dependencies to your mod by simple adding other mods name in your ~mod.json~:
 
@@ -150,7 +173,7 @@ Modding documentation for Mindustry.
    }
    #+END_SRC
 
-   The name of dependencies are lower cased and spaces are replaced with ~-~ hyphens, for example ~Other MOD NamE~ becomes ~other-mod-name~.
+   The name of dependencies are lower-cased and spaces are replaced with ~-~ hyphens, for example ~Other MOD NamE~ becomes ~other-mod-name~.
 
    To reference the other mods assets, you must prefix the asset with the other mods name:
 
@@ -158,11 +181,14 @@ Modding documentation for Mindustry.
    * ~other-mod-name-angry-dagger~ would reference ~angry-dagger~ in ~other-mod-name~
    * ~not-a-mod-angry-dagger~ would reference ~angry-dagger~ in ~not-a-mod~
 
-** Type
+** Types
+   :PROPERTIES:
+   :DESCRIPTION: things to know about types
+   :END:
 
    Types have numerous fields, but the important one is ~type~; this is a special field used by the content parser, that changes which type your object is. /No a ~Router~ type can't be a ~Turret~ type/, they have completely different methods and fields.
 
-   Types /extend/ each other, and what that means is if ~MissileBulletType~ extends ~BasicBulletType~, then you'll have access to all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~, ~lifetime~ and ~speed~. Fields are case sensitive: ~hitSize~ =/= ~hitsize~.
+   Types /extend/ each other, and what that means is if ~MissileBulletType~ extends ~BasicBulletType~, then you'll have access to all the fields of ~BasicBulletType~ inside of ~MissileBulletType~ like ~damage~, ~lifetime~ and ~speed~. Fields are case sensitive: ~hitSize =/= hitsize~.
 
    What you can expect a field to do is up to the specific type, some types do absolutely nothing with their fields, and work mostly as a base types will extend from. One such type is ~Block~.
 
@@ -183,15 +209,20 @@ Modding documentation for Mindustry.
 
    Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ is ~BulletType~ so you can use ~MissileBulletType~, because ~MissileBulletType~ extends ~BulletType~.
 
-** Abstract
+*** Abstract
 
-   All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself.
+    All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you'll probably get an /initialization exception/ of some kind.
+
 
 * World
+  :PROPERTIES:
+  :DESCRIPTION: the universe and everything in it.
+  :END:
 ** Block
 
   Extends [[BlockStorage][BlockStorage]] -- Fields for all objects that are blocks.
 
+  #+ATTR_TEXINFO: :name name
   | field               | type            |      default | notes      |
   |---------------------+-----------------+--------------+------------|
   |                     |                 |          <r> | <10>       |
@@ -267,7 +298,8 @@ Modding documentation for Mindustry.
    }
    #+END_SRC
 *** Consume
-    An abstract base that defines a type of resource that a block can consume.
+
+    [[Abstract]] type base, that defines a type of resource that a block can consume.
 
     | field    | type    | default | notes      |
     |----------+---------+---------+------------|
@@ -284,7 +316,8 @@ Modding documentation for Mindustry.
     | items | [[ItemStack][ItemStack]] |
 
 *** ConsumeLiquidBase
-    Extends [[Consume][Consume]]
+
+    [[Abstract]] type which extends [[Consume][Consume]]
 
     | field      | type  | default | notes      |
     |------------+-------+---------+------------|
@@ -317,22 +350,21 @@ Modding documentation for Mindustry.
     Notes:
     * ~usage~ might influence efficiency or load a buffer.   
 ** BlockStorage
-   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
+   [[Abstract]] type that extends [[UnlockableContent and MappableContent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
 
-   | field         | type      | default | notes      |
-   |---------------+-----------+---------+------------|
-   |               |           |     <r> | <10>       |
-   | hasItems      | boolean   |         |            |
-   | hasLiquids    | boolean   |         |            |
-   | hasPower      | boolean   |         |            |
-   | outputsLiquid | boolean   |   false |            |
-   | consumesPower | boolean   |    true |            |
-   | outputsPower  | bolean    |   false |            |
-   | itemCapacity  | int       |      10 |            |
-   | item          | float     |      10 |            |
-   | consumes      | [[Consumers][Consumers]] |         |            |
-
-
+   | field          | type      | default |
+   |----------------+-----------+---------|
+   |                |           |     <r> |
+   | hasItems       | boolean   |         |
+   | hasLiquids     | boolean   |         |
+   | hasPower       | boolean   |         |
+   | outputsLiquid  | boolean   |   false |
+   | consumesPower  | boolean   |    true |
+   | outputsPower   | bolean    |   false |
+   | itemCapacity   | int       |      10 |
+   | liquidCapacity | float     |      10 |
+   | item           | float     |      10 |
+   | consumes       | [[Consumers][Consumers]] |         |
 
 ** Environment
 
@@ -362,8 +394,8 @@ Modding documentation for Mindustry.
     | updateEffect      | [[Effect][Effect]]       |    none | effect displayed when randomly updated. |
     | attributes        | [[Attributes][Attributes]]   |         | array of affinities to certain things. |
 
-    Sprite lookup name, where ~i~ is the variant:
-    - ~<name><i>.png~ variants start at ~1~.
+    Sprite lookup names:
+    - ~<name><1..>~
 
 *** OverlayFloor
 
@@ -502,104 +534,86 @@ Modding documentation for Mindustry.
     Sprite suffixes:
     * ~-liquid~
 ** Sandbox
-*** Incinerator
-    Extends [[Block][Block]]
-    
-    | field    | type | default |
-    |----------+------+---------|
-    |          |      | <r>     |
-    | effect   | [[Effect][Effect]] | fuelburn |
-    | flameColor | [[Color][Color]] | ffad9d |
-    
-    Defaults:
-    
-    | field               | default |
-    |----------+--------------------|
-    |          | <r>                |
-    | hasPower            | true    |
-    | hasLiquid           | true    |
-    | update              | true    |
-    | soild               | true    |
-    
 *** PowerVoid
     Extends [[PowerBlock][PowerBlock]]
     
     Deafults:
     
-    | field          | default   |
-    |----------+-----------------|
-    |          | <r>             |
-    | consumesPower  | MAX_VALUE |
+    | field         |   default |
+    |---------------+-----------|
+    |               |       <r> |
+    | consumesPower | MAX_VALUE |
     
 *** PowerSource
     Extends [[PowerNode][PowerNode]]
     
     Defaults:
     
-    | field         | type    |
-    |----------+--------------|
-    |          | <r>          |
-    | maxNodes      | int     |
-    | outputsPower  | boolean |
-    | consumesPower | boolean |
+    | field         | default |
+    |---------------+---------|
+    |               |     <r> |
+    | maxNodes      |     100 |
+    | outputsPower  |    true |
+    | consumesPower |   false |
     
 *** ItemSource
     Extends [[Block][Block]]
     
     Defaults:
     
-    | field        | default        |
-    |----------+--------------------|
-    |          | <r>                |
-    | hasItems     | true           |
-    | update       | true           |
-    | soild        | true           |
+    | field        |        default |
+    |--------------+----------------|
+    |              |            <r> |
+    | hasItems     |           true |
+    | update       |           true |
+    | soild        |           true |
     | group        | transportation |
-    | configurable | true           |
+    | configurable |           true |
     
 *** ItemVoid
     Extends [[Block][Block]]
     
     Defaults:
     
-    | field        | default        |
-    |----------+--------------------|
-    |              | <r>            |
-    | update       | true           |
-    | soild        | true           |
+    | field  | default |
+    |--------+---------|
+    |        |     <r> |
+    | update |    true |
+    | soild  |    true |
     
 *** LiquidSource
     Extends [[Block][Block]]
     
     Defaults:
     
-    | field        | default        |
-    |----------+--------------------|
-    |          |            <r>     |
-    | hasLiquids     | true         |
-    | update       | true           |
-    | soild        | true           |
-    | liquidCapacity   | 100        |
-    | configurable | true           |
-    | outputsLiquid | true          |
-    
+    | field          | default |
+    |----------------+---------|
+    |                |     <r> |
+    | hasLiquids     |    true |
+    | update         |    true |
+    | soild          |    true |
+    | liquidCapacity |     100 |
+    | configurable   |    true |
+    | outputsLiquid  |    true |
+
+** Logic
 *** MessageBlock
     Extends [[Block][Block]]
     
     | field         | type | default |
-    |----------+------+---------|
-    |          |      | <r>     |
-    | maxTextLength | int  | 220     |
-    | maxNewlines   | int  | 24      |
+    |---------------+------+---------|
+    |               |      |     <r> |
+    | maxTextLength | int  |     220 |
+    | maxNewlines   | int  |      24 |
     
     Defaults:
     
-    | field        | default        |
-    |----------+--------------------|
-    |              | <r>            |
-    | soild        | true           |
-    | configurable | true           |
-    | destructible | true           |
+    | field        | default |
+    |--------------+---------|
+    |              |     <r> |
+    | soild        |    true |
+    | configurable |    true |
+    | destructible |    true |
 ** Defense
 *** Wall 
     Extends [[Block][Block]]
@@ -722,7 +736,7 @@ Modding documentation for Mindustry.
     | layer        | overlay |
 ** Turrets
 
-   This section is for turret, all turrets shoot [[BulletType]], this means [[LaserTurret]] can shoot [[MissileBulletType]] and Duo can shoot [[LiquidBulletType]]. 
+   This section is for turret types. All turrets shoot [[BulletType]], and this means [[LiquidTurret]] can shoot [[MissileBulletType]] and [[ItemTurret]] can shoot [[LiquidBulletType]]. 
 
 *** Turret
 
@@ -846,7 +860,18 @@ Modding documentation for Mindustry.
     |----------+---------|
     | hasPower | true    |
 
-*** TODO ChargeTurret
+*** ChargeTurret
+
+    Extends [[PowerTurret]]
+
+    | field             | type   | default |
+    |-------------------+--------+---------|
+    | chargeTime        | float  |      30 |
+    | chargeEffects     | int    |       5 |
+    | chargeMaxDelay    | float  |      10 |
+    | chargeEffect      | [[Effect]] |    none |
+    | chargeBeginEffect | [[Effect]] |    none |
+
 *** LaserTurret
     Extends [[PowerTurret][PowerTurret]] 
 
@@ -867,7 +892,7 @@ Modding documentation for Mindustry.
     * liquid flammability greater then ~0.1~
 
 *** LiquidTurret
-    [[Abstract]] type that extends [[Turret]]
+    Extends [[Turret]]
 
     | fields | type                 |
     |--------+----------------------|
@@ -878,31 +903,32 @@ Modding documentation for Mindustry.
     |-------------+---------|
     | hasLiquids  | true    |
     | activeSound | spray   |
-
 ** Distribution
 *** Conveyor
     Extends [[Block][Block]]
     
     | field | type  | default |
-    |-------+-----+---------|
-    | speed | float | 0       |
+    |-------+-------+---------|
+    | speed | float |       0 |
     
     Default:
     
-    | field           | default        |
+    | field           |        default |
     |-----------------+----------------|
-    | rotate          | true           |
-    | update          | true           |
-    | layer           | overlay        |
+    |                 |            <r> |
+    | rotate          |           true |
+    | update          |           true |
+    | layer           |        overlay |
     | group           | transportation |
-    | hasItems        | true           |
-    | itemCapacity    | 4              |
-    | idleSound       | conveyor       |
-    | idleSoundVolume | 0.004          |
-    | unloadable      | false          |
+    | hasItems        |           true |
+    | itemCapacity    |              4 |
+    | idleSound       |       conveyor |
+    | idleSoundVolume |          0.004 |
+    | unloadable      |          false |
     
     Sprite suffix:
-      * ~-(0~4)-(0~3)~ Example: [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/conveyors][Conveyors-sprites]]
+    * ~-<0..4>-<0..3>~ example: [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/conveyors][Conveyors-sprites]]
+
 *** ArmoredConveyor
     Extends [[Conveyor][Conveyor]]  -A type of conveyor don't accept item coming from side
     
@@ -1027,7 +1053,7 @@ Modding documentation for Mindustry.
     | shake         | float  |              3 |
 
     Notes:
-    * range is limited by ~driverBolt~'s max range.
+    * range is limited by ~driverBolt~'s max range, which is hard coded, so you cannot change it.
 
     Defaults:
     | field        | default |
@@ -1123,7 +1149,7 @@ Modding documentation for Mindustry.
     | group         | liquids |
 ** Power
 *** PowerBlock
-    Extends [[Block][Block]] -- Just a simple overwrite of the defaults.
+    [[Abstract]] type which extends [[Block][Block]]
 
     Defaults:
 
@@ -1153,7 +1179,7 @@ Modding documentation for Mindustry.
     | outputsPower  | false   |
 
 *** PowerDistributor
-    Extends [[PowerBlock][PowerBlock]] -- Just a change of defaults for power distributors.
+    Extends [[PowerBlock][PowerBlock]]
 
     Defaults:
     | field         | default |
@@ -1297,7 +1323,7 @@ Modding documentation for Mindustry.
     * ~<name>-plasma-<i>~ plasma regions, where ~i~ is ~0~ to ~plasmas - 1~.
 ** Production
 *** Drill
-    Extends [[Block][Block]] -- Types that can be placed on ore blocks to extract the ore blocks items.
+    Extends [[Block][Block]] -- Types which can be placed on ore blocks to extract the [[OreBlock]]'s item.
 
     | field                | type    | default        | notes      |
     |----------------------+---------+----------------+------------|
@@ -1383,6 +1409,24 @@ Modding documentation for Mindustry.
     * ~<name>-liquid~
     * ~<name>-rotater~
     * ~<name>-top~
+*** Incinerator
+    Extends [[Block][Block]]
+
+    | field      | type   |  default |
+    |------------+--------+----------|
+    |            |        |      <r> |
+    | effect     | [[Effect][Effect]] | fuelburn |
+    | flameColor | [[Color][Color]]  |   ffad9d |
+    
+    Defaults:
+    
+    | field     | default |
+    |-----------+---------|
+    |           |     <r> |
+    | hasPower  |    true |
+    | hasLiquid |    true |
+    | update    |    true |
+    | soild     |    true |
 ** Unit Blocks
 *** RepairPoint
     Extends [[Block][Block]] -- Block which can repair units within range, with a laser.
@@ -1407,14 +1451,14 @@ Modding documentation for Mindustry.
     * ~<name>-base~
 
 *** UnitFactory
-    Extends [[Block][block]] -A block can produce units
+    Extends [[Block][block]] -- A block can produce units
     
-    | field          | type                   | default |
-    |----------------+------------------------+---------|
-    | produceTime    | float                  | 1000    |
-    | launchVelocity | float                  | 0       |
-    | maxSpawn       | int                    | 4       |
-    | unitType       | [[UnitType][UnitType]] | none    |
+    | field          | type     | default |
+    |----------------+----------+---------|
+    | produceTime    | float    |    1000 |
+    | launchVelocity | float    |       0 |
+    | maxSpawn       | int      |       4 |
+    | unitType       | [[UnitType][UnitType]] |    none |
     
     Defaults:
     
@@ -1430,12 +1474,12 @@ Modding documentation for Mindustry.
     * ~-top~
     
 *** CommandCenter
-    Extends [[Block][Block]] -a block can issue command to your unit
+    Extends [[Block][Block]] -- A block which can issue commands to your unit.
     
-    | field       | type               | default     |
-    |-------------+--------------------+-------------|
-    | topColor    | [[Color][Color]]   | command     |
-    | bottomColor | [[Color][Color]]   | 5e5e5e      |
+    | field       | type   | default     |
+    |-------------+--------+-------------|
+    | topColor    | [[Color][Color]]  | command     |
+    | bottomColor | [[Color][Color]]  | 5e5e5e      |
     | effect      | [[Effect][Effect]] | commandSend |
     
     Defaults:
@@ -1448,12 +1492,12 @@ Modding documentation for Mindustry.
     | configurable | true         |
     
 *** MechPad
-    Extends [[Block][Block]] -A block can produce player's mech
+    Extends [[Block][Block]] -- A block which will spawn a player in a mech.
     
-    | field     | type           | default |
-    |-----------+----------------+---------|
-    | mech      | [[Mech][Mech]] | none    |
-    | buildTime | float          | 60 * 5  |
+    | field     | type  | default |
+    |-----------+-------+---------|
+    | mech      | [[Mech][Mech]]  | none    |
+    | buildTime | float | 60 * 5  |
     
     Defaults:
     
@@ -1469,7 +1513,7 @@ Modding documentation for Mindustry.
 *** StorageBlock
 
     [[Abstract]] type which extends [[Block]]
-
+    
     Defaults:
     | field    | default |
     |----------+---------|
@@ -1495,7 +1539,8 @@ Modding documentation for Mindustry.
     | layer             | overlay    |
 
 *** Vault
-    Extends [[StorageBlock][StorageBlock]] -a type of storage block
+
+    Extends [[StorageBlock][StorageBlock]] -- A type of storage block
     
     Defaults:
     
@@ -1506,7 +1551,8 @@ Modding documentation for Mindustry.
     | update            | false      |
     
 *** Unloader
-    Extends [[Block][Block]] -a block can unload items from storage block and machine
+
+    Extends [[Block][Block]] -- A block can unload items from storage block and machine
     
     | field | type  | default |
     |-------+-------+---------|
@@ -1514,13 +1560,13 @@ Modding documentation for Mindustry.
     
     Defaults:
     
-    | field             | default    |
-    |-------------------+------------|
-    | solid             | true       |
-    | health            | 70         |
-    | update            | false      |
-    | hasItems          | true       |
-    | confugurable      | true       |
+    | field        | default |
+    |--------------+---------|
+    | solid        | true    |
+    | health       | 70      |
+    | update       | false   |
+    | hasItems     | true    |
+    | confugurable | true    |
     
     Sprite suffix:
     * ~-center~
@@ -1606,6 +1652,9 @@ Modding documentation for Mindustry.
 
 
 * Type
+  :PROPERTIES:
+  :DESCRIPTION: the building blocks of the universe.
+  :END:
 ** UnlockableContent and MappableContent
 
    that can have a display name and description. /Most content in other words/. [[ItemStack][ItemStack]] for example isn't ~UnlockableContent~. 
@@ -1747,6 +1796,7 @@ Modding documentation for Mindustry.
    | engineOffset    | float    |         |
    | engineSize      | float    |         |
 ** Mech
+
    Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Mechs are the player controlled entities.
 
    | field              | type    | default |
@@ -1788,6 +1838,7 @@ Modding documentation for Mindustry.
    * ~units~ Blocks that create units;
    * ~upgrade~ Things that upgrade the player such as mech pads;
    * ~effect~ Things for storage or passive effects.
+
 ** Zone
     You can add your mod's campaign map by this
     
@@ -1991,6 +2042,9 @@ Modding documentation for Mindustry.
 
 
 * Graphics
+  :PROPERTIES:
+  :DESCRIPTION: the rendering specific stuff.
+  :END:
 ** Layer
 
    Layers is an enumeration type, which the renderer will use to group rendering order:
@@ -2013,143 +2067,145 @@ Modding documentation for Mindustry.
 
 
 * Entities
-** BulletTypes
-*** BulletType
+  :PROPERTIES:
+  :DESCRIPTION: the things that exists as themselves.
+  :END:
+** BulletType
 
-    [[Abstract]] type which extends [[Content][Content]] -- Bullet can either be an object or a string, where a string would be reusing a built-in one and an object would be making a custom one.
+   [[Abstract]] type which extends [[Content][Content]] -- BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
+   * [[BasicBulletType]]
+   * /everything else/
 
-    | field              | type         | default | notes      |
-    |--------------------+--------------+---------+------------|
-    |                    |              |         | <10>       |
-    | lifetime           | float        |         | amount of ticks it lasts |
-    | speed              | float        |         | inital speed of bullet |
-    | damage             | float        |         | collision damage |
-    | hitSize            | float        |       4 | collision radius |
-    | drawSize           | float        |      40 |            |
-    | drag               | float        |       0 | decelleration per tick |
-    | pierce             | boolean      |         | whether it can collide |
-    | hitEffect          | [[Effect][Effect]]       |         | created when bullet hits something |
-    | despawnEffect      | [[Effect][Effect]]       |         | created when bullet despawns |
-    | shootEffect        | [[Effect][Effect]]       |         | created when shooting |
-    | smokeEffect        | [[Effect][Effect]]       |         | created when shooting |
-    | hitSound           | Sound        |         | made when hitting something or getting removed |
-    | inaccuracy         | float        |       0 | extra inaccuracy |
-    | ammoMultiplier     | float        |       2 | how many bullets get created per item/liquid |
-    | reloadMultiplier   | float        |       1 | multiplied by turret reload speed |
-    | recoil             | float        |         | recoil from shooter entities |
-    | splashDamage       | float        |       0 |            |
-    | knockback          | float        |         | Knockback in velocity. |
-    | hitTiles           | boolean      |    true | Whether this bullet hits tiles. |
-    | status             | [[StatusEffect][StatusEffect]] |    none | Status effect applied on hit. |
-    | statusDuration     | float        |     600 | Intensity of applied status effect in terms of duration. |
-    | collidesTiles      | boolean      |    true | Whether this bullet type collides with tiles. |
-    | collidesTeam       | boolean      |   false | Whether this bullet type collides with tiles that are of the same team. |
-    | collidesAir        | boolean      |    true | Whether this bullet type collides with air units. |
-    | collides           | boolean      |    true | Whether this bullet types collides with anything at all. |
-    | keepVelocity       | boolean      |    true | Whether velocity is inherited from the shooter. |
-    | fragBullets        | int          |       9 |            |
-    | fragVelocityMin    | float        |     0.2 |            |
-    | fragVelocityMax    | float        |       1 |            |
-    | fragBullet         | [[BulletType][BulletType]]   |    null |            |
-    | splashDamageRadius | float        |      -1 | Use a negative value to disable splash damage. |
-    | incendAmount       | int          |       0 |            |
-    | incendSpread       | float        |       8 |            |
-    | incendChance       | float        |       1 |            |
-    | homingPower        | float        |       0 | Doesn't do anything complicated; if ~homingPower~ larger then ~0.01~ it gets rendered in the UI, if ~homingPower~ is larger then ~0.0001~ it allows ~homingRange~ to work. |
-    | homingRange        | float        |      50 | How far the bullet can home towards target from itself. |
-    | lightining         | int          |         |            |
-    | lightningLength    | int          |       5 |            |
-    | hitShake           | float        |       0 |            |
-
-    Built-in bullets:
-    * artillery:
-      * ~artilleryDense~ ~arilleryPlastic~ ~artilleryPlasticFrag~ ~artilleryHoming~ ~artlleryIncendiary~ ~artilleryExplosive~ ~artilleryUnit~
-    * flak:
-      * ~flakScrap~ ~flakLead~ ~flakPlastic~ ~flakExplosive~ ~flakSurge~ ~flakGlass~ ~glassFrag~
-    * missiles:
-      * ~missileExplosive~ ~missileIncendiary~ ~missileSurge~ ~missileJavelin~ ~missileSwarm~ ~missileRevenant~
-    * standard:
-      * ~standardCopper~ ~standardDense~ ~standardThorium~ ~standardHoming~ ~standardIncendiary~ ~standardMechSmall~ ~standardGlaive~ ~standardDenseBig~ ~standardThoriumBig~ ~standardIncendiaryBig~
-    * electric:
-      * ~lancerLaser~ ~meltdownLaser~ ~lightning~ ~arc~ ~damageLightning~
-    * liquid:
-      * ~waterShot~ ~cryoShot~ ~slagShot~ ~oilShot~
-    * environment & misc:
-      * ~fireball~ ~basicFlame~ ~pyraFlame~ ~driverBolt~ ~healBullet~ ~healBulletBig~ ~frag~ ~eruptorShot~
-    * bombs:
-      * ~bombExplosive~ ~bombIncendiary~ ~bombOil~
+   | field              | type         | default | notes      |
+   |--------------------+--------------+---------+------------|
+   |                    |              |         | <10>       |
+   | lifetime           | float        |         | amount of ticks it will lasts |
+   | speed              | float        |         | inital speed of bullet |
+   | damage             | float        |         | collision damage |
+   | hitSize            | float        |       4 | collision radius |
+   | drawSize           | float        |      40 |            |
+   | drag               | float        |       0 | decelleration per tick |
+   | pierce             | boolean      |         | whether it can collide |
+   | hitEffect          | [[Effect][Effect]]       |         | created when bullet hits something |
+   | despawnEffect      | [[Effect][Effect]]       |         | created when bullet despawns |
+   | shootEffect        | [[Effect][Effect]]       |         | created when shooting |
+   | smokeEffect        | [[Effect][Effect]]       |         | created when shooting |
+   | hitSound           | Sound        |         | made when hitting something or getting removed |
+   | inaccuracy         | float        |       0 | extra inaccuracy |
+   | ammoMultiplier     | float        |       2 | how many bullets get created per item/liquid |
+   | reloadMultiplier   | float        |       1 | multiplied by turret reload speed |
+   | recoil             | float        |         | recoil from shooter entities |
+   | splashDamage       | float        |       0 |            |
+   | knockback          | float        |         | Knockback in velocity. |
+   | hitTiles           | boolean      |    true | Whether this bullet hits tiles. |
+   | status             | [[StatusEffect][StatusEffect]] |    none | Status effect applied on hit. |
+   | statusDuration     | float        |     600 | Intensity of applied status effect in terms of duration. |
+   | collidesTiles      | boolean      |    true | Whether this bullet type collides with tiles. |
+   | collidesTeam       | boolean      |   false | Whether this bullet type collides with tiles that are of the same team. |
+   | collidesAir        | boolean      |    true | Whether this bullet type collides with air units. |
+   | collides           | boolean      |    true | Whether this bullet types collides with anything at all. |
+   | keepVelocity       | boolean      |    true | Whether velocity is inherited from the shooter. |
+   | fragBullets        | int          |       9 |            |
+   | fragVelocityMin    | float        |     0.2 |            |
+   | fragVelocityMax    | float        |       1 |            |
+   | fragBullet         | [[BulletType][BulletType]]   |    null |            |
+   | splashDamageRadius | float        |      -1 | Use a negative value to disable splash damage. |
+   | incendAmount       | int          |       0 |            |
+   | incendSpread       | float        |       8 |            |
+   | incendChance       | float        |       1 |            |
+   | homingPower        | float        |       0 | Doesn't do anything complicated; if ~homingPower~ larger then ~0.01~ it gets rendered in the UI, if ~homingPower~ is larger then ~0.0001~ it allows ~homingRange~ to work. |
+   | homingRange        | float        |      50 | How far the bullet can home towards target from itself. |
+   | lightining         | int          |         |            |
+   | lightningLength    | int          |       5 |            |
+   | hitShake           | float        |       0 |            |
 
 *** BasicBulletType
 
-    Extends [[BulletType]] -- An extended BulletType for most ammo-based bullets shot from turrets and units. It's purpose is mostly to style the bullet.
+    Extends [[BulletType]] -- This type is special in it allows you to set colors and sprites.
 
- | field        | type   |          default |            |
- |--------------+--------+------------------+------------|
- |              |        |                  | <10>       |
- | backColor    | [[Color][Color]]  | bulletYellowBack | Color of ~<name>-back~ sprite. |
- | frontColor   | [[Color][Color]]  |     bulletYellow | Color of ~<name>~ sprite. |
- | bulletWidth  | float  |                5 |            |
- | bulletHeight | float  |                7 |            |
- | bulletShrink | float  |              0.5 |            |
- | bulletSprite | String |                  | Mapping sprite used to make the shape of the bullet. |
+    | field        | type   |          default |            |
+    |--------------+--------+------------------+------------|
+    |              |        |                  | <10>       |
+    | backColor    | [[Color][Color]]  | bulletYellowBack | Color of ~<name>-back~ sprite. |
+    | frontColor   | [[Color][Color]]  |     bulletYellow | Color of ~<name>~ sprite. |
+    | bulletWidth  | float  |                5 |            |
+    | bulletHeight | float  |                7 |            |
+    | bulletShrink | float  |              0.5 |            |
+    | bulletSprite | String |                  | Mapping sprite used to make the shape of the bullet. |
 
- Sprites:
- * ~<name>~ top layer sprite
- * ~<name>-back~ bottom layer sprite
+    Sprites:
+    * ~<name>~ top layer sprite
+    * ~<name>-back~ bottom layer sprite
 
-*** ArtilleryBulletType
+**** ArtilleryBulletType
 
- | field       | type   | default        |
- |-------------+--------+----------------|
- | trailEffect | [[Effect][Effect]]  | artilleryTrail |
+     Extends [[BasicBulletType]]
 
+     | field       | type   | default        |
+     |-------------+--------+----------------|
+     | trailEffect | [[Effect][Effect]] | artilleryTrail |
 
- Defaults:
+     Defaults:
 
- | field         | type      |
- |---------------+-----------|
- | collidesTiles | false     |
- | collides      | false     |
- | hitShake      | 1         |
- | hitSound      | explosion |
+     | field         | type      |
+     |---------------+-----------|
+     | collidesTiles | false     |
+     | collides      | false     |
+     | collidesAir   | false     |
+     | hitShake      | 1         |
+     | hitSound      | explosion |
 
-*** BombBulletType
+**** BombBulletType
 
-    Defaults:
+     Extends [[BasicBulletType]]
 
-    | field         | default   |
-    |---------------+-----------|
-    | collidesTiles | false     |
-    | collides      | false     |
-    | bulletShrink  | 0.7       |
-    | lifetime      | 30        |
-    | drag          | 0.05      |
-    | keepVelocity  | false     |
-    | collidesAir   | false     |
-    | hitSound      | explosion |
+     Defaults:
 
-*** FlakBulletType
+     | field         | default   |
+     |---------------+-----------|
+     | collidesTiles | false     |
+     | collides      | false     |
+     | bulletShrink  | 0.7       |
+     | lifetime      | 30        |
+     | drag          | 0.05      |
+     | keepVelocity  | false     |
+     | collidesAir   | false     |
+     | hitSound      | explosion |
 
-    [[Abstract]] type which extends [[BasicBulletType]] -- Bullets that explode near enemies.
+**** FlakBulletType
 
-    | field        | type  | default |
-    |--------------+-------+---------|
-    |              |       |         |
-    | explodeRange | float |      30 |
+     Extends [[BasicBulletType]] 
 
-    Defaults:
+     Bullets that explode near enemies.
 
-    | field              |             type |
-    |--------------------+------------------|
-    | splashDamage       |               15 |
-    | splashDamageRadius |               34 |
-    | hitEffect          | flakExplosionBig |
-    | bulletWidth        |                8 |
-    | bulletHeight       |               10 |
+     | field        | type  | default |
+     |--------------+-------+---------|
+     |              |       |         |
+     | explodeRange | float |      30 |
+
+     Defaults:
+
+     | field              |             type |
+     |--------------------+------------------|
+     | splashDamage       |               15 |
+     | splashDamageRadius |               34 |
+     | hitEffect          | flakExplosionBig |
+     | bulletWidth        |                8 |
+     | bulletHeight       |               10 |
+
+**** MissileBulletType
+
+     Extends [[BasicBulletType]]
+
+     | field      | type  |           default |
+     |------------+-------+-------------------|
+     | trailColor | [[Color][Color]] | missileYellowBack |
+     | weaveScale | float |                 0 |
+     | weaveMag   | float |                -1 |
 
 *** HealBulletType
 
-    Bullets that can heal blocks of the same team as the shooter.
+    Extends [[BulletType]] -- Bullets that can heal blocks of the same team as the shooter.
     
     | field       | type  | default |
     |-------------+-------+---------|
@@ -2167,9 +2223,11 @@ Modding documentation for Mindustry.
 
 *** LiquidBulletType
 
-    | field  | type   | default |                |
-    |--------+--------+---------+----------------|
-    | liquid | Liquid | null    | required field |
+    Extends [[BulletType]]
+
+    | field  | type   | default | notes        |
+    |--------+--------+---------+--------------|
+    | liquid | Liquid | null    | *[required]* |
 
     Defaults:
 
@@ -2186,6 +2244,8 @@ Modding documentation for Mindustry.
 
 *** MassDriverBolt
 
+    Extends [[BulletType]]
+
     Defaults:
 
     | field         | default      |
@@ -2196,13 +2256,25 @@ Modding documentation for Mindustry.
     | hitEffect     | hitBulletBig |
     | drag          | 0.005        |
 
-*** MissileBulletType
+*** Built-in Bullets
 
-    | field      | type  |           default |
-    |------------+-------+-------------------|
-    | trailColor | [[Color][Color]] | missileYellowBack |
-    | weaveScale | float |                 0 |
-    | weaveMag   | float |                -1 |
+   * artillery:
+     * ~artilleryDense~ ~arilleryPlastic~ ~artilleryPlasticFrag~ ~artilleryHoming~ ~artlleryIncendiary~ ~artilleryExplosive~ ~artilleryUnit~
+   * flak:
+     * ~flakScrap~ ~flakLead~ ~flakPlastic~ ~flakExplosive~ ~flakSurge~ ~flakGlass~ ~glassFrag~
+   * missiles:
+     * ~missileExplosive~ ~missileIncendiary~ ~missileSurge~ ~missileJavelin~ ~missileSwarm~ ~missileRevenant~
+   * standard:
+     * ~standardCopper~ ~standardDense~ ~standardThorium~ ~standardHoming~ ~standardIncendiary~ ~standardMechSmall~ ~standardGlaive~ ~standardDenseBig~ ~standardThoriumBig~ ~standardIncendiaryBig~
+   * electric:
+     * ~lancerLaser~ ~meltdownLaser~ ~lightning~ ~arc~ ~damageLightning~
+   * liquid:
+     * ~waterShot~ ~cryoShot~ ~slagShot~ ~oilShot~
+   * environment & misc:
+     * ~fireball~ ~basicFlame~ ~pyraFlame~ ~driverBolt~ ~healBullet~ ~healBulletBig~ ~frag~ ~eruptorShot~
+   * bombs:
+     * ~bombExplosive~ ~bombIncendiary~ ~bombOil~
+
 ** BaseUnit
 
    There are a few useful base unit types:
@@ -2245,6 +2317,9 @@ Modding documentation for Mindustry.
 
 
 * Game
+  :PROPERTIES:
+  :DESCRIPTION: the rules and goals of it all.
+  :END:
 ** Rules
     Rules is applied to map,it can be edited at map editor,you can edit your mod-added campaign map's rule through these fields.
     
@@ -2306,6 +2381,9 @@ Modding documentation for Mindustry.
 
 
 * Other
+  :PROPERTIES:
+  :DESCRIPTION: ...
+  :END:
 ** Mindustry Source Structure
 
    #+BEGIN_SRC fundamental
