@@ -1881,7 +1881,9 @@
 
    Extends [[Content]]
 
-   Loadout characters:
+   Below you'll see a table of characters used to express the loadouts.
+
+
    | char  | definition                         |
    |-------+------------------------------------|
    | ~" "~ | air                                |
