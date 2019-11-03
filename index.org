@@ -196,7 +196,7 @@
 
 ** Bundles
 
-   An optional addition to your mod is called bundles. The main use of bundles are give translations of your content, but there's no reason you couldn't use them in English. These are plaintext files which go in the ~bundles/~ subdirectory, and they should be named something like ~bundle_ru.properties~ for Russian. 
+   An optional addition to your mod is called bundles. The main use of bundles are give translations of your content, but there's no reason you couldn't use them in English. These are plaintext files which go in the ~bundles/~ subdirectory, and they should be named something like ~bundle_ru.properties~ for Russian.
 
    The contents of this file is very simple:
 
@@ -209,19 +209,46 @@
    * ~<content type>.<mod name>-<content name>.name~ and,
    * ~<content type>.<mod name>-<content name>.description~.
 
-   Where content type can be:
-   * ~item~ 
-   * ~block~ 
-   * ~mech~ 
-   * ~bullet~ 
-   * ~liquid~ 
-   * ~status~ 
-   * ~unit~ 
-   * ~weather~ 
-   * ~effect~ 
-   * ~zone~ 
-   * ~loadout~ 
+   Where content type could be:
+   * ~item~
+   * ~block~
+   * ~mech~
+   * ~bullet~
+   * ~liquid~
+   * ~status~
+   * ~unit~
+   * ~weather~
+   * ~effect~
+   * ~zone~
+   * ~loadout~
    * ~typeid~
+
+   Here are the file names relative to languages:
+
+   * English ~bundle.properties~ 
+   * Czech ~bundle_cs.properties~ 
+   * German ~bundle_de.properties~ 
+   * Spanish ~bundle_es.properties~ 
+   * Estonian ~bundle_et.properties~ 
+   * Basque ~bundle_eu.properties~ 
+   * French BE ~bundle_fr_BE.properties~ 
+   * French ~bundle_fr.properties~ 
+   * Bergabung ~bundle_in_ID.properties~ 
+   * Italian ~bundle_it.properties~ 
+   * Japanese ~bundle_ja.properties~ 
+   * Korean ~bundle_ko.properties~ 
+   * Dutch BE ~bundle_nl_BE.properties~ 
+   * Dutch ~bundle_nl.properties~ 
+   * Polish ~bundle_pl.properties~ 
+   * Portuguese BR ~bundle_pt_BR.properties~ 
+   * Portuguese  ~bundle_pt.properties~ 
+   * Russian ~bundle_ru.properties~ 
+   * Danish ~bundle_sv.properties~ 
+   * Turkish ? ~bundle_tk.properties~ 
+   * Turkish ? ~bundle_tr.properties~ 
+   * Ukrainian ~bundle_uk_UA.properties~ 
+   * Chinese ? ~bundle_zh_CN.properties~ 
+   * Chinese ? ~bundle_zh_TW.properties~ 
 
 ** Types
    :PROPERTIES:
@@ -1736,7 +1763,7 @@
   :DESCRIPTION: the building blocks of the universe.
   :END:
 ** TODO ContentType
-   
+
    ContentType is the core difference between all major content in the game. This is what the ~content/~ directory is referencing when it looks for ~content/units~ or ~content/blocks~, it's referencing ~ContentType.block~ + ~s~.
 
    ~ContentType~ may include the following:
@@ -1957,7 +1984,7 @@
 
 ** Loadout
    :PROPERTIES:
-   :DESCRIPTION: 
+   :DESCRIPTION:
    :END:
 
    Extends [[Content]]
@@ -1977,49 +2004,49 @@
    | ~"3"~ | coreNucleus                        |
    | ~"C"~ | mechicalDrill on top of copper ore |
    | ~"#"~ | occupied by core or drill          |
-    
+
 
    Built-in loadouts:
-    
-   * ~basicShard~ 
+
+   * ~basicShard~
      #+BEGIN_SRC fundamental
-       ###  
-       #1#  
-       ###  
-       ^ ^  
-      ## ## 
-      C# C# 
+       ###
+       #1#
+       ###
+       ^ ^
+      ## ##
+      C# C#
      #+END_SRC
-          
-   * ~advancedShard~ 
+
+   * ~advancedShard~
      #+BEGIN_SRC fundamental
-       ###  
-       #1#  
+       ###
+       #1#
      #######
      C#^ ^C#
-      ## ## 
-      C# C# 
+      ## ##
+      C# C#
      #+END_SRC
 
-   * ~basicFoundation~ 
+   * ~basicFoundation~
      #+BEGIN_SRC fundamental
-       ####  
-       ####  
-       #2##  
-       ####  
-       ^^^^  
-      ###### 
-      C#C#C# 
+       ####
+       ####
+       #2##
+       ####
+       ^^^^
+      ######
+      C#C#C#
      #+END_SRC
 
-   * ~basicNucleus~ 
+   * ~basicNucleus~
      #+BEGIN_SRC fundamental
-       #####  
-       #####  
-       ##3##  
-       #####  
-      >#####< 
-      ^ ^ ^ ^ 
+       #####
+       #####
+       ##3##
+       #####
+      >#####<
+      ^ ^ ^ ^
      #### ####
      C#C# C#C#
      #+END_SRC
@@ -2394,7 +2421,7 @@
   :PROPERTIES:
   :DESCRIPTION: the rules and goals of it all.
   :END:
-  
+
 ** UNTESTED SpawnGroup
 
    A spawn group defines spawn information for a specific type of unit, with optional extra information like weapon equipped, ammo used, and status effects. Each spawn group can have multiple sub-groups spawned in different areas of the map.
@@ -2411,7 +2438,7 @@
    | unitAmount  | int          |         1 | Amount of enemies spawned initially, with no scaling |
    | effect      | [[StatusEffect]] |           | Status effect applied to the spawned unit. Null to disable. |
    | items       | [[ItemStack]]    |           | Items this unit spawns with. Null to disable. |
-   
+
    Built-in gamemode:
    * ~survival~
    * ~sandbox~
@@ -2455,7 +2482,7 @@
    | tutorial                 | boolean        |      false | Whether the tutorial is enabled. False by default. |
    | loadout                  | [[ItemStack]]      | [ "copper", 100 ] | Starting items put in cores |
    | bannedBlocks             | [[[ Block]] ]      |         {} | Blocks that cannot be placed. |
-   
+
 
 ** Objective
 
@@ -2479,7 +2506,7 @@
     | wave  | int  |
 
     * complete if zone best wave is larger then ~wave~.
-      
+
 *** UNTESTED Launched
 
     Extends [[ZoneObjective]]
@@ -2501,16 +2528,16 @@
 ** UNTESTED Generator
 
     [[Abstract]] type to generate map.
-    
+
     | field  | type | note                     |
     |--------+------+--------------------------|
     | width  | int  | [[MapGenerator]] will set it |
     | height | int  | [[MapGenerator]] will set it |
-    
+
 *** UNTESTED MapGenerator
 
     Extends [[Generator]] -- A basic map generator.
-    
+
     | field        | type       | default | notes      |
     |--------------+------------+---------+------------|
     |              |            |         | <10>       |
@@ -2519,11 +2546,11 @@
     | decorations  | [[Decoration]] |         |            |
     | enemySpawns  | int        | -1      | The amount of final enemy spawns used. -1 to use everything in the map.This amount of enemy spawns is selected randomly from the map. |
     | distortFloor | boolean    | false   | Whether floor is distorted along with blocks. |
-    
+
 *** UNTESTED Decoration
 
     A method in [[MapGenerator]] -- A decoration map generator.
-    
+
     | field  | type   |
     |--------+--------|
     | floor  | [[Block]]  |
@@ -3024,4 +3051,3 @@
        ├── Tile.java
        └── WorldContext.java
    #+END_SRC
-   
