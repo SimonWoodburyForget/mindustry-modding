@@ -1848,28 +1848,28 @@
    * ~upgrade~ Things that upgrade the player such as mech pads;
    * ~effect~ Things for storage or passive effects.
 
-** Zone
+** UNTESTED Zone
    :PROPERTIES:
    :DESCRIPTION: type used to add maps into campaign
    :END:
 
    Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Type used to get maps into campaign.
 
-   | field                | type      | default    |
-   |----------------------+-----------+------------|
-   | generator            | [[Generator]] |            |
-   | baseLaunchCost       | [[ItemStack]] |            |
-   | launchCost           | [[ItemStack]] |            |
-   | startingItems        | [[ItemStack]] |            |
-   | conditionWave        | int       | MAX_VALVE  |
-   | alwaysUnlocked       | boolean   |            |
-   | launchPeriod         | int       | 10         |
-   | loadout              | [[Loadout]]   | basicShard |
-   | resources            | [[Item]]      |            |
-   | rules                | [[Rules]]     |            |
-   | requirements         | [[Objective]] |            |
-   | configureObjective   | [[Objective]] |            |
-   | defaultStartingItems | [[ItemStack]] |            |
+   | field                | type          | default    | notes                                             |
+   |----------------------+---------------+------------+---------------------------------------------------|
+   | generator            | [[Generator]]     |            |                                                   |
+   | baseLaunchCost       | [[ItemStack]]     |            |                                                   |
+   | launchCost           | [[ItemStack]]     |            |                                                   |
+   | startingItems        | [[ItemStack]]     |            |                                                   |
+   | conditionWave        | int           | MAX_VALUE  |                                                   |
+   | alwaysUnlocked       | boolean       | false      | Whether this map is always unlocked               |
+   | launchPeriod         | int           | 10         | Wave multiples at which the core may be launched. |
+   | loadout              | [[Loadout]]       | basicShard |                                                   |
+   | resources            | [ String ]    |            | Array of item names.                              |
+   | rules                | [[Rules]]         |            |                                                   |
+   | requirements         | [[[ Objective ]]] |            |                                                   |
+   | configureObjective   | [[Objective]]     |            |                                                   |
+   | defaultStartingItems | [[ItemStack]]     |            |                                                   |
 
    Sprites:
    * ~zone-<name>~ preview
@@ -1903,53 +1903,45 @@
     
    * ~basicShard~ 
      #+BEGIN_SRC json
-     [
-         "  ###  ",
-         "  #1#  ",
-         "  ###  ",
-         "  ^ ^  ",
-         " ## ## ",
-         " C# C# "
-     ]
+     "  ###  "
+     "  #1#  "
+     "  ###  "
+     "  ^ ^  "
+     " ## ## "
+     " C# C# "
      #+END_SRC
           
    * ~advancedShard~ 
      #+BEGIN_SRC json
-     [
-         "  ###  ",
-         "  #1#  ",
-         "#######",
-         "C#^ ^C#",
-         " ## ## ",
-         " C# C# "
-     ]
+     "  ###  "
+     "  #1#  "
+     "#######"
+     "C#^ ^C#"
+     " ## ## "
+     " C# C# "
      #+END_SRC
 
    * ~basicFoundation~ 
      #+BEGIN_SRC json
-     [
-         "  ####  ",
-         "  ####  ",
-         "  #2##  ",
-         "  ####  ",
-         "  ^^^^  ",
-         " ###### ",
-         " C#C#C# "
-     ]
+     "  ####  "
+     "  ####  "
+     "  #2##  "
+     "  ####  "
+     "  ^^^^  "
+     " ###### "
+     " C#C#C# "
      #+END_SRC
 
    * ~basicNucleus~ 
      #+BEGIN_SRC json
-     [
-         "  #####  ",
-         "  #####  ",
-         "  ##3##  ",
-         "  #####  ",
-         " >#####< ",
-         " ^ ^ ^ ^ ",
-         "#### ####",
-         "C#C# C#C#"
-     ]
+     "  #####  "
+     "  #####  "
+     "  ##3##  "
+     "  #####  "
+     " >#####< "
+     " ^ ^ ^ ^ "
+     "#### ####"
+     "C#C# C#C#"
      #+END_SRC
 
 ** StatusEffect
