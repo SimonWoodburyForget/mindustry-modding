@@ -261,7 +261,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    ~type~ can be refer to the actual type field of the object. A type may also refer to other things like ~float~ is a type so it means you can type ~0.3~ in a field.
 
-
    #+BEGIN_SRC json
    {
        "type": "Revenant",
