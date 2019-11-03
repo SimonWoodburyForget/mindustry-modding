@@ -223,9 +223,10 @@
 
 *** Abstract
 
+
     All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you'll probably get an /initialization exception/ of some kind.
 
-*** TODO Interface
+
 
 
 * World
@@ -2386,9 +2387,10 @@
 
 ** Objective
 
-   [[Interface]] which defines a specific objective for a game, like a wave to reach or an block to unlock.
+   /Trait at the base of all objective types..../
 
-*** ZoneObjective
+
+*** UNTESTED ZoneObjective
 
     [[Abstract]] type that implements [[Objective]]
 
@@ -2396,7 +2398,7 @@
     |-------+---------|
     | zone  | Zone    |
 
-*** ZoneWave
+*** UNTESTED ZoneWave
 
     Extends [[ZoneObjective]]
 
@@ -2405,14 +2407,14 @@
     | wave  | int  |
 
     * complete if zone best wave is larger then ~wave~.
-
-*** Launched
+      
+*** UNTESTED Launched
 
     Extends [[ZoneObjective]]
 
     * complete if ~zone~ has launched.
 
-*** Unlock
+*** UNTESTED Unlock
 
     Extends [[Objective]]
 

@@ -398,7 +398,6 @@ body
     <li><a name="toc-Types-1" href="#Types">1.8 Types</a>
     <ul class="no-bullet">
       <li><a name="toc-Abstract-1" href="#Abstract">1.8.1 Abstract</a></li>
-      <li><a name="toc-TODO-Interface" href="#Interface">1.8.2 <strong>TODO</strong> Interface</a></li>
     </ul></li>
   </ul></li>
   <li><a name="toc-World-1" href="#World">2 World</a>
@@ -579,10 +578,10 @@ body
     <li><a name="toc-UNTESTED-Rules" href="#Rules">6.2 <strong>UNTESTED</strong> Rules</a></li>
     <li><a name="toc-Objective-1" href="#Objective">6.3 Objective</a>
     <ul class="no-bullet">
-      <li><a name="toc-ZoneObjective-1" href="#ZoneObjective">6.3.1 ZoneObjective</a></li>
-      <li><a name="toc-ZoneWave-1" href="#ZoneWave">6.3.2 ZoneWave</a></li>
-      <li><a name="toc-Launched-1" href="#Launched">6.3.3 Launched</a></li>
-      <li><a name="toc-Unlock-1" href="#Unlock">6.3.4 Unlock</a></li>
+      <li><a name="toc-UNTESTED-ZoneObjective" href="#ZoneObjective">6.3.1 <strong>UNTESTED</strong> ZoneObjective</a></li>
+      <li><a name="toc-UNTESTED-ZoneWave" href="#ZoneWave">6.3.2 <strong>UNTESTED</strong> ZoneWave</a></li>
+      <li><a name="toc-UNTESTED-Launched" href="#Launched">6.3.3 <strong>UNTESTED</strong> Launched</a></li>
+      <li><a name="toc-UNTESTED-Unlock" href="#Unlock">6.3.4 <strong>UNTESTED</strong> Unlock</a></li>
     </ul></li>
   </ul></li>
   <li><a name="toc-UNTESTED-Maps" href="#Maps">7 <strong>UNTESTED</strong> Maps</a>
@@ -653,8 +652,6 @@ Overview
 Types
 
 </pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Interface">Interface</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -1320,30 +1317,19 @@ Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up:
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Abstract" accesskey="1">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Interface" accesskey="2">Interface</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
 </table>
 
 <hr>
 <a name="Abstract"></a>
 <div class="header">
 <p>
-Next: <a href="#Interface" accesskey="n" rel="next">Interface</a>, Up: <a href="#Types" accesskey="u" rel="up">Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Up: <a href="#Types" accesskey="u" rel="up">Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Abstract-1"></a>
 <h4 class="subsection">1.8.1 Abstract</h4>
 
 <p>All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you&rsquo;ll probably get an <em>initialization exception</em> of some kind.
 </p>
-<hr>
-<a name="Interface"></a>
-<div class="header">
-<p>
-Previous: <a href="#Abstract" accesskey="p" rel="prev">Abstract</a>, Up: <a href="#Types" accesskey="u" rel="up">Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="TODO-Interface"></a>
-<h4 class="subsection">1.8.2 <strong>TODO</strong> Interface</h4>
-
 <hr>
 <a name="World"></a>
 <div class="header">
@@ -5099,7 +5085,7 @@ Previous: <a href="#Rules" accesskey="p" rel="prev">Rules</a>, Up: <a href="#Gam
 <a name="Objective-1"></a>
 <h3 class="section">6.3 Objective</h3>
 
-<p><a href="#Interface">Interface</a> which defines a specific objective for a game, like a wave to reach or an block to unlock.
+<p><em>Trait at the base of all objective types&hellip;.</em>
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#ZoneObjective" accesskey="1">ZoneObjective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -5118,8 +5104,8 @@ Previous: <a href="#Rules" accesskey="p" rel="prev">Rules</a>, Up: <a href="#Gam
 <p>
 Next: <a href="#ZoneWave" accesskey="n" rel="next">ZoneWave</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="ZoneObjective-1"></a>
-<h4 class="subsection">6.3.1 ZoneObjective</h4>
+<a name="UNTESTED-ZoneObjective"></a>
+<h4 class="subsection">6.3.1 <strong>UNTESTED</strong> ZoneObjective</h4>
 
 <p><a href="#Abstract">Abstract</a> type that implements <a href="#Objective">Objective</a>
 </p>
@@ -5134,8 +5120,8 @@ Next: <a href="#ZoneWave" accesskey="n" rel="next">ZoneWave</a>, Up: <a href="#O
 <p>
 Next: <a href="#Launched" accesskey="n" rel="next">Launched</a>, Previous: <a href="#ZoneObjective" accesskey="p" rel="prev">ZoneObjective</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="ZoneWave-1"></a>
-<h4 class="subsection">6.3.2 ZoneWave</h4>
+<a name="UNTESTED-ZoneWave"></a>
+<h4 class="subsection">6.3.2 <strong>UNTESTED</strong> ZoneWave</h4>
 
 <p>Extends <a href="#ZoneObjective">ZoneObjective</a>
 </p>
@@ -5154,8 +5140,8 @@ Next: <a href="#Launched" accesskey="n" rel="next">Launched</a>, Previous: <a hr
 <p>
 Next: <a href="#Unlock" accesskey="n" rel="next">Unlock</a>, Previous: <a href="#ZoneWave" accesskey="p" rel="prev">ZoneWave</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="Launched-1"></a>
-<h4 class="subsection">6.3.3 Launched</h4>
+<a name="UNTESTED-Launched"></a>
+<h4 class="subsection">6.3.3 <strong>UNTESTED</strong> Launched</h4>
 
 <p>Extends <a href="#ZoneObjective">ZoneObjective</a>
 </p>
@@ -5169,8 +5155,8 @@ Next: <a href="#Unlock" accesskey="n" rel="next">Unlock</a>, Previous: <a href="
 <p>
 Previous: <a href="#Launched" accesskey="p" rel="prev">Launched</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="Unlock-1"></a>
-<h4 class="subsection">6.3.4 Unlock</h4>
+<a name="UNTESTED-Unlock"></a>
+<h4 class="subsection">6.3.4 <strong>UNTESTED</strong> Unlock</h4>
 
 <p>Extends <a href="#Objective">Objective</a>
 </p>
