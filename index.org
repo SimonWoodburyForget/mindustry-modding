@@ -284,19 +284,18 @@
 
    Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ is ~BulletType~ so you can use ~MissileBulletType~, because ~MissileBulletType~ extends ~BulletType~.
 
-** Abstract
+*** Abstract
 
-
-   All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you'll probably get an /initialization exception/ of some kind.
-
-
-
+    All you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an /"initialization exception"/ of some kind.
 
 * World
   :PROPERTIES:
   :DESCRIPTION: the universe and everything in it.
   :END:
 ** Block
+   :PROPERTIES:
+   :DESCRIPTION: base type of types that go on tiles
+   :end:
 
   Extends [[BlockStorage][BlockStorage]] -- Fields for all objects that are blocks.
 
@@ -349,6 +348,9 @@
   * research cost is ~30 + <requirements> * 6~
 
 ** Consumers
+   :PROPERTIES:
+   :DESCRIPTION: base type to consume liquid, items and power
+   :END:
 
    This type is commonly used in block type with it's field ~consumes~, it's a type that allows your block to consume something, and how this field works is up to the specific type extension you're using.
 
@@ -427,7 +429,11 @@
     Notes:
     * ~usage~ might influence efficiency or load a buffer.
 ** BlockStorage
-   [[Abstract]] type that extends [[UnlockableContent and MappableContent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
+   :PROPERTIES:
+   :DESCRIPTION: 
+   :END: 
+
+   [[Abstract]] type that extends [[Content Type][UnlockableContent]] -- This is for blocks that can store a buffer of items.
 
    | field          | type      | default |
    |----------------+-----------+---------|
@@ -1768,9 +1774,12 @@
   :PROPERTIES:
   :DESCRIPTION: the building blocks of the universe.
   :END:
-** UnlockableContent and MappableContent
 
-   that can have a display name and description. /Most content in other words/. [[ItemStack][ItemStack]] for example isn't ~UnlockableContent~.
+** Content Type
+
+   At the base of all your content, there's a type called ~Content~, with related ~UnlockableContent~ and ~MappableContent~. This type is at the base of most your content; [[ItemStack][ItemStack]] for example isn't ~UnlockableContent~, because obviously it's not content at all, it's just a stack of items.
+
+   For purposes of JSON modding, all you need to know is this means your type can have ~name~ and ~description~ fields.
 
    #+BEGIN_SRC json
    {
@@ -1785,9 +1794,11 @@
    |             |        | <10>       |
    | name        | String | Used to display a name in the user. This is the name the user will see. |
    | description | String | Used display a description to the user. |
+
+
 ** Item
 
-   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
+   Extends [[Content Type][UnlockableContent]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
 
    | field          | type     | default | notes      |
    |----------------+----------+---------+------------|
@@ -1820,11 +1831,11 @@
 
 ** Liquid
 
-   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Object that defines the properties of a liquid.
+   Extends [[Content Type][UnlockableContent]] -- Object that defines the properties of a liquid.
 
    | field         | type         | default | notes      |
    |---------------+--------------+---------+------------|
-   |               |              |    <r>  | <10>       |
+   |               |              |     <r> | <10>       |
    | color         | [[Color][Color]]        |         | color of liquid |
    | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
    | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot |
@@ -1880,7 +1891,7 @@
    | shootSound     | [[Sound][Sound]]      |     pew |            |
 ** UnitType
 
-   Extends [[UnlockableContent and MappableContent][UnlockableContent]]
+   Extends [[Content Type][UnlockableContent]]
 
    | field           | type     | default |
    |-----------------+----------+---------|
@@ -1911,7 +1922,7 @@
 
 ** Mech
 
-   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Mechs are the player controlled entities.
+   Extends [[Content Type][UnlockableContent]] -- Mechs are the player controlled entities.
 
    | field              | type    | default |
    |--------------------+---------+---------|
@@ -1958,7 +1969,7 @@
    :DESCRIPTION: type used to add maps into campaign
    :END:
 
-   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Type used to get maps into campaign.
+   Extends [[Content Type][UnlockableContent]] -- Type used to get maps into campaign.
 
 
    | field                | type          | default    | notes                                            |
