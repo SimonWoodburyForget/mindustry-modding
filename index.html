@@ -543,7 +543,7 @@ body
     <li><a name="toc-UnitType-1" href="#UnitType">3.7 UnitType</a></li>
     <li><a name="toc-Mech-1" href="#Mech">3.8 Mech</a></li>
     <li><a name="toc-Category-1" href="#Category">3.9 Category</a></li>
-    <li><a name="toc-Zone-1" href="#Zone">3.10 Zone</a></li>
+    <li><a name="toc-UNTESTED-Zone" href="#Zone">3.10 <strong>UNTESTED</strong> Zone</a></li>
     <li><a name="toc-UNTESTED-Loadout" href="#Loadout">3.11 <strong>UNTESTED</strong> Loadout</a></li>
     <li><a name="toc-StatusEffect-1" href="#StatusEffect">3.12 StatusEffect</a></li>
   </ul></li>
@@ -4270,26 +4270,26 @@ Next: <a href="#Zone" accesskey="n" rel="next">Zone</a>, Previous: <a href="#Mec
 <p>
 Next: <a href="#Loadout" accesskey="n" rel="next">Loadout</a>, Previous: <a href="#Category" accesskey="p" rel="prev">Category</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="Zone-1"></a>
-<h3 class="section">3.10 Zone</h3>
+<a name="UNTESTED-Zone"></a>
+<h3 class="section">3.10 <strong>UNTESTED</strong> Zone</h3>
 
 <p>Extends <a href="#UnlockableContent-and-MappableContent">UnlockableContent</a> &ndash; Type used to get maps into campaign.
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
-<tr><td>generator</td><td><a href="#Generator">Generator</a></td><td></td></tr>
-<tr><td>baseLaunchCost</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
-<tr><td>launchCost</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
-<tr><td>startingItems</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
-<tr><td>conditionWave</td><td>int</td><td>MAX<em>_VALVE</em></td></tr>
-<tr><td>alwaysUnlocked</td><td>boolean</td><td></td></tr>
-<tr><td>launchPeriod</td><td>int</td><td>10</td></tr>
-<tr><td>loadout</td><td><a href="#Loadout">Loadout</a></td><td>basicShard</td></tr>
-<tr><td>resources</td><td><a href="#Item">Item</a></td><td></td></tr>
-<tr><td>rules</td><td><a href="#Rules">Rules</a></td><td></td></tr>
-<tr><td>requirements</td><td><a href="#Objective">Objective</a></td><td></td></tr>
-<tr><td>configureObjective</td><td><a href="#Objective">Objective</a></td><td></td></tr>
-<tr><td>defaultStartingItems</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
+<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
+<tr><td>generator</td><td><a href="#Generator">Generator</a></td><td></td><td></td></tr>
+<tr><td>baseLaunchCost</td><td><a href="#ItemStack">ItemStack</a></td><td></td><td></td></tr>
+<tr><td>launchCost</td><td><a href="#ItemStack">ItemStack</a></td><td></td><td></td></tr>
+<tr><td>startingItems</td><td><a href="#ItemStack">ItemStack</a></td><td></td><td></td></tr>
+<tr><td>conditionWave</td><td>int</td><td>MAX<em>_VALUE</em></td><td></td></tr>
+<tr><td>alwaysUnlocked</td><td>boolean</td><td>false</td><td>Whether this map is always unlocked</td></tr>
+<tr><td>launchPeriod</td><td>int</td><td>10</td><td>Wave multiples at which the core may be launched.</td></tr>
+<tr><td>loadout</td><td><a href="#Loadout">Loadout</a></td><td>basicShard</td><td></td></tr>
+<tr><td>resources</td><td>[ String ]</td><td></td><td>Array of item names.</td></tr>
+<tr><td>rules</td><td><a href="#Rules">Rules</a></td><td></td><td></td></tr>
+<tr><td>requirements</td><td>[<a href="#Objective">Objective</a>]</td><td></td><td></td></tr>
+<tr><td>configureObjective</td><td><a href="#Objective">Objective</a></td><td></td><td></td></tr>
+<tr><td>defaultStartingItems</td><td><a href="#ItemStack">ItemStack</a></td><td></td><td></td></tr>
 </table>
 
 <p>Sprites:
@@ -4332,53 +4332,45 @@ Next: <a href="#StatusEffect" accesskey="n" rel="next">StatusEffect</a>, Previou
 <ul>
 <li> <code>basicShard</code> 
 <div class="example">
-<pre class="example">[
-    &quot;  ###  &quot;,
-    &quot;  #1#  &quot;,
-    &quot;  ###  &quot;,
-    &quot;  ^ ^  &quot;,
-    &quot; ## ## &quot;,
-    &quot; C# C# &quot;
-]
+<pre class="example">&quot;  ###  &quot;
+&quot;  #1#  &quot;
+&quot;  ###  &quot;
+&quot;  ^ ^  &quot;
+&quot; ## ## &quot;
+&quot; C# C# &quot;
 </pre></div>
 
 </li><li> <code>advancedShard</code> 
 <div class="example">
-<pre class="example">[
-    &quot;  ###  &quot;,
-    &quot;  #1#  &quot;,
-    &quot;#######&quot;,
-    &quot;C#^ ^C#&quot;,
-    &quot; ## ## &quot;,
-    &quot; C# C# &quot;
-]
+<pre class="example">&quot;  ###  &quot;
+&quot;  #1#  &quot;
+&quot;#######&quot;
+&quot;C#^ ^C#&quot;
+&quot; ## ## &quot;
+&quot; C# C# &quot;
 </pre></div>
 
 </li><li> <code>basicFoundation</code> 
 <div class="example">
-<pre class="example">[
-    &quot;  ####  &quot;,
-    &quot;  ####  &quot;,
-    &quot;  #2##  &quot;,
-    &quot;  ####  &quot;,
-    &quot;  ^^^^  &quot;,
-    &quot; ###### &quot;,
-    &quot; C#C#C# &quot;
-]
+<pre class="example">&quot;  ####  &quot;
+&quot;  ####  &quot;
+&quot;  #2##  &quot;
+&quot;  ####  &quot;
+&quot;  ^^^^  &quot;
+&quot; ###### &quot;
+&quot; C#C#C# &quot;
 </pre></div>
 
 </li><li> <code>basicNucleus</code> 
 <div class="example">
-<pre class="example">[
-    &quot;  #####  &quot;,
-    &quot;  #####  &quot;,
-    &quot;  ##3##  &quot;,
-    &quot;  #####  &quot;,
-    &quot; &gt;#####&lt; &quot;,
-    &quot; ^ ^ ^ ^ &quot;,
-    &quot;#### ####&quot;,
-    &quot;C#C# C#C#&quot;
-]
+<pre class="example">&quot;  #####  &quot;
+&quot;  #####  &quot;
+&quot;  ##3##  &quot;
+&quot;  #####  &quot;
+&quot; &gt;#####&lt; &quot;
+&quot; ^ ^ ^ ^ &quot;
+&quot;#### ####&quot;
+&quot;C#C# C#C#&quot;
 </pre></div>
 </li></ul>
 
