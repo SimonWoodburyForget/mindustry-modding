@@ -2427,9 +2427,12 @@
 
 ** Objective
 
-   Objective is a trait, of which a few types implement. It's used by [[Zone]] to give campaign objectives.
+   Objective is a trait, of which a few types implement. It's used by [[Zone]] to give campaign objectives. 
 
 *** ZoneObjective
+    :PROPERTIES:
+    :DESCRIPTION: zone specific condition
+    :END:
 
     [[Abstract]] type that implements [[Objective]]
 
@@ -2438,6 +2441,9 @@
     | zone  | Zone    |
 
 *** ZoneWave
+    :PROPERTIES: 
+    :DESCRIPTION: zone and wave specific condition
+    :END:
 
     Extends [[ZoneObjective]]
 
@@ -2448,12 +2454,18 @@
     * complete if zone best wave is larger then ~wave~.
 
 *** Launched
+    :PROPERTIES: 
+    :DESCRIPTION: zone and launched specific condition
+    :END:
 
     Extends [[ZoneObjective]]
 
     * complete if ~zone~ has launched.
 
 *** Unlock
+    :PROPERTIES:
+    :DESCRIPTION: block unlock specific condition
+    :END:
 
     Extends [[Objective]]
 
