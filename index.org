@@ -1848,8 +1848,11 @@
    * ~effect~ Things for storage or passive effects.
 
 ** Zone
+   :PROPERTIES:
+   :DESCRIPTION: type used to add maps into campaign
+   :END:
 
-   Extends [[UnlockableContent and MappableContent][UnlockableContent]]
+   Extends [[UnlockableContent and MappableContent][UnlockableContent]] -- Type used to get maps into campaign.
 
    | field                | type      | default    |
    |----------------------+-----------+------------|
@@ -2457,7 +2460,6 @@
   :PROPERTIES:
   :DESCRIPTION: ...
   :END:
-** Interface
 
 ** Mindustry Source Structure
 
