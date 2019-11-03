@@ -1868,8 +1868,8 @@
    | requirements         | [[[ Objective ]]] |            |                                                   |
    | configureObjective   | [[Objective]]     |            |                                                   |
    | defaultStartingItems | [[ItemStack]]     |            |                                                   |
-   | generator            | [[Generator]]     |            |                                                   |
-   | rules                | [[Rules]]         |            |                                                   |
+   | generator            | [[Generator]]     |            | *[untested]*                                      |
+   | rules                | [[Rules]]         |            | *[untested]*                                      |
 
    Sprites:
    * ~zone-<name>~ preview
