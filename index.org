@@ -206,8 +206,8 @@
    #+END_SRC
 
    If you've read the first few sections of this guide, you'll spot it right away, it's simply:
-   * ~<content type>.<mod name>-<content name>.name~ and,
-   * ~<content type>.<mod name>-<content name>.description~.
+   * ~<content type>.<mod name>-<content name>.name~
+   * ~<content type>.<mod name>-<content name>.description~
 
    Where content type could be:
    * ~item~
@@ -247,8 +247,8 @@
    * Turkish ? ~bundle_tk.properties~ 
    * Turkish ? ~bundle_tr.properties~ 
    * Ukrainian ~bundle_uk_UA.properties~ 
-   * Chinese ? ~bundle_zh_CN.properties~ 
-   * Chinese ? ~bundle_zh_TW.properties~ 
+   * Chinese CN ~bundle_zh_CN.properties~ 
+   * Chinese TW ~bundle_zh_TW.properties~ 
 
 ** Types
    :PROPERTIES:
