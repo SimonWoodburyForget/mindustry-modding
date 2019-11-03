@@ -2420,11 +2420,11 @@
    * ~base~
    * ~turret~
 
+
 * Game
   :PROPERTIES:
   :DESCRIPTION: the rules and goals of it all.
   :END:
-
 ** Objective
 
    Objective is a trait, of which a few types implement. It's used by [[Zone]] to give campaign objectives. 
@@ -2474,6 +2474,7 @@
     | block | [[Block]] |
 
     * complete if ~block~ is unlocked.
+
 
 * Other
   :PROPERTIES:
