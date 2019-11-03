@@ -1981,8 +1981,6 @@
    | requirements         | [ [[Objective]] ] |            |                                                  |
    | configureObjective   | [[Objective]]     | wave 15    |                                                  |
    | defaultStartingItems | [[ItemStack]]     |            |                                                  |
-   | generator            | [[Generator]]     |            | *[untested]*                                     |
-   | rules                | [[Rules]]         |            | *[untested]*                                     |
 
    Sprites:
    * ~zone-<name>~ preview
@@ -2422,78 +2420,14 @@
    * ~base~
    * ~turret~
 
-
 * Game
   :PROPERTIES:
   :DESCRIPTION: the rules and goals of it all.
   :END:
 
-** UNTESTED SpawnGroup
-
-   A spawn group defines spawn information for a specific type of unit, with optional extra information like weapon equipped, ammo used, and status effects. Each spawn group can have multiple sub-groups spawned in different areas of the map.
-
-   | field       | type         |   default | notes      |
-   |-------------+--------------+-----------+------------|
-   |             |              |           | <10>       |
-   | type        | [[UnitType]]     |           | The unit type spawned |
-   | end         | int          | MAX_VALUE | When this spawn should end |
-   | begin       | int          |           | When this spawn should start |
-   | spacing     | int          |         1 | The spacing, in waves, of spawns. For example, 2 = spawns every other wave |
-   | max         | int          |       100 | Maximum amount of units that spawn |
-   | unitScaling | float        | MAX_VALUE | How many waves need to pass before the amount of units spawned increases by 1 |
-   | unitAmount  | int          |         1 | Amount of enemies spawned initially, with no scaling |
-   | effect      | [[StatusEffect]] |           | Status effect applied to the spawned unit. Null to disable. |
-   | items       | [[ItemStack]]    |           | Items this unit spawns with. Null to disable. |
-
-   Built-in gamemode:
-   * ~survival~
-   * ~sandbox~
-   * ~attack~
-   * ~pvp~
-   * ~editor~
-
-** UNTESTED Rules
-
-   Rules is applied to map which can be edited the map editor, you can edit your mod-added campaign map's rule through these fields.
-
-   | field                    | type           |    default | notes      |
-   |--------------------------+----------------+------------+------------|
-   |                          |                |       <10> | <10>       |
-   | infiniteResources        | boolean        |            | Whether the player has infinite resources. |
-   | waveTimer                | boolean        |       true | Whether the waves come automatically on a timer. If not, waves come when the play button is pressed. |
-   | waves                    | boolean        |            | Whether waves are spawnable at all. |
-   | enemyCheat               | boolean        |            | Whether the enemy AI has infinite resources in most of their buildings and turrets. |
-   | pvp                      | boolean        |            | Whether the game objective is PvP. Note that this enables automatic hosting. |
-   | unitDrops                | boolean        |       true | Whether enemy units drop random items on death. |
-   | unitBuildSpeedMultiplier | float          |          1 | How fast unit pads build units. |
-   | unitHealthMultiplier     | float          |          1 | How much health units start with. |
-   | playerHealthMultiplier   | float          |          1 | How much health players start with. |
-   | playerDamageMultiplier   | float          |          1 | How much damage player mechs deal. |
-   | unitDamageMultiplier     | float          |          1 | How much damage any other units deal. |
-   | buildCostMultiplier      | float          |          1 | Multiplier for buildings for the player. |
-   | buildSpeedMultiplier     | float          |          1 | Multiplier for building speed. |
-   | enemyCoreBuildRadius     | float          |        400 | No-build zone around enemy core radius. |
-   | dropZoneRadius           | float          |        300 | Radius around enemy wave drop zones. |
-   | respawnTime              | float          |        120 | Player respawn time in ticks. |
-   | waveSpacing              | float          |       7200 | Time between waves in ticks. |
-   | bossWaveMultiplier       | float          |          3 | How many times longer a boss wave takes. |
-   | launchWaveMultiplier     | float          |          2 | How many times longer a launch wave takes. |
-   | zone                     | [[Zone]]           |            | Zone for saves that have them. |
-   | spawns                   | [ [[SpawnGroup]] ] |         [] | Spawn layout. |
-   | limitedRespawns          | boolean        |      false | Determines if there should be limited respawns. |
-   | respawns                 | int            |          5 | How many times player can respawn during one wave. |
-   | waitForWaveToEnd         | boolean        |      false | Hold wave timer until all enemies are destroyed. |
-   | attackMode               | boolean        |      false | Determinates if gamemode is attack mode |
-   | editor                   | boolean        |      false | Whether this is the editor gamemode. |
-   | tutorial                 | boolean        |      false | Whether the tutorial is enabled. False by default. |
-   | loadout                  | [[ItemStack]]      | [ "copper", 100 ] | Starting items put in cores |
-   | bannedBlocks             | [[[ Block]] ]      |         {} | Blocks that cannot be placed. |
-
-
 ** Objective
 
    /Trait at the base of all objective types..../
-
 
 *** UNTESTED ZoneObjective
 
@@ -2528,42 +2462,6 @@
     | block | [[Block]] |
 
     * complete if ~block~ is unlocked.
-
-
-* Maps
-** UNTESTED Generator
-
-    [[Abstract]] type to generate map.
-
-    | field  | type | note                     |
-    |--------+------+--------------------------|
-    | width  | int  | [[MapGenerator]] will set it |
-    | height | int  | [[MapGenerator]] will set it |
-
-*** UNTESTED MapGenerator
-
-    Extends [[Generator]] -- A basic map generator.
-
-    | field        | type       | default | notes      |
-    |--------------+------------+---------+------------|
-    |              |            |         | <10>       |
-    | map          | Map        |         | this is set in map editor |
-    | mapName      | String     |         |            |
-    | decorations  | [[Decoration]] |         |            |
-    | enemySpawns  | int        | -1      | The amount of final enemy spawns used. -1 to use everything in the map.This amount of enemy spawns is selected randomly from the map. |
-    | distortFloor | boolean    | false   | Whether floor is distorted along with blocks. |
-
-*** UNTESTED Decoration
-
-    A method in [[MapGenerator]] -- A decoration map generator.
-
-    | field  | type   |
-    |--------+--------|
-    | floor  | [[Block]]  |
-    | wall   | [[Block]]  |
-    | chance | double |
-
-
 
 * Other
   :PROPERTIES:
