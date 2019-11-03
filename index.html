@@ -394,12 +394,9 @@ body
     <li><a name="toc-Sprites-1" href="#Sprites">1.4 Sprites</a></li>
     <li><a name="toc-Sound-1" href="#Sound">1.5 Sound</a></li>
     <li><a name="toc-Dependencies-1" href="#Dependencies">1.6 Dependencies</a></li>
-    <li><a name="toc-Units-1" href="#Units">1.7 Units</a></li>
-    <li><a name="toc-Bundles-1" href="#Bundles">1.8 Bundles</a></li>
-    <li><a name="toc-Types-1" href="#Types">1.9 Types</a>
-    <ul class="no-bullet">
-      <li><a name="toc-Abstract-1" href="#Abstract">1.9.1 Abstract</a></li>
-    </ul></li>
+    <li><a name="toc-Bundles-1" href="#Bundles">1.7 Bundles</a></li>
+    <li><a name="toc-Types-1" href="#Types">1.8 Types</a></li>
+    <li><a name="toc-FAQ-1" href="#FAQ">1.9 FAQ</a></li>
   </ul></li>
   <li><a name="toc-World-1" href="#World">2 World</a>
   <ul class="no-bullet">
@@ -634,20 +631,13 @@ Overview
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Dependencies">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mods extending mods
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Units">Units</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">conversion of units to real game time.
-</td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Bundles">Bundles</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">translations and renaming
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Types">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">things to know about types
 </td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
-Types
-
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#FAQ">FAQ</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">simple questions and awnsers
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
 
 World
 
@@ -1040,11 +1030,11 @@ Next: <a href="#World" accesskey="n" rel="next">World</a>, Previous: <a href="#T
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="6">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mods extending mods
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Units" accesskey="7">Units</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">conversion of units to real game time.
+<tr><td align="left" valign="top">&bull; <a href="#Bundles" accesskey="7">Bundles</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">translations and renaming
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Bundles" accesskey="8">Bundles</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">translations and renaming
+<tr><td align="left" valign="top">&bull; <a href="#Types" accesskey="8">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">things to know about types
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Types" accesskey="9">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">things to know about types
+<tr><td align="left" valign="top">&bull; <a href="#FAQ" accesskey="9">FAQ</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">simple questions and awnsers
 </td></tr>
 </table>
 
@@ -1217,7 +1207,7 @@ Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previou
 <a name="Dependencies"></a>
 <div class="header">
 <p>
-Next: <a href="#Units" accesskey="n" rel="next">Units</a>, Previous: <a href="#Sound" accesskey="p" rel="prev">Sound</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Bundles" accesskey="n" rel="next">Bundles</a>, Previous: <a href="#Sound" accesskey="p" rel="prev">Sound</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Dependencies-1"></a>
 <h3 class="section">1.6 Dependencies</h3>
@@ -1244,29 +1234,13 @@ Next: <a href="#Units" accesskey="n" rel="next">Units</a>, Previous: <a href="#S
 </li></ul>
 
 <hr>
-<a name="Units"></a>
-<div class="header">
-<p>
-Next: <a href="#Bundles" accesskey="n" rel="next">Bundles</a>, Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="Units-1"></a>
-<h3 class="section">1.7 Units</h3>
-
-<ul>
-<li> <code>time</code> in game is calculated through <code>ticks</code>;
-</li><li> <code>ticks</code> (sometimes called <code>frames</code>) are assumed to be 60/1 second;
-</li><li> <code>range</code> or <code>speed</code> is calculated by 1/10 of a tile;
-</li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>.
-</li></ul>
-
-<hr>
 <a name="Bundles"></a>
 <div class="header">
 <p>
-Next: <a href="#Types" accesskey="n" rel="next">Types</a>, Previous: <a href="#Units" accesskey="p" rel="prev">Units</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Types" accesskey="n" rel="next">Types</a>, Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Bundles-1"></a>
-<h3 class="section">1.8 Bundles</h3>
+<h3 class="section">1.7 Bundles</h3>
 
 <p>An optional addition to your mod is called bundles. The main use of bundles are give translations of your content, but there&rsquo;s no reason you couldn&rsquo;t use them in English. These are plaintext files which go in the <code>bundles/</code> subdirectory, and they should be named something like <code>bundle_ru.properties</code> (for Russian).
 </p>
@@ -1307,40 +1281,40 @@ block.example-mod-silver-wall.description = Стена из серебра.
 <p>List of filenames relative to languages:
 </p>
 <ul>
-<li> English <code>bundle.properties</code> 
-</li><li> Czech <code>bundle_cs.properties</code> 
-</li><li> German <code>bundle_de.properties</code> 
-</li><li> Spanish <code>bundle_es.properties</code> 
-</li><li> Estonian <code>bundle_et.properties</code> 
-</li><li> Basque <code>bundle_eu.properties</code> 
-</li><li> French BE <code>bundle_fr_BE.properties</code> 
-</li><li> French <code>bundle_fr.properties</code> 
-</li><li> Bergabung <code>bundle_in_ID.properties</code> 
-</li><li> Italian <code>bundle_it.properties</code> 
-</li><li> Japanese <code>bundle_ja.properties</code> 
-</li><li> Korean <code>bundle_ko.properties</code> 
-</li><li> Dutch BE <code>bundle_nl_BE.properties</code> 
-</li><li> Dutch <code>bundle_nl.properties</code> 
-</li><li> Polish <code>bundle_pl.properties</code> 
-</li><li> Portuguese BR <code>bundle_pt_BR.properties</code> 
-</li><li> Portuguese  <code>bundle_pt.properties</code> 
-</li><li> Russian <code>bundle_ru.properties</code> 
-</li><li> Danish <code>bundle_sv.properties</code> 
-</li><li> Turkish ? <code>bundle_tk.properties</code> 
-</li><li> Turkish ? <code>bundle_tr.properties</code> 
-</li><li> Ukrainian <code>bundle_uk_UA.properties</code> 
-</li><li> Chinese CN <code>bundle_zh_CN.properties</code> 
-</li><li> Chinese TW <code>bundle_zh_TW.properties</code> 
+<li> English <code>bundle.properties</code>
+</li><li> Czech <code>bundle_cs.properties</code>
+</li><li> German <code>bundle_de.properties</code>
+</li><li> Spanish <code>bundle_es.properties</code>
+</li><li> Estonian <code>bundle_et.properties</code>
+</li><li> Basque <code>bundle_eu.properties</code>
+</li><li> French BE <code>bundle_fr_BE.properties</code>
+</li><li> French <code>bundle_fr.properties</code>
+</li><li> Bergabung <code>bundle_in_ID.properties</code>
+</li><li> Italian <code>bundle_it.properties</code>
+</li><li> Japanese <code>bundle_ja.properties</code>
+</li><li> Korean <code>bundle_ko.properties</code>
+</li><li> Dutch BE <code>bundle_nl_BE.properties</code>
+</li><li> Dutch <code>bundle_nl.properties</code>
+</li><li> Polish <code>bundle_pl.properties</code>
+</li><li> Portuguese BR <code>bundle_pt_BR.properties</code>
+</li><li> Portuguese  <code>bundle_pt.properties</code>
+</li><li> Russian <code>bundle_ru.properties</code>
+</li><li> Danish <code>bundle_sv.properties</code>
+</li><li> Turkish ? <code>bundle_tk.properties</code>
+</li><li> Turkish ? <code>bundle_tr.properties</code>
+</li><li> Ukrainian <code>bundle_uk_UA.properties</code>
+</li><li> Chinese CN <code>bundle_zh_CN.properties</code>
+</li><li> Chinese TW <code>bundle_zh_TW.properties</code>
 </li></ul>
 
 <hr>
 <a name="Types"></a>
 <div class="header">
 <p>
-Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#FAQ" accesskey="n" rel="next">FAQ</a>, Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Types-1"></a>
-<h3 class="section">1.9 Types</h3>
+<h3 class="section">1.8 Types</h3>
 
 <p>Types have numerous fields, but the important one is <code>type</code>; this is a special field used by the content parser, that changes which type your object is. <em>No a <code>Router</code> type can&rsquo;t be a <code>Turret</code> type</em>, they have completely different methods and fields.
 </p>
@@ -1365,22 +1339,23 @@ Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="
 
 <p>Here you can see, the type of the top level object is <code>Revenant</code>, but the type of the <code>bullet</code> is <code>BulletType</code> so you can use <code>MissileBulletType</code>, because <code>MissileBulletType</code> extends <code>BulletType</code>.
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Abstract" accesskey="1">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
 <hr>
-<a name="Abstract"></a>
+<a name="FAQ"></a>
 <div class="header">
 <p>
-Up: <a href="#Types" accesskey="u" rel="up">Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Types" accesskey="p" rel="prev">Types</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="Abstract-1"></a>
-<h4 class="subsection">1.9.1 Abstract</h4>
+<a name="FAQ-1"></a>
+<h3 class="section">1.9 FAQ</h3>
 
-<p>All you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
-</p>
+<ul>
+<li> <code>time</code> in game is calculated through <code>ticks</code>;
+</li><li> <code>ticks</code> <em>sometimes called <code>frames</code>,</em> are assumed to be 60/1 second;
+</li><li> <code>range</code> or most forms of distance is 1/10 of a tile;
+</li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;
+</li><li> <a name="org762463a"></a><strong>Abstract:</strong> all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
+</li></ul>
+
 <hr>
 <a name="World"></a>
 <div class="header">
@@ -1550,7 +1525,7 @@ Next: <a href="#ConsumeItems" accesskey="n" rel="next">ConsumeItems</a>, Up: <a 
 <a name="Consume-1"></a>
 <h4 class="subsection">2.2.1 Consume</h4>
 
-<p><a href="#Abstract">Abstract</a> type base, that defines a type of resource that a block can consume.
+<p><a href="#org762463a">Abstract</a> type base, that defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1584,7 +1559,7 @@ Next: <a href="#ConsumeLiquid" accesskey="n" rel="next">ConsumeLiquid</a>, Previ
 <a name="ConsumeLiquidBase-1"></a>
 <h4 class="subsection">2.2.3 ConsumeLiquidBase</h4>
 
-<p><a href="#Abstract">Abstract</a> type which extends <a href="#Consume">Consume</a>
+<p><a href="#org762463a">Abstract</a> type which extends <a href="#Consume">Consume</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1647,7 +1622,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.3 BlockStorage</h3>
 
-<p><a href="#Abstract">Abstract</a> type that extends <a href="#Content-Type">UnlockableContent</a> &ndash; This is for blocks that can store a buffer of items.
+<p><a href="#org762463a">Abstract</a> type that extends <a href="#Content-Type">UnlockableContent</a> &ndash; This is for blocks that can store a buffer of items.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -2358,10 +2333,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#orgea812c9">orgea812c9</a></td></tr>
+<tr><td>consumes</td><td><a href="#org6f019cb">cold-liquid</a></td></tr>
 </table>
 
-<a name="orgea812c9"></a><p>:
+<a name="org6f019cb"></a><p><a href="#org6f019cb">cold-liquid</a>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -2448,7 +2423,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.9.1 Turret</h4>
 
-<p><a href="#Abstract">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
+<p><a href="#org762463a">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -2611,7 +2586,7 @@ Next: <a href="#ChargeTurret" accesskey="n" rel="next">ChargeTurret</a>, Previou
 <a name="PowerTurret-1"></a>
 <h4 class="subsection">2.9.7 PowerTurret</h4>
 
-<p><a href="#Abstract">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
+<p><a href="#org762463a">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3215,7 +3190,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.12.1 PowerBlock</h4>
 
-<p><a href="#Abstract">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org762463a">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -3867,7 +3842,7 @@ Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="
 <a name="StorageBlock-1"></a>
 <h4 class="subsection">2.15.1 StorageBlock</h4>
 
-<p><a href="#Abstract">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org762463a">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -4682,7 +4657,7 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletType-1"></a>
 <h3 class="section">5.1 BulletType</h3>
 
-<p><a href="#Abstract">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
+<p><a href="#org762463a">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
 </p><ul>
 <li> <a href="#BasicBulletType">BasicBulletType</a>
 </li><li> <em>everything else</em>
@@ -5100,7 +5075,7 @@ Up: <a href="#Game" accesskey="u" rel="up">Game</a> &nbsp; [<a href="#SEC_Conten
 <a name="Objective-1"></a>
 <h3 class="section">6.1 Objective</h3>
 
-<p>Objective is a trait, of which a few types implement. It&rsquo;s used by <a href="#Zone">Zone</a> to give campaign objectives. 
+<p>Objective is a trait, of which a few types implement. It&rsquo;s used by <a href="#Zone">Zone</a> to give campaign objectives.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#ZoneObjective" accesskey="1">ZoneObjective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">zone specific condition
@@ -5122,7 +5097,7 @@ Next: <a href="#ZoneWave" accesskey="n" rel="next">ZoneWave</a>, Up: <a href="#O
 <a name="ZoneObjective-1"></a>
 <h4 class="subsection">6.1.1 ZoneObjective</h4>
 
-<p><a href="#Abstract">Abstract</a> type that implements <a href="#Objective">Objective</a>
+<p><a href="#org762463a">Abstract</a> type that implements <a href="#Objective">Objective</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>default</th></tr></thead>
