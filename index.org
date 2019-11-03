@@ -1902,46 +1902,46 @@
    Built-in loadouts:
     
    * ~basicShard~ 
-     #+BEGIN_SRC json
-     "  ###  "
-     "  #1#  "
-     "  ###  "
-     "  ^ ^  "
-     " ## ## "
-     " C# C# "
+     #+BEGIN_SRC fundamental
+       ###  
+       #1#  
+       ###  
+       ^ ^  
+      ## ## 
+      C# C# 
      #+END_SRC
           
    * ~advancedShard~ 
-     #+BEGIN_SRC json
-     "  ###  "
-     "  #1#  "
-     "#######"
-     "C#^ ^C#"
-     " ## ## "
-     " C# C# "
+     #+BEGIN_SRC fundamental
+       ###  
+       #1#  
+     #######
+     C#^ ^C#
+      ## ## 
+      C# C# 
      #+END_SRC
 
    * ~basicFoundation~ 
-     #+BEGIN_SRC json
-     "  ####  "
-     "  ####  "
-     "  #2##  "
-     "  ####  "
-     "  ^^^^  "
-     " ###### "
-     " C#C#C# "
+     #+BEGIN_SRC fundamental
+       ####  
+       ####  
+       #2##  
+       ####  
+       ^^^^  
+      ###### 
+      C#C#C# 
      #+END_SRC
 
    * ~basicNucleus~ 
-     #+BEGIN_SRC json
-     "  #####  "
-     "  #####  "
-     "  ##3##  "
-     "  #####  "
-     " >#####< "
-     " ^ ^ ^ ^ "
-     "#### ####"
-     "C#C# C#C#"
+     #+BEGIN_SRC fundamental
+       #####  
+       #####  
+       ##3##  
+       #####  
+      >#####< 
+      ^ ^ ^ ^ 
+     #### ####
+     C#C# C#C#
      #+END_SRC
 
 ** StatusEffect
