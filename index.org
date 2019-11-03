@@ -85,6 +85,16 @@
 
    This is important, because it's how Mindustry will know which types to lookup. -- How you name your files is also important as the stem ~name~ of your path ~content/blocks/<name>.json~ is going to be used to reference it.
 
+** Units
+   :PROPERTIES:
+   :DESCRIPTION: conversion of units to real game time.
+   :END:
+
+   * ~time~ in game is calculated through ~ticks~;
+   * ~ticks~ (sometimes called ~frames~) are assumed to be 60/1 second;
+   * ~range~ or ~speed~ is calculated by 1/10 of a tile;
+   * to calculate range out of ~lifetime~ and ~speed~ you can do ~lifetime * speed = range~.
+
 ** Sprites
    :PROPERTIES:
    :DESCRIPTION: image files and how to name them
@@ -213,6 +223,7 @@
 
     All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you'll probably get an /initialization exception/ of some kind.
 
+*** TODO Interface
 
 * World
   :PROPERTIES:
@@ -1867,6 +1878,66 @@
    * ~<name>-zone~ preview
 
 ** TODO Loadout
+   :PROPERTIES:
+   :DESCRIPTION: 
+   :END:
+
+   Extends [[Content]]
+
+   
+
+*** TODO Built-In Loadouts
+    
+    * ~basicShard~ 
+      #+BEGIN_SRC json
+      [
+          "  ###  ",
+          "  #1#  ",
+          "  ###  ",
+          "  ^ ^  ",
+          " ## ## ",
+          " C# C# "
+      ]
+      #+END_SRC
+          
+    * ~advancedShard~ 
+      #+BEGIN_SRC json
+      [
+          "  ###  ",
+          "  #1#  ",
+          "#######",
+          "C#^ ^C#",
+          " ## ## ",
+          " C# C# "
+      ]
+      #+END_SRC
+
+    * ~basicFoundation~ 
+      #+BEGIN_SRC json
+      [
+          "  ####  ",
+          "  ####  ",
+          "  #2##  ",
+          "  ####  ",
+          "  ^^^^  ",
+          " ###### ",
+          " C#C#C# "
+      ]
+      #+END_SRC
+
+    * ~basicNucleus~ 
+      #+BEGIN_SRC json
+      [
+          "  #####  ",
+          "  #####  ",
+          "  ##3##  ",
+          "  #####  ",
+          " >#####< ",
+          " ^ ^ ^ ^ ",
+          "#### ####",
+          "C#C# C#C#"
+      ]
+      #+END_SRC
 
 ** StatusEffect
 
@@ -2290,7 +2361,7 @@
    | loadout                  | [[ItemStack]]      | [ "copper", 100 ] | Starting items put in cores |
    | bannedBlocks             | [[[ Block]] ]      |         {} | Blocks that cannot be placed. |
 
-** Objective
+** TODO Objective
 
    [[Interface]] which defines a specific objective for a game, like a wave to reach or an block to unlock.
 
