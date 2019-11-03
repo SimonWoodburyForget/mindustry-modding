@@ -88,16 +88,6 @@
 
    This is important, because it's how Mindustry will know which types to lookup. -- How you name your files is also important as the stem ~name~ of your path ~content/blocks/<name>.json~ is going to be used to reference it.
 
-** Units
-   :PROPERTIES:
-   :DESCRIPTION: conversion of units to real game time.
-   :END:
-
-   * ~time~ in game is calculated through ~ticks~;
-   * ~ticks~ (sometimes called ~frames~) are assumed to be 60/1 second;
-   * ~range~ or ~speed~ is calculated by 1/10 of a tile;
-   * to calculate range out of ~lifetime~ and ~speed~ you can do ~lifetime * speed = range~.
-
 ** Sprites
    :PROPERTIES:
    :DESCRIPTION: image files and how to name them
@@ -194,7 +184,20 @@
    * ~other-mod-name-angry-dagger~ would reference ~angry-dagger~ in ~other-mod-name~
    * ~not-a-mod-angry-dagger~ would reference ~angry-dagger~ in ~not-a-mod~
 
+** Units
+   :PROPERTIES:
+   :DESCRIPTION: conversion of units to real game time.
+   :END:
+
+   * ~time~ in game is calculated through ~ticks~;
+   * ~ticks~ (sometimes called ~frames~) are assumed to be 60/1 second;
+   * ~range~ or ~speed~ is calculated by 1/10 of a tile;
+   * to calculate range out of ~lifetime~ and ~speed~ you can do ~lifetime * speed = range~.
+
 ** Bundles
+   :PROPERTIES:
+   :DESCRIPTION: translations and renaming
+   :END:
 
    An optional addition to your mod is called bundles. The main use of bundles are give translations of your content, but there's no reason you couldn't use them in English. These are plaintext files which go in the ~bundles/~ subdirectory, and they should be named something like ~bundle_ru.properties~ for Russian.
 
@@ -205,11 +208,11 @@
    block.example-mod-silver-wall.description = Стена из серебра.
    #+END_SRC
 
-   If you've read the first few sections of this guide, you'll spot it right away, it's simply:
+   If you've read the first few sections of this guide, you'll spot it right away:
    * ~<content type>.<mod name>-<content name>.name~
    * ~<content type>.<mod name>-<content name>.description~
 
-   Where content type could be:
+   List of content type:
    * ~item~
    * ~block~
    * ~mech~
@@ -223,7 +226,7 @@
    * ~loadout~
    * ~typeid~
 
-   Here are the file names relative to languages:
+   List of filenames relative to languages:
 
    * English ~bundle.properties~ 
    * Czech ~bundle_cs.properties~ 
