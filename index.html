@@ -380,7 +380,6 @@ body
 <p>Modding documentation for Mindustry v99 (81)
 </p>
 
-
 <a name="SEC_Contents"></a>
 <h2 class="contents-heading">Table of Contents</h2>
 
@@ -392,12 +391,14 @@ body
     <li><a name="toc-Directory-Structure-1" href="#Directory-Structure">1.1 Directory Structure</a></li>
     <li><a name="toc-mod_002ejson" href="#modjson">1.2 <code>mod.json</code></a></li>
     <li><a name="toc-Content-1" href="#Content">1.3 Content</a></li>
-    <li><a name="toc-Sprites-1" href="#Sprites">1.4 Sprites</a></li>
-    <li><a name="toc-Sound-1" href="#Sound">1.5 Sound</a></li>
-    <li><a name="toc-Dependencies-1" href="#Dependencies">1.6 Dependencies</a></li>
-    <li><a name="toc-Types-1" href="#Types">1.7 Types</a>
+    <li><a name="toc-Units-1" href="#Units">1.4 Units</a></li>
+    <li><a name="toc-Sprites-1" href="#Sprites">1.5 Sprites</a></li>
+    <li><a name="toc-Sound-1" href="#Sound">1.6 Sound</a></li>
+    <li><a name="toc-Dependencies-1" href="#Dependencies">1.7 Dependencies</a></li>
+    <li><a name="toc-Types-1" href="#Types">1.8 Types</a>
     <ul class="no-bullet">
-      <li><a name="toc-Abstract-1" href="#Abstract">1.7.1 Abstract</a></li>
+      <li><a name="toc-Abstract-1" href="#Abstract">1.8.1 Abstract</a></li>
+      <li><a name="toc-TODO-Interface" href="#Interface">1.8.2 <strong>TODO</strong> Interface</a></li>
     </ul></li>
   </ul></li>
   <li><a name="toc-World-1" href="#World">2 World</a>
@@ -544,7 +545,11 @@ body
     <li><a name="toc-Mech-1" href="#Mech">3.8 Mech</a></li>
     <li><a name="toc-Category-1" href="#Category">3.9 Category</a></li>
     <li><a name="toc-TODO-Zone" href="#Zone">3.10 <strong>TODO</strong> Zone</a></li>
-    <li><a name="toc-StatusEffect-1" href="#StatusEffect">3.11 StatusEffect</a></li>
+    <li><a name="toc-TODO-Loadout" href="#Loadout">3.11 <strong>TODO</strong> Loadout</a>
+    <ul class="no-bullet">
+      <li><a name="toc-TODO-Built_002dIn-Loadouts" href="#Built_002dIn-Loadouts">3.11.1 <strong>TODO</strong> Built-In Loadouts</a></li>
+    </ul></li>
+    <li><a name="toc-StatusEffect-1" href="#StatusEffect">3.12 StatusEffect</a></li>
   </ul></li>
   <li><a name="toc-Graphics-1" href="#Graphics">4 Graphics</a>
   <ul class="no-bullet">
@@ -573,12 +578,20 @@ body
   </ul></li>
   <li><a name="toc-Game-1" href="#Game">6 Game</a>
   <ul class="no-bullet">
-    <li><a name="toc-Rules-1" href="#Rules">6.1 Rules</a></li>
-    <li><a name="toc-Objective-1" href="#Objective">6.2 Objective</a></li>
+    <li><a name="toc-TODO-SpawnGroup" href="#SpawnGroup">6.1 <strong>TODO</strong> SpawnGroup</a></li>
+    <li><a name="toc-TODO-Rules" href="#Rules">6.2 <strong>TODO</strong> Rules</a></li>
+    <li><a name="toc-Objective-1" href="#Objective">6.3 Objective</a>
+    <ul class="no-bullet">
+      <li><a name="toc-ZoneObjective-1" href="#ZoneObjective">6.3.1 ZoneObjective</a></li>
+      <li><a name="toc-ZoneWave-1" href="#ZoneWave">6.3.2 ZoneWave</a></li>
+      <li><a name="toc-Launched-1" href="#Launched">6.3.3 Launched</a></li>
+      <li><a name="toc-Unlock-1" href="#Unlock">6.3.4 Unlock</a></li>
+    </ul></li>
   </ul></li>
   <li><a name="toc-Other-1" href="#Other">7 Other</a>
   <ul class="no-bullet">
-    <li><a name="toc-Mindustry-Source-Structure-1" href="#Mindustry-Source-Structure">7.1 Mindustry Source Structure</a></li>
+    <li><a name="toc-Interface-2" href="#Interface-1">7.1 Interface</a></li>
+    <li><a name="toc-Mindustry-Source-Structure-1" href="#Mindustry-Source-Structure">7.2 Mindustry Source Structure</a></li>
   </ul></li>
 </ul>
 </div>
@@ -619,6 +632,8 @@ Overview
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Content">Content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">content configuration directory
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Units">Units</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">conversion of units to real game time.
+</td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Sprites">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">image files and how to name them
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Sound">Sound</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">sound files and where to put them
@@ -632,6 +647,8 @@ Overview
 Types
 
 </pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Abstract">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Interface">Interface</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -933,9 +950,18 @@ Type
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Zone">Zone</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Loadout">Loadout</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#StatusEffect">StatusEffect</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Loadout
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Built_002dIn-Loadouts">Built-In Loadouts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
 
 Graphics
 
@@ -974,15 +1000,32 @@ BulletType
 
 Game
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Rules">Rules</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#SpawnGroup">SpawnGroup</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Rules">Rules</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Objective">Objective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
+Objective
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#ZoneObjective">ZoneObjective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#ZoneWave">ZoneWave</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Launched">Launched</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Unlock">Unlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+
 Other
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Mindustry-Source-Structure">Mindustry Source Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Interface-1">Interface</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Mindustry-Source-Structure">Mindustry Source Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -997,7 +1040,7 @@ Next: <a href="#World" accesskey="n" rel="next">World</a>, Previous: <a href="#T
 <a name="Overview-1"></a>
 <h2 class="chapter">1 Overview</h2>
 
-<p>Mindustry mods are simply directories of assests. You reuse existing types and can use different values to initialize them, and you can even overwrite initialization of vanilla content. 
+<p>Mindustry mods are simply directories of assests. You reuse existing types and can use different values to initialize them, and you can even overwrite initialization of vanilla content.
 </p>
 <p>You can add custom sprites and sounds; sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them.
 </p>
@@ -1008,13 +1051,15 @@ Next: <a href="#World" accesskey="n" rel="next">World</a>, Previous: <a href="#T
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Content" accesskey="3">Content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">content configuration directory
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sprites" accesskey="4">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">image files and how to name them
+<tr><td align="left" valign="top">&bull; <a href="#Units" accesskey="4">Units</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">conversion of units to real game time.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sound" accesskey="5">Sound</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">sound files and where to put them
+<tr><td align="left" valign="top">&bull; <a href="#Sprites" accesskey="5">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">image files and how to name them
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="6">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mods extending mods
+<tr><td align="left" valign="top">&bull; <a href="#Sound" accesskey="6">Sound</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">sound files and where to put them
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Types" accesskey="7">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">things to know about types
+<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="7">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mods extending mods
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Types" accesskey="8">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">things to know about types
 </td></tr>
 </table>
 
@@ -1078,7 +1123,7 @@ Next: <a href="#Content" accesskey="n" rel="next">Content</a>, Previous: <a href
 <a name="Content"></a>
 <div class="header">
 <p>
-Next: <a href="#Sprites" accesskey="n" rel="next">Sprites</a>, Previous: <a href="#modjson" accesskey="p" rel="prev"><code>modjson</code></a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Units" accesskey="n" rel="next">Units</a>, Previous: <a href="#modjson" accesskey="p" rel="prev"><code>modjson</code></a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Content-1"></a>
 <h3 class="section">1.3 Content</h3>
@@ -1086,24 +1131,40 @@ Next: <a href="#Sprites" accesskey="n" rel="next">Sprites</a>, Previous: <a href
 <p>At the root of your project directory you can have a <code>content/</code> directory, this is where all the JSON data goes for your content types, and in this directory you have subdirectories for the various types of units, these are the current common ones:
 </p>
 <ul>
-<li> <code>content/items/</code> for things like copper and surge-alloy,
-</li><li> <code>content/blocks/</code> for things like turrets and floors,
-</li><li> <code>content/mechs/</code> for player controlled mechs tau and dagger,
-</li><li> <code>content/liquids/</code> for liquids like water and slag,
-</li><li> <code>content/units/</code> for flying or ground units like reaper and dagger,
+<li> <code>content/items/</code> for things like copper and surge-alloy;
+</li><li> <code>content/blocks/</code> for things like turrets and floors;
+</li><li> <code>content/mechs/</code> for player controlled mechs tau and dagger;
+</li><li> <code>content/liquids/</code> for liquids like water and slag;
+</li><li> <code>content/units/</code> for flying or ground units like reaper and dagger;
 </li><li> <code>content/zones/</code> for configuration of campaign maps.
 </li></ul>
 
 <p>This is important, because it&rsquo;s how Mindustry will know which types to lookup. &ndash; How you name your files is also important as the stem <code>name</code> of your path <code>content/blocks/&lt;name&gt;.json</code> is going to be used to reference it.
 </p>
 <hr>
+<a name="Units"></a>
+<div class="header">
+<p>
+Next: <a href="#Sprites" accesskey="n" rel="next">Sprites</a>, Previous: <a href="#Content" accesskey="p" rel="prev">Content</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Units-1"></a>
+<h3 class="section">1.4 Units</h3>
+
+<ul>
+<li> <code>time</code> in game is calculated through <code>ticks</code>;
+</li><li> <code>ticks</code> (sometimes called <code>frames</code>) are assumed to be 60/1 second;
+</li><li> <code>range</code> or <code>speed</code> is calculated by 1/10 of a tile;
+</li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>.
+</li></ul>
+
+<hr>
 <a name="Sprites"></a>
 <div class="header">
 <p>
-Next: <a href="#Sound" accesskey="n" rel="next">Sound</a>, Previous: <a href="#Content" accesskey="p" rel="prev">Content</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Sound" accesskey="n" rel="next">Sound</a>, Previous: <a href="#Units" accesskey="p" rel="prev">Units</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Sprites-1"></a>
-<h3 class="section">1.4 Sprites</h3>
+<h3 class="section">1.5 Sprites</h3>
 
 <p>Custom sprites can be added by simply dropping them in the <code>sprites/</code> subdirectory. The content parser will look through it recursively. One format is needed.
 </p>
@@ -1125,7 +1186,7 @@ Next: <a href="#Sound" accesskey="n" rel="next">Sound</a>, Previous: <a href="#C
 Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previous: <a href="#Sprites" accesskey="p" rel="prev">Sprites</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Sound-1"></a>
-<h3 class="section">1.5 Sound</h3>
+<h3 class="section">1.6 Sound</h3>
 
 <p>Custom sounds can be added through the modding system by dropping them in the <code>sounds/</code> subdirectory. It doesn&rsquo;t matter where you put them. Two formats are needed:
 </p>
@@ -1134,7 +1195,7 @@ Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previou
 </li><li> <code>.mp3</code> required for iOS
 </li></ul>
 
-<p>Just like any other assets, you reference them by the stem of your filename(s): <code>pewpew.ogg</code> and <code>pewpew.mp3</code> is referenced with <code>pewpew</code> from a field of type <code>Sound</code>.
+<p>Just like any other assets, you reference them by the stem of your filenames, so <code>pewpew.ogg</code> and <code>pewpew.mp3</code> can be referenced with <code>pewpew</code> from a field of type <code>Sound</code>.
 </p>
 <p>Here&rsquo;s a list of built-in sounds:
 </p><ul>
@@ -1189,7 +1250,7 @@ Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previou
 Next: <a href="#Types" accesskey="n" rel="next">Types</a>, Previous: <a href="#Sound" accesskey="p" rel="prev">Sound</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Dependencies-1"></a>
-<h3 class="section">1.6 Dependencies</h3>
+<h3 class="section">1.7 Dependencies</h3>
 
 <p>You can add dependencies to your mod by simple adding other mods name in your <code>mod.json</code>:
 </p>
@@ -1219,7 +1280,7 @@ Next: <a href="#Types" accesskey="n" rel="next">Types</a>, Previous: <a href="#S
 Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Types-1"></a>
-<h3 class="section">1.7 Types</h3>
+<h3 class="section">1.8 Types</h3>
 
 <p>Types have numerous fields, but the important one is <code>type</code>; this is a special field used by the content parser, that changes which type your object is. <em>No a <code>Router</code> type can&rsquo;t be a <code>Turret</code> type</em>, they have completely different methods and fields.
 </p>
@@ -1247,19 +1308,30 @@ Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up:
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Abstract" accesskey="1">Abstract</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Interface" accesskey="2">Interface</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
 </table>
 
 <hr>
 <a name="Abstract"></a>
 <div class="header">
 <p>
-Up: <a href="#Types" accesskey="u" rel="up">Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Interface" accesskey="n" rel="next">Interface</a>, Up: <a href="#Types" accesskey="u" rel="up">Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Abstract-1"></a>
-<h4 class="subsection">1.7.1 Abstract</h4>
+<h4 class="subsection">1.8.1 Abstract</h4>
 
 <p>All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you&rsquo;ll probably get an <em>initialization exception</em> of some kind.
 </p>
+<hr>
+<a name="Interface"></a>
+<div class="header">
+<p>
+Previous: <a href="#Abstract" accesskey="p" rel="prev">Abstract</a>, Up: <a href="#Types" accesskey="u" rel="up">Types</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="TODO-Interface"></a>
+<h4 class="subsection">1.8.2 <strong>TODO</strong> Interface</h4>
+
 <hr>
 <a name="World"></a>
 <div class="header">
@@ -1514,7 +1586,7 @@ Previous: <a href="#ConsumeLiquid" accesskey="p" rel="prev">ConsumeLiquid</a>, U
 
 <p>Notes:
 </p><ul>
-<li> <code>usage</code> might influence efficiency or load a buffer.   
+<li> <code>usage</code> might influence efficiency or load a buffer.
 </li></ul>
 
 <hr>
@@ -1666,7 +1738,7 @@ Next: <a href="#StaticWall" accesskey="n" rel="next">StaticWall</a>, Previous: <
 <a name="Rock-1"></a>
 <h4 class="subsection">2.4.5 Rock</h4>
 
-<p>Extends <a href="#Block">Block</a> 
+<p>Extends <a href="#Block">Block</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th></tr></thead>
@@ -1714,7 +1786,7 @@ Next: <a href="#TreeBlock" accesskey="n" rel="next">TreeBlock</a>, Previous: <a 
 <a name="StaticTree-1"></a>
 <h4 class="subsection">2.4.7 StaticTree</h4>
 
-<p>Extends <a href="#StaticWall">StaticWall</a> 
+<p>Extends <a href="#StaticWall">StaticWall</a>
 </p>
 <p>For example:
 </p><ul>
@@ -1823,7 +1895,9 @@ Previous: <a href="#GenericSmelter" accesskey="p" rel="prev">GenericSmelter</a>,
 <a name="Separator-1"></a>
 <h4 class="subsection">2.5.3 Separator</h4>
 
-<p>Extends <a href="#Block">Block</a> &ndash; Extracts a random list of items from an input item and an input liquid.
+<p>Extends <a href="#Block">Block</a>
+</p>
+<p>Separator will take liquid as an input and produce items from it&rsquo;s stack randomly relative to their amount.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -2239,7 +2313,7 @@ Next: <a href="#Distribution" accesskey="n" rel="next">Distribution</a>, Previou
 <a name="Turrets-1"></a>
 <h3 class="section">2.9 Turrets</h3>
 
-<p>This section is for turret types. All turrets shoot <a href="#BulletType">BulletType</a>, and this means <a href="#LiquidTurret">LiquidTurret</a> can shoot <a href="#MissileBulletType">MissileBulletType</a> and <a href="#ItemTurret">ItemTurret</a> can shoot <a href="#LiquidBulletType">LiquidBulletType</a>. 
+<p>This section is for turret types. All turrets shoot <a href="#BulletType">BulletType</a>, and this means <a href="#LiquidTurret">LiquidTurret</a> can shoot <a href="#MissileBulletType">MissileBulletType</a> and <a href="#ItemTurret">ItemTurret</a> can shoot <a href="#LiquidBulletType">LiquidBulletType</a>.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Turret" accesskey="1">Turret</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -2480,7 +2554,7 @@ Next: <a href="#LiquidTurret" accesskey="n" rel="next">LiquidTurret</a>, Previou
 <a name="LaserTurret-1"></a>
 <h4 class="subsection">2.9.9 LaserTurret</h4>
 
-<p>Extends <a href="#PowerTurret">PowerTurret</a> 
+<p>Extends <a href="#PowerTurret">PowerTurret</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -2773,7 +2847,7 @@ Previous: <a href="#OverflowGate" accesskey="p" rel="prev">OverflowGate</a>, Up:
 <a name="MassDriver-1"></a>
 <h4 class="subsection">2.10.9 MassDriver</h4>
 
-<p>Extends <a href="#Block">Block</a> &ndash; Uses <code>driverBolt</code> to transfer items. 
+<p>Extends <a href="#Block">Block</a> &ndash; Uses <code>driverBolt</code> to transfer items.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3262,7 +3336,7 @@ Next: <a href="#ImpactReactor" accesskey="n" rel="next">ImpactReactor</a>, Previ
 <a name="NuclearReactor-1"></a>
 <h4 class="subsection">2.12.12 NuclearReactor</h4>
 
-<p>Extends <a href="#PowerGenerator">PowerGenerator</a> &ndash; Generates power relative to how many items are in storage, and explodes if it runs out of coolant. 
+<p>Extends <a href="#PowerGenerator">PowerGenerator</a> &ndash; Generates power relative to how many items are in storage, and explodes if it runs out of coolant.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -3929,6 +4003,8 @@ Next: <a href="#Graphics" accesskey="n" rel="next">Graphics</a>, Previous: <a hr
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Zone">Zone</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Loadout">Loadout</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#StatusEffect">StatusEffect</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
@@ -3942,7 +4018,7 @@ Next: <a href="#Item" accesskey="n" rel="next">Item</a>, Up: <a href="#Type" acc
 <a name="UnlockableContent-and-MappableContent-1"></a>
 <h3 class="section">3.1 UnlockableContent and MappableContent</h3>
 
-<p>that can have a display name and description. <em>Most content in other words</em>. <a href="#ItemStack">ItemStack</a> for example isn&rsquo;t <code>UnlockableContent</code>. 
+<p>that can have a display name and description. <em>Most content in other words</em>. <a href="#ItemStack">ItemStack</a> for example isn&rsquo;t <code>UnlockableContent</code>.
 </p>
 <div class="example">
 <pre class="example">{
@@ -4194,19 +4270,122 @@ Next: <a href="#Zone" accesskey="n" rel="next">Zone</a>, Previous: <a href="#Mec
 <a name="Zone"></a>
 <div class="header">
 <p>
-Next: <a href="#StatusEffect" accesskey="n" rel="next">StatusEffect</a>, Previous: <a href="#Category" accesskey="p" rel="prev">Category</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Loadout" accesskey="n" rel="next">Loadout</a>, Previous: <a href="#Category" accesskey="p" rel="prev">Category</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="TODO-Zone"></a>
 <h3 class="section">3.10 <strong>TODO</strong> Zone</h3>
+
+<p>Extends <a href="#UnlockableContent-and-MappableContent">UnlockableContent</a>
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
+<tr><td>generator</td><td>Generator</td><td></td></tr>
+<tr><td>objective</td><td><a href="#Objective">Objective</a></td><td>wave 10</td></tr>
+<tr><td>requirements</td><td>[ <a href="#Objective">Objective</a> ]</td><td>[]</td></tr>
+<tr><td>resources</td><td>[ <a href="#Item">Item</a> ]</td><td>[]</td></tr>
+<tr><td>rules</td><td><a href="#Rules">Rules</a></td><td>rules-&gt;{}</td></tr>
+<tr><td>alwaysUnlocked</td><td>boolean</td><td></td></tr>
+<tr><td>conditionWave</td><td>int</td><td>MAX<em>_VALUE</em></td></tr>
+<tr><td>launchPeriod</td><td>int</td><td>10</td></tr>
+<tr><td>loadout</td><td><a href="#Loadout">Loadout</a></td><td>basicShard</td></tr>
+<tr><td>baseLaunchCost</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
+<tr><td>startingItems</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
+<tr><td>launchCost</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
+<tr><td>defaultStartingItems</td><td><a href="#ItemStack">ItemStack</a></td><td></td></tr>
+</table>
+
+<p>Sprites:
+</p><ul>
+<li> <code>zone-&lt;name&gt;</code> preview
+</li><li> <code>&lt;name&gt;-zone</code> preview
+</li></ul>
+
+<hr>
+<a name="Loadout"></a>
+<div class="header">
+<p>
+Next: <a href="#StatusEffect" accesskey="n" rel="next">StatusEffect</a>, Previous: <a href="#Zone" accesskey="p" rel="prev">Zone</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="TODO-Loadout"></a>
+<h3 class="section">3.11 <strong>TODO</strong> Loadout</h3>
+
+<p>Extends <a href="#Content">Content</a>
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Built_002dIn-Loadouts" accesskey="1">Built-In Loadouts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="Built_002dIn-Loadouts"></a>
+<div class="header">
+<p>
+Up: <a href="#Loadout" accesskey="u" rel="up">Loadout</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="TODO-Built_002dIn-Loadouts"></a>
+<h4 class="subsection">3.11.1 <strong>TODO</strong> Built-In Loadouts</h4>
+
+<ul>
+<li> <code>basicShard</code> 
+<div class="example">
+<pre class="example">[
+    &quot;  ###  &quot;,
+    &quot;  #1#  &quot;,
+    &quot;  ###  &quot;,
+    &quot;  ^ ^  &quot;,
+    &quot; ## ## &quot;,
+    &quot; C# C# &quot;
+]
+</pre></div>
+
+</li><li> <code>advancedShard</code> 
+<div class="example">
+<pre class="example">[
+    &quot;  ###  &quot;,
+    &quot;  #1#  &quot;,
+    &quot;#######&quot;,
+    &quot;C#^ ^C#&quot;,
+    &quot; ## ## &quot;,
+    &quot; C# C# &quot;
+]
+</pre></div>
+
+</li><li> <code>basicFoundation</code> 
+<div class="example">
+<pre class="example">[
+    &quot;  ####  &quot;,
+    &quot;  ####  &quot;,
+    &quot;  #2##  &quot;,
+    &quot;  ####  &quot;,
+    &quot;  ^^^^  &quot;,
+    &quot; ###### &quot;,
+    &quot; C#C#C# &quot;
+]
+</pre></div>
+
+</li><li> <code>basicNucleus</code> 
+<div class="example">
+<pre class="example">[
+    &quot;  #####  &quot;,
+    &quot;  #####  &quot;,
+    &quot;  ##3##  &quot;,
+    &quot;  #####  &quot;,
+    &quot; &gt;#####&lt; &quot;,
+    &quot; ^ ^ ^ ^ &quot;,
+    &quot;#### ####&quot;,
+    &quot;C#C# C#C#&quot;
+]
+</pre></div>
+</li></ul>
 
 <hr>
 <a name="StatusEffect"></a>
 <div class="header">
 <p>
-Previous: <a href="#Zone" accesskey="p" rel="prev">Zone</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Loadout" accesskey="p" rel="prev">Loadout</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="StatusEffect-1"></a>
-<h3 class="section">3.11 StatusEffect</h3>
+<h3 class="section">3.12 StatusEffect</h3>
 
 <p><em>Not be be confused with <a href="#Effect">Effect</a></em>, a status effect will give an entity special properties. It is currently <strong>not possible to add custom status effects</strong>. &ndash; Status effects are used as transitions between intermediate effects. If some a <code>wet</code> unit gets <code>shocked</code> it then gets 20 damage.
 </p>
@@ -4564,7 +4743,7 @@ Next: <a href="#MissileBulletType" accesskey="n" rel="next">MissileBulletType</a
 <a name="FlakBulletType-1"></a>
 <h4 class="unnumberedsubsubsec">FlakBulletType</h4>
 
-<p>Extends <a href="#BasicBulletType">BasicBulletType</a> 
+<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
 </p>
 <p>Bullets that explode near enemies.
 </p>
@@ -4808,20 +4987,79 @@ Next: <a href="#Other" accesskey="n" rel="next">Other</a>, Previous: <a href="#E
 <h2 class="chapter">6 Game</h2>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Rules" accesskey="1">Rules</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#SpawnGroup" accesskey="1">SpawnGroup</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Objective" accesskey="2">Objective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Rules" accesskey="2">Rules</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Objective" accesskey="3">Objective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="SpawnGroup"></a>
+<div class="header">
+<p>
+Next: <a href="#Rules" accesskey="n" rel="next">Rules</a>, Up: <a href="#Game" accesskey="u" rel="up">Game</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="TODO-SpawnGroup"></a>
+<h3 class="section">6.1 <strong>TODO</strong> SpawnGroup</h3>
+
+<p>A spawn group defines spawn information for a specific type of unit, with optional extra information like weapon equipped, ammo used, and status effects. Each spawn group can have multiple sub-groups spawned in different areas of the map.
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
+<tr><td>type</td><td><a href="#UnitType">UnitType</a></td><td></td><td>The unit type spawned</td></tr>
+<tr><td>end</td><td>int</td><td>MAX<em>_VALUE</em></td><td>When this spawn should end</td></tr>
+<tr><td>begin</td><td>int</td><td></td><td>When this spawn should start</td></tr>
+<tr><td>spacing</td><td>int</td><td>1</td><td>The spacing, in waves, of spawns. For example, 2 = spawns every other wave</td></tr>
+<tr><td>max</td><td>int</td><td>100</td><td>Maximum amount of units that spawn</td></tr>
+<tr><td>unitScaling</td><td>float</td><td>MAX<em>_VALUE</em></td><td>How many waves need to pass before the amount of units spawned increases by 1</td></tr>
+<tr><td>unitAmount</td><td>int</td><td>1</td><td>Amount of enemies spawned initially, with no scaling</td></tr>
+<tr><td>effect</td><td><a href="#StatusEffect">StatusEffect</a></td><td></td><td>Status effect applied to the spawned unit. Null to disable.</td></tr>
+<tr><td>items</td><td><a href="#ItemStack">ItemStack</a></td><td></td><td>Items this unit spawns with. Null to disable.</td></tr>
 </table>
 
 <hr>
 <a name="Rules"></a>
 <div class="header">
 <p>
-Next: <a href="#Objective" accesskey="n" rel="next">Objective</a>, Up: <a href="#Game" accesskey="u" rel="up">Game</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Objective" accesskey="n" rel="next">Objective</a>, Previous: <a href="#SpawnGroup" accesskey="p" rel="prev">SpawnGroup</a>, Up: <a href="#Game" accesskey="u" rel="up">Game</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="Rules-1"></a>
-<h3 class="section">6.1 Rules</h3>
+<a name="TODO-Rules"></a>
+<h3 class="section">6.2 <strong>TODO</strong> Rules</h3>
+
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
+<tr><td>infiniteResources</td><td>boolean</td><td></td><td>Whether the player has infinite resources.</td></tr>
+<tr><td>waveTimer</td><td>boolean</td><td>true</td><td>Whether the waves come automatically on a timer. If not, waves come when the play button is pressed.</td></tr>
+<tr><td>waves</td><td>boolean</td><td></td><td>Whether waves are spawnable at all.</td></tr>
+<tr><td>enemyCheat</td><td>boolean</td><td></td><td>Whether the enemy AI has infinite resources in most of their buildings and turrets.</td></tr>
+<tr><td>pvp</td><td>boolean</td><td></td><td>Whether the game objective is PvP. Note that this enables automatic hosting.</td></tr>
+<tr><td>unitDrops</td><td>boolean</td><td>true</td><td>Whether enemy units drop random items on death.</td></tr>
+<tr><td>unitBuildSpeedMultiplier</td><td>float</td><td>1</td><td>How fast unit pads build units.</td></tr>
+<tr><td>unitHealthMultiplier</td><td>float</td><td>1</td><td>How much health units start with.</td></tr>
+<tr><td>playerHealthMultiplier</td><td>float</td><td>1</td><td>How much health players start with.</td></tr>
+<tr><td>playerDamageMultiplier</td><td>float</td><td>1</td><td>How much damage player mechs deal.</td></tr>
+<tr><td>unitDamageMultiplier</td><td>float</td><td>1</td><td>How much damage any other units deal.</td></tr>
+<tr><td>buildCostMultiplier</td><td>float</td><td>1</td><td>Multiplier for buildings for the player.</td></tr>
+<tr><td>buildSpeedMultiplier</td><td>float</td><td>1</td><td>Multiplier for building speed.</td></tr>
+<tr><td>enemyCoreBuildRadius</td><td>float</td><td>400</td><td>No-build zone around enemy core radius.</td></tr>
+<tr><td>dropZoneRadius</td><td>float</td><td>300</td><td>Radius around enemy wave drop zones.</td></tr>
+<tr><td>respawnTime</td><td>float</td><td>120</td><td>Player respawn time in ticks.</td></tr>
+<tr><td>waveSpacing</td><td>float</td><td>7200</td><td>Time between waves in ticks.</td></tr>
+<tr><td>bossWaveMultiplier</td><td>float</td><td>3</td><td>How many times longer a boss wave takes.</td></tr>
+<tr><td>launchWaveMultiplier</td><td>float</td><td>2</td><td>How many times longer a launch wave takes.</td></tr>
+<tr><td>zone</td><td><a href="#Zone">Zone</a></td><td></td><td>Zone for saves that have them.</td></tr>
+<tr><td>spawns</td><td>[ <a href="#SpawnGroup">SpawnGroup</a> ]</td><td>[]</td><td>Spawn layout.</td></tr>
+<tr><td>limitedRespawns</td><td>boolean</td><td>false</td><td>Determines if there should be limited respawns.</td></tr>
+<tr><td>respawns</td><td>int</td><td>5</td><td>How many times player can respawn during one wave.</td></tr>
+<tr><td>waitForWaveToEnd</td><td>boolean</td><td>false</td><td>Hold wave timer until all enemies are destroyed.</td></tr>
+<tr><td>attackMode</td><td>boolean</td><td>false</td><td>Determinates if gamemode is attack mode</td></tr>
+<tr><td>editor</td><td>boolean</td><td>false</td><td>Whether this is the editor gamemode.</td></tr>
+<tr><td>tutorial</td><td>boolean</td><td>false</td><td>Whether the tutorial is enabled. False by default.</td></tr>
+<tr><td>loadout</td><td><a href="#ItemStack">ItemStack</a></td><td>[ &quot;copper&quot;, 100 ]</td><td>Starting items put in cores</td></tr>
+<tr><td>bannedBlocks</td><td>[<a href="#Block">Block</a> ]</td><td>{}</td><td>Blocks that cannot be placed.</td></tr>
+</table>
 
 <hr>
 <a name="Objective"></a>
@@ -4830,7 +5068,91 @@ Next: <a href="#Objective" accesskey="n" rel="next">Objective</a>, Up: <a href="
 Previous: <a href="#Rules" accesskey="p" rel="prev">Rules</a>, Up: <a href="#Game" accesskey="u" rel="up">Game</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Objective-1"></a>
-<h3 class="section">6.2 Objective</h3>
+<h3 class="section">6.3 Objective</h3>
+
+<p><a href="#Interface">Interface</a> which defines a specific objective for a game, like a wave to reach or an block to unlock.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#ZoneObjective" accesskey="1">ZoneObjective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#ZoneWave" accesskey="2">ZoneWave</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Launched" accesskey="3">Launched</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Unlock" accesskey="4">Unlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="ZoneObjective"></a>
+<div class="header">
+<p>
+Next: <a href="#ZoneWave" accesskey="n" rel="next">ZoneWave</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="ZoneObjective-1"></a>
+<h4 class="subsection">6.3.1 ZoneObjective</h4>
+
+<p><a href="#Abstract">Abstract</a> type that implements <a href="#Objective">Objective</a>
+</p>
+<table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>zone</td><td>Zone</td></tr>
+</table>
+
+<hr>
+<a name="ZoneWave"></a>
+<div class="header">
+<p>
+Next: <a href="#Launched" accesskey="n" rel="next">Launched</a>, Previous: <a href="#ZoneObjective" accesskey="p" rel="prev">ZoneObjective</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="ZoneWave-1"></a>
+<h4 class="subsection">6.3.2 ZoneWave</h4>
+
+<p>Extends <a href="#ZoneObjective">ZoneObjective</a>
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th></tr></thead>
+<tr><td>wave</td><td>int</td></tr>
+</table>
+
+<ul>
+<li> complete if zone best wave is larger then <code>wave</code>.
+</li></ul>
+
+<hr>
+<a name="Launched"></a>
+<div class="header">
+<p>
+Next: <a href="#Unlock" accesskey="n" rel="next">Unlock</a>, Previous: <a href="#ZoneWave" accesskey="p" rel="prev">ZoneWave</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Launched-1"></a>
+<h4 class="subsection">6.3.3 Launched</h4>
+
+<p>Extends <a href="#ZoneObjective">ZoneObjective</a>
+</p>
+<ul>
+<li> complete if <code>zone</code> has launched.
+</li></ul>
+
+<hr>
+<a name="Unlock"></a>
+<div class="header">
+<p>
+Previous: <a href="#Launched" accesskey="p" rel="prev">Launched</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Unlock-1"></a>
+<h4 class="subsection">6.3.4 Unlock</h4>
+
+<p>Extends <a href="#Objective">Objective</a>
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th></tr></thead>
+<tr><td>block</td><td><a href="#Block">Block</a></td></tr>
+</table>
+
+<ul>
+<li> complete if <code>block</code> is unlocked.
+</li></ul>
 
 <hr>
 <a name="Other"></a>
@@ -4842,18 +5164,29 @@ Previous: <a href="#Game" accesskey="p" rel="prev">Game</a>, Up: <a href="#Top" 
 <h2 class="chapter">7 Other</h2>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Mindustry-Source-Structure" accesskey="1">Mindustry Source Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Interface-1" accesskey="1">Interface</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Mindustry-Source-Structure" accesskey="2">Mindustry Source Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
+
+<hr>
+<a name="Interface-1"></a>
+<div class="header">
+<p>
+Next: <a href="#Mindustry-Source-Structure" accesskey="n" rel="next">Mindustry Source Structure</a>, Up: <a href="#Other" accesskey="u" rel="up">Other</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Interface-2"></a>
+<h3 class="section">7.1 Interface</h3>
 
 <hr>
 <a name="Mindustry-Source-Structure"></a>
 <div class="header">
 <p>
-Up: <a href="#Other" accesskey="u" rel="up">Other</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Interface-1" accesskey="p" rel="prev">Interface 1</a>, Up: <a href="#Other" accesskey="u" rel="up">Other</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Mindustry-Source-Structure-1"></a>
-<h3 class="section">7.1 Mindustry Source Structure</h3>
+<h3 class="section">7.2 Mindustry Source Structure</h3>
 
 <div class="example">
 <pre class="example">core/src/io/anuke/mindustry/

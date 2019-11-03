@@ -20,7 +20,7 @@
   :DESCRIPTION: the things you may not know.
   :END:
 
-  Mindustry mods are simply directories of assests. You reuse existing types and can use different values to initialize them, and you can even overwrite initialization of vanilla content. 
+  Mindustry mods are simply directories of assests. You reuse existing types and can use different values to initialize them, and you can even overwrite initialization of vanilla content.
 
   You can add custom sprites and sounds; sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them.
 
@@ -30,7 +30,7 @@
    :END:
 
    Your project directory should look something like this:
-   
+
    #+BEGIN_SRC fundamental
    project
    ├── content
@@ -76,14 +76,24 @@
 
    At the root of your project directory you can have a ~content/~ directory, this is where all the JSON data goes for your content types, and in this directory you have subdirectories for the various types of units, these are the current common ones:
 
-   * ~content/items/~ for things like copper and surge-alloy,
-   * ~content/blocks/~ for things like turrets and floors,
-   * ~content/mechs/~ for player controlled mechs tau and dagger,
-   * ~content/liquids/~ for liquids like water and slag,
-   * ~content/units/~ for flying or ground units like reaper and dagger,
+   * ~content/items/~ for things like copper and surge-alloy;
+   * ~content/blocks/~ for things like turrets and floors;
+   * ~content/mechs/~ for player controlled mechs tau and dagger;
+   * ~content/liquids/~ for liquids like water and slag;
+   * ~content/units/~ for flying or ground units like reaper and dagger;
    * ~content/zones/~ for configuration of campaign maps.
 
    This is important, because it's how Mindustry will know which types to lookup. -- How you name your files is also important as the stem ~name~ of your path ~content/blocks/<name>.json~ is going to be used to reference it.
+
+** Units
+   :PROPERTIES:
+   :DESCRIPTION: conversion of units to real game time.
+   :END:
+
+   * ~time~ in game is calculated through ~ticks~;
+   * ~ticks~ (sometimes called ~frames~) are assumed to be 60/1 second;
+   * ~range~ or ~speed~ is calculated by 1/10 of a tile;
+   * to calculate range out of ~lifetime~ and ~speed~ you can do ~lifetime * speed = range~.
 
 ** Sprites
    :PROPERTIES:
@@ -111,7 +121,7 @@
   * ~.ogg~ required for Desktop/Android
   * ~.mp3~ required for iOS
 
-  Just like any other assets, you reference them by the stem of your filename(s): ~pewpew.ogg~ and ~pewpew.mp3~ is referenced with ~pewpew~ from a field of type ~Sound~.
+  Just like any other assets, you reference them by the stem of your filenames, so ~pewpew.ogg~ and ~pewpew.mp3~ can be referenced with ~pewpew~ from a field of type ~Sound~.
 
   Here's a list of built-in sounds:
   * ~artillery~
@@ -213,6 +223,7 @@
 
     All you need to know about abstract types, is this is a Java specific term that means you cannot instantiate/initialized this specific type by itself. If you do so you'll probably get an /initialization exception/ of some kind.
 
+*** TODO Interface
 
 * World
   :PROPERTIES:
@@ -222,7 +233,6 @@
 
   Extends [[BlockStorage][BlockStorage]] -- Fields for all objects that are blocks.
 
-  #+ATTR_TEXINFO: :name name
   | field               | type            |      default | notes      |
   |---------------------+-----------------+--------------+------------|
   |                     |                 |          <r> | <10>       |
@@ -348,7 +358,7 @@
     | buffered | boolean |         | True if the module can store power. |
 
     Notes:
-    * ~usage~ might influence efficiency or load a buffer.   
+    * ~usage~ might influence efficiency or load a buffer.
 ** BlockStorage
    [[Abstract]] type that extends [[UnlockableContent and MappableContent][UnlockableContent]] -- This is for blocks that can store a buffer of items.
 
@@ -422,7 +432,7 @@
 
 *** Rock
 
-    Extends [[Block][Block]] 
+    Extends [[Block][Block]]
 
     | field    | type |
     |----------+------|
@@ -453,8 +463,8 @@
 
 *** StaticTree
 
-    Extends [[StaticWall][StaticWall]] 
-       
+    Extends [[StaticWall][StaticWall]]
+
     For example:
     * ~spore-pine~
     * ~snow-pine~
@@ -508,7 +518,9 @@
     * ~-top~
 
 *** Separator
-    Extends [[Block][Block]] -- Extracts a random list of items from an input item and an input liquid.
+    Extends [[Block][Block]]
+
+    Separator will take liquid as an input and produce items from it's stack randomly relative to their amount.
 
     | field            | type      | default | notes      |
     |------------------+-----------+---------+------------|
@@ -536,31 +548,31 @@
 ** Sandbox
 *** PowerVoid
     Extends [[PowerBlock][PowerBlock]]
-    
+
     Deafults:
-    
+
     | field         |   default |
     |---------------+-----------|
     |               |       <r> |
     | consumesPower | MAX_VALUE |
-    
+
 *** PowerSource
     Extends [[PowerNode][PowerNode]]
-    
+
     Defaults:
-    
+
     | field         | default |
     |---------------+---------|
     |               |     <r> |
     | maxNodes      |     100 |
     | outputsPower  |    true |
     | consumesPower |   false |
-    
+
 *** ItemSource
     Extends [[Block][Block]]
-    
+
     Defaults:
-    
+
     | field        |        default |
     |--------------+----------------|
     |              |            <r> |
@@ -569,23 +581,23 @@
     | soild        |           true |
     | group        | transportation |
     | configurable |           true |
-    
+
 *** ItemVoid
     Extends [[Block][Block]]
-    
+
     Defaults:
-    
+
     | field  | default |
     |--------+---------|
     |        |     <r> |
     | update |    true |
     | soild  |    true |
-    
+
 *** LiquidSource
     Extends [[Block][Block]]
-    
+
     Defaults:
-    
+
     | field          | default |
     |----------------+---------|
     |                |     <r> |
@@ -599,15 +611,15 @@
 ** Logic
 *** MessageBlock
     Extends [[Block][Block]]
-    
+
     | field         | type | default |
     |---------------+------+---------|
     |               |      |     <r> |
     | maxTextLength | int  |     220 |
     | maxNewlines   | int  |      24 |
-    
+
     Defaults:
-    
+
     | field        | default |
     |--------------+---------|
     |              |     <r> |
@@ -615,7 +627,7 @@
     | configurable |    true |
     | destructible |    true |
 ** Defense
-*** Wall 
+*** Wall
     Extends [[Block][Block]]
 
     | field    | type | default |
@@ -654,7 +666,7 @@
 
 *** Door
     Extends [[Wall][Wall]]
-     
+
     | field   | type   |   default |
     |---------+--------+-----------|
     |         |        |       <r> |
@@ -736,7 +748,7 @@
     | layer        | overlay |
 ** Turrets
 
-   This section is for turret types. All turrets shoot [[BulletType]], and this means [[LiquidTurret]] can shoot [[MissileBulletType]] and [[ItemTurret]] can shoot [[LiquidBulletType]]. 
+   This section is for turret types. All turrets shoot [[BulletType]], and this means [[LiquidTurret]] can shoot [[MissileBulletType]] and [[ItemTurret]] can shoot [[LiquidBulletType]].
 
 *** Turret
 
@@ -873,7 +885,7 @@
     | chargeBeginEffect | [[Effect]] |    none |
 
 *** LaserTurret
-    Extends [[PowerTurret][PowerTurret]] 
+    Extends [[PowerTurret][PowerTurret]]
 
     | field           | type  | default | notes      |
     |-----------------+-------+---------+------------|
@@ -906,13 +918,13 @@
 ** Distribution
 *** Conveyor
     Extends [[Block][Block]]
-    
+
     | field | type  | default |
     |-------+-------+---------|
     | speed | float |       0 |
-    
+
     Default:
-    
+
     | field           |        default |
     |-----------------+----------------|
     |                 |            <r> |
@@ -925,13 +937,13 @@
     | idleSound       |       conveyor |
     | idleSoundVolume |          0.004 |
     | unloadable      |          false |
-    
+
     Sprite suffix:
     * ~-<0..4>-<0..3>~ example: [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/conveyors][Conveyors-sprites]]
 
 *** ArmoredConveyor
     Extends [[Conveyor][Conveyor]]  -A type of conveyor don't accept item coming from side
-    
+
 *** Junction
     Extends [[Block][Block]]
 
@@ -1021,13 +1033,13 @@
 
 *** OverflowGate
     Extends [[Block][Block]]
-    
+
     | field | type  | default |
     |-------+-------+---------|
     | speed | float | 1       |
-    
+
     Defaults:
-    
+
     | field      | default        |
     |------------+----------------|
     | hasItems   | true           |
@@ -1035,9 +1047,9 @@
     | update     | true           |
     | group      | transportation |
     | unloadable | false          |
-    
+
 *** MassDriver
-    Extends [[Block][Block]] -- Uses ~driverBolt~ to transfer items. 
+    Extends [[Block][Block]] -- Uses ~driverBolt~ to transfer items.
 
     | field         | type   |        default |
     |---------------+--------+----------------|
@@ -1249,7 +1261,7 @@
 *** SingleTypeGenerator
     Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from an item.
 *** BurnerGenerator
-    Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item flamability. 
+    Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item flamability.
 *** DecayGenerator
     Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item radioactivity.
 
@@ -1266,7 +1278,7 @@
     * Lower targetting priority then other generators.
 
 *** NuclearReactor
-    Extends [[PowerGenerator][PowerGenerator]] -- Generates power relative to how many items are in storage, and explodes if it runs out of coolant. 
+    Extends [[PowerGenerator][PowerGenerator]] -- Generates power relative to how many items are in storage, and explodes if it runs out of coolant.
 
     | field           | type  |  default | notes      |
     |-----------------+-------+----------+------------|
@@ -1417,9 +1429,9 @@
     |            |        |      <r> |
     | effect     | [[Effect][Effect]] | fuelburn |
     | flameColor | [[Color][Color]]  |   ffad9d |
-    
+
     Defaults:
-    
+
     | field     | default |
     |-----------+---------|
     |           |     <r> |
@@ -1452,16 +1464,16 @@
 
 *** UnitFactory
     Extends [[Block][block]] -- A block can produce units
-    
+
     | field          | type     | default |
     |----------------+----------+---------|
     | produceTime    | float    |    1000 |
     | launchVelocity | float    |       0 |
     | maxSpawn       | int      |       4 |
     | unitType       | [[UnitType][UnitType]] |    none |
-    
+
     Defaults:
-    
+
     | field    | default  |
     |----------+----------|
     | update   | true     |
@@ -1469,38 +1481,38 @@
     | hasItems | true     |
     | soild    | false    |
     | flags    | producer |
-    
+
     Sprite suffix:
     * ~-top~
-    
+
 *** CommandCenter
     Extends [[Block][Block]] -- A block which can issue commands to your unit.
-    
+
     | field       | type   | default     |
     |-------------+--------+-------------|
     | topColor    | [[Color][Color]]  | command     |
     | bottomColor | [[Color][Color]]  | 5e5e5e      |
     | effect      | [[Effect][Effect]] | commandSend |
-    
+
     Defaults:
-    
+
     | field        | default      |
     |--------------+--------------|
     | flags        | comandCenter |
     | destructible | true         |
     | soild        | true         |
     | configurable | true         |
-    
+
 *** MechPad
     Extends [[Block][Block]] -- A block which will spawn a player in a mech.
-    
+
     | field     | type  | default |
     |-----------+-------+---------|
     | mech      | [[Mech][Mech]]  | none    |
     | buildTime | float | 60 * 5  |
-    
+
     Defaults:
-    
+
     | field    | default |
     |----------+---------|
     | update   | true    |
@@ -1508,12 +1520,12 @@
     | hasPower | true    |
     | layer    | overlay |
     | flags    | mechpad |
-    
+
 ** Storage
 *** StorageBlock
 
     [[Abstract]] type which extends [[Block]]
-    
+
     Defaults:
     | field    | default |
     |----------+---------|
@@ -1528,7 +1540,7 @@
     | mech  | Mech | starter |
 
     Defaults:
-    
+
     | field             | default    |
     |-------------------+------------|
     | solid             | true       |
@@ -1541,25 +1553,25 @@
 *** Vault
 
     Extends [[StorageBlock][StorageBlock]] -- A type of storage block
-    
+
     Defaults:
-    
+
     | field             | default    |
     |-------------------+------------|
     | solid             | true       |
     | destructible      | true       |
     | update            | false      |
-    
+
 *** Unloader
 
     Extends [[Block][Block]] -- A block can unload items from storage block and machine
-    
+
     | field | type  | default |
     |-------+-------+---------|
     | speed | float | 1       |
-    
+
     Defaults:
-    
+
     | field        | default |
     |--------------+---------|
     | solid        | true    |
@@ -1567,25 +1579,25 @@
     | update       | false   |
     | hasItems     | true    |
     | confugurable | true    |
-    
+
     Sprite suffix:
     * ~-center~
-    
+
 *** LaunchPad
     Extends [[StorageBlock][StroageBlock]] -a block can launch materials without coreblock
-    
+
     | field      | type  | default |
     |------------+-------+---------|
     | launchTime | float | none    |
-    
+
     Defaults:
-    
+
     | field    | default |
     |----------+---------|
     | update   | true    |
     | hasItems | true    |
     | soild    | true    |
-    
+
 ** Attributes
 
    An object with an array of [[Attribute][attribute]]. Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors.
@@ -1657,7 +1669,7 @@
   :END:
 ** UnlockableContent and MappableContent
 
-   that can have a display name and description. /Most content in other words/. [[ItemStack][ItemStack]] for example isn't ~UnlockableContent~. 
+   that can have a display name and description. /Most content in other words/. [[ItemStack][ItemStack]] for example isn't ~UnlockableContent~.
 
    #+BEGIN_SRC json
    {
@@ -1839,31 +1851,38 @@
    * ~upgrade~ Things that upgrade the player such as mech pads;
    * ~effect~ Things for storage or passive effects.
 
-** Zone
-    You can add your mod's campaign map by this
-    
-    | field              | type            | default    |
-    |--------------------+-----------------+------------|
-    | generator          | [[Generator]]   |            |
-    | baseLaunchCost     | [[ItemStack]]   |            |
-    | launchCost         | [[ItemStack]]   |            |
-    | startingItems      | [[ItemStack]]   |            |
-    | conditionWave      | int             | MAX_VALVE  |
-    | alwaysUnlocked     | boolean         |            |
-    | launchPeriod       | int             | 10         |
-    | loadout            | [[Loadout]]     | basicShard |
-    | resources          | [[Item]]        |            |
-    | rules              | [[Rules]]       |            |
-    | requirements       | [[Objective]]   |            |
-    | configureObjective | [[Objective]]   |            |
-    | defaultStartingItems | [[ItemStack]] |            |
-    
-    note:
-    * The JSON name in ~content/zones/~ must as same as your maps name in ~maps/~ 
-    
-*** Loadout
-    Loadout is the blueprint when your core landed.
-    
+** TODO Zone
+
+   Extends [[UnlockableContent and MappableContent][UnlockableContent]]
+
+   | field              | type            | default    |
+   |--------------------+-----------------+------------|
+   | generator          | [[Generator]]   |            |
+   | baseLaunchCost     | [[ItemStack]]   |            |
+   | launchCost         | [[ItemStack]]   |            |
+   | startingItems      | [[ItemStack]]   |            |
+   | conditionWave      | int             | MAX_VALVE  |
+   | alwaysUnlocked     | boolean         |            |
+   | launchPeriod       | int             | 10         |
+   | loadout            | [[Loadout]]     | basicShard |
+   | resources          | [[Item]]        |            |
+   | rules              | [[Rules]]       |            |
+   | requirements       | [[Objective]]   |            |
+   | configureObjective | [[Objective]]   |            |
+   | defaultStartingItems | [[ItemStack]] |            |
+
+   Sprites:
+   * ~zone-<name>~ preview
+   * ~<name>-zone~ preview
+
+** TODO Loadout
+   :PROPERTIES:
+   :DESCRIPTION: 
+   :END:
+
+   Extends [[Content]]
+
+       
     In Loadout:
     | code  | means       |
     |-------+-------------|
@@ -1878,77 +1897,59 @@
     | ~　~ | air |
     | ~C~ | mechicalDrill with four copper ore |
     
-    Note:
-    * You must set a core in your custom Loadout
+
+    built-in loadouts:
     
-    Built-in loadout:
-    * ~basicShard~
-#+BEGIN_SRC fundamental
-        "  ###  ",
-        "  #1#  ",
-        "  ###  ",
-        "  ^ ^  ",
-        " ## ## ",
-        " C# C# " 
-#+END_SRC
-    * ~advancedShard~
-#+BEGIN_SRC fundamental
-        "  ###  ",
-        "  #1#  ",
-        "#######",
-        "C#^ ^C#",
-        " ## ## ",
-        " C# C# "
-#+END_SRC
-    * ~basicFoundation~
-#+BEGIN_SRC fundamental
-        "  ####  ",
-        "  ####  ",
-        "  #2##  ",
-        "  ####  ",
-        "  ^^^^  ",
-        " ###### ",
-        " C#C#C# "
-#+END_SRC
-    * ~basicNucleus~
-#+BEGIN_SRC fundamental
-        "  #####  ",
-        "  #####  ",
-        "  ##3##  ",
-        "  #####  ",
-        " >#####< ",
-        " ^ ^ ^ ^ ",
-        "#### ####",
-        "C#C# C#C#"
-#+END_SRC
-    
-*** Generator
-    [[Abstract]] type for generate map
-    
-    | field  | type | note |
-    |--------+------+------|
-    | width  | int  | [[MapGenerator]] will set it |
-    | height | int  | [[MapGenerator]] will set it |
-    
-**** MapGenerator
-    Extends [[Generator]] -an useful map generator
-    
-    | field        | type           | default | notes |
-    |--------------+----------------+---------+-------|
-    | map          | Map            |         | this is set in map editor |
-    | mapName      | String         |         | |
-    | decorations  | [[Decoration]] |         | |
-    | enemySpawns  | int            | -1      | The amount of final enemy spawns used. -1 to use everything in the map.This amount of enemy spawns is selected randomly from the map. |
-    | distortFloor | boolean        | false   | Whether floor is distorted along with blocks. |
-    
-***** Decoration
-    A method in [[MapGenerator]] -Decoration is a random generator to generate some block in floor you set.
-    
-    | field   | type      |
-    |---------+-----------|
-    | floor   | [[Block]] |
-    | wall    | [[Block]] |
-    | chance  | double    |
+    * ~basicShard~ 
+      #+BEGIN_SRC json
+      [
+          "  ###  ",
+          "  #1#  ",
+          "  ###  ",
+          "  ^ ^  ",
+          " ## ## ",
+          " C# C# "
+      ]
+      #+END_SRC
+          
+    * ~advancedShard~ 
+      #+BEGIN_SRC json
+      [
+          "  ###  ",
+          "  #1#  ",
+          "#######",
+          "C#^ ^C#",
+          " ## ## ",
+          " C# C# "
+      ]
+      #+END_SRC
+
+    * ~basicFoundation~ 
+      #+BEGIN_SRC json
+      [
+          "  ####  ",
+          "  ####  ",
+          "  #2##  ",
+          "  ####  ",
+          "  ^^^^  ",
+          " ###### ",
+          " C#C#C# "
+      ]
+      #+END_SRC
+
+    * ~basicNucleus~ 
+      #+BEGIN_SRC json
+      [
+          "  #####  ",
+          "  #####  ",
+          "  ##3##  ",
+          "  #####  ",
+          " >#####< ",
+          " ^ ^ ^ ^ ",
+          "#### ####",
+          "C#C# C#C#"
+      ]
+      #+END_SRC
 
 ** StatusEffect
 
@@ -2174,7 +2175,7 @@
 
 **** FlakBulletType
 
-     Extends [[BasicBulletType]] 
+     Extends [[BasicBulletType]]
 
      Bullets that explode near enemies.
 
@@ -2206,7 +2207,7 @@
 *** HealBulletType
 
     Extends [[BulletType]] -- Bullets that can heal blocks of the same team as the shooter.
-    
+
     | field       | type  | default |
     |-------------+-------+---------|
     | healPercent | float |       3 |
@@ -2320,70 +2321,142 @@
   :PROPERTIES:
   :DESCRIPTION: the rules and goals of it all.
   :END:
-** Rules
-    Rules is applied to map,it can be edited at map editor,you can edit your mod-added campaign map's rule through these fields.
-    
-    | field                    | type          | default    | notes       |
-    |--------------------------+---------------+------------+-------------|
-    | infiniteResources        | boolean       |            | Whether the player has infinite resources. |
-    | waveTimer                | boolean       | true       | Whether the waves come automatically on a timer. If not, waves come when the play button is pressed. |
-    | waves                    | boolean       |            | Whether waves are spawnable at all. |
-    | enemyCheat               | boolean       |            | Whether the enemy AI has infinite resources in most of their buildings and turrets. |
-    | pvp                      | boolean       |            | Whether the game objective is PvP. Note that this enables automatic hosting. |
-    | unitDrop                 | boolean       | true       | Whether enemy units drop random items on death. |
-    | unitBuildSpeedMultiplier | float         | 1          | How fast unit pads build units. |
-    | unitHealthMultiplier     | float         | 1          | How much health units start with. |
-    | playerHealthMultiplier   | float         | 1          | How much health players start with. |
-    | playerDamageMultiplier   | float         | 1          | How much damage player mechs deal. |
-    | unitDamageMultiplier     | float         | 1          | How much damage any other units deal. |
-    | buildCostMultiplier      | float         | 1          | Multiplier for buildings for the player. |
-    | buildSpeedMultiplier     | float         | 1          | Multiplier for building speed. |
-    | enemyCoreBuildRadius     | float         | 400        | No-build zone around enemy core radius. |
-    | dropZoneRadius           | float         | 300        | Radius around enemy wave drop zones. |
-    | respawnTime              | float         | 60 * 4     | Player respawn time in ticks. |
-    | waveSpacing              | float         | 60 * 60 * 2 | Time between waves in ticks. |
-    | bossWaveMultiplier       | float         | 3          | How many times longer a boss wave takes. |
-    | launchWaveMultiplier     | float         | 2          | How many times longer a launch wave takes. |
-    | zone                     | [[Zone]]      |            | Zone for saves that have them. |
-    | spawns                   | [[SpawnGroup]] |            | Enemy spawn layout. |
-    | limitedRespawns          | boolean       | false      | Determines if there should be limited respawns. |
-    | respawns                 | int           | 5          | How many times player can respawn during one wave. |
-    | waitForWaveToEnd         | boolean       | false      | Hold wave timer until all enemies are destroyed. |
-    | attackMode               | boolean       | false      | Determinates if gamemode is attack mode. |
-    | editor                   | boolean       | false      | Whether this is the editor gamemode. |
-    | tutorial                 | boolean       | false      | Whether the tutorial is enabled. |
-    | loadout                  | [[ItemStack]] | copper:100 | Starting items put in cores |
-    | bannedBlocks             | [[Block]]     |            | Blocks that cannot be placed. |
-    
-*** SpawnGroup
-    An array of enemy spawning rule
-    
-    | field       | type             | default   | notes       |
-    |-------------+------------------+-----------+-------------|
-    | unitType    | [[UnitType]]     |           | The unit type spawned |
-    | begin       | int              |           | When this spawn should start |
-    | end         | int              | MAX_VALUE | When this spawn should end |
-    | unitAmount  | int              | 1         | Amount of enemies spawned initially, with no scaling |
-    | spacing     | int              | 1         | The spacing, in waves, of spawns. For example, 2 = spawns every other wave |
-    | max         | int              | 100       | Maximum amount of units that spawn |
-    | unitScaling | float            | MAX_VALUE | How many waves need to pass before the amount of units spawned increases by 1 |
-    | effect      | [[StatusEffect]] |           | Status effect applied to the spawned unit. Null to disable. |
-    | items       | [[ItemStack]]    |           | Items this unit spawns with. Null to disable. |
-    
-    Built-in gamemode:
-        * ~survival~
-        * ~sandbox~
-        * ~attack~
-        * ~pvp~
-        * ~editor~
+  
+** TODO SpawnGroup
+   A spawn group defines spawn information for a specific type of unit, with optional extra information like weapon equipped, ammo used, and status effects. Each spawn group can have multiple sub-groups spawned in different areas of the map.
+
+   | field       | type         |   default | notes      |
+   |-------------+--------------+-----------+------------|
+   |             |              |           | <10>       |
+   | type        | [[UnitType]] |           | The unit type spawned |
+   | end         | int          | MAX_VALUE | When this spawn should end |
+   | begin       | int          |           | When this spawn should start |
+   | spacing     | int          |         1 | The spacing, in waves, of spawns. For example, 2 = spawns every other wave |
+   | max         | int          |       100 | Maximum amount of units that spawn |
+   | unitScaling | float        | MAX_VALUE | How many waves need to pass before the amount of units spawned increases by 1 |
+   | unitAmount  | int          |         1 | Amount of enemies spawned initially, with no scaling |
+   | effect      | [[StatusEffect]] |           | Status effect applied to the spawned unit. Null to disable. |
+   | items       | [[ItemStack]]    |           | Items this unit spawns with. Null to disable. |    
+   
+   Built-in gamemode:
+   * ~survival~
+   * ~sandbox~
+   * ~attack~
+   * ~pvp~
+   * ~editor~
+
+** TODO Rules
+   Rules is applied to map,it can be edited at map editor, you can edit your mod-added campaign map's rule through these fields.
+
+   | field                    | type           |    default | notes      |
+   |--------------------------+----------------+------------+------------|
+   |                          |                |       <10> | <10>       |
+   | infiniteResources        | boolean        |            | Whether the player has infinite resources. |
+   | waveTimer                | boolean        |       true | Whether the waves come automatically on a timer. If not, waves come when the play button is pressed. |
+   | waves                    | boolean        |            | Whether waves are spawnable at all. |
+   | enemyCheat               | boolean        |            | Whether the enemy AI has infinite resources in most of their buildings and turrets. |
+   | pvp                      | boolean        |            | Whether the game objective is PvP. Note that this enables automatic hosting. |
+   | unitDrops                | boolean        |       true | Whether enemy units drop random items on death. |
+   | unitBuildSpeedMultiplier | float          |          1 | How fast unit pads build units. |
+   | unitHealthMultiplier     | float          |          1 | How much health units start with. |
+   | playerHealthMultiplier   | float          |          1 | How much health players start with. |
+   | playerDamageMultiplier   | float          |          1 | How much damage player mechs deal. |
+   | unitDamageMultiplier     | float          |          1 | How much damage any other units deal. |
+   | buildCostMultiplier      | float          |          1 | Multiplier for buildings for the player. |
+   | buildSpeedMultiplier     | float          |          1 | Multiplier for building speed. |
+   | enemyCoreBuildRadius     | float          |        400 | No-build zone around enemy core radius. |
+   | dropZoneRadius           | float          |        300 | Radius around enemy wave drop zones. |
+   | respawnTime              | float          |        120 | Player respawn time in ticks. |
+   | waveSpacing              | float          |       7200 | Time between waves in ticks. |
+   | bossWaveMultiplier       | float          |          3 | How many times longer a boss wave takes. |
+   | launchWaveMultiplier     | float          |          2 | How many times longer a launch wave takes. |
+   | zone                     | [[Zone]]           |            | Zone for saves that have them. |
+   | spawns                   | [ [[SpawnGroup]] ] |         [] | Spawn layout. |
+   | limitedRespawns          | boolean        |      false | Determines if there should be limited respawns. |
+   | respawns                 | int            |          5 | How many times player can respawn during one wave. |
+   | waitForWaveToEnd         | boolean        |      false | Hold wave timer until all enemies are destroyed. |
+   | attackMode               | boolean        |      false | Determinates if gamemode is attack mode |
+   | editor                   | boolean        |      false | Whether this is the editor gamemode. |
+   | tutorial                 | boolean        |      false | Whether the tutorial is enabled. False by default. |
+   | loadout                  | [[ItemStack]]      | [ "copper", 100 ] | Starting items put in cores |
+   | bannedBlocks             | [[[ Block]] ]      |         {} | Blocks that cannot be placed. |
+   
 
 ** Objective
+
+   [[Interface]] which defines a specific objective for a game, like a wave to reach or an block to unlock.
+
+*** ZoneObjective
+
+    [[Abstract]] type that implements [[Objective]]
+
+    | field | default |
+    |-------+---------|
+    | zone  | Zone    |
+
+*** ZoneWave
+
+    Extends [[ZoneObjective]]
+
+    | field | type |
+    |-------+------|
+    | wave  | int  |
+
+    * complete if zone best wave is larger then ~wave~.
+
+*** Launched
+
+    Extends [[ZoneObjective]]
+
+    * complete if ~zone~ has launched.
+
+*** Unlock
+
+    Extends [[Objective]]
+
+    | field | type  |
+    |-------+-------|
+    | block | [[Block]] |
+
+    * complete if ~block~ is unlocked.
+
+
+* TODO Maps
+** TODO Generator
+    [[Abstract]] type to generate map.
+    
+    | field  | type | note |
+    |--------+------+------|
+    | width  | int  | [[MapGenerator]] will set it |
+    | height | int  | [[MapGenerator]] will set it |
+    
+*** TODO MapGenerator
+    Extends [[Generator]] -- A basic map generator.
+    
+    | field        | type           | default | notes |
+    |--------------+----------------+---------+-------|
+    | map          | Map            |         | this is set in map editor |
+    | mapName      | String         |         | |
+    | decorations  | [[Decoration]] |         | |
+    | enemySpawns  | int            | -1      | The amount of final enemy spawns used. -1 to use everything in the map.This amount of enemy spawns is selected randomly from the map. |
+    | distortFloor | boolean        | false   | Whether floor is distorted along with blocks. |
+    
+*** TODO Decoration
+    A method in [[MapGenerator]] -Decoration is a random generator to generate some block in floor you set.
+    
+    | field   | type      |
+    |---------+-----------|
+    | floor   | [[Block]] |
+    | wall    | [[Block]] |
+    | chance  | double    |
 
 
 * Other
   :PROPERTIES:
   :DESCRIPTION: ...
   :END:
+** Interface
+
 ** Mindustry Source Structure
 
    #+BEGIN_SRC fundamental
@@ -2871,3 +2944,4 @@
        ├── Tile.java
        └── WorldContext.java
    #+END_SRC
+   
