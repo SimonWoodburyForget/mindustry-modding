@@ -903,6 +903,10 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | group       | turrets |
     | outlineIcon | true    |
 
+    Sprites:
+    * ~<name>~ the turret sprite
+    * ~<name>-heat~ the heat map
+
 *** CooledTurret
 
     Extends [[Turret][Turret]] -- This is a base type that turrets which use [[Liquid]] to cool themselves extend from.
