@@ -1848,7 +1848,7 @@
    * ~upgrade~ Things that upgrade the player such as mech pads;
    * ~effect~ Things for storage or passive effects.
 
-** UNTESTED Zone
+** Zone
    :PROPERTIES:
    :DESCRIPTION: type used to add maps into campaign
    :END:
@@ -1857,7 +1857,6 @@
 
    | field                | type          | default    | notes                                             |
    |----------------------+---------------+------------+---------------------------------------------------|
-   | generator            | [[Generator]]     |            |                                                   |
    | baseLaunchCost       | [[ItemStack]]     |            |                                                   |
    | launchCost           | [[ItemStack]]     |            |                                                   |
    | startingItems        | [[ItemStack]]     |            |                                                   |
@@ -1865,17 +1864,18 @@
    | alwaysUnlocked       | boolean       | false      | Whether this map is always unlocked               |
    | launchPeriod         | int           | 10         | Wave multiples at which the core may be launched. |
    | loadout              | [[Loadout]]       | basicShard |                                                   |
-   | resources            | [ String ]    |            | Array of item names.                              |
-   | rules                | [[Rules]]         |            |                                                   |
+   | resources            | [ String ]    | wave 15    | Array of item names.                              |
    | requirements         | [[[ Objective ]]] |            |                                                   |
    | configureObjective   | [[Objective]]     |            |                                                   |
    | defaultStartingItems | [[ItemStack]]     |            |                                                   |
+   | generator            | [[Generator]]     |            |                                                   |
+   | rules                | [[Rules]]         |            |                                                   |
 
    Sprites:
    * ~zone-<name>~ preview
    * ~<name>-zone~ preview
 
-** UNTESTED Loadout
+** Loadout
    :PROPERTIES:
    :DESCRIPTION: 
    :END:
@@ -2417,7 +2417,7 @@
     * complete if ~block~ is unlocked.
 
 
-* UNTESTED Maps
+* Maps
 ** UNTESTED Generator
 
     [[Abstract]] type to generate map.
