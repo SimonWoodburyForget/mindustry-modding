@@ -212,6 +212,9 @@
    * ~<content type>.<mod name>-<content name>.name~
    * ~<content type>.<mod name>-<content name>.description~
 
+   Notes:
+   * mod/content names are lowercased and hyphen separated.
+
    List of content type:
    * ~item~
    * ~block~
