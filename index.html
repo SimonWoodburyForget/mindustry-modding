@@ -396,7 +396,8 @@ body
     <li><a name="toc-Sound-1" href="#Sound">1.6 Sound</a></li>
     <li><a name="toc-Dependencies-1" href="#Dependencies">1.7 Dependencies</a></li>
     <li><a name="toc-Bundles-1" href="#Bundles">1.8 Bundles</a></li>
-    <li><a name="toc-FAQ-1" href="#FAQ">1.9 FAQ</a></li>
+    <li><a name="toc-Schematic-1" href="#Schematic">1.9 Schematic</a></li>
+    <li><a name="toc-FAQ-1" href="#FAQ">1.10 FAQ</a></li>
   </ul></li>
   <li><a name="toc-World-1" href="#World">2 World</a>
   <ul class="no-bullet">
@@ -541,8 +542,7 @@ body
     <li><a name="toc-Mech-1" href="#Mech">3.7 Mech</a></li>
     <li><a name="toc-Category-1" href="#Category">3.8 Category</a></li>
     <li><a name="toc-Zone-1" href="#Zone">3.9 Zone</a></li>
-    <li><a name="toc-Loadout-1" href="#Loadout">3.10 Loadout</a></li>
-    <li><a name="toc-StatusEffect-1" href="#StatusEffect">3.11 StatusEffect</a></li>
+    <li><a name="toc-StatusEffect-1" href="#StatusEffect">3.10 StatusEffect</a></li>
   </ul></li>
   <li><a name="toc-Graphics-1" href="#Graphics">4 Graphics</a>
   <ul class="no-bullet">
@@ -633,6 +633,8 @@ Overview
 <tr><td align="left" valign="top">&bull; <a href="#Dependencies">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mods extending mods
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Bundles">Bundles</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">translations and renaming
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Schematic">Schematic</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#FAQ">FAQ</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">simple questions and awnsers
 </td></tr>
@@ -933,8 +935,6 @@ Type
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Zone">Zone</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">type used to add maps into campaign
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Loadout">Loadout</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#StatusEffect">StatusEffect</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
@@ -1014,6 +1014,8 @@ Next: <a href="#World" accesskey="n" rel="next">World</a>, Previous: <a href="#T
 </p>
 <p>You can add custom sprites and sounds; sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them.
 </p>
+<p>It is also now possible to put schematics into mods
+</p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#Directory-Structure" accesskey="1">Directory Structure</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">how things should look.
 </td></tr>
@@ -1031,7 +1033,9 @@ Next: <a href="#World" accesskey="n" rel="next">World</a>, Previous: <a href="#T
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Bundles" accesskey="8">Bundles</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">translations and renaming
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#FAQ" accesskey="9">FAQ</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">simple questions and awnsers
+<tr><td align="left" valign="top">&bull; <a href="#Schematic" accesskey="9">Schematic</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#FAQ">FAQ</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">simple questions and awnsers
 </td></tr>
 </table>
 
@@ -1048,6 +1052,7 @@ Next: <a href="#modjson" accesskey="n" rel="next"><code>modjson</code></a>, Up: 
 </p>
 <div class="example">
 <pre class="example">project
+├── schematics
 ├── bundles
 ├── content
 │   ├── blocks
@@ -1286,7 +1291,7 @@ Next: <a href="#Bundles" accesskey="n" rel="next">Bundles</a>, Previous: <a href
 <a name="Bundles"></a>
 <div class="header">
 <p>
-Next: <a href="#FAQ" accesskey="n" rel="next">FAQ</a>, Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Schematic" accesskey="n" rel="next">Schematic</a>, Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Bundles-1"></a>
 <h3 class="section">1.8 Bundles</h3>
@@ -1357,20 +1362,31 @@ block.example-mod-silver-wall.description = Стена из серебра.
 </li></ul>
 
 <hr>
+<a name="Schematic"></a>
+<div class="header">
+<p>
+Next: <a href="#FAQ" accesskey="n" rel="next">FAQ</a>, Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Schematic-1"></a>
+<h3 class="section">1.9 Schematic</h3>
+
+<p>Schematics can be added to your mod through the <code>schematics/</code> subdirectory. Schematics should have the file extension <code>.msch</code>, but they&rsquo;re nothing more then base64 encoded data.
+</p>
+<hr>
 <a name="FAQ"></a>
 <div class="header">
 <p>
-Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Schematic" accesskey="p" rel="prev">Schematic</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="FAQ-1"></a>
-<h3 class="section">1.9 FAQ</h3>
+<h3 class="section">1.10 FAQ</h3>
 
 <ul>
 <li> <code>time</code> in game is calculated through <code>ticks</code>;
 </li><li> <code>ticks</code> <em>sometimes called <code>frames</code>,</em> are assumed to be 60/1 second;
 </li><li> <code>range</code> or most forms of distance is 1/10 of a tile;
 </li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;
-</li><li> <a name="orgd0178a7"></a><strong>Abstract:</strong> all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
+</li><li> <a name="org86c654a"></a><strong>Abstract:</strong> all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
 </li></ul>
 
 <hr>
@@ -1542,7 +1558,7 @@ Next: <a href="#ConsumeItems" accesskey="n" rel="next">ConsumeItems</a>, Up: <a 
 <a name="Consume-1"></a>
 <h4 class="subsection">2.2.1 Consume</h4>
 
-<p><a href="#orgd0178a7">Abstract</a> type base, that defines a type of resource that a block can consume.
+<p><a href="#org86c654a">Abstract</a> type base, that defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1576,7 +1592,7 @@ Next: <a href="#ConsumeLiquid" accesskey="n" rel="next">ConsumeLiquid</a>, Previ
 <a name="ConsumeLiquidBase-1"></a>
 <h4 class="subsection">2.2.3 ConsumeLiquidBase</h4>
 
-<p><a href="#orgd0178a7">Abstract</a> type which extends <a href="#Consume">Consume</a>
+<p><a href="#org86c654a">Abstract</a> type which extends <a href="#Consume">Consume</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1639,7 +1655,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.3 BlockStorage</h3>
 
-<p><a href="#orgd0178a7">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
+<p><a href="#org86c654a">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -2350,10 +2366,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#org487d44b">cold-liquid</a></td></tr>
+<tr><td>consumes</td><td><a href="#org17bf5e5">cold-liquid</a></td></tr>
 </table>
 
-<a name="org487d44b"></a><p><a href="#org487d44b">cold-liquid</a>:
+<a name="org17bf5e5"></a><p><a href="#org17bf5e5">cold-liquid</a>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -2440,7 +2456,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.9.1 Turret</h4>
 
-<p><a href="#orgd0178a7">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
+<p><a href="#org86c654a">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -2609,7 +2625,7 @@ Next: <a href="#ChargeTurret" accesskey="n" rel="next">ChargeTurret</a>, Previou
 <a name="PowerTurret-1"></a>
 <h4 class="subsection">2.9.7 PowerTurret</h4>
 
-<p><a href="#orgd0178a7">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
+<p><a href="#org86c654a">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3213,7 +3229,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.12.1 PowerBlock</h4>
 
-<p><a href="#orgd0178a7">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org86c654a">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -3865,7 +3881,7 @@ Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="
 <a name="StorageBlock-1"></a>
 <h4 class="subsection">2.15.1 StorageBlock</h4>
 
-<p><a href="#orgd0178a7">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org86c654a">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -4099,8 +4115,6 @@ Next: <a href="#Graphics" accesskey="n" rel="next">Graphics</a>, Previous: <a hr
 <tr><td align="left" valign="top">&bull; <a href="#Category" accesskey="8">Category</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Zone" accesskey="9">Zone</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">type used to add maps into campaign
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Loadout">Loadout</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#StatusEffect">StatusEffect</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -4342,7 +4356,7 @@ Next: <a href="#Zone" accesskey="n" rel="next">Zone</a>, Previous: <a href="#Mec
 <a name="Zone"></a>
 <div class="header">
 <p>
-Next: <a href="#Loadout" accesskey="n" rel="next">Loadout</a>, Previous: <a href="#Category" accesskey="p" rel="prev">Category</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#StatusEffect" accesskey="n" rel="next">StatusEffect</a>, Previous: <a href="#Category" accesskey="p" rel="prev">Category</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Zone-1"></a>
 <h3 class="section">3.9 Zone</h3>
@@ -4358,10 +4372,10 @@ Next: <a href="#Loadout" accesskey="n" rel="next">Loadout</a>, Previous: <a href
 <tr><td>conditionWave</td><td>int</td><td>MAX<em>_VALUE</em></td><td></td></tr>
 <tr><td>alwaysUnlocked</td><td>boolean</td><td>false</td><td>Whether this map is always unlocked</td></tr>
 <tr><td>launchPeriod</td><td>int</td><td>10</td><td>Rate of waves at which the core may be launched.</td></tr>
-<tr><td>loadout</td><td><a href="#Loadout">Loadout</a></td><td>basicShard</td><td>The core size and drills.</td></tr>
-<tr><td>resources</td><td>[ String ]</td><td></td><td>Array of item names.</td></tr>
-<tr><td>requirements</td><td>[ <a href="#Objective">Objective</a> ]</td><td></td><td></td></tr>
-<tr><td>configureObjective</td><td><a href="#Objective">Objective</a></td><td>wave 15</td><td></td></tr>
+<tr><td>loadout</td><td><a href="#Schematic">Schematic</a></td><td>basicShard</td><td>The core size and drills.</td></tr>
+<tr><td>resources</td><td>[ String ]</td><td></td><td>Array of <a href="#Item">item</a> names.</td></tr>
+<tr><td>requirements</td><td>[ <a href="#Objective">Objective</a> ]</td><td></td><td>An array of requirements to unlock configuration.</td></tr>
+<tr><td>configureObjective</td><td><a href="#Objective">Objective</a></td><td>ZoneWave 15</td><td></td></tr>
 <tr><td>defaultStartingItems</td><td><a href="#ItemStack">ItemStack</a></td><td></td><td></td></tr>
 </table>
 
@@ -4371,90 +4385,29 @@ Next: <a href="#Loadout" accesskey="n" rel="next">Loadout</a>, Previous: <a href
 </li><li> <code>&lt;name&gt;-zone</code> preview
 </li></ul>
 
-<hr>
-<a name="Loadout"></a>
-<div class="header">
-<p>
-Next: <a href="#StatusEffect" accesskey="n" rel="next">StatusEffect</a>, Previous: <a href="#Zone" accesskey="p" rel="prev">Zone</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="Loadout-1"></a>
-<h3 class="section">3.10 Loadout</h3>
-
-<p>Extends <a href="#Content">Content</a>
-</p>
-<p>Below you&rsquo;ll see a table of characters used to express the loadouts.
-</p>
-
-<table>
-<thead><tr><th>char</th><th>definition</th></tr></thead>
-<tr><td><code>&quot; &quot;</code></td><td>air</td></tr>
-<tr><td><code>&quot;&gt;&quot;</code></td><td>conveyor right</td></tr>
-<tr><td><code>&quot;^&quot;</code></td><td>conveyor up</td></tr>
-<tr><td><code>&quot;&lt;&quot;</code></td><td>conveyor left</td></tr>
-<tr><td><code>&quot;v&quot;</code></td><td>conveyor down</td></tr>
-<tr><td><code>&quot;1&quot;</code></td><td>coreShard</td></tr>
-<tr><td><code>&quot;2&quot;</code></td><td>coreFoundation</td></tr>
-<tr><td><code>&quot;3&quot;</code></td><td>coreNucleus</td></tr>
-<tr><td><code>&quot;C&quot;</code></td><td>mechicalDrill on top of copper ore</td></tr>
-<tr><td><code>&quot;#&quot;</code></td><td>occupied by core or drill</td></tr>
-</table>
-
-
 <p>Built-in loadouts:
-</p>
-<ul>
-<li> <code>basicShard</code>
-<div class="example">
-<pre class="example"> ###
- #1#
- ###
- ^ ^
-## ##
-C# C#
-</pre></div>
+</p><ul>
+<li> basicShard <code>bXNjaAB4nD2K2wqAIBiD5ymibnoRn6YnEP1BwUMoBL19FuJ2sbFvUFgYZDaJsLeQrkinN9UJHImsNzlYE7WrIUastuSbnlKx2VJJt+8IQGGKdfO/8J5yrGJSMegLg+YUIA==</code> <br>
+<img src="img/basicShard.png" alt="img/basicShard">
 
-</li><li> <code>advancedShard</code>
-<div class="example">
-<pre class="example">  ###
-  #1#
-#######
-C#^ ^C#
- ## ##
- C# C#
-</pre></div>
+</li><li> advancedShard <code>bXNjaAB4nD2LjQqAIAyET7OMIOhFfJqeYMxBgSkYCL199gu33fFtB4tOwUTaBCP5QpHFzwtl32DahBeKK1NwPq8hoOcUixwpY+CUxe3XIwBbB/pa6tadVCUP02hgHvp5vZq/0b7pBHPYFOQ=</code> <br>
+<img src="img/advancedShard.png" alt="img/advancedShard">
 
-</li><li> <code>basicFoundation</code>
-<div class="example">
-<pre class="example"> ####
- ####
- #2##
- ####
- ^^^^
-######
-C#C#C#
-</pre></div>
+</li><li> basicFoundation <code>bXNjaAB4nD1OSQ6DMBBzFhVu8BG+0X8MQyoiJTNSukj8nlCi2Adbtg/GA4OBF8oB00rvyE/9ykafqOIw58A7SWRKy1ZiShhZ5RcOLZhYS1hefQ1gRIeptH9jq/qW2lvc1d2tgWsOfVX/tOwE86AYBA==</code> <br>
+<img src="img/basicFoundation.png" alt="img/basicFoundation">
 
-</li><li> <code>basicNucleus</code>
-<div class="example">
-<pre class="example">  #####
-  #####
-  ##3##
-  #####
- &gt;#####&lt;
- ^ ^ ^ ^
-#### ####
-C#C# C#C#
-</pre></div>
+</li><li> basicNucleus <code>bXNjaAB4nD2MUQqAIBBEJy0s6qOLdJXuYNtCgikYBd2+LNmdj308hkGHtkId7M4YFns4mk/yfB4a48602eDI+mlNznu0FMPFd0wYKCaewl8F0EOueqM+yKSLVfJrNKWnSw/FZGzEGXFG9sy/px4gEBW1</code> <br>
+<img src="img/basicNucleus.png" alt="img/basicNucleus">
 </li></ul>
 
 <hr>
 <a name="StatusEffect"></a>
 <div class="header">
 <p>
-Previous: <a href="#Loadout" accesskey="p" rel="prev">Loadout</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Zone" accesskey="p" rel="prev">Zone</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="StatusEffect-1"></a>
-<h3 class="section">3.11 StatusEffect</h3>
+<h3 class="section">3.10 StatusEffect</h3>
 
 <p><em>Not be be confused with <a href="#Effect">Effect</a></em>, a status effect will give an entity special properties. It is currently <strong>not possible to add custom status effects</strong>. &ndash; Status effects are used as transitions between intermediate effects. If some a <code>wet</code> unit gets <code>shocked</code> it then gets 20 damage.
 </p>
@@ -4651,7 +4604,7 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletType-1"></a>
 <h3 class="section">5.1 BulletType</h3>
 
-<p><a href="#orgd0178a7">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
+<p><a href="#org86c654a">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
 </p><ul>
 <li> <a href="#BasicBulletType">BasicBulletType</a>
 </li><li> <em>everything else</em>
@@ -5091,7 +5044,7 @@ Next: <a href="#ZoneWave" accesskey="n" rel="next">ZoneWave</a>, Up: <a href="#O
 <a name="ZoneObjective-1"></a>
 <h4 class="subsection">6.1.1 ZoneObjective</h4>
 
-<p><a href="#orgd0178a7">Abstract</a> type that implements <a href="#Objective">Objective</a>
+<p><a href="#org86c654a">Abstract</a> type that implements <a href="#Objective">Objective</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>default</th></tr></thead>
