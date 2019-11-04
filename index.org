@@ -385,9 +385,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    |---------------+-----------------------+------------|
    |               |                       | <10>       |
    | item          | String                | shorthand for =items= |
-   | items         | ConsumeItems          |            |
-   | liquid        | ConsumeLiquid         |            |
-   | power         | float or ConsumePower |            |
+   | items         | [[ConsumeItems]]          |            |
+   | liquid        | [[ConsumeLiquid]]         |            |
+   | power         | float or [[ConsumePower]] |            |
    | powerBuffered | float                 | for batteries |
 
    Notes:
