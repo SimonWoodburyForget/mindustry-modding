@@ -300,7 +300,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 ** Schematic
 
-   Schematics can be added to your mod through the ~schematics/~ subdirectory. Schematics should have the file extension ~.msch~, but they're nothing more then base64 encoded data.
+   Fields that require the type ~Schematic~ can either take a built-in loadout /(see the [[Zone]] section)/ a base64 string, or the stem name of a ~.msch~ file in the ~schematics/~ subdirectory. 
+
+   /As of now, the only purpose of schematics is to give a zone a loadout./
 
 ** FAQ
     :PROPERTIES:
