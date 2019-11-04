@@ -1370,7 +1370,9 @@ Next: <a href="#FAQ" accesskey="n" rel="next">FAQ</a>, Previous: <a href="#Bundl
 <a name="Schematic-1"></a>
 <h3 class="section">1.9 Schematic</h3>
 
-<p>Schematics can be added to your mod through the <code>schematics/</code> subdirectory. Schematics should have the file extension <code>.msch</code>, but they&rsquo;re nothing more then base64 encoded data.
+<p>Fields that require the type <code>Schematic</code> can either take a built-in loadout <em>(see the <a href="#Zone">Zone</a> section)</em> a base64 string, or the stem name of a <code>.msch</code> file in the <code>schematics/</code> subdirectory. 
+</p>
+<p><em>As of now, the only purpose of schematics is to give a zone a loadout.</em>
 </p>
 <hr>
 <a name="FAQ"></a>
@@ -1386,7 +1388,7 @@ Previous: <a href="#Schematic" accesskey="p" rel="prev">Schematic</a>, Up: <a hr
 </li><li> <code>ticks</code> <em>sometimes called <code>frames</code>,</em> are assumed to be 60/1 second;
 </li><li> <code>range</code> or most forms of distance is 1/10 of a tile;
 </li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;
-</li><li> <a name="org86c654a"></a><strong>Abstract:</strong> all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
+</li><li> <a name="org5e20d0b"></a><strong>Abstract:</strong> all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
 </li></ul>
 
 <hr>
@@ -1558,7 +1560,7 @@ Next: <a href="#ConsumeItems" accesskey="n" rel="next">ConsumeItems</a>, Up: <a 
 <a name="Consume-1"></a>
 <h4 class="subsection">2.2.1 Consume</h4>
 
-<p><a href="#org86c654a">Abstract</a> type base, that defines a type of resource that a block can consume.
+<p><a href="#org5e20d0b">Abstract</a> type base, that defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1592,7 +1594,7 @@ Next: <a href="#ConsumeLiquid" accesskey="n" rel="next">ConsumeLiquid</a>, Previ
 <a name="ConsumeLiquidBase-1"></a>
 <h4 class="subsection">2.2.3 ConsumeLiquidBase</h4>
 
-<p><a href="#org86c654a">Abstract</a> type which extends <a href="#Consume">Consume</a>
+<p><a href="#org5e20d0b">Abstract</a> type which extends <a href="#Consume">Consume</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1655,7 +1657,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.3 BlockStorage</h3>
 
-<p><a href="#org86c654a">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
+<p><a href="#org5e20d0b">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -2366,10 +2368,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#org17bf5e5">cold-liquid</a></td></tr>
+<tr><td>consumes</td><td><a href="#orga5c9d46">cold-liquid</a></td></tr>
 </table>
 
-<a name="org17bf5e5"></a><p><a href="#org17bf5e5">cold-liquid</a>:
+<a name="orga5c9d46"></a><p><a href="#orga5c9d46">cold-liquid</a>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -2456,7 +2458,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.9.1 Turret</h4>
 
-<p><a href="#org86c654a">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
+<p><a href="#org5e20d0b">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -2625,7 +2627,7 @@ Next: <a href="#ChargeTurret" accesskey="n" rel="next">ChargeTurret</a>, Previou
 <a name="PowerTurret-1"></a>
 <h4 class="subsection">2.9.7 PowerTurret</h4>
 
-<p><a href="#org86c654a">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
+<p><a href="#org5e20d0b">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3229,7 +3231,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.12.1 PowerBlock</h4>
 
-<p><a href="#org86c654a">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org5e20d0b">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -3881,7 +3883,7 @@ Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="
 <a name="StorageBlock-1"></a>
 <h4 class="subsection">2.15.1 StorageBlock</h4>
 
-<p><a href="#org86c654a">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org5e20d0b">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -4361,9 +4363,14 @@ Next: <a href="#StatusEffect" accesskey="n" rel="next">StatusEffect</a>, Previou
 <a name="Zone-1"></a>
 <h3 class="section">3.9 Zone</h3>
 
-<p>Extends <a href="#Content">Content</a> &ndash; Type used to get maps into campaign.
+<p>Extends <a href="#Content">Content</a> 
 </p>
-
+<p>A <code>Zone</code> is a type that takes a map and puts it into campaign.
+</p>
+<p>Every <code>Zone</code> has a <code>Generator</code>, which once initialized, <code>MapGenerator</code> will run through the map and do <em>initialization related stuff.</em> One of those notable things, is deleting all cores on in your map and placing a <code>loadout</code> on top of a random one of them. This allows your campaign map to have multiple core locations. <em>(it doesn&rsquo;t matter which core was previously on the map, <code>loadout</code> will dictate that)</em>
+</p>
+<p>It is entirely possible to produce a custom schematic, but take note that this schematic must contain a <code>CoreBlock</code> within it.
+</p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>baseLaunchCost</td><td><a href="#ItemStack">ItemStack</a></td><td></td><td></td></tr>
@@ -4372,7 +4379,7 @@ Next: <a href="#StatusEffect" accesskey="n" rel="next">StatusEffect</a>, Previou
 <tr><td>conditionWave</td><td>int</td><td>MAX<em>_VALUE</em></td><td></td></tr>
 <tr><td>alwaysUnlocked</td><td>boolean</td><td>false</td><td>Whether this map is always unlocked</td></tr>
 <tr><td>launchPeriod</td><td>int</td><td>10</td><td>Rate of waves at which the core may be launched.</td></tr>
-<tr><td>loadout</td><td><a href="#Schematic">Schematic</a></td><td>basicShard</td><td>The core size and drills.</td></tr>
+<tr><td>loadout</td><td><a href="#Schematic">Schematic</a></td><td>basicShard</td><td>Core layout placed by MapGenerators.</td></tr>
 <tr><td>resources</td><td>[ String ]</td><td></td><td>Array of <a href="#Item">item</a> names.</td></tr>
 <tr><td>requirements</td><td>[ <a href="#Objective">Objective</a> ]</td><td></td><td>An array of requirements to unlock configuration.</td></tr>
 <tr><td>configureObjective</td><td><a href="#Objective">Objective</a></td><td>ZoneWave 15</td><td></td></tr>
@@ -4604,7 +4611,7 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletType-1"></a>
 <h3 class="section">5.1 BulletType</h3>
 
-<p><a href="#org86c654a">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
+<p><a href="#org5e20d0b">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
 </p><ul>
 <li> <a href="#BasicBulletType">BasicBulletType</a>
 </li><li> <em>everything else</em>
@@ -4675,22 +4682,47 @@ Next: <a href="#HealBulletType" accesskey="n" rel="next">HealBulletType</a>, Up:
 <a name="BasicBulletType-1"></a>
 <h4 class="subsection">5.1.1 BasicBulletType</h4>
 
-<p>Extends <a href="#BulletType">BulletType</a> &ndash; This type is special in it allows you to set colors and sprites.
+<p>Extends <a href="#BulletType">BulletType</a> 
 </p>
+<p>This types purse is to add sprites to bullets. The <code>bulletSprite</code> will be used as the shape of the bullet. The visible pixels in your sprites will be colored with <code>backColor</code> and <code>frontColor</code> respectively. For example if you had sprites <code>router.png</code> and <code>router-back.png</code>, where <code>test</code> was your mods name, you could do this to include it as a <code>bulletSprite</code>:
+</p>
+<div class="example">
+<pre class="example">{
+    &quot;ammo&quot;: {
+        &quot;copper&quot;: {
+            &quot;type&quot;: &quot;BasicBulletType&quot;,
+            &quot;bulletSprite&quot;: &quot;test-router&quot;
+        }
+    }
+}
+</pre></div>
+
+<img src="img/router-bullets.png" alt="img/router-bullets">
+
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th></th></tr></thead>
-<tr><td>backColor</td><td><a href="#Color">Color</a></td><td>bulletYellowBack</td><td>Color of <code>&lt;name&gt;-back</code> sprite.</td></tr>
-<tr><td>frontColor</td><td><a href="#Color">Color</a></td><td>bulletYellow</td><td>Color of <code>&lt;name&gt;</code> sprite.</td></tr>
 <tr><td>bulletWidth</td><td>float</td><td>5</td><td></td></tr>
 <tr><td>bulletHeight</td><td>float</td><td>7</td><td></td></tr>
 <tr><td>bulletShrink</td><td>float</td><td>0.5</td><td></td></tr>
-<tr><td>bulletSprite</td><td>String</td><td></td><td>Mapping sprite used to make the shape of the bullet.</td></tr>
+<tr><td>frontColor</td><td><a href="#Color">Color</a></td><td>bulletYellow</td><td>Color of front sprite.</td></tr>
+<tr><td>backColor</td><td><a href="#Color">Color</a></td><td>bulletYellowBack</td><td>Color of back sprite.</td></tr>
+<tr><td>bulletSprite</td><td>String</td><td>bullet</td><td>Mapping sprite used to make the shape of the bullet.</td></tr>
 </table>
 
 <p>Sprites:
 </p><ul>
-<li> <code>&lt;name&gt;</code> top layer sprite
-</li><li> <code>&lt;name&gt;-back</code> bottom layer sprite
+<li> <code>&lt;mod-name&gt;-&lt;sprite-name&gt;</code> top layer <code>bulletSprite</code>
+</li><li> <code>&lt;mod-name&gt;-&lt;sprite-name&gt;-back</code> bottom layer <code>bulletSprite</code>
+</li></ul>
+
+<p>Built-in <code>bulletSprites</code>:
+</p><ul>
+<li> <a href="https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/bullet.png">bullet</a>
+</li><li> <a href="https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/bullet-back.png">bullet-back</a>
+</li><li> <a href="https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/missile.png">missile</a>
+</li><li> <a href="https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/missile-back.png">missile-back</a>
+</li><li> <a href="https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/shell.png">shell</a>
+</li><li> <a href="https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/shell-back.png">shell-back</a>
 </li></ul>
 
 <table class="menu" border="0" cellspacing="0">
@@ -4723,12 +4755,13 @@ Next: <a href="#BombBulletType" accesskey="n" rel="next">BombBulletType</a>, Up:
 <p>Defaults:
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th></tr></thead>
+<thead><tr><th>field</th><th>default</th></tr></thead>
 <tr><td>collidesTiles</td><td>false</td></tr>
 <tr><td>collides</td><td>false</td></tr>
 <tr><td>collidesAir</td><td>false</td></tr>
 <tr><td>hitShake</td><td>1</td></tr>
 <tr><td>hitSound</td><td>explosion</td></tr>
+<tr><td>bulletSprite</td><td>shell</td></tr>
 </table>
 
 <hr>
@@ -4802,6 +4835,12 @@ Previous: <a href="#FlakBulletType" accesskey="p" rel="prev">FlakBulletType</a>,
 <tr><td>trailColor</td><td><a href="#Color">Color</a></td><td>missileYellowBack</td></tr>
 <tr><td>weaveScale</td><td>float</td><td>0</td></tr>
 <tr><td>weaveMag</td><td>float</td><td>-1</td></tr>
+</table>
+
+<p>Defaults:
+</p><table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>bulletSprite</td><td>missile</td></tr>
 </table>
 
 <hr>
@@ -5044,7 +5083,7 @@ Next: <a href="#ZoneWave" accesskey="n" rel="next">ZoneWave</a>, Up: <a href="#O
 <a name="ZoneObjective-1"></a>
 <h4 class="subsection">6.1.1 ZoneObjective</h4>
 
-<p><a href="#org86c654a">Abstract</a> type that implements <a href="#Objective">Objective</a>
+<p><a href="#org5e20d0b">Abstract</a> type that implements <a href="#Objective">Objective</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>default</th></tr></thead>
