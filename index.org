@@ -2413,60 +2413,30 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~turret~
 
 
-* Game
+* Objective
   :PROPERTIES:
-  :DESCRIPTION: the rules and goals of it all.
+  :DESCRIPTION: types to set game objectives
   :END:
-** Objective
 
-   Objective is a trait, of which a few types implement. It's used by [[Zone]] to give campaign objectives.
+  Objective is a trait, which a few types implement, which is used by [[Zone]] to give campaign maps objectives. 
 
-*** ZoneObjective
-    :PROPERTIES:
-    :DESCRIPTION: zone specific condition
-    :END:
+  Types which implement Objective are as follows:
 
-    [[Abstract][Abstract]] type that implements [[Objective]]
+  * ~ZoneWave~ -- complete if best wave within ~zone~ is heigher then target ~wave~
+    | field | type   | notes       |
+    |-------+--------+-------------|
+    | zone  | String | target [[Zone]] |
+    | wave  | int    | target wave |
 
-    | field | default |
-    |-------+---------|
-    | zone  | Zone    |
+  * ~Launched~ -- complete if core launched from ~zone~
+    | field | type   | notes       |
+    |-------+--------+-------------|
+    | zone  | String | target [[Zone]] |
 
-*** ZoneWave
-    :PROPERTIES:
-    :DESCRIPTION: zone and wave specific condition
-    :END:
-
-    Extends [[ZoneObjective]]
-
-    | field | type |
-    |-------+------|
-    | wave  | int  |
-
-    * complete if zone best wave is larger then ~wave~.
-
-*** Launched
-    :PROPERTIES:
-    :DESCRIPTION: zone and launched specific condition
-    :END:
-
-    Extends [[ZoneObjective]]
-
-    * complete if ~zone~ has launched.
-
-*** Unlock
-    :PROPERTIES:
-    :DESCRIPTION: block unlock specific condition
-    :END:
-
-    Extends [[Objective]]
-
-    | field | type  |
-    |-------+-------|
-    | block | [[Block]] |
-
-    * complete if ~block~ is unlocked.
-
+  * ~Unlock~ -- complete if ~block~ is unlocked
+    | field | type   | notes        |
+    |-------+--------+--------------|
+    | block | String | target [[Block]] |
 
 * Other
   :PROPERTIES:
