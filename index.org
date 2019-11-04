@@ -2322,9 +2322,10 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
     Extends [[BulletType]]
 
-    | field  | type   | default | notes        |
-    |--------+--------+---------+--------------|
-    | liquid | Liquid | null    | *[required]* |
+    | field  | type   | default | notes      |
+    |--------+--------+---------+------------|
+    |        |        |         | <10>       |
+    | liquid | String | null    | *[required]* name of [[Liquid]] |
 
     Defaults:
 
