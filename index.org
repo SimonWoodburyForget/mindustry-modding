@@ -2235,9 +2235,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
     Extends [[BulletType]] 
 
-    This types purse is to add sprites to bullets. The ~bulletSprite~ will be used as the shape of the bullet. The visible pixels in your sprites will be colored with ~backColor~ and ~frontColor~ respectively.
-
-    For example if you had sprites ~router.png~ and ~router-back.png~, where ~test~ was your mods name, you could do this to include it as a ~bulletSprite~:
+    This types purse is to add sprites to bullets. The ~bulletSprite~ will be used as the shape of the bullet. The visible pixels in your sprites will be colored with ~backColor~ and ~frontColor~ respectively. For example if you had sprites ~router.png~ and ~router-back.png~, where ~test~ was your mods name, you could do this to include it as a ~bulletSprite~:
 
     #+BEGIN_SRC json
     {
@@ -2249,6 +2247,8 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
         }
     }
     #+END_SRC
+
+    [[file:img/router-bullets.png]]
 
     | field        | type   |          default |            |
     |--------------+--------+------------------+------------|
