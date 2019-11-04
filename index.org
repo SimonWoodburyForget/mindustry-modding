@@ -28,6 +28,8 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
   You can add custom sprites and sounds; sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them.
 
+  It is also now possible to put schematics into mods
+
 ** Directory Structure
    :PROPERTIES:
    :DESCRIPTION: how things should look.
@@ -37,6 +39,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    #+BEGIN_SRC fundamental
    project
+   ├── schematics
    ├── bundles
    ├── content
    │   ├── blocks
@@ -294,6 +297,10 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * Ukrainian ~bundle_uk_UA.properties~
    * Chinese CN ~bundle_zh_CN.properties~
    * Chinese TW ~bundle_zh_TW.properties~
+
+** Schematic
+
+   Schematics can be added to your mod through the ~schematics/~ subdirectory. Schematics should have the file extension ~.msch~, but they're nothing more then base64 encoded data.
 
 ** FAQ
     :PROPERTIES:
@@ -1974,92 +1981,37 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    Extends [[Content]] -- Type used to get maps into campaign.
 
 
-   | field                | type          | default    | notes                                            |
-   |----------------------+---------------+------------+--------------------------------------------------|
-   | baseLaunchCost       | [[ItemStack]]     |            |                                                  |
-   | launchCost           | [[ItemStack]]     |            |                                                  |
-   | startingItems        | [[ItemStack]]     |            | Items you start with on the map.                 |
-   | conditionWave        | int           | MAX_VALUE  |                                                  |
-   | alwaysUnlocked       | boolean       | false      | Whether this map is always unlocked              |
-   | launchPeriod         | int           | 10         | Rate of waves at which the core may be launched. |
-   | loadout              | [[Loadout]]       | basicShard | The core size and drills.                        |
-   | resources            | [ String ]    |            | Array of item names.                             |
-   | requirements         | [ [[Objective]] ] |            |                                                  |
-   | configureObjective   | [[Objective]]     | wave 15    |                                                  |
-   | defaultStartingItems | [[ItemStack]]     |            |                                                  |
+   | field                | type          | default     | notes      |
+   |----------------------+---------------+-------------+------------|
+   |                      |               |             | <10>       |
+   | baseLaunchCost       | [[ItemStack]]     |             |            |
+   | launchCost           | [[ItemStack]]     |             |            |
+   | startingItems        | [[ItemStack]]     |             | Items you start with on the map. |
+   | conditionWave        | int           | MAX_VALUE   |            |
+   | alwaysUnlocked       | boolean       | false       | Whether this map is always unlocked |
+   | launchPeriod         | int           | 10          | Rate of waves at which the core may be launched. |
+   | loadout              | [[Schematic]]     | basicShard  | Loadout placed by generator. |
+   | resources            | [ String ]    |             | Array of [[Item][item]] names. |
+   | requirements         | [ [[Objective]] ] |             | An array of requirements to unlock configuration. |
+   | configureObjective   | [[Objective]]     | ZoneWave 15 |            |
+   | defaultStartingItems | [[ItemStack]]     |             |            |
 
    Sprites:
    * ~zone-<name>~ preview
    * ~<name>-zone~ preview
 
-** Loadout
-   :PROPERTIES:
-   :DESCRIPTION:
-   :END:
-
-   Extends [[Content]]
-
-   Below you'll see a table of characters used to express the loadouts.
-
-
-   | char  | definition                         |
-   |-------+------------------------------------|
-   | ~" "~ | air                                |
-   | ~">"~ | conveyor right                     |
-   | ~"^"~ | conveyor up                        |
-   | ~"<"~ | conveyor left                      |
-   | ~"v"~ | conveyor down                      |
-   | ~"1"~ | coreShard                          |
-   | ~"2"~ | coreFoundation                     |
-   | ~"3"~ | coreNucleus                        |
-   | ~"C"~ | mechicalDrill on top of copper ore |
-   | ~"#"~ | occupied by core or drill          |
-
-
    Built-in loadouts:
+   * basicShard ~bXNjaAB4nD2K2wqAIBiD5ymibnoRn6YnEP1BwUMoBL19FuJ2sbFvUFgYZDaJsLeQrkinN9UJHImsNzlYE7WrIUastuSbnlKx2VJJt+8IQGGKdfO/8J5yrGJSMegLg+YUIA==~ \\
+     [[file:img/basicShard.png]]
 
-   * ~basicShard~
-     #+BEGIN_SRC fundamental
-       ###
-       #1#
-       ###
-       ^ ^
-      ## ##
-      C# C#
-     #+END_SRC
+   * advancedShard ~bXNjaAB4nD2LjQqAIAyET7OMIOhFfJqeYMxBgSkYCL199gu33fFtB4tOwUTaBCP5QpHFzwtl32DahBeKK1NwPq8hoOcUixwpY+CUxe3XIwBbB/pa6tadVCUP02hgHvp5vZq/0b7pBHPYFOQ=~ \\
+     [[file:img/advancedShard.png]]
 
-   * ~advancedShard~
-     #+BEGIN_SRC fundamental
-       ###
-       #1#
-     #######
-     C#^ ^C#
-      ## ##
-      C# C#
-     #+END_SRC
+   * basicFoundation ~bXNjaAB4nD1OSQ6DMBBzFhVu8BG+0X8MQyoiJTNSukj8nlCi2Adbtg/GA4OBF8oB00rvyE/9ykafqOIw58A7SWRKy1ZiShhZ5RcOLZhYS1hefQ1gRIeptH9jq/qW2lvc1d2tgWsOfVX/tOwE86AYBA==~ \\
+     [[file:img/basicFoundation.png]]
 
-   * ~basicFoundation~
-     #+BEGIN_SRC fundamental
-       ####
-       ####
-       #2##
-       ####
-       ^^^^
-      ######
-      C#C#C#
-     #+END_SRC
-
-   * ~basicNucleus~
-     #+BEGIN_SRC fundamental
-       #####
-       #####
-       ##3##
-       #####
-      >#####<
-      ^ ^ ^ ^
-     #### ####
-     C#C# C#C#
-     #+END_SRC
+   * basicNucleus ~bXNjaAB4nD2MUQqAIBBEJy0s6qOLdJXuYNtCgikYBd2+LNmdj308hkGHtkId7M4YFns4mk/yfB4a48602eDI+mlNznu0FMPFd0wYKCaewl8F0EOueqM+yKSLVfJrNKWnSw/FZGzEGXFG9sy/px4gEBW1~ \\
+     [[file:img/basicNucleus.png]]
 
 ** StatusEffect
 
