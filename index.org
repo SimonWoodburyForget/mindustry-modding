@@ -1980,7 +1980,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    Extends [[Content]] -- Type used to get maps into campaign.
 
-
    | field                | type          | default     | notes      |
    |----------------------+---------------+-------------+------------|
    |                      |               |             | <10>       |
@@ -2184,21 +2183,44 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 *** BasicBulletType
 
-    Extends [[BulletType]] -- This type is special in it allows you to set colors and sprites.
+    Extends [[BulletType]] 
+
+    This types purse is to add sprites to bullets. The ~bulletSprite~ will be used as the shape of the bullet. The visible pixels in your sprites will be colored with ~backColor~ and ~frontColor~ respectively.
+
+    For example if you had a sprite ~sprites/router.png~, where ~test~ was your mods name, you could do this to include it as a ~bulletSprite~:
+
+    #+BEGIN_SRC json
+    {
+        "ammo": {
+            "copper": {
+                "type": "BasicBulletType",
+                "bulletSprite": "test-router"
+            }
+        }
+    }
+    #+END_SRC
 
     | field        | type   |          default |            |
     |--------------+--------+------------------+------------|
-    |              |        |                  | <10>       |
-    | backColor    | [[Color][Color]]  | bulletYellowBack | Color of ~<name>-back~ sprite. |
-    | frontColor   | [[Color][Color]]  |     bulletYellow | Color of ~<name>~ sprite. |
+    |              |        |              <r> | <10>       |
     | bulletWidth  | float  |                5 |            |
     | bulletHeight | float  |                7 |            |
     | bulletShrink | float  |              0.5 |            |
-    | bulletSprite | String |                  | Mapping sprite used to make the shape of the bullet. |
+    | frontColor   | [[Color][Color]]  |     bulletYellow | Color of front sprite. |
+    | backColor    | [[Color][Color]]  | bulletYellowBack | Color of back sprite. |
+    | bulletSprite | String |           bullet | Mapping sprite used to make the shape of the bullet. |
 
     Sprites:
-    * ~<name>~ top layer sprite
-    * ~<name>-back~ bottom layer sprite
+    * ~<mod-name>-<sprite-name>~ top layer ~bulletSprite~
+    * ~<mod-name>-<sprite-name>-back~ bottom layer ~bulletSprite~
+
+    Built-in ~bulletSprites~:
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/bullet.png][bullet]]
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/bullet-back.png][bullet-back]]
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/missile.png][missile]]
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/missile-back.png][missile-back]]
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/shell.png][shell]]
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/shell-back.png][shell-back]]
 
 **** ArtilleryBulletType
 
@@ -2210,13 +2232,14 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
      Defaults:
 
-     | field         | type      |
+     | field         | default   |
      |---------------+-----------|
      | collidesTiles | false     |
      | collides      | false     |
      | collidesAir   | false     |
      | hitShake      | 1         |
      | hitSound      | explosion |
+     | bulletSprite  | shell     |
 
 **** BombBulletType
 
@@ -2266,6 +2289,10 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
      | weaveScale | float |                 0 |
      | weaveMag   | float |                -1 |
 
+     Defaults:
+     | field        | default |
+     |--------------+---------|
+     | bulletSprite | missile |
 *** HealBulletType
 
     Extends [[BulletType]] -- Bullets that can heal blocks of the same team as the shooter.
