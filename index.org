@@ -1747,6 +1747,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     }
     #+END_SRC
 
+
+   All you need to make sprites is an image editor that supports transparency. Sprites should be ~32 x ~32 * size~, so a 2x2 block would require a ~64x64~ sprite.
+
 ** Attribute
 
    New attributes cannot be added. List of built-in attributes:
