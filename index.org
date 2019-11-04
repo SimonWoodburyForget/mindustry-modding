@@ -2252,13 +2252,13 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
     | field        | type   |          default |            |
     |--------------+--------+------------------+------------|
-    |              |        |                  | <10>       |
+    |              |        |              <r> | <10>       |
     | bulletWidth  | float  |                5 |            |
     | bulletHeight | float  |                7 |            |
     | bulletShrink | float  |              0.5 |            |
     | frontColor   | [[Color][Color]]  |     bulletYellow | Color of front sprite. |
     | backColor    | [[Color][Color]]  | bulletYellowBack | Color of back sprite. |
-    | bulletSprite | String |                  | Mapping sprite used to make the shape of the bullet. |
+    | bulletSprite | String |           bullet | Mapping sprite used to make the shape of the bullet. |
 
     Sprites:
     * ~<mod-name>-<sprite-name>~ top layer ~bulletSprite~
