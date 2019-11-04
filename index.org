@@ -2282,13 +2282,14 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
      Defaults:
 
-     | field         | type      |
+     | field         | default   |
      |---------------+-----------|
      | collidesTiles | false     |
      | collides      | false     |
      | collidesAir   | false     |
      | hitShake      | 1         |
      | hitSound      | explosion |
+     | bulletSprite  | shell     |
 
 **** BombBulletType
 
@@ -2337,6 +2338,12 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
      | trailColor | [[Color][Color]] | missileYellowBack |
      | weaveScale | float |                 0 |
      | weaveMag   | float |                -1 |
+
+     Defaults:
+     | field        | default |
+     |--------------+---------|
+     | bulletSprite | missile |
+
 
 *** HealBulletType
 
