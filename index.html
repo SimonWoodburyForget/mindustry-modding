@@ -1370,7 +1370,7 @@ Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="
 </li><li> <code>ticks</code> <em>sometimes called <code>frames</code>,</em> are assumed to be 60/1 second;
 </li><li> <code>range</code> or most forms of distance is 1/10 of a tile;
 </li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;
-</li><li> <a name="org00425db"></a><strong>Abstract:</strong> all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
+</li><li> <a name="org9e826f3"></a><strong>Abstract:</strong> all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
 </li></ul>
 
 <hr>
@@ -1542,7 +1542,7 @@ Next: <a href="#ConsumeItems" accesskey="n" rel="next">ConsumeItems</a>, Up: <a 
 <a name="Consume-1"></a>
 <h4 class="subsection">2.2.1 Consume</h4>
 
-<p><a href="#org00425db">Abstract</a> type base, that defines a type of resource that a block can consume.
+<p><a href="#org9e826f3">Abstract</a> type base, that defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1576,7 +1576,7 @@ Next: <a href="#ConsumeLiquid" accesskey="n" rel="next">ConsumeLiquid</a>, Previ
 <a name="ConsumeLiquidBase-1"></a>
 <h4 class="subsection">2.2.3 ConsumeLiquidBase</h4>
 
-<p><a href="#org00425db">Abstract</a> type which extends <a href="#Consume">Consume</a>
+<p><a href="#org9e826f3">Abstract</a> type which extends <a href="#Consume">Consume</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1639,7 +1639,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.3 BlockStorage</h3>
 
-<p><a href="#org00425db">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
+<p><a href="#org9e826f3">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -2350,10 +2350,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#org003b190">cold-liquid</a></td></tr>
+<tr><td>consumes</td><td><a href="#org3db405f">cold-liquid</a></td></tr>
 </table>
 
-<a name="org003b190"></a><p><a href="#org003b190">cold-liquid</a>:
+<a name="org3db405f"></a><p><a href="#org3db405f">cold-liquid</a>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -2440,7 +2440,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.9.1 Turret</h4>
 
-<p><a href="#org00425db">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
+<p><a href="#org9e826f3">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -2609,7 +2609,7 @@ Next: <a href="#ChargeTurret" accesskey="n" rel="next">ChargeTurret</a>, Previou
 <a name="PowerTurret-1"></a>
 <h4 class="subsection">2.9.7 PowerTurret</h4>
 
-<p><a href="#org00425db">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
+<p><a href="#org9e826f3">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3213,7 +3213,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.12.1 PowerBlock</h4>
 
-<p><a href="#org00425db">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org9e826f3">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -3865,7 +3865,7 @@ Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="
 <a name="StorageBlock-1"></a>
 <h4 class="subsection">2.15.1 StorageBlock</h4>
 
-<p><a href="#org00425db">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org9e826f3">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -4651,7 +4651,7 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletType-1"></a>
 <h3 class="section">5.1 BulletType</h3>
 
-<p><a href="#org00425db">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
+<p><a href="#org9e826f3">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
 </p><ul>
 <li> <a href="#BasicBulletType">BasicBulletType</a>
 </li><li> <em>everything else</em>
@@ -4724,9 +4724,7 @@ Next: <a href="#HealBulletType" accesskey="n" rel="next">HealBulletType</a>, Up:
 
 <p>Extends <a href="#BulletType">BulletType</a> 
 </p>
-<p>This types purse is to add sprites to bullets. The <code>bulletSprite</code> will be used as the shape of the bullet. The visible pixels in your sprites will be colored with <code>backColor</code> and <code>frontColor</code> respectively.
-</p>
-<p>For example if you had a sprite <code>sprites/router.png</code>, where <code>test</code> was your mods name, you could do this to include it as a <code>bulletSprite</code>:
+<p>This types purse is to add sprites to bullets. The <code>bulletSprite</code> will be used as the shape of the bullet. The visible pixels in your sprites will be colored with <code>backColor</code> and <code>frontColor</code> respectively. For example if you had sprites <code>router.png</code> and <code>router-back.png</code>, where <code>test</code> was your mods name, you could do this to include it as a <code>bulletSprite</code>:
 </p>
 <div class="example">
 <pre class="example">{
@@ -4738,6 +4736,8 @@ Next: <a href="#HealBulletType" accesskey="n" rel="next">HealBulletType</a>, Up:
     }
 }
 </pre></div>
+
+<img src="img/router-bullets.png" alt="img/router-bullets">
 
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th></th></tr></thead>
@@ -5123,7 +5123,7 @@ Next: <a href="#ZoneWave" accesskey="n" rel="next">ZoneWave</a>, Up: <a href="#O
 <a name="ZoneObjective-1"></a>
 <h4 class="subsection">6.1.1 ZoneObjective</h4>
 
-<p><a href="#org00425db">Abstract</a> type that implements <a href="#Objective">Objective</a>
+<p><a href="#org9e826f3">Abstract</a> type that implements <a href="#Objective">Objective</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>default</th></tr></thead>
