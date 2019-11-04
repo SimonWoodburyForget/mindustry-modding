@@ -4,7 +4,6 @@
 #+EMAIL: simonwoodburyforget@gmail.com
 #+DATE: 2019-10-31
 
-#+SUBTITLE: for build v99 (release v5)
 #+LANGUAGE: en
 #+TEXINFO_DEFFN: t
 #+OPTIONS: H:4 num:3 toc:2
@@ -13,7 +12,7 @@
 
 #+TODO: TODO UNTESTED | DONE
 
-#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (87)
+#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (90)
 
 Submit pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
@@ -1982,7 +1981,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    Extends [[Content]] 
    
-   A ~Zone~ is a type that takes a map and puts it into campaign.
+   A ~Zone~ is a type that takes a map named and puts it into campaign. 
 
    Every ~Zone~ has a ~Generator~, which once initialized, ~MapGenerator~ will run through the map and do /initialization related stuff./ One of those notable things, is deleting all cores on in your map and placing a ~loadout~ on top of a random one of them. This allows your campaign map to have multiple core locations. /(it doesn't matter which core was previously on the map, ~loadout~ will dictate that)/
 
