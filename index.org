@@ -1978,7 +1978,13 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    :DESCRIPTION: type used to add maps into campaign
    :END:
 
-   Extends [[Content]] -- Type used to get maps into campaign.
+   Extends [[Content]] 
+   
+   A ~Zone~ is a type that takes a map and puts it into campaign.
+
+   Every ~Zone~ has a ~Generator~, which once initialized, ~MapGenerator~ will run through the map and do /initialization related stuff./ One of those notable things, is deleting all cores on in your map and placing a ~loadout~ on top of a random one of them. This allows your campaign map to have multiple core locations. /(it doesn't matter which core was previously on the map, ~loadout~ will dictate that)/
+
+   It is entirely possible to produce a custom schematic, but take note that this schematic must contain a ~CoreBlock~ within it.
 
    | field                | type          | default     | notes      |
    |----------------------+---------------+-------------+------------|
@@ -1989,7 +1995,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | conditionWave        | int           | MAX_VALUE   |            |
    | alwaysUnlocked       | boolean       | false       | Whether this map is always unlocked |
    | launchPeriod         | int           | 10          | Rate of waves at which the core may be launched. |
-   | loadout              | [[Schematic]]     | basicShard  | Loadout placed by generator. |
+   | loadout              | [[Schematic]]     | basicShard  | Core layout placed by MapGenerators. |
    | resources            | [ String ]    |             | Array of [[Item][item]] names. |
    | requirements         | [ [[Objective]] ] |             | An array of requirements to unlock configuration. |
    | configureObjective   | [[Objective]]     | ZoneWave 15 |            |
