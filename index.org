@@ -2343,8 +2343,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
      | field        | default |
      |--------------+---------|
      | bulletSprite | missile |
-
-
 *** HealBulletType
 
     Extends [[BulletType]] -- Bullets that can heal blocks of the same team as the shooter.
