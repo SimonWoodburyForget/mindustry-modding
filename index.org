@@ -1974,19 +1974,20 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    Extends [[Content]] -- Type used to get maps into campaign.
 
 
-   | field                | type          | default    | notes                                            |
-   |----------------------+---------------+------------+--------------------------------------------------|
-   | baseLaunchCost       | [[ItemStack]]     |            |                                                  |
-   | launchCost           | [[ItemStack]]     |            |                                                  |
-   | startingItems        | [[ItemStack]]     |            | Items you start with on the map.                 |
-   | conditionWave        | int           | MAX_VALUE  |                                                  |
-   | alwaysUnlocked       | boolean       | false      | Whether this map is always unlocked              |
+   | field                | type          | default    | notes      |
+   |----------------------+---------------+------------+------------|
+   |                      |               |            | <10>       |
+   | baseLaunchCost       | [[ItemStack]]     |            |            |
+   | launchCost           | [[ItemStack]]     |            |            |
+   | startingItems        | [[ItemStack]]     |            | Items you start with on the map. |
+   | conditionWave        | int           | MAX_VALUE  |            |
+   | alwaysUnlocked       | boolean       | false      | Whether this map is always unlocked |
    | launchPeriod         | int           | 10         | Rate of waves at which the core may be launched. |
-   | loadout              | [[Loadout]]       | basicShard | The core size and drills.                        |
-   | resources            | [ String ]    |            | Array of item names.                             |
-   | requirements         | [ [[Objective]] ] |            |                                                  |
-   | configureObjective   | [[Objective]]     | wave 15    |                                                  |
-   | defaultStartingItems | [[ItemStack]]     |            |                                                  |
+   | loadout              | [[Loadout]]       | basicShard | The core size and drills. |
+   | resources            | [ String ]    |            | Array of item names. |
+   | requirements         | [ [[Objective]] ] |            |            |
+   | configureObjective   | [[Objective]]     | wave 15    |            |
+   | defaultStartingItems | [[ItemStack]]     |            |            |
 
    Sprites:
    * ~zone-<name>~ preview
@@ -2232,21 +2233,31 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 *** BasicBulletType
 
-    Extends [[BulletType]] -- This type is special in it allows you to set colors and sprites.
+    Extends [[BulletType]] 
+
+    This types purse is to add sprites to bullets.
 
     | field        | type   |          default |            |
     |--------------+--------+------------------+------------|
     |              |        |                  | <10>       |
-    | backColor    | [[Color][Color]]  | bulletYellowBack | Color of ~<name>-back~ sprite. |
-    | frontColor   | [[Color][Color]]  |     bulletYellow | Color of ~<name>~ sprite. |
+    | backColor    | [[Color][Color]]  | bulletYellowBack | Color of back sprite. |
+    | frontColor   | [[Color][Color]]  |     bulletYellow | Color of front sprite. |
     | bulletWidth  | float  |                5 |            |
     | bulletHeight | float  |                7 |            |
     | bulletShrink | float  |              0.5 |            |
     | bulletSprite | String |                  | Mapping sprite used to make the shape of the bullet. |
 
     Sprites:
-    * ~<name>~ top layer sprite
-    * ~<name>-back~ bottom layer sprite
+    * ~<mod-name>-<sprite-name>~ top layer ~bulletSprite~
+    * ~<mod-name>-<sprite-name>-back~ bottom layer ~bulletSprite~
+
+    Built-in ~bulletSprites~:
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/bullet.png][bullet]]
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/bullet-back.png][bullet-back]]
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/missile.png][missile]]
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/missile-back.png][missile-back]]
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/shell.png][shell]]
+    * [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/effects/shell-back.png][shell-back]]
 
 **** ArtilleryBulletType
 
