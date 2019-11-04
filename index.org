@@ -2423,20 +2423,20 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
   Types which implement Objective are as follows:
 
   * ~ZoneWave~ -- complete if best wave within ~zone~ is heigher then target ~wave~
-    | field | type   | notes       |
-    |-------+--------+-------------|
-    | zone  | String | target [[Zone]] |
-    | wave  | int    | target wave |
+    | field | type   | notes                |
+    |-------+--------+----------------------|
+    | zone  | String | target [[Zone]] name     |
+    | wave  | int    | target wave to reach |
 
   * ~Launched~ -- complete if core launched from ~zone~
-    | field | type   | notes       |
-    |-------+--------+-------------|
-    | zone  | String | target [[Zone]] |
+    | field | type   | notes            |
+    |-------+--------+------------------|
+    | zone  | String | target [[Zone]] name |
 
   * ~Unlock~ -- complete if ~block~ is unlocked
-    | field | type   | notes        |
-    |-------+--------+--------------|
-    | block | String | target [[Block]] |
+    | field | type   | notes             |
+    |-------+--------+-------------------|
+    | block | String | target [[Block]] name |
 
 * Other
   :PROPERTIES:
