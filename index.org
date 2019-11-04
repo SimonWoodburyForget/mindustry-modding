@@ -1051,9 +1051,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 *** LiquidTurret
     Extends [[Turret]]
 
-    | fields | type                 |
-    |--------+----------------------|
-    | ammo   | { [[Item]]: [[BulletType]] } |
+    | fields | type                   | notes                                     |
+    |--------+------------------------+-------------------------------------------|
+    | ammo   | { String: [[BulletType]] } | object with [[Liquid]] names to bullet types. |
 
     Defaults:
     | fields      | default |
