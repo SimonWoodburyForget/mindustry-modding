@@ -569,16 +569,7 @@ body
     <li><a name="toc-Effect-1" href="#Effect">5.3 Effect</a></li>
     <li><a name="toc-TargetPriority-1" href="#TargetPriority">5.4 TargetPriority</a></li>
   </ul></li>
-  <li><a name="toc-Game-1" href="#Game">6 Game</a>
-  <ul class="no-bullet">
-    <li><a name="toc-Objective-1" href="#Objective">6.1 Objective</a>
-    <ul class="no-bullet">
-      <li><a name="toc-ZoneObjective-1" href="#ZoneObjective">6.1.1 ZoneObjective</a></li>
-      <li><a name="toc-ZoneWave-1" href="#ZoneWave">6.1.2 ZoneWave</a></li>
-      <li><a name="toc-Launched-1" href="#Launched">6.1.3 Launched</a></li>
-      <li><a name="toc-Unlock-1" href="#Unlock">6.1.4 Unlock</a></li>
-    </ul></li>
-  </ul></li>
+  <li><a name="toc-Objective-1" href="#Objective">6 Objective</a></li>
   <li><a name="toc-Other-1" href="#Other">7 Other</a>
   <ul class="no-bullet">
     <li><a name="toc-Mindustry-Source-Structure-1" href="#Mindustry-Source-Structure">7.1 Mindustry Source Structure</a></li>
@@ -608,7 +599,7 @@ Next: <a href="#Overview" accesskey="n" rel="next">Overview</a>, Up: <a href="di
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Entities" accesskey="5">Entities</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the things that exists as themselves.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Game" accesskey="6">Game</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the rules and goals of it all.
+<tr><td align="left" valign="top">&bull; <a href="#Objective" accesskey="6">Objective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">types to set game objectives
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Other" accesskey="7">Other</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">...
 </td></tr>
@@ -970,25 +961,6 @@ BulletType
 <tr><td align="left" valign="top">&bull; <a href="#MassDriverBolt">MassDriverBolt</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Built_002din-Bullets">Built-in Bullets</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
-
-Game
-
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Objective">Objective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
-
-Objective
-
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#ZoneObjective">ZoneObjective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">zone specific condition
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#ZoneWave">ZoneWave</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">zone and wave specific condition
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Launched">Launched</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">zone and launched specific condition
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Unlock">Unlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block unlock specific condition
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -1388,7 +1360,7 @@ Previous: <a href="#Schematic" accesskey="p" rel="prev">Schematic</a>, Up: <a hr
 </li><li> <code>ticks</code> <em>sometimes called <code>frames</code>,</em> are assumed to be 60/1 second;
 </li><li> <code>range</code> or most forms of distance is 1/10 of a tile;
 </li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;
-</li><li> <a name="orgee4c314"></a><strong>Abstract:</strong> all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
+</li><li> <a name="orgcae2c12"></a><strong>Abstract:</strong> all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
 </li></ul>
 
 <hr>
@@ -1560,7 +1532,7 @@ Next: <a href="#ConsumeItems" accesskey="n" rel="next">ConsumeItems</a>, Up: <a 
 <a name="Consume-1"></a>
 <h4 class="subsection">2.2.1 Consume</h4>
 
-<p><a href="#orgee4c314">Abstract</a> type base, that defines a type of resource that a block can consume.
+<p><a href="#orgcae2c12">Abstract</a> type base, that defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1594,7 +1566,7 @@ Next: <a href="#ConsumeLiquid" accesskey="n" rel="next">ConsumeLiquid</a>, Previ
 <a name="ConsumeLiquidBase-1"></a>
 <h4 class="subsection">2.2.3 ConsumeLiquidBase</h4>
 
-<p><a href="#orgee4c314">Abstract</a> type which extends <a href="#Consume">Consume</a>
+<p><a href="#orgcae2c12">Abstract</a> type which extends <a href="#Consume">Consume</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1657,7 +1629,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.3 BlockStorage</h3>
 
-<p><a href="#orgee4c314">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
+<p><a href="#orgcae2c12">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -2368,10 +2340,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#orgfa8d7ea">cold-liquid</a></td></tr>
+<tr><td>consumes</td><td><a href="#orgb716574">cold-liquid</a></td></tr>
 </table>
 
-<a name="orgfa8d7ea"></a><p><a href="#orgfa8d7ea">cold-liquid</a>:
+<a name="orgb716574"></a><p><a href="#orgb716574">cold-liquid</a>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -2458,7 +2430,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.9.1 Turret</h4>
 
-<p><a href="#orgee4c314">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
+<p><a href="#orgcae2c12">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -2627,7 +2599,7 @@ Next: <a href="#ChargeTurret" accesskey="n" rel="next">ChargeTurret</a>, Previou
 <a name="PowerTurret-1"></a>
 <h4 class="subsection">2.9.7 PowerTurret</h4>
 
-<p><a href="#orgee4c314">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
+<p><a href="#orgcae2c12">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3231,7 +3203,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.12.1 PowerBlock</h4>
 
-<p><a href="#orgee4c314">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#orgcae2c12">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -3883,7 +3855,7 @@ Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="
 <a name="StorageBlock-1"></a>
 <h4 class="subsection">2.15.1 StorageBlock</h4>
 
-<p><a href="#orgee4c314">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#orgcae2c12">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -4586,7 +4558,7 @@ Previous: <a href="#Layer" accesskey="p" rel="prev">Layer</a>, Up: <a href="#Gra
 <a name="Entities"></a>
 <div class="header">
 <p>
-Next: <a href="#Game" accesskey="n" rel="next">Game</a>, Previous: <a href="#Graphics" accesskey="p" rel="prev">Graphics</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Objective" accesskey="n" rel="next">Objective</a>, Previous: <a href="#Graphics" accesskey="p" rel="prev">Graphics</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Entities-1"></a>
 <h2 class="chapter">5 Entities</h2>
@@ -4611,7 +4583,7 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletType-1"></a>
 <h3 class="section">5.1 BulletType</h3>
 
-<p><a href="#orgee4c314">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
+<p><a href="#orgcae2c12">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
 </p><ul>
 <li> <a href="#BasicBulletType">BasicBulletType</a>
 </li><li> <em>everything else</em>
@@ -5039,117 +5011,44 @@ Previous: <a href="#Effect" accesskey="p" rel="prev">Effect</a>, Up: <a href="#E
 </li></ul>
 
 <hr>
-<a name="Game"></a>
+<a name="Objective"></a>
 <div class="header">
 <p>
 Next: <a href="#Other" accesskey="n" rel="next">Other</a>, Previous: <a href="#Entities" accesskey="p" rel="prev">Entities</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="Game-1"></a>
-<h2 class="chapter">6 Game</h2>
-
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Objective" accesskey="1">Objective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-</table>
-
-<hr>
-<a name="Objective"></a>
-<div class="header">
-<p>
-Up: <a href="#Game" accesskey="u" rel="up">Game</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
 <a name="Objective-1"></a>
-<h3 class="section">6.1 Objective</h3>
+<h2 class="chapter">6 Objective</h2>
 
-<p>Objective is a trait, of which a few types implement. It&rsquo;s used by <a href="#Zone">Zone</a> to give campaign objectives.
+<p>Objective is a trait, which a few types implement, which is used by <a href="#Zone">Zone</a> to give campaign maps objectives. 
 </p>
-<table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#ZoneObjective" accesskey="1">ZoneObjective</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">zone specific condition
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#ZoneWave" accesskey="2">ZoneWave</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">zone and wave specific condition
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Launched" accesskey="3">Launched</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">zone and launched specific condition
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Unlock" accesskey="4">Unlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block unlock specific condition
-</td></tr>
-</table>
-
-<hr>
-<a name="ZoneObjective"></a>
-<div class="header">
-<p>
-Next: <a href="#ZoneWave" accesskey="n" rel="next">ZoneWave</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="ZoneObjective-1"></a>
-<h4 class="subsection">6.1.1 ZoneObjective</h4>
-
-<p><a href="#orgee4c314">Abstract</a> type that implements <a href="#Objective">Objective</a>
-</p>
-<table>
-<thead><tr><th>field</th><th>default</th></tr></thead>
-<tr><td>zone</td><td>Zone</td></tr>
-</table>
-
-<hr>
-<a name="ZoneWave"></a>
-<div class="header">
-<p>
-Next: <a href="#Launched" accesskey="n" rel="next">Launched</a>, Previous: <a href="#ZoneObjective" accesskey="p" rel="prev">ZoneObjective</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="ZoneWave-1"></a>
-<h4 class="subsection">6.1.2 ZoneWave</h4>
-
-<p>Extends <a href="#ZoneObjective">ZoneObjective</a>
-</p>
-<table>
-<thead><tr><th>field</th><th>type</th></tr></thead>
-<tr><td>wave</td><td>int</td></tr>
-</table>
-
-<ul>
-<li> complete if zone best wave is larger then <code>wave</code>.
-</li></ul>
-
-<hr>
-<a name="Launched"></a>
-<div class="header">
-<p>
-Next: <a href="#Unlock" accesskey="n" rel="next">Unlock</a>, Previous: <a href="#ZoneWave" accesskey="p" rel="prev">ZoneWave</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="Launched-1"></a>
-<h4 class="subsection">6.1.3 Launched</h4>
-
-<p>Extends <a href="#ZoneObjective">ZoneObjective</a>
+<p>Types which implement Objective are as follows:
 </p>
 <ul>
-<li> complete if <code>zone</code> has launched.
-</li></ul>
-
-<hr>
-<a name="Unlock"></a>
-<div class="header">
-<p>
-Previous: <a href="#Launched" accesskey="p" rel="prev">Launched</a>, Up: <a href="#Objective" accesskey="u" rel="up">Objective</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="Unlock-1"></a>
-<h4 class="subsection">6.1.4 Unlock</h4>
-
-<p>Extends <a href="#Objective">Objective</a>
-</p>
+<li> <code>ZoneWave</code> &ndash; complete if best wave within <code>zone</code> is heigher then target <code>wave</code>
 <table>
-<thead><tr><th>field</th><th>type</th></tr></thead>
-<tr><td>block</td><td><a href="#Block">Block</a></td></tr>
+<thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
+<tr><td>zone</td><td>String</td><td>target <a href="#Zone">Zone</a></td></tr>
+<tr><td>wave</td><td>int</td><td>target wave</td></tr>
 </table>
 
-<ul>
-<li> complete if <code>block</code> is unlocked.
+</li><li> <code>Launched</code> &ndash; complete if core launched from <code>zone</code>
+<table>
+<thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
+<tr><td>zone</td><td>String</td><td>target <a href="#Zone">Zone</a></td></tr>
+</table>
+
+</li><li> <code>Unlock</code> &ndash; complete if <code>block</code> is unlocked
+<table>
+<thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
+<tr><td>block</td><td>String</td><td>target <a href="#Block">Block</a></td></tr>
+</table>
 </li></ul>
 
 <hr>
 <a name="Other"></a>
 <div class="header">
 <p>
-Previous: <a href="#Game" accesskey="p" rel="prev">Game</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Objective" accesskey="p" rel="prev">Objective</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Other-1"></a>
 <h2 class="chapter">7 Other</h2>
