@@ -1981,7 +1981,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    Extends [[Content]] 
    
-   A ~Zone~ is a type that takes a map named and puts it into campaign. 
+   A ~Zone~ is a type that takes a map named and puts it into campaign. /(a zone isn't a map)/
 
    Every ~Zone~ has a ~Generator~, which once initialized, ~MapGenerator~ will run through the map and do /initialization related stuff./ One of those notable things, is deleting all cores on in your map and placing a ~loadout~ on top of a random one of them. This allows your campaign map to have multiple core locations. /(it doesn't matter which core was previously on the map, ~loadout~ will dictate that)/
 
@@ -2018,6 +2018,19 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    * basicNucleus ~bXNjaAB4nD2MUQqAIBBEJy0s6qOLdJXuYNtCgikYBd2+LNmdj308hkGHtkId7M4YFns4mk/yfB4a48602eDI+mlNznu0FMPFd0wYKCaewl8F0EOueqM+yKSLVfJrNKWnSw/FZGzEGXFG9sy/px4gEBW1~ \\
      [[file:img/basicNucleus.png]]
+
+   Built-in zones:
+   * nuclearComplexe
+   * desolateRift
+   * tarFields
+   * overgrowth
+   * stainedMountains
+   * frozenForest
+   * saltFlats
+   * desertWastes
+   * groundZero
+
+   
 
 ** StatusEffect
 
