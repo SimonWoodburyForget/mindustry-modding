@@ -556,9 +556,9 @@ body
       <li><a name="toc-BasicBulletType-1" href="#BasicBulletType">5.1.1 BasicBulletType</a>
       <ul class="no-bullet">
         <li><a name="toc-ArtilleryBulletType-1" href="#ArtilleryBulletType">ArtilleryBulletType</a></li>
-        <li><a name="toc-BombBulletType-1" href="#BombBulletType">BombBulletType</a></li>
         <li><a name="toc-FlakBulletType-1" href="#FlakBulletType">FlakBulletType</a></li>
         <li><a name="toc-MissileBulletType-1" href="#MissileBulletType">MissileBulletType</a></li>
+        <li><a name="toc-BombBulletType-1" href="#BombBulletType">BombBulletType</a></li>
       </ul></li>
       <li><a name="toc-HealBulletType-1" href="#HealBulletType">5.1.2 HealBulletType</a></li>
       <li><a name="toc-LiquidBulletType-1" href="#LiquidBulletType">5.1.3 LiquidBulletType</a></li>
@@ -952,7 +952,7 @@ Entities
 
 BulletType
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#BasicBulletType">BasicBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#BasicBulletType">BasicBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">colored destruction
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#HealBulletType">HealBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1342,7 +1342,7 @@ Next: <a href="#FAQ" accesskey="n" rel="next">FAQ</a>, Previous: <a href="#Bundl
 <a name="Schematic-1"></a>
 <h3 class="section">1.9 Schematic</h3>
 
-<p>Fields that require the type <code>Schematic</code> can either take a built-in loadout <em>(see the <a href="#Zone">Zone</a> section)</em> a base64 string, or the stem name of a <code>.msch</code> file in the <code>schematics/</code> subdirectory. 
+<p>Fields that require the type <code>Schematic</code> can either take a built-in loadout <em>(see the <a href="#Zone">Zone</a> section)</em> a base64 string, or the stem name of a <code>.msch</code> file in the <code>schematics/</code> subdirectory.
 </p>
 <p><em>As of now, the only purpose of schematics is to give a zone a loadout.</em>
 </p>
@@ -1360,7 +1360,7 @@ Previous: <a href="#Schematic" accesskey="p" rel="prev">Schematic</a>, Up: <a hr
 </li><li> <code>ticks</code> <em>sometimes called <code>frames</code>,</em> are assumed to be 60/1 second;
 </li><li> <code>range</code> or most forms of distance is 1/10 of a tile;
 </li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;
-</li><li> <a name="orge0b1fc0"></a><strong>Abstract:</strong> all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
+</li><li> <a name="org97e4240"></a><strong>Abstract:</strong> all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
 </li></ul>
 
 <hr>
@@ -1532,7 +1532,7 @@ Next: <a href="#ConsumeItems" accesskey="n" rel="next">ConsumeItems</a>, Up: <a 
 <a name="Consume-1"></a>
 <h4 class="subsection">2.2.1 Consume</h4>
 
-<p><a href="#orge0b1fc0">Abstract</a> type base, that defines a type of resource that a block can consume.
+<p><a href="#org97e4240">Abstract</a> type base, that defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1566,7 +1566,7 @@ Next: <a href="#ConsumeLiquid" accesskey="n" rel="next">ConsumeLiquid</a>, Previ
 <a name="ConsumeLiquidBase-1"></a>
 <h4 class="subsection">2.2.3 ConsumeLiquidBase</h4>
 
-<p><a href="#orge0b1fc0">Abstract</a> type which extends <a href="#Consume">Consume</a>
+<p><a href="#org97e4240">Abstract</a> type which extends <a href="#Consume">Consume</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1629,7 +1629,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.3 BlockStorage</h3>
 
-<p><a href="#orge0b1fc0">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
+<p><a href="#org97e4240">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -2340,10 +2340,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#orgd928d22">cold-liquid</a></td></tr>
+<tr><td>consumes</td><td><a href="#orgcb0c94d">cold-liquid</a></td></tr>
 </table>
 
-<a name="orgd928d22"></a><p><a href="#orgd928d22">cold-liquid</a>:
+<a name="orgcb0c94d"></a><p><a href="#orgcb0c94d">cold-liquid</a>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -2430,7 +2430,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.9.1 Turret</h4>
 
-<p><a href="#orge0b1fc0">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
+<p><a href="#org97e4240">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -2599,7 +2599,7 @@ Next: <a href="#ChargeTurret" accesskey="n" rel="next">ChargeTurret</a>, Previou
 <a name="PowerTurret-1"></a>
 <h4 class="subsection">2.9.7 PowerTurret</h4>
 
-<p><a href="#orge0b1fc0">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
+<p><a href="#org97e4240">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3203,7 +3203,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.12.1 PowerBlock</h4>
 
-<p><a href="#orge0b1fc0">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org97e4240">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -3855,7 +3855,7 @@ Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="
 <a name="StorageBlock-1"></a>
 <h4 class="subsection">2.15.1 StorageBlock</h4>
 
-<p><a href="#orge0b1fc0">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org97e4240">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -4583,12 +4583,8 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletType-1"></a>
 <h3 class="section">5.1 BulletType</h3>
 
-<p><a href="#orge0b1fc0">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types:
-</p><ul>
-<li> <a href="#BasicBulletType">BasicBulletType</a>
-</li><li> <em>everything else</em>
-</li></ul>
-
+<p><a href="#org97e4240">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types: <a href="#BasicBulletType">BasicBulletType</a> and other special bullets.
+</p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>lifetime</td><td>float</td><td></td><td>amount of ticks it will lasts</td></tr>
@@ -4633,7 +4629,7 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 </table>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#BasicBulletType" accesskey="1">BasicBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#BasicBulletType" accesskey="1">BasicBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">colored destruction
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#HealBulletType" accesskey="2">HealBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -4656,14 +4652,14 @@ Next: <a href="#HealBulletType" accesskey="n" rel="next">HealBulletType</a>, Up:
 
 <p>Extends <a href="#BulletType">BulletType</a> 
 </p>
-<p>This types purse is to add sprites to bullets. The <code>bulletSprite</code> will be used as the shape of the bullet. The visible pixels in your sprites will be colored with <code>backColor</code> and <code>frontColor</code> respectively. For example if you had sprites <code>router.png</code> and <code>router-back.png</code>, where <code>test</code> was your mods name, you could do this to include it as a <code>bulletSprite</code>:
+<p>This types purpose is to give basic bullets their sprites. The <code>bulletSprite</code> will be used as the shape of the bullet. The visible pixels in your sprites will be tinted with <code>backColor</code> and <code>frontColor</code> respectively. For example if you had sprites <code>router.png</code> and <code>router-back.png</code> where <code>Test Mod</code> was your mods name, you could do this to include your <code>bulletSprite</code>:
 </p>
 <div class="example">
 <pre class="example">{
     &quot;ammo&quot;: {
         &quot;copper&quot;: {
             &quot;type&quot;: &quot;BasicBulletType&quot;,
-            &quot;bulletSprite&quot;: &quot;test-router&quot;
+            &quot;bulletSprite&quot;: &quot;test-mod-router&quot;
         }
     }
 }
@@ -4698,13 +4694,13 @@ Next: <a href="#HealBulletType" accesskey="n" rel="next">HealBulletType</a>, Up:
 </li></ul>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#ArtilleryBulletType" accesskey="1">ArtilleryBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#ArtilleryBulletType" accesskey="1">ArtilleryBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">raining bullet effects
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#BombBulletType" accesskey="2">BombBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#FlakBulletType" accesskey="2">FlakBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">proximity fuze
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#FlakBulletType" accesskey="3">FlakBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#MissileBulletType" accesskey="3">MissileBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">weave and trail effects
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#MissileBulletType" accesskey="4">MissileBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#BombBulletType" accesskey="4">BombBulletType</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">minor overwrite of defaults
 </td></tr>
 </table>
 
@@ -4712,12 +4708,14 @@ Next: <a href="#HealBulletType" accesskey="n" rel="next">HealBulletType</a>, Up:
 <a name="ArtilleryBulletType"></a>
 <div class="header">
 <p>
-Next: <a href="#BombBulletType" accesskey="n" rel="next">BombBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#FlakBulletType" accesskey="n" rel="next">FlakBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="ArtilleryBulletType-1"></a>
 <h4 class="unnumberedsubsubsec">ArtilleryBulletType</h4>
 
 <p>Extends <a href="#BasicBulletType">BasicBulletType</a>
+</p>
+<p>Makes special calculations to give the effect that the bullet is going up and back down.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -4737,10 +4735,61 @@ Next: <a href="#BombBulletType" accesskey="n" rel="next">BombBulletType</a>, Up:
 </table>
 
 <hr>
+<a name="FlakBulletType"></a>
+<div class="header">
+<p>
+Next: <a href="#MissileBulletType" accesskey="n" rel="next">MissileBulletType</a>, Previous: <a href="#ArtilleryBulletType" accesskey="p" rel="prev">ArtilleryBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="FlakBulletType-1"></a>
+<h4 class="unnumberedsubsubsec">FlakBulletType</h4>
+
+<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
+<tr><td>explodeRange</td><td>float</td><td>30</td><td>The range at which the bullets explode from enemies.</td></tr>
+</table>
+
+<p>Defaults:
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th></tr></thead>
+<tr><td>splashDamage</td><td>15</td></tr>
+<tr><td>splashDamageRadius</td><td>34</td></tr>
+<tr><td>hitEffect</td><td>flakExplosionBig</td></tr>
+<tr><td>bulletWidth</td><td>8</td></tr>
+<tr><td>bulletHeight</td><td>10</td></tr>
+</table>
+
+<hr>
+<a name="MissileBulletType"></a>
+<div class="header">
+<p>
+Next: <a href="#BombBulletType" accesskey="n" rel="next">BombBulletType</a>, Previous: <a href="#FlakBulletType" accesskey="p" rel="prev">FlakBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="MissileBulletType-1"></a>
+<h4 class="unnumberedsubsubsec">MissileBulletType</h4>
+
+<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
+<tr><td>trailColor</td><td><a href="#Color">Color</a></td><td>missileYellowBack</td></tr>
+<tr><td>weaveScale</td><td>float</td><td>0</td></tr>
+<tr><td>weaveMag</td><td>float</td><td>-1</td></tr>
+</table>
+
+<p>Defaults:
+</p><table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>bulletSprite</td><td>missile</td></tr>
+</table>
+
+<hr>
 <a name="BombBulletType"></a>
 <div class="header">
 <p>
-Next: <a href="#FlakBulletType" accesskey="n" rel="next">FlakBulletType</a>, Previous: <a href="#ArtilleryBulletType" accesskey="p" rel="prev">ArtilleryBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#MissileBulletType" accesskey="p" rel="prev">MissileBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="BombBulletType-1"></a>
 <h4 class="unnumberedsubsubsec">BombBulletType</h4>
@@ -4759,60 +4808,6 @@ Next: <a href="#FlakBulletType" accesskey="n" rel="next">FlakBulletType</a>, Pre
 <tr><td>keepVelocity</td><td>false</td></tr>
 <tr><td>collidesAir</td><td>false</td></tr>
 <tr><td>hitSound</td><td>explosion</td></tr>
-</table>
-
-<hr>
-<a name="FlakBulletType"></a>
-<div class="header">
-<p>
-Next: <a href="#MissileBulletType" accesskey="n" rel="next">MissileBulletType</a>, Previous: <a href="#BombBulletType" accesskey="p" rel="prev">BombBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="FlakBulletType-1"></a>
-<h4 class="unnumberedsubsubsec">FlakBulletType</h4>
-
-<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
-</p>
-<p>Bullets that explode near enemies.
-</p>
-<table>
-<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
-<tr><td></td><td></td><td></td></tr>
-<tr><td>explodeRange</td><td>float</td><td>30</td></tr>
-</table>
-
-<p>Defaults:
-</p>
-<table>
-<thead><tr><th>field</th><th>type</th></tr></thead>
-<tr><td>splashDamage</td><td>15</td></tr>
-<tr><td>splashDamageRadius</td><td>34</td></tr>
-<tr><td>hitEffect</td><td>flakExplosionBig</td></tr>
-<tr><td>bulletWidth</td><td>8</td></tr>
-<tr><td>bulletHeight</td><td>10</td></tr>
-</table>
-
-<hr>
-<a name="MissileBulletType"></a>
-<div class="header">
-<p>
-Previous: <a href="#FlakBulletType" accesskey="p" rel="prev">FlakBulletType</a>, Up: <a href="#BasicBulletType" accesskey="u" rel="up">BasicBulletType</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="MissileBulletType-1"></a>
-<h4 class="unnumberedsubsubsec">MissileBulletType</h4>
-
-<p>Extends <a href="#BasicBulletType">BasicBulletType</a>
-</p>
-<table>
-<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
-<tr><td>trailColor</td><td><a href="#Color">Color</a></td><td>missileYellowBack</td></tr>
-<tr><td>weaveScale</td><td>float</td><td>0</td></tr>
-<tr><td>weaveMag</td><td>float</td><td>-1</td></tr>
-</table>
-
-<p>Defaults:
-</p><table>
-<thead><tr><th>field</th><th>default</th></tr></thead>
-<tr><td>bulletSprite</td><td>missile</td></tr>
 </table>
 
 <hr>
