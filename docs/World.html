@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- Created by GNU Texinfo 6.5, http://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>World (Mindustry Modding Guide)</title>
+
+<meta name="description" content="World (Mindustry Modding Guide)">
+<meta name="keywords" content="World (Mindustry Modding Guide)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<link href="index.html#Top" rel="start" title="Top">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html#Top" rel="up" title="Top">
+<link href="Block.html#Block" rel="next" title="Block">
+<link href="FAQ.html#FAQ" rel="prev" title="FAQ">
+<style type="text/css">
+<!--
+
+/*
+#+##############################################################################
+#
+# A CSS stylesheet for Texinfo HTML output produced by texi2any 5.0 (or greater)
+#
+#    Copyright (C) 2012,2013  Jason Massey <jason@janixsoft.com>
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program; if not, write to the Free Software
+#    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+#    02110-1301  USA
+#
+#-##############################################################################
+*/
+
+/* CSS RESET */
+
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+*
+{
+margin: 0;
+padding: 0;
+vertical-align: baseline;
+}
+
+sup {
+    vertical-align: super;
+}
+
+hr
+{
+margin: 1em 0em 1em 0em;
+border-top: 1px solid #C2C2C2;
+}
+
+
+
+div.smallexample, div.example
+{
+border: 1px solid silver;
+background: rgb(244, 244, 244);
+margin: 1em 0em 1em 0em;
+color: #033DA3;
+border-radius: 4px;
+}
+
+pre.example, pre.smallexample
+{
+margin: .5em 1em .5em 1em;
+
+}
+
+pre.verbatim
+{
+border: 1px solid #900;
+padding: 1em;
+color: #900;
+background: white;
+border-radius: 4px;
+}
+
+pre.lisp
+{
+border: 1px solid black;
+padding: 1em;
+color: black;
+background: #CCE0F5;
+border-radius: 4px;
+}
+
+div.lisp
+{
+margin: 0;
+}
+
+pre.display
+{
+border: 1px solid black;
+padding: 1em;
+color: black;
+background: #E6F0FA;
+border-radius: 4px;
+font-family: serif;
+}
+
+pre.format
+{
+font-family: serif;
+border: 1px solid black;
+padding: 1em;
+color: black;
+background: #C2E0C2;
+border-radius: 4px;
+}
+
+blockquote
+{
+border: 1px solid #900;
+margin: 1em 3em 1em 3em;
+background: rgba(248, 248, 2, 0.16);
+border-radius: 4px;
+padding: .25em .5em .25em .5em;
+}
+
+img
+{
+margin-top: 1em;
+margin-bottom: .5em;
+}
+
+
+h1, h2, h3, h4, h5
+{
+ color: #990000;
+}
+
+h1
+{
+margin-top: 1em;
+margin-bottom: .5em;
+}
+
+h1.chapter, h2.section, .subheading
+{
+margin-bottom: .375em;
+}
+
+h2.section, h3.section, h3.heading, h3.subsection
+{
+margin-top: 1em;
+}
+
+div.footnote h3
+{
+font-size: 90%;
+}
+
+.subheading
+{
+margin-top: 1em;
+}
+
+table.header, div.header p
+{
+/*border: 1px solid black;*/
+/*padding: .5em;*/
+white-space: nowrap;
+/*border-radius: 4px;*/
+}
+
+table.header a, div.header p a
+{
+    border-bottom: none;
+}
+
+table.header
+{
+    margin: .5em 0em .5em 0em;
+}
+
+table.cartouche
+{
+    border: 2px solid black;
+    padding: .5em;
+    box-shadow: 5px 5px silver;
+}
+
+p
+{
+    margin: 1em 0em 1em 0em;
+}
+
+/*
+table.header a:link, div.header p a:link
+{text-decoration:none;}
+*/
+
+table.header a:visited, div.header p a:visited
+{text-decoration:none;}
+
+table.header a:hover, div.header p a:hover
+{text-decoration:underline;}
+
+table.header a:active, div.header p a:active
+{text-decoration:underline;}
+
+
+div.contents code, div.contents var, div.contents samp, div.contents kbd,
+table.menu code, table.menu var, table.menu samp, table.menu kbd,
+h1 code, h1 var, h1 samp, h1 kbd,
+h2 code, h2 var, h2 samp, h2 kbd,
+h3 code, h3 var, h3 samp, h3 kbd,
+h4 code, h4 var, h4 samp, h4 kbd,
+a code, a var, a samp, a kbd
+{
+    padding: inherit;
+    font-family: inherit;
+    border: inherit;
+    background-color: inherit;
+    box-shadow: inherit;
+    color: inherit;
+}
+
+div.contents li
+{
+    margin-bottom: .25ex;
+    white-space: nowrap;
+}
+
+div.contents li, ul
+{
+    margin-top: .25ex;
+}
+
+ul, ol
+{
+    margin-left: 2.5em;
+    margin-top: .5em;
+    margin-bottom: 1em;
+}
+
+li
+{
+    margin-bottom: .5em;
+}
+
+table.menu
+{
+    border-top: solid 1px #C2C2C2;
+    padding-top: .5em;
+    white-space: nowrap;
+    margin-top: 2em;
+    line-height: 1.4em;
+}
+
+dl
+{
+    display: block;
+    margin-top: 1em;
+}
+
+dt
+{
+    color: #900;
+}
+
+dd
+{
+    margin-left: 2.5em;
+}
+
+pre.menu-comment
+{
+    margin-top: 1.5em;
+    font-family: Arial,sans-serif;
+}
+
+code
+{
+    color: #900;
+}
+
+kbd
+{
+    padding-left: .25em;
+    padding-right: .25em;
+    border: solid 1px #C2C2C2;
+    border-radius: 4px;
+    background-color: #F0F0F0;
+    box-shadow: 1px 1px silver;
+    color: black;
+}
+
+
+samp
+{
+    color: #046370;
+}
+
+var
+{
+
+    color: #927811;
+}
+
+span.nocodebreak {white-space:pre}
+span.nolinebreak {white-space:pre}
+span.roman {font-family:serif; font-weight:normal}
+span.sansserif {font-family:sans-serif; font-weight:normal}
+ul.no-bullet {list-style: none}
+
+/*
+--------------------------------------------------------------------------
+END OF janix-texinfo.css
+--------------------------------------------------------------------------
+*/
+
+td
+{
+    padding-right: 2em;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+thead tr
+{
+    text-align: left;
+}
+
+thead th
+{
+    border-bottom: 1px solid #a3a3a3; 
+}
+ 
+body
+{
+    margin: 1% 4% 2% 4%;
+    font-size: 105%;
+}
+
+
+
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<a name="World"></a>
+<div class="header">
+<p>
+Next: <a href="Type.html#Type" accesskey="n" rel="next">Type</a>, Previous: <a href="Overview.html#Overview" accesskey="p" rel="prev">Overview</a>, Up: <a href="index.html#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<hr>
+<a name="World-1"></a>
+<h2 class="chapter">2 World</h2>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="Block.html#Block" accesskey="1">Block</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base type of types that go on tiles
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Consumers.html#Consumers" accesskey="2">Consumers</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base type to consume liquid, items and power
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Consume.html#Consume" accesskey="3">Consume</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">a resource to consume
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="BlockStorage.html#BlockStorage" accesskey="4">BlockStorage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base of storage
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Environment.html#Environment" accesskey="5">Environment</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">environmental blocks
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Crafting.html#Crafting" accesskey="6">Crafting</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">blocks that take consume and output
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Sandbox.html#Sandbox" accesskey="7">Sandbox</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the magical stuff
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Logic.html#Logic" accesskey="8">Logic</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Defense.html#Defense" accesskey="9">Defense</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">blocks to protect your things
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Turrets.html#Turrets">Turrets</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">blocks for shooting things
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Distribution.html#Distribution">Distribution</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">blocks to move items around
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Liquid-Blocks.html#Liquid-Blocks">Liquid Blocks</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">blocks to do things with liquid
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Power.html#Power">Power</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">blocks to do things with power
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Production.html#Production">Production</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">blocks to extract materials from the environment
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Unit-Blocks.html#Unit-Blocks">Unit Blocks</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Storage.html#Storage">Storage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Attributes.html#Attributes">Attributes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="Attribute.html#Attribute">Attribute</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="BuildVisibility.html#BuildVisibility">BuildVisibility</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="BlockGroup.html#BlockGroup">BlockGroup</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+
+
+
+</body>
+</html>
