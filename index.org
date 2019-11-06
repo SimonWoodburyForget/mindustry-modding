@@ -1610,7 +1610,13 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | update    |    true |
     | soild     |    true |
 ** Unit Blocks
+   :PROPERTIES:
+   :DESCRIPTION: blocks to do things with units
+   :END:
 *** RepairPoint
+    :PROPERTIES:
+    :DESCRIPTION: block which can repair units
+    :END:
     Extends [[Block][Block]] -- Block which can repair units within range, with a laser.
 
     | field        | type  | default |
@@ -1633,6 +1639,10 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     * ~<name>-base~
 
 *** UnitFactory
+    :PROPERTIES:
+    :DESCRIPTION: block which can produce units
+    :END:
+
     Extends [[Block][block]] -- A block can produce units
 
     | field          | type     | default |
@@ -1656,6 +1666,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     * ~-top~
 
 *** CommandCenter
+    :PROPERTIES:
+    :DESCRIPTION: block which can command units
+    :END:
     Extends [[Block][Block]] -- A block which can issue commands to your unit.
 
     | field       | type   | default     |
@@ -1674,6 +1687,10 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | configurable | true         |
 
 *** MechPad
+    :PROPERTIES:
+    :DESCRIPTION: 
+    :END:
+
     Extends [[Block][Block]] -- A block which will spawn a player in a mech.
 
     | field     | type  | default |
@@ -1692,7 +1709,13 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | flags    | mechpad |
 
 ** Storage
+   :PROPERTIES:
+   :DESCRIPTION: block who's main purpose is storing items
+   :END:
 *** StorageBlock
+    :PROPERTIES:
+    :DESCRIPTION: base of all storage blocks
+    :END:
 
     [[Abstract][Abstract]] type which extends [[Block]]
 
@@ -1702,6 +1725,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | hasItems | true    |
 
 *** CoreBlock
+    :PROPERTIES:
+    :DESCRIPTION: the core block
+    :END:
 
     Extends [[StorageBlock]]
 
@@ -1721,8 +1747,11 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | layer             | overlay    |
 
 *** Vault
+    :PROPERTIES:
+    :DESCRIPTION: block who's only purpose is to store things
+    :END:
 
-    Extends [[StorageBlock][StorageBlock]] -- A type of storage block
+    Extends [[StorageBlock][StorageBlock]] 
 
     Defaults:
 
@@ -1733,8 +1762,13 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | update            | false      |
 
 *** Unloader
+    :PROPERTIES:
+    :DESCRIPTION: block to unload things from storage blocks
+    :END:
 
-    Extends [[Block][Block]] -- A block can unload items from storage block and machine
+    Extends [[Block][Block]]
+
+    A block which can take items from [[StorageBlock]], like [[Vault]], [[CoreBlock]] or [[Crafting][Crafters]].
 
     | field | type  | default |
     |-------+-------+---------|
@@ -1750,12 +1784,16 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | hasItems     | true    |
     | confugurable | true    |
 
-    Sprite suffix:
-    * ~-center~
-
+    Sprites:
+    * ~<name>-center~
 
 *** LaunchPad
-    Extends [[StorageBlock][StroageBlock]] -a block can launch materials without coreblock
+    :PROPERTIES:
+    :DESCRIPTION: block to launch things to space
+    :END:
+    Extends [[StorageBlock][StroageBlock]]
+
+    A block which can launch materials.
 
     | field      | type  | default |
     |------------+-------+---------|

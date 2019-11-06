@@ -657,9 +657,9 @@ World
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Production">Production</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">blocks to extract materials from the environment
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Unit-Blocks">Unit Blocks</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Unit-Blocks">Unit Blocks</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">blocks to do things with units
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Storage">Storage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Storage">Storage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block who&rsquo;s main purpose is storing items
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Attributes">Attributes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -847,11 +847,11 @@ Production
 
 Unit Blocks
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#RepairPoint">RepairPoint</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#RepairPoint">RepairPoint</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block which can repair units
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#UnitFactory">UnitFactory</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#UnitFactory">UnitFactory</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block which can produce units
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#CommandCenter">CommandCenter</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#CommandCenter">CommandCenter</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block which can command units
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#MechPad">MechPad</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -860,15 +860,15 @@ Unit Blocks
 
 Storage
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#StorageBlock">StorageBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#StorageBlock">StorageBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base of all storage blocks
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#CoreBlock">CoreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#CoreBlock">CoreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the core block
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Vault">Vault</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Vault">Vault</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block who&rsquo;s only purpose is to store things
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Unloader">Unloader</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Unloader">Unloader</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block to unload things from storage blocks
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#LaunchPad">LaunchPad</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#LaunchPad">LaunchPad</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block to launch things to space
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -1327,7 +1327,7 @@ Previous: <a href="#Schematic" accesskey="p" rel="prev">Schematic</a>, Up: <a hr
 </li><li> <code>ticks</code> <em>sometimes called <code>frames</code>,</em> are assumed to be 60/1 second;
 </li><li> <code>range</code> or most forms of distance is 1/10 of a tile;
 </li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;
-</li><li> <a name="orgbc21970"></a><em>Abstract</em>: all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
+</li><li> <a name="org5e9f16b"></a><em>Abstract</em>: all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
 </li><li> research cost is <code>30 + requirements * 6</code>
 </li></ul>
 
@@ -1369,9 +1369,9 @@ Next: <a href="#Type" accesskey="n" rel="next">Type</a>, Previous: <a href="#Ove
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Production">Production</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">blocks to extract materials from the environment
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Unit-Blocks">Unit Blocks</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Unit-Blocks">Unit Blocks</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">blocks to do things with units
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Storage">Storage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Storage">Storage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block who&rsquo;s main purpose is storing items
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Attributes">Attributes</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1455,9 +1455,9 @@ Next: <a href="#Consume" accesskey="n" rel="next">Consume</a>, Previous: <a href
 <table>
 <thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
 <tr><td>item</td><td>String</td><td>shorthand for <code>items</code></td></tr>
-<tr><td>items</td><td><a href="#org5f279f9">ConsumeItems</a></td><td>consume a number of different items</td></tr>
-<tr><td>liquid</td><td><a href="#org727fd23">ConsumeLiquid</a></td><td>consume a single liquid</td></tr>
-<tr><td>power</td><td>float or <a href="#orga992542">ConsumePower</a></td><td>consume or buffer power</td></tr>
+<tr><td>items</td><td><a href="#org985208a">ConsumeItems</a></td><td>consume a number of different items</td></tr>
+<tr><td>liquid</td><td><a href="#orgc8f4eca">ConsumeLiquid</a></td><td>consume a single liquid</td></tr>
+<tr><td>power</td><td>float or <a href="#orgdf34eb0">ConsumePower</a></td><td>consume or buffer power</td></tr>
 <tr><td>powerBuffered</td><td>float</td><td>amount of power buffered</td></tr>
 </table>
 
@@ -1466,7 +1466,7 @@ Next: <a href="#Consume" accesskey="n" rel="next">Consume</a>, Previous: <a href
 <li> you shouldn&rsquo;t have <code>power</code> and <code>powerBuffered</code>.
 </li></ul>
 
-<p>For example with <a href="#org5f279f9">ConsumeItems</a> and <a href="#org727fd23">ConsumeLiquid</a>:
+<p>For example with <a href="#org985208a">ConsumeItems</a> and <a href="#orgc8f4eca">ConsumeLiquid</a>:
 </p><div class="example">
 <pre class="example">{
     &quot;items&quot;: {
@@ -1493,7 +1493,7 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 <a name="Consume-1"></a>
 <h3 class="section">2.3 Consume</h3>
 
-<p><a href="#orgbc21970">Abstract</a> type which defines a type of resource that a block can consume.
+<p><a href="#org5e9f16b">Abstract</a> type which defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1503,14 +1503,14 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 </table>
 
 <ul>
-<li> <a name="org5f279f9"></a><code>ConsumeItems</code>, consume an itemstack.
+<li> <a name="org985208a"></a><code>ConsumeItems</code>, consume an itemstack.
 
 <table>
 <thead><tr><th>field</th><th>type</th></tr></thead>
 <tr><td>items</td><td><a href="#ItemStack">ItemStack</a></td></tr>
 </table>
 
-</li><li> <a name="org727fd23"></a><code>ConsumeLiquid</code>, consume a liquid.
+</li><li> <a name="orgc8f4eca"></a><code>ConsumeLiquid</code>, consume a liquid.
 
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1519,7 +1519,7 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 <tr><td>timePeriod</td><td>float</td><td>60</td><td>how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as <em>100 seconds</em>, but without a time override it would display as <em>10 liquid/second</em>. This is used for generic crafters.</td></tr>
 </table>
 
-</li><li> <a name="orga992542"></a><code>ConsumePower</code>, consume or buffer power.
+</li><li> <a name="orgdf34eb0"></a><code>ConsumePower</code>, consume or buffer power.
 
 <table>
 <thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
@@ -1538,7 +1538,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.4 BlockStorage</h3>
 
-<p><a href="#orgbc21970">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
+<p><a href="#org5e9f16b">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -2249,10 +2249,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#org3b140a2">cold-liquid</a></td></tr>
+<tr><td>consumes</td><td><a href="#orgde0d68a">cold-liquid</a></td></tr>
 </table>
 
-<a name="org3b140a2"></a><p><a href="#org3b140a2">cold-liquid</a>:
+<a name="orgde0d68a"></a><p><a href="#orgde0d68a">cold-liquid</a>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -2339,7 +2339,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.10.1 Turret</h4>
 
-<p><a href="#orgbc21970">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
+<p><a href="#org5e9f16b">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -2508,7 +2508,7 @@ Next: <a href="#ChargeTurret" accesskey="n" rel="next">ChargeTurret</a>, Previou
 <a name="PowerTurret-1"></a>
 <h4 class="subsection">2.10.7 PowerTurret</h4>
 
-<p><a href="#orgbc21970">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
+<p><a href="#org5e9f16b">Abstract</a> type that extends <a href="#CooledTurret">CooledTurret</a> &ndash; Turret which uses power has ammo to shoot.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3096,7 +3096,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.13.1 PowerBlock</h4>
 
-<p><a href="#orgbc21970">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org5e9f16b">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -3597,11 +3597,11 @@ Next: <a href="#Storage" accesskey="n" rel="next">Storage</a>, Previous: <a href
 <h3 class="section">2.15 Unit Blocks</h3>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#RepairPoint" accesskey="1">RepairPoint</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#RepairPoint" accesskey="1">RepairPoint</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block which can repair units
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#UnitFactory" accesskey="2">UnitFactory</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#UnitFactory" accesskey="2">UnitFactory</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block which can produce units
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#CommandCenter" accesskey="3">CommandCenter</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#CommandCenter" accesskey="3">CommandCenter</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block which can command units
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#MechPad" accesskey="4">MechPad</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -3742,15 +3742,15 @@ Next: <a href="#Attributes" accesskey="n" rel="next">Attributes</a>, Previous: <
 <h3 class="section">2.16 Storage</h3>
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#StorageBlock" accesskey="1">StorageBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#StorageBlock" accesskey="1">StorageBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base of all storage blocks
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#CoreBlock" accesskey="2">CoreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#CoreBlock" accesskey="2">CoreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">the core block
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Vault" accesskey="3">Vault</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Vault" accesskey="3">Vault</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block who&rsquo;s only purpose is to store things
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Unloader" accesskey="4">Unloader</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Unloader" accesskey="4">Unloader</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block to unload things from storage blocks
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#LaunchPad" accesskey="5">LaunchPad</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#LaunchPad" accesskey="5">LaunchPad</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">block to launch things to space
 </td></tr>
 </table>
 
@@ -3763,7 +3763,7 @@ Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="
 <a name="StorageBlock-1"></a>
 <h4 class="subsection">2.16.1 StorageBlock</h4>
 
-<p><a href="#orgbc21970">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org5e9f16b">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -3808,7 +3808,7 @@ Next: <a href="#Unloader" accesskey="n" rel="next">Unloader</a>, Previous: <a hr
 <a name="Vault-1"></a>
 <h4 class="subsection">2.16.3 Vault</h4>
 
-<p>Extends <a href="#StorageBlock">StorageBlock</a> &ndash; A type of storage block
+<p>Extends <a href="#StorageBlock">StorageBlock</a> 
 </p>
 <p>Defaults:
 </p>
@@ -3828,7 +3828,9 @@ Next: <a href="#LaunchPad" accesskey="n" rel="next">LaunchPad</a>, Previous: <a 
 <a name="Unloader-1"></a>
 <h4 class="subsection">2.16.4 Unloader</h4>
 
-<p>Extends <a href="#Block">Block</a> &ndash; A block can unload items from storage block and machine
+<p>Extends <a href="#Block">Block</a>
+</p>
+<p>A block which can take items from <a href="#StorageBlock">StorageBlock</a>, like <a href="#Vault">Vault</a>, <a href="#CoreBlock">CoreBlock</a> or <a href="#Crafting">Crafters</a>.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -3846,9 +3848,9 @@ Next: <a href="#LaunchPad" accesskey="n" rel="next">LaunchPad</a>, Previous: <a 
 <tr><td>confugurable</td><td>true</td></tr>
 </table>
 
-<p>Sprite suffix:
+<p>Sprites:
 </p><ul>
-<li> <code>-center</code>
+<li> <code>&lt;name&gt;-center</code>
 </li></ul>
 
 <hr>
@@ -3860,7 +3862,9 @@ Previous: <a href="#Unloader" accesskey="p" rel="prev">Unloader</a>, Up: <a href
 <a name="LaunchPad-1"></a>
 <h4 class="subsection">2.16.5 LaunchPad</h4>
 
-<p>Extends <a href="#StorageBlock">StroageBlock</a> -a block can launch materials without coreblock
+<p>Extends <a href="#StorageBlock">StroageBlock</a>
+</p>
+<p>A block which can launch materials.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -4504,7 +4508,7 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletType-1"></a>
 <h3 class="section">5.1 BulletType</h3>
 
-<p><a href="#orgbc21970">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types: <a href="#BasicBulletType">BasicBulletType</a> and other special bullets.
+<p><a href="#org5e9f16b">Abstract</a> type which extends <a href="#Content">Content</a> &ndash; BulletType can either be an object or a string, where a string would be reusing a built-in one, and an object would be making a custom one. There are two major categories of bullet types: <a href="#BasicBulletType">BasicBulletType</a> and other special bullets.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>

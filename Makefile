@@ -1,5 +1,7 @@
 clean:
 	rm index.texi -f
+	rm index.html -f
+	rm docs -rf
 
 texi:
 	emacs index.org --batch -f org-texinfo-export-to-texinfo
