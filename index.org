@@ -385,9 +385,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    |---------------+-----------------------+------------|
    |               |                       | <10>       |
    | item          | String                | shorthand for =items= |
-   | items         | [[ConsumeItems]]          |            |
-   | liquid        | [[ConsumeLiquid]]         |            |
-   | power         | float or [[ConsumePower]] |            |
+   | items         | [[ConsumeItems][ConsumeItems]]          |            |
+   | liquid        | [[ConsumeLiquid][ConsumeLiquid]]         |            |
+   | power         | float or [[ConsumePower][ConsumePower]] |            |
    | powerBuffered | float                 | for batteries |
 
    Notes:
@@ -397,64 +397,57 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    #+BEGIN_SRC json
    {
        "items": {
-           "items": [ { "amount": 10, "item": "copper" } ],
+           "items": [ 
+               { "amount": 10, "item": "copper" } 
+           ],
            "booster": true,
            "optional": true
+       },
+       "liquid": {
+           "liquid": "water",
+           "amount": 1.0
        }
    }
    #+END_SRC
-*** Consume
 
-    [[Abstract][Abstract]] type base, that defines a type of resource that a block can consume.
+** Consume
+   :PROPERTIES:
+   :DESCRIPTION: base of consumption
+   :END:
 
-    | field    | type    | default | notes      |
-    |----------+---------+---------+------------|
-    |          |         |         | <10>       |
-    | optional | boolean |         | consumer will not influence consumer validity. |
-    | booster  | boolean |         | consumer will be displayed as a boost input. |
-    | update   | boolean | true    |            |
+   [[Abstract][Abstract]] type which defines a type of resource that a block can consume.
 
-*** ConsumeItems
-    Extends [[Consume][Consume]] -- To consume an itemstack.
+   | field    | type    | default | notes      |
+   |----------+---------+---------+------------|
+   |          |         |         | <10>       |
+   | optional | boolean |         | consumer will not influence consumer validity. |
+   | booster  | boolean |         | consumer will be displayed as a boost input. |
+   | update   | boolean | true    |            |
 
-    | field | type      |
-    |-------+-----------|
-    | items | [[ItemStack][ItemStack]] |
+   * <<ConsumeItems>> ~ConsumeItems~, consume an itemstack.
+      
+     | field | type      |
+     |-------+-----------|
+     | items | [[ItemStack][ItemStack]] |
 
-*** ConsumeLiquidBase
+   * <<ConsumeLiquid>> ~ConsumePower~, consume a liquid.
 
-    [[Abstract][Abstract]] type which extends [[Consume][Consume]]
+     | field      | type   | default | notes      |
+     |------------+--------+---------+------------|
+     |            |        |         | <10>       |
+     | liquid     | String |         | the name of [[Liquid]] type consumed |
+     | amount     | float  |         | amount used per frame |
+     | timePeriod | float  |      60 | how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as "100 seconds", but without a time override it would display as "10 liquid/second". This is used for generic crafters. |
 
-    | field      | type  | default | notes      |
-    |------------+-------+---------+------------|
-    |            |       |         | <10>       |
-    | float      | final |         | amount used per frame |
-    | timePeriod | float |      60 | how much time is taken to use this liquid |
+   * <<ConsumePower>> ~ConsumePower~, consume or buffer power.
 
-    Notes:
-    * ~timePeriod~ example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as "100 seconds", but without a time override it would display as "10 liquid/second". This is used for generic crafters.
+     | field    | type    | notes      |
+     |----------+---------+------------|
+     |          |         | <10>       |
+     | usage    | float   | The maximum amount of power which can be processed per tick. This might influence efficiency or load a buffer |
+     | capacity | float   | The maximum power capacity in power units. |
+     | buffered | boolean | True if the module can store power. |
 
-*** ConsumeLiquid
-    Extends [[ConsumeLiquidBase][ConsumeLiquidBase]] -- To consume a liquid type.
-
-
-    | field  | type   | default |
-    |--------+--------+---------|
-    | liquid | [[Liquid][Liquid]] | null    |
-    | amount | float  | 0       |
-
-*** ConsumePower
-    Extends [[Consume][Consume]] -- To consume or buffer power.
-
-    | field    | type    | default | notes      |
-    |----------+---------+---------+------------|
-    |          |         |         | <10>       |
-    | usage    | float   |         | The maximum amount of power which can be processed per tick. |
-    | capacity | float   |         | The maximum power capacity in power units. |
-    | buffered | boolean |         | True if the module can store power. |
-
-    Notes:
-    * ~usage~ might influence efficiency or load a buffer.
 ** BlockStorage
    :PROPERTIES:
    :DESCRIPTION:
