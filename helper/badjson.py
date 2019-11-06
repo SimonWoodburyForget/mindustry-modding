@@ -72,11 +72,11 @@ TEST = """
     	{ type : ZoneWave
     		zone": groundZero
 
-    		"wave": 40,
+"wave": 40,
     	}
     	{
-    		"type": Unlock",
-    		"block": "kiln"
+    		"type": Unlock"
+block": "kiln"
     	},
     	{
     		"type": "Unlock",
