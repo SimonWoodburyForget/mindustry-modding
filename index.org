@@ -142,7 +142,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    :DESCRIPTION: image files and how to name them
    :END:
 
-   All you need to make sprites, is an image editor that supports transparency /(aka: not paint)./ Block sprites should be ~32 * size~, so a ~2x2~ block would require a ~64x64~ image. Images must be ~.png~ files.
+   All you need to make sprites, is an image editor that supports transparency /(aka: not paint)./ Block sprites should be ~32 * size~, so a ~2x2~ block would require a ~64x64~ image. Images must be ~.png~ files with 32 bit depth.
 
    Sprites can simply be dropped in the ~sprites/~ subdirectory. The content parser will look through it recursively, so you can organize them how ever you feel. 
 
