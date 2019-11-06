@@ -112,7 +112,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 ** Types
    :PROPERTIES:
-   :DESCRIPTION: what you need to know about ~type~
+   :DESCRIPTION: what you need to know about type
    :END:
 
    Types have numerous fields, but the important one is ~type~; this is a special field used by the content parser, that changes which type your object is. /A ~Router~ type can't be a ~Turret~ type/, as they're just completely different.
@@ -312,67 +312,67 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     * ~ticks~ /sometimes called ~frames~,/ are assumed to be 60/1 second;
     * ~range~ or most forms of distance is 1/10 of a tile;
     * to calculate range out of ~lifetime~ and ~speed~ you can do ~lifetime * speed = range~;
-    * <<Abstract>> *Abstract:* all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an /"initialization exception"/ of some kind.
-
+    * <<Abstract>> /Abstract/: all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an /"initialization exception"/ of some kind.
+    * research cost is ~30 + requirements * 6~
 
 * World
   :PROPERTIES:
   :DESCRIPTION: the universe and everything in it.
   :END:
+  
 ** Block
    :PROPERTIES:
    :DESCRIPTION: base type of types that go on tiles
    :end:
 
-  Extends [[BlockStorage][BlockStorage]] -- Fields for all objects that are blocks.
+   Extends [[BlockStorage][BlockStorage]] 
 
-  | field               | type            |      default | notes      |
-  |---------------------+-----------------+--------------+------------|
-  |                     |                 |          <r> | <10>       |
-  | update              | boolean         |              | whether this block has a tile entity that updates |
-  | destructible        | boolean         |              | whether this block has health and can be destroyed |
-  | unloadable          | boolean         |         true | whether unloaders work on this block |
-  | solid               | boolean         |              | whether this is solid |
-  | solidifes           | boolean         |              | whether this block CAN be solid. |
-  | rotate              | boolean         |              | whether this is rotateable |
-  | breakable           | boolean         |              | whether you can break this with rightclick |
-  | placeableOn         | boolean         |         true | whether this [[Floor][floor]] can be placed on. |
-  | insulated           | boolean         |        false | whether this block has insulating properties. |
-  | health              | int             |           -1 | tile entity health |
-  | baseExplosiveness   | float           |            0 | base block explosiveness |
-  | floating            | boolean         |        false | whether this block can be placed on edges of liquids. |
-  | size                | int             |            1 | multiblock size |
-  | expanded            | boolean         |        false | Whether to draw this block in the expanded draw range. |
-  | timers              | int             |            0 | Max of timers used. |
-  | fillesTile          | true            |              | Special flag; if false, [[Floor][floor]] will be drawn under this block even if it is cached. |
-  | alwaysReplace       | boolean         |        false | whether this block can be replaced in all cases |
-  | group               | [[BlockGroup][BlockGroup]]      |         none | Unless ~canReplace~ is overriden, blocks in the same group can replace each other. |
-  | priority            | TargetPriority  |         base | Targeting priority of this block, as seen by enemies. |
-  | configurable        | boolean         |              | Whether the block can be tapped and selected to configure. |
-  | consumesTap         | boolean         |              | Whether this block consumes touchDown events when tapped. |
-  | posConfig           | boolean         |              | Whether the config is positional and needs to be shifted. |
-  | targetable          | boolean         |         true | Whether units target this block. |
-  | canOverdrive        | boolean         |         true | Whether the overdrive core has any effect on this block. |
-  | outlineColor        | [[Color][Color]]           |       404049 | Outlined icon color. |
-  | outlineIcon         | boolean         |        false | Whether the icon region has an outline added. |
-  | hasShadow           | boolean         |         true | Whether this block has a shadow under it. |
-  | breakSound          | [[Sound][Sound]]           |         boom | Sounds made when this block breaks. |
-  | activeSound         | [[Sound][Sound]]           |         none | The sound that this block makes while active. One sound loop. Do not overuse. |
-  | activeSoundVolume   | float           |          0.5 | Active sound base volume. |
-  | idleSound           | [[Sound][Sound]]           |         none | The sound that this block makes while idle. Uses one sound loop for all blocks. |
-  | idleSoundVolume     | float           |          0.5 | Idle sound base volume. |
-  | requirements        | [[ItemStack][ItemStack]]       |              | Cost of constructing and researching this block. |
-  | category            | [[Category][Category]]        | distribution | Category in place menu. |
-  | buildCost           | float           |              | Cost of building this block; do not modify directly! |
-  | buildVisibility     | [[BuildVisibility][BuildVisibility]] |       hidden | Whether this block is visible and can currently be built. |
-  | buildCostMultiplier | float           |            1 | Multiplier for speed of building this block. |
-  | instantTransfer     | boolean         |        false | Whether this block has instant transfer. |
-  | alwaysUnlocked      | boolean         |        false |            |
-  | layer               | [[Layer][Layer]]           |         null | Layer to draw extra stuff on. |
-  | layer2              | [[Layer][Layer]]           |         null | Extra layer to draw extra stuff on. |
+   Fields for all objects that are blocks.
 
-  Notes:
-  * research cost is ~30 + <requirements> * 6~
+   | field               | type            |      default | notes      |
+   |---------------------+-----------------+--------------+------------|
+   |                     |                 |          <r> | <10>       |
+   | update              | boolean         |              | whether this block has a tile entity that updates |
+   | destructible        | boolean         |              | whether this block has health and can be destroyed |
+   | unloadable          | boolean         |         true | whether unloaders work on this block |
+   | solid               | boolean         |              | whether this is solid |
+   | solidifes           | boolean         |              | whether this block CAN be solid. |
+   | rotate              | boolean         |              | whether this is rotateable |
+   | breakable           | boolean         |              | whether you can break this with rightclick |
+   | placeableOn         | boolean         |         true | whether this [[Floor][floor]] can be placed on. |
+   | insulated           | boolean         |        false | whether this block has insulating properties. |
+   | health              | int             |           -1 | tile entity health |
+   | baseExplosiveness   | float           |            0 | base block explosiveness |
+   | floating            | boolean         |        false | whether this block can be placed on edges of liquids. |
+   | size                | int             |            1 | multiblock size |
+   | expanded            | boolean         |        false | Whether to draw this block in the expanded draw range. |
+   | timers              | int             |            0 | Max of timers used. |
+   | fillesTile          | true            |              | Special flag; if false, [[Floor][floor]] will be drawn under this block even if it is cached. |
+   | alwaysReplace       | boolean         |        false | whether this block can be replaced in all cases |
+   | group               | [[BlockGroup][BlockGroup]]      |         none | Unless ~canReplace~ is overriden, blocks in the same group can replace each other. |
+   | priority            | TargetPriority  |         base | Targeting priority of this block, as seen by enemies. |
+   | configurable        | boolean         |              | Whether the block can be tapped and selected to configure. |
+   | consumesTap         | boolean         |              | Whether this block consumes touchDown events when tapped. |
+   | posConfig           | boolean         |              | Whether the config is positional and needs to be shifted. |
+   | targetable          | boolean         |         true | Whether units target this block. |
+   | canOverdrive        | boolean         |         true | Whether the overdrive core has any effect on this block. |
+   | outlineColor        | [[Color][Color]]           |       404049 | Outlined icon color. |
+   | outlineIcon         | boolean         |        false | Whether the icon region has an outline added. |
+   | hasShadow           | boolean         |         true | Whether this block has a shadow under it. |
+   | breakSound          | [[Sound][Sound]]           |         boom | Sounds made when this block breaks. |
+   | activeSound         | [[Sound][Sound]]           |         none | The sound that this block makes while active. One sound loop. Do not overuse. |
+   | activeSoundVolume   | float           |          0.5 | Active sound base volume. |
+   | idleSound           | [[Sound][Sound]]           |         none | The sound that this block makes while idle. Uses one sound loop for all blocks. |
+   | idleSoundVolume     | float           |          0.5 | Idle sound base volume. |
+   | requirements        | [[ItemStack][ItemStack]]       |              | Cost of constructing and researching this block. |
+   | category            | [[Category][Category]]        | distribution | Category in place menu. |
+   | buildCost           | float           |              | Cost of building this block; do not modify directly! |
+   | buildVisibility     | [[BuildVisibility][BuildVisibility]] |       hidden | Whether this block is visible and can currently be built. |
+   | buildCostMultiplier | float           |            1 | Multiplier for speed of building this block. |
+   | instantTransfer     | boolean         |        false | Whether this block has instant transfer. |
+   | alwaysUnlocked      | boolean         |        false |            |
+   | layer               | [[Layer][Layer]]           |         null | Layer to draw extra stuff on. |
+   | layer2              | [[Layer][Layer]]           |         null | Extra layer to draw extra stuff on. |
 
 ** Consumers
    :PROPERTIES:
@@ -384,21 +384,22 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | field         | type                  | notes      |
    |---------------+-----------------------+------------|
    |               |                       | <10>       |
-   | item          | String                | shorthand for =items= |
-   | items         | [[ConsumeItems][ConsumeItems]]          |            |
-   | liquid        | [[ConsumeLiquid][ConsumeLiquid]]         |            |
-   | power         | float or [[ConsumePower][ConsumePower]] |            |
-   | powerBuffered | float                 | for batteries |
+   | item          | String                | shorthand for ~items~ |
+   | items         | [[ConsumeItems][ConsumeItems]]          | consume a number of different items |
+   | liquid        | [[ConsumeLiquid][ConsumeLiquid]]         | consume a single liquid |
+   | power         | float or [[ConsumePower][ConsumePower]] | consume or buffer power |
+   | powerBuffered | float                 | amount of power buffered |
 
    Notes:
-   * you shouldn't have ~power~ and ~powerBuffered~
+   * you shouldn't have ~power~ and ~powerBuffered~.
 
-   For example with [[ConsumeItems][ConsumeItems]]:
+   For example with [[ConsumeItems][ConsumeItems]] and [[ConsumeLiquid][ConsumeLiquid]]:
    #+BEGIN_SRC json
    {
        "items": {
            "items": [ 
-               { "amount": 10, "item": "copper" } 
+               { "amount": 10, "item": "copper" },
+               { "amount": 5, "item": "surge-alloy" }
            ],
            "booster": true,
            "optional": true
@@ -412,7 +413,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 ** Consume
    :PROPERTIES:
-   :DESCRIPTION: base of consumption
+   :DESCRIPTION: a resource to consume
    :END:
 
    [[Abstract][Abstract]] type which defines a type of resource that a block can consume.
@@ -430,14 +431,14 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
      |-------+-----------|
      | items | [[ItemStack][ItemStack]] |
 
-   * <<ConsumeLiquid>> ~ConsumePower~, consume a liquid.
+   * <<ConsumeLiquid>> ~ConsumeLiquid~, consume a liquid.
 
      | field      | type   | default | notes      |
      |------------+--------+---------+------------|
      |            |        |         | <10>       |
      | liquid     | String |         | the name of [[Liquid]] type consumed |
      | amount     | float  |         | amount used per frame |
-     | timePeriod | float  |      60 | how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as "100 seconds", but without a time override it would display as "10 liquid/second". This is used for generic crafters. |
+     | timePeriod | float  |      60 | how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as /100 seconds/, but without a time override it would display as /10 liquid/second/. This is used for generic crafters. |
 
    * <<ConsumePower>> ~ConsumePower~, consume or buffer power.
 
@@ -450,7 +451,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 ** BlockStorage
    :PROPERTIES:
-   :DESCRIPTION:
+   :DESCRIPTION: base of storage
    :END:
 
    [[Abstract][Abstract]] type that extends [[Content][Content]] -- This is for blocks that can store a buffer of items.
@@ -470,6 +471,10 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | consumes       | [[Consumers][Consumers]] |         |
 
 ** Environment
+   :PROPERTIES:
+   :DESCRIPTION: environmental blocks
+   :END:
+
 
    Environmental blocks are blocks that must be placed from the editor, and they're the ones that will generally dictate how the game can or will be played. These blocks wont appear on a map unless you've built a map to support them.
 
@@ -575,6 +580,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | layer    | power   |
     | expanded | true    |
 ** Crafting
+   :PROPERTIES:
+   :DESCRIPTION: blocks that take consume and output
+   :END:
 *** GenericCrafter
     Extends [[Block][Block]]
 
@@ -639,6 +647,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     Sprite suffixes:
     * ~-liquid~
 ** Sandbox
+   :PROPERTIES:
+   :DESCRIPTION: the magical stuff
+   :END:
 *** PowerVoid
     Extends [[PowerBlock][PowerBlock]]
 
@@ -720,6 +731,10 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | configurable |    true |
     | destructible |    true |
 ** Defense
+   :PROPERTIES:
+   :DESCRIPTION: blocks to protect your things
+   :END:
+
 *** Wall
     Extends [[Block][Block]]
 
@@ -881,6 +896,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | targetable   |   false |
     | layer        | overlay |
 ** Turrets
+   :PROPERTIES:
+   :DESCRIPTION: blocks for shooting things
+   :END:
 
    This section is for turret types. All turrets shoot [[BulletType]], and this means [[LiquidTurret]] can shoot [[MissileBulletType]] and [[ItemTurret]] can shoot [[LiquidBulletType]].
 
@@ -1054,6 +1072,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | hasLiquids  | true    |
     | activeSound | spray   |
 ** Distribution
+   :PROPERTIES:
+   :DESCRIPTION: blocks to move items around
+   :END:
 *** Conveyor
     Extends [[Block][Block]]
 
@@ -1220,6 +1241,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     Sprites:
     * ~<name>-base~
 ** Liquid Blocks
+   :PROPERTIES:
+   :DESCRIPTION: blocks to do things with liquid
+   :END:
 *** LiquidBlock
     Extends [[Block][Block]] -- For blocks that can carry liquids. Apart from the better defaults, it also fetches extra sprites.
 
@@ -1298,6 +1322,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | outputsLiquid | true    |
     | group         | liquids |
 ** Power
+   :PROPERTIES:
+   :DESCRIPTION: blocks to do things with power
+   :END:
 *** PowerBlock
     [[Abstract][Abstract]] type which extends [[Block][Block]]
 
@@ -1348,130 +1375,135 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | consumesPower | true    |
 
 *** PowerGenerator
-    Extends [[PowerDistributor][PowerDistributor]] -- Base of power generators.
+    :PROPERTIES:
+    :DESCRIPTION: base of power generators.
+    :END:
 
-    | field           | type      | default             | notes      |
-    |-----------------+-----------+---------------------+------------|
-    |                 |           |                     | <10>       |
-    | powerProduction | float     |                     | power produced per tick at 100% (=1.0=) efficiency |
-    | generationType  | BlockStat | basePowerGeneration |            |
+    Extends [[PowerDistributor][PowerDistributor]]
 
-    Notes:
-    * ~1 powerProduction ~ 60 pu/s~
+    Power generators will produce power with their [[Consumers]] type.
+
+    | field           | type  | notes      |
+    |-----------------+-------+------------|
+    |                 |       | <10>       |
+    | powerProduction | float | Power produced per tick at 100% (=1.0=) efficiency; 1 ~powerProduction~ is approximately ~60 pu/s~. |
 
     Defaults:
     | field             | default |
     |-------------------+---------|
     | baseExplosiveness | 5       |
 
-*** ThermalGenerator
-    Extends [[PowerGenerator][PowerGenerator]] -- Generates power with the heat [[Attributes][attribute]] of a tile. Power production is ~powerProduction * heat~, and ~heat~ must be greater then ~0.01~.
+**** ThermalGenerator
+     Extends [[PowerGenerator][PowerGenerator]] -- Generates power with the heat [[Attributes][attribute]] of a tile. Power production is ~powerProduction * heat~, and ~heat~ must be greater then ~0.01~.
 
-    | field          | type   | default | notes      |
-    |----------------+--------+---------+------------|
-    |                |        |         | <10>       |
-    | generateEffect | [[Effect][Effect]] | none    |            |
+     | field          | type   | default | notes      |
+     |----------------+--------+---------+------------|
+     |                |        |         | <10>       |
+     | generateEffect | [[Effect][Effect]] | none    |            |
 
-*** ItemLiquidGenerator
-    Extends [[PowerGenerator][PowerGenerator]] -- Base power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items.
+**** ItemLiquidGenerator
+     Extends [[PowerGenerator][PowerGenerator]] -- Base power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items.
 
-   | field               | type    | default       | notes      |
-   |---------------------+---------+---------------+------------|
-   |                     |         |               | <10>       |
-   | minItemEfficiency   | float   | 0.2           |            |
-   | itemDuration        | float   | 70            | number of ticks during which a single item will produce power. |
-   | minLiquidEfficiency | float   | 0.2           |            |
-   | maxLiquidGenerate   | float   | 0.4           | Maximum liquid used per frame. |
-   | generateEffect      | [[Effect][Effect]]  | generatespark |            |
-   | explodeEffect       | [[Effect][Effect]]  | generatespark |            |
-   | heatColor           | [[Color][Color]]   | ff9b59        |            |
-   | randomlyExplode     | boolean | true          |            |
-   | defaults            | boolean | false         |            |
-
-   Notes:
-   * item efficiency is always 0.0
-   * liquid efficiency is always 0.0
-
-   Extra sprites:
-   * ~<name>-top~ if ~hasItems~ is ~true~
-   * ~<name>-liquid~
-
-*** SingleTypeGenerator
-    Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from an item.
-*** BurnerGenerator
-    Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item flamability.
-*** DecayGenerator
-    Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item radioactivity.
-
-    Defaults:
-    | field      | default |
-    |------------+---------|
-    | hasItems   | true    |
-    | hasLiquids | false   |
-
-*** SolarGenerator
-    Extends [[PowerGenerator][PowerGenerator]] -- A generator that always produces 100% efficiency power.
+    | field               | type    | default       | notes      |
+    |---------------------+---------+---------------+------------|
+    |                     |         |               | <10>       |
+    | minItemEfficiency   | float   | 0.2           |            |
+    | itemDuration        | float   | 70            | number of ticks during which a single item will produce power. |
+    | minLiquidEfficiency | float   | 0.2           |            |
+    | maxLiquidGenerate   | float   | 0.4           | Maximum liquid used per frame. |
+    | generateEffect      | [[Effect][Effect]]  | generatespark |            |
+    | explodeEffect       | [[Effect][Effect]]  | generatespark |            |
+    | heatColor           | [[Color][Color]]   | ff9b59        |            |
+    | randomlyExplode     | boolean | true          |            |
+    | defaults            | boolean | false         |            |
 
     Notes:
-    * Lower targetting priority then other generators.
+    * item efficiency is always 0.0
+    * liquid efficiency is always 0.0
 
-*** NuclearReactor
-    Extends [[PowerGenerator][PowerGenerator]] -- Generates power relative to how many items are in storage, and explodes if it runs out of coolant.
+    Extra sprites:
+    * ~<name>-top~ if ~hasItems~ is ~true~
+    * ~<name>-liquid~
 
-    | field           | type  |  default | notes      |
-    |-----------------+-------+----------+------------|
-    |                 |       |          | <10>       |
-    | coolColor       | [[Color][Color]] | ffffff00 |            |
-    | hotColor        | [[Color][Color]] | ff9575a3 |            |
-    | itemDuration    | float |      120 | time to consume 1 fuel |
-    | heating         | float |     0.01 | heating per frame * fullness |
-    | smokeThreshold  | float |      0.3 | heat at which blocks start smoking |
-    | explosionRadius | int   |       40 |            |
-    | explosionDamage | int   |     1350 |            |
-    | flashThreshold  | float |     0.46 | heat at which lights start flashing |
-    | coolantPower    | float |      0.5 |            |
+**** SingleTypeGenerator
+     Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from an item.
+**** BurnerGenerator
+     Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item flamability.
+**** DecayGenerator
+     Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item radioactivity.
 
-    Defaults:
+     Defaults:
+     | field      | default |
+     |------------+---------|
+     | hasItems   | true    |
+     | hasLiquids | false   |
 
-    | field          | default |
-    |----------------+---------|
-    | itemCapacity   | 30      |
-    | liquidCapacity | 30      |
-    | hasItems       | true    |
-    | hasLiquids     | true    |
+**** SolarGenerator
+     Extends [[PowerGenerator][PowerGenerator]] -- A generator that always produces 100% efficiency power.
 
-    Extra Sprites:
-    * ~<name>-center~ top region
-    * ~<name>-lights~ lights region
+     Notes:
+     * Lower targetting priority then other generators.
 
-*** ImpactReactor
-    Extends [[PowerGenerator][PowerGenerator]] -- Generator that uses power and has a startup time.
+**** NuclearReactor
+     Extends [[PowerGenerator][PowerGenerator]] -- Generates power relative to how many items are in storage, and explodes if it runs out of coolant.
 
-    | field           | type  | default | notes      |
-    |-----------------+-------+---------+------------|
-    |                 |       |         | <10>       |
-    | plasmas         | int   |       4 | number of plasma sprites |
-    | warmupSpeed     | float |   0.001 |            |
-    | itemDuration    | float |      60 |            |
-    | explosionRadius | int   |      50 |            |
-    | explosionDamage | int   |    2000 |            |
-    | plasma1         | [[Color][Color]] |  ffd06b |            |
-    | plasma2         | [[Color][Color]] |  ff361b |            |
+     | field           | type  |  default | notes      |
+     |-----------------+-------+----------+------------|
+     |                 |       |          | <10>       |
+     | coolColor       | [[Color][Color]] | ffffff00 |            |
+     | hotColor        | [[Color][Color]] | ff9575a3 |            |
+     | itemDuration    | float |      120 | time to consume 1 fuel |
+     | heating         | float |     0.01 | heating per frame * fullness |
+     | smokeThreshold  | float |      0.3 | heat at which blocks start smoking |
+     | explosionRadius | int   |       40 |            |
+     | explosionDamage | int   |     1350 |            |
+     | flashThreshold  | float |     0.46 | heat at which lights start flashing |
+     | coolantPower    | float |      0.5 |            |
 
-    Defaults:
-    | field          | default |
-    |----------------+---------|
-    | hasPower       | true    |
-    | hasLiquids     | true    |
-    | liquidCapacity | 30f     |
-    | hasItems       | true    |
-    | outputsPower   | true    |
-    | consumesPower  | true    |
+     Defaults:
 
-    Sprites:
-    * ~<name>-bottom~ bottom region
-    * ~<name>-plasma-<i>~ plasma regions, where ~i~ is ~0~ to ~plasmas - 1~.
+     | field          | default |
+     |----------------+---------|
+     | itemCapacity   | 30      |
+     | liquidCapacity | 30      |
+     | hasItems       | true    |
+     | hasLiquids     | true    |
+
+     Extra Sprites:
+     * ~<name>-center~ top region
+     * ~<name>-lights~ lights region
+
+**** ImpactReactor
+     Extends [[PowerGenerator][PowerGenerator]] -- Generator that uses power and has a startup time.
+
+     | field           | type  | default | notes      |
+     |-----------------+-------+---------+------------|
+     |                 |       |         | <10>       |
+     | plasmas         | int   |       4 | number of plasma sprites |
+     | warmupSpeed     | float |   0.001 |            |
+     | itemDuration    | float |      60 |            |
+     | explosionRadius | int   |      50 |            |
+     | explosionDamage | int   |    2000 |            |
+     | plasma1         | [[Color][Color]] |  ffd06b |            |
+     | plasma2         | [[Color][Color]] |  ff361b |            |
+
+     Defaults:
+     | field          | default |
+     |----------------+---------|
+     | hasPower       | true    |
+     | hasLiquids     | true    |
+     | liquidCapacity | 30f     |
+     | hasItems       | true    |
+     | outputsPower   | true    |
+     | consumesPower  | true    |
+
+     Sprites:
+     * ~<name>-bottom~ bottom region
+     * ~<name>-plasma-<i>~ plasma regions, where ~i~ is ~0~ to ~plasmas - 1~.
 ** Production
+   :PROPERTIES:
+   :DESCRIPTION: blocks to extract materials from the environment
+   :END:
 *** Drill
     Extends [[Block][Block]] -- Types which can be placed on ore blocks to extract the [[OreBlock]]'s item.
 
