@@ -12,7 +12,7 @@
 
 #+TODO: TODO UNTESTED | DONE
 
-#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (90)
+#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (117) -- Bleeding Edge 
 
 Submit pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
@@ -1846,13 +1846,13 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | field         | type         | default | notes      |
    |---------------+--------------+---------+------------|
    |               |              |     <r> | <10>       |
-   | color         | [[Color][Color]]        |         | color of liquid |
+   | color         | [[Color][Color]]        |         | *[required]* color of liquid |
+   | barColor      | [[Color]]        |         | /[optional]/ color used in bars. |
    | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
    | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot |
    | heatCapacity  | float        |     0.5 | used in cooling; water is 0.4 |
    | viscosity     | float        |     0.5 | how thick this liquid is; water is 0.5, tar is 1. |
    | explosiveness | float        |         | explosiveness when heated; 0 is nothing, 1 is nuke |
-   | flameColor    | [[Color][Color]]        |  ffb763 | the burning color of this liquid |
    | effect        | [[StatusEffect][StatusEffect]] |    none | the associated status effect. |
 
 ** LiquidStack
