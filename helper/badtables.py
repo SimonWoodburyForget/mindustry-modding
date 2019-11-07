@@ -27,9 +27,39 @@ rows = (newline >> row).many()
 
 # | a |
 
-
-
 # """))
+
+sect = regex("\** ") >> (name.many().concat() << string("\n").optional() )
+text = (name.many().concat() << string("\n")).many()
+
+
+@generate
+def org_tables():
+    section = yield sect
+    yield text
+
+    yield rows
+
+    yield text
+    
+    return section
+
+
+print(org_tables.parse("""*** Section
+
+text 
+  text 
+text
+
+| name |
+
+text
+text
+
+
+text
+
+"""))
 
 
 
