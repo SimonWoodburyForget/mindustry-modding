@@ -1,4 +1,38 @@
-""" Parser for tables. """
+""" Simple parser for org tables. 
+
+Specifically the org file must be sectioned,
+and any text between tables will be ignored.
+There must be one or two tables per section,
+one for new definitions and the other for 
+defaults/resetting of previous definitions.
+
+```org
+
+Comment on document.
+
+* DataType
+
+Comment on type.
+
+| field | value |
+|-------|-------|
+| ohno  | 0     |
+| ohyes | 1     |
+
+Comment on secondairy table?
+
+| field | value |
+|-------|-------|
+| ohoh  | 11    |
+
+Footer comment???
+
+* AnotherType
+
+No data here for some reason.
+```
+
+"""
 
 from parsy import generate, regex, string
 
@@ -6,58 +40,57 @@ whitespace = regex(r" *")
 newline = regex("\n *").optional()
 lexeme = lambda p: p << whitespace
 pipe = lexeme(string("|"))
-name = lexeme(regex(r"[a-zA-Z- ]"))
-row = pipe >> lexeme((name.many().concat() << pipe)).many()
+name = lexeme(regex(r"[^\n\|\*]"))
+row = whitespace >> pipe >> lexeme((name.many().concat() << pipe)).many()
 rows = (newline >> row).many()
-
-
-# words = regex(r"[a-zA-Z-]").many().sep_by(" ")
-# section = string("* ") >> (name.many().concat() << string("\n"))
-
-# @generate
-# def table():
-#     sname = yield section
-#     yield regex("\n*")
-#     data = yield rows
-#     yield regex("\n*")
-#     return (sname, data)
-
-
-# print(table.parse("""* Section Name
-
-# | a |
-
-# """))
 
 sect = regex("\** ") >> (name.many().concat() << string("\n").optional() )
 text = (name.many().concat() << string("\n")).many()
 
+def to_table():
+    """ Takes an array of arrays (table) and turns it into a more useful dictionary, 
+    relative to column names (the first row), skipping any separator.  """
+
 
 @generate
-def org_tables():
+def org_table():
+    """ Parses a section with two tables. """
+    yield text
     section = yield sect
     yield text
-
-    yield rows
-
+    data = yield rows
     yield text
-    
-    return section
+    data2 = yield rows
+    yield text
+    return section, { "definitions": data, "defaults": data2 }
 
 
-print(org_tables.parse("""*** Section
+print(org_table.many().map(dict).parse("""
 
-text 
-  text 
+text text
+
+*** Turret
+
+
+  | name |
+  | namo |
+
+text
 text
 
-| name |
+    | name |
 
 text
-text
 
 
-text
+** Melter
+
+  | tab |
+
+*** Router
+
+  | name |
+  | not name |
 
 """))
 
