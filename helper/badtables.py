@@ -38,10 +38,10 @@ from parsy import generate, regex, string
 
 whitespace = regex(r" *")
 newline = regex("\n *").optional()
-lexeme = lambda p: p << whitespace
+lexeme = lambda p: p
 pipe = lexeme(string("|"))
 name = lexeme(regex(r"[^\n\|\*]"))
-row = whitespace >> pipe >> lexeme((name.many().concat() << pipe)).many()
+row = whitespace >> pipe >> lexeme((name.many().concat().map(lambda x: x.strip()) << pipe)).many()
 rows = (newline >> row).many()
 
 sect = regex("\** ") >> (name.many().concat() << string("\n").optional() )
