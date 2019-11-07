@@ -40,12 +40,13 @@ whitespace = regex(r" *")
 newline = regex("\n *").optional()
 lexeme = lambda p: p
 pipe = lexeme(string("|"))
-name = lexeme(regex(r"[^\n\|\*]"))
-row = whitespace >> pipe >> lexeme((name.many().concat().map(lambda x: x.strip()) << pipe)).many()
+name = lexeme(regex(r"[^\n\|\*]")).many().concat()
+row = whitespace >> pipe >> lexeme((name.map(lambda x: x.strip())
+                                    << pipe)).many()
 rows = (newline >> row).many()
 
-sect = regex("\** ") >> (name.many().concat() << string("\n").optional() )
-text = (name.many().concat() << string("\n")).many()
+sect = regex("\** ") >> (name << string("\n").optional() )
+text = (name << string("\n")).many()
 
 @generate
 def org_table():
@@ -82,17 +83,33 @@ def load(data):
     """
 
     def exclude(row):
-        excludes = ["----", "<r>", "<l>", "<r10>", "<l10>" ]
+        excludes = ["----", "<r>", "<l>", "<r10>", "<l10>", "<10>" ]
         chars = "".join(row)
         return not any(x in chars for x in excludes)
+
+    def makerows(tbl):
+        """ Turns table from an array of array, into a dict. """
+        # header = next(rows)
+        # return { header[i]: cell for cell in row
+        #          for row in rows }
+        rows = list(row for row in tbl if exclude(row))
+        try:
+            header = rows[0]
+            rows = rows[1:]
+        except IndexError:
+            # invalid rows or no data
+            return None
+        return [ { header[i]: cell
+                   for i, cell in enumerate(row, 0) }
+                 for row in rows ]
+        
 
     parsed = org_table.many().map(dict).parse(data)
     # removing... rows?
     # return { section: [ [ row for row in table ]
     #                     for table in tables ]
     #          for section, tables in parsed.items() }
-    return { sec: { name: [ row for row in tbl
-                            if exclude(row) ]
+    return { sec: { name: makerows(tbl)
                     for name, tbl in tbls.items() }
              for sec, tbls in parsed.items() }
 
@@ -127,7 +144,7 @@ text
 
 """
 
-print(load(test))
+assert load(test)
 
 
 real_test = """
