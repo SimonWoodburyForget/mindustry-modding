@@ -47,11 +47,6 @@ rows = (newline >> row).many()
 sect = regex("\** ") >> (name.many().concat() << string("\n").optional() )
 text = (name.many().concat() << string("\n")).many()
 
-def to_table():
-    """ Takes an array of arrays (table) and turns it into a more useful dictionary, 
-    relative to column names (the first row), skipping any separator.  """
-
-
 @generate
 def org_table():
     """ Parses a section with two tables. """
@@ -65,20 +60,58 @@ def org_table():
     return section, { "definitions": data, "defaults": data2 }
 
 
-print(org_table.many().map(dict).parse("""
+def load(data):
+    """ Takes an array of arrays (table) and 
+    turns it into a more useful dictionary, 
+    relative to column names (the first row), 
+    skipping any separator, and org args such
+    as `<10>` or `<r>` or `<r10>`.
+
+    This simply assumes the table is properly
+    and fully formatted:
+
+    ```
+    | name |
+    |------|
+    | <r>  |
+    | name |
+    ```
+
+    We'll also just assume the first row are
+    the column names.
+    """
+
+    def exclude(row):
+        excludes = ["----", "<r>", "<l>", "<r10>", "<l10>" ]
+        chars = "".join(row)
+        return not any(x in chars for x in excludes)
+
+    parsed = org_table.many().map(dict).parse(data)
+    # removing... rows?
+    # return { section: [ [ row for row in table ]
+    #                     for table in tables ]
+    #          for section, tables in parsed.items() }
+    return { sec: { name: [ row for row in tbl
+                            if exclude(row) ]
+                    for name, tbl in tbls.items() }
+             for sec, tbls in parsed.items() }
+
+test = """
 
 text text
 
 *** Turret
 
 
-  | name |
-  | namo |
+  | name | namo | namy |
+  | <r>   |      |      |
+  | namo |      | nome |
 
 text
 text
 
     | name |
+    |------|
 
 text
 
@@ -92,10 +125,31 @@ text
   | name |
   | not name |
 
-"""))
+"""
+
+print(load(test))
 
 
+real_test = """
+** Item
 
+   Extends [[Content][Content]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
+
+   | field          | type     | default | notes      |
+   |----------------+----------+---------+------------|
+   |                |          |         | <10>       |
+   | color          | [[Color][Color]]    |         | hex string of color |
+   | type           | [[Item][ItemType]] |         | resource or material; used for tabs and core acceptance |
+   | explosiveness  | float    | ~0~     | how explosive this item is. |
+   | flammability   | float    | ~0~     | flammability above 0.3 makes this eleigible for item burners. |
+   | radioactivity  | float    |         | how radioactive this item is. 0=none, 1=chernobyl ground zero |
+   | hardness       | int      | ~0~     | drill hardness of the item |
+   | cost           | float    | ~1~     | used for calculating place times; 1 cost = 1 tick added to build time |
+   | alwaysUnlocked | boolean  | ~false~ | If true, item is always unlocked. |
+
+"""
+
+print(load(real_test))
 
 if __name__ == "__main__":
     table = rows.parse("""
@@ -103,7 +157,7 @@ if __name__ == "__main__":
     | nomo | neom | tohn |
     | e name |""")
 
-    assert table == [["name", "name", "name"], ["nomo", "neom", "tohn"],["ename"]]
+    assert table == [["name", "name", "name"], ["nomo", "neom", "tohn"],["e name"]]
 
 
     org = """
