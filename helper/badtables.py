@@ -1,4 +1,4 @@
-""" Simple parser for org tables. 
+""" Simple parser for org tables.
 
 Specifically the org file must be sectioned,
 and any text between tables will be ignored.
@@ -65,6 +65,7 @@ def org_table():
 
 
 def load(data):
+    # TODO: fix lists within sections to make this useful?
     """ Takes an array of arrays (table) and 
     turns it into a more useful dictionary, 
     relative to column names (the first row), 
@@ -181,6 +182,7 @@ real_test = """
    | hardness       | int      | 0     | drill hardness of the item |
    | cost           | float    | 1     | used for calculating place times; 1 cost = 1 tick added to build time |
    | alwaysUnlocked | boolean  | false | If true, item is always unlocked. |
+
 """
 
 pprint(load(real_test))
@@ -196,7 +198,7 @@ if __name__ == "__main__":
 
 
     org = """
-    * Section
+* Section
 
     text
 
@@ -206,7 +208,7 @@ if __name__ == "__main__":
     |-------|-----|
     | a     | 12  |
 
-    ** Section 2
+** Section 2
 
     text 
 

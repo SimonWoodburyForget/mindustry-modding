@@ -328,7 +328,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    Fields for all objects that are blocks.
 
-   {{ Block }}
 
    | field               | type            |      default | notes      |
    |---------------------+-----------------+--------------+------------|

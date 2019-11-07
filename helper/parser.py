@@ -163,18 +163,18 @@ TEST3 = """
 
 """
 
-if __name__ == "__main__":
-    from pprint import pprint
-    #pprint(java(TEST))
-    #pprint(parse_rows("", ""))
-    assert parse_comment_ml("thing") == (0, 0, "")
-    assert parse_comment_ml("/** her */ thing")[2] == "her"
-    assert parse_comment_sl("""// her 
-                               thing""") == (0, 8)
+# if __name__ == "__main__":
+#     from pprint import pprint
+#     #pprint(java(TEST))
+#     #pprint(parse_rows("", ""))
+#     assert parse_comment_ml("thing") == (0, 0, "")
+#     assert parse_comment_ml("/** her */ thing")[2] == "her"
+#     assert parse_comment_sl("""// her 
+#                                thing""") == (0, 8)
     
-    assert parse_definition("""
-        /** her */ 
-        public float thing = 34;
-    """) == ("thing", "float 34")
+#     assert parse_definition("""
+#         /** her */ 
+#         public float thing = 34;
+#     """) == ("thing", "float 34")
 
-    print(build_table(TEST3))
+#     print(build_table(TEST3))
