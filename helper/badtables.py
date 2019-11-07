@@ -31,8 +31,11 @@ Footer comment???
 
 No data here for some reason.
 ```
-
 """
+ 
+from pprint import pprint
+import yaml
+
 
 from parsy import generate, regex, string
 
@@ -87,6 +90,23 @@ def load(data):
         chars = "".join(row)
         return not any(x in chars for x in excludes)
 
+    def makecell(row):
+        try:
+            t = row["type"]
+        except KeyError as e:
+            print("not here", row)
+            return row
+        d = row["default"]
+        if d == "":
+            row["default"] = None
+        elif t == "float":
+            row["default"] = float(d) 
+        elif t == "int":
+            row["default"] = int(d) 
+        elif t == "boolean":
+            row["default"] = bool(d) 
+        return row
+
     def makerows(tbl):
         """ Turns table from an array of array, into a dict. """
         # header = next(rows)
@@ -99,10 +119,8 @@ def load(data):
         except IndexError:
             # invalid rows or no data
             return None
-        return [ { header[i]: cell
-                   for i, cell in enumerate(row, 0) }
+        return [ makecell({ header[i]: c for i, c in enumerate(row, 0) })
                  for row in rows ]
-        
 
     parsed = org_table.many().map(dict).parse(data)
     # removing... rows?
@@ -157,16 +175,16 @@ real_test = """
    |                |          |         | <10>       |
    | color          | [[Color][Color]]    |         | hex string of color |
    | type           | [[Item][ItemType]] |         | resource or material; used for tabs and core acceptance |
-   | explosiveness  | float    | ~0~     | how explosive this item is. |
-   | flammability   | float    | ~0~     | flammability above 0.3 makes this eleigible for item burners. |
+   | explosiveness  | float    | 0     | how explosive this item is. |
+   | flammability   | float    | 0     | flammability above 0.3 makes this eleigible for item burners. |
    | radioactivity  | float    |         | how radioactive this item is. 0=none, 1=chernobyl ground zero |
-   | hardness       | int      | ~0~     | drill hardness of the item |
-   | cost           | float    | ~1~     | used for calculating place times; 1 cost = 1 tick added to build time |
-   | alwaysUnlocked | boolean  | ~false~ | If true, item is always unlocked. |
-
+   | hardness       | int      | 0     | drill hardness of the item |
+   | cost           | float    | 1     | used for calculating place times; 1 cost = 1 tick added to build time |
+   | alwaysUnlocked | boolean  | false | If true, item is always unlocked. |
 """
 
-print(load(real_test))
+pprint(load(real_test))
+print(yaml.dump(load(real_test), Dumper=yaml.Dumper, default_flow_style=False))
 
 if __name__ == "__main__":
     table = rows.parse("""
