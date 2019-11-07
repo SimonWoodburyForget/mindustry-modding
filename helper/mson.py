@@ -1,4 +1,9 @@
-""" Parser for Mindustry JSON. """
+""" Parser for Mindustry JSON. 
+
+This parser may be more forgiving then 
+the actual Mindustry parser itself, so
+to make parsing other mods possible.
+"""
 
 from parsy import generate, regex, string
 
