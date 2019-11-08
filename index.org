@@ -309,7 +309,8 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    Mindustry doesn't actually use JSON, but most valid JSON should work, and as of now here are the specific expected differences:
    * ~##~ double pounds may be used for single line comments;
    * ~"~ quotes ~"~ aren't required for strings;
-   * ~,~ commas aren't required for arrays ~[]~ or objects ~{}~.
+   * ~,~ commas aren't required for arrays ~[]~ or objects ~{}~;
+   * ~[ trail, ]~ commas can be used.
 
 ** FAQ
     :PROPERTIES:
