@@ -5,15 +5,16 @@ the actual Mindustry parser itself, so
 to make parsing other mods possible.
 
 The specific implimentation changes goes as follows:
-- `##` maybe used for single line comments
-- `"` quotes aren't required for strings
-- `,` commas aren't required for arrays or objects
+- `##` maybe used for single line comments,
+  and also cannot technically be used in strings;
+- `"` quotes aren't required for strings;
+- `,` commas aren't required for arrays or objects.
 """
 
 from parsy import generate, regex, string
 
-comment = regex(r"##.*").optional()
-whitespace = regex(r'\s*(##.*)?') | comment
+
+whitespace = regex(r'\s*(##.*)?')
 lexeme = lambda p: whitespace >> p << whitespace
 lbrace = lexeme(string('{'))
 rbrace = lexeme(string('}'))
@@ -78,7 +79,7 @@ TEST = """
     	{"item": "lead", "amount": 300},
     ],
 ## Comment 1
-    "conditionWave": 10, ## Comment 2
+    "conditi##onWave": 10, ## Comment 2
     "launchPeriod": 10
     "brequirements": [
     	{ type : ZoneWave
