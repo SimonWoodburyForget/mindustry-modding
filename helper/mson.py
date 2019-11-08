@@ -3,11 +3,17 @@
 This parser may be more forgiving then 
 the actual Mindustry parser itself, so
 to make parsing other mods possible.
+
+The specific implimentation changes goes as follows:
+- `##` maybe used for single line comments
+- `"` quotes aren't required for strings
+- `,` commas aren't required for arrays or objects
 """
 
 from parsy import generate, regex, string
 
-whitespace = regex(r'\s*(##.*)?') # single line comments anywhere there's white space
+comment = regex(r"##.*").optional()
+whitespace = regex(r'\s*(##.*)?') | comment
 lexeme = lambda p: whitespace >> p << whitespace
 lbrace = lexeme(string('{'))
 rbrace = lexeme(string('}'))
@@ -36,7 +42,7 @@ string_esc = string('\\') >> (
 quoted = lexeme(string('"') >>
                 (string_part | string_esc).many().concat()
                 << string('"'))
-unquoted = lexeme(( regex(r"[a-zA-Z-]")).many().concat()
+unquoted = lexeme(( regex(r"[a-zA-Z0-9-]")).many().concat()
                   << regex("[ -,\s\t\n\r]")) # no idea, but it works
 
 # Circular dependency between array and value means we use `generate` form here
@@ -96,4 +102,3 @@ block": "kiln"
 
 if __name__ == '__main__':
     print(json.parse(TEST))
-    
