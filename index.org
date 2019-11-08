@@ -310,7 +310,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~##~ double pounds may be used for single line comments;
    * ~"~ quotes ~"~ aren't required for strings;
    * ~,~ commas aren't required for arrays ~[]~ or objects ~{}~;
-   * ~[ trail, ]~ commas can be used.
+   * ~[ value, ]~ commas can trail within.
 
 ** FAQ
     :PROPERTIES:
