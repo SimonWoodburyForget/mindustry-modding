@@ -7,8 +7,8 @@ to make parsing other mods possible.
 
 from parsy import generate, regex, string
 
-whitespace = regex(r'\s*')
-lexeme = lambda p: p << whitespace
+whitespace = regex(r'\s*(##.*)?') # single line comments anywhere there's white space
+lexeme = lambda p: whitespace >> p << whitespace
 lbrace = lexeme(string('{'))
 rbrace = lexeme(string('}'))
 lbrack = lexeme(string('['))
@@ -57,21 +57,22 @@ def object_pair():
     yield comma.optional()
     return (key, val)
 
-
 json_object = lbrace >> object_pair.sep_by(comma).map(dict) << rbrace
 value = quoted | number | json_object | array | true | false | null | unquoted
 json = whitespace >> value
 
 TEST = """
+## Comment 0
 {
-	"name": "Silver Crags",
+	"name": "Silver Crags", ## Comment 4
 	"description": "Salt and silver lie here.",
-	"loadout": "basicFoundation",
-    "startingItems": [
+	## Comment 5 "loadout": "basicFoundation",
+    "startingItems": [ 
     	{"item": "copper", "amount": 200},
     	{"item": "lead", "amount": 300},
     ],
-    "conditionWave": 10,
+## Comment 1
+    "conditionWave": 10, ## Comment 2
     "launchPeriod": 10
     "brequirements": [
     	{ type : ZoneWave
