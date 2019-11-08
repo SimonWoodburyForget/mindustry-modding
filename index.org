@@ -2049,7 +2049,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    Extends [[Content]]
 
-   A ~Zone~ is a type that takes a map named and puts it into campaign. /(a zone isn't a map)/
+   A ~Zone~ is a type that takes a map /(named the same as the json's filename)/ and puts it into campaign. /(a zone isn't a map)/
 
    Every ~Zone~ has a ~Generator~, which once initialized, ~MapGenerator~ will run through the map and do /initialization related stuff./ One of those notable things, is deleting all cores on in your map and placing a ~loadout~ on top of a random one of them. This allows your campaign map to have multiple core locations. /(it doesn't matter which core was previously on the map, ~loadout~ will dictate that)/
 
