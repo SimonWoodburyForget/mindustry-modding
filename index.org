@@ -852,7 +852,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | cooldownLiquid     | float |     1.5 |
     | cooldownBrokenBase | float |    0.35 |
     | basePowerDraw      | float |     0.2 |
-    | powerDamage        | float |     0.1 |
 
     Defaults:
     | field        | default     |
