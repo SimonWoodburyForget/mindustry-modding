@@ -3,8 +3,8 @@
 from pathlib import Path
 import zlib
 from parsec import string, generate, many, regex, times, none_of
-from struct import unpack
-from collections import OrderedDict
+from struct import unpack, pack
+from collections import OrderedDict, namedtuple
 from base64 import b64decode, b64encode
 
 def get_pos(x, y):
@@ -19,8 +19,21 @@ def pos_y(pos):
 def pos_xy(pos):
     return pos_x(pos), pos_y(pos)
 
-header = string(b"msch")
-version = string(b"\x00")
+class Schematic(namedtuple("Schematic", "name pos config rotation")):
+    pass
+
+class Schematics(namedtuple("Schematics", "width height tags tiles")):
+    pass 
+
+HEADER = b"msch"
+VERSION = b"\x00"
+
+########################################
+## Reader
+########################################
+
+header = string(HEADER)
+version = string(VERSION)
 
 everything = regex(b"(?s).*") # don't forget newlines
 
@@ -71,7 +84,7 @@ def tilesec():
         pos = yield intp
         config = yield intp
         rotation = yield char
-        out.append((name, pos_xy(pos), config, rotation))
+        out.append(Schematic(name, pos_xy(pos), config, rotation))
     return out
 
 @generate
@@ -81,7 +94,7 @@ def msch_data():
     height = yield short
     tags = yield kv_bytes # dict of tags (ex: name)
     tiles = yield tilesec
-    return width, height, tags, tiles
+    return Schematics(width, height, tags, tiles)
 
 @generate
 def msch():
@@ -92,11 +105,16 @@ def msch():
     return msch_data.parse(zlib.decompress(data))
 
 def loads(path):
+    """ Loads a binary `.msch` formatted file at a path. """
     with open(path, "rb") as f:
         data = f.read()
     return load(data)
 
 def load(data, encoding="utf8"):
+    """ Loads a base64 encoded schematic `str` object, 
+    or a non-base65 encoded `bytes` object; returns a 
+    Schematics object containing a Schematic, and it's 
+    metadata, like width, height and tags."""
     if isinstance(data, str):
         base64header = "bXNjaAB"
         if not data.startswith(base64header):
@@ -104,8 +122,51 @@ def load(data, encoding="utf8"):
         data = bytes(data, encoding)
         data = b64decode(data)
 
-    data = msch.parse(data)
-    print(data)
+    if isinstance(data, bytes):
+        data = msch.parse(data)
+        return data
+    else:
+        raise ValueError(f"Unknown or unsupported type: {type(data)}")
+
+########################################
+## Writer
+########################################
+
+def pack_utf8(string):
+    b = bytes(string, "utf8")
+    bl = pack(">h", len(b))
+    return bl + b
+
+def pack_content(data):
+    out = pack(">hh", data.width, data.height)
+
+    out += pack("b", len(data.tags))
+    for k, v in data.tags.items():
+        out += pack_utf8(k)
+        out += pack_utf8(v)
+
+    blocks = OrderedDict()
+    out += pack("b", len(set(x.name for x in data.tiles)))
+    for i, k in enumerate(set(x.name for x in data.tiles)):
+        blocks[k] = None
+        out += pack_utf8(k)
+
+    out += pack(">i", len(data.tiles))
+    for v in data.tiles:
+        out += pack("b", next((i for i, x in enumerate(blocks) if x == v.name)))
+        out += pack(">i", get_pos(*v.pos))
+        out += pack(">i", v.config)
+        out += pack("b", v.rotation)    
+    return out
+
+def dump(data, encode=False):
+    bdata = pack_content(data)
+    zdata = zlib.compress(bdata)
+    data = HEADER + VERSION + zdata
+    if encode:
+        return str(b64encode(data), "utf8")
+    else:
+        return data
 
 if __name__ == "__main__":
     test = "1572947991821.msch"
@@ -114,5 +175,13 @@ if __name__ == "__main__":
     loads(path)
 
     basic_shard = "bXNjaAB4nD2K2wqAIBiD5ymibnoRn6YnEP1BwUMoBL19FuJ2sbFvUFgYZDaJsLeQrkinN9UJHImsNzlYE7WrIUastuSbnlKx2VJJt+8IQGGKdfO/8J5yrGJSMegLg+YUIA=="
+    basic_shard_obj = load(basic_shard)
+    assert len(basic_shard_obj.tiles) == 5
 
-    load(basic_shard)
+    data = dump(basic_shard_obj)
+    assert dump(load(data)) == data # ...may randomly fail?
+    
+    print(dump(Schematics(
+        3, 3, {"name": "Core Block"}, [Schematic("core-shard", (0,0), 0, 0)]
+    ), True))
+
