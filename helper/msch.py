@@ -4,6 +4,9 @@ Note: this can do plenty of invalid things, if you insert data manually
 although the game wont really care about it, as it doesn't manual inputs.
 For example, in the example below, you'll see a 3x3 block, inserted into 
 a 1x1 schematic.
+
+This package uses a custom version of parsec.py fixed for byte parsing:
+- https://github.com/SimonWoodburyForget/parsec.py
 """
 
 from pathlib import Path
