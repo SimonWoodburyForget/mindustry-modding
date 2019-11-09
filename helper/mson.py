@@ -14,7 +14,7 @@ The specific implimentation changes goes as follows:
 from parsy import generate, regex, string
 
 
-whitespace = regex(r'\s*(##.*)?')
+whitespace = regex(r'\s*(//.*)?')
 lexeme = lambda p: whitespace >> p << whitespace
 lbrace = lexeme(string('{'))
 rbrace = lexeme(string('}'))
@@ -69,17 +69,17 @@ value = quoted | number | json_object | array | true | false | null | unquoted
 json = whitespace >> value
 
 TEST = """
-## Comment 0
+// Comment 0
 {
-	"name": "Silver Crags", ## Comment 4
+	"name": "Silver Crags", // Comment 4
 	"description": "Salt and silver lie here.",
-	## Comment 5 "loadout": "basicFoundation",
+	// Comment 5 "loadout": "basicFoundation",
     "startingItems": [ 
     	{"item": "copper", "amount": 200},
     	{"item": "lead", "amount": 300},
     ],
-## Comment 1
-    "conditi##onWave": 10, ## Comment 2
+// Comment 1
+    "conditi//onWave": 10, // Comment 2
     "launchPeriod": 10
     "brequirements": [
     	{ type : ZoneWave
