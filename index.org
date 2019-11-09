@@ -971,7 +971,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 *** ItemTurret
 
-    Extends [[CooledTurret][CooledTurret]] -- Turrets that uses items as ammo. The ~ammo~ field is simple an object of items names, paired with an [[BulletType]].
+    Extends [[CooledTurret][CooledTurret]] 
+
+    ItemTurret is a turret that shoots bullets relative to an item type.
 
     #+BEGIN_SRC json
     {
@@ -985,12 +987,14 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     }
     #+END_SRC
 
-    Here we're using ~copper~ to shoot ~standardCopper~ (built-in bullet) and ~metalglass~ to shoot a custom bullet type.
+    Here we're using ~copper~ to shoot ~standardCopper~ (built-in bullet) and ~metalglass~ to shoot a custom bullet of type `MissileBulletType`.
 
-    | field   | type                 | default |
-    |---------+----------------------+---------|
-    | maxAmmo | int                  |      30 |
-    | ammo    | { [[Item][Item]]: [[BulletType][BulletType]] } |         |
+    | field   | type                   | default | notes      |
+    |---------+------------------------+---------+------------|
+    |         |                        |         | <10>       |
+    | maxAmmo | int                    |      30 |            |
+    | ammo    | { String: [[BulletType][BulletType]] } |         | String is the name of an [[Item]], which will be used to select the type of bullet which will be shot. |
+
 
     Defaults:
 
