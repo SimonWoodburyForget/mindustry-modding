@@ -5,8 +5,7 @@ The specific implimentation changes to JSON goes as follows:
 - `"` quotes aren't required for strings;
 - `,` commas aren't required for arrays or objects.
 
-This parser should be capable of parsing all valid JSON, as well 
-as Mindustry JSON.
+This parser doesn't actually currently work as it should.
 """
 
 from parsec import *
@@ -73,7 +72,13 @@ def quoted():
 @generate
 def unquoted():
     '''Parse unquoted string.'''
-    body = yield many(regex(r"[a-zA-Z ]"))
+    body = yield many(regex(r"[a-zA-Z- ]"))
+    return ''.join(body).strip()
+
+@generate
+def unquotedvalue():
+    '''Parse unquoted string specifically for values.'''
+    body = yield many(regex(r"."))
     return ''.join(body).strip()
 
 @generate
@@ -89,7 +94,7 @@ def object_pair():
     '''Parse object pair in JSON.'''
     key = yield quoted | unquoted
     yield colon
-    val = yield value
+    val = yield value | unquoted | unquotedvalue
     return (key, val)
 
 @generate
@@ -100,7 +105,7 @@ def json_object():
     yield rbrace
     return dict(pairs)
 
-value = quoted | number() | json_object | array | true | false | null | unquoted
+value = quoted | number() | json_object | array | true | false | null
 jsonc = whitespace >> json_object
 
 def load(text):
@@ -117,10 +122,10 @@ if __name__ == '__main__':
     assert jsonc.parse('{"test" :  json  }') == {'test': 'json'}
     assert jsonc.parse('{ test  : "json" }') == {'test': 'json'}
     assert jsonc.parse('{ test  :  json  }') == {'test': 'json'}
-    assert jsonc.parse('''{ test : json,
+    assert jsonc.parse('''{ test: json,
                            tist : jons }''') == {'test': 'json', 'tist': 'jons'}
-    assert jsonc.parse('''{ test : json 
-                           tist : jons }''') == {'test': 'json', 'tist': 'jons'}
+    assert jsonc.parse('''{test :json 
+                           tist : jons}''') == {'test': 'json', 'tist': 'jons'}
     assert jsonc.parse('{} //comment') == {}
     assert jsonc.parse('''{ test : json 
                            tist : jons } //comment''') == {'test': 'json', 'tist': 'jons'}
@@ -139,3 +144,13 @@ if __name__ == '__main__':
 
     assert jsonc.parse('''{ test : "js//on" }''') == {'test': 'js//on' }
     assert jsonc.parse('''{ test : "js//on", }''') == {'test': 'js//on' }
+    # print(jsonc.parse('''{ test : http:ohnocom }''') ) # you're insane right? this will not work.
+    assert jsonc.parse('''{ test : js on, }''') == {'test': 'js on' }
+    assert jsonc.parse('''{ test : js on }''') == {'test': 'js on' }
+    # print(jsonc.parse('''{ test : json
+    #                         testthing : testtest }''')) # TODO: this doesn't work either
+    assert jsonc.parse('''{ a: [ "test" ] }''') == { 'a': [ 'test' ] } 
+
+    # TODO: well that doesn't work.
+    # assert jsonc.parse('''{ a: [  test ] }''') == { 'a': [ 'test' ] } 
+    # assert jsonc.parse('''{ a: [  test, test  ] }''') == { 'a': [ 'test' ] }
