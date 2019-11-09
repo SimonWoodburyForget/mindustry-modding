@@ -138,3 +138,4 @@ if __name__ == '__main__':
                            tist : jons }''') == {'test': 'json', 'tist': 'jons'}
 
     assert jsonc.parse('''{ test : "js//on" }''') == {'test': 'js//on' }
+    assert jsonc.parse('''{ test : "js//on", }''') == {'test': 'js//on' }
