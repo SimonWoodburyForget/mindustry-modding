@@ -72,7 +72,7 @@ def quoted():
 @generate
 def unquoted():
     '''Parse unquoted string.'''
-    body = yield many(regex(r"[a-zA-Z- ]"))
+    body = yield many1(regex(r"[a-zA-Z- ]"))
     return ''.join(body).strip()
 
 @generate
