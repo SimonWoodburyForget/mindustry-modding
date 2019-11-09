@@ -1,26 +1,19 @@
-""" Parser for Mindustry JSON. 
+""" Parser for Mindustry JSON. (uses parsec.py)
 
-This parser may be more forgiving then 
-the actual Mindustry parser itself, so
-to make parsing other mods possible.
-
-The specific implimentation changes goes as follows:
-- `//` maybe used for single line comments,
-  and also cannot technically be used in strings;
+The specific implimentation changes to JSON goes as follows:
+- `//` maybe used for single line comments;
 - `"` quotes aren't required for strings;
 - `,` commas aren't required for arrays or objects.
+
+This parser should be capable of parsing all valid JSON, as well 
+as Mindustry JSON.
 """
-
-
-'''
-Use parsec.py to parse JSON text.
-'''
 
 from parsec import *
 
 @generate
 def comment():
-    yield optional(many(string(" ") | string("\n") | string("\t")))
+    yield optional(many(string(" ") | string("\n") | string("\t") | string("\r")))
     yield string("//")
     comment = yield regex(".*")
     yield string("\n")
@@ -110,33 +103,38 @@ def json_object():
 value = quoted | number() | json_object | array | true | false | null | unquoted
 jsonc = whitespace >> json_object
 
+def load(text):
+    return jsonc.parse(text)
+
 if __name__ == '__main__':
-    print(jsonc.parse(""" 
+    assert jsonc.parse(""" 
 // comment 1
 // comment 2
 {}
 // comment 3
-"""))
-    print(jsonc.parse('{"test" : "json"  }'))
-    print(jsonc.parse('{"test" :  json  }'))
-    print(jsonc.parse('{ test  : "json" }'))
-    print(jsonc.parse('{ test  :  json  }'))
-    print(jsonc.parse('''{ test : json,
-                           tist : jons }'''))
-    print(jsonc.parse('''{ test : json 
-                           tist : jons }'''))
-    print(jsonc.parse('{} //comment'))
-    print(jsonc.parse('''{ test : json 
-                           tist : jons } //comment'''))
-    print(jsonc.parse('''{ test : jsona //
-                           tist : jons }'''))
-    print(jsonc.parse('''{ test : jsonb // comment
-                           tist : jons }'''))
-    print(jsonc.parse('''{ test : jsonc 
+""") == {}
+    assert jsonc.parse('{"test" : "json"  }') == {'test': 'json'}
+    assert jsonc.parse('{"test" :  json  }') == {'test': 'json'}
+    assert jsonc.parse('{ test  : "json" }') == {'test': 'json'}
+    assert jsonc.parse('{ test  :  json  }') == {'test': 'json'}
+    assert jsonc.parse('''{ test : json,
+                           tist : jons }''') == {'test': 'json', 'tist': 'jons'}
+    assert jsonc.parse('''{ test : json 
+                           tist : jons }''') == {'test': 'json', 'tist': 'jons'}
+    assert jsonc.parse('{} //comment') == {}
+    assert jsonc.parse('''{ test : json 
+                           tist : jons } //comment''') == {'test': 'json', 'tist': 'jons'}
+    assert jsonc.parse('''{ test : jsona //
+                           tist : jons }''') == {'test': 'jsona', 'tist': 'jons'}
+    assert jsonc.parse('''{ test : jsonb // comment
+                           tist : jons }''')
+    assert jsonc.parse('''{ test : jsonc 
 // comment
-                           tist : jons }'''))
+                           tist : jons }''') == {'test': 'jsonc', 'tist': 'jons'}
 
-    print(jsonc.parse('''{ test : json 
+    assert jsonc.parse('''{ test : json 
 // comment 
       // comment
-                           tist : jons }'''))
+                           tist : jons }''') == {'test': 'json', 'tist': 'jons'}
+
+    assert jsonc.parse('''{ test : "js//on" }''') == {'test': 'js//on' }
