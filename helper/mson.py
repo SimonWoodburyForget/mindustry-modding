@@ -18,20 +18,26 @@ Use parsec.py to parse JSON text.
 
 from parsec import *
 
-whitespace = regex(r'\s*')
-comment = string("//") + regex(".*")
-lexeme = lambda p: p << whitespace << comment
+@generate
+def comment():
+    yield string("//")
+    comment = yield regex(".*")
+    yield string("\n")
+    return comment
+
+whitespace = regex(r'\s*') << optional(comment)
+
+lexeme = lambda p: p << whitespace
 
 lbrace = lexeme(string('{'))
 rbrace = lexeme(string('}'))
 lbrack = lexeme(string('['))
 rbrack = lexeme(string(']'))
 colon = lexeme(string(':'))
-comma = lexeme(string(',')) | lexeme(string('\n'))
+comma = lexeme(string(',')) | whitespace
 true = lexeme(string('true')).result(True)
 false = lexeme(string('false')).result(False)
 null = lexeme(string('null')).result(None)
-
 
 
 def number():
@@ -39,7 +45,6 @@ def number():
     return lexeme(
         regex(r'-?(0|[1-9][0-9]*)([.][0-9]+)?([eE][+-]?[0-9]+)?')
     ).parsecmap(float)
-
 
 def charseq():
     '''Parse string. (normal string and escaped string)'''
@@ -113,9 +118,18 @@ if __name__ == '__main__':
                            tist : jons }'''))
     print(jsonc.parse('''{ test : json 
                            tist : jons }'''))
+    print(jsonc.parse('{} //comment'))
     print(jsonc.parse('''{ test : json 
-//
+                           tist : jons } //comment'''))
+    print(jsonc.parse('''{ test : jsona //
                            tist : jons }'''))
+    print(jsonc.parse('''{ test : jsonb // comment
+                           tist : jons }'''))
+    print(jsonc.parse('''{ test : jsonc 
+// comment
+                           tist : jons }'''))
+
     print(jsonc.parse('''{ test : json 
-//commmmmm
+// comment 
+  // comment
                            tist : jons }'''))
