@@ -20,12 +20,13 @@ from parsec import *
 
 @generate
 def comment():
+    yield optional(many(string(" ") | string("\n") | string("\t")))
     yield string("//")
     comment = yield regex(".*")
     yield string("\n")
     return comment
 
-whitespace = regex(r'\s*') << optional(comment)
+whitespace = regex(r'\s*') << optional(many(comment))
 
 lexeme = lambda p: p << whitespace
 
@@ -110,6 +111,12 @@ value = quoted | number() | json_object | array | true | false | null | unquoted
 jsonc = whitespace >> json_object
 
 if __name__ == '__main__':
+    print(jsonc.parse(""" 
+// comment 1
+// comment 2
+{}
+// comment 3
+"""))
     print(jsonc.parse('{"test" : "json"  }'))
     print(jsonc.parse('{"test" :  json  }'))
     print(jsonc.parse('{ test  : "json" }'))
@@ -131,5 +138,5 @@ if __name__ == '__main__':
 
     print(jsonc.parse('''{ test : json 
 // comment 
-  // comment
+      // comment
                            tist : jons }'''))
