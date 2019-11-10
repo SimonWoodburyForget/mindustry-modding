@@ -23,15 +23,17 @@ implements = lexeme(string("implements"))
 class_implements = class_name + (implements >> name)
 abstract_implements = abstract_class + (implements >> name)
 
-integer = concat(many1(regex(r"-?[0-9]"))).parsecmap(lambda x: int(x))
-floating = concat(regex(r"-?[0-9]+\.?[0-9]*f?")).parsecmap(lambda x: float(x))
-true = string("true").result(True)
-false = string("false").result(False)
-quoted = string('"') >> concat(many(none_of('"'))) << string('"')
-boolean = true | false
+integer = lexeme(concat(many1(regex(r"-?[0-9]")))).parsecmap(lambda x: int(x))
+floating = lexeme(concat(regex(r"-?[0-9]+\.?[0-9]*f?"))).parsecmap(lambda x: float(x))
+true = lexeme(string("true").result(True))
+false = lexeme(string("false").result(False))
+quoted = lexeme(string('"') >> concat(many(none_of('"'))) << string('"'))
+boolean = lexeme(true | false)
 literal = floating | integer | boolean | quoted
 
-# definition = (name << operator) + literal
+equals = lexeme(string('='))
+
+assignment = (name << equals) + literal
 
 # lblock = lexeme(string("{"))
 # rblock = lexeme(string("}"))

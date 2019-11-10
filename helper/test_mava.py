@@ -36,6 +36,10 @@ class TestJava(unittest.TestCase):
         self.assertTrue(literal.parse("true"))
         self.assertTrue(not literal.parse("false"))
         self.assertEqual(literal.parse('"string"'), "string")
-    
+
+    def test_assignment(self):
+        self.assertEqual(definition.parse("x=1"), ('x', 1))
+        self.assertEqual(definition.parse("x = 1"), ('x', 1))
+        
 if __name__ == '__main__':
     unittest.main()
