@@ -27,6 +27,15 @@ class TestJava(unittest.TestCase):
 
     def test_abstract_class_implements(self):
         self.assertEqual(abstract_implements.parse("abstract class xy implements ab"), ("xy", "ab"))
+
+    def test_literal(self):
+        self.assertEqual(literal.parse("1"), 1)
+        self.assertEqual(literal.parse("-1"), -1)
+        self.assertTrue(literal.parse("-1") is not -1.)
+        self.assertEqual(literal.parse("-1.1"), -1.1)
+        self.assertTrue(literal.parse("true"))
+        self.assertTrue(not literal.parse("false"))
+        self.assertEqual(literal.parse('"string"'), "string")
     
 if __name__ == '__main__':
     unittest.main()
