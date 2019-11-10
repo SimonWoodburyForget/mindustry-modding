@@ -13,7 +13,7 @@ class TestJava(unittest.TestCase):
         self.assertEqual(name.parse("a1"), "a1")
         with self.assertRaises(ParseError):
             name.parse("1Abc")
-    
+
     def test_class_name(self):
         self.assertEqual(class_name.parse("class xy"), "xy")
         self.assertEqual(class_name.parse("class   xy  "), "xy")
@@ -38,8 +38,9 @@ class TestJava(unittest.TestCase):
         self.assertEqual(literal.parse('"string"'), "string")
 
     def test_assignment(self):
-        self.assertEqual(definition.parse("x=1"), ('x', 1))
-        self.assertEqual(definition.parse("x = 1"), ('x', 1))
-        
+        self.assertEqual(assignment.parse("x=1"), ('x', 1))
+        self.assertEqual(assignment.parse("x = 1"), ('x', 1))
+        self.assertEqual(assignment.parse('x = "1"'), ('x', '1'))
+
 if __name__ == '__main__':
     unittest.main()

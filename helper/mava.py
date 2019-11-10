@@ -1,5 +1,5 @@
-''' Minimalistic Java parser to extract some data from Mindustry, 
-with the specialized interest of producing JSON API documentation. 
+''' Minimalistic Java parser to extract some data from Mindustry,
+with the specialized interest of producing JSON API documentation.
 
 parsec.py is used to do the parsing work.'''
 
