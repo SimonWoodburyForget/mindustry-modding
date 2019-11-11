@@ -44,6 +44,9 @@ class TestJava(unittest.TestCase):
         self.assertEqual(assignment.parse('x = new Thing()'), {'x': Instance('Thing', [], None)})
         self.assertEqual(assignment.parse('x = 1, y = 2'), {'x': 1, 'y': 2})
 
+    def test_hinted_assign(self):
+        self.assertEqual(hinted_assignment.parse("int x = 1"), Type('int', {'x': 1}))
+        
     def test_instanciation(self):
         self.assertEqual(instanciation.parse('new Thing()'), Instance('Thing', [], None))
         self.assertEqual(instanciation.parse('new Thing(2)'), Instance('Thing', [2], None))

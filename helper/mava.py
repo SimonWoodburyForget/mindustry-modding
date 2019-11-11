@@ -17,6 +17,7 @@ dicts = lambda x: reduce(lambda a, b: { **a, **b }, x)
 Instance = namedtuple("Instance", "name params body")
 Method = namedtuple("Method", "name")
 Var = namedtuple("Var", "name")
+Type = namedtuple("Type", "name pairs")
 
 concat = lambda p: p.parsecmap(lambda x: "".join(chain.from_iterable(x)))
 whitespace = regex(r"\s*")
@@ -48,9 +49,14 @@ rpar = lexeme(string(')'))
 
 @generate
 def assignment():
-    ''' `"x = 2, y = 5"` => `{'x': 2, 'y': 5}` '''
+    ''' 
+    "x = 2, y = 5" => {'x': 2, 'y': 5} 
+    '''
     kv_pairs = yield sepBy((name << equals) + value, comma)
     return dict(kv_pairs)
+
+# "int x = 2, y = 3" => Type("int", {'x': 2, 'y': 3})
+hinted_assignment = (name + assignment).parsecmap(lambda x: Type(*x))
 
 @generate
 def instanciation():
@@ -67,17 +73,7 @@ rrblock = lexeme(string("}}"))
 block = sepEndBy(assignment, term).parsecmap(dicts)
 anon_block = llblock >> block << rrblock
 
-@generate
-def declaration():
-    ''' Parses a declaration. 
-    ```
-    int a;
-    int doSomething() {}
-    int a, b, c;
-    int a = 2, b = 8;
-    ```
-    '''
-    actual = yield (type_of, assignment)
+
 
 
 # lblock = lexeme(string("{"))
