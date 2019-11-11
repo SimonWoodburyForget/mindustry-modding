@@ -82,14 +82,14 @@ at = lexeme(string('@'))
 annotation = at >> name
 
 
-modifier = lexeme(string("abstract")
-                  | string("static")
-                  | string("final")
-                  | string("strictfp"))
+modifier = lexeme(string("public") | string("protected") | string("private")
+                  | string("abstract") | string("default") | string("static")
+                  | string("final") | string("transient") | string("volatile")
+                  | string("synchronized") | string("native") | string("strictfp"))
 
 class_name = lexeme(string("class")) >> name
 impls_name = lexeme(string("implements")) >> name
-class_block = lbrace >> sepEndBy(assignment, term).parsecmap(dicts) << rbrace
+class_block = lbrace >> sepEndBy(many(modifier) + assignment, term).parsecmap(dicts) << rbrace
 
 java_class = whitespace >> optional(modifier) + class_name + impls_name + class_block
 

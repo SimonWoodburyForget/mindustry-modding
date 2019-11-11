@@ -68,8 +68,7 @@ class TestJava(unittest.TestCase):
 
     def test_blocks_class(self):
         string = """
-        class Blocks implements ContentList{ 
-                public static BulletType one, two, three; }"""
+        class Blocks implements ContentList{ }"""
         #     @Override
         #     public void load(){
         #         one = new Bullet(1f, 0, "shell"){{ x = 1; }}
@@ -78,7 +77,7 @@ class TestJava(unittest.TestCase):
         #     }
         # }
         # """
-        data = (None, "Blocks", "ContentList", {'one': None, 'two': None, 'three': None })
+        data = (((None, "Blocks"), "ContentList"), ([], {}))
         self.assertEqual(java_class.parse(string), data)
 
 
