@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from functools import reduce
 
 # [{}, {}, {}] => {}
-dicts = lambda x: reduce(lambda a, b: { **a, **b }, x)
+dicts = lambda x: reduce(lambda a, b: { **a, **b }, x, {})
 
 Instance = namedtuple("Instance", "name params body")
 Method = namedtuple("Method", "name")
