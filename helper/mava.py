@@ -18,6 +18,7 @@ Instance = namedtuple("Instance", "name params body")
 Method = namedtuple("Method", "name")
 Var = namedtuple("Var", "name")
 Type = namedtuple("Type", "name pairs")
+Class = namedtuple("Class", "mods name body")
 
 concat = lambda p: p.parsecmap(lambda x: "".join(chain.from_iterable(x)))
 whitespace = regex(r"\s*")
@@ -86,12 +87,13 @@ modifier = lexeme(string("public") | string("protected") | string("private")
                   | string("abstract") | string("default") | string("static")
                   | string("final") | string("transient") | string("volatile")
                   | string("synchronized") | string("native") | string("strictfp"))
+modifiers = many(modifier)
 
-class_name = lexeme(string("class")) >> name
+class_name = optional(modifiers) + (lexeme(string("class")) >> name)
 impls_name = lexeme(string("implements")) >> name
 class_block = lbrace >> sepEndBy(many(modifier) + assignment, term).parsecmap(dicts) << rbrace
 
-java_class = whitespace >> optional(modifier) + class_name + impls_name + class_block
+java_class = whitespace >> class_name + impls_name + class_block
 
 # lblock = lexeme(string("{"))
 # rblock = lexeme(string("}"))

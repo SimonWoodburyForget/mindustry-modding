@@ -14,9 +14,9 @@ class TestJava(unittest.TestCase):
         with self.assertRaises(ParseError):
             name.parse("1Abc")
 
-    def test_class_name(self):
-        self.assertEqual(class_name.parse("class xy"), "xy")
-        self.assertEqual(class_name.parse("class   xy  "), "xy")
+    # def test_class_name(self):
+    #     self.assertEqual(class_name.parse("class xy"), "xy")
+    #     self.assertEqual(class_name.parse("class   xy  "), "xy")
 
     def test_abstract_class(self):
         self.assertEqual(abstract_class.parse("abstract class xy"), "xy")
@@ -66,21 +66,24 @@ class TestJava(unittest.TestCase):
     def test_anon_block(self):
         self.assertEqual(anon_block.parse("{{ x = 1; y=2; }}"), {"x": 1, "y" : 2})
 
-    def test_blocks_class(self):
+    def test_class_modifiers(self):
+        self.assertEqual(java_class.parse("""class Blocks implements ContentList{ }"""),
+                         ((([], "Blocks"),"ContentList"), ([], {})))
+        self.assertEqual(java_class.parse("""abstract class Blocks implements ContentList{ }"""),
+                         (((["abstract"], "Blocks"),"ContentList"), ([], {})))
+
+    def test_blocks(self):
         string = """
-        class Blocks implements ContentList{ }"""
-        #     @Override
-        #     public void load(){
-        #         one = new Bullet(1f, 0, "shell"){{ x = 1; }}
-        #         two = new Bullet(2f, 0, "nice"){{ y = 2; }}
-        #         three = new Bullet(3f, 0, "not-nice"){{ z = 3; }}
-        #     }
-        # }
-        # """
-        data = (((None, "Blocks"), "ContentList"), ([], {}))
-        self.assertEqual(java_class.parse(string), data)
+        class Blocks implements ContentList{ 
+            @Override
+            public void load(){
+                one = new Bullet(1f, 0, "shell"){{ x = 1; }}
+                two = new Bullet(2f, 0, "nice"){{ y = 2; }}
+                three = new Bullet(3f, 0, "not-nice"){{ z = 3; }}
+            }
+        }
+        """
 
 
 
-if __name__ == '__main__':
-    unittest.main()
+if __name__ == '__main__': unittest.main()
