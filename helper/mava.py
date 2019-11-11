@@ -32,13 +32,6 @@ headchar = regex(r"[a-zA-Z]")
 tailchar = regex(r"[a-zA-Z0-9]")
 name = lexeme(concat(many1(headchar) + many(tailchar)))
 
-class_name = lexeme(string("class")) >> name
-abstract_class = lexeme(string("abstract")) >> class_name
-
-implements = lexeme(string("implements"))
-class_implements = class_name + (implements >> name)
-abstract_implements = abstract_class + (implements >> name)
-
 integer = lexeme(concat(many1(regex(r"-?[0-9]")))).parsecmap(lambda x: int(x))
 floating = lexeme(concat(regex(r"-?[0-9]+\.?[0-9]*f"))).parsecmap(lambda x: float(x[:-1]))
 true = lexeme(string("true")).result(True)

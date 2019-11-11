@@ -14,19 +14,13 @@ class TestJava(unittest.TestCase):
         with self.assertRaises(ParseError):
             name.parse("1Abc")
 
-    # def test_class_name(self):
-    #     self.assertEqual(class_name.parse("class xy"), "xy")
-    #     self.assertEqual(class_name.parse("class   xy  "), "xy")
+    def test_class_name(self):
+        self.assertEqual(class_name.parse("class xy"), ([], "xy"))
+        self.assertEqual(class_name.parse("class   xy  "), ([], "xy"))
 
     def test_abstract_class(self):
-        self.assertEqual(abstract_class.parse("abstract class xy"), "xy")
-        self.assertEqual(abstract_class.parse("abstract   class  xy  "), "xy")
-
-    def test_class_implements(self):
-        self.assertEqual(class_implements.parse("class xy implements yx"), ("xy", "yx"))
-
-    def test_abstract_class_implements(self):
-        self.assertEqual(abstract_implements.parse("abstract class xy implements ab"), ("xy", "ab"))
+        self.assertEqual(class_name.parse("abstract class xy"), (["abstract"], "xy"))
+        self.assertEqual(class_name.parse("abstract   class  xy  "), (["abstract"], "xy"))
 
     def test_literal(self):
         self.assertEqual(literal.parse("1"), 1)
