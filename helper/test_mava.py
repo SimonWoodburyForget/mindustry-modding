@@ -62,13 +62,43 @@ class TestJava(unittest.TestCase):
 
     def test_class_modifiers(self):
         self.assertEqual(java_class.parse("""class Blocks implements ContentList{ }"""),
-                         Class([], "Blocks","ContentList", ([], {})))
+                         Class([], "Blocks","ContentList", {}))
         self.assertEqual(java_class.parse("""abstract class Blocks implements ContentList{ }"""),
-                         Class(["abstract"], "Blocks","ContentList", ([], {})))
+                         Class(["abstract"], "Blocks","ContentList", {}))
 
-    def test_blocks(self):
+    def test_class_var_decs(self):
         string = """
         class Blocks implements ContentList{ 
+            public Block one, two, three;
+        }
+        """
+        data = Class( [],
+                      "Blocks",
+                      "ContentList",
+                      { "one": Variable(["public"], "Block", "one", None),
+                        "two": Variable(["public"], "Block", "two", None),
+                        "three": Variable(["public"], "Block", "three", None)
+                      })
+        self.assertEqual(java_class.parse(string), data)
+
+        string = """
+        class Block implements ContentList{ 
+            public Block one, two, three;
+        }
+        """
+        data = Class( [],
+                      "Blocks",
+                      "ContentList",
+                      { "one": Variable(["public"], "Block", "one", None),
+                        "two": Variable(["public"], "Block", "two", None),
+                        "three": Variable(["public"], "Block", "three", None)
+                      })
+        self.assertNotEqual(java_class.parse(string), data)
+        
+        string = """
+        class Blocks implements ContentList{ 
+            public Block one, two, three;
+
             @Override
             public void load(){
                 one = new Bullet(1f, 0, "shell"){{ x = 1; }}

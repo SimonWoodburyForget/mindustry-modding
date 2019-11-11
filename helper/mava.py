@@ -14,16 +14,18 @@ from functools import reduce
 # [{}, {}, {}] => {}
 dicts = lambda x: reduce(lambda a, b: { **a, **b }, x, {})
 
-Instance = namedtuple("Instance", "name params body")
-Method = namedtuple("Method", "name")
 Var = namedtuple("Var", "name")
 Type = namedtuple("Type", "name pairs")
 
-Class = namedtuple("Class", "mods name imples body")
+Class = namedtuple("Class", "mods name impls body")
 def class_from_raw(raw):
     (((mods, name), impls), body) = raw
     return Class(mods, name, impls, body)
 
+Method = namedtuple("Method", "mods rtype name params body")
+Variable = namedtuple("Variable", "mods vtype name value")
+Instance = namedtuple("Instance", "name params body")
+    
 concat = lambda p: p.parsecmap(lambda x: "".join(chain.from_iterable(x)))
 whitespace = regex(r"\s*")
 lexeme = lambda p: p << whitespace
@@ -88,7 +90,18 @@ modifiers = many(modifier)
 
 class_name = optional(modifiers) + (lexeme(string("class")) >> name)
 impls_name = lexeme(string("implements")) >> name
-class_block = lbrace >> sepEndBy(many(modifier) + assignment, term).parsecmap(dicts) << rbrace
+
+@generate
+def vdec():
+    ''' Variable Declerations. '''
+    mods = yield modifiers
+    vtype = yield name
+    vnames = yield sepBy(name + optional(equals >> value), comma)
+    return { k: Variable(mods, vtype, k, v) for k, v in vnames }
+
+class_assignments = sepEndBy(vdec, term).parsecmap(dicts)
+
+class_block = lbrace >> class_assignments << rbrace
 
 java_class = whitespace >> (class_name + impls_name + class_block).parsecmap(class_from_raw)
 
