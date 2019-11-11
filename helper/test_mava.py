@@ -68,9 +68,9 @@ class TestJava(unittest.TestCase):
 
     def test_class_modifiers(self):
         self.assertEqual(java_class.parse("""class Blocks implements ContentList{ }"""),
-                         ((([], "Blocks"),"ContentList"), ([], {})))
+                         Class([], "Blocks","ContentList", ([], {})))
         self.assertEqual(java_class.parse("""abstract class Blocks implements ContentList{ }"""),
-                         (((["abstract"], "Blocks"),"ContentList"), ([], {})))
+                         Class(["abstract"], "Blocks","ContentList", ([], {})))
 
     def test_blocks(self):
         string = """
