@@ -52,7 +52,7 @@ def assignment():
     ''' 
     "x = 2, y = 5" => {'x': 2, 'y': 5} 
     '''
-    kv_pairs = yield sepBy((name << equals) + value, comma)
+    kv_pairs = yield sepBy(name + optional(equals >> value), comma)
     return dict(kv_pairs)
 
 # "int x = 2, y = 3" => Type("int", {'x': 2, 'y': 3})
@@ -60,21 +60,38 @@ hinted_assignment = (name + assignment).parsecmap(lambda x: Type(*x))
 
 @generate
 def instanciation():
-    x = yield lexeme(string('new')) >> name + params
+    x = yield lexeme(string('new')) >> name + args
     b = yield optional(anon_block)
     return Instance(*(x for x in chain(x, [b])))
 
 value = literal | instanciation | name.parsecmap(Var)
-params = lpar >> sepBy(value, comma) << rpar
+args = lpar >> sepBy(value, comma) << rpar
 
 term = lexeme(string(";"))
 llblock = lexeme(string("{{"))
 rrblock = lexeme(string("}}"))
+# 'x = 3; y = 5; z = "thing";' => {'x': 3, 'y': 5, 'z': 'thing'}
 block = sepEndBy(assignment, term).parsecmap(dicts)
 anon_block = llblock >> block << rrblock
 
+lbrace = lexeme(string("{"))
+rbrace = lexeme(string("}"))
+code_block = lbrace >> block << rbrace
+
+at = lexeme(string('@'))
+annotation = at >> name
 
 
+modifier = lexeme(string("abstract")
+                  | string("static")
+                  | string("final")
+                  | string("strictfp"))
+
+class_name = lexeme(string("class")) >> name
+impls_name = lexeme(string("implements")) >> name
+class_block = lbrace >> sepEndBy(assignment, term).parsecmap(dicts) << rbrace
+
+java_class = optional(modifier) + class_name + impls_name + class_block
 
 # lblock = lexeme(string("{"))
 # rblock = lexeme(string("}"))
