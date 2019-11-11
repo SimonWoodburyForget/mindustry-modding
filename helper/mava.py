@@ -91,7 +91,7 @@ class_name = lexeme(string("class")) >> name
 impls_name = lexeme(string("implements")) >> name
 class_block = lbrace >> sepEndBy(assignment, term).parsecmap(dicts) << rbrace
 
-java_class = optional(modifier) + class_name + impls_name + class_block
+java_class = whitespace >> optional(modifier) + class_name + impls_name + class_block
 
 # lblock = lexeme(string("{"))
 # rblock = lexeme(string("}"))
