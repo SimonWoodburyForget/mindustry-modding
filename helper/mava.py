@@ -8,8 +8,13 @@ from parsec import (generate, regex, string, many,
                     sepEndBy, none_of)
 from itertools import chain
 from collections import namedtuple
+from dataclasses import dataclass
+from functools import reduce
 
-Instance = namedtuple("Instance", "name args")
+# [{}, {}, {}] => {}
+dicts = lambda x: reduce(lambda a, b: { **a, **b }, x)
+
+Instance = namedtuple("Instance", "name params body")
 Method = namedtuple("Method", "name")
 Var = namedtuple("Var", "name")
 
@@ -29,7 +34,7 @@ class_implements = class_name + (implements >> name)
 abstract_implements = abstract_class + (implements >> name)
 
 integer = lexeme(concat(many1(regex(r"-?[0-9]")))).parsecmap(lambda x: int(x))
-floating = lexeme(concat(regex(r"-?[0-9]+\.?[0-9]*f?"))).parsecmap(lambda x: float(x))
+floating = lexeme(concat(regex(r"-?[0-9]+\.?[0-9]*f"))).parsecmap(lambda x: float(x[:-1]))
 true = lexeme(string("true")).result(True)
 false = lexeme(string("false")).result(False)
 quoted = lexeme(string('"') >> concat(many(none_of('"'))) << string('"'))
@@ -43,18 +48,24 @@ rpar = lexeme(string(')'))
 
 @generate
 def assignment():
+    ''' `"x = 2, y = 5"` => `{'x': 2, 'y': 5}` '''
     kv_pairs = yield sepBy((name << equals) + value, comma)
     return dict(kv_pairs)
 
 @generate
 def instanciation():
     x = yield lexeme(string('new')) >> name + params
-    return Instance(*x)
+    b = yield optional(anon_block)
+    return Instance(*(x for x in chain(x, [b])))
 
 value = literal | instanciation | name.parsecmap(Var)
 params = lpar >> sepBy(value, comma) << rpar
 
-
+term = lexeme(string(";"))
+llblock = lexeme(string("{{"))
+rrblock = lexeme(string("}}"))
+block = sepEndBy(assignment, term).parsecmap(dicts)
+anon_block = llblock >> block << rrblock
 
 @generate
 def declaration():
@@ -67,6 +78,7 @@ def declaration():
     ```
     '''
     actual = yield (type_of, assignment)
+
 
 # lblock = lexeme(string("{"))
 # rblock = lexeme(string("}"))

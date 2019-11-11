@@ -30,9 +30,9 @@ class TestJava(unittest.TestCase):
 
     def test_literal(self):
         self.assertEqual(literal.parse("1"), 1)
-        self.assertEqual(literal.parse("-1"), -1)
-        self.assertTrue(literal.parse("-1") is not -1.)
-        self.assertEqual(literal.parse("-1.1"), -1.1)
+        self.assertTrue(type(literal.parse("-1")) is int)
+        self.assertTrue(type(literal.parse("-1.1f")) is float)
+        self.assertTrue(type(literal.parse("-1f")) is float)
         self.assertTrue(literal.parse("true ") is True)
         self.assertTrue(literal.parse("false ") is False)
         self.assertEqual(literal.parse('"string"'), "string")
@@ -41,22 +41,25 @@ class TestJava(unittest.TestCase):
         self.assertEqual(assignment.parse("x=1"), {'x': 1})
         self.assertEqual(assignment.parse("x = 1"), {'x': 1})
         self.assertEqual(assignment.parse('x = "1"'), {'x': '1'})
-        self.assertEqual(assignment.parse('x = new Thing()'), {'x': Instance('Thing', [])})
+        self.assertEqual(assignment.parse('x = new Thing()'), {'x': Instance('Thing', [], None)})
+        self.assertEqual(assignment.parse('x = 1, y = 2'), {'x': 1, 'y': 2})
 
     def test_instanciation(self):
-        self.assertEqual(instanciation.parse('new Thing()'), Instance('Thing', []))
-        self.assertEqual(instanciation.parse('new Thing(2)'), Instance('Thing', [2]))
-        self.assertEqual(instanciation.parse('new Thing(x)'), Instance('Thing', [Var('x')]))
-        self.assertEqual(instanciation.parse('new Thing("x-n")'), Instance('Thing', ['x-n']))
+        self.assertEqual(instanciation.parse('new Thing()'), Instance('Thing', [], None))
+        self.assertEqual(instanciation.parse('new Thing(2)'), Instance('Thing', [2], None))
+        self.assertEqual(instanciation.parse('new Thing(x)'), Instance('Thing', [Var('x')], None))
+        self.assertEqual(instanciation.parse('new Thing("x-n")'), Instance('Thing', ['x-n'], None))
         
     def test_params(self):
-        self.assertEqual(params.parse('(1, 3, 4)'), [1, 3, 4])
-        self.assertEqual(params.parse('(x, u)'), [Var('x'), Var('u')])
-        self.assertEqual(params.parse('("x", "u")'), ['x', 'u'])
-        
-    def test_declaration(self):
+        self.assertEqual(params.parse('(1, 3, 4)'), [1, 3, 4], None)
+        self.assertEqual(params.parse('(x, u)'), [Var('x'), Var('u')], None)
+        self.assertEqual(params.parse('("x", "u")'), ['x', 'u'], None)
+
+    def test_assign_block(self):        
         pass
-        # self.assertEqual(assignment.parse("int x"), ("int", "x", None))
+        
+    def test_anon_block(self):
+        self.assertEqual(anon_block.parse("{{ x = 1; y=2; }}"), {"x": 1, "y" : 2})
         
 if __name__ == '__main__':
     unittest.main()
