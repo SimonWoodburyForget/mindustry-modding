@@ -11,6 +11,7 @@ from collections import namedtuple
 
 Instance = namedtuple("Instance", "name args")
 Method = namedtuple("Method", "name")
+Var = namedtuple("Var", "name")
 
 concat = lambda p: p.parsecmap(lambda x: "".join(chain.from_iterable(x)))
 whitespace = regex(r"\s*")
@@ -37,17 +38,23 @@ literal = floating | integer | boolean | quoted
 
 equals = lexeme(string('='))
 comma = lexeme(string(','))
-
+lpar = lexeme(string('('))
+rpar = lexeme(string(')'))
 
 @generate
 def assignment():
-    kv_pairs = yield sepBy((name << equals) +
-                           (literal | instanciation),
-                           comma)
+    kv_pairs = yield sepBy((name << equals) + value, comma)
     return dict(kv_pairs)
 
-args = string("(") >> sepBy(literal, comma) << string(")")
-instanciation = (lexeme(string('new')) >> name + args).parsecmap(lambda x: Instance(*x))
+@generate
+def instanciation():
+    x = yield lexeme(string('new')) >> name + params
+    return Instance(*x)
+
+value = literal | instanciation | name.parsecmap(Var)
+params = lpar >> sepBy(value, comma) << rpar
+
+
 
 @generate
 def declaration():

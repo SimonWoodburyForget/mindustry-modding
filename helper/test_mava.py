@@ -43,6 +43,17 @@ class TestJava(unittest.TestCase):
         self.assertEqual(assignment.parse('x = "1"'), {'x': '1'})
         self.assertEqual(assignment.parse('x = new Thing()'), {'x': Instance('Thing', [])})
 
+    def test_instanciation(self):
+        self.assertEqual(instanciation.parse('new Thing()'), Instance('Thing', []))
+        self.assertEqual(instanciation.parse('new Thing(2)'), Instance('Thing', [2]))
+        self.assertEqual(instanciation.parse('new Thing(x)'), Instance('Thing', [Var('x')]))
+        self.assertEqual(instanciation.parse('new Thing("x-n")'), Instance('Thing', ['x-n']))
+        
+    def test_params(self):
+        self.assertEqual(params.parse('(1, 3, 4)'), [1, 3, 4])
+        self.assertEqual(params.parse('(x, u)'), [Var('x'), Var('u')])
+        self.assertEqual(params.parse('("x", "u")'), ['x', 'u'])
+        
     def test_declaration(self):
         pass
         # self.assertEqual(assignment.parse("int x"), ("int", "x", None))
