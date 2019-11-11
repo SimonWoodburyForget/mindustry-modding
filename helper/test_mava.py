@@ -33,14 +33,19 @@ class TestJava(unittest.TestCase):
         self.assertEqual(literal.parse("-1"), -1)
         self.assertTrue(literal.parse("-1") is not -1.)
         self.assertEqual(literal.parse("-1.1"), -1.1)
-        self.assertTrue(literal.parse("true"))
-        self.assertTrue(not literal.parse("false"))
+        self.assertTrue(literal.parse("true ") is True)
+        self.assertTrue(literal.parse("false ") is False)
         self.assertEqual(literal.parse('"string"'), "string")
 
     def test_assignment(self):
-        self.assertEqual(assignment.parse("x=1"), ('x', 1))
-        self.assertEqual(assignment.parse("x = 1"), ('x', 1))
-        self.assertEqual(assignment.parse('x = "1"'), ('x', '1'))
+        self.assertEqual(assignment.parse("x=1"), {'x': 1})
+        self.assertEqual(assignment.parse("x = 1"), {'x': 1})
+        self.assertEqual(assignment.parse('x = "1"'), {'x': '1'})
+        self.assertEqual(assignment.parse('x = new Thing()'), {'x': Instance('Thing', [])})
 
+    def test_declaration(self):
+        pass
+        # self.assertEqual(assignment.parse("int x"), ("int", "x", None))
+        
 if __name__ == '__main__':
     unittest.main()
