@@ -130,24 +130,7 @@ modifiers = many(modifier)
 class_name = lexeme(string("class")) >> name
 impls_name = lexeme(string("implements")) >> name
 
-@generate
-def vdec():
-    ''' Variable Declerations. '''
-    mods = yield modifiers
-    vtype = yield name
-    vnames = yield sepBy(name + optional(equals >> value), comma)
-    return { k: Variable(mods, vtype, k, v) for k, v in vnames }
-
-class_assignments = sepEndBy(vdec, term).parsecmap(dicts)
 params = lpar >> sepBy(name + name, comma) << rpar
-@generate
-def class_method():
-    mods = yield modifiers
-    rtype = yield name
-    mname = yield name
-    pars = yield params
-    body = yield lbrace >> sepEndBy(assignment, term).parsecmap(dicts) << rbrace
-    return Method(mods, rtype, mname, pars, body)
 
 variable = (modifiers
             + name
