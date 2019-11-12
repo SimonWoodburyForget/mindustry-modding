@@ -115,7 +115,6 @@ lpar = lexeme(string('('))
 rpar = lexeme(string(')'))
 
 value = literal | name.parsecmap(Var) 
-args = lpar >> sepBy(value, comma) << rpar
 
 term = lexeme(string(";"))
 llbrace = lexeme(string("{{"))

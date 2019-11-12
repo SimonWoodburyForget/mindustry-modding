@@ -38,11 +38,6 @@ class TestJava(unittest.TestCase):
         test_eq('new Thing(2)', Instance('Thing', [2], None))
         test_eq('new Thing(x)', Instance('Thing', [Variable('x')], None))
         test_eq('new Thing("x-n")', Instance('Thing', ['x-n'], None))
-        
-    def test_args(self):
-        self.assertEqual(args.parse('(1, 3, 4)'), [1, 3, 4], None)
-        self.assertEqual(args.parse('(x, u)'), [Var('x'), Var('u')], None)
-        self.assertEqual(args.parse('("x", "u")'), ['x', 'u'], None)
 
     def test_params(self):
         self.assertEqual(params.parse('''(int x, float y)'''),
