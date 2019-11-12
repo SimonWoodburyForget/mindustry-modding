@@ -9,19 +9,11 @@ This parser doesn't actually currently work as it should.
 """
 
 from parsec import *
+from itertools import chain
 
-@generate
-def comment():
-    yield optional(many(one_of(" \n\t\r")))
-    yield string("//")
-    comment = yield regex(".*")
-    yield string("\n")
-    return comment
-
-rs = regex(r'\s*')
-cm = many(comment)
-whitespace =  rs << cm
-
+concat = lambda p: p.parsecmap(lambda x: "".join(chain.from_iterable(x)))
+comment = string("//") >> concat(many(none_of("\n"))) << optional(string("\n"))
+whitespace =  many(comment | one_of(" \n\s\t"))
 lexeme = lambda p: p << whitespace
 
 lbrace = lexeme(string('{'))
@@ -171,6 +163,6 @@ if __name__ == '__main__':
     #                         testthing : testtest }''')) # TODO: this doesn't work either
     assert jsonc.parse('''{ a: [ "test" ] }''') == { 'a': [ 'test' ] } 
 
-    # TODO: well that doesn't work.
+    # # TODO: well that doesn't work.
     # assert jsonc.parse('''{ a: [  test ] }''') == { 'a': [ 'test' ] } 
     # assert jsonc.parse('''{ a: [  test, test  ] }''') == { 'a': [ 'test' ] }
