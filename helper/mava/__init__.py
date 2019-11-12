@@ -39,38 +39,53 @@ Variable = namedtuple("Variable", "mods vtype name value")
 Instance = namedtuple("Instance", "name args body")
 
 @dataclass
-class Class:
-    '''The definition of a class.'''
+class Instance:
+    '''The definition of a `new` instance.
+    '''
+    '''The name of the type being defined.'''
+    name: str
+    '''The arguments sent to the constructor.'''
+    args: [any]
+    '''The optional anonymous class definition body.'''
+    abody: []
 
+@dataclass
+class Class:
+    '''The definition of a class.
+    '''
     '''The modifiers of said class, like `public`.'''
     mods: [str]
-
     '''The name of the class.'''
     name: str
-
     '''The name of an implemented trait.'''
     impl: str
-
     '''The body of the class, with all 
     the variable/method definitions.'''
     body: []
 
 @dataclass
 class VariableDefinition:
-    '''The initial definition of a variable, with type information.'''
-
+    '''The initial definition of a variable, with type information.
+    '''
     '''The modifier of said variable, like `static`.'''
     mods: [str]
-    
     '''The type of this specific definition.'''
     vtype: str
-
     '''The list of variable names and values defined.'''
     variables: []
 
+@dataclass
+class Variable:
+    '''The variable itself.
+    '''
+    '''The name of said varaible.'''
+    name: str
+    '''The value of said varaible.'''
+    value: any = None
+    
 @generate
 def ignore():
-    ''' Things we just want to ignore for now. '''
+    '''Things we just want to ignore for now.'''
     yield annotation
 
 whitespace = regex(r"\s*") | ignore
@@ -99,35 +114,32 @@ comma = lexeme(string(','))
 lpar = lexeme(string('('))
 rpar = lexeme(string(')'))
 
-# @generate
-# def instanciation():
-#     x = yield lexeme(string('new')) >> name + args
-#     b = yield optional(anon_block)
-#     return Instance(*(x for x in chain(x, [b])))
-
 value = literal | name.parsecmap(Var) 
 args = lpar >> sepBy(value, comma) << rpar
 
 term = lexeme(string(";"))
-llblace = lexeme(string("{{"))
-rrblace = lexeme(string("}}"))
+llbrace = lexeme(string("{{"))
+rrbrace = lexeme(string("}}"))
 lbrace = lexeme(string("{"))
 rbrace = lexeme(string("}"))
 
-modifier = lexeme(string("public") | string("protected") | string("private")
-                  | string("abstract") | string("default") | string("static")
-                  | string("final") | string("transient") | string("volatile")
-                  | string("synchronized") | string("native") | string("strictfp"))
-modifiers = many(modifier)
+modifier = lexeme(string("public")
+                  | string("protected")
+                  | string("private")
+                  | string("abstract")
+                  | string("default")
+                  | string("static")
+                  | string("final")
+                  | string("transient")
+                  | string("volatile")
+                  | string("synchronized")
+                  | string("native")
+                  | string("strictfp"))
+modifiers = many(modifier).parsecmap(set)
 
 class_name = statement("class")
 impls_name = statement("implements")
 new_name = statement("new")
-
-instance = (new_name
-            + (lpar
-               >> sepBy(name | value, comma)
-               << rpar))
 
 variable = (modifiers
             + name
@@ -146,6 +158,14 @@ method = (modifiers
 class_body = (lbrace
               >> many(variable ^ method)
               << rbrace)
+
+instance = (new_name
+            + (lpar
+               >> sepBy(name.parsecmap(decomposed(Variable)) | value, comma)
+               << rpar)
+            + optional(llbrace
+                       >> class_body
+                       << rrbrace)).parsecmap(decomposed(Instance))
 
 java_class = whitespace >> (modifiers
                             + class_name

@@ -30,11 +30,14 @@ class TestJava(unittest.TestCase):
         self.assertTrue(literal.parse("false ") is False)
         self.assertEqual(literal.parse('"string"'), "string")
         
-    # def test_instanciation(self):
-    #     self.assertEqual(instanciation.parse('new Thing()'), Instance('Thing', [], None))
-    #     self.assertEqual(instanciation.parse('new Thing(2)'), Instance('Thing', [2], None))
-    #     self.assertEqual(instanciation.parse('new Thing(x)'), Instance('Thing', [Var('x')], None))
-    #     self.assertEqual(instanciation.parse('new Thing("x-n")'), Instance('Thing', ['x-n'], None))
+    def test_instanciation(self):
+        def test_eq(a, b):
+            self.assertEqual(instance.parse(a), b)
+
+        test_eq('new Thing()', Instance('Thing', [], None))
+        test_eq('new Thing(2)', Instance('Thing', [2], None))
+        test_eq('new Thing(x)', Instance('Thing', [Variable('x')], None))
+        test_eq('new Thing("x-n")', Instance('Thing', ['x-n'], None))
         
     def test_args(self):
         self.assertEqual(args.parse('(1, 3, 4)'), [1, 3, 4], None)
@@ -49,7 +52,7 @@ class TestJava(unittest.TestCase):
         def test_eq(a, b):
             self.assertEqual(method.parse(a), b)
         test_eq('public int mymy(int x, float y){}',
-                Method(["public"],
+                Method({"public"},
                        "int",
                        "mymy",
                        [("int", "x"),
@@ -57,13 +60,13 @@ class TestJava(unittest.TestCase):
                        []))
 
         test_eq('public int mymy(int x, float y){ int x = 1; }',
-                Method(["public"],
+                Method({"public"},
                        "int",
                        "mymy",
                        [("int", "x"),
                         ("float", "y")],
                        [
-                           VariableDefinition([], 'int', [('x', 1)])
+                           VariableDefinition(set(), 'int', [('x', 1)])
                        ]))
         
         # self.assertEqual(class_method.parse('''public int mymy(int x, float y){ x = 1; }'''),
@@ -90,25 +93,25 @@ class TestJava(unittest.TestCase):
             self.assertEqual(class_body.parse(a), b)
 
         # test_eq('{}', [])
-        test_eq('{ void meth(){} }', [ Method([], 'void', 'meth', [], []) ])
+        test_eq('{ void meth(){} }', [ Method(set(), 'void', 'meth', [], []) ])
         
-        test_eq('{ static int x; }', [ VariableDefinition(['static'],
+        test_eq('{ static int x; }', [ VariableDefinition({'static'},
                                                           'int',
                                                           [('x', None)]) ])
         
         test_eq('{ static int x, y; }', [
-            VariableDefinition(['static'],
+            VariableDefinition({'static'},
                                'int',
                                [('x', None),
                                 ('y', None)])
         ])
 
         test_eq('{ static int x, y; void meth(){} }', [
-                VariableDefinition(['static'],
+                VariableDefinition({'static'},
                                    'int',
                                    [('x', None),
                                     ('y', None)]),
-                Method([], 'void', 'meth', [], [])
+                Method(set(), 'void', 'meth', [], [])
         ])
         
     # def test_class_var_decs(self):
