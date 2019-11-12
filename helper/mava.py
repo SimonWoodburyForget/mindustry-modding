@@ -110,7 +110,7 @@ def class_method():
     rtype = yield name
     mname = yield name
     pars = yield params
-    body = yield block
+    body = yield lbrace >> sepEndBy(assignment, term).parsecmap(dicts) << rbrace
     return Method(mods, rtype, mname, pars, body)
 
 class_block = lbrace >> (class_assignments | class_method) << rbrace
