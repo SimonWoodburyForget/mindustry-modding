@@ -29,19 +29,12 @@ class TestJava(unittest.TestCase):
         self.assertTrue(literal.parse("true ") is True)
         self.assertTrue(literal.parse("false ") is False)
         self.assertEqual(literal.parse('"string"'), "string")
-
-    def test_assignment(self):
-        self.assertEqual(assignment.parse("x=1"), {'x': 1})
-        self.assertEqual(assignment.parse("x = 1"), {'x': 1})
-        self.assertEqual(assignment.parse('x = "1"'), {'x': '1'})
-        self.assertEqual(assignment.parse('x = new Thing()'), {'x': Instance('Thing', [], None)})
-        self.assertEqual(assignment.parse('x = 1, y = 2'), {'x': 1, 'y': 2})
         
-    def test_instanciation(self):
-        self.assertEqual(instanciation.parse('new Thing()'), Instance('Thing', [], None))
-        self.assertEqual(instanciation.parse('new Thing(2)'), Instance('Thing', [2], None))
-        self.assertEqual(instanciation.parse('new Thing(x)'), Instance('Thing', [Var('x')], None))
-        self.assertEqual(instanciation.parse('new Thing("x-n")'), Instance('Thing', ['x-n'], None))
+    # def test_instanciation(self):
+    #     self.assertEqual(instanciation.parse('new Thing()'), Instance('Thing', [], None))
+    #     self.assertEqual(instanciation.parse('new Thing(2)'), Instance('Thing', [2], None))
+    #     self.assertEqual(instanciation.parse('new Thing(x)'), Instance('Thing', [Var('x')], None))
+    #     self.assertEqual(instanciation.parse('new Thing("x-n")'), Instance('Thing', ['x-n'], None))
         
     def test_args(self):
         self.assertEqual(args.parse('(1, 3, 4)'), [1, 3, 4], None)

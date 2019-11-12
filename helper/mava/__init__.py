@@ -15,7 +15,6 @@ from functools import reduce
 dicts = lambda x: reduce(lambda a, b: { **a, **b }, x, {})
 concat = lambda p: p.parsecmap(lambda x: "".join(chain.from_iterable(x)))
 
-
 def decompose(args):
     '''(((a, b), c), d) => [a, b, c, d]'''
     if type(args) in (tuple, list) and len(args) > 1:
@@ -25,9 +24,9 @@ def decompose(args):
         return [args]
 
 def decomposed(fn):
+    '''Decorates decompose on fn.'''
     return lambda x: fn(*decompose(x))
-        
-    
+
 Var = namedtuple("Var", "name")
 Type = namedtuple("Type", "name pairs")
 
@@ -41,16 +40,26 @@ Instance = namedtuple("Instance", "name args body")
 
 @dataclass
 class Class:
+    '''The definition of a class.'''
+
+    '''The modifiers of said class, like `public`.'''
     mods: [str]
+
+    '''The name of the class.'''
     name: str
+
+    '''The name of an implemented trait.'''
     impl: str
+
+    '''The body of the class, with all 
+    the variable/method definitions.'''
     body: []
 
 @dataclass
 class VariableDefinition:
     '''The initial definition of a variable, with type information.'''
 
-    '''The modifier of said variable, like 'static'.'''
+    '''The modifier of said variable, like `static`.'''
     mods: [str]
     
     '''The type of this specific definition.'''
@@ -90,21 +99,13 @@ comma = lexeme(string(','))
 lpar = lexeme(string('('))
 rpar = lexeme(string(')'))
 
-@generate
-def assignment():
-    ''' 
-    "x = 2, y = 5" => {'x': 2, 'y': 5} 
-    '''
-    kv_pairs = yield sepBy(name + optional(equals >> value), comma)
-    return dict(kv_pairs)
+# @generate
+# def instanciation():
+#     x = yield lexeme(string('new')) >> name + args
+#     b = yield optional(anon_block)
+#     return Instance(*(x for x in chain(x, [b])))
 
-@generate
-def instanciation():
-    x = yield lexeme(string('new')) >> name + args
-    b = yield optional(anon_block)
-    return Instance(*(x for x in chain(x, [b])))
-
-value = literal | instanciation | name.parsecmap(Var)
+value = literal | name.parsecmap(Var) 
 args = lpar >> sepBy(value, comma) << rpar
 
 term = lexeme(string(";"))
@@ -113,15 +114,20 @@ rrblace = lexeme(string("}}"))
 lbrace = lexeme(string("{"))
 rbrace = lexeme(string("}"))
 
-
 modifier = lexeme(string("public") | string("protected") | string("private")
                   | string("abstract") | string("default") | string("static")
                   | string("final") | string("transient") | string("volatile")
                   | string("synchronized") | string("native") | string("strictfp"))
 modifiers = many(modifier)
 
-class_name = lexeme(string("class")) >> name
-impls_name = lexeme(string("implements")) >> name
+class_name = statement("class")
+impls_name = statement("implements")
+new_name = statement("new")
+
+instance = (new
+            + lparen
+            + sepBy(name | value, comma)
+            << 
 
 variable = (modifiers
             + name
