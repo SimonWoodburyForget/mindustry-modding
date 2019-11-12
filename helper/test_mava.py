@@ -36,10 +36,6 @@ class TestJava(unittest.TestCase):
         self.assertEqual(assignment.parse('x = "1"'), {'x': '1'})
         self.assertEqual(assignment.parse('x = new Thing()'), {'x': Instance('Thing', [], None)})
         self.assertEqual(assignment.parse('x = 1, y = 2'), {'x': 1, 'y': 2})
-
-    def test_hinted_assign(self):
-        self.assertEqual(hinted_assignment.parse("int x = 1"), Type('int', {'x': 1}))
-        self.assertEqual(hinted_assignment.parse("int x"), Type('int', {'x': None}))
         
     def test_instanciation(self):
         self.assertEqual(instanciation.parse('new Thing()'), Instance('Thing', [], None))
@@ -51,13 +47,6 @@ class TestJava(unittest.TestCase):
         self.assertEqual(args.parse('(1, 3, 4)'), [1, 3, 4], None)
         self.assertEqual(args.parse('(x, u)'), [Var('x'), Var('u')], None)
         self.assertEqual(args.parse('("x", "u")'), ['x', 'u'], None)
-
-    def test_code_block(self):
-        self.assertEqual(code_block.parse('{ x = 2; y = 5; z = "thing" }'),
-                         { 'x': 2, 'y': 5, 'z': 'thing' })
-        
-    def test_anon_block(self):
-        self.assertEqual(anon_block.parse("{{ x = 1; y=2; }}"), {"x": 1, "y" : 2})
 
     def test_params(self):
         self.assertEqual(params.parse('''(int x, float y)'''),

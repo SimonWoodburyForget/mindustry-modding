@@ -98,9 +98,6 @@ def assignment():
     kv_pairs = yield sepBy(name + optional(equals >> value), comma)
     return dict(kv_pairs)
 
-# "int x = 2, y = 3" => Type("int", {'x': 2, 'y': 3})
-hinted_assignment = (name + assignment).parsecmap(lambda x: Type(*x))
-
 @generate
 def instanciation():
     x = yield lexeme(string('new')) >> name + args
@@ -111,15 +108,11 @@ value = literal | instanciation | name.parsecmap(Var)
 args = lpar >> sepBy(value, comma) << rpar
 
 term = lexeme(string(";"))
-llblock = lexeme(string("{{"))
-rrblock = lexeme(string("}}"))
-# 'x = 3; y = 5; z = "thing";' => {'x': 3, 'y': 5, 'z': 'thing'}
-block = sepEndBy(assignment, term).parsecmap(dicts)
-anon_block = llblock >> block << rrblock
-
+llblace = lexeme(string("{{"))
+rrblace = lexeme(string("}}"))
 lbrace = lexeme(string("{"))
 rbrace = lexeme(string("}"))
-code_block = lbrace >> block << rbrace
+
 
 modifier = lexeme(string("public") | string("protected") | string("private")
                   | string("abstract") | string("default") | string("static")
@@ -130,13 +123,12 @@ modifiers = many(modifier)
 class_name = lexeme(string("class")) >> name
 impls_name = lexeme(string("implements")) >> name
 
-params = lpar >> sepBy(name + name, comma) << rpar
-
 variable = (modifiers
             + name
             + sepBy(name + optional(equals >> value), comma)
             << term).parsecmap(decomposed(VariableDefinition))
 
+params = lpar >> sepBy(name + name, comma) << rpar
 method = (modifiers
           + name
           + name
