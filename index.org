@@ -474,7 +474,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | hasPower       | boolean   |         |
    | outputsLiquid  | boolean   |   false |
    | consumesPower  | boolean   |    true |
-   | outputsPower   | bolean    |   false |
+   | outputsPower   | boolean   |   false |
    | itemCapacity   | int       |      10 |
    | liquidCapacity | float     |      10 |
    | item           | float     |      10 |
