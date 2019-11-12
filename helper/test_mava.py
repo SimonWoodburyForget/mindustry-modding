@@ -81,7 +81,7 @@ class TestJava(unittest.TestCase):
                        [("int", "x"),
                         ("float", "y")],
                        [
-                           [[], 'int', [('x', 1)]]
+                           VariableDefinition([], 'int', [('x', 1)])
                        ]))
         
         # self.assertEqual(class_method.parse('''public int mymy(int x, float y){ x = 1; }'''),
@@ -108,15 +108,26 @@ class TestJava(unittest.TestCase):
             self.assertEqual(class_body.parse(a), b)
 
         # test_eq('{}', [])
-        test_eq('{ void meth(){} }', [Method([], 'void', 'meth', [], [])])
-        test_eq('{ static int x; }', [[['static'], 'int', [('x', None)]]])
-        test_eq('{ static int x, y; }', [[['static'], 'int', [('x', None),
-                                                              ('y', None)]]])
-        test_eq('{ static int x, y; void meth(){} }',
-                [[['static'], 'int', [('x', None),
-                                      ('y', None)]],
-                 Method([], 'void', 'meth', [], [])
-                ])
+        test_eq('{ void meth(){} }', [ Method([], 'void', 'meth', [], []) ])
+        
+        test_eq('{ static int x; }', [ VariableDefinition(['static'],
+                                                          'int',
+                                                          [('x', None)]) ])
+        
+        test_eq('{ static int x, y; }', [
+            VariableDefinition(['static'],
+                               'int',
+                               [('x', None),
+                                ('y', None)])
+        ])
+
+        test_eq('{ static int x, y; void meth(){} }', [
+                VariableDefinition(['static'],
+                                   'int',
+                                   [('x', None),
+                                    ('y', None)]),
+                Method([], 'void', 'meth', [], [])
+        ])
         
     # def test_class_var_decs(self):
     #     string = """
