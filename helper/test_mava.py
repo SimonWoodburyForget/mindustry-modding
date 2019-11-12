@@ -77,6 +77,11 @@ class TestJava(unittest.TestCase):
                          Method(["public"], "int", "mymy",
                                 [("int", "x"), ("float", "y")],
                                 { "x": 1 }))
+        self.assertEqual(class_method.parse('''public int mymy(int x, float y){ 
+        x = new Floor("hotrock"){{ x = 1; }}; }'''),
+                         Method(["public"], "int", "mymy",
+                                [("int", "x"), ("float", "y")],
+                                { "x": Instance("Floor", ["hotrock"], { "x": 1 }) }))
         
     def test_class_var_decs(self):
         string = """

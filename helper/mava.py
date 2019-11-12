@@ -24,7 +24,7 @@ def class_from_raw(raw):
     return Class(mods, name, impls, body)
 Method = namedtuple("Method", "mods rtype name params body")
 Variable = namedtuple("Variable", "mods vtype name value")
-Instance = namedtuple("Instance", "name params body")
+Instance = namedtuple("Instance", "name args body")
 
 @generate
 def ignore():
