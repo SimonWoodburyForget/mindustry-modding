@@ -66,6 +66,14 @@ class TestJava(unittest.TestCase):
         self.assertEqual(java_class.parse("""abstract class Blocks implements ContentList{ }"""),
                          Class(["abstract"], "Blocks","ContentList", {}))
 
+    def test_params(self):
+        self.assertEqual(params.parse('''(int x, float y)'''),
+                         [("int", "x"), ("float", "y")])
+
+    def test_class_method(self):
+        self.assertEqual(class_method.parse('''public int mymy(int x, float y){}'''),
+                         Method(["public"], "int", "mymy", [("int", "x"), ("float", "y")], {}))
+        
     def test_class_var_decs(self):
         string = """
         class Blocks implements ContentList{ 
@@ -110,4 +118,5 @@ class TestJava(unittest.TestCase):
 
 
 
-if __name__ == '__main__': unittest.main()
+if __name__ == '__main__':
+    unittest.main()

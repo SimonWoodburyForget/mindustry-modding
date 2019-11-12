@@ -13,6 +13,7 @@ from functools import reduce
 
 # [{}, {}, {}] => {}
 dicts = lambda x: reduce(lambda a, b: { **a, **b }, x, {})
+concat = lambda p: p.parsecmap(lambda x: "".join(chain.from_iterable(x)))
 
 Var = namedtuple("Var", "name")
 Type = namedtuple("Type", "name pairs")
@@ -21,18 +22,24 @@ Class = namedtuple("Class", "mods name impls body")
 def class_from_raw(raw):
     (((mods, name), impls), body) = raw
     return Class(mods, name, impls, body)
-
 Method = namedtuple("Method", "mods rtype name params body")
 Variable = namedtuple("Variable", "mods vtype name value")
 Instance = namedtuple("Instance", "name params body")
-    
-concat = lambda p: p.parsecmap(lambda x: "".join(chain.from_iterable(x)))
-whitespace = regex(r"\s*")
+
+@generate
+def ignore():
+    ''' Things we just want to ignore for now. '''
+    yield annotation
+
+whitespace = regex(r"\s*") | ignore
 lexeme = lambda p: p << whitespace
 
 headchar = regex(r"[a-zA-Z]")
 tailchar = regex(r"[a-zA-Z0-9]")
 name = lexeme(concat(many1(headchar) + many(tailchar)))
+
+at = string('@')
+annotation = lexeme(at >> name)
 
 integer = lexeme(concat(many1(regex(r"-?[0-9]")))).parsecmap(lambda x: int(x))
 floating = lexeme(concat(regex(r"-?[0-9]+\.?[0-9]*f"))).parsecmap(lambda x: float(x[:-1]))
@@ -78,10 +85,6 @@ lbrace = lexeme(string("{"))
 rbrace = lexeme(string("}"))
 code_block = lbrace >> block << rbrace
 
-at = lexeme(string('@'))
-annotation = at >> name
-
-
 modifier = lexeme(string("public") | string("protected") | string("private")
                   | string("abstract") | string("default") | string("static")
                   | string("final") | string("transient") | string("volatile")
@@ -100,8 +103,17 @@ def vdec():
     return { k: Variable(mods, vtype, k, v) for k, v in vnames }
 
 class_assignments = sepEndBy(vdec, term).parsecmap(dicts)
+params = lpar >> sepBy(name + name, comma) << rpar
+@generate
+def class_method():
+    mods = yield modifiers
+    rtype = yield name
+    mname = yield name
+    pars = yield params
+    body = yield block
+    return Method(mods, rtype, mname, pars, body)
 
-class_block = lbrace >> class_assignments << rbrace
+class_block = lbrace >> (class_assignments | class_method) << rbrace
 
 java_class = whitespace >> (class_name + impls_name + class_block).parsecmap(class_from_raw)
 
