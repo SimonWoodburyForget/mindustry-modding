@@ -3,7 +3,8 @@
 The specific implimentation changes to JSON goes as follows:
 - `//` maybe used for single line comments;
 - `"` quotes aren't required for strings;
-- `,` commas aren't required for arrays or objects.
+- `,` commas aren't required for arrays or objects;
+- `:` may be inline with unquoted strings.
 
 This parser doesn't actually currently work as it should.
 """
@@ -66,20 +67,32 @@ def quoted():
 @generate
 def unquoted():
     '''Parse unquoted string.'''
-    body = yield many1(regex(r"[a-zA-Z- ]"))
-    return ''.join(body).strip()
+    def string_part():
+        return none_of(",\n/h:}]")
+
+    def string_link():
+        '''Escape `//` and `:` for links.'''
+        return (string("https://")
+                | string("http://"))
+
+    def string_comment():
+        '''Parse a string that has `/` but not `//`.'''
+        return concat(string("/") + none_of("/"))
+
+    strs = yield lexeme(many1(string_link() | string_part() | string_comment()))
+    return ''.join(strs).strip()
 
 @generate
 def unquotedvalue():
     '''Parse unquoted string specifically for values.'''
-    body = yield many(regex(r"."))
+    body = yield many(none_of("\n: "))
     return ''.join(body).strip()
 
 @generate
 def array():
     '''Parse array element in JSON text.'''
     yield lbrack
-    elements = yield sepEndBy(value | unquoted, one_of(",\n") << whitespace)
+    elements = yield sepEndBy(unquoted, one_of(",\n") << whitespace)
     yield rbrack
     return elements
 
@@ -106,22 +119,6 @@ def load(text):
     return jsonc.parse(text)
 
 if __name__ == '__main__':
-    assert array.parse('''[ "value" ]''') == [ 'value' ]
-    assert array.parse('''[ value ]''') == [ 'value' ]
-    assert array.parse('''[ value
-                            value ]''') == [ 'value' ] * 2
-    assert array.parse('''[ value
-                            value
-                            value ]''') == [ 'value' ] * 3
-    assert array.parse('''[ value
-                            value   ,
-                            value
-                            "" ]''') == ([ 'value' ] * 3) + ['']
-    # assert array.parse('''[ value // comment
-    #                         value
-    #                         value
-    #                         "" ]''') == ([ 'value' ] * 3) + ['']
-
 
     
     assert jsonc.parse(""" 
