@@ -124,10 +124,10 @@ class_name = statement("class")
 impls_name = statement("implements")
 new_name = statement("new")
 
-instance = (new
-            + lparen
-            + sepBy(name | value, comma)
-            << 
+instance = (new_name
+            + (lpar
+               >> sepBy(name | value, comma)
+               << rpar))
 
 variable = (modifiers
             + name
