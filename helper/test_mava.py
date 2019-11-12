@@ -5,6 +5,9 @@ from mava import *
 
 class TestJava(unittest.TestCase):
 
+    def test_decompose(self):
+        self.assertEqual(decompose((((1, 2), 3), 4)), [1, 2, 3, 4])
+
     def test_name(self):
         self.assertEqual(name.parse("abc "), "abc")
         self.assertEqual(name.parse("Abc "), "Abc")
@@ -15,12 +18,8 @@ class TestJava(unittest.TestCase):
             name.parse("1Abc")
 
     def test_class_name(self):
-        self.assertEqual(class_name.parse("class xy"), ([], "xy"))
-        self.assertEqual(class_name.parse("class   xy  "), ([], "xy"))
-
-    def test_abstract_class(self):
-        self.assertEqual(class_name.parse("abstract class xy"), (["abstract"], "xy"))
-        self.assertEqual(class_name.parse("abstract   class  xy  "), (["abstract"], "xy"))
+        self.assertEqual(class_name.parse("class xy"), "xy")
+        self.assertEqual(class_name.parse("class   xy  "), "xy")
 
     def test_literal(self):
         self.assertEqual(literal.parse("1"), 1)
@@ -60,80 +59,94 @@ class TestJava(unittest.TestCase):
     def test_anon_block(self):
         self.assertEqual(anon_block.parse("{{ x = 1; y=2; }}"), {"x": 1, "y" : 2})
 
-    def test_class_modifiers(self):
-        self.assertEqual(java_class.parse("""class Blocks implements ContentList{ }"""),
-                         Class([], "Blocks","ContentList", {}))
-        self.assertEqual(java_class.parse("""abstract class Blocks implements ContentList{ }"""),
-                         Class(["abstract"], "Blocks","ContentList", {}))
-
     def test_params(self):
         self.assertEqual(params.parse('''(int x, float y)'''),
                          [("int", "x"), ("float", "y")])
 
     def test_class_method(self):
-        self.assertEqual(class_method.parse('''public int mymy(int x, float y){}'''),
-                         Method(["public"], "int", "mymy", [("int", "x"), ("float", "y")], {}))
-        self.assertEqual(class_method.parse('''public int mymy(int x, float y){ x = 1; }'''),
-                         Method(["public"], "int", "mymy",
-                                [("int", "x"), ("float", "y")],
-                                { "x": 1 }))
-        self.assertEqual(class_method.parse('''public int mymy(int x, float y){ 
-        x = new Floor("hotrock"){{ x = 1; }}; }'''),
-                         Method(["public"], "int", "mymy",
-                                [("int", "x"), ("float", "y")],
-                                { "x": Instance("Floor",
-                                                ["hotrock"],
-                                                { "x": 1 }) }))
-        self.assertEqual(class_method.parse('''public int mymy(int x, float y){ 
-        x = new Floor("hotrock"){{ x = 1; y = 3; }}; }'''),
-                         Method(["public"], "int", "mymy",
-                                [("int", "x"), ("float", "y")],
-                                { "x": Instance("Floor",
-                                                ["hotrock"],
-                                                { "x": 1, 'y': 3 }) }))
+        def test_eq(a, b):
+            self.assertEqual(method.parse(a), b)
+        test_eq('public int mymy(int x, float y){}',
+                Method(["public"],
+                       "int",
+                       "mymy",
+                       [("int", "x"),
+                        ("float", "y")],
+                       []))
+
+        test_eq('public int mymy(int x, float y){ int x = 1; }',
+                Method(["public"],
+                       "int",
+                       "mymy",
+                       [("int", "x"),
+                        ("float", "y")],
+                       [
+                           [[], 'int', [('x', 1)]]
+                       ]))
         
-    def test_class_var_decs(self):
-        string = """
-        class Blocks implements ContentList{ 
-            public Block one, two, three;
-        }
-        """
-        data = Class( [],
-                      "Blocks",
-                      "ContentList",
-                      { "one": Variable(["public"], "Block", "one", None),
-                        "two": Variable(["public"], "Block", "two", None),
-                        "three": Variable(["public"], "Block", "three", None)
-                      })
-        self.assertEqual(java_class.parse(string), data)
+        # self.assertEqual(class_method.parse('''public int mymy(int x, float y){ x = 1; }'''),
+        #                  Method(["public"], "int", "mymy",
+        #                         [("int", "x"), ("float", "y")],
+        #                         { "x": 1 }))
+        # self.assertEqual(class_method.parse('''public int mymy(int x, float y){ 
+        # x = new Floor("hotrock"){{ x = 1; }}; }'''),
+        #                  Method(["public"], "int", "mymy",
+        #                         [("int", "x"), ("float", "y")],
+        #                         { "x": Instance("Floor",
+        #                                         ["hotrock"],
+        #                                         { "x": 1 }) }))
+        # self.assertEqual(class_method.parse('''public int mymy(int x, float y){ 
+        # x = new Floor("hotrock"){{ x = 1; y = 3; }}; }'''),
+        #                  Method(["public"], "int", "mymy",
+        #                         [("int", "x"), ("float", "y")],
+        #                         { "x": Instance("Floor",
+        #                                         ["hotrock"],
+        #                                         { "x": 1, 'y': 3 }) }))
 
-        string = """
-        class Block implements ContentList{ 
-            public Block one, two, three;
-        }
-        """
-        data = Class( [],
-                      "Blocks",
-                      "ContentList",
-                      { "one": Variable(["public"], "Block", "one", None),
-                        "two": Variable(["public"], "Block", "two", None),
-                        "three": Variable(["public"], "Block", "three", None)
-                      })
-        self.assertNotEqual(java_class.parse(string), data)
+    def test_class_body(self):
+        def test_eq(a, b):
+            self.assertEqual(class_body.parse(a), b)
+
+        # test_eq('{}', [])
+        test_eq('{ void meth(){} }', [Method([], 'void', 'meth', [], [])])
+        test_eq('{ static int x; }', [[['static'], 'int', [('x', None)]]])
+        test_eq('{ static int x, y; }', [[['static'], 'int', [('x', None),
+                                                              ('y', None)]]])
+        test_eq('{ static int x, y; void meth(){} }',
+                [[['static'], 'int', [('x', None),
+                                      ('y', None)]],
+                 Method([], 'void', 'meth', [], [])
+                ])
         
-        string = """
-        class Blocks implements ContentList{ 
-            public Block one, two, three;
+    # def test_class_var_decs(self):
+    #     string = """
+    #     class Blocks implements ContentList{ 
+    #         public Block one, two, three;
+    #     }
+    #     """
+    #     data = Class( [],
+    #                   "Blocks",
+    #                   "ContentList",
+    #                   { "one": Variable(["public"], "Block", "one", None),
+    #                     "two": Variable(["public"], "Block", "two", None),
+    #                     "three": Variable(["public"], "Block", "three", None)
+    #                   })
+    #     self.assertEqual(java_class.parse(string), data)
 
-            @Override
-            public void load(){
-                one = new Bullet(1f, 0, "shell"){{ x = 1; }}
-                two = new Bullet(2f, 0, "nice"){{ y = 2; }}
-                three = new Bullet(3f, 0, "not-nice"){{ z = 3; }}
-            }
-        }
-        """
 
+        
+        # string = """
+        # class Blocks implements ContentList{ 
+        #     public Block one, two, three;
+
+        #     @Override
+        #     public void load(){
+        #         one = new Bullet(1f, 0, "shell"){{ x = 1; }}
+        #         two = new Bullet(2f, 0, "nice"){{ y = 2; }}
+        #         three = new Bullet(3f, 0, "not-nice"){{ z = 3; }}
+        #     }
+        # }
+        # """
 
 
 if __name__ == '__main__':
