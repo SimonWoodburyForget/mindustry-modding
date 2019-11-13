@@ -324,6 +324,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     * to calculate range out of ~lifetime~ and ~speed~ you can do ~lifetime * speed = range~;
     * <<Abstract>> /Abstract/: all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an /"initialization exception"/ of some kind.
     * research cost is ~30 + requirements * 6~
+    * What's a ~NullPointerException~? This is an error message that indicates a field is null and shouldn't be null, meaning one of the required fields may be missing.
 
 * World
   :PROPERTIES:
