@@ -12,7 +12,7 @@
 
 #+TODO: TODO UNTESTED | DONE
 
-#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (133)
+#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (159)
 
 Submit pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
@@ -1510,6 +1510,20 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
      Sprites:
      * ~<name>-bottom~ bottom region
      * ~<name>-plasma-<i>~ plasma regions, where ~i~ is ~0~ to ~plasmas - 1~.
+*** PowerDiode
+    Extends [[Block]]
+
+    Defaults:
+    | field     | default |
+    |-----------+---------|
+    | rotate    | true    |
+    | update    | true    |
+    | solid     | true    |
+    | insulated | true    |
+
+    Sprites:
+    - ~<name>-arrow~
+
 ** Production
    :PROPERTIES:
    :DESCRIPTION: blocks to extract materials from the environment
