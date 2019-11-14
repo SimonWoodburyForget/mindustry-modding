@@ -1002,7 +1002,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
     This type is a turret that uses items as ammo. The key to the ~ammo~ field should be the name of an [[Item]], while the value may be any [[Built-in Bullets]] or a [[BulletType]] itself.
 
-    #+BEGIN_SRC json
+    #+BEGIN_SRC fundamental
     {
         type: ItemTurret
         ammo: {
