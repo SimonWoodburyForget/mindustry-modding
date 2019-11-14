@@ -935,7 +935,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 *** Turret
 
-    [[Abstract][Abstract]] type which extends [[Block][Block]] -- All turrets extend from [[Turret]], which holds all the common fields.
+    [[Abstract][Abstract]] type which extends [[Block][Block]] 
+
+    This is the base type for all turrets.
 
     | field         | type    |    default | notes      |
     |---------------+---------+------------+------------|
@@ -992,18 +994,28 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     * doesn't take hot fluid
 
 *** ItemTurret
+    :PROPERTIES:
+    :DESCRIPTION: use item as ammo
+    :END:
 
     Extends [[CooledTurret][CooledTurret]] 
 
-    ItemTurret is a turret that shoots bullets relative to an item type.
+    This type is a turret that uses items as ammo. The key to the ~ammo~ field should be the name of an [[Item]], while the value may be any [[Built-in Bullets]] or a [[BulletType]] itself.
 
     #+BEGIN_SRC json
     {
-        "ammo": {
-            "copper": "standardCopper",
-            "metaglass": {
-                "type": "MissileBulletType",
-                "damage": 2
+        type: ItemTurret
+        ammo: {
+            copper: standardCopper
+
+            metaglass: {
+                type: MissileBulletType
+                damage: 2
+            }
+
+            surge-alloy: {
+                type: LiquidBulletType
+                damage: 3
             }
         }
     }
@@ -1024,8 +1036,50 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     |----------+---------|
     | hasItems | true    |
 
+*** LiquidTurret
+    :PROPERTIES:
+    :DESCRIPTION: use liquid as ammo
+    :END:
+
+    Extends [[Turret]]
+
+    This type is just a turret that uses liquid as ammo. The key to ~ammo~ must be the name of a [[Liquid]], while the value may either be the name of any [[Built-in Bullets]] or a [[BulletType]] itself.
+
+    For example you could do something like this:
+
+    #+BEGIN_SRC fundamental
+    {
+        type: LiquidTurret
+        ammo: {
+            water: {
+                type: MissileBulletType
+                damage: 9000
+            }
+
+            slag: {
+                type: LiquidBulletType
+                damage: 0
+            }
+        }
+    }
+            
+    #+END_SRC
+
+
+    | fields | type                   | notes                                     |
+    |--------+------------------------+-------------------------------------------|
+    | ammo   | { String: [[BulletType]] } | object with [[Liquid]] names to bullet types. |
+
+    Defaults:
+    | fields      | default |
+    |-------------+---------|
+    | hasLiquids  | true    |
+    | activeSound | spray   |
+
 *** DoubleTurret
-    Extends [[ItemTurret][ItemTurret]] -- Turret that shoots from two side by side barrels.
+    Extends [[ItemTurret][ItemTurret]] 
+
+    ItemTurret that shoots from two side-by-side barrels.
 
     | field     | type  | default |
     |-----------+-------+---------|
@@ -1093,19 +1147,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     Doesn't update shoot if:
     * liquid temperature greater or equal to ~0.5~
     * liquid flammability greater then ~0.1~
-
-*** LiquidTurret
-    Extends [[Turret]]
-
-    | fields | type                   | notes                                     |
-    |--------+------------------------+-------------------------------------------|
-    | ammo   | { String: [[BulletType]] } | object with [[Liquid]] names to bullet types. |
-
-    Defaults:
-    | fields      | default |
-    |-------------+---------|
-    | hasLiquids  | true    |
-    | activeSound | spray   |
 ** Distribution
    :PROPERTIES:
    :DESCRIPTION: blocks to move items around
