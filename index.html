@@ -377,7 +377,7 @@ body
 
 <body lang="en">
 <h1 class="settitle" align="center">Mindustry Modding Guide</h1>
-<p>Modding documentation for Mindustry v99 (159)
+<p>Modding documentation for Mindustry v99 (162)
 </p>
 
 <a name="SEC_Contents"></a>
@@ -396,8 +396,8 @@ body
     <li><a name="toc-Sound-1" href="#Sound">1.6 Sound</a></li>
     <li><a name="toc-Dependencies-1" href="#Dependencies">1.7 Dependencies</a></li>
     <li><a name="toc-Bundles-1" href="#Bundles">1.8 Bundles</a></li>
-    <li><a name="toc-Schematic-1" href="#Schematic">1.9 Schematic</a></li>
-    <li><a name="toc-Mindustry-JSON-1" href="#Mindustry-JSON">1.10 Mindustry JSON</a></li>
+    <li><a name="toc-NEW-Hjson" href="#Hjson">1.9 <strong>NEW</strong> Hjson</a></li>
+    <li><a name="toc-Schematic-1" href="#Schematic">1.10 Schematic</a></li>
     <li><a name="toc-FAQ-1" href="#FAQ">1.11 FAQ</a></li>
   </ul></li>
   <li><a name="toc-World-1" href="#World">2 World</a>
@@ -623,9 +623,9 @@ Overview
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Bundles">Bundles</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">translations and renaming
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Schematic">Schematic</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Hjson">Hjson</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">content parser syntax
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Mindustry-JSON">Mindustry JSON</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Schematic">Schematic</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#FAQ">FAQ</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">simple questions and awnsers
 </td></tr>
@@ -978,9 +978,9 @@ Next: <a href="#World" accesskey="n" rel="next">World</a>, Previous: <a href="#T
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Bundles" accesskey="8">Bundles</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">translations and renaming
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Schematic" accesskey="9">Schematic</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Hjson" accesskey="9">Hjson</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">content parser syntax
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Mindustry-JSON">Mindustry JSON</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Schematic">Schematic</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#FAQ">FAQ</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">simple questions and awnsers
 </td></tr>
@@ -1238,7 +1238,7 @@ Next: <a href="#Bundles" accesskey="n" rel="next">Bundles</a>, Previous: <a href
 <a name="Bundles"></a>
 <div class="header">
 <p>
-Next: <a href="#Schematic" accesskey="n" rel="next">Schematic</a>, Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Hjson" accesskey="n" rel="next">Hjson</a>, Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Bundles-1"></a>
 <h3 class="section">1.8 Bundles</h3>
@@ -1309,41 +1309,58 @@ block.example-mod-silver-wall.description = Стена из серебра.
 </li></ul>
 
 <hr>
+<a name="Hjson"></a>
+<div class="header">
+<p>
+Next: <a href="#Schematic" accesskey="n" rel="next">Schematic</a>, Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="NEW-Hjson"></a>
+<h3 class="section">1.9 <strong>NEW</strong> Hjson</h3>
+
+<p><strong>new:</strong> <em>currently partially implimented on <a href="#orgee4ac53">bleeding-edge</a>, where only <code>content/</code> uses Hjson.</em>
+</p>
+<p>As of now, Mindustry doesn&rsquo;t actually use Json, <em>(but any valid JSON should work)</em> it uses a variant of Json called <a href="https://hjson.org/">Hjson</a>.
+</p>
+<div class="example">
+<pre class="example">{
+    # single line comment
+
+    // single line comment
+
+    /* multiline
+       comment */
+
+    key1: single line string
+
+    key2: '''
+          multiline 
+          string
+          '''
+
+    key3: [ value 1
+            value 2 
+            value 3 ]
+}
+</pre></div>
+
+<hr>
 <a name="Schematic"></a>
 <div class="header">
 <p>
-Next: <a href="#Mindustry-JSON" accesskey="n" rel="next">Mindustry JSON</a>, Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#FAQ" accesskey="n" rel="next">FAQ</a>, Previous: <a href="#Hjson" accesskey="p" rel="prev">Hjson</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Schematic-1"></a>
-<h3 class="section">1.9 Schematic</h3>
+<h3 class="section">1.10 Schematic</h3>
 
 <p>Fields that require the type <code>Schematic</code> can either take a built-in loadout <em>(see the <a href="#Zone">Zone</a> section)</em> a base64 string, or the stem name of a <code>.msch</code> file in the <code>schematics/</code> subdirectory.
 </p>
 <p><em>As of now, the only purpose of schematics is to give a zone a loadout.</em>
 </p>
 <hr>
-<a name="Mindustry-JSON"></a>
-<div class="header">
-<p>
-Next: <a href="#FAQ" accesskey="n" rel="next">FAQ</a>, Previous: <a href="#Schematic" accesskey="p" rel="prev">Schematic</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
-</div>
-<a name="Mindustry-JSON-1"></a>
-<h3 class="section">1.10 Mindustry JSON</h3>
-
-<p>Mindustry doesn&rsquo;t actually use JSON, but most valid JSON should work, and as of now here are the specific expected differences:
-</p><ul>
-<li> <code>//</code> may be used for single line comments;
-</li><li> <code>//</code> can&rsquo;t be used in strings, except if prefixed with <code>https:</code> / <code>http:</code>;
-</li><li> <code>&quot;</code> aren&rsquo;t required for strings;
-</li><li> <code>,</code> commas aren&rsquo;t required for objects or arrays;
-</li><li> <code>[ value, ]</code> commas can trail within objects or arrays.
-</li></ul>
-
-<hr>
 <a name="FAQ"></a>
 <div class="header">
 <p>
-Previous: <a href="#Mindustry-JSON" accesskey="p" rel="prev">Mindustry JSON</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Previous: <a href="#Schematic" accesskey="p" rel="prev">Schematic</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="FAQ-1"></a>
 <h3 class="section">1.11 FAQ</h3>
@@ -1353,9 +1370,10 @@ Previous: <a href="#Mindustry-JSON" accesskey="p" rel="prev">Mindustry JSON</a>,
 </li><li> <code>ticks</code> <em>sometimes called <code>frames</code>,</em> are assumed to be 60/1 second;
 </li><li> <code>range</code> or most forms of distance is 1/10 of a tile;
 </li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;
-</li><li> <a name="orgfc01ac2"></a><em>Abstract</em>: all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind.
-</li><li> research cost is <code>30 + requirements * 6</code>
-</li><li> What&rsquo;s a <code>NullPointerException</code>? This is an error message that indicates a field is null and shouldn&rsquo;t be null, meaning one of the required fields may be missing.
+</li><li> <a name="orgc2b6c5d"></a>what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind;
+</li><li> research cost is <code>30 + requirements * 6</code>;
+</li><li> what is a <code>NullPointerException</code>? This is an error message that indicates a field is null and shouldn&rsquo;t be null, meaning one of the required fields may be missing;
+</li><li> <a name="orgee4ac53"></a>what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it&rsquo;s refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.
 </li></ul>
 
 <hr>
@@ -1482,9 +1500,9 @@ Next: <a href="#Consume" accesskey="n" rel="next">Consume</a>, Previous: <a href
 <table>
 <thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
 <tr><td>item</td><td>String</td><td>shorthand for <code>items</code></td></tr>
-<tr><td>items</td><td><a href="#orge63e995">ConsumeItems</a></td><td>consume a number of different items</td></tr>
-<tr><td>liquid</td><td><a href="#orgdfb0ad7">ConsumeLiquid</a></td><td>consume a single liquid</td></tr>
-<tr><td>power</td><td>float or <a href="#orgf9d7ccc">ConsumePower</a></td><td>consume or buffer power</td></tr>
+<tr><td>items</td><td><a href="#orgf78b52a">ConsumeItems</a></td><td>consume a number of different items</td></tr>
+<tr><td>liquid</td><td><a href="#org80b7ca6">ConsumeLiquid</a></td><td>consume a single liquid</td></tr>
+<tr><td>power</td><td>float or <a href="#orgf41aa26">ConsumePower</a></td><td>consume or buffer power</td></tr>
 <tr><td>powerBuffered</td><td>float</td><td>amount of power buffered</td></tr>
 </table>
 
@@ -1493,7 +1511,7 @@ Next: <a href="#Consume" accesskey="n" rel="next">Consume</a>, Previous: <a href
 <li> you shouldn&rsquo;t have <code>power</code> and <code>powerBuffered</code>.
 </li></ul>
 
-<p>For example with <a href="#orge63e995">ConsumeItems</a> and <a href="#orgdfb0ad7">ConsumeLiquid</a>:
+<p>For example with <a href="#orgf78b52a">ConsumeItems</a> and <a href="#org80b7ca6">ConsumeLiquid</a>:
 </p><div class="example">
 <pre class="example">{
     &quot;items&quot;: {
@@ -1520,7 +1538,7 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 <a name="Consume-1"></a>
 <h3 class="section">2.3 Consume</h3>
 
-<p><a href="#orgfc01ac2">Abstract</a> type which defines a type of resource that a block can consume.
+<p><a href="#orgc2b6c5d">Abstract</a> type which defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1530,14 +1548,14 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 </table>
 
 <ul>
-<li> <a name="orge63e995"></a><code>ConsumeItems</code>, consume an itemstack.
+<li> <a name="orgf78b52a"></a><code>ConsumeItems</code>, consume an itemstack.
 
 <table>
 <thead><tr><th>field</th><th>type</th></tr></thead>
 <tr><td>items</td><td><a href="#ItemStack">ItemStack</a></td></tr>
 </table>
 
-</li><li> <a name="orgdfb0ad7"></a><code>ConsumeLiquid</code>, consume a liquid.
+</li><li> <a name="org80b7ca6"></a><code>ConsumeLiquid</code>, consume a liquid.
 
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1546,7 +1564,7 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 <tr><td>timePeriod</td><td>float</td><td>60</td><td>how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as <em>100 seconds</em>, but without a time override it would display as <em>10 liquid/second</em>. This is used for generic crafters.</td></tr>
 </table>
 
-</li><li> <a name="orgf9d7ccc"></a><code>ConsumePower</code>, consume or buffer power.
+</li><li> <a name="orgf41aa26"></a><code>ConsumePower</code>, consume or buffer power.
 
 <table>
 <thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
@@ -1565,7 +1583,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.4 BlockStorage</h3>
 
-<p><a href="#orgfc01ac2">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
+<p><a href="#orgc2b6c5d">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -2275,10 +2293,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#orgcabba62">cold-liquid</a></td></tr>
+<tr><td>consumes</td><td><a href="#org4ef75da">cold-liquid</a></td></tr>
 </table>
 
-<a name="orgcabba62"></a><p><a href="#orgcabba62">cold-liquid</a>:
+<a name="org4ef75da"></a><p><a href="#org4ef75da">cold-liquid</a>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -2365,7 +2383,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.10.1 Turret</h4>
 
-<p><a href="#orgfc01ac2">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
+<p><a href="#orgc2b6c5d">Abstract</a> type which extends <a href="#Block">Block</a> &ndash; All turrets extend from <a href="#Turret">Turret</a>, which holds all the common fields.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -3122,7 +3140,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.13.1 PowerBlock</h4>
 
-<p><a href="#orgfc01ac2">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#orgc2b6c5d">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -3267,8 +3285,17 @@ Next: <a href="#SingleTypeGenerator" accesskey="n" rel="next">SingleTypeGenerato
 <a name="ItemLiquidGenerator-1"></a>
 <h4 class="unnumberedsubsubsec">ItemLiquidGenerator</h4>
 
-<p>Extends <a href="#PowerGenerator">PowerGenerator</a> &ndash; Base power generation block which can use items, liquids or both as input sources for power production. Liquids will take priority over items.
+<p>Extends <a href="#PowerGenerator">PowerGenerator</a> &ndash; Base of power generation blocks.
 </p>
+<p>Notes:
+</p><ul>
+<li> item efficiency is <strong>always</strong> 0.0
+</li><li> liquid efficiency is <strong>always</strong> 0.0
+</li></ul>
+
+<p><em>(this type doesn&rsquo;t produce power)</em>
+</p>
+
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>minItemEfficiency</td><td>float</td><td>0.2</td><td></td></tr>
@@ -3282,11 +3309,6 @@ Next: <a href="#SingleTypeGenerator" accesskey="n" rel="next">SingleTypeGenerato
 <tr><td>defaults</td><td>boolean</td><td>false</td><td></td></tr>
 </table>
 
-<p>Notes:
-</p><ul>
-<li> item efficiency is always 0.0
-</li><li> liquid efficiency is always 0.0
-</li></ul>
 
 <p>Extra sprites:
 </p><ul>
@@ -3814,7 +3836,7 @@ Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="
 <a name="StorageBlock-1"></a>
 <h4 class="subsection">2.16.1 StorageBlock</h4>
 
-<p><a href="#orgfc01ac2">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#orgc2b6c5d">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -4071,14 +4093,20 @@ Next: <a href="#ItemStack" accesskey="n" rel="next">ItemStack</a>, Up: <a href="
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>color</td><td><a href="#Color">Color</a></td><td></td><td>hex string of color</td></tr>
-<tr><td>type</td><td><a href="#Item">ItemType</a></td><td></td><td>resource or material; used for tabs and core acceptance</td></tr>
-<tr><td>explosiveness</td><td>float</td><td><code>0</code></td><td>how explosive this item is.</td></tr>
-<tr><td>flammability</td><td>float</td><td><code>0</code></td><td>flammability above 0.3 makes this eleigible for item burners.</td></tr>
+<tr><td>type</td><td><a href="#org48e6a89">org48e6a89</a></td><td></td><td>used for tabs and core acceptance</td></tr>
+<tr><td>explosiveness</td><td>float</td><td>0</td><td>how explosive this item is.</td></tr>
+<tr><td>flammability</td><td>float</td><td>0</td><td>flammability above 0.3 makes this eleigible for item burners.</td></tr>
 <tr><td>radioactivity</td><td>float</td><td></td><td>how radioactive this item is. 0=none, 1=chernobyl ground zero</td></tr>
-<tr><td>hardness</td><td>int</td><td><code>0</code></td><td>drill hardness of the item</td></tr>
-<tr><td>cost</td><td>float</td><td><code>1</code></td><td>used for calculating place times; 1 cost = 1 tick added to build time</td></tr>
-<tr><td>alwaysUnlocked</td><td>boolean</td><td><code>false</code></td><td>If true, item is always unlocked.</td></tr>
+<tr><td>hardness</td><td>int</td><td>0</td><td>drill hardness of the item</td></tr>
+<tr><td>cost</td><td>float</td><td>1</td><td>used for calculating place times; 1 cost = 1 tick added to build time</td></tr>
+<tr><td>alwaysUnlocked</td><td>boolean</td><td>false</td><td>If true, item is always unlocked.</td></tr>
 </table>
+
+<a name="org48e6a89"></a><p>ItemType:
+</p><ul>
+<li> <code>resource</code> can go in the core;
+</li><li> <code>material</code> can&rsquo;t go in the core.
+</li></ul>
 
 <hr>
 <a name="ItemStack"></a>
@@ -4559,7 +4587,7 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletType-1"></a>
 <h3 class="section">5.1 BulletType</h3>
 
-<p><a href="#orgfc01ac2">Abstract</a> type which extends <a href="#Content">Content</a>
+<p><a href="#orgc2b6c5d">Abstract</a> type which extends <a href="#Content">Content</a>
 </p>
 <p>BulletType can either be an object <code>{}</code> or a <code>&quot;string&quot;</code>, where a string would be reusing <a href="#Built_002din-Bullets">Built-in Bullets</a> and an object would be making a custom one.
 </p>

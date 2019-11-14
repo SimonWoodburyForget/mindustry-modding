@@ -10,9 +10,9 @@
 
 #+TEXINFO_FILENAME: index
 
-#+TODO: TODO UNTESTED | DONE
+#+TODO: TODO UNTESTED | NEW DONE
 
-#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (159)
+#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (162)
 
 Submit pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
@@ -28,37 +28,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
   You can add custom sprites and sounds; sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them.
 
   It is also now possible to put schematics into mods
-
-** Hjson
-   :PROPERTIES:
-   :DESCRIPTION: content parser syntax
-   :END:
-
-   As of now, Mindustry doesn't actually use Json, /(but any valid JSON should work)/ it uses a variant of Json called [[https://hjson.org/][Hjson]].
-
-   /TL;DR:/
-
-   #+BEGIN_SRC fundamental
-   {
-       # single line comment
-
-       // single line comment
-
-       /* multiline
-          comment */
-
-       key1: single line string
-
-       key2: '''
-             multiline 
-             string
-             '''
-
-       key3: [ value 1
-               value 2 
-               value 3 ]
-   }
-   #+END_SRC
 
 ** Directory Structure
    :PROPERTIES:
@@ -327,6 +296,37 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * Chinese CN ~bundle_zh_CN.properties~
    * Chinese TW ~bundle_zh_TW.properties~
 
+** NEW Hjson
+   :PROPERTIES:
+   :DESCRIPTION: content parser syntax
+   :END:
+   
+   *new:* /currently partially implimented on [[bleeding-edge][bleeding-edge]], where only ~content/~ uses Hjson./
+
+   As of now, Mindustry doesn't actually use Json, /(but any valid JSON should work)/ it uses a variant of Json called [[https://hjson.org/][Hjson]].
+
+   #+BEGIN_SRC fundamental
+   {
+       # single line comment
+
+       // single line comment
+
+       /* multiline
+          comment */
+
+       key1: single line string
+
+       key2: '''
+             multiline 
+             string
+             '''
+
+       key3: [ value 1
+               value 2 
+               value 3 ]
+   }
+   #+END_SRC
+
 ** Schematic
 
    Fields that require the type ~Schematic~ can either take a built-in loadout /(see the [[Zone]] section)/ a base64 string, or the stem name of a ~.msch~ file in the ~schematics/~ subdirectory.
@@ -342,9 +342,10 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     * ~ticks~ /sometimes called ~frames~,/ are assumed to be 60/1 second;
     * ~range~ or most forms of distance is 1/10 of a tile;
     * to calculate range out of ~lifetime~ and ~speed~ you can do ~lifetime * speed = range~;
-    * <<Abstract>> /Abstract/: all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an /"initialization exception"/ of some kind.
-    * research cost is ~30 + requirements * 6~
-    * What's a ~NullPointerException~? This is an error message that indicates a field is null and shouldn't be null, meaning one of the required fields may be missing.
+    * <<Abstract>> what is ~abstract~? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an /"initialization exception"/ of some kind;
+    * research cost is ~30 + requirements * 6~;
+    * what is a ~NullPointerException~? This is an error message that indicates a field is null and shouldn't be null, meaning one of the required fields may be missing;
+    * <<bleeding-edge>> what is ~bleeding-edge~? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.
 
 * World
   :PROPERTIES:
