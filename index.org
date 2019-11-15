@@ -53,6 +53,10 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * Steam: =steam/steamapps/common/Mindustry/mods/=
    * Windows: =%appdata%/Mindustry/mods/=
 
+   *Note;* your filenames should be lowercased and hyphen separated:
+   * correct: ~my-custom-block.json~
+   * incorrect: ~My Custom Block.json~
+
 ** ~mod.json~
    :PROPERTIES:
    :DESCRIPTION: the project configuration file.
@@ -1999,7 +2003,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 ** Liquid
 
-   Extends [[Content]] -- Object that defines the properties of a liquid.
+   Extends [[Content]]
+
+   Type which defines the properties of a liquid. Like [[Item]] this will go into it's own subdirectory `content/liquids/liquid-name.json`, and from it's stem name you can reuse it from your other mod content.
 
    | field         | type         | default | notes      |
    |---------------+--------------+---------+------------|
@@ -2012,6 +2018,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | viscosity     | float        |     0.5 | how thick this liquid is; water is 0.5, tar is 1. |
    | explosiveness | float        |         | explosiveness when heated; 0 is nothing, 1 is nuke |
    | effect        | [[StatusEffect][StatusEffect]] |    none | the associated status effect. |
+
+   Sprites:
+   * ~<name>~, the sprite used when displaying the liquid from a menu.
 
 ** LiquidStack
 
