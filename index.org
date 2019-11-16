@@ -516,13 +516,18 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    :DESCRIPTION: environmental blocks
    :END:
 
-
    Environmental blocks are blocks that must be placed from the editor, and they're the ones that will generally dictate how the game can or will be played. These blocks wont appear on a map unless you've built a map to support them.
 
 *** Floor
-    Extends [[Block][Block]] -- Environmental floors. Requires a sprite, so to be visible in the map editor.
+    :PROPERTIES:
+    :DESCRIPTION: environmental floors
+    :END:
+    
+    Extends [[Block][Block]]
 
-    | field             | type         | default | notes      |
+    Type used for floors themselves or extended to make ores and other things. 
+
+    | envir             | type         | default | notes      |
     |-------------------+--------------+---------+------------|
     |                   |              |     <r> | <10>       |
     | variants          | int          |       3 | number of different variant regions to use. |
@@ -543,17 +548,27 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | updateEffect      | [[Effect][Effect]]       |    none | effect displayed when randomly updated. |
     | attributes        | [[Attributes][Attributes]]   |         | array of affinities to certain things. |
 
-    Sprite lookup names:
-    - ~<name><1..>~
+    Notes:
+    * this type requires a sprite to be visible from the map editor.
+
+    Sprites:
+    * ~<name><1..>~ for variant sprites of the floor;
+    * ~<name>-edge~ optional edge sprite.
 
 *** OverlayFloor
+    :PROPERTIES:
+    :DESCRIPTION: type of floor that is overlaid on top of Floor
+    :END:
 
-    Extends [[Floor][Floor]] -- A type of floor that is overlaid on top of other floors.
+    Extends [[Floor][Floor]] 
 
     For example:
     * ~tendrils~
 
 *** DoubleOverlayFloor
+    :PROPERTIES:
+    :DESCRIPTION: type of floor that is overlaid on top of OverlayFloor
+    :END:
 
     Extends [[OverlayFloor][OverlayFloor]]
 
@@ -561,8 +576,11 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     * ~pebbles~
 
 *** OreBlock
+    :PROPERTIES:
+    :DESCRIPTION: overlayfloor for a specific item type
+    :END:
 
-    Extends [[OverlayFloor][OverlayFloor]] -- An overlay ore for a specific item type.
+    Extends [[OverlayFloor][OverlayFloor]]
 
     | field    | default |
     |----------+---------|
