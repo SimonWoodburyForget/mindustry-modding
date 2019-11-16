@@ -300,7 +300,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * Chinese CN ~bundle_zh_CN.properties~
    * Chinese TW ~bundle_zh_TW.properties~
 
-** NEW Hjson
+** Hjson
    :PROPERTIES:
    :DESCRIPTION: content parser syntax
    :END:
@@ -492,10 +492,12 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 ** BlockStorage
    :PROPERTIES:
-   :DESCRIPTION: base of storage
+   :DESCRIPTION: base of itemw and liquid storage
    :END:
 
-   [[Abstract][Abstract]] type that extends [[Content][Content]] -- This is for blocks that can store a buffer of items.
+   [[Abstract][Abstract]] type that extends [[Content][Content]] 
+
+   Type for blocks which may store a buffer of items or liquid.
 
    | field          | type      | default |
    |----------------+-----------+---------|
@@ -509,6 +511,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | itemCapacity   | int       |      10 |
    | liquidCapacity | float     |      10 |
    | item           | float     |      10 |
+   | liquidPressure | float     |       1 |
    | consumes       | [[Consumers][Consumers]] |         |
 
 ** Environment
