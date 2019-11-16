@@ -363,6 +363,8 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    Extends [[BlockStorage][BlockStorage]]
 
+   Block is the base type of all blocks in the game. All blocks have at least one sprite, which is picked relative to the blocks name.
+
    Fields for all objects that are blocks.
 
    | field               | type            |      default | notes      |
@@ -409,6 +411,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | alwaysUnlocked      | boolean         |        false |            |
    | layer               | [[Layer][Layer]]           |         null | Layer to draw extra stuff on. |
    | layer2              | [[Layer][Layer]]           |         null | Extra layer to draw extra stuff on. |
+
+   Sprites:
+   * ~<name>~ the main sprite for the block.
 
 ** Consumers
    :PROPERTIES:
@@ -592,7 +597,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | solid         |    true |
     | variants      |       2 |
 
-    Extra Sprites:
+    Sprites:
     * ~<name>-large.png~ which is a 2x2 variant of the block.
 
 *** StaticTree
@@ -2005,7 +2010,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    Extends [[Content]]
 
-   Type which defines the properties of a liquid. Like [[Item]] this will go into it's own subdirectory `content/liquids/liquid-name.json`, and from it's stem name you can reuse it from your other mod content.
+   Type which defines the properties of a liquid. Like [[Item]] this will go into it's own subdirectory ~content/liquids/liquid-name.json~, and from it's stem name you can reuse it from your other mod content.
 
    | field         | type         | default | notes      |
    |---------------+--------------+---------+------------|
