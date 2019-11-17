@@ -396,7 +396,7 @@ body
     <li><a name="toc-Sound-1" href="#Sound">1.6 Sound</a></li>
     <li><a name="toc-Dependencies-1" href="#Dependencies">1.7 Dependencies</a></li>
     <li><a name="toc-Bundles-1" href="#Bundles">1.8 Bundles</a></li>
-    <li><a name="toc-NEW-Hjson" href="#Hjson">1.9 <strong>NEW</strong> Hjson</a></li>
+    <li><a name="toc-Hjson-1" href="#Hjson">1.9 Hjson</a></li>
     <li><a name="toc-Schematic-1" href="#Schematic">1.10 Schematic</a></li>
     <li><a name="toc-FAQ-1" href="#FAQ">1.11 FAQ</a></li>
   </ul></li>
@@ -639,7 +639,7 @@ World
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Consume">Consume</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">a resource to consume
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#BlockStorage">BlockStorage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base of storage
+<tr><td align="left" valign="top">&bull; <a href="#BlockStorage">BlockStorage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base of itemw and liquid storage
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Environment">Environment</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">environmental blocks
 </td></tr>
@@ -677,13 +677,13 @@ World
 
 Environment
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Floor">Floor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Floor">Floor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">environmental floors
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#OverlayFloor">OverlayFloor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#OverlayFloor">OverlayFloor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">type of floor that is overlaid on top of Floor
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#DoubleOverlayFloor">DoubleOverlayFloor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#DoubleOverlayFloor">DoubleOverlayFloor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">type of floor that is overlaid on top of OverlayFloor
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#OreBlock">OreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#OreBlock">OreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">overlayfloor for a specific item type
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Rock">Rock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1016,6 +1016,12 @@ Next: <a href="#modjson" accesskey="n" rel="next"><code>modjson</code></a>, Up: 
 </li><li> Windows: &lsquo;<samp>%appdata%/Mindustry/mods/</samp>&rsquo;
 </li></ul>
 
+<p><strong>Note;</strong> your filenames should be lowercased and hyphen separated:
+</p><ul>
+<li> correct: <code>my-custom-block.json</code>
+</li><li> incorrect: <code>My Custom Block.json</code>
+</li></ul>
+
 <hr>
 <a name="modjson"></a>
 <div class="header">
@@ -1314,10 +1320,10 @@ block.example-mod-silver-wall.description = Стена из серебра.
 <p>
 Next: <a href="#Schematic" accesskey="n" rel="next">Schematic</a>, Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="NEW-Hjson"></a>
-<h3 class="section">1.9 <strong>NEW</strong> Hjson</h3>
+<a name="Hjson-1"></a>
+<h3 class="section">1.9 Hjson</h3>
 
-<p><strong>new:</strong> <em>currently partially implimented on <a href="#org0bb3c39">bleeding-edge</a>, where only <code>content/</code> uses Hjson.</em>
+<p><strong>new:</strong> <em>currently partially implimented on <a href="#org7d24e43">bleeding-edge</a>, where only <code>content/</code> uses Hjson.</em>
 </p>
 <p>As of now, Mindustry doesn&rsquo;t actually use Json, <em>(but any valid JSON should work)</em> it uses a variant of Json called <a href="https://hjson.org/">Hjson</a>.
 </p>
@@ -1333,12 +1339,12 @@ Next: <a href="#Schematic" accesskey="n" rel="next">Schematic</a>, Previous: <a 
     key1: single line string
 
     key2: '''
-          multiline 
+          multiline
           string
           '''
 
     key3: [ value 1
-            value 2 
+            value 2
             value 3 ]
 }
 </pre></div>
@@ -1370,10 +1376,10 @@ Previous: <a href="#Schematic" accesskey="p" rel="prev">Schematic</a>, Up: <a hr
 </li><li> <code>ticks</code> <em>sometimes called <code>frames</code>,</em> are assumed to be 60/1 second;
 </li><li> <code>range</code> or most forms of distance is 1/10 of a tile;
 </li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;
-</li><li> <a name="org5d59b46"></a>what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind;
+</li><li> <a name="org90e669e"></a>what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind;
 </li><li> research cost is <code>30 + requirements * 6</code>;
 </li><li> what is a <code>NullPointerException</code>? This is an error message that indicates a field is null and shouldn&rsquo;t be null, meaning one of the required fields may be missing;
-</li><li> <a name="org0bb3c39"></a>what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it&rsquo;s refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.
+</li><li> <a name="org7d24e43"></a>what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it&rsquo;s refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.
 </li></ul>
 
 <hr>
@@ -1392,7 +1398,7 @@ Next: <a href="#Type" accesskey="n" rel="next">Type</a>, Previous: <a href="#Ove
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Consume" accesskey="3">Consume</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">a resource to consume
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#BlockStorage" accesskey="4">BlockStorage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base of storage
+<tr><td align="left" valign="top">&bull; <a href="#BlockStorage" accesskey="4">BlockStorage</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base of itemw and liquid storage
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Environment" accesskey="5">Environment</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">environmental blocks
 </td></tr>
@@ -1438,6 +1444,8 @@ Next: <a href="#Consumers" accesskey="n" rel="next">Consumers</a>, Up: <a href="
 <h3 class="section">2.1 Block</h3>
 
 <p>Extends <a href="#BlockStorage">BlockStorage</a>
+</p>
+<p>Block is the base type of all blocks in the game. All blocks have at least one sprite, which is picked relative to the blocks name.
 </p>
 <p>Fields for all objects that are blocks.
 </p>
@@ -1486,6 +1494,11 @@ Next: <a href="#Consumers" accesskey="n" rel="next">Consumers</a>, Up: <a href="
 <tr><td>layer2</td><td><a href="#Layer">Layer</a></td><td>null</td><td>Extra layer to draw extra stuff on.</td></tr>
 </table>
 
+<p>Sprites:
+</p><ul>
+<li> <code>&lt;name&gt;</code> the main sprite for the block.
+</li></ul>
+
 <hr>
 <a name="Consumers"></a>
 <div class="header">
@@ -1500,9 +1513,9 @@ Next: <a href="#Consume" accesskey="n" rel="next">Consume</a>, Previous: <a href
 <table>
 <thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
 <tr><td>item</td><td>String</td><td>shorthand for <code>items</code></td></tr>
-<tr><td>items</td><td><a href="#org04d7941">ConsumeItems</a></td><td>consume a number of different items</td></tr>
-<tr><td>liquid</td><td><a href="#org5d8b324">ConsumeLiquid</a></td><td>consume a single liquid</td></tr>
-<tr><td>power</td><td>float or <a href="#orgcdc913b">ConsumePower</a></td><td>consume or buffer power</td></tr>
+<tr><td>items</td><td><a href="#orgbabdbea">ConsumeItems</a></td><td>consume a number of different items</td></tr>
+<tr><td>liquid</td><td><a href="#org7541f06">ConsumeLiquid</a></td><td>consume a single liquid</td></tr>
+<tr><td>power</td><td>float or <a href="#org638e54f">ConsumePower</a></td><td>consume or buffer power</td></tr>
 <tr><td>powerBuffered</td><td>float</td><td>amount of power buffered</td></tr>
 </table>
 
@@ -1511,7 +1524,7 @@ Next: <a href="#Consume" accesskey="n" rel="next">Consume</a>, Previous: <a href
 <li> you shouldn&rsquo;t have <code>power</code> and <code>powerBuffered</code>.
 </li></ul>
 
-<p>For example with <a href="#org04d7941">ConsumeItems</a> and <a href="#org5d8b324">ConsumeLiquid</a>:
+<p>For example with <a href="#orgbabdbea">ConsumeItems</a> and <a href="#org7541f06">ConsumeLiquid</a>:
 </p><div class="example">
 <pre class="example">{
     &quot;items&quot;: {
@@ -1538,7 +1551,7 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 <a name="Consume-1"></a>
 <h3 class="section">2.3 Consume</h3>
 
-<p><a href="#org5d59b46">Abstract</a> type which defines a type of resource that a block can consume.
+<p><a href="#org90e669e">Abstract</a> type which defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1548,14 +1561,14 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 </table>
 
 <ul>
-<li> <a name="org04d7941"></a><code>ConsumeItems</code>, consume an itemstack.
+<li> <a name="orgbabdbea"></a><code>ConsumeItems</code>, consume an itemstack.
 
 <table>
 <thead><tr><th>field</th><th>type</th></tr></thead>
 <tr><td>items</td><td><a href="#ItemStack">ItemStack</a></td></tr>
 </table>
 
-</li><li> <a name="org5d8b324"></a><code>ConsumeLiquid</code>, consume a liquid.
+</li><li> <a name="org7541f06"></a><code>ConsumeLiquid</code>, consume a liquid.
 
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1564,7 +1577,7 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 <tr><td>timePeriod</td><td>float</td><td>60</td><td>how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as <em>100 seconds</em>, but without a time override it would display as <em>10 liquid/second</em>. This is used for generic crafters.</td></tr>
 </table>
 
-</li><li> <a name="orgcdc913b"></a><code>ConsumePower</code>, consume or buffer power.
+</li><li> <a name="org638e54f"></a><code>ConsumePower</code>, consume or buffer power.
 
 <table>
 <thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
@@ -1583,7 +1596,9 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.4 BlockStorage</h3>
 
-<p><a href="#org5d59b46">Abstract</a> type that extends <a href="#Content">Content</a> &ndash; This is for blocks that can store a buffer of items.
+<p><a href="#org90e669e">Abstract</a> type that extends <a href="#Content">Content</a> 
+</p>
+<p>Type for blocks which may store a buffer of items or liquid.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
@@ -1596,6 +1611,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <tr><td>itemCapacity</td><td>int</td><td>10</td></tr>
 <tr><td>liquidCapacity</td><td>float</td><td>10</td></tr>
 <tr><td>item</td><td>float</td><td>10</td></tr>
+<tr><td>liquidPressure</td><td>float</td><td>1</td></tr>
 <tr><td>consumes</td><td><a href="#Consumers">Consumers</a></td><td></td></tr>
 </table>
 
@@ -1611,13 +1627,13 @@ Next: <a href="#Crafting" accesskey="n" rel="next">Crafting</a>, Previous: <a hr
 <p>Environmental blocks are blocks that must be placed from the editor, and they&rsquo;re the ones that will generally dictate how the game can or will be played. These blocks wont appear on a map unless you&rsquo;ve built a map to support them.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Floor" accesskey="1">Floor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Floor" accesskey="1">Floor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">environmental floors
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#OverlayFloor" accesskey="2">OverlayFloor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#OverlayFloor" accesskey="2">OverlayFloor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">type of floor that is overlaid on top of Floor
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#DoubleOverlayFloor" accesskey="3">DoubleOverlayFloor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#DoubleOverlayFloor" accesskey="3">DoubleOverlayFloor</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">type of floor that is overlaid on top of OverlayFloor
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#OreBlock" accesskey="4">OreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#OreBlock" accesskey="4">OreBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">overlayfloor for a specific item type
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Rock" accesskey="5">Rock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1638,10 +1654,12 @@ Next: <a href="#OverlayFloor" accesskey="n" rel="next">OverlayFloor</a>, Up: <a 
 <a name="Floor-1"></a>
 <h4 class="subsection">2.5.1 Floor</h4>
 
-<p>Extends <a href="#Block">Block</a> &ndash; Environmental floors. Requires a sprite, so to be visible in the map editor.
+<p>Extends <a href="#Block">Block</a>
+</p>
+<p>Type used for floors themselves or extended to make ores and other things.
 </p>
 <table>
-<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
+<thead><tr><th>envir</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>variants</td><td>int</td><td>3</td><td>number of different variant regions to use.</td></tr>
 <tr><td>edge</td><td>String</td><td>stone</td><td>edge fallback, used mainly for ores.</td></tr>
 <tr><td>speedMultiplier</td><td>float</td><td>1</td><td>multiplies unit velocity by this when walked on.</td></tr>
@@ -1661,9 +1679,15 @@ Next: <a href="#OverlayFloor" accesskey="n" rel="next">OverlayFloor</a>, Up: <a 
 <tr><td>attributes</td><td><a href="#Attributes">Attributes</a></td><td></td><td>array of affinities to certain things.</td></tr>
 </table>
 
-<p>Sprite lookup names:
+<p>Notes:
 </p><ul>
-<li> <code>&lt;name&gt;&lt;1..&gt;</code>
+<li> this type requires a sprite to be visible from the map editor.
+</li></ul>
+
+<p>Sprites:
+</p><ul>
+<li> <code>&lt;name&gt;&lt;1..&gt;</code> for variant sprites of the floor;
+</li><li> <code>&lt;name&gt;-edge</code> optional edge sprite.
 </li></ul>
 
 <hr>
@@ -1675,7 +1699,7 @@ Next: <a href="#DoubleOverlayFloor" accesskey="n" rel="next">DoubleOverlayFloor<
 <a name="OverlayFloor-1"></a>
 <h4 class="subsection">2.5.2 OverlayFloor</h4>
 
-<p>Extends <a href="#Floor">Floor</a> &ndash; A type of floor that is overlaid on top of other floors.
+<p>Extends <a href="#Floor">Floor</a>
 </p>
 <p>For example:
 </p><ul>
@@ -1707,7 +1731,7 @@ Next: <a href="#Rock" accesskey="n" rel="next">Rock</a>, Previous: <a href="#Dou
 <a name="OreBlock-1"></a>
 <h4 class="subsection">2.5.4 OreBlock</h4>
 
-<p>Extends <a href="#OverlayFloor">OverlayFloor</a> &ndash; An overlay ore for a specific item type.
+<p>Extends <a href="#OverlayFloor">OverlayFloor</a>
 </p>
 <table>
 <thead><tr><th>field</th><th>default</th></tr></thead>
@@ -1757,7 +1781,7 @@ Next: <a href="#StaticTree" accesskey="n" rel="next">StaticTree</a>, Previous: <
 <tr><td>variants</td><td>2</td></tr>
 </table>
 
-<p>Extra Sprites:
+<p>Sprites:
 </p><ul>
 <li> <code>&lt;name&gt;-large.png</code> which is a 2x2 variant of the block.
 </li></ul>
@@ -2293,10 +2317,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#org95fd782">cold-liquid</a></td></tr>
+<tr><td>consumes</td><td><a href="#org04837fc">cold-liquid</a></td></tr>
 </table>
 
-<a name="org95fd782"></a><p><a href="#org95fd782">cold-liquid</a>:
+<a name="org04837fc"></a><p><a href="#org04837fc">cold-liquid</a>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -2383,7 +2407,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.10.1 Turret</h4>
 
-<p><a href="#org5d59b46">Abstract</a> type which extends <a href="#Block">Block</a> 
+<p><a href="#org90e669e">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>This is the base type for all turrets.
 </p>
@@ -2462,7 +2486,7 @@ Next: <a href="#LiquidTurret" accesskey="n" rel="next">LiquidTurret</a>, Previou
 <a name="ItemTurret-1"></a>
 <h4 class="subsection">2.10.3 ItemTurret</h4>
 
-<p>Extends <a href="#CooledTurret">CooledTurret</a> 
+<p>Extends <a href="#CooledTurret">CooledTurret</a>
 </p>
 <p>This type is a turret that uses items as ammo. The key to the <code>ammo</code> field should be the name of an <a href="#Item">Item</a>, while the value may be any <a href="#Built_002din-Bullets">Built-in Bullets</a> or a <a href="#BulletType">BulletType</a> itself.
 </p>
@@ -2556,7 +2580,7 @@ Next: <a href="#ArtilleryTurret" accesskey="n" rel="next">ArtilleryTurret</a>, P
 <a name="DoubleTurret-1"></a>
 <h4 class="subsection">2.10.5 DoubleTurret</h4>
 
-<p>Extends <a href="#ItemTurret">ItemTurret</a> 
+<p>Extends <a href="#ItemTurret">ItemTurret</a>
 </p>
 <p>ItemTurret that shoots from two side-by-side barrels.
 </p>
@@ -3174,7 +3198,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.13.1 PowerBlock</h4>
 
-<p><a href="#org5d59b46">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org90e669e">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -3870,7 +3894,7 @@ Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="
 <a name="StorageBlock-1"></a>
 <h4 class="subsection">2.16.1 StorageBlock</h4>
 
-<p><a href="#org5d59b46">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org90e669e">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -4127,7 +4151,7 @@ Next: <a href="#ItemStack" accesskey="n" rel="next">ItemStack</a>, Up: <a href="
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>color</td><td><a href="#Color">Color</a></td><td></td><td>hex string of color</td></tr>
-<tr><td>type</td><td><a href="#org7b300ac">org7b300ac</a></td><td></td><td>used for tabs and core acceptance</td></tr>
+<tr><td>type</td><td><a href="#orgc220f37">orgc220f37</a></td><td></td><td>used for tabs and core acceptance</td></tr>
 <tr><td>explosiveness</td><td>float</td><td>0</td><td>how explosive this item is.</td></tr>
 <tr><td>flammability</td><td>float</td><td>0</td><td>flammability above 0.3 makes this eleigible for item burners.</td></tr>
 <tr><td>radioactivity</td><td>float</td><td></td><td>how radioactive this item is. 0=none, 1=chernobyl ground zero</td></tr>
@@ -4136,7 +4160,7 @@ Next: <a href="#ItemStack" accesskey="n" rel="next">ItemStack</a>, Up: <a href="
 <tr><td>alwaysUnlocked</td><td>boolean</td><td>false</td><td>If true, item is always unlocked.</td></tr>
 </table>
 
-<a name="org7b300ac"></a><p>ItemType:
+<a name="orgc220f37"></a><p>ItemType:
 </p><ul>
 <li> <code>resource</code> can go in the core;
 </li><li> <code>material</code> can&rsquo;t go in the core.
@@ -4177,7 +4201,9 @@ Next: <a href="#LiquidStack" accesskey="n" rel="next">LiquidStack</a>, Previous:
 <a name="Liquid-1"></a>
 <h3 class="section">3.3 Liquid</h3>
 
-<p>Extends <a href="#Content">Content</a> &ndash; Object that defines the properties of a liquid.
+<p>Extends <a href="#Content">Content</a>
+</p>
+<p>Type which defines the properties of a liquid. Like <a href="#Item">Item</a> this will go into it&rsquo;s own subdirectory <code>content/liquids/liquid-name.json</code>, and from it&rsquo;s stem name you can reuse it from your other mod content.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -4190,6 +4216,11 @@ Next: <a href="#LiquidStack" accesskey="n" rel="next">LiquidStack</a>, Previous:
 <tr><td>explosiveness</td><td>float</td><td></td><td>explosiveness when heated; 0 is nothing, 1 is nuke</td></tr>
 <tr><td>effect</td><td><a href="#StatusEffect">StatusEffect</a></td><td>none</td><td>the associated status effect.</td></tr>
 </table>
+
+<p>Sprites:
+</p><ul>
+<li> <code>&lt;name&gt;</code>, the sprite used when displaying the liquid from a menu.
+</li></ul>
 
 <hr>
 <a name="LiquidStack"></a>
@@ -4621,11 +4652,11 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletType-1"></a>
 <h3 class="section">5.1 BulletType</h3>
 
-<p><a href="#org5d59b46">Abstract</a> type which extends <a href="#Content">Content</a>
+<p><a href="#org90e669e">Abstract</a> type which extends <a href="#Content">Content</a>
 </p>
 <p>BulletType can either be an object <code>{}</code> or a <code>&quot;string&quot;</code>, where a string would be reusing <a href="#Built_002din-Bullets">Built-in Bullets</a> and an object would be making a custom one.
 </p>
-<p>There are two major categories of bullet types: 
+<p>There are two major categories of bullet types:
 </p><ul>
 <li> <a href="#BasicBulletType">BasicBulletType</a> and,
 </li><li> other special bullets.
