@@ -2456,12 +2456,8 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
     #+BEGIN_SRC json
     {
-        "ammo": {
-            "copper": {
-                "type": "BasicBulletType",
-                "bulletSprite": "test-mod-router"
-            }
-        }
+        "type": "BasicBulletType",
+        "bulletSprite": "test-mod-router"
     }
     #+END_SRC
 
