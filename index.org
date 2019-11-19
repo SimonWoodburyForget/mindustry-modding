@@ -12,7 +12,7 @@
 
 #+TODO: TODO UNTESTED | NEW DONE
 
-#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (197)
+#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (268)
 
 Submit pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
@@ -152,7 +152,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
        "research": "duo"
    }
    #+END_SRC
-  
+
    This would put your block after ~duo~ in the techtree, and to put it after your own mods block you would write your ~<block-name>~, a mod name prefix is only required if you're using the content from another mod.
 
    Research cost will be ~30 + requirements * 6~, where ~requirements~ is the build cost of your block. /(in otherwords you can't set ~requirements~ and ~research cost~ individually)/
@@ -372,7 +372,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
   :DESCRIPTION: the universe and everything in it.
   :END:
 
-** Block
+** NEW Block
    :PROPERTIES:
    :DESCRIPTION: base type of types that go on tiles
    :end:
@@ -407,6 +407,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | priority            | TargetPriority  |         base | Targeting priority of this block, as seen by enemies. |
    | configurable        | boolean         |              | Whether the block can be tapped and selected to configure. |
    | consumesTap         | boolean         |              | Whether this block consumes touchDown events when tapped. |
+   | drawLiquidLight     | boolean         |         true | *[new v99 (268)]* Whether to draw the glow of the liquid for this block, if it has one. |
    | posConfig           | boolean         |              | Whether the config is positional and needs to be shifted. |
    | targetable          | boolean         |         true | Whether units target this block. |
    | canOverdrive        | boolean         |         true | Whether the overdrive core has any effect on this block. |
@@ -511,7 +512,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    :DESCRIPTION: base of itemw and liquid storage
    :END:
 
-   [[Abstract][Abstract]] type that extends [[Content][Content]] 
+   [[Abstract][Abstract]] type that extends [[Content][Content]]
 
    Type for blocks which may store a buffer of items or liquid.
 
@@ -1397,8 +1398,12 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | group    | liquids |
     | floating | true    |
 
-*** Conduit
+*** NEW Conduit
     Extends [[LiquidBlock][LiquidBlock]]
+
+    | field          | type | default | notes             |
+    |----------------+------+---------+-------------------|
+    | leakResistance |      |         | *[new v99 (268)]* |
 
     Defaults:
 
@@ -1408,8 +1413,30 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | solid    | false   |
     | floating | true    |
 
-    Sprite lookup name /(where ~i~ can be anything from 0-6)/:
-    * ~<name>-top-<i>~
+    Sprites:
+    * ~<name>-top-<0..6>~
+
+*** NEW ArmoredConduit
+    *[new type v99 (268)]* -- Extends [[Conduit]]
+
+    Defaults:
+    | field          | default |
+    |----------------+---------|
+    | leakResistance | 10      |
+
+    Sprites:
+    * ~<name>-cap~
+
+*** NEW LiquidOverflowGate
+    *[new type v99 (268)]* -- Extends [[LiquidBlock]]
+
+    Defaults:
+    | field  | default |
+    |--------+---------|
+    | rotate | true    |
+
+    Sprites:
+    * ~<name>-top~
 
 *** LiquidRouter
     Extends [[LiquidBlock][LiquidBlock]]
@@ -1566,12 +1593,13 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
      Notes:
      * Lower targetting priority then other generators.
 
-**** NuclearReactor
+**** NEW NuclearReactor
      Extends [[PowerGenerator][PowerGenerator]] -- Generates power relative to how many items are in storage, and explodes if it runs out of coolant.
 
      | field           | type  |  default | notes      |
      |-----------------+-------+----------+------------|
      |                 |       |          | <10>       |
+     | lightColor      | [[Color]] |   7f19ea | *[new v99 (268)]* |
      | coolColor       | [[Color][Color]] | ffffff00 |            |
      | hotColor        | [[Color][Color]] | ff9575a3 |            |
      | itemDuration    | float |      120 | time to consume 1 fuel |
@@ -1635,6 +1663,23 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
     Sprites:
     - ~<name>-arrow~
+*** NEW LightBlock
+    *[new type v99 (268)]* -- Extends [[Block]]
+
+    | field      | type  | default |
+    |------------+-------+---------|
+    | brightness | float |     0.9 |
+    | radius     | float |     200 |
+
+    Defaults:
+    | field        | default |
+    |--------------+---------|
+    | hasPower     | true    |
+    | update       | true    |
+    | configurable | true    |
+
+    Sprites:
+    * ~<name>-top~
 
 ** Production
    :PROPERTIES:
@@ -1980,7 +2025,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~spores~
    * ~water~
    * ~oil~
-** BuildVisibility
+** NEW BuildVisibility
 
    Options for build visibility include:
    * ~hidden~
@@ -1988,6 +2033,8 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~debugOnly~
    * ~sandboxOnly~
    * ~campaignOnly~
+   * ~lightingOnly~ *[new v99 (268)]*
+
 ** BlockGroup
 
    Groups for blocks to build on top of each other:
@@ -2043,7 +2090,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    ]
    #+END_SRC
 
-** Liquid
+** NEW Liquid
 
    Extends [[Content]]
 
@@ -2054,6 +2101,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    |               |              |     <r> | <10>       |
    | color         | [[Color][Color]]        |         | *[required]* color of liquid |
    | barColor      | [[Color]]        |         | /[optional]/ color used in bars. |
+   | lightColor    | [[Color]]        |         | *[new v99 (268)]* Color used to draw lights. Note that the alpha channel is used to dictate brightness. |
    | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
    | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot |
    | heatCapacity  | float        |     0.5 | used in cooling; water is 0.4 |
@@ -2144,7 +2192,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | engineSize      | float    |         |
 
    Sprites:
-   * ~<name>~ 
+   * ~<name>~
    * ~<name>-leg~
    * ~<name>-base~
 

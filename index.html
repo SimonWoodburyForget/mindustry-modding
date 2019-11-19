@@ -377,7 +377,7 @@ body
 
 <body lang="en">
 <h1 class="settitle" align="center">Mindustry Modding Guide</h1>
-<p>Modding documentation for Mindustry v99 (197)
+<p>Modding documentation for Mindustry v99 (268)
 </p>
 
 <a name="SEC_Contents"></a>
@@ -392,17 +392,18 @@ body
     <li><a name="toc-mod_002ejson" href="#modjson">1.2 <code>mod.json</code></a></li>
     <li><a name="toc-Content-1" href="#Content">1.3 Content</a></li>
     <li><a name="toc-Types-1" href="#Types">1.4 Types</a></li>
-    <li><a name="toc-Sprites-1" href="#Sprites">1.5 Sprites</a></li>
-    <li><a name="toc-Sound-1" href="#Sound">1.6 Sound</a></li>
-    <li><a name="toc-Dependencies-1" href="#Dependencies">1.7 Dependencies</a></li>
-    <li><a name="toc-Bundles-1" href="#Bundles">1.8 Bundles</a></li>
-    <li><a name="toc-Hjson-1" href="#Hjson">1.9 Hjson</a></li>
-    <li><a name="toc-Schematic-1" href="#Schematic">1.10 Schematic</a></li>
-    <li><a name="toc-FAQ-1" href="#FAQ">1.11 FAQ</a></li>
+    <li><a name="toc-Tech-Tree-1" href="#Tech-Tree">1.5 Tech Tree</a></li>
+    <li><a name="toc-Sprites-1" href="#Sprites">1.6 Sprites</a></li>
+    <li><a name="toc-Sound-1" href="#Sound">1.7 Sound</a></li>
+    <li><a name="toc-Dependencies-1" href="#Dependencies">1.8 Dependencies</a></li>
+    <li><a name="toc-Bundles-1" href="#Bundles">1.9 Bundles</a></li>
+    <li><a name="toc-Hjson-1" href="#Hjson">1.10 Hjson</a></li>
+    <li><a name="toc-Schematic-1" href="#Schematic">1.11 Schematic</a></li>
+    <li><a name="toc-FAQ-1" href="#FAQ">1.12 FAQ</a></li>
   </ul></li>
   <li><a name="toc-World-1" href="#World">2 World</a>
   <ul class="no-bullet">
-    <li><a name="toc-Block-1" href="#Block">2.1 Block</a></li>
+    <li><a name="toc-NEW-Block" href="#Block">2.1 <strong>NEW</strong> Block</a></li>
     <li><a name="toc-Consumers-1" href="#Consumers">2.2 Consumers</a></li>
     <li><a name="toc-Consume-1" href="#Consume">2.3 Consume</a></li>
     <li><a name="toc-BlockStorage-1" href="#BlockStorage">2.4 BlockStorage</a></li>
@@ -475,12 +476,14 @@ body
     <ul class="no-bullet">
       <li><a name="toc-LiquidBlock-1" href="#LiquidBlock">2.12.1 LiquidBlock</a></li>
       <li><a name="toc-Pump-1" href="#Pump">2.12.2 Pump</a></li>
-      <li><a name="toc-Conduit-1" href="#Conduit">2.12.3 Conduit</a></li>
-      <li><a name="toc-LiquidRouter-1" href="#LiquidRouter">2.12.4 LiquidRouter</a></li>
-      <li><a name="toc-LiquidTank-1" href="#LiquidTank">2.12.5 LiquidTank</a></li>
-      <li><a name="toc-LiquidJunction-1" href="#LiquidJunction">2.12.6 LiquidJunction</a></li>
-      <li><a name="toc-LiquidBridge-1" href="#LiquidBridge">2.12.7 LiquidBridge</a></li>
-      <li><a name="toc-LiquidExtendingBridge-1" href="#LiquidExtendingBridge">2.12.8 LiquidExtendingBridge</a></li>
+      <li><a name="toc-NEW-Conduit" href="#Conduit">2.12.3 <strong>NEW</strong> Conduit</a></li>
+      <li><a name="toc-NEW-ArmoredConduit" href="#ArmoredConduit">2.12.4 <strong>NEW</strong> ArmoredConduit</a></li>
+      <li><a name="toc-NEW-LiquidOverflowGate" href="#LiquidOverflowGate">2.12.5 <strong>NEW</strong> LiquidOverflowGate</a></li>
+      <li><a name="toc-LiquidRouter-1" href="#LiquidRouter">2.12.6 LiquidRouter</a></li>
+      <li><a name="toc-LiquidTank-1" href="#LiquidTank">2.12.7 LiquidTank</a></li>
+      <li><a name="toc-LiquidJunction-1" href="#LiquidJunction">2.12.8 LiquidJunction</a></li>
+      <li><a name="toc-LiquidBridge-1" href="#LiquidBridge">2.12.9 LiquidBridge</a></li>
+      <li><a name="toc-LiquidExtendingBridge-1" href="#LiquidExtendingBridge">2.12.10 LiquidExtendingBridge</a></li>
     </ul></li>
     <li><a name="toc-Power-1" href="#Power">2.13 Power</a>
     <ul class="no-bullet">
@@ -496,10 +499,11 @@ body
         <li><a name="toc-BurnerGenerator-1" href="#BurnerGenerator">BurnerGenerator</a></li>
         <li><a name="toc-DecayGenerator-1" href="#DecayGenerator">DecayGenerator</a></li>
         <li><a name="toc-SolarGenerator-1" href="#SolarGenerator">SolarGenerator</a></li>
-        <li><a name="toc-NuclearReactor-1" href="#NuclearReactor">NuclearReactor</a></li>
+        <li><a name="toc-NEW-NuclearReactor" href="#NuclearReactor"><strong>NEW</strong> NuclearReactor</a></li>
         <li><a name="toc-ImpactReactor-1" href="#ImpactReactor">ImpactReactor</a></li>
       </ul></li>
       <li><a name="toc-PowerDiode-1" href="#PowerDiode">2.13.6 PowerDiode</a></li>
+      <li><a name="toc-NEW-LightBlock" href="#LightBlock">2.13.7 <strong>NEW</strong> LightBlock</a></li>
     </ul></li>
     <li><a name="toc-Production-1" href="#Production">2.14 Production</a>
     <ul class="no-bullet">
@@ -526,14 +530,14 @@ body
     </ul></li>
     <li><a name="toc-Attributes-1" href="#Attributes">2.17 Attributes</a></li>
     <li><a name="toc-Attribute-1" href="#Attribute">2.18 Attribute</a></li>
-    <li><a name="toc-BuildVisibility-1" href="#BuildVisibility">2.19 BuildVisibility</a></li>
+    <li><a name="toc-NEW-BuildVisibility" href="#BuildVisibility">2.19 <strong>NEW</strong> BuildVisibility</a></li>
     <li><a name="toc-BlockGroup-1" href="#BlockGroup">2.20 BlockGroup</a></li>
   </ul></li>
   <li><a name="toc-Type-1" href="#Type">3 Type</a>
   <ul class="no-bullet">
     <li><a name="toc-Item-1" href="#Item">3.1 Item</a></li>
     <li><a name="toc-ItemStack-1" href="#ItemStack">3.2 ItemStack</a></li>
-    <li><a name="toc-Liquid-1" href="#Liquid">3.3 Liquid</a></li>
+    <li><a name="toc-NEW-Liquid" href="#Liquid">3.3 <strong>NEW</strong> Liquid</a></li>
     <li><a name="toc-LiquidStack-1" href="#LiquidStack">3.4 LiquidStack</a></li>
     <li><a name="toc-Weapon-1" href="#Weapon">3.5 Weapon</a></li>
     <li><a name="toc-UnitType-1" href="#UnitType">3.6 UnitType</a></li>
@@ -614,6 +618,8 @@ Overview
 <tr><td align="left" valign="top">&bull; <a href="#Content">Content</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">content configuration directory
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Types">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">what you need to know about type
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Tech-Tree">Tech Tree</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">putting blocks into the tech tree
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Sprites">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">image files and how to name them
 </td></tr>
@@ -806,6 +812,10 @@ Liquid Blocks
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Conduit">Conduit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#ArmoredConduit">ArmoredConduit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#LiquidOverflowGate">LiquidOverflowGate</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#LiquidRouter">LiquidRouter</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#LiquidTank">LiquidTank</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -832,6 +842,8 @@ Power
 <tr><td align="left" valign="top">&bull; <a href="#PowerGenerator">PowerGenerator</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base of power generators.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#PowerDiode">PowerDiode</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#LightBlock">LightBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -970,15 +982,17 @@ Next: <a href="#World" accesskey="n" rel="next">World</a>, Previous: <a href="#T
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Types" accesskey="4">Types</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">what you need to know about type
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sprites" accesskey="5">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">image files and how to name them
+<tr><td align="left" valign="top">&bull; <a href="#Tech-Tree" accesskey="5">Tech Tree</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">putting blocks into the tech tree
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Sound" accesskey="6">Sound</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">sound files and where to put them
+<tr><td align="left" valign="top">&bull; <a href="#Sprites" accesskey="6">Sprites</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">image files and how to name them
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="7">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mods extending mods
+<tr><td align="left" valign="top">&bull; <a href="#Sound" accesskey="7">Sound</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">sound files and where to put them
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Bundles" accesskey="8">Bundles</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">translations and renaming
+<tr><td align="left" valign="top">&bull; <a href="#Dependencies" accesskey="8">Dependencies</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">mods extending mods
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Hjson" accesskey="9">Hjson</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">content parser syntax
+<tr><td align="left" valign="top">&bull; <a href="#Bundles" accesskey="9">Bundles</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">translations and renaming
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Hjson">Hjson</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">content parser syntax
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Schematic">Schematic</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1095,7 +1109,7 @@ Next: <a href="#Types" accesskey="n" rel="next">Types</a>, Previous: <a href="#m
 <a name="Types"></a>
 <div class="header">
 <p>
-Next: <a href="#Sprites" accesskey="n" rel="next">Sprites</a>, Previous: <a href="#Content" accesskey="p" rel="prev">Content</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Tech-Tree" accesskey="n" rel="next">Tech Tree</a>, Previous: <a href="#Content" accesskey="p" rel="prev">Content</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Types-1"></a>
 <h3 class="section">1.4 Types</h3>
@@ -1123,13 +1137,34 @@ Next: <a href="#Sprites" accesskey="n" rel="next">Sprites</a>, Previous: <a href
 </pre></div>
 
 <hr>
+<a name="Tech-Tree"></a>
+<div class="header">
+<p>
+Next: <a href="#Sprites" accesskey="n" rel="next">Sprites</a>, Previous: <a href="#Types" accesskey="p" rel="prev">Types</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="Tech-Tree-1"></a>
+<h3 class="section">1.5 Tech Tree</h3>
+
+<p>Much like <code>type</code> there exist another magical field known as <code>research</code> which can go at the root of any block object to put it in the techtree.
+</p>
+<div class="example">
+<pre class="example">{
+    &quot;research&quot;: &quot;duo&quot;
+}
+</pre></div>
+
+<p>This would put your block after <code>duo</code> in the techtree, and to put it after your own mods block you would write your <code>&lt;block-name&gt;</code>, a mod name prefix is only required if you&rsquo;re using the content from another mod.
+</p>
+<p>Research cost will be <code>30 + requirements * 6</code>, where <code>requirements</code> is the build cost of your block. <em>(in otherwords you can&rsquo;t set <code>requirements</code> and <code>research cost</code> individually)</em>
+</p>
+<hr>
 <a name="Sprites"></a>
 <div class="header">
 <p>
-Next: <a href="#Sound" accesskey="n" rel="next">Sound</a>, Previous: <a href="#Types" accesskey="p" rel="prev">Types</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#Sound" accesskey="n" rel="next">Sound</a>, Previous: <a href="#Tech-Tree" accesskey="p" rel="prev">Tech Tree</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Sprites-1"></a>
-<h3 class="section">1.5 Sprites</h3>
+<h3 class="section">1.6 Sprites</h3>
 
 <p>All you need to make sprites, is an image editor that supports transparency <em>(aka: not paint).</em> Block sprites should be <code>32 * size</code>, so a <code>2x2</code> block would require a <code>64x64</code> image. Images must be <code>.png</code> files with 32 bit depth.
 </p>
@@ -1153,7 +1188,7 @@ Next: <a href="#Sound" accesskey="n" rel="next">Sound</a>, Previous: <a href="#T
 Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previous: <a href="#Sprites" accesskey="p" rel="prev">Sprites</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Sound-1"></a>
-<h3 class="section">1.6 Sound</h3>
+<h3 class="section">1.7 Sound</h3>
 
 <p>Custom sounds can be added through the modding system by dropping them in the <code>sounds/</code> subdirectory. It doesn&rsquo;t matter where you put them. Two formats are needed:
 </p>
@@ -1217,7 +1252,7 @@ Next: <a href="#Dependencies" accesskey="n" rel="next">Dependencies</a>, Previou
 Next: <a href="#Bundles" accesskey="n" rel="next">Bundles</a>, Previous: <a href="#Sound" accesskey="p" rel="prev">Sound</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Dependencies-1"></a>
-<h3 class="section">1.7 Dependencies</h3>
+<h3 class="section">1.8 Dependencies</h3>
 
 <p>You can add dependencies to your mod by simple adding other mods name in your <code>mod.json</code>:
 </p>
@@ -1247,7 +1282,7 @@ Next: <a href="#Bundles" accesskey="n" rel="next">Bundles</a>, Previous: <a href
 Next: <a href="#Hjson" accesskey="n" rel="next">Hjson</a>, Previous: <a href="#Dependencies" accesskey="p" rel="prev">Dependencies</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Bundles-1"></a>
-<h3 class="section">1.8 Bundles</h3>
+<h3 class="section">1.9 Bundles</h3>
 
 <p>An optional addition to your mod is called bundles. The main use of bundles are give translations of your content, but there&rsquo;s no reason you couldn&rsquo;t use them in English. These are plaintext files which go in the <code>bundles/</code> subdirectory, and they should be named something like <code>bundle_ru.properties</code> (for Russian).
 </p>
@@ -1321,9 +1356,9 @@ block.example-mod-silver-wall.description = Стена из серебра.
 Next: <a href="#Schematic" accesskey="n" rel="next">Schematic</a>, Previous: <a href="#Bundles" accesskey="p" rel="prev">Bundles</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Hjson-1"></a>
-<h3 class="section">1.9 Hjson</h3>
+<h3 class="section">1.10 Hjson</h3>
 
-<p><strong>new:</strong> <em>currently partially implimented on <a href="#org9f83a91">bleeding-edge</a>, where only <code>content/</code> uses Hjson.</em>
+<p><strong>new:</strong> <em>currently partially implimented on <a href="#org38d8906">bleeding-edge</a>, where only <code>content/</code> uses Hjson.</em>
 </p>
 <p>As of now, Mindustry doesn&rsquo;t actually use Json, <em>(but any valid JSON should work)</em> it uses a variant of Json called <a href="https://hjson.org/">Hjson</a>.
 </p>
@@ -1356,7 +1391,7 @@ Next: <a href="#Schematic" accesskey="n" rel="next">Schematic</a>, Previous: <a 
 Next: <a href="#FAQ" accesskey="n" rel="next">FAQ</a>, Previous: <a href="#Hjson" accesskey="p" rel="prev">Hjson</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="Schematic-1"></a>
-<h3 class="section">1.10 Schematic</h3>
+<h3 class="section">1.11 Schematic</h3>
 
 <p>Fields that require the type <code>Schematic</code> can either take a built-in loadout <em>(see the <a href="#Zone">Zone</a> section)</em> a base64 string, or the stem name of a <code>.msch</code> file in the <code>schematics/</code> subdirectory.
 </p>
@@ -1369,17 +1404,16 @@ Next: <a href="#FAQ" accesskey="n" rel="next">FAQ</a>, Previous: <a href="#Hjson
 Previous: <a href="#Schematic" accesskey="p" rel="prev">Schematic</a>, Up: <a href="#Overview" accesskey="u" rel="up">Overview</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="FAQ-1"></a>
-<h3 class="section">1.11 FAQ</h3>
+<h3 class="section">1.12 FAQ</h3>
 
 <ul>
 <li> <code>time</code> in game is calculated through <code>ticks</code>;
 </li><li> <code>ticks</code> <em>sometimes called <code>frames</code>,</em> are assumed to be 60/1 second;
 </li><li> <code>range</code> or most forms of distance is 1/10 of a tile;
 </li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;
-</li><li> <a name="org7963fce"></a>what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind;
-</li><li> research cost is <code>30 + requirements * 6</code>;
+</li><li> <a name="orga0b182a"></a>what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind;
 </li><li> what is a <code>NullPointerException</code>? This is an error message that indicates a field is null and shouldn&rsquo;t be null, meaning one of the required fields may be missing;
-</li><li> <a name="org9f83a91"></a>what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it&rsquo;s refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.
+</li><li> <a name="org38d8906"></a>what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it&rsquo;s refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.
 </li></ul>
 
 <hr>
@@ -1440,8 +1474,8 @@ Next: <a href="#Type" accesskey="n" rel="next">Type</a>, Previous: <a href="#Ove
 <p>
 Next: <a href="#Consumers" accesskey="n" rel="next">Consumers</a>, Up: <a href="#World" accesskey="u" rel="up">World</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="Block-1"></a>
-<h3 class="section">2.1 Block</h3>
+<a name="NEW-Block"></a>
+<h3 class="section">2.1 <strong>NEW</strong> Block</h3>
 
 <p>Extends <a href="#BlockStorage">BlockStorage</a>
 </p>
@@ -1472,6 +1506,7 @@ Next: <a href="#Consumers" accesskey="n" rel="next">Consumers</a>, Up: <a href="
 <tr><td>priority</td><td>TargetPriority</td><td>base</td><td>Targeting priority of this block, as seen by enemies.</td></tr>
 <tr><td>configurable</td><td>boolean</td><td></td><td>Whether the block can be tapped and selected to configure.</td></tr>
 <tr><td>consumesTap</td><td>boolean</td><td></td><td>Whether this block consumes touchDown events when tapped.</td></tr>
+<tr><td>drawLiquidLight</td><td>boolean</td><td>true</td><td><strong>[new v99 (268)]</strong> Whether to draw the glow of the liquid for this block, if it has one.</td></tr>
 <tr><td>posConfig</td><td>boolean</td><td></td><td>Whether the config is positional and needs to be shifted.</td></tr>
 <tr><td>targetable</td><td>boolean</td><td>true</td><td>Whether units target this block.</td></tr>
 <tr><td>canOverdrive</td><td>boolean</td><td>true</td><td>Whether the overdrive core has any effect on this block.</td></tr>
@@ -1513,9 +1548,9 @@ Next: <a href="#Consume" accesskey="n" rel="next">Consume</a>, Previous: <a href
 <table>
 <thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
 <tr><td>item</td><td>String</td><td>shorthand for <code>items</code></td></tr>
-<tr><td>items</td><td><a href="#org2b2b150">ConsumeItems</a></td><td>consume a number of different items</td></tr>
-<tr><td>liquid</td><td><a href="#orgfbf3878">ConsumeLiquid</a></td><td>consume a single liquid</td></tr>
-<tr><td>power</td><td>float or <a href="#orgb283e7b">ConsumePower</a></td><td>consume or buffer power</td></tr>
+<tr><td>items</td><td><a href="#orgd372570">ConsumeItems</a></td><td>consume a number of different items</td></tr>
+<tr><td>liquid</td><td><a href="#org74aac13">ConsumeLiquid</a></td><td>consume a single liquid</td></tr>
+<tr><td>power</td><td>float or <a href="#org2a9e44e">ConsumePower</a></td><td>consume or buffer power</td></tr>
 <tr><td>powerBuffered</td><td>float</td><td>amount of power buffered</td></tr>
 </table>
 
@@ -1524,7 +1559,7 @@ Next: <a href="#Consume" accesskey="n" rel="next">Consume</a>, Previous: <a href
 <li> you shouldn&rsquo;t have <code>power</code> and <code>powerBuffered</code>.
 </li></ul>
 
-<p>For example with <a href="#org2b2b150">ConsumeItems</a> and <a href="#orgfbf3878">ConsumeLiquid</a>:
+<p>For example with <a href="#orgd372570">ConsumeItems</a> and <a href="#org74aac13">ConsumeLiquid</a>:
 </p><div class="example">
 <pre class="example">{
     &quot;items&quot;: {
@@ -1551,7 +1586,7 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 <a name="Consume-1"></a>
 <h3 class="section">2.3 Consume</h3>
 
-<p><a href="#org7963fce">Abstract</a> type which defines a type of resource that a block can consume.
+<p><a href="#orga0b182a">Abstract</a> type which defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1561,14 +1596,14 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 </table>
 
 <ul>
-<li> <a name="org2b2b150"></a><code>ConsumeItems</code>, consume an itemstack.
+<li> <a name="orgd372570"></a><code>ConsumeItems</code>, consume an itemstack.
 
 <table>
 <thead><tr><th>field</th><th>type</th></tr></thead>
 <tr><td>items</td><td><a href="#ItemStack">ItemStack</a></td></tr>
 </table>
 
-</li><li> <a name="orgfbf3878"></a><code>ConsumeLiquid</code>, consume a liquid.
+</li><li> <a name="org74aac13"></a><code>ConsumeLiquid</code>, consume a liquid.
 
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1577,7 +1612,7 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 <tr><td>timePeriod</td><td>float</td><td>60</td><td>how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as <em>100 seconds</em>, but without a time override it would display as <em>10 liquid/second</em>. This is used for generic crafters.</td></tr>
 </table>
 
-</li><li> <a name="orgb283e7b"></a><code>ConsumePower</code>, consume or buffer power.
+</li><li> <a name="org2a9e44e"></a><code>ConsumePower</code>, consume or buffer power.
 
 <table>
 <thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
@@ -1596,7 +1631,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.4 BlockStorage</h3>
 
-<p><a href="#org7963fce">Abstract</a> type that extends <a href="#Content">Content</a> 
+<p><a href="#orga0b182a">Abstract</a> type that extends <a href="#Content">Content</a>
 </p>
 <p>Type for blocks which may store a buffer of items or liquid.
 </p>
@@ -2317,10 +2352,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#org3aa3ddd">cold-liquid</a></td></tr>
+<tr><td>consumes</td><td><a href="#org60d37e8">cold-liquid</a></td></tr>
 </table>
 
-<a name="org3aa3ddd"></a><p><a href="#org3aa3ddd">cold-liquid</a>:
+<a name="org60d37e8"></a><p><a href="#org60d37e8">cold-liquid</a>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -2407,7 +2442,7 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.10.1 Turret</h4>
 
-<p><a href="#org7963fce">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#orga0b182a">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>This is the base type for all turrets.
 </p>
@@ -3005,15 +3040,19 @@ Next: <a href="#Power" accesskey="n" rel="next">Power</a>, Previous: <a href="#D
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Conduit" accesskey="3">Conduit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#LiquidRouter" accesskey="4">LiquidRouter</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#ArmoredConduit" accesskey="4">ArmoredConduit</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#LiquidTank" accesskey="5">LiquidTank</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#LiquidOverflowGate" accesskey="5">LiquidOverflowGate</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#LiquidJunction" accesskey="6">LiquidJunction</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#LiquidRouter" accesskey="6">LiquidRouter</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#LiquidBridge" accesskey="7">LiquidBridge</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#LiquidTank" accesskey="7">LiquidTank</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#LiquidExtendingBridge" accesskey="8">LiquidExtendingBridge</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#LiquidJunction" accesskey="8">LiquidJunction</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#LiquidBridge" accesskey="9">LiquidBridge</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#LiquidExtendingBridge">LiquidExtendingBridge</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -3073,13 +3112,18 @@ Next: <a href="#Conduit" accesskey="n" rel="next">Conduit</a>, Previous: <a href
 <a name="Conduit"></a>
 <div class="header">
 <p>
-Next: <a href="#LiquidRouter" accesskey="n" rel="next">LiquidRouter</a>, Previous: <a href="#Pump" accesskey="p" rel="prev">Pump</a>, Up: <a href="#Liquid-Blocks" accesskey="u" rel="up">Liquid Blocks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#ArmoredConduit" accesskey="n" rel="next">ArmoredConduit</a>, Previous: <a href="#Pump" accesskey="p" rel="prev">Pump</a>, Up: <a href="#Liquid-Blocks" accesskey="u" rel="up">Liquid Blocks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="Conduit-1"></a>
-<h4 class="subsection">2.12.3 Conduit</h4>
+<a name="NEW-Conduit"></a>
+<h4 class="subsection">2.12.3 <strong>NEW</strong> Conduit</h4>
 
 <p>Extends <a href="#LiquidBlock">LiquidBlock</a>
 </p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
+<tr><td>leakResistance</td><td></td><td></td><td><strong>[new v99 (268)]</strong></td></tr>
+</table>
+
 <p>Defaults:
 </p>
 <table>
@@ -3089,19 +3133,63 @@ Next: <a href="#LiquidRouter" accesskey="n" rel="next">LiquidRouter</a>, Previou
 <tr><td>floating</td><td>true</td></tr>
 </table>
 
-<p>Sprite lookup name <em>(where <code>i</code> can be anything from 0-6)</em>:
+<p>Sprites:
 </p><ul>
-<li> <code>&lt;name&gt;-top-&lt;i&gt;</code>
+<li> <code>&lt;name&gt;-top-&lt;0..6&gt;</code>
+</li></ul>
+
+<hr>
+<a name="ArmoredConduit"></a>
+<div class="header">
+<p>
+Next: <a href="#LiquidOverflowGate" accesskey="n" rel="next">LiquidOverflowGate</a>, Previous: <a href="#Conduit" accesskey="p" rel="prev">Conduit</a>, Up: <a href="#Liquid-Blocks" accesskey="u" rel="up">Liquid Blocks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="NEW-ArmoredConduit"></a>
+<h4 class="subsection">2.12.4 <strong>NEW</strong> ArmoredConduit</h4>
+
+<p><strong>[new type v99 (268)]</strong> &ndash; Extends <a href="#Conduit">Conduit</a>
+</p>
+<p>Defaults:
+</p><table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>leakResistance</td><td>10</td></tr>
+</table>
+
+<p>Sprites:
+</p><ul>
+<li> <code>&lt;name&gt;-cap</code>
+</li></ul>
+
+<hr>
+<a name="LiquidOverflowGate"></a>
+<div class="header">
+<p>
+Next: <a href="#LiquidRouter" accesskey="n" rel="next">LiquidRouter</a>, Previous: <a href="#ArmoredConduit" accesskey="p" rel="prev">ArmoredConduit</a>, Up: <a href="#Liquid-Blocks" accesskey="u" rel="up">Liquid Blocks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="NEW-LiquidOverflowGate"></a>
+<h4 class="subsection">2.12.5 <strong>NEW</strong> LiquidOverflowGate</h4>
+
+<p><strong>[new type v99 (268)]</strong> &ndash; Extends <a href="#LiquidBlock">LiquidBlock</a>
+</p>
+<p>Defaults:
+</p><table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>rotate</td><td>true</td></tr>
+</table>
+
+<p>Sprites:
+</p><ul>
+<li> <code>&lt;name&gt;-top</code>
 </li></ul>
 
 <hr>
 <a name="LiquidRouter"></a>
 <div class="header">
 <p>
-Next: <a href="#LiquidTank" accesskey="n" rel="next">LiquidTank</a>, Previous: <a href="#Conduit" accesskey="p" rel="prev">Conduit</a>, Up: <a href="#Liquid-Blocks" accesskey="u" rel="up">Liquid Blocks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#LiquidTank" accesskey="n" rel="next">LiquidTank</a>, Previous: <a href="#LiquidOverflowGate" accesskey="p" rel="prev">LiquidOverflowGate</a>, Up: <a href="#Liquid-Blocks" accesskey="u" rel="up">Liquid Blocks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="LiquidRouter-1"></a>
-<h4 class="subsection">2.12.4 LiquidRouter</h4>
+<h4 class="subsection">2.12.6 LiquidRouter</h4>
 
 <p>Extends <a href="#LiquidBlock">LiquidBlock</a>
 </p>
@@ -3112,7 +3200,7 @@ Next: <a href="#LiquidTank" accesskey="n" rel="next">LiquidTank</a>, Previous: <
 Next: <a href="#LiquidJunction" accesskey="n" rel="next">LiquidJunction</a>, Previous: <a href="#LiquidRouter" accesskey="p" rel="prev">LiquidRouter</a>, Up: <a href="#Liquid-Blocks" accesskey="u" rel="up">Liquid Blocks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="LiquidTank-1"></a>
-<h4 class="subsection">2.12.5 LiquidTank</h4>
+<h4 class="subsection">2.12.7 LiquidTank</h4>
 
 <p>Extends <a href="#LiquidRouter">LiquidRouter</a>
 </p>
@@ -3123,7 +3211,7 @@ Next: <a href="#LiquidJunction" accesskey="n" rel="next">LiquidJunction</a>, Pre
 Next: <a href="#LiquidBridge" accesskey="n" rel="next">LiquidBridge</a>, Previous: <a href="#LiquidTank" accesskey="p" rel="prev">LiquidTank</a>, Up: <a href="#Liquid-Blocks" accesskey="u" rel="up">Liquid Blocks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="LiquidJunction-1"></a>
-<h4 class="subsection">2.12.6 LiquidJunction</h4>
+<h4 class="subsection">2.12.8 LiquidJunction</h4>
 
 <p>Extends <a href="#LiquidBlock">LiquidBlock</a>
 </p>
@@ -3134,7 +3222,7 @@ Next: <a href="#LiquidBridge" accesskey="n" rel="next">LiquidBridge</a>, Previou
 Next: <a href="#LiquidExtendingBridge" accesskey="n" rel="next">LiquidExtendingBridge</a>, Previous: <a href="#LiquidJunction" accesskey="p" rel="prev">LiquidJunction</a>, Up: <a href="#Liquid-Blocks" accesskey="u" rel="up">Liquid Blocks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="LiquidBridge-1"></a>
-<h4 class="subsection">2.12.7 LiquidBridge</h4>
+<h4 class="subsection">2.12.9 LiquidBridge</h4>
 
 <p>Extends <a href="#LiquidBridge">LiquidBridge</a>
 </p>
@@ -3153,7 +3241,7 @@ Next: <a href="#LiquidExtendingBridge" accesskey="n" rel="next">LiquidExtendingB
 Previous: <a href="#LiquidBridge" accesskey="p" rel="prev">LiquidBridge</a>, Up: <a href="#Liquid-Blocks" accesskey="u" rel="up">Liquid Blocks</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="LiquidExtendingBridge-1"></a>
-<h4 class="subsection">2.12.8 LiquidExtendingBridge</h4>
+<h4 class="subsection">2.12.10 LiquidExtendingBridge</h4>
 
 <p>Extends <a href="#ExtendingItemBridge">ExtendingItemBridge</a>
 </p>
@@ -3187,6 +3275,8 @@ Next: <a href="#Production" accesskey="n" rel="next">Production</a>, Previous: <
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#PowerDiode" accesskey="6">PowerDiode</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#LightBlock" accesskey="7">LightBlock</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
 </table>
 
 <hr>
@@ -3198,7 +3288,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.13.1 PowerBlock</h4>
 
-<p><a href="#org7963fce">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#orga0b182a">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -3436,13 +3526,14 @@ Next: <a href="#NuclearReactor" accesskey="n" rel="next">NuclearReactor</a>, Pre
 <p>
 Next: <a href="#ImpactReactor" accesskey="n" rel="next">ImpactReactor</a>, Previous: <a href="#SolarGenerator" accesskey="p" rel="prev">SolarGenerator</a>, Up: <a href="#PowerGenerator" accesskey="u" rel="up">PowerGenerator</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="NuclearReactor-1"></a>
-<h4 class="unnumberedsubsubsec">NuclearReactor</h4>
+<a name="NEW-NuclearReactor"></a>
+<h4 class="unnumberedsubsubsec"><strong>NEW</strong> NuclearReactor</h4>
 
 <p>Extends <a href="#PowerGenerator">PowerGenerator</a> &ndash; Generates power relative to how many items are in storage, and explodes if it runs out of coolant.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
+<tr><td>lightColor</td><td><a href="#Color">Color</a></td><td>7f19ea</td><td><strong>[new v99 (268)]</strong></td></tr>
 <tr><td>coolColor</td><td><a href="#Color">Color</a></td><td>ffffff00</td><td></td></tr>
 <tr><td>hotColor</td><td><a href="#Color">Color</a></td><td>ff9575a3</td><td></td></tr>
 <tr><td>itemDuration</td><td>float</td><td>120</td><td>time to consume 1 fuel</td></tr>
@@ -3513,7 +3604,7 @@ Previous: <a href="#NuclearReactor" accesskey="p" rel="prev">NuclearReactor</a>,
 <a name="PowerDiode"></a>
 <div class="header">
 <p>
-Previous: <a href="#PowerGenerator" accesskey="p" rel="prev">PowerGenerator</a>, Up: <a href="#Power" accesskey="u" rel="up">Power</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+Next: <a href="#LightBlock" accesskey="n" rel="next">LightBlock</a>, Previous: <a href="#PowerGenerator" accesskey="p" rel="prev">PowerGenerator</a>, Up: <a href="#Power" accesskey="u" rel="up">Power</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
 <a name="PowerDiode-1"></a>
 <h4 class="subsection">2.13.6 PowerDiode</h4>
@@ -3532,6 +3623,36 @@ Previous: <a href="#PowerGenerator" accesskey="p" rel="prev">PowerGenerator</a>,
 <p>Sprites:
 </p><ul>
 <li> <code>&lt;name&gt;-arrow</code>
+</li></ul>
+
+<hr>
+<a name="LightBlock"></a>
+<div class="header">
+<p>
+Previous: <a href="#PowerDiode" accesskey="p" rel="prev">PowerDiode</a>, Up: <a href="#Power" accesskey="u" rel="up">Power</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
+</div>
+<a name="NEW-LightBlock"></a>
+<h4 class="subsection">2.13.7 <strong>NEW</strong> LightBlock</h4>
+
+<p><strong>[new type v99 (268)]</strong> &ndash; Extends <a href="#Block">Block</a>
+</p>
+<table>
+<thead><tr><th>field</th><th>type</th><th>default</th></tr></thead>
+<tr><td>brightness</td><td>float</td><td>0.9</td></tr>
+<tr><td>radius</td><td>float</td><td>200</td></tr>
+</table>
+
+<p>Defaults:
+</p><table>
+<thead><tr><th>field</th><th>default</th></tr></thead>
+<tr><td>hasPower</td><td>true</td></tr>
+<tr><td>update</td><td>true</td></tr>
+<tr><td>configurable</td><td>true</td></tr>
+</table>
+
+<p>Sprites:
+</p><ul>
+<li> <code>&lt;name&gt;-top</code>
 </li></ul>
 
 <hr>
@@ -3894,7 +4015,7 @@ Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="
 <a name="StorageBlock-1"></a>
 <h4 class="subsection">2.16.1 StorageBlock</h4>
 
-<p><a href="#org7963fce">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#orga0b182a">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -4073,8 +4194,8 @@ Next: <a href="#BuildVisibility" accesskey="n" rel="next">BuildVisibility</a>, P
 <p>
 Next: <a href="#BlockGroup" accesskey="n" rel="next">BlockGroup</a>, Previous: <a href="#Attribute" accesskey="p" rel="prev">Attribute</a>, Up: <a href="#World" accesskey="u" rel="up">World</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="BuildVisibility-1"></a>
-<h3 class="section">2.19 BuildVisibility</h3>
+<a name="NEW-BuildVisibility"></a>
+<h3 class="section">2.19 <strong>NEW</strong> BuildVisibility</h3>
 
 <p>Options for build visibility include:
 </p><ul>
@@ -4083,6 +4204,7 @@ Next: <a href="#BlockGroup" accesskey="n" rel="next">BlockGroup</a>, Previous: <
 </li><li> <code>debugOnly</code>
 </li><li> <code>sandboxOnly</code>
 </li><li> <code>campaignOnly</code>
+</li><li> <code>lightingOnly</code> <strong>[new v99 (268)]</strong>
 </li></ul>
 
 <hr>
@@ -4151,7 +4273,7 @@ Next: <a href="#ItemStack" accesskey="n" rel="next">ItemStack</a>, Up: <a href="
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>color</td><td><a href="#Color">Color</a></td><td></td><td>hex string of color</td></tr>
-<tr><td>type</td><td><a href="#org58ece7e">org58ece7e</a></td><td></td><td>used for tabs and core acceptance</td></tr>
+<tr><td>type</td><td><a href="#org99a27d9">org99a27d9</a></td><td></td><td>used for tabs and core acceptance</td></tr>
 <tr><td>explosiveness</td><td>float</td><td>0</td><td>how explosive this item is.</td></tr>
 <tr><td>flammability</td><td>float</td><td>0</td><td>flammability above 0.3 makes this eleigible for item burners.</td></tr>
 <tr><td>radioactivity</td><td>float</td><td></td><td>how radioactive this item is. 0=none, 1=chernobyl ground zero</td></tr>
@@ -4160,7 +4282,7 @@ Next: <a href="#ItemStack" accesskey="n" rel="next">ItemStack</a>, Up: <a href="
 <tr><td>alwaysUnlocked</td><td>boolean</td><td>false</td><td>If true, item is always unlocked.</td></tr>
 </table>
 
-<a name="org58ece7e"></a><p>ItemType:
+<a name="org99a27d9"></a><p>ItemType:
 </p><ul>
 <li> <code>resource</code> can go in the core;
 </li><li> <code>material</code> can&rsquo;t go in the core.
@@ -4198,8 +4320,8 @@ Next: <a href="#Liquid" accesskey="n" rel="next">Liquid</a>, Previous: <a href="
 <p>
 Next: <a href="#LiquidStack" accesskey="n" rel="next">LiquidStack</a>, Previous: <a href="#ItemStack" accesskey="p" rel="prev">ItemStack</a>, Up: <a href="#Type" accesskey="u" rel="up">Type</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<a name="Liquid-1"></a>
-<h3 class="section">3.3 Liquid</h3>
+<a name="NEW-Liquid"></a>
+<h3 class="section">3.3 <strong>NEW</strong> Liquid</h3>
 
 <p>Extends <a href="#Content">Content</a>
 </p>
@@ -4209,6 +4331,7 @@ Next: <a href="#LiquidStack" accesskey="n" rel="next">LiquidStack</a>, Previous:
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>color</td><td><a href="#Color">Color</a></td><td></td><td><strong>[required]</strong> color of liquid</td></tr>
 <tr><td>barColor</td><td><a href="#Color">Color</a></td><td></td><td><em>[optional]</em> color used in bars.</td></tr>
+<tr><td>lightColor</td><td><a href="#Color">Color</a></td><td></td><td><strong>[new v99 (268)]</strong> Color used to draw lights. Note that the alpha channel is used to dictate brightness.</td></tr>
 <tr><td>flammability</td><td>float</td><td></td><td>0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat.</td></tr>
 <tr><td>temperature</td><td>float</td><td>0.5</td><td>0.5 is &rsquo;room&rsquo; temperature, 0 is very cold, 1 is molten hot</td></tr>
 <tr><td>heatCapacity</td><td>float</td><td>0.5</td><td>used in cooling; water is 0.4</td></tr>
@@ -4261,7 +4384,7 @@ Next: <a href="#UnitType" accesskey="n" rel="next">UnitType</a>, Previous: <a hr
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
-<tr><td>name</td><td>string</td><td></td><td></td></tr>
+<tr><td>name</td><td>String</td><td></td><td>used to fetch the sprite of the weapon</td></tr>
 <tr><td>nimPlayerDist</td><td>float</td><td>20</td><td>minimum cursor distance from player, fixes &rsquo;cross-eyed&rsquo; shooting.</td></tr>
 <tr><td>sequenceNum</td><td>int</td><td>0</td><td></td></tr>
 <tr><td>bullet</td><td><a href="#BulletType">BulletType</a></td><td></td><td>bullet shot</td></tr>
@@ -4281,6 +4404,11 @@ Next: <a href="#UnitType" accesskey="n" rel="next">UnitType</a>, Previous: <a hr
 <tr><td>ignoreRotation</td><td>boolean</td><td>false</td><td>whether shooter rotation is ignored when shooting.</td></tr>
 <tr><td>shootSound</td><td><a href="#Sound">Sound</a></td><td>pew</td><td></td></tr>
 </table>
+
+<p>Sprite:
+</p><ul>
+<li> <code>&lt;name&gt;</code>
+</li></ul>
 
 <hr>
 <a name="UnitType"></a>
@@ -4320,6 +4448,13 @@ Next: <a href="#Mech" accesskey="n" rel="next">Mech</a>, Previous: <a href="#Wea
 <tr><td>engineOffset</td><td>float</td><td></td></tr>
 <tr><td>engineSize</td><td>float</td><td></td></tr>
 </table>
+
+<p>Sprites:
+</p><ul>
+<li> <code>&lt;name&gt;</code>
+</li><li> <code>&lt;name&gt;-leg</code>
+</li><li> <code>&lt;name&gt;-base</code>
+</li></ul>
 
 <hr>
 <a name="Mech"></a>
@@ -4652,7 +4787,7 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletType-1"></a>
 <h3 class="section">5.1 BulletType</h3>
 
-<p><a href="#org7963fce">Abstract</a> type which extends <a href="#Content">Content</a>
+<p><a href="#orga0b182a">Abstract</a> type which extends <a href="#Content">Content</a>
 </p>
 <p>BulletType can either be an object <code>{}</code> or a <code>&quot;string&quot;</code>, where a string would be reusing <a href="#Built_002din-Bullets">Built-in Bullets</a> and an object would be making a custom one.
 </p>
@@ -4766,12 +4901,8 @@ Next: <a href="#HealBulletType" accesskey="n" rel="next">HealBulletType</a>, Up:
 </p>
 <div class="example">
 <pre class="example">{
-    &quot;ammo&quot;: {
-        &quot;copper&quot;: {
-            &quot;type&quot;: &quot;BasicBulletType&quot;,
-            &quot;bulletSprite&quot;: &quot;test-mod-router&quot;
-        }
-    }
+    &quot;type&quot;: &quot;BasicBulletType&quot;,
+    &quot;bulletSprite&quot;: &quot;test-mod-router&quot;
 }
 </pre></div>
 
