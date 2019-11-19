@@ -687,7 +687,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | idleSoundVolume |    0.03 |
 
 *** GenericSmelter
-    Extends [[GenericCrafter][GenericCrafter]] -- A GenericCrafter with a new glowing region drawn on top.
+    Extends [[GenericCrafter][GenericCrafter]] 
+
+    A GenericCrafter with a new glowing region drawn on top.
 
     | field      | type  | default |
     |------------+-------+---------|
@@ -695,12 +697,15 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | flameColor | [[Color][Color]] |  ffc999 |
 
     Sprite suffix:
-    * ~-top~
+    * ~<name>-top~
 
 *** Separator
+    :PROPERTIES:
+    :DESCRIPTION: turn a liquid into many solids
+    :END:
     Extends [[Block][Block]]
 
-    Separator will take liquid as an input and produce items from it's stack randomly relative to their amount.
+    Separator takes liquid as an input, and will produce items from it's stack randomly, using the amount of items in the stack as probability. Separator can't accept items as input, as it will output all the items you put in it, regardless of what you put in ~results~.
 
     | field            | type      | default | notes      |
     |------------------+-----------+---------+------------|
@@ -724,7 +729,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | hasLiquids |    true |
 
     Sprite suffixes:
-    * ~-liquid~
+    * ~<name>-liquid~
 ** Sandbox
    :PROPERTIES:
    :DESCRIPTION: the magical stuff
