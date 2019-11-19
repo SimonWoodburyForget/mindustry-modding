@@ -2089,7 +2089,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | field          | type       | default | notes      |
    |----------------+------------+---------+------------|
    |                |            |         | <10>       |
-   | name           | string     |         |            |
+   | name           | String     |         | used to fetch the sprite of the weapon |
    | nimPlayerDist  | float      |      20 | minimum cursor distance from player, fixes 'cross-eyed' shooting. |
    | sequenceNum    | int        |       0 |            |
    | bullet         | [[BulletType][BulletType]] |         | bullet shot |
@@ -2108,6 +2108,10 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | shotDelay      | float      |       0 | delay in ticks between shots |
    | ignoreRotation | boolean    |   false | whether shooter rotation is ignored when shooting. |
    | shootSound     | [[Sound][Sound]]      |     pew |            |
+
+   Sprite:
+   * ~<name>~
+
 ** UnitType
 
    Extends [[Content]]
@@ -2138,6 +2142,11 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | weaponOffsetY   | float    |         |
    | engineOffset    | float    |         |
    | engineSize      | float    |         |
+
+   Sprites:
+   * ~<name>~ 
+   * ~<name>-leg~
+   * ~<name>-base~
 
 ** Mech
 
