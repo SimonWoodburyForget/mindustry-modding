@@ -12,7 +12,7 @@
 
 #+TODO: TODO UNTESTED | NEW DONE
 
-#+TEXINFO_HEADER: Modding documentation for Mindustry v99 (268)
+#+TEXINFO_HEADER: Modding documentation for Mindustry v100 (25)
 
 Submit pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
