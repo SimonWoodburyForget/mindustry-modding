@@ -419,7 +419,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | activeSoundVolume   | float           |          0.5 | Active sound base volume. |
    | idleSound           | [[Sound][Sound]]           |         none | The sound that this block makes while idle. Uses one sound loop for all blocks. |
    | idleSoundVolume     | float           |          0.5 | Idle sound base volume. |
-   | requirements        | [[ItemStack][ItemStack]]       |              | Cost of constructing and researching this block. |
+   | requirements        | [ [[ItemStack][ItemStack]] ]   |              | Cost of constructing and researching this block. |
    | category            | [[Category][Category]]        | distribution | Category in place menu. |
    | buildCost           | float           |              | Cost of building this block; do not modify directly! |
    | buildVisibility     | [[BuildVisibility][BuildVisibility]] |       hidden | Whether this block is visible and can currently be built. |
@@ -485,9 +485,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    * <<ConsumeItems>> ~ConsumeItems~, consume an itemstack.
 
-     | field | type      |
-     |-------+-----------|
-     | items | [[ItemStack][ItemStack]] |
+     | field | type          |
+     |-------+---------------|
+     | items | [ [[ItemStack][ItemStack]] ] |
 
    * <<ConsumeLiquid>> ~ConsumeLiquid~, consume a liquid.
 
@@ -707,17 +707,17 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
     Separator takes liquid as an input, and will produce items from it's stack randomly, using the amount of items in the stack as probability. Separator can't accept items as input, as it will output all the items you put in it, regardless of what you put in ~results~.
 
-    | field            | type      | default | notes      |
-    |------------------+-----------+---------+------------|
-    |                  |           |         | <10>       |
-    | results          | [[ItemStack][ItemStack]] |         | *[required]* |
-    | craftTime        | float     |         |            |
-    | spinnerRadius    | float     |     2.5 |            |
-    | spinnerLength    | float     |       1 |            |
-    | spinnerThickness | float     |       1 |            |
-    | spinnerSpeed     | float     |       2 |            |
-    | color            | [[Color][Color]]     |  858585 |            |
-    | liquidRegion     | int       |         |            |
+    | field            | type          | default | notes      |
+    |------------------+---------------+---------+------------|
+    |                  |               |         | <10>       |
+    | results          | [ [[ItemStack][ItemStack]] ] |         | *[required]* |
+    | craftTime        | float         |         |            |
+    | spinnerRadius    | float         |     2.5 |            |
+    | spinnerLength    | float         |       1 |            |
+    | spinnerThickness | float         |       1 |            |
+    | spinnerSpeed     | float         |       2 |            |
+    | color            | [[Color][Color]]         |  858585 |            |
+    | liquidRegion     | int           |         |            |
 
     Defaults:
     | field      | default |
@@ -2078,15 +2078,18 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~material~ can't go in the core.
 
 ** ItemStack
+   :PROPERTIES:
+   :DESCRIPTION: items and where to put them
+   :END:
 
-   This type is used to tell blocks to calculate their output/input rates. An item stack is simply an array of objects with the following fields:
+   An ~ItemStack~ is an object with the following fields:
 
    | field  | type | default |
    |--------+------+---------|
    | amount | int  |       1 |
    | item   | [[Item][Item]] |         |
 
-   For example:
+   Often you'll see ~[ ItemStack ]~, which stands for an array of ~ItemStack~, for example:
 
    #+BEGIN_SRC json
    [
@@ -2261,9 +2264,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | field                | type          | default     | notes      |
    |----------------------+---------------+-------------+------------|
    |                      |               |             | <10>       |
-   | baseLaunchCost       | [[ItemStack]]     |             |            |
-   | launchCost           | [[ItemStack]]     |             |            |
-   | startingItems        | [[ItemStack]]     |             | Items you start with on the map. |
+   | baseLaunchCost       | [ [[ItemStack]] ] |             |            |
+   | launchCost           | [ [[ItemStack]] ] |             |            |
+   | startingItems        | [ [[ItemStack]] ] |             | Items you start with on the map. |
    | conditionWave        | int           | MAX_VALUE   |            |
    | alwaysUnlocked       | boolean       | false       | Whether this map is always unlocked |
    | launchPeriod         | int           | 10          | Rate of waves at which the core may be launched. |
@@ -2271,7 +2274,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | resources            | [ String ]    |             | Array of [[Item][item]] names. |
    | requirements         | [ [[Objective]] ] |             | An array of requirements to unlock configuration. |
    | configureObjective   | [[Objective]]     | ZoneWave 15 |            |
-   | defaultStartingItems | [[ItemStack]]     |             |            |
+   | defaultStartingItems | [ [[ItemStack]] ] |             |            |
 
    Sprites:
    * ~zone-<name>~ preview
