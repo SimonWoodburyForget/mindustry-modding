@@ -2065,7 +2065,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    |----------------+----------+---------+------------|
    |                |          |         | <10>       |
    | color          | [[Color][Color]]    |         | hex string of color |
-   | type           | [[ItemType]] |         | used for tabs and core acceptance |
+   | type           | [[ItemType][ItemType]] |         | used for tabs and core acceptance |
    | explosiveness  | float    |       0 | how explosive this item is. |
    | flammability   | float    |       0 | flammability above 0.3 makes this eleigible for item burners. |
    | radioactivity  | float    |         | how radioactive this item is. 0=none, 1=chernobyl ground zero |
