@@ -322,7 +322,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    :DESCRIPTION: content parser syntax
    :END:
 
-   *new:* /currently partially implimented on [[bleeding-edge][bleeding-edge]], where only ~content/~ uses Hjson./
+   *[new v99]* /currently partially implimented, where only ~content/~ uses Hjson./
 
    As of now, Mindustry doesn't actually use Json, /(but any valid JSON should work)/ it uses a variant of Json called [[https://hjson.org/][Hjson]].
 
