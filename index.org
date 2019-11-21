@@ -6,7 +6,7 @@
 
 #+LANGUAGE: en
 #+TEXINFO_DEFFN: t
-#+OPTIONS: H:4 num:3 toc:2
+#+OPTIONS: H:4 num:4 toc:2
 
 #+TEXINFO_FILENAME: index
 
@@ -2078,15 +2078,19 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
 ** ItemStack
    :PROPERTIES:
-   :DESCRIPTION: items and where to put them
+   :DESCRIPTION: amount of item types
    :END:
 
-   An ~ItemStack~ is an object with the following fields:
+   This type is used when you need to describe an amount of items to the game for what ever reason.
 
-   | field  | type | default |
-   |--------+------+---------|
-   | amount | int  |       1 |
-   | item   | [[Item][Item]] |         |
+   *[new [[968f3ace3]]]:* An ~ItemStack~ can be a string with the following format ~"item/amount"~.
+
+   An ~ItemStack~ can be an object with the following fields:
+
+   | field  | type   | notes                    |
+   |--------+--------+--------------------------|
+   | item   | string | The name of an [[Item]].     |
+   | amount | int    | The amount of said item. |
 
    Often you'll see ~[ ItemStack ]~, which stands for an array of ~ItemStack~, for example:
 
@@ -2096,6 +2100,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
        { "amount": 90, "item": "copper" }
    ]
    #+END_SRC
+
 
 ** NEW Liquid
 
@@ -2120,21 +2125,28 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~<name>~, the sprite used when displaying the liquid from a menu.
 
 ** LiquidStack
+   :PROPERTIES:
+   :DESCRIPTION: amount of liquid types
+   :END:
 
-    This type is used by blocks, to consume a liquid, just like [[ItemStack][ItemStack]] except that it can only contain 1 liquid.
+   This type is used when you need to describe an amount of liquid to the game for what ever reason.
 
-    | field  | type   |
-    |--------+--------|
-    | liquid | [[Liquid][Liquid]] |
-    | amount | float  |
+   *[new [[968f3ace3]]]:* A ~LiquidStack~ can be a string with the following format ~"liquid/amount"~.
+
+    A ~LiquidStack~ can be an object with the following fields:
+
+    | field  | type   | notes                      |
+    |--------+--------+----------------------------|
+    | liquid | string | The name of a [[Liquid]].      |
+    | amount | float  | The amount of said liquid. |
 
     For example:
 
     #+BEGIN_SRC json
- {
-    "liquid": "water",
-    "amount": 0.5
- }
+    {
+        "liquid": "water",
+        "amount": 0.5
+    }
     #+END_SRC
 
 ** Weapon
@@ -2775,13 +2787,19 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
   :END:
 
 ** Change Log
-*** v100 master
-**** 968f3ace3.. [2019-11-21 Thu]
+   :PROPERTIES:
+   :DESCRIPTION: log of changes
+   :END:
+   This is a log of changes done on the Mindustry Master branch. Each section is separated by tags, for example [[v100]] and then subsectioned into commit hash, for example [[968f3ace3]], with a date stamp of when said log was added, not of the commit itself. These changes typically make it into the game at the next official release.
+
+*** v100
+**** 968f3ace3
      :PROPERTIES:
      :DESCRIPTION: better mod parsing
      :END:
-     * ~"liquid/amount"~ can now be used as a string to do the same thing as ~{ "liquid": "xxxx", "amount": xx }~ where a field type is ~LiquidStack~;
-     * ~"item/amount"~ can now be used as a string to do the same thing as ~{ "item": "xxxx", "amount": xx }~ where a field type is ~ItemStack~;
+     [2019-11-21 Thu]
+     * ~"liquid/amount"~ can now be used as a string to do the same thing as ~{ "liquid": "xxxx", "amount": xx }~ where a field type is [[LiquidStack]];
+     * ~"item/amount"~ can now be used as a string to do the same thing as ~{ "item": "xxxx", "amount": xx }~ where a field type is [[ItemStack]];
      * ~mod.json~ now supports hjson;
      * ~mod.js~ can be used instead of ~mod.json~.
 
