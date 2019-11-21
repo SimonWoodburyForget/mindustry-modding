@@ -12,7 +12,7 @@
 
 #+TODO: TODO UNTESTED | NEW DONE
 
-#+TEXINFO_HEADER: Modding documentation for Mindustry v100 (25)
+#+TEXINFO_HEADER: Modding documentation for Mindustry v100 (40)
 
 Submit pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
@@ -2051,7 +2051,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~liquids~
    * ~drills~
 
-
 * Type
   :PROPERTIES:
   :DESCRIPTION: the building blocks of the universe.
@@ -2394,7 +2393,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
      |--------+-------|
      | damage |   0.1 |
 
-
 * Graphics
   :PROPERTIES:
   :DESCRIPTION: the rendering specific stuff.
@@ -2418,7 +2416,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~ffff00~ is yellow,
    * ~00ffff~ is cyan,
    * /ect../
-
 
 * Entities
   :PROPERTIES:
@@ -2747,7 +2744,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~base~
    * ~turret~
 
-
 * Objective
   :PROPERTIES:
   :DESCRIPTION: types to set game objectives
@@ -2777,6 +2773,17 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
   :PROPERTIES:
   :DESCRIPTION: ...
   :END:
+
+** Change Log
+*** v100 master
+**** 968f3ace3.. [2019-11-21 Thu]
+     :PROPERTIES:
+     :DESCRIPTION: better mod parsing
+     :END:
+     * ~"liquid/amount"~ can now be used as a string to do the same thing as ~{ "liquid": "xxxx", "amount": xx }~ where a field type is ~LiquidStack~;
+     * ~"item/amount"~ can now be used as a string to do the same thing as ~{ "item": "xxxx", "amount": xx }~ where a field type is ~ItemStack~;
+     * ~mod.json~ now supports hjson;
+     * ~mod.js~ can be used instead of ~mod.json~.
 
 ** Mindustry Source Structure
 
