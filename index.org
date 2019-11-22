@@ -84,7 +84,9 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    :DESCRIPTION: content configuration directory
    :END:
 
-   At the root of your project directory you can have a ~content/~ directory, this is where all the JSON data goes for your content, and in this directory you have subdirectories for the various content types, these are the current common ones:
+   *[new [[2d4270406]]]* /file extension ~.hjson~ now supported/
+
+   At the root of your project directory you can have a ~content/~ directory, this is where all the JSON/HJSON data goes for your content, and in this directory you have subdirectories for the various content types, these are the current common ones:
 
    * ~content/items/~ for [[Item][items]], like ~copper~ and ~surge-alloy~;
    * ~content/blocks/~ for [[Block][blocks]], like turrets and floors;
@@ -2803,8 +2805,16 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
      * ~"liquid/amount"~ can now be used as a string to do the same thing as ~{ "liquid": "xxxx", "amount": xx }~ where a field type is [[LiquidStack]];
      * ~"item/amount"~ can now be used as a string to do the same thing as ~{ "item": "xxxx", "amount": xx }~ where a field type is [[ItemStack]];
      * ~mod.json~ now supports hjson;
-     * ~mod.js~ can be used instead of ~mod.json~.
-
+**** 2c61fcdfa
+     :PROPERTIES:
+     :DESCRIPTION: added optional mod minimum game version
+     :END:
+     * ~minGameVersion~ can now be used as an extension
+**** 2d4270406
+     :PROPERTIES:
+     :DESCRIPTION: switched to hjson extension
+     :END:
+     * ~.hjson~ can now be used as an extension.
 ** Mindustry Source Structure
 
    #+BEGIN_SRC fundamental

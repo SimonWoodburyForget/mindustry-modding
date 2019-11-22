@@ -16,3 +16,4 @@ html-doc: texi
 
 dist: html
 	rm index.texi -f
+	python3.8 helper contents -i index.org -o README.org
