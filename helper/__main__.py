@@ -4,6 +4,10 @@ import pyperclip
 from pathlib import Path
 import msch as msch_
 from msch import Schematic, Schematics
+from jinja2 import Template
+from textwrap import dedent
+
+WEBSITE = "https://simonwoodburyforget.github.io/mindustry-modding/"
 
 @click.group()
 def cli():
@@ -28,14 +32,33 @@ def defaults():
     click.echo(o)
 
 @cli.command()
-@click.argument("path")
-def contents(path):
-    """ Makes content table out of org file. """
-    path = Path(path)
-    with open(path, "r") as f:
+@click.option("-i", "--input", help="The input org file.")
+@click.option("-t", "--template", help="The template org file.")
+@click.option("-o", "--output", help="The rendered org file.")
+def contents(input, template, output):
+    """ Generate content table README. """
+    template = Template(
+        dedent('''
+        * Overview
+        
+        Checkout the website here: {{ website }}
+        
+        Content Table:
+        
+        {{ content_table }}
+
+        '''))
+
+    with open(input, "r") as f:
         i = f.read()
-    o = parser.build_content_tables(i)
-    click.echo(o)
+        o = parser.build_content_tables(i)
+        r = template.render(content_table=o,
+                            website=WEBSITE)
+
+    # TODO: load template from file
+
+    with open(output, "w") as f:
+        print(r, file=f)
 
 @cli.command()
 @click.argument("msch-text")

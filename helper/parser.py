@@ -90,6 +90,7 @@ def build_content_tables(string):
         # make github hyperlink
         l = ( x.replace("*", " ")
                .replace("TODO", " ")
+               .replace("NEW", " ")
                .strip()
                .replace(" ", "-")
                .replace(".", "") )
