@@ -986,35 +986,38 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    This section is for turret types. All turrets shoot [[BulletType]], and this means [[LiquidTurret]] can shoot [[MissileBulletType]] and [[ItemTurret]] can shoot [[LiquidBulletType]].
 
 *** Turret
+    :PROPERTIES:
+    :DESCRIPTION: base fields for all turrets
+    :END:
 
     [[Abstract][Abstract]] type which extends [[Block][Block]]
 
-    This is the base type for all turrets.
+    The purpose of a turret type is to be a ~Block~ that shoots bullets. ~Turret~ is the base type for all turrets, it's /abstract/ meaning it shouldn't be used directly, but everything which extends it will get it's fields.
 
     | field         | type    |    default | notes      |
     |---------------+---------+------------+------------|
     |               |         |            | <10>       |
-    | heatColor     | [[Color][Color]]   | turretHeat |            |
-    | shootEffect   | [[Effect][Effect]]  |       none |            |
-    | smokeEffect   | [[Effect][Effect]]  |       none |            |
-    | ammoUseEffect | [[Effect][Effect]]  |       none |            |
-    | shootSound    | [[Sound][Sound]]   |      shoot |            |
-    | ammoPerShot   | int     |          1 |            |
-    | ammoEjectBack | float   |          1 |            |
-    | range         | float   |         50 |            |
-    | reload        | float   |         10 |            |
-    | inaccuracy    | float   |          0 |            |
-    | shots         | int     |          1 |            |
-    | spread        | float   |          4 |            |
-    | recoil        | float   |          1 |            |
-    | restitution   | float   |       0.02 |            |
-    | cooldown      | float   |       0.02 |            |
-    | rotatespeed   | float   |          5 | in degrees per tick |
-    | shootCone     | float   |          8 |            |
-    | shootShake    | float   |          0 |            |
-    | xRand         | float   |          0 |            |
-    | targetAir     | boolean |       true |            |
-    | targetGround  | boolean |       true |            |
+    | heatColor     | [[Color][Color]]   | turretHeat | The color of the ~-heat~ sprite. |
+    | shootEffect   | [[Effect][Effect]]  |       none | An effect fired on tile in the direction the turret is aiming when it shoots. |
+    | smokeEffect   | [[Effect][Effect]]  |       none | An effect fired on tile in the direction the turret is aiming when it shoots. |
+    | ammoUseEffect | [[Effect][Effect]]  |       none | An effect fired on the tile, when ammo is consumed. |
+    | shootSound    | [[Sound][Sound]]   |      shoot | A sound created from the tile when a bullet is fired. |
+    | ammoPerShot   | int     |          1 | The amount of ammo used per shot. |
+    | ammoEjectBack | float   |          1 | The eject angle of shells in radians. |
+    | range         | float   |         50 | The range at which the turret can target enemies. |
+    | reload        | float   |         10 | The amount of ticks it takes to reload. |
+    | inaccuracy    | float   |          0 | The degrees of inaccuracy. |
+    | shots         | int     |          1 | The numbers of bullets fired at once. |
+    | spread        | float   |          4 | The angular spread of multiple bullets when shot. |
+    | recoil        | float   |          1 | The recoil of the turret when fired. |
+    | restitution   | float   |       0.02 | The restitution from recoil after shooting. /(time taken to recenter)/ |
+    | cooldown      | float   |       0.02 | The amount of time it takes for the ~-heat~ sprite to become transparent. |
+    | rotatespeed   | float   |          5 | The degrees per tick at which the turret can rotate. |
+    | shootCone     | float   |          8 | The angle used to determine whether the turret should be shooting. |
+    | shootShake    | float   |          0 | The amount of camera shake. |
+    | xRand         | float   |          0 | The random ~x~ axis multiplier, to make bullets appear to come out of multiple places. Used in Swarmer for example. |
+    | targetAir     | boolean |       true | Whether this target can target air units. |
+    | targetGround  | boolean |       true | Whether this turret can target ground units or blocks. |
 
     Defaults:
 
@@ -2790,14 +2793,13 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    :PROPERTIES:
    :DESCRIPTION: log of changes
    :END:
-   This is a log of changes done on the Mindustry Master branch. Each section is separated by tags, for example [[v100]] and then subsectioned into commit hash, for example [[968f3ace3]], with a date stamp of when said log was added, not of the commit itself. These changes typically make it into the game at the next official release.
+   This is a log of changes done on the Mindustry Master branch. Each section is separated by tags, for example [[v100]] and then subsectioned into commit hash, for example [[968f3ace3]].
 
 *** v100
 **** 968f3ace3
      :PROPERTIES:
      :DESCRIPTION: better mod parsing
      :END:
-     [2019-11-21 Thu]
      * ~"liquid/amount"~ can now be used as a string to do the same thing as ~{ "liquid": "xxxx", "amount": xx }~ where a field type is [[LiquidStack]];
      * ~"item/amount"~ can now be used as a string to do the same thing as ~{ "item": "xxxx", "amount": xx }~ where a field type is [[ItemStack]];
      * ~mod.json~ now supports hjson;

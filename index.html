@@ -765,7 +765,7 @@ Defense
 
 Turrets
 
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Turret">Turret</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Turret">Turret</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base fields for all turrets
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#CooledTurret">CooledTurret</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -1427,9 +1427,9 @@ Previous: <a href="#Schematic" accesskey="p" rel="prev">Schematic</a>, Up: <a hr
 </li><li> <code>ticks</code> <em>sometimes called <code>frames</code>,</em> are assumed to be 60/1 second;
 </li><li> <code>range</code> or most forms of distance is 1/10 of a tile;
 </li><li> to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;
-</li><li> <a name="org3798192"></a>what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind;
+</li><li> <a name="org2e63ec1"></a>what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you&rsquo;ll probably get an <em>&quot;initialization exception&quot;</em> of some kind;
 </li><li> what is a <code>NullPointerException</code>? This is an error message that indicates a field is null and shouldn&rsquo;t be null, meaning one of the required fields may be missing;
-</li><li> <a name="org3fabb7e"></a>what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it&rsquo;s refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.
+</li><li> <a name="org9dc3930"></a>what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it&rsquo;s refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.
 </li></ul>
 
 <hr>
@@ -1564,9 +1564,9 @@ Next: <a href="#Consume" accesskey="n" rel="next">Consume</a>, Previous: <a href
 <table>
 <thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
 <tr><td>item</td><td>String</td><td>shorthand for <code>items</code></td></tr>
-<tr><td>items</td><td><a href="#org13acf08">ConsumeItems</a></td><td>consume a number of different items</td></tr>
-<tr><td>liquid</td><td><a href="#orga4b1437">ConsumeLiquid</a></td><td>consume a single liquid</td></tr>
-<tr><td>power</td><td>float or <a href="#orgd466f03">ConsumePower</a></td><td>consume or buffer power</td></tr>
+<tr><td>items</td><td><a href="#orgd357c2a">ConsumeItems</a></td><td>consume a number of different items</td></tr>
+<tr><td>liquid</td><td><a href="#orgaae28f6">ConsumeLiquid</a></td><td>consume a single liquid</td></tr>
+<tr><td>power</td><td>float or <a href="#orge1ec765">ConsumePower</a></td><td>consume or buffer power</td></tr>
 <tr><td>powerBuffered</td><td>float</td><td>amount of power buffered</td></tr>
 </table>
 
@@ -1575,7 +1575,7 @@ Next: <a href="#Consume" accesskey="n" rel="next">Consume</a>, Previous: <a href
 <li> you shouldn&rsquo;t have <code>power</code> and <code>powerBuffered</code>.
 </li></ul>
 
-<p>For example with <a href="#org13acf08">ConsumeItems</a> and <a href="#orga4b1437">ConsumeLiquid</a>:
+<p>For example with <a href="#orgd357c2a">ConsumeItems</a> and <a href="#orgaae28f6">ConsumeLiquid</a>:
 </p><div class="example">
 <pre class="example">{
     &quot;items&quot;: {
@@ -1602,7 +1602,7 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 <a name="Consume-1"></a>
 <h3 class="section">2.3 Consume</h3>
 
-<p><a href="#org3798192">Abstract</a> type which defines a type of resource that a block can consume.
+<p><a href="#org2e63ec1">Abstract</a> type which defines a type of resource that a block can consume.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1612,14 +1612,14 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 </table>
 
 <ul>
-<li> <a name="org13acf08"></a><code>ConsumeItems</code>, consume an itemstack.
+<li> <a name="orgd357c2a"></a><code>ConsumeItems</code>, consume an itemstack.
 
 <table>
 <thead><tr><th>field</th><th>type</th></tr></thead>
 <tr><td>items</td><td>[ <a href="#ItemStack">ItemStack</a> ]</td></tr>
 </table>
 
-</li><li> <a name="orga4b1437"></a><code>ConsumeLiquid</code>, consume a liquid.
+</li><li> <a name="orgaae28f6"></a><code>ConsumeLiquid</code>, consume a liquid.
 
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
@@ -1628,7 +1628,7 @@ Next: <a href="#BlockStorage" accesskey="n" rel="next">BlockStorage</a>, Previou
 <tr><td>timePeriod</td><td>float</td><td>60</td><td>how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as <em>100 seconds</em>, but without a time override it would display as <em>10 liquid/second</em>. This is used for generic crafters.</td></tr>
 </table>
 
-</li><li> <a name="orgd466f03"></a><code>ConsumePower</code>, consume or buffer power.
+</li><li> <a name="orge1ec765"></a><code>ConsumePower</code>, consume or buffer power.
 
 <table>
 <thead><tr><th>field</th><th>type</th><th>notes</th></tr></thead>
@@ -1647,7 +1647,7 @@ Next: <a href="#Environment" accesskey="n" rel="next">Environment</a>, Previous:
 <a name="BlockStorage-1"></a>
 <h3 class="section">2.4 BlockStorage</h3>
 
-<p><a href="#org3798192">Abstract</a> type that extends <a href="#Content">Content</a>
+<p><a href="#org2e63ec1">Abstract</a> type that extends <a href="#Content">Content</a>
 </p>
 <p>Type for blocks which may store a buffer of items or liquid.
 </p>
@@ -2370,10 +2370,10 @@ Next: <a href="#ShockMine" accesskey="n" rel="next">ShockMine</a>, Previous: <a 
 <tr><td>canOverdrive</td><td>false</td></tr>
 <tr><td>hasLiquids</td><td>true</td></tr>
 <tr><td>hasItems</td><td>true</td></tr>
-<tr><td>consumes</td><td><a href="#orgfca5b6d">cold-liquid</a></td></tr>
+<tr><td>consumes</td><td><a href="#org9ffd972">cold-liquid</a></td></tr>
 </table>
 
-<a name="orgfca5b6d"></a><p><a href="#orgfca5b6d">cold-liquid</a>:
+<a name="org9ffd972"></a><p><a href="#org9ffd972">cold-liquid</a>:
 </p><ul>
 <li> temperature less then 0.5
 </li><li> flammability less then 0.1
@@ -2429,7 +2429,7 @@ Next: <a href="#Distribution" accesskey="n" rel="next">Distribution</a>, Previou
 <p>This section is for turret types. All turrets shoot <a href="#BulletType">BulletType</a>, and this means <a href="#LiquidTurret">LiquidTurret</a> can shoot <a href="#MissileBulletType">MissileBulletType</a> and <a href="#ItemTurret">ItemTurret</a> can shoot <a href="#LiquidBulletType">LiquidBulletType</a>.
 </p>
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Turret" accesskey="1">Turret</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Turret" accesskey="1">Turret</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">base fields for all turrets
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#CooledTurret" accesskey="2">CooledTurret</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
@@ -2460,33 +2460,33 @@ Next: <a href="#CooledTurret" accesskey="n" rel="next">CooledTurret</a>, Up: <a 
 <a name="Turret-1"></a>
 <h4 class="subsection">2.10.1 Turret</h4>
 
-<p><a href="#org3798192">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org2e63ec1">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
-<p>This is the base type for all turrets.
+<p>The purpose of a turret type is to be a <code>Block</code> that shoots bullets. <code>Turret</code> is the base type for all turrets, it&rsquo;s <em>abstract</em> meaning it shouldn&rsquo;t be used directly, but everything which extends it will get it&rsquo;s fields.
 </p>
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
-<tr><td>heatColor</td><td><a href="#Color">Color</a></td><td>turretHeat</td><td></td></tr>
-<tr><td>shootEffect</td><td><a href="#Effect">Effect</a></td><td>none</td><td></td></tr>
-<tr><td>smokeEffect</td><td><a href="#Effect">Effect</a></td><td>none</td><td></td></tr>
-<tr><td>ammoUseEffect</td><td><a href="#Effect">Effect</a></td><td>none</td><td></td></tr>
-<tr><td>shootSound</td><td><a href="#Sound">Sound</a></td><td>shoot</td><td></td></tr>
-<tr><td>ammoPerShot</td><td>int</td><td>1</td><td></td></tr>
-<tr><td>ammoEjectBack</td><td>float</td><td>1</td><td></td></tr>
-<tr><td>range</td><td>float</td><td>50</td><td></td></tr>
-<tr><td>reload</td><td>float</td><td>10</td><td></td></tr>
-<tr><td>inaccuracy</td><td>float</td><td>0</td><td></td></tr>
-<tr><td>shots</td><td>int</td><td>1</td><td></td></tr>
-<tr><td>spread</td><td>float</td><td>4</td><td></td></tr>
-<tr><td>recoil</td><td>float</td><td>1</td><td></td></tr>
-<tr><td>restitution</td><td>float</td><td>0.02</td><td></td></tr>
-<tr><td>cooldown</td><td>float</td><td>0.02</td><td></td></tr>
-<tr><td>rotatespeed</td><td>float</td><td>5</td><td>in degrees per tick</td></tr>
-<tr><td>shootCone</td><td>float</td><td>8</td><td></td></tr>
-<tr><td>shootShake</td><td>float</td><td>0</td><td></td></tr>
-<tr><td>xRand</td><td>float</td><td>0</td><td></td></tr>
-<tr><td>targetAir</td><td>boolean</td><td>true</td><td></td></tr>
-<tr><td>targetGround</td><td>boolean</td><td>true</td><td></td></tr>
+<tr><td>heatColor</td><td><a href="#Color">Color</a></td><td>turretHeat</td><td>The color of the <code>-heat</code> sprite.</td></tr>
+<tr><td>shootEffect</td><td><a href="#Effect">Effect</a></td><td>none</td><td>An effect fired on tile in the direction the turret is aiming when it shoots.</td></tr>
+<tr><td>smokeEffect</td><td><a href="#Effect">Effect</a></td><td>none</td><td>An effect fired on tile in the direction the turret is aiming when it shoots.</td></tr>
+<tr><td>ammoUseEffect</td><td><a href="#Effect">Effect</a></td><td>none</td><td>An effect fired on the tile, when ammo is consumed.</td></tr>
+<tr><td>shootSound</td><td><a href="#Sound">Sound</a></td><td>shoot</td><td>A sound created from the tile when a bullet is fired.</td></tr>
+<tr><td>ammoPerShot</td><td>int</td><td>1</td><td>The amount of ammo used per shot.</td></tr>
+<tr><td>ammoEjectBack</td><td>float</td><td>1</td><td>The eject angle of shells in radians.</td></tr>
+<tr><td>range</td><td>float</td><td>50</td><td>The range at which the turret can target enemies.</td></tr>
+<tr><td>reload</td><td>float</td><td>10</td><td>The amount of ticks it takes to reload.</td></tr>
+<tr><td>inaccuracy</td><td>float</td><td>0</td><td>The degrees of inaccuracy.</td></tr>
+<tr><td>shots</td><td>int</td><td>1</td><td>The numbers of bullets fired at once.</td></tr>
+<tr><td>spread</td><td>float</td><td>4</td><td>The angular spread of multiple bullets when shot.</td></tr>
+<tr><td>recoil</td><td>float</td><td>1</td><td>The recoil of the turret when fired.</td></tr>
+<tr><td>restitution</td><td>float</td><td>0.02</td><td>The restitution from recoil after shooting. <em>(time taken to recenter)</em></td></tr>
+<tr><td>cooldown</td><td>float</td><td>0.02</td><td>The amount of time it takes for the <code>-heat</code> sprite to become transparent.</td></tr>
+<tr><td>rotatespeed</td><td>float</td><td>5</td><td>The degrees per tick at which the turret can rotate.</td></tr>
+<tr><td>shootCone</td><td>float</td><td>8</td><td>The angle used to determine whether the turret should be shooting.</td></tr>
+<tr><td>shootShake</td><td>float</td><td>0</td><td>The amount of camera shake.</td></tr>
+<tr><td>xRand</td><td>float</td><td>0</td><td>The random <code>x</code> axis multiplier, to make bullets appear to come out of multiple places. Used in Swarmer for example.</td></tr>
+<tr><td>targetAir</td><td>boolean</td><td>true</td><td>Whether this target can target air units.</td></tr>
+<tr><td>targetGround</td><td>boolean</td><td>true</td><td>Whether this turret can target ground units or blocks.</td></tr>
 </table>
 
 <p>Defaults:
@@ -3306,7 +3306,7 @@ Next: <a href="#PowerNode" accesskey="n" rel="next">PowerNode</a>, Up: <a href="
 <a name="PowerBlock-1"></a>
 <h4 class="subsection">2.13.1 PowerBlock</h4>
 
-<p><a href="#org3798192">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org2e63ec1">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p>
@@ -4033,7 +4033,7 @@ Next: <a href="#CoreBlock" accesskey="n" rel="next">CoreBlock</a>, Up: <a href="
 <a name="StorageBlock-1"></a>
 <h4 class="subsection">2.16.1 StorageBlock</h4>
 
-<p><a href="#org3798192">Abstract</a> type which extends <a href="#Block">Block</a>
+<p><a href="#org2e63ec1">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 <p>Defaults:
 </p><table>
@@ -4291,7 +4291,7 @@ Next: <a href="#ItemStack" accesskey="n" rel="next">ItemStack</a>, Up: <a href="
 <table>
 <thead><tr><th>field</th><th>type</th><th>default</th><th>notes</th></tr></thead>
 <tr><td>color</td><td><a href="#Color">Color</a></td><td></td><td><strong>[required]</strong> hex string of color</td></tr>
-<tr><td>type</td><td><a href="#org5be2a8b">ItemTypes</a></td><td></td><td>used for tabs and core acceptance</td></tr>
+<tr><td>type</td><td><a href="#orge1a8879">ItemTypes</a></td><td></td><td>used for tabs and core acceptance</td></tr>
 <tr><td>explosiveness</td><td>float</td><td>0</td><td>how explosive this item is.</td></tr>
 <tr><td>flammability</td><td>float</td><td>0</td><td>flammability above 0.3 makes this eleigible for item burners.</td></tr>
 <tr><td>radioactivity</td><td>float</td><td></td><td>how radioactive this item is. 0=none, 1=chernobyl ground zero</td></tr>
@@ -4300,7 +4300,7 @@ Next: <a href="#ItemStack" accesskey="n" rel="next">ItemStack</a>, Up: <a href="
 <tr><td>alwaysUnlocked</td><td>boolean</td><td>false</td><td>If true, item is always unlocked.</td></tr>
 </table>
 
-<a name="org5be2a8b"></a><p><strong>ItemTypes:</strong>
+<a name="orge1a8879"></a><p><strong>ItemTypes:</strong>
 </p><ul>
 <li> <code>resource</code> can go in the core;
 </li><li> <code>material</code> can&rsquo;t go in the core.
@@ -4813,7 +4813,7 @@ Next: <a href="#BaseUnit" accesskey="n" rel="next">BaseUnit</a>, Up: <a href="#E
 <a name="BulletType-1"></a>
 <h3 class="section">5.1 BulletType</h3>
 
-<p><a href="#org3798192">Abstract</a> type which extends <a href="#Content">Content</a>
+<p><a href="#org2e63ec1">Abstract</a> type which extends <a href="#Content">Content</a>
 </p>
 <p>BulletType can either be an object <code>{}</code> or a <code>&quot;string&quot;</code>, where a string would be reusing <a href="#Built_002din-Bullets">Built-in Bullets</a> and an object would be making a custom one.
 </p>
@@ -5331,7 +5331,7 @@ Next: <a href="#Mindustry-Source-Structure" accesskey="n" rel="next">Mindustry S
 <a name="Change-Log-1"></a>
 <h3 class="section">7.1 Change Log</h3>
 
-<p>This is a log of changes done on the Mindustry Master branch. Each section is separated by tags, for example <a href="#v100">v100</a> and then subsectioned into commit hash, for example <a href="#g_t968f3ace3">968f3ace3</a>, with a date stamp of when said log was added, not of the commit itself. These changes typically make it into the game at the next official release.
+<p>This is a log of changes done on the Mindustry Master branch. Each section is separated by tags, for example <a href="#v100">v100</a> and then subsectioned into commit hash, for example <a href="#g_t968f3ace3">968f3ace3</a>.
 </p>
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#v100" accesskey="1">v100</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
@@ -5361,8 +5361,7 @@ Up: <a href="#v100" accesskey="u" rel="up">v100</a> &nbsp; [<a href="#SEC_Conten
 <a name="g_t968f3ace3-1"></a>
 <h4 class="subsubsection">7.1.1.1 968f3ace3</h4>
 
-<p><em>[2019-11-21 Thu]</em>
-</p><ul>
+<ul>
 <li> <code>&quot;liquid/amount&quot;</code> can now be used as a string to do the same thing as <code>{ &quot;liquid&quot;: &quot;xxxx&quot;, &quot;amount&quot;: xx }</code> where a field type is <a href="#LiquidStack">LiquidStack</a>;
 </li><li> <code>&quot;item/amount&quot;</code> can now be used as a string to do the same thing as <code>{ &quot;item&quot;: &quot;xxxx&quot;, &quot;amount&quot;: xx }</code> where a field type is <a href="#ItemStack">ItemStack</a>;
 </li><li> <code>mod.json</code> now supports hjson;
