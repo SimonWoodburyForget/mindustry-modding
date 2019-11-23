@@ -6,6 +6,11 @@ import msch as msch_
 from msch import Schematic, Schematics
 from jinja2 import Template
 from textwrap import dedent
+import yaml
+from typing import List, Dict
+from dataclasses import dataclass
+from github import Github
+from datetime import datetime
 
 WEBSITE = "https://simonwoodburyforget.github.io/mindustry-modding/"
 
@@ -74,5 +79,39 @@ def msch(msch_text, old, new):
                           for s in schems.tiles ])
     click.echo(msch_.dump(schems, True))
 
+@cli.command()
+@click.option("-i", "--input", default='index.org', help="path to template index.org file")
+@click.option("-o", "--output", default='index.tmp.org', help="path to output index.org file")
+@click.option("-l", "--logs", default='helper/change-log.yaml' ,help="path to commit logs yaml file")
+def build_index(input, output, logs):
+    '''Build index out of index.org template.'''
+    
+    @dataclass
+    class Log:
+        hash: str
+        notes: List[str]
+        date: datetime
+        message: str
+    with open(Path.home() / ".github-token") as f:
+        token = f.read()
+    g = Github(token)
+    repo = g.get_repo("Anuken/Mindustry")
+    def from_commit(x):
+        sha, notes = x
+        commit = repo.get_commit(sha=sha)
+        return Log(sha,
+                   notes,
+                   commit.commit.author.date,
+                   commit.commit.message)
+    with open(logs) as f:
+        logs = yaml.safe_load(f.read())
+    logs = [ from_commit(x) for x in logs.items() ]
+
+    with open(input) as f:
+        template = Template(f.read())
+    with open(output, 'w') as f:
+        print(template.render(change_log=logs), file=f)
+
+    
 if __name__ == '__main__':
     cli()
