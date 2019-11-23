@@ -2798,13 +2798,13 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    This is a log of changes done on the Mindustry Master branch that affected the modding API.
 
 {% for log in change_log %}
-*** [{{ log.date }}]
+*** {{ log.date_fmt() }}
     :PROPERTIES:
     :UNNUMBERED: t
     :DESCRIPTION: {{ log.message }}
     :CUSTOM_ID: {{ log.hash }}
     :END:
-    [[https://github.com/Anuken/Mindustry/commit/{{ log.hash }}][{{ log.hash }}]] -- {{ log.message }}
+    [ [[https://github.com/Anuken/Mindustry/commit/{{ log.hash }}][commit]] ={{ log.hash }}= ]   {{ log.message }}
 
     {% for note in log.notes %}
        * {{ note }};

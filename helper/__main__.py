@@ -11,6 +11,7 @@ from typing import List, Dict
 from dataclasses import dataclass
 from github import Github
 from datetime import datetime
+import humanize
 
 WEBSITE = "https://simonwoodburyforget.github.io/mindustry-modding/"
 
@@ -92,6 +93,10 @@ def build_index(input, output, logs):
         notes: List[str]
         date: datetime
         message: str
+
+        def date_fmt(self):
+            return humanize.naturalday(self.date)
+
     with open(Path.home() / ".github-token") as f:
         token = f.read()
     g = Github(token)
@@ -106,6 +111,7 @@ def build_index(input, output, logs):
     with open(logs) as f:
         logs = yaml.safe_load(f.read())
     logs = [ from_commit(x) for x in logs.items() ]
+    logs = reversed(sorted(logs, key=lambda x: x.date))
 
     with open(input) as f:
         template = Template(f.read())
