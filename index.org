@@ -373,7 +373,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    :PROPERTIES:
    :DESCRIPTION: log of changes
    :END:
-   This is a log of changes done on the Mindustry Master branch that affected the modding API.
+   This is a log of changes done on the Mindustry Master branch that affected the modding API. The sections are ordered by date commited, and provide a description of what was changed, with a link to the diff on Github.
 
 {% for log in change_log %}
 *** {{ log.hash }}
