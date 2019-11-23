@@ -369,6 +369,26 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     * what is a ~NullPointerException~? This is an error message that indicates a field is null and shouldn't be null, meaning one of the required fields may be missing;
     * <<bleeding-edge>> what is ~bleeding-edge~? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.
 
+** Change Log
+   :PROPERTIES:
+   :DESCRIPTION: log of changes
+   :END:
+   This is a log of changes done on the Mindustry Master branch that affected the modding API.
+
+{% for log in change_log %}
+*** {{ log.date_fmt() }}
+    :PROPERTIES:
+    :UNNUMBERED: t
+    :DESCRIPTION: {{ log.message }}
+    :CUSTOM_ID: {{ log.hash }}
+    :END:
+    [ [[https://github.com/Anuken/Mindustry/commit/{{ log.hash }}][commit]] ={{ log.hash }}= ]   {{ log.message }}
+
+    {% for note in log.notes %}
+       * {{ note }};
+    {% endfor %}
+{% endfor %}
+
 * World
   :PROPERTIES:
   :DESCRIPTION: the universe and everything in it.
@@ -2791,26 +2811,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
   :DESCRIPTION: ...
   :END:
 
-** Change Log
-   :PROPERTIES:
-   :DESCRIPTION: log of changes
-   :END:
-   This is a log of changes done on the Mindustry Master branch that affected the modding API.
-
-{% for log in change_log %}
-*** {{ log.date_fmt() }}
-    :PROPERTIES:
-    :UNNUMBERED: t
-    :DESCRIPTION: {{ log.message }}
-    :CUSTOM_ID: {{ log.hash }}
-    :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/{{ log.hash }}][commit]] ={{ log.hash }}= ]   {{ log.message }}
-
-    {% for note in log.notes %}
-       * {{ note }};
-    {% endfor %}
-{% endfor %}
-   
 ** Mindustry Source Structure
 
    #+BEGIN_SRC fundamental

@@ -19,6 +19,7 @@ Content Table:
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Hjson][Hjson]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Schematic][Schematic]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#FAQ][FAQ]]
+    * [[https://simonwoodburyforget.github.io/mindustry-modding/#Change-Log][Change Log]]
   * [[https://simonwoodburyforget.github.io/mindustry-modding/#World][World]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Block][NEW Block]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Consumers][Consumers]]
@@ -61,6 +62,5 @@ Content Table:
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#TargetPriority][TargetPriority]]
   * [[https://simonwoodburyforget.github.io/mindustry-modding/#Objective][Objective]]
   * [[https://simonwoodburyforget.github.io/mindustry-modding/#Other][Other]]
-    * [[https://simonwoodburyforget.github.io/mindustry-modding/#Change-Log][Change Log]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Mindustry-Source-Structure][Mindustry Source Structure]]
 
