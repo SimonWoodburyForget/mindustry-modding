@@ -2085,17 +2085,17 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    Extends [[Content][Content]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
 
-   | field          | type      | default | notes      |
-   |----------------+-----------+---------+------------|
-   |                |           |         | <10>       |
-   | color          | [[Color][Color]]     |         | *[required]* hex string of color  |
-   | type           | [[ItemType][ItemTypes]] |         | used for tabs and core acceptance |
-   | explosiveness  | float     |       0 | how explosive this item is. |
-   | flammability   | float     |       0 | flammability above 0.3 makes this eleigible for item burners. |
-   | radioactivity  | float     |         | how radioactive this item is. 0=none, 1=chernobyl ground zero |
-   | hardness       | int       |       0 | drill hardness of the item |
-   | cost           | float     |       1 | used for calculating place times; 1 cost = 1 tick added to build time |
-   | alwaysUnlocked | boolean   |   false | If true, item is always unlocked. |
+   | field          | type      |  default | notes      |
+   |----------------+-----------+----------+------------|
+   |                |           |          | <10>       |
+   | color          | [[Color][Color]]     |    black | hex string of color |
+   | type           | [[ItemType][ItemTypes]] | resource | used for tabs and core acceptance |
+   | explosiveness  | float     |        0 | how explosive this item is. |
+   | flammability   | float     |        0 | flammability above 0.3 makes this eleigible for item burners. |
+   | radioactivity  | float     |          | how radioactive this item is. 0=none, 1=chernobyl ground zero |
+   | hardness       | int       |        0 | drill hardness of the item |
+   | cost           | float     |        1 | used for calculating place times; 1 cost = 1 tick added to build time |
+   | alwaysUnlocked | boolean   |    false | If true, item is always unlocked. |
 
    <<ItemType>> *ItemTypes:*
    * ~resource~ can't go in the core;
