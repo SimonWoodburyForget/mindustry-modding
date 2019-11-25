@@ -394,7 +394,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
   :DESCRIPTION: the universe and everything in it.
   :END:
 
-** NEW Block
+** Block
    :PROPERTIES:
    :DESCRIPTION: base type of types that go on tiles
    :end:
@@ -429,7 +429,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | priority            | TargetPriority  |         base | Targeting priority of this block, as seen by enemies. |
    | configurable        | boolean         |              | Whether the block can be tapped and selected to configure. |
    | consumesTap         | boolean         |              | Whether this block consumes touchDown events when tapped. |
-   | drawLiquidLight     | boolean         |         true | *[new v99 (268)]* Whether to draw the glow of the liquid for this block, if it has one. |
+   | drawLiquidLight     | boolean         |         true | Whether to draw the glow of the liquid for this block, if it has one. |
    | posConfig           | boolean         |              | Whether the config is positional and needs to be shifted. |
    | targetable          | boolean         |         true | Whether units target this block. |
    | canOverdrive        | boolean         |         true | Whether the overdrive core has any effect on this block. |
@@ -2055,7 +2055,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~spores~
    * ~water~
    * ~oil~
-** NEW BuildVisibility
+** BuildVisibility
 
    Options for build visibility include:
    * ~hidden~
@@ -2063,7 +2063,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~debugOnly~
    * ~sandboxOnly~
    * ~campaignOnly~
-   * ~lightingOnly~ *[new v99 (268)]*
+   * ~lightingOnly~
 
 ** BlockGroup
 
@@ -2098,8 +2098,8 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    | alwaysUnlocked | boolean   |   false | If true, item is always unlocked. |
 
    <<ItemType>> *ItemTypes:*
-   * ~resource~ can go in the core;
-   * ~material~ can't go in the core.
+   * ~resource~ can't go in the core;
+   * ~material~ can go in the core.
 
 ** ItemStack
    :PROPERTIES:
@@ -2126,8 +2126,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    ]
    #+END_SRC
 
-
-** NEW Liquid
+** Liquid
 
    Extends [[Content]]
 
@@ -2138,7 +2137,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    |               |              |     <r> | <10>       |
    | color         | [[Color][Color]]        |         | *[required]* color of liquid |
    | barColor      | [[Color]]        |         | /[optional]/ color used in bars. |
-   | lightColor    | [[Color]]        |         | *[new v99 (268)]* Color used to draw lights. Note that the alpha channel is used to dictate brightness. |
+   | lightColor    | [[Color]]        |         | Color used to draw lights. Note that the alpha channel is used to dictate brightness. |
    | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
    | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot |
    | heatCapacity  | float        |     0.5 | used in cooling; water is 0.4 |
