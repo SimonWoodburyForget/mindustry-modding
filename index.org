@@ -692,15 +692,15 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 *** GenericCrafter
     Extends [[Block][Block]]
 
-    | field              | type        | default |
-    |--------------------+-------------+---------|
-    |                    |             |     <r> |
-    | outputItem         | [[ItemStack][ItemStack]]   |         |
-    | outputLiquid       | [[LiquidStack][LiquidStack]] |         |
-    | craftTime          | float       |      80 |
-    | craftEffect        | [[Effect][Effect]]      |    none |
-    | updateEffect       | [[Effect][Effect]]      |    none |
-    | updateEffectChance | float       |    0.04 |
+    | field              | type        | default | notes            |
+    |--------------------+-------------+---------+------------------|
+    |                    |             |     <r> |                  |
+    | outputItem         | [[ItemStack][ItemStack]]   |         | one item stack   |
+    | outputLiquid       | [[LiquidStack][LiquidStack]] |         | one liquid stack |
+    | craftTime          | float       |      80 |                  |
+    | craftEffect        | [[Effect][Effect]]      |    none |                  |
+    | updateEffect       | [[Effect][Effect]]      |    none |                  |
+    | updateEffectChance | float       |    0.04 |                  |
 
     Defaults:
     | field           | default |
