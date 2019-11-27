@@ -318,8 +318,8 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * Portuguese  ~bundle_pt.properties~
    * Russian ~bundle_ru.properties~
    * Danish ~bundle_sv.properties~
-   * Turkish ? ~bundle_tk.properties~
-   * Turkish ? ~bundle_tr.properties~
+   * Turkman ~bundle_tk.properties~
+   * Turkish ~bundle_tr.properties~
    * Ukrainian ~bundle_uk_UA.properties~
    * Chinese CN ~bundle_zh_CN.properties~
    * Chinese TW ~bundle_zh_TW.properties~
