@@ -12,7 +12,7 @@
 
 #+TODO: TODO UNTESTED | NEW DONE
 
-#+TEXINFO_HEADER: Modding documentation for Mindustry v100 (71)
+#+TEXINFO_HEADER: Modding documentation for Mindustry v100 (81)
 
 Submit pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
@@ -45,6 +45,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    │   └── items
    ├── mod.json
    ├── sounds
+   ├── sprites-override
    └── sprites
    #+END_SRC
 
@@ -70,14 +71,16 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
        "author": "Yourself",
        "description": "This is a useless description.",
        "version": "1.0",
+       "minGameVersion": "100.3"
        "dependencies": [ ]
    }
    #+END_SRC
 
    Notes:
-   * ~name~ will be used to reference to your mod, so name it carefully, and avoid giving it the same name as another mod.
-   * ~description~ of the mod will be rendered in the ingame mod manager, so keep it short and to the point.
-   * ~dependencies~ is optional; if you want to know more about that, go to the [[Dependencies][dependencies]] section.
+   * ~name~ will be used to reference to your mod, so name it carefully, and avoid giving it the same name as another mod;
+   * ~description~ of the mod will be rendered in the ingame mod manager, so keep it short and to the point;
+   * ~dependencies~ is optional, if you want to know more about that, go to the [[Dependencies][dependencies]] section;
+   * *[new [[#2c61fcdfa]]]* ~minGameVersion~ is the minimum build version of the game.
 
 ** Content
    :PROPERTIES:
@@ -176,6 +179,8 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites
 
    Another thing to know about sprites is that they're passed through /anti-aliasing filters/ and what that means is that they may look a little different in game. -- The turrets specifically have a special black border filter added to them, so you must account for that while making your sprites, and leave a border of transparent space around them, for example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/turrets/ripple.png][Ripple]]
+
+   *[new [[#a5fbc0756]]]* to override ingame content sprites, you can simply put them in ~sprites-override/~.
 
 ** Sound
    :PROPERTIES:
@@ -382,7 +387,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     :DESCRIPTION: {{ log.message }}
     :CUSTOM_ID: {{ log.hash }}
     :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/{{ log.hash }}][commit]] ={{ log.hash }}= {{ log.date_fmt() }} ]   {{ log.message }}
+    [ [[https://github.com/Anuken/Mindustry/commit/{{ log.hash }}][commit]] ={{ log.hash }}= {{ log.date_fmt() }} ]   ={{ log.message }}=
 
     {% for note in log.notes %}
        * {{ note }};
@@ -2057,13 +2062,14 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * ~oil~
 ** BuildVisibility
 
-   Options for build visibility include:
-   * ~hidden~
-   * ~shown~
-   * ~debugOnly~
-   * ~sandboxOnly~
-   * ~campaignOnly~
-   * ~lightingOnly~
+   A flag used by the game to change a few special-case things. It may be one of the following strings:
+
+   * =hidden=
+   * =shown=
+   * =debugOnly=
+   * =sandboxOnly=
+   * =campaignOnly=
+   * =lightingOnly=
 
 ** BlockGroup
 
