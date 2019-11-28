@@ -59,6 +59,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * Linux: =~/.local/share/Mindustry/mods/=
    * Steam: =steam/steamapps/common/Mindustry/mods/=
    * Windows: =%appdata%/Mindustry/mods/=
+   * Apple: =~/Library/Application Support/Mindustry/mods=
 
    *Note;* your filenames should be lowercased and hyphen separated:
    * correct: ~my-custom-block.json~
