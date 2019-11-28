@@ -38,16 +38,22 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
 
    #+BEGIN_SRC fundamental
    project
-   ├── schematics
-   ├── bundles
-   ├── content
-   │   ├── blocks
-   │   └── items
    ├── mod.json
+   ├── content
+   │   ├── items
+   │   ├── blocks
+   │   ├── mechs
+   │   ├── liquids
+   │   ├── units
+   │   └── zones
+   ├── bundles
    ├── sounds
+   ├── schematics
    ├── sprites-override
    └── sprites
    #+END_SRC
+
+   /(only the =mod.json= file is required)/
 
    Every platform has a different user application data directory, and this is where your mods should be placed:
    * Linux: =~/.local/share/Mindustry/mods/=
@@ -58,22 +64,54 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * correct: ~my-custom-block.json~
    * incorrect: ~My Custom Block.json~
 
+** Hjson
+   :PROPERTIES:
+   :DESCRIPTION: content parser syntax
+   :END:
+
+   *[new v99]* /partially in v99, but otherwise should work in v100/
+
+   Mindustry uses [[https://hjson.org/][Hjson]], which is a superset of the very popular serialization language known as Json. This means that any valid Json will work, but you get extra useful stuff:
+
+   #+BEGIN_SRC yaml
+   # single line comment
+   
+   // single line comment
+   
+   /* multiline
+   comment */
+   
+   key1: single line string
+   
+   key2: '''
+         multiline
+         string
+         '''
+
+   key3: [ value 1
+           value 2
+           value 3 ]
+
+   key4: { key1: string
+           key2: 0 }
+   #+END_SRC
+
+   *[new [[#2d4270406]]]* Files may have either a =.json= or =.hjson= extension.
+
 ** ~mod.json~
    :PROPERTIES:
    :DESCRIPTION: the project configuration file.
    :END:
 
-   At the root of your project directory, you must have a ~mod.json~ which defines the basic metadata for your project.
+   At the root of your project directory, you must have a ~mod.json~ which defines the basic metadata for your project. 
 
-   #+BEGIN_SRC json
-   {
-       "name": "Mod Name",
-       "author": "Yourself",
-       "description": "This is a useless description.",
-       "version": "1.0",
-       "minGameVersion": "100.3"
-       "dependencies": [ ]
-   }
+   #+BEGIN_SRC yaml
+   name: Mod Name
+   author: Yourself
+   description: This is a useless description.
+   version: "1.0"
+   minGameVersion: "100.3"
+   dependencies: [ ]
    #+END_SRC
 
    Notes:
@@ -323,37 +361,6 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
    * Ukrainian ~bundle_uk_UA.properties~
    * Chinese CN ~bundle_zh_CN.properties~
    * Chinese TW ~bundle_zh_TW.properties~
-
-** Hjson
-   :PROPERTIES:
-   :DESCRIPTION: content parser syntax
-   :END:
-
-   *[new v99]* /currently partially implimented, where only ~content/~ uses Hjson./
-
-   As of now, Mindustry doesn't actually use Json, /(but any valid JSON should work)/ it uses a variant of Json called [[https://hjson.org/][Hjson]].
-
-   #+BEGIN_SRC fundamental
-   {
-       # single line comment
-
-       // single line comment
-
-       /* multiline
-          comment */
-
-       key1: single line string
-
-       key2: '''
-             multiline
-             string
-             '''
-
-       key3: [ value 1
-               value 2
-               value 3 ]
-   }
-   #+END_SRC
 
 ** Schematic
 
