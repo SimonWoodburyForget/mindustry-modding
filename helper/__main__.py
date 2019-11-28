@@ -1,17 +1,17 @@
+'''This script assumes it's running from Python3.8
+
+The major dependencies are at the top, and the minor dependencies
+are within the commands, such that not all dependencies are required
+to simply run a subcommand.
+'''
+
 import click
-import parser
-import pyperclip
+
 from pathlib import Path
-import msch as msch_
-from msch import Schematic, Schematics
-from jinja2 import Template
 from textwrap import dedent
-import yaml
 from typing import List, Dict
 from dataclasses import dataclass
-from github import Github
 from datetime import datetime
-import humanize
 
 WEBSITE = "https://simonwoodburyforget.github.io/mindustry-modding/"
 
@@ -23,15 +23,19 @@ def cli():
 def definitions():
     """ Converts Mindustry attribute decelleration 
     into a Markdown table. """
+    import parser
+    import pyperclip
     i = pyperclip.paste()
     o = parser.build_definition_table(i)
     pyperclip.copy(o)
-    click.echo(o)
+    click.echo(oe)
 
 @cli.command()
 def defaults():
     """ Converts Mindustry attribute decelleration 
     into a Markdown table. """
+    import parser
+    import pyperclip
     i = pyperclip.paste()
     o = parser.build_defaults_table(i)
     pyperclip.copy(o)
@@ -43,6 +47,8 @@ def defaults():
 @click.option("-o", "--output", help="The rendered org file.")
 def contents(input, template, output):
     """ Generate content table README. """
+    from jinja2 import Template
+    import parser
     template = Template(
         dedent('''
         * Overview
@@ -72,6 +78,8 @@ def contents(input, template, output):
 @click.option("--new", prompt="Old blocks name")
 def msch(msch_text, old, new):
     """ Replaces one block with another within a schematic. """
+    import msch as msch_
+    from msch import Schematic, Schematics
     schems = msch_.load(msch_text)
     schems = Schematics(schems.width,
                         schems.height,
@@ -86,7 +94,11 @@ def msch(msch_text, old, new):
 @click.option("-l", "--logs", default='helper/change-log.yaml' ,help="path to commit logs yaml file")
 def build_index(input, output, logs):
     '''Build index out of index.org template.'''
-    
+    from github import Github
+    import humanize
+    from jinja2 import Template
+    import yaml
+
     @dataclass
     class Log:
         hash: str
