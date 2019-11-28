@@ -8,6 +8,7 @@ Content Table:
 
   * [[https://simonwoodburyforget.github.io/mindustry-modding/#Overview][Overview]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Directory-Structure][Directory Structure]]
+    * [[https://simonwoodburyforget.github.io/mindustry-modding/#Hjson][Hjson]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#modjson][mod.json]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Content][Content]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Types][Types]]
@@ -16,7 +17,6 @@ Content Table:
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Sound][Sound]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Dependencies][Dependencies]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Bundles][Bundles]]
-    * [[https://simonwoodburyforget.github.io/mindustry-modding/#Hjson][Hjson]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Schematic][Schematic]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#FAQ][FAQ]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Change-Log][Change Log]]
