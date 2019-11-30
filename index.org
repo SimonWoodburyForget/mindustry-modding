@@ -801,7 +801,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     |              |            <r> |
     | hasItems     |           true |
     | update       |           true |
-    | soild        |           true |
+    | solid        |           true |
     | group        | transportation |
     | configurable |           true |
 
@@ -814,7 +814,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     |--------+---------|
     |        |     <r> |
     | update |    true |
-    | soild  |    true |
+    | solid  |    true |
 
 *** LiquidSource
     Extends [[Block][Block]]
@@ -826,7 +826,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     |                |     <r> |
     | hasLiquids     |    true |
     | update         |    true |
-    | soild          |    true |
+    | solid          |    true |
     | liquidCapacity |     100 |
     | configurable   |    true |
     | outputsLiquid  |    true |
@@ -846,7 +846,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | field        | default |
     |--------------+---------|
     |              |     <r> |
-    | soild        |    true |
+    | solid        |    true |
     | configurable |    true |
     | destructible |    true |
 ** Defense
@@ -1368,7 +1368,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | field      | default        |
     |------------+----------------|
     | hasItems   | true           |
-    | soild      | true           |
+    | solid      | true           |
     | update     | true           |
     | group      | transportation |
     | unloadable | false          |
@@ -1832,7 +1832,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | hasPower  |    true |
     | hasLiquid |    true |
     | update    |    true |
-    | soild     |    true |
+    | solid     |    true |
 ** Unit Blocks
    :PROPERTIES:
    :DESCRIPTION: blocks to do things with units
@@ -1883,7 +1883,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | update   | true     |
     | hasPower | true     |
     | hasItems | true     |
-    | soild    | false    |
+    | solid    | false    |
     | flags    | producer |
 
     Sprite suffix:
@@ -1907,7 +1907,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     |--------------+--------------|
     | flags        | comandCenter |
     | destructible | true         |
-    | soild        | true         |
+    | solid        | true         |
     | configurable | true         |
 
 *** MechPad
@@ -1927,7 +1927,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     | field    | default |
     |----------+---------|
     | update   | true    |
-    | soild    | true    |
+    | solid    | true    |
     | hasPower | true    |
     | layer    | overlay |
     | flags    | mechpad |
@@ -2029,7 +2029,7 @@ Submit pull requests, issues or suggestions on Github: https://github.com/SimonW
     |----------+---------|
     | update   | true    |
     | hasItems | true    |
-    | soild    | true    |
+    | solid    | true    |
 
 ** Attributes
 
