@@ -17,4 +17,4 @@ Expected dependencies required to generate the `index.html` are the following:
   - Jinja2
   - Click
 
-Running Org-Mode's html export alone is suffecient for testing. Add a `mindustry-modding` symlink in the root of the project, pointing back to the root of the project, if you want to test/render the style locally, or change the links within the `HTML_HEAD` in the org file.
+Running Org-Mode's html export alone is sufficient for testing. Add a `mindustry-modding` symlink in the root of the project, pointing back to the root of the project, if you want to test/render the style locally, or change the links within the `HTML_HEAD` in the org file.
