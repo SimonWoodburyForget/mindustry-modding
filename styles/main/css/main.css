@@ -19,7 +19,7 @@ h1
 
 .subtitle
 {
-    font-size:95%; /* of h1 */
+    font-size:90%; /* of h1 */
     font-weight:lighter;
     font-style:italic;
 }
@@ -80,11 +80,11 @@ body
 {
     background:#fcfcfc;
     height:100%;
-    /* margin-left:300px; */
+    margin-left:240px;
     /* margin:auto; */
     max-width:800px;
     min-height:100%;
-    padding:1.618em 3.236em;
+    padding:18px;
 }
 
 p
@@ -120,6 +120,7 @@ ul,ol,dl
     /* list-style:none; */
     margin:0px 0px 24px 0px;
     padding:0;
+    margin-left: 2px;
 }
 
 li
@@ -132,12 +133,38 @@ dd
     margin:0;
 }
 
+
 /* Linking */
 
 :target
 {
    background-color: #ffa;
 }
+
+/* Table of Contents */
+
+#table-of-contents
+{
+    position: fixed;
+    width: 240px;
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: 12px;
+    padding-left: 4px;
+}
+
+#table-of-contents ul
+{
+    list-style-type: none;
+}
+
+#table-of-contents ul > li
+{
+    margin-left: 6px;
+}
+
 
 /* ================================================================ */
 /* Code */
