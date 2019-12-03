@@ -3,7 +3,7 @@
 Currently a four step process is used to generate the `index.html`:
 
 1. copy `index.org` to `index.tmp.org`
-2. generate templates with jinja2 *(for change log)*
+2. generate templates with jinja2 *(for change log and `README.md` content table)*
 3. generate `index.tmp.org` with Org Mode
 4. copy `index.tmp.thml` to `index.html`
 
