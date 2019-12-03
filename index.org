@@ -6,14 +6,17 @@
 
 #+LANGUAGE: en
 #+TEXINFO_DEFFN: t
-#+OPTIONS: H:4 num:4 toc:2
-#+SETUPFILE: setup/theme-readtheorg-local.setup
+#+OPTIONS: H:4 num:2 toc:2
 #+TEXINFO_FILENAME: index
 
 #+TODO: TODO UNTESTED | NEW DONE
 #+EXCLUDE_TAGS: TODO
 #+OPTIONS: broken-links:t
 #+TEXINFO_HEADER: Modding documentation for Mindustry v100 (81)
+
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles/main/css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles/main/css/main.css"/>
+#+HTML_HEAD: <script type="text/javascript"          src="styles/main/js/readtheorg.js"></script>
 
 Submit =test= pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
