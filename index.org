@@ -532,7 +532,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 ** Consume
    :PROPERTIES:
    :DESCRIPTION: a resource to consume
-   :CUSTOM_ID: Consumers
+   :CUSTOM_ID: Consume
    :END:
 
    [[Abstract][Abstract]] type which defines a type of resource that a block can consume.
