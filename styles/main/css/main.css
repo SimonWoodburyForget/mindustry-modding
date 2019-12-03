@@ -156,6 +156,7 @@ dd
     /* padding-left: 4px; */
     padding-top: 0px;
     padding-left: 0px;
+    scrollbar-width: thin;
 }
 
 #table-of-contents code
@@ -192,6 +193,8 @@ dd
 {
     margin-left:6px;
 }
+
+
 
 /* Postamble */
 
