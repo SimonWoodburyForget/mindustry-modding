@@ -145,24 +145,65 @@ dd
 
 #table-of-contents
 {
+    background: #212424;
     position: fixed;
     width: 240px;
     overflow-y: scroll;
     top: 0;
     left: 0;
-    bottom: 0;
-    padding-top: 12px;
-    padding-left: 4px;
+    bottom: 80px;
+    /* padding-top: 12px; */
+    /* padding-left: 4px; */
+    padding-top: 0px;
+    padding-left: 0px;
 }
+
+#table-of-contents code
+{
+    color: #212121;
+}
+
+#table-of-contents h2
+{
+    background: #2980B9;
+    padding-top: 14px;
+    padding-left: 4px;
+    color: #f0f0f0;
+}
+
+#table-of-contents a
+{
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+/* #table-of-contents a:visited */
+/* { */
+/*     color: #f0f0a0; */
+/* } */
 
 #table-of-contents ul
 {
     list-style-type: none;
+    margin: 4px;
 }
 
 #table-of-contents ul > li
 {
-    margin-left: 6px;
+    margin-left:6px;
+}
+
+/* Postamble */
+
+
+#postamble
+{
+    position: fixed;
+    bottom: 0;
+    width: 240px;
+    height: 80px;
+    background: #2980B9;
+    color: #f0f0f0;
 }
 
 
