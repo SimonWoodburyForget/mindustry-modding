@@ -1204,7 +1204,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     }
     #+END_SRC
 
-    Here we're using ~copper~ to shoot ~standardCopper~ (built-in bullet) and ~metalglass~ to shoot a custom bullet of type `MissileBulletType`.
+    Here we're using ~copper~ to shoot ~standardCopper~ (built-in bullet) and ~metalglass~ to shoot a custom bullet of type ~MissileBulletType~.
 
     | field   | type                   | default | notes      |
     |---------+------------------------+---------+------------|
