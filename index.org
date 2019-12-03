@@ -384,7 +384,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: Schematic
    :END:
 
-   Fields that require the type ~Schematic~ can either take a built-in loadout /(see the [[Zone]] section)/ a base64 string, or the stem name of a ~.msch~ file in the ~schematics/~ subdirectory.
+   Fields that require the type ~Schematic~ can either take a built-in loadout /(see the [[Zone][Zone]] section)/ a base64 string, or the stem name of a ~.msch~ file in the ~schematics/~ subdirectory.
 
    /As of now, the only purpose of schematics is to give a zone a loadout./
 
@@ -554,7 +554,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      | field      | type   | default | notes      |
      |------------+--------+---------+------------|
      |            |        |         | <10>       |
-     | liquid     | String |         | the name of [[Liquid]] type consumed |
+     | liquid     | String |         | the name of [[Liquid][liquid]] type consumed |
      | amount     | float  |         | amount used per frame |
      | timePeriod | float  |      60 | how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as /100 seconds/, but without a time override it would display as /10 liquid/second/. This is used for generic crafters. |
 
@@ -1560,7 +1560,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 ** Liquid Blocks
    :PROPERTIES:
    :DESCRIPTION: blocks to do things with liquid
-   :CUSTOM_ID: Liquid Blocks
+   :CUSTOM_ID: Liquid-Blocks
    :END:
 *** LiquidBlock
     :PROPERTIES:
@@ -1599,7 +1599,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | group    | liquids |
     | floating | true    |
 
-*** NEW Conduit
+*** Conduit
     :PROPERTIES:
     :CUSTOM_ID: Conduit
     :END:
@@ -1620,11 +1620,11 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     Sprites:
     * ~<name>-top-<0..6>~
 
-*** NEW ArmoredConduit
+*** ArmoredConduit
     :PROPERTIES:
     :CUSTOM_ID: ArmoredConduit
     :END:
-    *[new type v99 (268)]* -- Extends [[Conduit]]
+    *[new type v99 (268)]* -- Extends [[Conduit][Conduit]]
 
     Defaults:
     | field          | default |
@@ -1634,11 +1634,11 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     Sprites:
     * ~<name>-cap~
 
-*** NEW LiquidOverflowGate
+*** LiquidOverflowGate
     :PROPERTIES:
     :CUSTOM_ID: LiquidOverflowGate
     :END:
-    *[new type v99 (268)]* -- Extends [[LiquidBlock]]
+    *[new type v99 (268)]* -- Extends [[LiquidBlock][LiquidBlock]]
 
     Defaults:
     | field  | default |
@@ -1765,7 +1765,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     Extends [[PowerDistributor][PowerDistributor]]
 
-    Power generators will produce power with their [[Consumers]] type.
+    Power generators will produce power with their [[Consumers][Consumers]] type.
 
     | field           | type  | notes      |
     |-----------------+-------+------------|
@@ -1859,7 +1859,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      | field           | type  |  default | notes      |
      |-----------------+-------+----------+------------|
      |                 |       |          | <10>       |
-     | lightColor      | [[Color]] |   7f19ea | *[new v99 (268)]* |
+     | lightColor      | [[Color][Color]] |   7f19ea | *[new v99 (268)]* |
      | coolColor       | [[Color][Color]] | ffffff00 |            |
      | hotColor        | [[Color][Color]] | ff9575a3 |            |
      | itemDuration    | float |      120 | time to consume 1 fuel |
@@ -1917,7 +1917,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :PROPERTIES:
     :CUSTOM_ID: PowerDiode
     :END:
-    Extends [[Block]]
+    Extends [[Block][Block]]
 
     Defaults:
     | field     | default |
@@ -1933,7 +1933,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :PROPERTIES:
     :CUSTOM_ID: LightBlock
     :END:
-    *[new type v99 (268)]* -- Extends [[Block]]
+    *[new type v99 (268)]* -- Extends [[Block][Block]]
 
     | field      | type  | default |
     |------------+-------+---------|
@@ -1959,7 +1959,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :PROPERTIES:
     :CUSTOM_ID: Drill
     :END:
-    Extends [[Block][Block]] -- Types which can be placed on ore blocks to extract the [[OreBlock]]'s item.
+    Extends [[Block][Block]] -- Types which can be placed on ore blocks to extract the [[OreBlock][OreBlock]]'s item.
 
     | field                | type    | default        | notes      |
     |----------------------+---------+----------------+------------|
@@ -2190,7 +2190,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: StorageBlock
     :END:
 
-    [[Abstract][Abstract]] type which extends [[Block]]
+    [[Abstract][Abstract]] type which extends [[Block][Block]]
 
     Defaults:
     | field    | default |
@@ -2203,7 +2203,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: CoreBlock
     :END:
 
-    Extends [[StorageBlock]]
+    Extends [[StorageBlock][StorageBlock]]
 
     | field | type | default |
     |-------+------+---------|
@@ -2244,7 +2244,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     Extends [[Block][Block]]
 
-    A block which can take items from [[StorageBlock]], like [[Vault]], [[CoreBlock]] or [[Crafting][Crafters]].
+    A block which can take items from [[StorageBlock][StorageBlock]], like [[Vault][Vault]], [[CoreBlock][CoreBlock]] or [[Crafting][Crafters]].
 
     | field | type  | default |
     |-------+-------+---------|
@@ -2397,7 +2397,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    | field  | type   | notes                    |
    |--------+--------+--------------------------|
-   | item   | string | The name of an [[Item]].     |
+   | item   | string | The name of an [[Item][Item]].     |
    | amount | int    | The amount of said item. |
 
    Often you'll see ~[ ItemStack ]~, which stands for an array of ~ItemStack~, for example:
@@ -2414,16 +2414,16 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: ItemLiquidGenerator
    :END:
 
-   Extends [[Content]]
+   Extends [[Content][Content]]
 
-   Type which defines the properties of a liquid. Like [[Item]] this will go into it's own subdirectory ~content/liquids/liquid-name.json~, and from it's stem name you can reuse it from your other mod content.
+   Type which defines the properties of a liquid. Like [[Item][Item]] this will go into it's own subdirectory ~content/liquids/liquid-name.json~, and from it's stem name you can reuse it from your other mod content.
 
    | field         | type         | default | notes      |
    |---------------+--------------+---------+------------|
    |               |              |     <r> | <10>       |
    | color         | [[Color][Color]]        |         | *[required]* color of liquid |
-   | barColor      | [[Color]]        |         | /[optional]/ color used in bars. |
-   | lightColor    | [[Color]]        |         | Color used to draw lights. Note that the alpha channel is used to dictate brightness. |
+   | barColor      | [[Color][Color]]        |         | /[optional]/ color used in bars. |
+   | lightColor    | [[Color][Color]]        |         | Color used to draw lights. Note that the alpha channel is used to dictate brightness. |
    | flammability  | float        |         | 0 to 1; 0 is completely inflammable, above that may catch fire when exposed to heat. |
    | temperature   | float        |     0.5 | 0.5 is 'room' temperature, 0 is very cold, 1 is molten hot |
    | heatCapacity  | float        |     0.5 | used in cooling; water is 0.4 |
@@ -2448,7 +2448,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     | field  | type   | notes                      |
     |--------+--------+----------------------------|
-    | liquid | string | The name of a [[Liquid]].      |
+    | liquid | string | The name of a [[Liquid][Liquid]].      |
     | amount | float  | The amount of said liquid. |
 
     For example:
@@ -2498,7 +2498,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: UnitType
    :END:
 
-   Extends [[Content]]
+   Extends [[Content][Content]]
 
    | field           | type     | default |
    |-----------------+----------+---------|
@@ -2537,7 +2537,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: MechPad
    :END:
 
-   Extends [[Content]] -- Mechs are the player controlled entities.
+   Extends [[Content][Content]] -- Mechs are the player controlled entities.
 
    | field              | type    | default |
    |--------------------+---------+---------|
@@ -2588,7 +2588,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: Zone
    :END:
 
-   Extends [[Content]]
+   Extends [[Content][Content]]
 
    A ~Zone~ is a type that takes a map /(named the same as the json's filename)/ and puts it into campaign. /(a zone isn't a map)/
 
@@ -2599,17 +2599,17 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | field                | type          | default     | notes      |
    |----------------------+---------------+-------------+------------|
    |                      |               |             | <10>       |
-   | baseLaunchCost       | [ [[ItemStack]] ] |             |            |
-   | launchCost           | [ [[ItemStack]] ] |             |            |
-   | startingItems        | [ [[ItemStack]] ] |             | Items you start with on the map. |
+   | baseLaunchCost       | [ [[ItemStack][ItemStack]] ] |             |            |
+   | launchCost           | [ [[ItemStack][ItemStack]] ] |             |            |
+   | startingItems        | [ [[ItemStack][ItemStack]] ] |             | Items you start with on the map. |
    | conditionWave        | int           | MAX_VALUE   |            |
    | alwaysUnlocked       | boolean       | false       | Whether this map is always unlocked |
    | launchPeriod         | int           | 10          | Rate of waves at which the core may be launched. |
-   | loadout              | [[Schematic]]     | basicShard  | Core layout placed by MapGenerators. |
+   | loadout              | [[Schematic][Schematic]]     | basicShard  | Core layout placed by MapGenerators. |
    | resources            | [ String ]    |             | Array of [[Item][item]] names. |
-   | requirements         | [ [[Objective]] ] |             | An array of requirements to unlock configuration. |
-   | configureObjective   | [[Objective]]     | ZoneWave 15 |            |
-   | defaultStartingItems | [ [[ItemStack]] ] |             |            |
+   | requirements         | [ [[Objective][Objective]] ] |             | An array of requirements to unlock configuration. |
+   | configureObjective   | [[Objective][Objective]]     | ZoneWave 15 |            |
+   | defaultStartingItems | [ [[ItemStack][ItemStack]] ] |             |            |
 
    Sprites:
    * ~zone-<name>~ preview
@@ -2775,10 +2775,10 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    [[Abstract][Abstract]] type which extends [[Content][Content]]
 
-   BulletType can either be an object ~{}~ or a ~"string"~, where a string would be reusing [[Built-in Bullets]] and an object would be making a custom one.
+   BulletType can either be an object ~{}~ or a ~"string"~, where a string would be reusing [[Built-in-Bullets][Built-in Bullets]] and an object would be making a custom one.
 
    There are two major categories of bullet types:
-   * [[BasicBulletType]] and,
+   * [[BasicBulletType][BasicBulletType]] and,
    * other special bullets.
 
    Here's an example of a custom bullet:
@@ -2904,7 +2904,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      :CUSTOM_ID: ArtilleryBulletType
      :END:
 
-     Extends [[BasicBulletType]]
+     Extends [[BasicBulletType][BasicBulletType]]
 
      Makes special calculations to give the effect that the bullet is going up and back down.
 
@@ -2929,7 +2929,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      :CUSTOM_ID: FlakBulletType
      :END:
 
-     Extends [[BasicBulletType]]
+     Extends [[BasicBulletType][BasicBulletType]]
 
      | field        | type  | default | notes      |
      |--------------+-------+---------+------------|
@@ -2952,7 +2952,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      :CUSTOM_ID: MissileBulletType
      :END:
 
-     Extends [[BasicBulletType]]
+     Extends [[BasicBulletType][BasicBulletType]]
 
      | field      | type  |           default |
      |------------+-------+-------------------|
@@ -2971,7 +2971,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      :CUSTOM_ID: BombBulletType
      :END:
 
-     Extends [[BasicBulletType]]
+     Extends [[BasicBulletType][BasicBulletType]]
 
      Defaults:
 
@@ -2991,7 +2991,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: HealBulletType
     :END:
 
-    Extends [[BulletType]] -- Bullets that can heal blocks of the same team as the shooter.
+    Extends [[BulletType][BulletType]] -- Bullets that can heal blocks of the same team as the shooter.
 
     | field       | type  | default |
     |-------------+-------+---------|
@@ -3012,12 +3012,12 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: LiquidBulletType
     :END:
 
-    Extends [[BulletType]]
+    Extends [[BulletType][BulletType]]
 
     | field  | type   | default | notes      |
     |--------+--------+---------+------------|
     |        |        |         | <10>       |
-    | liquid | String | null    | *[required]* name of [[Liquid]] |
+    | liquid | String | null    | *[required]* name of [[Liquid][Liquid]] |
 
     Defaults:
 
@@ -3037,7 +3037,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: MassDriverBolt
     :END:
 
-    Extends [[BulletType]]
+    Extends [[BulletType][BulletType]]
 
     Defaults:
 
@@ -3051,7 +3051,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
 *** Built-in Bullets
     :PROPERTIES:
-    :CUSTOM_ID: Built-in Bullets
+    :CUSTOM_ID: Built-in-Bullets
     :END:
 
    * artillery:
@@ -3126,25 +3126,25 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
   :CUSTOM_ID: Objective
   :END:
 
-  Objective is a trait, which a few types implement, which is used by [[Zone]] to give campaign maps objectives.
+  Objective is a trait, which a few types implement, which is used by [[Zone][Zone]] to give campaign maps objectives.
 
   Types which implement Objective are as follows:
 
   * ~ZoneWave~ -- complete if best wave within ~zone~ is heigher then target ~wave~
     | field | type   | notes                |
     |-------+--------+----------------------|
-    | zone  | String | target [[Zone]] name     |
+    | zone  | String | target [[Zone][Zone]] name     |
     | wave  | int    | target wave to reach |
 
   * ~Launched~ -- complete if core launched from ~zone~
     | field | type   | notes            |
     |-------+--------+------------------|
-    | zone  | String | target [[Zone]] name |
+    | zone  | String | target [[Zone][Zone]] name |
 
   * ~Unlock~ -- complete if ~block~ is unlocked
     | field | type   | notes             |
     |-------+--------+-------------------|
-    | block | String | target [[Block]] name |
+    | block | String | target [[Block][Block]] name |
 
 * Other
   :PROPERTIES:
