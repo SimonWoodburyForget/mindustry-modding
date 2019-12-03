@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-03 Tue 08:36 -->
+<!-- 2019-12-03 Tue 08:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -180,9 +180,15 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="styles/main/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/main/css/main.css"/>
+<script type="text/javascript"          src="styles/main/js/main.js"></script>
 <link rel="stylesheet" type="text/css" href="mindustry-modding/styles/main/css/htmlize.css"/>
 <link rel="stylesheet" type="text/css" href="mindustry-modding/styles/main/css/main.css"/>
 <script type="text/javascript"          src="mindustry-modding/styles/main/js/main.js"></script>
+<link rel="stylesheet" type="text/css" href="/mindustry-modding/styles/main/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="/mindustry-modding/styles/main/css/main.css"/>
+<script type="text/javascript"          src="/mindustry-modding/styles/main/js/main.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -281,7 +287,7 @@ for the JavaScript code in this tag.
 <li><a href="#BlockGroup">2.20. BlockGroup</a></li>
 </ul>
 </li>
-<li><a href="#org4ffdf75">3. Type</a>
+<li><a href="#org013f305">3. Type</a>
 <ul>
 <li><a href="#ItemLiquidGenerator">3.1. Item</a></li>
 <li><a href="#ItemStack">3.2. ItemStack</a></li>
@@ -326,8 +332,8 @@ for the JavaScript code in this tag.
 Submit <code>test</code> pull requests, issues or suggestions on Github: <a href="https://github.com/SimonWoodburyForget/mindustry-modding">https://github.com/SimonWoodburyForget/mindustry-modding</a>
 </p>
 
-<div id="outline-container-org81f0aa1" class="outline-2">
-<h2 id="Overview"><a id="org81f0aa1"></a><span class="section-number-2">1</span> Overview</h2>
+<div id="outline-container-orgad3acef" class="outline-2">
+<h2 id="Overview"><a id="orgad3acef"></a><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-Overview">
 <p>
 Mindustry mods are simply directories of assests. You reuse existing types and can use different values to initialize them, and you can even overwrite initialization of vanilla content.
@@ -342,8 +348,8 @@ It is also now possible to put schematics into mods
 </p>
 </div>
 
-<div id="outline-container-orgb06468b" class="outline-3">
-<h3 id="Directory-Structure"><a id="orgb06468b"></a><span class="section-number-3">1.1</span> Directory Structure</h3>
+<div id="outline-container-orgdef1403" class="outline-3">
+<h3 id="Directory-Structure"><a id="orgdef1403"></a><span class="section-number-3">1.1</span> Directory Structure</h3>
 <div class="outline-text-3" id="text-Directory-Structure">
 <p>
 Your project directory should look something like this:
@@ -391,8 +397,8 @@ Every platform has a different user application data directory, and this is wher
 </div>
 </div>
 
-<div id="outline-container-org5112fc3" class="outline-3">
-<h3 id="Hjson"><a id="org5112fc3"></a><span class="section-number-3">1.2</span> Hjson</h3>
+<div id="outline-container-org05cdc9a" class="outline-3">
+<h3 id="Hjson"><a id="org05cdc9a"></a><span class="section-number-3">1.2</span> Hjson</h3>
 <div class="outline-text-3" id="text-Hjson">
 <p>
 <b>[new v99]</b> <i>partially in v99, but otherwise should work in v100</i>
@@ -433,8 +439,8 @@ comment */
 </div>
 </div>
 
-<div id="outline-container-orgcc1d526" class="outline-3">
-<h3 id="~mod-json~"><a id="orgcc1d526"></a><span class="section-number-3">1.3</span> <code>mod.json</code></h3>
+<div id="outline-container-org06a9ffe" class="outline-3">
+<h3 id="~mod-json~"><a id="org06a9ffe"></a><span class="section-number-3">1.3</span> <code>mod.json</code></h3>
 <div class="outline-text-3" id="text-~mod-json~">
 <p>
 At the root of your project directory, you must have a <code>mod.json</code> which defines the basic metadata for your project. 
@@ -462,8 +468,8 @@ Notes:
 </div>
 </div>
 
-<div id="outline-container-org2fde2ee" class="outline-3">
-<h3 id="Content"><a id="org2fde2ee"></a><span class="section-number-3">1.4</span> Content</h3>
+<div id="outline-container-org6b84150" class="outline-3">
+<h3 id="Content"><a id="org6b84150"></a><span class="section-number-3">1.4</span> Content</h3>
 <div class="outline-text-3" id="text-Content">
 <p>
 <b>[new <a href="#2d4270406">2d4270406</a>]</b> <i>file extension <code>.hjson</code> now supported</i>
@@ -541,8 +547,8 @@ Other fields included would be the fields of the <code>type</code> in question.
 </div>
 </div>
 
-<div id="outline-container-org7790ab2" class="outline-3">
-<h3 id="Types"><a id="org7790ab2"></a><span class="section-number-3">1.5</span> Types</h3>
+<div id="outline-container-org6038566" class="outline-3">
+<h3 id="Types"><a id="org6038566"></a><span class="section-number-3">1.5</span> Types</h3>
 <div class="outline-text-3" id="text-Types">
 <p>
 Types have numerous fields, but the important one is <code>type</code>; this is a special field used by the content parser, that changes which type your object is. <i>A <code>Router</code> type can't be a <code>Turret</code> type</i>, as they're just completely different.
@@ -577,8 +583,8 @@ Here you can see, the type of the top level object is <code>Revenant</code>, but
 </div>
 </div>
 
-<div id="outline-container-org2ce11f2" class="outline-3">
-<h3 id="Tech-Tree"><a id="org2ce11f2"></a><span class="section-number-3">1.6</span> Tech Tree</h3>
+<div id="outline-container-org9ca15ba" class="outline-3">
+<h3 id="Tech-Tree"><a id="org9ca15ba"></a><span class="section-number-3">1.6</span> Tech Tree</h3>
 <div class="outline-text-3" id="text-Tech-Tree">
 <p>
 Much like <code>type</code> there exist another magical field known as <code>research</code> which can go at the root of any block object to put it in the techtree.
@@ -599,8 +605,8 @@ Research cost will be <code>30 + requirements * 6</code>, where <code>requiremen
 </div>
 </div>
 
-<div id="outline-container-org647a29b" class="outline-3">
-<h3 id="Sprites"><a id="org647a29b"></a><span class="section-number-3">1.7</span> Sprites</h3>
+<div id="outline-container-org5485ff0" class="outline-3">
+<h3 id="Sprites"><a id="org5485ff0"></a><span class="section-number-3">1.7</span> Sprites</h3>
 <div class="outline-text-3" id="text-Sprites">
 <p>
 All you need to make sprites, is an image editor that supports transparency <i>(aka: not paint).</i> Block sprites should be <code>32 * size</code>, so a <code>2x2</code> block would require a <code>64x64</code> image. Images must be <code>.png</code> files with 32 bit depth.
@@ -635,8 +641,8 @@ Another thing to know about sprites is that they're passed through <i>anti-alias
 </div>
 </div>
 
-<div id="outline-container-org6232edc" class="outline-3">
-<h3 id="Sound"><a id="org6232edc"></a><span class="section-number-3">1.8</span> Sound</h3>
+<div id="outline-container-org98579aa" class="outline-3">
+<h3 id="Sound"><a id="org98579aa"></a><span class="section-number-3">1.8</span> Sound</h3>
 <div class="outline-text-3" id="text-Sound">
 <p>
 Custom sounds can be added through the modding system by dropping them in the <code>sounds/</code> subdirectory. It doesn't matter where you put them. Two formats are needed:
@@ -701,8 +707,8 @@ Here's a list of built-in sounds:
 </div>
 </div>
 
-<div id="outline-container-orge5ec2fb" class="outline-3">
-<h3 id="Dependencies"><a id="orge5ec2fb"></a><span class="section-number-3">1.9</span> Dependencies</h3>
+<div id="outline-container-org5babacc" class="outline-3">
+<h3 id="Dependencies"><a id="org5babacc"></a><span class="section-number-3">1.9</span> Dependencies</h3>
 <div class="outline-text-3" id="text-Dependencies">
 <p>
 You can add dependencies to your mod by simple adding other mods name in your <code>mod.json</code>:
@@ -732,8 +738,8 @@ To reference the other mods assets, you must prefix the asset with the other mod
 </div>
 </div>
 
-<div id="outline-container-org4e2117c" class="outline-3">
-<h3 id="Bundles"><a id="org4e2117c"></a><span class="section-number-3">1.10</span> Bundles</h3>
+<div id="outline-container-org23b7ec5" class="outline-3">
+<h3 id="Bundles"><a id="org23b7ec5"></a><span class="section-number-3">1.10</span> Bundles</h3>
 <div class="outline-text-3" id="text-Bundles">
 <p>
 An optional addition to your mod is called bundles. The main use of bundles are give translations of your content, but there's no reason you couldn't use them in English. These are plaintext files which go in the <code>bundles/</code> subdirectory, and they should be named something like <code>bundle_ru.properties</code> (for Russian).
@@ -815,8 +821,8 @@ List of filenames relative to languages:
 </div>
 </div>
 
-<div id="outline-container-org126fe1f" class="outline-3">
-<h3 id="Schematic"><a id="org126fe1f"></a><span class="section-number-3">1.11</span> Schematic</h3>
+<div id="outline-container-org375a51f" class="outline-3">
+<h3 id="Schematic"><a id="org375a51f"></a><span class="section-number-3">1.11</span> Schematic</h3>
 <div class="outline-text-3" id="text-Schematic">
 <p>
 Fields that require the type <code>Schematic</code> can either take a built-in loadout <i>(see the <a href="#Zone">Zone</a> section)</i> a base64 string, or the stem name of a <code>.msch</code> file in the <code>schematics/</code> subdirectory.
@@ -828,23 +834,23 @@ Fields that require the type <code>Schematic</code> can either take a built-in l
 </div>
 </div>
 
-<div id="outline-container-org650228f" class="outline-3">
-<h3 id="FAQ"><a id="org650228f"></a><span class="section-number-3">1.12</span> FAQ</h3>
+<div id="outline-container-org8bf82e1" class="outline-3">
+<h3 id="FAQ"><a id="org8bf82e1"></a><span class="section-number-3">1.12</span> FAQ</h3>
 <div class="outline-text-3" id="text-FAQ">
 <ul class="org-ul">
 <li><code>time</code> in game is calculated through <code>ticks</code>;</li>
 <li><code>ticks</code> <i>sometimes called <code>frames</code>,</i> are assumed to be 60/1 second;</li>
 <li><code>range</code> or most forms of distance is 1/10 of a tile;</li>
 <li>to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;</li>
-<li><a id="orga841da2"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
+<li><a id="org6549906"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
 <li>what is a <code>NullPointerException</code>? This is an error message that indicates a field is null and shouldn't be null, meaning one of the required fields may be missing;</li>
-<li><a id="org4795454"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
+<li><a id="org04dde03"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org91a383c" class="outline-3">
-<h3 id="Change-Log"><a id="org91a383c"></a><span class="section-number-3">1.13</span> Change Log</h3>
+<div id="outline-container-org35b3a0a" class="outline-3">
+<h3 id="Change-Log"><a id="org35b3a0a"></a><span class="section-number-3">1.13</span> Change Log</h3>
 <div class="outline-text-3" id="text-Change-Log">
 <p>
 This is a log of changes done on the Mindustry Master branch that affected the modding API. The sections are ordered by date commited, and provide a description of what was changed, with a link to the diff on Github.
@@ -852,8 +858,8 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 
 
-<div id="outline-container-orgac352c2" class="outline-4">
-<h4 id="a5fbc0756"><a id="orgac352c2"></a>a5fbc0756</h4>
+<div id="outline-container-orgbd84177" class="outline-4">
+<h4 id="a5fbc0756"><a id="orgbd84177"></a>a5fbc0756</h4>
 <div class="outline-text-4" id="text-a5fbc0756">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/a5fbc0756">commit</a> <code>a5fbc0756</code> Nov 26 ]   <code>Texture overrides / Potential mod texture binding optimizations</code>
@@ -867,8 +873,8 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 
 
-<div id="outline-container-orga9a6833" class="outline-4">
-<h4 id="2d4270406"><a id="orga9a6833"></a>2d4270406</h4>
+<div id="outline-container-orga340c2a" class="outline-4">
+<h4 id="2d4270406"><a id="orga340c2a"></a>2d4270406</h4>
 <div class="outline-text-4" id="text-2d4270406">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/2d4270406">commit</a> <code>2d4270406</code> Nov 22 ]   <code>Switched to hjson extension</code>
@@ -882,8 +888,8 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 
 
-<div id="outline-container-orge38bc42" class="outline-4">
-<h4 id="2c61fcdfa"><a id="orge38bc42"></a>2c61fcdfa</h4>
+<div id="outline-container-orga84ede9" class="outline-4">
+<h4 id="2c61fcdfa"><a id="orga84ede9"></a>2c61fcdfa</h4>
 <div class="outline-text-4" id="text-2c61fcdfa">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/2c61fcdfa">commit</a> <code>2c61fcdfa</code> Nov 22 ]   <code>Added optional mod minimum game version</code>
@@ -897,8 +903,8 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 
 
-<div id="outline-container-orgb3607ed" class="outline-4">
-<h4 id="968f3ace3"><a id="orgb3607ed"></a>968f3ace3</h4>
+<div id="outline-container-org50d28aa" class="outline-4">
+<h4 id="968f3ace3"><a id="org50d28aa"></a>968f3ace3</h4>
 <div class="outline-text-4" id="text-968f3ace3">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/968f3ace3">commit</a> <code>968f3ace3</code> Nov 20 ]   <code>Better mod parsing</code>
@@ -919,13 +925,13 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 
 
 
-<div id="outline-container-org84dd10e" class="outline-2">
-<h2 id="World"><a id="org84dd10e"></a><span class="section-number-2">2</span> World</h2>
+<div id="outline-container-org618867a" class="outline-2">
+<h2 id="World"><a id="org618867a"></a><span class="section-number-2">2</span> World</h2>
 <div class="outline-text-2" id="text-World">
 </div>
 
-<div id="outline-container-orgd353564" class="outline-3">
-<h3 id="Block"><a id="orgd353564"></a><span class="section-number-3">2.1</span> Block</h3>
+<div id="outline-container-org7691028" class="outline-3">
+<h3 id="Block"><a id="org7691028"></a><span class="section-number-3">2.1</span> Block</h3>
 <div class="outline-text-3" id="text-Block">
 <p>
 Extends <a href="#BlockStorage">BlockStorage</a>
@@ -1265,8 +1271,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org17e408f" class="outline-3">
-<h3 id="Consumers"><a id="org17e408f"></a><span class="section-number-3">2.2</span> Consumers</h3>
+<div id="outline-container-orga409c8d" class="outline-3">
+<h3 id="Consumers"><a id="orga409c8d"></a><span class="section-number-3">2.2</span> Consumers</h3>
 <div class="outline-text-3" id="text-Consumers">
 <p>
 This type is commonly used in block type with it's field <code>consumes</code>, it's a type that allows your block to consume something, and how this field works is up to the specific type extension you're using.
@@ -1298,19 +1304,19 @@ This type is commonly used in block type with it's field <code>consumes</code>, 
 
 <tr>
 <td class="org-left">items</td>
-<td class="org-left"><a href="#org7108d2e">ConsumeItems</a></td>
+<td class="org-left"><a href="#orgd19d717">ConsumeItems</a></td>
 <td class="org-left">consume a number of different items</td>
 </tr>
 
 <tr>
 <td class="org-left">liquid</td>
-<td class="org-left"><a href="#orgf8224b8">ConsumeLiquid</a></td>
+<td class="org-left"><a href="#org38bd40c">ConsumeLiquid</a></td>
 <td class="org-left">consume a single liquid</td>
 </tr>
 
 <tr>
 <td class="org-left">power</td>
-<td class="org-left">float or <a href="#org5271ee5">ConsumePower</a></td>
+<td class="org-left">float or <a href="#orgcac1651">ConsumePower</a></td>
 <td class="org-left">consume or buffer power</td>
 </tr>
 
@@ -1330,7 +1336,7 @@ Notes:
 </ul>
 
 <p>
-For example with <a href="#org7108d2e">ConsumeItems</a> and <a href="#orgf8224b8">ConsumeLiquid</a>:
+For example with <a href="#orgd19d717">ConsumeItems</a> and <a href="#org38bd40c">ConsumeLiquid</a>:
 </p>
 <div class="org-src-container">
 <pre class="src src-yaml"><span style="color: #a0522d;">items</span>: {
@@ -1349,11 +1355,11 @@ For example with <a href="#org7108d2e">ConsumeItems</a> and <a href="#orgf8224b8
 </div>
 </div>
 
-<div id="outline-container-org72fb78d" class="outline-3">
-<h3 id="Consumers"><a id="org72fb78d"></a><span class="section-number-3">2.3</span> Consume</h3>
+<div id="outline-container-orge6b925b" class="outline-3">
+<h3 id="Consumers"><a id="orge6b925b"></a><span class="section-number-3">2.3</span> Consume</h3>
 <div class="outline-text-3" id="text-Consumers">
 <p>
-<a href="#orga841da2">Abstract</a> type which defines a type of resource that a block can consume.
+<a href="#org6549906">Abstract</a> type which defines a type of resource that a block can consume.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1402,7 +1408,7 @@ For example with <a href="#org7108d2e">ConsumeItems</a> and <a href="#orgf8224b8
 
 <ul class="org-ul">
 <li><p>
-<a id="org7108d2e"></a> <code>ConsumeItems</code>, consume an itemstack.
+<a id="orgd19d717"></a> <code>ConsumeItems</code>, consume an itemstack.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1428,7 +1434,7 @@ For example with <a href="#org7108d2e">ConsumeItems</a> and <a href="#orgf8224b8
 </table></li>
 
 <li><p>
-<a id="orgf8224b8"></a> <code>ConsumeLiquid</code>, consume a liquid.
+<a id="org38bd40c"></a> <code>ConsumeLiquid</code>, consume a liquid.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1476,7 +1482,7 @@ For example with <a href="#org7108d2e">ConsumeItems</a> and <a href="#orgf8224b8
 </table></li>
 
 <li><p>
-<a id="org5271ee5"></a> <code>ConsumePower</code>, consume or buffer power.
+<a id="orgcac1651"></a> <code>ConsumePower</code>, consume or buffer power.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1520,11 +1526,11 @@ For example with <a href="#org7108d2e">ConsumeItems</a> and <a href="#orgf8224b8
 </div>
 </div>
 
-<div id="outline-container-org84eb895" class="outline-3">
-<h3 id="BlockStorage"><a id="org84eb895"></a><span class="section-number-3">2.4</span> BlockStorage</h3>
+<div id="outline-container-org0b3b215" class="outline-3">
+<h3 id="BlockStorage"><a id="org0b3b215"></a><span class="section-number-3">2.4</span> BlockStorage</h3>
 <div class="outline-text-3" id="text-BlockStorage">
 <p>
-<a href="#orga841da2">Abstract</a> type that extends <a href="#Content">Content</a>
+<a href="#org6549906">Abstract</a> type that extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -1619,16 +1625,16 @@ Type for blocks which may store a buffer of items or liquid.
 </div>
 </div>
 
-<div id="outline-container-org141ca6d" class="outline-3">
-<h3 id="Environment"><a id="org141ca6d"></a><span class="section-number-3">2.5</span> Environment</h3>
+<div id="outline-container-orgd43b46d" class="outline-3">
+<h3 id="Environment"><a id="orgd43b46d"></a><span class="section-number-3">2.5</span> Environment</h3>
 <div class="outline-text-3" id="text-Environment">
 <p>
 Environmental blocks are blocks that must be placed from the editor, and they're the ones that will generally dictate how the game can or will be played. These blocks wont appear on a map unless you've built a map to support them.
 </p>
 </div>
 
-<div id="outline-container-org5c8c109" class="outline-4">
-<h4 id="Floor"><a id="org5c8c109"></a>Floor</h4>
+<div id="outline-container-org1a84e8f" class="outline-4">
+<h4 id="Floor"><a id="org1a84e8f"></a>Floor</h4>
 <div class="outline-text-4" id="text-Floor">
 <p>
 Extends <a href="#Block">Block</a>
@@ -1797,8 +1803,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org62d4250" class="outline-4">
-<h4 id="OverlayFloor"><a id="org62d4250"></a>OverlayFloor</h4>
+<div id="outline-container-org03eb493" class="outline-4">
+<h4 id="OverlayFloor"><a id="org03eb493"></a>OverlayFloor</h4>
 <div class="outline-text-4" id="text-OverlayFloor">
 <p>
 Extends <a href="#Floor">Floor</a>
@@ -1813,8 +1819,8 @@ For example:
 </div>
 </div>
 
-<div id="outline-container-org88a0558" class="outline-4">
-<h4 id="DoubleOverlayFloor"><a id="org88a0558"></a>DoubleOverlayFloor</h4>
+<div id="outline-container-orgb5d39c0" class="outline-4">
+<h4 id="DoubleOverlayFloor"><a id="orgb5d39c0"></a>DoubleOverlayFloor</h4>
 <div class="outline-text-4" id="text-DoubleOverlayFloor">
 <p>
 Extends <a href="#OverlayFloor">OverlayFloor</a>
@@ -1829,8 +1835,8 @@ For example:
 </div>
 </div>
 
-<div id="outline-container-org6b96189" class="outline-4">
-<h4 id="OreBlock"><a id="org6b96189"></a>OreBlock</h4>
+<div id="outline-container-org01dd5b9" class="outline-4">
+<h4 id="OreBlock"><a id="org01dd5b9"></a>OreBlock</h4>
 <div class="outline-text-4" id="text-OreBlock">
 <p>
 Extends <a href="#OverlayFloor">OverlayFloor</a>
@@ -1860,8 +1866,8 @@ Extends <a href="#OverlayFloor">OverlayFloor</a>
 </div>
 </div>
 
-<div id="outline-container-org2b5623e" class="outline-4">
-<h4 id="Rock"><a id="org2b5623e"></a>Rock</h4>
+<div id="outline-container-orgccae1d4" class="outline-4">
+<h4 id="Rock"><a id="orgccae1d4"></a>Rock</h4>
 <div class="outline-text-4" id="text-Rock">
 <p>
 Extends <a href="#Block">Block</a>
@@ -1921,8 +1927,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org2cd50dd" class="outline-4">
-<h4 id="StaticWall"><a id="org2cd50dd"></a>StaticWall</h4>
+<div id="outline-container-orgd29c5ef" class="outline-4">
+<h4 id="StaticWall"><a id="orgd29c5ef"></a>StaticWall</h4>
 <div class="outline-text-4" id="text-StaticWall">
 <p>
 Extends <a href="#Rock">Rock</a>
@@ -1977,8 +1983,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org6a9d77b" class="outline-4">
-<h4 id="StaticTree"><a id="org6a9d77b"></a>StaticTree</h4>
+<div id="outline-container-org4c5105b" class="outline-4">
+<h4 id="StaticTree"><a id="org4c5105b"></a>StaticTree</h4>
 <div class="outline-text-4" id="text-StaticTree">
 <p>
 Extends <a href="#StaticWall">StaticWall</a>
@@ -1996,8 +2002,8 @@ For example:
 </div>
 </div>
 
-<div id="outline-container-orgd34df0a" class="outline-4">
-<h4 id="TreeBlock"><a id="orgd34df0a"></a>TreeBlock</h4>
+<div id="outline-container-org009b778" class="outline-4">
+<h4 id="TreeBlock"><a id="org009b778"></a>TreeBlock</h4>
 <div class="outline-text-4" id="text-TreeBlock">
 <p>
 Extends <a href="#Block">Block</a>
@@ -2040,12 +2046,12 @@ Defaults:
 </div>
 </div>
 </div>
-<div id="outline-container-orgfade0b5" class="outline-3">
-<h3 id="Crafting"><a id="orgfade0b5"></a><span class="section-number-3">2.6</span> Crafting</h3>
+<div id="outline-container-org28a34f4" class="outline-3">
+<h3 id="Crafting"><a id="org28a34f4"></a><span class="section-number-3">2.6</span> Crafting</h3>
 <div class="outline-text-3" id="text-Crafting">
 </div>
-<div id="outline-container-orgcc7aa89" class="outline-4">
-<h4 id="GenericCrafter"><a id="orgcc7aa89"></a>GenericCrafter</h4>
+<div id="outline-container-org167dd73" class="outline-4">
+<h4 id="GenericCrafter"><a id="org167dd73"></a>GenericCrafter</h4>
 <div class="outline-text-4" id="text-GenericCrafter">
 <p>
 Extends <a href="#Block">Block</a>
@@ -2168,8 +2174,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgbb4947c" class="outline-4">
-<h4 id="GenericSmelter"><a id="orgbb4947c"></a>GenericSmelter</h4>
+<div id="outline-container-org1b71d0f" class="outline-4">
+<h4 id="GenericSmelter"><a id="org1b71d0f"></a>GenericSmelter</h4>
 <div class="outline-text-4" id="text-GenericSmelter">
 <p>
 Extends <a href="#GenericCrafter">GenericCrafter</a> 
@@ -2214,8 +2220,8 @@ Sprite suffix:
 </div>
 </div>
 
-<div id="outline-container-org9426a2f" class="outline-4">
-<h4 id="Separator"><a id="org9426a2f"></a>Separator</h4>
+<div id="outline-container-orgdf57dea" class="outline-4">
+<h4 id="Separator"><a id="orgdf57dea"></a>Separator</h4>
 <div class="outline-text-4" id="text-Separator">
 <p>
 Extends <a href="#Block">Block</a>
@@ -2353,12 +2359,12 @@ Sprite suffixes:
 </div>
 </div>
 </div>
-<div id="outline-container-org4f119e2" class="outline-3">
-<h3 id="Sandbox"><a id="org4f119e2"></a><span class="section-number-3">2.7</span> Sandbox</h3>
+<div id="outline-container-org45e6249" class="outline-3">
+<h3 id="Sandbox"><a id="org45e6249"></a><span class="section-number-3">2.7</span> Sandbox</h3>
 <div class="outline-text-3" id="text-Sandbox">
 </div>
-<div id="outline-container-orgfd59604" class="outline-4">
-<h4 id="PowerVoid"><a id="orgfd59604"></a>PowerVoid</h4>
+<div id="outline-container-orgd406277" class="outline-4">
+<h4 id="PowerVoid"><a id="orgd406277"></a>PowerVoid</h4>
 <div class="outline-text-4" id="text-PowerVoid">
 <p>
 Extends <a href="#PowerBlock">PowerBlock</a>
@@ -2392,8 +2398,8 @@ Deafults:
 </div>
 </div>
 
-<div id="outline-container-orgd458d49" class="outline-4">
-<h4 id="PowerSource"><a id="orgd458d49"></a>PowerSource</h4>
+<div id="outline-container-org742828f" class="outline-4">
+<h4 id="PowerSource"><a id="org742828f"></a>PowerSource</h4>
 <div class="outline-text-4" id="text-PowerSource">
 <p>
 Extends <a href="#PowerNode">PowerNode</a>
@@ -2437,8 +2443,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orga4ac205" class="outline-4">
-<h4 id="ItemSource"><a id="orga4ac205"></a>ItemSource</h4>
+<div id="outline-container-org5e54a28" class="outline-4">
+<h4 id="ItemSource"><a id="org5e54a28"></a>ItemSource</h4>
 <div class="outline-text-4" id="text-ItemSource">
 <p>
 Extends <a href="#Block">Block</a>
@@ -2492,8 +2498,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org0f1b577" class="outline-4">
-<h4 id="ItemVoid"><a id="org0f1b577"></a>ItemVoid</h4>
+<div id="outline-container-org42c0c58" class="outline-4">
+<h4 id="ItemVoid"><a id="org42c0c58"></a>ItemVoid</h4>
 <div class="outline-text-4" id="text-ItemVoid">
 <p>
 Extends <a href="#Block">Block</a>
@@ -2532,8 +2538,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org0211349" class="outline-4">
-<h4 id="LiquidSource"><a id="org0211349"></a>LiquidSource</h4>
+<div id="outline-container-org0ab8827" class="outline-4">
+<h4 id="LiquidSource"><a id="org0ab8827"></a>LiquidSource</h4>
 <div class="outline-text-4" id="text-LiquidSource">
 <p>
 Extends <a href="#Block">Block</a>
@@ -2593,12 +2599,12 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgf7f320f" class="outline-3">
-<h3 id="Logic"><a id="orgf7f320f"></a><span class="section-number-3">2.8</span> Logic</h3>
+<div id="outline-container-orga74ce65" class="outline-3">
+<h3 id="Logic"><a id="orga74ce65"></a><span class="section-number-3">2.8</span> Logic</h3>
 <div class="outline-text-3" id="text-Logic">
 </div>
-<div id="outline-container-org6caccfa" class="outline-4">
-<h4 id="MessageBlock"><a id="org6caccfa"></a>MessageBlock</h4>
+<div id="outline-container-org4ba58f1" class="outline-4">
+<h4 id="MessageBlock"><a id="org4ba58f1"></a>MessageBlock</h4>
 <div class="outline-text-4" id="text-MessageBlock">
 <p>
 Extends <a href="#Block">Block</a>
@@ -2674,13 +2680,13 @@ Defaults:
 </div>
 </div>
 </div>
-<div id="outline-container-org4a3b88f" class="outline-3">
-<h3 id="Defense"><a id="org4a3b88f"></a><span class="section-number-3">2.9</span> Defense</h3>
+<div id="outline-container-org351ef11" class="outline-3">
+<h3 id="Defense"><a id="org351ef11"></a><span class="section-number-3">2.9</span> Defense</h3>
 <div class="outline-text-3" id="text-Defense">
 </div>
 
-<div id="outline-container-org1c5644f" class="outline-4">
-<h4 id="StaticWall"><a id="org1c5644f"></a>Wall</h4>
+<div id="outline-container-org84884c9" class="outline-4">
+<h4 id="StaticWall"><a id="org84884c9"></a>Wall</h4>
 <div class="outline-text-4" id="text-StaticWall">
 <p>
 Extends <a href="#Block">Block</a>
@@ -2755,8 +2761,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org3152cf0" class="outline-4">
-<h4 id="DeflectorWall"><a id="org3152cf0"></a>DeflectorWall</h4>
+<div id="outline-container-org5bde684" class="outline-4">
+<h4 id="DeflectorWall"><a id="org5bde684"></a>DeflectorWall</h4>
 <div class="outline-text-4" id="text-DeflectorWall">
 <p>
 Extends <a href="#StaticWall">Wall</a> &#x2013; Wall that deflects low damage bullets.
@@ -2796,8 +2802,8 @@ Extends <a href="#StaticWall">Wall</a> &#x2013; Wall that deflects low damage bu
 </div>
 </div>
 
-<div id="outline-container-org04d5656" class="outline-4">
-<h4 id="SurgeWall"><a id="org04d5656"></a>SurgeWall</h4>
+<div id="outline-container-orga1b0a9a" class="outline-4">
+<h4 id="SurgeWall"><a id="orga1b0a9a"></a>SurgeWall</h4>
 <div class="outline-text-4" id="text-SurgeWall">
 <p>
 Extends <a href="#StaticWall">Wall</a> &#x2013; Wall that creates lightning when shot.
@@ -2843,8 +2849,8 @@ Extends <a href="#StaticWall">Wall</a> &#x2013; Wall that creates lightning when
 </div>
 </div>
 
-<div id="outline-container-org7794e8b" class="outline-4">
-<h4 id="Door"><a id="org7794e8b"></a>Door</h4>
+<div id="outline-container-orgfd0b0e1" class="outline-4">
+<h4 id="Door"><a id="orgfd0b0e1"></a>Door</h4>
 <div class="outline-text-4" id="text-Door">
 <p>
 Extends <a href="#StaticWall">Wall</a>
@@ -2927,8 +2933,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org7ac6c39" class="outline-4">
-<h4 id="MendProjector"><a id="org7ac6c39"></a>MendProjector</h4>
+<div id="outline-container-org20f7925" class="outline-4">
+<h4 id="MendProjector"><a id="org20f7925"></a>MendProjector</h4>
 <div class="outline-text-4" id="text-MendProjector">
 <p>
 Extends <a href="#Block">Block</a>
@@ -3011,8 +3017,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-orgcded351" class="outline-4">
-<h4 id="OverdriveProjector"><a id="orgcded351"></a>OverdriveProjector</h4>
+<div id="outline-container-org8606f3d" class="outline-4">
+<h4 id="OverdriveProjector"><a id="org8606f3d"></a>OverdriveProjector</h4>
 <div class="outline-text-4" id="text-OverdriveProjector">
 <p>
 Extends <a href="#Block">Block</a>
@@ -3141,8 +3147,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org3f52855" class="outline-4">
-<h4 id="ForceProjector"><a id="org3f52855"></a>ForceProjector</h4>
+<div id="outline-container-org791d56e" class="outline-4">
+<h4 id="ForceProjector"><a id="org791d56e"></a>ForceProjector</h4>
 <div class="outline-text-4" id="text-ForceProjector">
 <p>
 Extends <a href="#Block">Block</a>
@@ -3266,13 +3272,13 @@ Defaults:
 
 <tr>
 <td class="org-left">consumes</td>
-<td class="org-left"><a href="#org5314523">cold-liquid</a></td>
+<td class="org-left"><a href="#org4e29cbd">cold-liquid</a></td>
 </tr>
 </tbody>
 </table>
 
 <p>
-<a id="org5314523"></a><a href="#org5314523">cold-liquid</a>:
+<a id="org4e29cbd"></a><a href="#org4e29cbd">cold-liquid</a>:
 </p>
 <ul class="org-ul">
 <li>temperature less then 0.5</li>
@@ -3291,8 +3297,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org40d208b" class="outline-4">
-<h4 id="ShockMine"><a id="org40d208b"></a>ShockMine</h4>
+<div id="outline-container-org15e0c88" class="outline-4">
+<h4 id="ShockMine"><a id="org15e0c88"></a>ShockMine</h4>
 <div class="outline-text-4" id="text-ShockMine">
 <p>
 Extends <a href="#Block">Block</a>
@@ -3395,19 +3401,19 @@ Defaults:
 </div>
 </div>
 </div>
-<div id="outline-container-org1860caf" class="outline-3">
-<h3 id="Turrets"><a id="org1860caf"></a><span class="section-number-3">2.10</span> Turrets</h3>
+<div id="outline-container-orgf4a4d06" class="outline-3">
+<h3 id="Turrets"><a id="orgf4a4d06"></a><span class="section-number-3">2.10</span> Turrets</h3>
 <div class="outline-text-3" id="text-Turrets">
 <p>
 This section is for turret types. All turrets shoot <a href="#BulletType">5.1</a>, and this means <a href="#LiquidTurret">LiquidTurret</a> can shoot <a href="#MissileBulletType">MissileBulletType</a> and <a href="#ItemTurret">ItemTurret</a> can shoot <a href="#LiquidBulletType">LiquidBulletType</a>.
 </p>
 </div>
 
-<div id="outline-container-org2cb40c2" class="outline-4">
-<h4 id="Turrets"><a id="org2cb40c2"></a>Turret</h4>
+<div id="outline-container-org08cb692" class="outline-4">
+<h4 id="Turrets"><a id="org08cb692"></a>Turret</h4>
 <div class="outline-text-4" id="text-Turrets">
 <p>
-<a href="#orga841da2">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#org6549906">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -3645,8 +3651,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org7f5eac7" class="outline-4">
-<h4 id="CooledTurret"><a id="org7f5eac7"></a>CooledTurret</h4>
+<div id="outline-container-org8061c4d" class="outline-4">
+<h4 id="CooledTurret"><a id="org8061c4d"></a>CooledTurret</h4>
 <div class="outline-text-4" id="text-CooledTurret">
 <p>
 Extends <a href="#Turrets">Turret</a> &#x2013; This is a base type that turrets which use <a href="#ItemLiquidGenerator">3.3</a> to cool themselves extend from.
@@ -3699,8 +3705,8 @@ Notes:
 </div>
 </div>
 
-<div id="outline-container-org5ca8697" class="outline-4">
-<h4 id="ItemTurret"><a id="org5ca8697"></a>ItemTurret</h4>
+<div id="outline-container-org4322b20" class="outline-4">
+<h4 id="ItemTurret"><a id="org4322b20"></a>ItemTurret</h4>
 <div class="outline-text-4" id="text-ItemTurret">
 <p>
 Extends <a href="#CooledTurret">CooledTurret</a>
@@ -3798,8 +3804,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org996ccd5" class="outline-4">
-<h4 id="LiquidTurret"><a id="org996ccd5"></a>LiquidTurret</h4>
+<div id="outline-container-org2d86d61" class="outline-4">
+<h4 id="LiquidTurret"><a id="org2d86d61"></a>LiquidTurret</h4>
 <div class="outline-text-4" id="text-LiquidTurret">
 <p>
 Extends <a href="#Turrets">Turret</a>
@@ -3888,8 +3894,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgc8d0ee9" class="outline-4">
-<h4 id="DoubleTurret"><a id="orgc8d0ee9"></a>DoubleTurret</h4>
+<div id="outline-container-org56ca08a" class="outline-4">
+<h4 id="DoubleTurret"><a id="org56ca08a"></a>DoubleTurret</h4>
 <div class="outline-text-4" id="text-DoubleTurret">
 <p>
 Extends <a href="#ItemTurret">ItemTurret</a>
@@ -3952,8 +3958,8 @@ Default:
 </div>
 </div>
 
-<div id="outline-container-org7a175be" class="outline-4">
-<h4 id="ArtilleryTurret"><a id="org7a175be"></a>ArtilleryTurret</h4>
+<div id="outline-container-org7fa1f25" class="outline-4">
+<h4 id="ArtilleryTurret"><a id="org7fa1f25"></a>ArtilleryTurret</h4>
 <div class="outline-text-4" id="text-ArtilleryTurret">
 <p>
 Extends <a href="#ItemTurret">ItemTurret</a> &#x2013; Artillery turrets have special shooting calculations done to hit targets.
@@ -3983,8 +3989,8 @@ Extends <a href="#ItemTurret">ItemTurret</a> &#x2013; Artillery turrets have spe
 </div>
 </div>
 
-<div id="outline-container-org2bfada6" class="outline-4">
-<h4 id="BurstTurret"><a id="org2bfada6"></a>BurstTurret</h4>
+<div id="outline-container-org9454e47" class="outline-4">
+<h4 id="BurstTurret"><a id="org9454e47"></a>BurstTurret</h4>
 <div class="outline-text-4" id="text-BurstTurret">
 <p>
 Extends <a href="#ItemTurret">ItemTurret</a> &#x2013; Turrets capable of bursts of specially spaced bullets, separated by long reload times.
@@ -4017,8 +4023,8 @@ Extends <a href="#ItemTurret">ItemTurret</a> &#x2013; Turrets capable of bursts 
 </table>
 </div>
 </div>
-<div id="outline-container-org1603b46" class="outline-4">
-<h4 id="PowerTurret"><a id="org1603b46"></a>PowerTurret</h4>
+<div id="outline-container-org4742d56" class="outline-4">
+<h4 id="PowerTurret"><a id="org4742d56"></a>PowerTurret</h4>
 <div class="outline-text-4" id="text-PowerTurret">
 <p>
 Extends <a href="#CooledTurret">CooledTurret</a> &#x2013; Turret which uses power has ammo to shoot.
@@ -4089,8 +4095,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org5de9e39" class="outline-4">
-<h4 id="ChargeTurret"><a id="org5de9e39"></a>ChargeTurret</h4>
+<div id="outline-container-org13264f2" class="outline-4">
+<h4 id="ChargeTurret"><a id="org13264f2"></a>ChargeTurret</h4>
 <div class="outline-text-4" id="text-ChargeTurret">
 <p>
 Extends <a href="#PowerTurret">PowerTurret</a>
@@ -4148,8 +4154,8 @@ Extends <a href="#PowerTurret">PowerTurret</a>
 </div>
 </div>
 
-<div id="outline-container-orgd3ca68b" class="outline-4">
-<h4 id="LaserTurret"><a id="orgd3ca68b"></a>LaserTurret</h4>
+<div id="outline-container-org4db8268" class="outline-4">
+<h4 id="LaserTurret"><a id="org4db8268"></a>LaserTurret</h4>
 <div class="outline-text-4" id="text-LaserTurret">
 <p>
 Extends <a href="#PowerTurret">PowerTurret</a>
@@ -4232,12 +4238,12 @@ Doesn't update shoot if:
 </div>
 </div>
 </div>
-<div id="outline-container-org031e1dc" class="outline-3">
-<h3 id="Distribution"><a id="org031e1dc"></a><span class="section-number-3">2.11</span> Distribution</h3>
+<div id="outline-container-orga6bce49" class="outline-3">
+<h3 id="Distribution"><a id="orga6bce49"></a><span class="section-number-3">2.11</span> Distribution</h3>
 <div class="outline-text-3" id="text-Distribution">
 </div>
-<div id="outline-container-org5545419" class="outline-4">
-<h4 id="Conveyor"><a id="org5545419"></a>Conveyor</h4>
+<div id="outline-container-orgfa98631" class="outline-4">
+<h4 id="Conveyor"><a id="orgfa98631"></a>Conveyor</h4>
 <div class="outline-text-4" id="text-Conveyor">
 <p>
 Extends <a href="#Block">Block</a>
@@ -4344,8 +4350,8 @@ Sprite suffix:
 </div>
 </div>
 
-<div id="outline-container-org32b6dd6" class="outline-4">
-<h4 id="ArmoredConveyor"><a id="org32b6dd6"></a>ArmoredConveyor</h4>
+<div id="outline-container-org482470a" class="outline-4">
+<h4 id="ArmoredConveyor"><a id="org482470a"></a>ArmoredConveyor</h4>
 <div class="outline-text-4" id="text-ArmoredConveyor">
 <p>
 Extends <a href="#Conveyor">Conveyor</a>  -A type of conveyor don't accept item coming from side
@@ -4353,8 +4359,8 @@ Extends <a href="#Conveyor">Conveyor</a>  -A type of conveyor don't accept item 
 </div>
 </div>
 
-<div id="outline-container-org3ac0baf" class="outline-4">
-<h4 id="Junction"><a id="org3ac0baf"></a>Junction</h4>
+<div id="outline-container-orgcc5821b" class="outline-4">
+<h4 id="Junction"><a id="orgcc5821b"></a>Junction</h4>
 <div class="outline-text-4" id="text-Junction">
 <p>
 Extends <a href="#Block">Block</a>
@@ -4444,8 +4450,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org550eb68" class="outline-4">
-<h4 id="ItemBridge"><a id="org550eb68"></a>ItemBridge</h4>
+<div id="outline-container-org85fe5ba" class="outline-4">
+<h4 id="ItemBridge"><a id="org85fe5ba"></a>ItemBridge</h4>
 <div class="outline-text-4" id="text-ItemBridge">
 <p>
 Extends <a href="#Block">Block</a>
@@ -4569,8 +4575,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org1e2f6a5" class="outline-4">
-<h4 id="ExtendingItemBridge"><a id="org1e2f6a5"></a>ExtendingItemBridge</h4>
+<div id="outline-container-org2432460" class="outline-4">
+<h4 id="ExtendingItemBridge"><a id="org2432460"></a>ExtendingItemBridge</h4>
 <div class="outline-text-4" id="text-ExtendingItemBridge">
 <p>
 Extends <a href="#ItemBridge">ItemBridge</a>
@@ -4603,8 +4609,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgd9d4744" class="outline-4">
-<h4 id="BufferedItemBridge"><a id="orgd9d4744"></a>BufferedItemBridge</h4>
+<div id="outline-container-orge546c63" class="outline-4">
+<h4 id="BufferedItemBridge"><a id="orge546c63"></a>BufferedItemBridge</h4>
 <div class="outline-text-4" id="text-BufferedItemBridge">
 <p>
 Extends <a href="#ExtendingItemBridge">ExtendingItemBridge</a>
@@ -4674,8 +4680,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgbe4ac3d" class="outline-4">
-<h4 id="Sorter"><a id="orgbe4ac3d"></a>Sorter</h4>
+<div id="outline-container-orgf19d629" class="outline-4">
+<h4 id="Sorter"><a id="orgf19d629"></a>Sorter</h4>
 <div class="outline-text-4" id="text-Sorter">
 <p>
 Extends <a href="#Block">Block</a>
@@ -4764,8 +4770,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgafdb705" class="outline-4">
-<h4 id="OverflowGate"><a id="orgafdb705"></a>OverflowGate</h4>
+<div id="outline-container-org63b0310" class="outline-4">
+<h4 id="OverflowGate"><a id="org63b0310"></a>OverflowGate</h4>
 <div class="outline-text-4" id="text-OverflowGate">
 <p>
 Extends <a href="#Block">Block</a>
@@ -4845,8 +4851,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org0d72d90" class="outline-4">
-<h4 id="MassDriver"><a id="org0d72d90"></a>MassDriver</h4>
+<div id="outline-container-orge4a3630" class="outline-4">
+<h4 id="MassDriver"><a id="orge4a3630"></a>MassDriver</h4>
 <div class="outline-text-4" id="text-MassDriver">
 <p>
 Extends <a href="#Block">Block</a> &#x2013; Uses <code>driverBolt</code> to transfer items.
@@ -5008,12 +5014,12 @@ Sprites:
 </div>
 </div>
 </div>
-<div id="outline-container-org042e50d" class="outline-3">
-<h3 id="Liquid-Blocks"><a id="org042e50d"></a><span class="section-number-3">2.12</span> Liquid Blocks</h3>
+<div id="outline-container-org64687b0" class="outline-3">
+<h3 id="Liquid-Blocks"><a id="org64687b0"></a><span class="section-number-3">2.12</span> Liquid Blocks</h3>
 <div class="outline-text-3" id="text-Liquid-Blocks">
 </div>
-<div id="outline-container-orge823918" class="outline-4">
-<h4 id="LiquidBlock"><a id="orge823918"></a>LiquidBlock</h4>
+<div id="outline-container-org30d5dc4" class="outline-4">
+<h4 id="LiquidBlock"><a id="org30d5dc4"></a>LiquidBlock</h4>
 <div class="outline-text-4" id="text-LiquidBlock">
 <p>
 Extends <a href="#Block">Block</a> &#x2013; For blocks that can carry liquids. Apart from the better defaults, it also fetches extra sprites.
@@ -5076,8 +5082,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-orgc80e887" class="outline-4">
-<h4 id="Pump"><a id="orgc80e887"></a>Pump</h4>
+<div id="outline-container-org67f5b1f" class="outline-4">
+<h4 id="Pump"><a id="org67f5b1f"></a>Pump</h4>
 <div class="outline-text-4" id="text-Pump">
 <p>
 Extends <a href="#LiquidBlock">LiquidBlock</a>
@@ -5143,8 +5149,8 @@ Extends <a href="#LiquidBlock">LiquidBlock</a>
 </div>
 </div>
 
-<div id="outline-container-org55bc3c6" class="outline-4">
-<h4 id="Conduit"><a id="org55bc3c6"></a>Conduit</h4>
+<div id="outline-container-org77dd0d6" class="outline-4">
+<h4 id="Conduit"><a id="org77dd0d6"></a>Conduit</h4>
 <div class="outline-text-4" id="text-Conduit">
 <p>
 Extends <a href="#LiquidBlock">LiquidBlock</a>
@@ -5225,8 +5231,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-orgc668118" class="outline-4">
-<h4 id="ArmoredConduit"><a id="orgc668118"></a>ArmoredConduit</h4>
+<div id="outline-container-org5834182" class="outline-4">
+<h4 id="ArmoredConduit"><a id="org5834182"></a>ArmoredConduit</h4>
 <div class="outline-text-4" id="text-ArmoredConduit">
 <p>
 <b>[new type v99 (268)]</b> &#x2013; Extends <a href="#Conduit">Conduit</a>
@@ -5266,8 +5272,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org7b1b04d" class="outline-4">
-<h4 id="LiquidOverflowGate"><a id="org7b1b04d"></a>LiquidOverflowGate</h4>
+<div id="outline-container-org7e1aaf5" class="outline-4">
+<h4 id="LiquidOverflowGate"><a id="org7e1aaf5"></a>LiquidOverflowGate</h4>
 <div class="outline-text-4" id="text-LiquidOverflowGate">
 <p>
 <b>[new type v99 (268)]</b> &#x2013; Extends <a href="#LiquidBlock">LiquidBlock</a>
@@ -5307,8 +5313,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org3bbc2fb" class="outline-4">
-<h4 id="LiquidRouter"><a id="org3bbc2fb"></a>LiquidRouter</h4>
+<div id="outline-container-org0670e43" class="outline-4">
+<h4 id="LiquidRouter"><a id="org0670e43"></a>LiquidRouter</h4>
 <div class="outline-text-4" id="text-LiquidRouter">
 <p>
 Extends <a href="#LiquidBlock">LiquidBlock</a>
@@ -5316,8 +5322,8 @@ Extends <a href="#LiquidBlock">LiquidBlock</a>
 </div>
 </div>
 
-<div id="outline-container-org2694553" class="outline-4">
-<h4 id="LiquidTank"><a id="org2694553"></a>LiquidTank</h4>
+<div id="outline-container-orgc794225" class="outline-4">
+<h4 id="LiquidTank"><a id="orgc794225"></a>LiquidTank</h4>
 <div class="outline-text-4" id="text-LiquidTank">
 <p>
 Extends <a href="#LiquidRouter">LiquidRouter</a>
@@ -5325,8 +5331,8 @@ Extends <a href="#LiquidRouter">LiquidRouter</a>
 </div>
 </div>
 
-<div id="outline-container-org9a77012" class="outline-4">
-<h4 id="LiquidJunction"><a id="org9a77012"></a>LiquidJunction</h4>
+<div id="outline-container-orgec2c9f5" class="outline-4">
+<h4 id="LiquidJunction"><a id="orgec2c9f5"></a>LiquidJunction</h4>
 <div class="outline-text-4" id="text-LiquidJunction">
 <p>
 Extends <a href="#LiquidBlock">LiquidBlock</a>
@@ -5334,8 +5340,8 @@ Extends <a href="#LiquidBlock">LiquidBlock</a>
 </div>
 </div>
 
-<div id="outline-container-orgeb7bd9e" class="outline-4">
-<h4 id="LiquidBridge"><a id="orgeb7bd9e"></a>LiquidBridge</h4>
+<div id="outline-container-orga5a8c4d" class="outline-4">
+<h4 id="LiquidBridge"><a id="orga5a8c4d"></a>LiquidBridge</h4>
 <div class="outline-text-4" id="text-LiquidBridge">
 <p>
 Extends <a href="#LiquidBridge">LiquidBridge</a>
@@ -5380,8 +5386,8 @@ Extends <a href="#LiquidBridge">LiquidBridge</a>
 </div>
 </div>
 
-<div id="outline-container-orgba29e91" class="outline-4">
-<h4 id="LiquidExtendingBridge"><a id="orgba29e91"></a>LiquidExtendingBridge</h4>
+<div id="outline-container-org95d6562" class="outline-4">
+<h4 id="LiquidExtendingBridge"><a id="org95d6562"></a>LiquidExtendingBridge</h4>
 <div class="outline-text-4" id="text-LiquidExtendingBridge">
 <p>
 Extends <a href="#ExtendingItemBridge">ExtendingItemBridge</a>
@@ -5426,15 +5432,15 @@ Extends <a href="#ExtendingItemBridge">ExtendingItemBridge</a>
 </div>
 </div>
 </div>
-<div id="outline-container-org1b91d5f" class="outline-3">
-<h3 id="PowerTurret"><a id="org1b91d5f"></a><span class="section-number-3">2.13</span> Power</h3>
+<div id="outline-container-orgf34c6fa" class="outline-3">
+<h3 id="PowerTurret"><a id="orgf34c6fa"></a><span class="section-number-3">2.13</span> Power</h3>
 <div class="outline-text-3" id="text-PowerTurret">
 </div>
-<div id="outline-container-org567ba02" class="outline-4">
-<h4 id="PowerBlock"><a id="org567ba02"></a>PowerBlock</h4>
+<div id="outline-container-org66658c0" class="outline-4">
+<h4 id="PowerBlock"><a id="org66658c0"></a>PowerBlock</h4>
 <div class="outline-text-4" id="text-PowerBlock">
 <p>
-<a href="#orga841da2">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#org6549906">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -5480,8 +5486,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgdedbbee" class="outline-4">
-<h4 id="PowerNode"><a id="orgdedbbee"></a>PowerNode</h4>
+<div id="outline-container-orgf66d441" class="outline-4">
+<h4 id="PowerNode"><a id="orgf66d441"></a>PowerNode</h4>
 <div class="outline-text-4" id="text-PowerNode">
 <p>
 Extends <a href="#PowerBlock">PowerBlock</a>
@@ -5567,8 +5573,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orge0802a4" class="outline-4">
-<h4 id="PowerDistributor"><a id="orge0802a4"></a>PowerDistributor</h4>
+<div id="outline-container-orgac89e45" class="outline-4">
+<h4 id="PowerDistributor"><a id="orgac89e45"></a>PowerDistributor</h4>
 <div class="outline-text-4" id="text-PowerDistributor">
 <p>
 Extends <a href="#PowerBlock">PowerBlock</a>
@@ -5606,8 +5612,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgd50be21" class="outline-4">
-<h4 id="Battery"><a id="orgd50be21"></a>Battery</h4>
+<div id="outline-container-org25cf3ed" class="outline-4">
+<h4 id="Battery"><a id="org25cf3ed"></a>Battery</h4>
 <div class="outline-text-4" id="text-Battery">
 <p>
 Extends <a href="#PowerDistributor">PowerDistributor</a> &#x2013; Just a change of defaults for batteries.
@@ -5646,8 +5652,8 @@ Defauts:
 </div>
 </div>
 
-<div id="outline-container-org4a166da" class="outline-4">
-<h4 id="PowerGenerator"><a id="org4a166da"></a>PowerGenerator</h4>
+<div id="outline-container-org3b66549" class="outline-4">
+<h4 id="PowerGenerator"><a id="org3b66549"></a>PowerGenerator</h4>
 <div class="outline-text-4" id="text-PowerGenerator">
 <p>
 Extends <a href="#PowerDistributor">PowerDistributor</a>
@@ -5709,8 +5715,8 @@ Defaults:
 </table>
 </div>
 
-<div id="outline-container-org7f9d20d" class="outline-5">
-<h5 id="ThermalGenerator"><a id="org7f9d20d"></a>ThermalGenerator</h5>
+<div id="outline-container-org4c87cdd" class="outline-5">
+<h5 id="ThermalGenerator"><a id="org4c87cdd"></a>ThermalGenerator</h5>
 <div class="outline-text-5" id="text-ThermalGenerator">
 <p>
 Extends <a href="#PowerGenerator">PowerGenerator</a> &#x2013; Generates power with the heat <a href="#Attributes">attribute</a> of a tile. Power production is <code>powerProduction * heat</code>, and <code>heat</code> must be greater then <code>0.01</code>.
@@ -5748,8 +5754,8 @@ Extends <a href="#PowerGenerator">PowerGenerator</a> &#x2013; Generates power wi
 </div>
 </div>
 
-<div id="outline-container-org00cb497" class="outline-5">
-<h5 id="ItemLiquidGenerator"><a id="org00cb497"></a>ItemLiquidGenerator</h5>
+<div id="outline-container-org3c0ec39" class="outline-5">
+<h5 id="ItemLiquidGenerator"><a id="org3c0ec39"></a>ItemLiquidGenerator</h5>
 <div class="outline-text-5" id="text-ItemLiquidGenerator">
 <p>
 Extends <a href="#PowerGenerator">PowerGenerator</a> &#x2013; Base of power generation blocks.
@@ -5865,24 +5871,24 @@ Extra sprites:
 </div>
 </div>
 
-<div id="outline-container-org17ffd1f" class="outline-5">
-<h5 id="SingleTypeGenerator"><a id="org17ffd1f"></a>SingleTypeGenerator</h5>
+<div id="outline-container-org8bf151f" class="outline-5">
+<h5 id="SingleTypeGenerator"><a id="org8bf151f"></a>SingleTypeGenerator</h5>
 <div class="outline-text-5" id="text-SingleTypeGenerator">
 <p>
 Extends <a href="#ItemLiquidGenerator">ItemLiquidGenerator</a> &#x2013; Generates power from an item.
 </p>
 </div>
 </div>
-<div id="outline-container-orga62553e" class="outline-5">
-<h5 id="BurnerGenerator"><a id="orga62553e"></a>BurnerGenerator</h5>
+<div id="outline-container-org7b0aba3" class="outline-5">
+<h5 id="BurnerGenerator"><a id="org7b0aba3"></a>BurnerGenerator</h5>
 <div class="outline-text-5" id="text-BurnerGenerator">
 <p>
 Extends <a href="#ItemLiquidGenerator">ItemLiquidGenerator</a> &#x2013; Generates power from item flamability.
 </p>
 </div>
 </div>
-<div id="outline-container-orgccab590" class="outline-5">
-<h5 id="DecayGenerator"><a id="orgccab590"></a>DecayGenerator</h5>
+<div id="outline-container-org4164ad4" class="outline-5">
+<h5 id="DecayGenerator"><a id="org4164ad4"></a>DecayGenerator</h5>
 <div class="outline-text-5" id="text-DecayGenerator">
 <p>
 Extends <a href="#ItemLiquidGenerator">ItemLiquidGenerator</a> &#x2013; Generates power from item radioactivity.
@@ -5920,8 +5926,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orga2aff20" class="outline-5">
-<h5 id="SolarGenerator"><a id="orga2aff20"></a>SolarGenerator</h5>
+<div id="outline-container-orgfa9bb1b" class="outline-5">
+<h5 id="SolarGenerator"><a id="orgfa9bb1b"></a>SolarGenerator</h5>
 <div class="outline-text-5" id="text-SolarGenerator">
 <p>
 Extends <a href="#PowerGenerator">PowerGenerator</a> &#x2013; A generator that always produces 100% efficiency power.
@@ -5936,8 +5942,8 @@ Notes:
 </div>
 </div>
 
-<div id="outline-container-org6b9df7f" class="outline-5">
-<h5 id="NuclearReactor"><a id="org6b9df7f"></a><span class="done NEW">NEW</span> NuclearReactor</h5>
+<div id="outline-container-org8a61aed" class="outline-5">
+<h5 id="NuclearReactor"><a id="org8a61aed"></a><span class="done NEW">NEW</span> NuclearReactor</h5>
 <div class="outline-text-5" id="text-NuclearReactor">
 <p>
 Extends <a href="#PowerGenerator">PowerGenerator</a> &#x2013; Generates power relative to how many items are in storage, and explodes if it runs out of coolant.
@@ -6087,8 +6093,8 @@ Extra Sprites:
 </div>
 </div>
 
-<div id="outline-container-org085de94" class="outline-5">
-<h5 id="ImpactReactor"><a id="org085de94"></a>ImpactReactor</h5>
+<div id="outline-container-org9c68559" class="outline-5">
+<h5 id="ImpactReactor"><a id="org9c68559"></a>ImpactReactor</h5>
 <div class="outline-text-5" id="text-ImpactReactor">
 <p>
 Extends <a href="#PowerGenerator">PowerGenerator</a> &#x2013; Generator that uses power and has a startup time.
@@ -6226,8 +6232,8 @@ Sprites:
 </div>
 </div>
 </div>
-<div id="outline-container-orge7100d8" class="outline-4">
-<h4 id="PowerDiode"><a id="orge7100d8"></a>PowerDiode</h4>
+<div id="outline-container-orgb2f3ab3" class="outline-4">
+<h4 id="PowerDiode"><a id="orgb2f3ab3"></a>PowerDiode</h4>
 <div class="outline-text-4" id="text-PowerDiode">
 <p>
 Extends <a href="#Block">Block</a>
@@ -6281,8 +6287,8 @@ Sprites:
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd845316" class="outline-4">
-<h4 id="LightBlock"><a id="orgd845316"></a><span class="done NEW">NEW</span> LightBlock</h4>
+<div id="outline-container-org0dd70a7" class="outline-4">
+<h4 id="LightBlock"><a id="org0dd70a7"></a><span class="done NEW">NEW</span> LightBlock</h4>
 <div class="outline-text-4" id="text-LightBlock">
 <p>
 <b>[new type v99 (268)]</b> &#x2013; Extends <a href="#Block">Block</a>
@@ -6365,12 +6371,12 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org8119fec" class="outline-3">
-<h3 id="Production"><a id="org8119fec"></a><span class="section-number-3">2.14</span> Production</h3>
+<div id="outline-container-org63e30be" class="outline-3">
+<h3 id="Production"><a id="org63e30be"></a><span class="section-number-3">2.14</span> Production</h3>
 <div class="outline-text-3" id="text-Production">
 </div>
-<div id="outline-container-org012f2b9" class="outline-4">
-<h4 id="Drill"><a id="org012f2b9"></a>Drill</h4>
+<div id="outline-container-org0877afd" class="outline-4">
+<h4 id="Drill"><a id="org0877afd"></a>Drill</h4>
 <div class="outline-text-4" id="text-Drill">
 <p>
 Extends <a href="#Block">Block</a> &#x2013; Types which can be placed on ore blocks to extract the <a href="#OreBlock">OreBlock</a>'s item.
@@ -6552,8 +6558,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-orge87d231" class="outline-4">
-<h4 id="SolidPump"><a id="orge87d231"></a>SolidPump</h4>
+<div id="outline-container-org8f6c456" class="outline-4">
+<h4 id="SolidPump"><a id="org8f6c456"></a>SolidPump</h4>
 <div class="outline-text-4" id="text-SolidPump">
 <p>
 Extends <a href="#Pump">Pump</a> &#x2013; Pump that makes liquid from solids and takes in power. Only works on solid floor blocks.
@@ -6643,8 +6649,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-orgae2c772" class="outline-4">
-<h4 id="Cultivator"><a id="orgae2c772"></a>Cultivator</h4>
+<div id="outline-container-orgc0e85c4" class="outline-4">
+<h4 id="Cultivator"><a id="orgc0e85c4"></a>Cultivator</h4>
 <div class="outline-text-4" id="text-Cultivator">
 <p>
 Extends <a href="#GenericCrafter">GenericCrafter</a>
@@ -6711,8 +6717,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-orgc31709d" class="outline-4">
-<h4 id="Fracker"><a id="orgc31709d"></a>Fracker</h4>
+<div id="outline-container-org8286d9a" class="outline-4">
+<h4 id="Fracker"><a id="org8286d9a"></a>Fracker</h4>
 <div class="outline-text-4" id="text-Fracker">
 <p>
 Extends <a href="#SolidPump">SolidPump</a>
@@ -6775,8 +6781,8 @@ Sprites:
 </ul>
 </div>
 </div>
-<div id="outline-container-org7e44ecf" class="outline-4">
-<h4 id="Incinerator"><a id="org7e44ecf"></a>Incinerator</h4>
+<div id="outline-container-orgc717c66" class="outline-4">
+<h4 id="Incinerator"><a id="orgc717c66"></a>Incinerator</h4>
 <div class="outline-text-4" id="text-Incinerator">
 <p>
 Extends <a href="#Block">Block</a>
@@ -6857,12 +6863,12 @@ Defaults:
 </div>
 </div>
 </div>
-<div id="outline-container-orged3f18c" class="outline-3">
-<h3 id="Unit Blocks"><a id="orged3f18c"></a><span class="section-number-3">2.15</span> Unit Blocks</h3>
+<div id="outline-container-orgbbef69b" class="outline-3">
+<h3 id="Unit Blocks"><a id="orgbbef69b"></a><span class="section-number-3">2.15</span> Unit Blocks</h3>
 <div class="outline-text-3" id="text-Unit Blocks">
 </div>
-<div id="outline-container-org0c0f9b0" class="outline-4">
-<h4 id="RepairPoint"><a id="org0c0f9b0"></a>RepairPoint</h4>
+<div id="outline-container-orgcd59446" class="outline-4">
+<h4 id="RepairPoint"><a id="orgcd59446"></a>RepairPoint</h4>
 <div class="outline-text-4" id="text-RepairPoint">
 <p>
 Extends <a href="#Block">Block</a> &#x2013; Block which can repair units within range, with a laser.
@@ -6965,8 +6971,8 @@ Extra sprites:
 </div>
 </div>
 
-<div id="outline-container-org96333b8" class="outline-4">
-<h4 id="UnitFactory"><a id="org96333b8"></a>UnitFactory</h4>
+<div id="outline-container-orge40ce56" class="outline-4">
+<h4 id="UnitFactory"><a id="orge40ce56"></a>UnitFactory</h4>
 <div class="outline-text-4" id="text-UnitFactory">
 <p>
 Extends <a href="#Block">block</a> &#x2013; A block can produce units
@@ -7071,8 +7077,8 @@ Sprite suffix:
 </div>
 </div>
 
-<div id="outline-container-org747a4be" class="outline-4">
-<h4 id="CommandCenter"><a id="org747a4be"></a>CommandCenter</h4>
+<div id="outline-container-org92dbce9" class="outline-4">
+<h4 id="CommandCenter"><a id="org92dbce9"></a>CommandCenter</h4>
 <div class="outline-text-4" id="text-CommandCenter">
 <p>
 Extends <a href="#Block">Block</a> &#x2013; A block which can issue commands to your unit.
@@ -7159,8 +7165,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgf9a57ea" class="outline-4">
-<h4 id="MechPad"><a id="orgf9a57ea"></a>MechPad</h4>
+<div id="outline-container-org5ee037b" class="outline-4">
+<h4 id="MechPad"><a id="org5ee037b"></a>MechPad</h4>
 <div class="outline-text-4" id="text-MechPad">
 <p>
 Extends <a href="#Block">Block</a> &#x2013; A block which will spawn a player in a mech.
@@ -7247,15 +7253,15 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgc46355c" class="outline-3">
-<h3 id="BlockStorage"><a id="orgc46355c"></a><span class="section-number-3">2.16</span> Storage</h3>
+<div id="outline-container-org1fbcb71" class="outline-3">
+<h3 id="BlockStorage"><a id="org1fbcb71"></a><span class="section-number-3">2.16</span> Storage</h3>
 <div class="outline-text-3" id="text-BlockStorage">
 </div>
-<div id="outline-container-org97bea59" class="outline-4">
-<h4 id="StorageBlock"><a id="org97bea59"></a>StorageBlock</h4>
+<div id="outline-container-orgc3118f9" class="outline-4">
+<h4 id="StorageBlock"><a id="orgc3118f9"></a>StorageBlock</h4>
 <div class="outline-text-4" id="text-StorageBlock">
 <p>
-<a href="#orga841da2">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#org6549906">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -7285,8 +7291,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org8e0cc99" class="outline-4">
-<h4 id="CoreBlock"><a id="org8e0cc99"></a>CoreBlock</h4>
+<div id="outline-container-orga398aa3" class="outline-4">
+<h4 id="CoreBlock"><a id="orga398aa3"></a>CoreBlock</h4>
 <div class="outline-text-4" id="text-CoreBlock">
 <p>
 Extends <a href="#StorageBlock">StorageBlock</a>
@@ -7371,8 +7377,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org5f3a143" class="outline-4">
-<h4 id="Vault"><a id="org5f3a143"></a>Vault</h4>
+<div id="outline-container-org02e0c26" class="outline-4">
+<h4 id="Vault"><a id="org02e0c26"></a>Vault</h4>
 <div class="outline-text-4" id="text-Vault">
 <p>
 Extends <a href="#StorageBlock">StorageBlock</a>
@@ -7416,8 +7422,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org3084457" class="outline-4">
-<h4 id="Unloader"><a id="org3084457"></a>Unloader</h4>
+<div id="outline-container-org9ffb8c5" class="outline-4">
+<h4 id="Unloader"><a id="org9ffb8c5"></a>Unloader</h4>
 <div class="outline-text-4" id="text-Unloader">
 <p>
 Extends <a href="#Block">Block</a>
@@ -7508,8 +7514,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-orga1a55a3" class="outline-4">
-<h4 id="LaunchPad"><a id="orga1a55a3"></a>LaunchPad</h4>
+<div id="outline-container-org2e8b0ee" class="outline-4">
+<h4 id="LaunchPad"><a id="org2e8b0ee"></a>LaunchPad</h4>
 <div class="outline-text-4" id="text-LaunchPad">
 <p>
 Extends <a href="#StorageBlock">StroageBlock</a>
@@ -7584,8 +7590,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org3f4e6bf" class="outline-3">
-<h3 id="Attributes"><a id="org3f4e6bf"></a><span class="section-number-3">2.17</span> Attributes</h3>
+<div id="outline-container-org0e28e29" class="outline-3">
+<h3 id="Attributes"><a id="org0e28e29"></a><span class="section-number-3">2.17</span> Attributes</h3>
 <div class="outline-text-3" id="text-Attributes">
 <p>
 An object with an array of <a href="#Attributes">attribute</a>. Used in the <code>Floor</code> type to give a tile specific properties, like <i>hottness</i> or <i>sporness</i> for efficiency of various systems, like ThermalPumps and WaterExtractors.
@@ -7630,8 +7636,8 @@ You could use it inside of <a href="#Floor">Floor</a> type as such:
 </div>
 </div>
 
-<div id="outline-container-orgcf039af" class="outline-3">
-<h3 id="Attributes"><a id="orgcf039af"></a><span class="section-number-3">2.18</span> Attribute</h3>
+<div id="outline-container-orgebe67af" class="outline-3">
+<h3 id="Attributes"><a id="orgebe67af"></a><span class="section-number-3">2.18</span> Attribute</h3>
 <div class="outline-text-3" id="text-Attributes">
 <p>
 New attributes cannot be added. List of built-in attributes:
@@ -7645,8 +7651,8 @@ New attributes cannot be added. List of built-in attributes:
 </ul>
 </div>
 </div>
-<div id="outline-container-org9b47d64" class="outline-3">
-<h3 id="BuildVisibility"><a id="org9b47d64"></a><span class="section-number-3">2.19</span> BuildVisibility</h3>
+<div id="outline-container-orgc5dbc9e" class="outline-3">
+<h3 id="BuildVisibility"><a id="orgc5dbc9e"></a><span class="section-number-3">2.19</span> BuildVisibility</h3>
 <div class="outline-text-3" id="text-BuildVisibility">
 <p>
 A flag used by the game to change a few special-case things. It may be one of the following strings:
@@ -7663,8 +7669,8 @@ A flag used by the game to change a few special-case things. It may be one of th
 </div>
 </div>
 
-<div id="outline-container-org9171861" class="outline-3">
-<h3 id="BlockGroup"><a id="org9171861"></a><span class="section-number-3">2.20</span> BlockGroup</h3>
+<div id="outline-container-org3b67de2" class="outline-3">
+<h3 id="BlockGroup"><a id="org3b67de2"></a><span class="section-number-3">2.20</span> BlockGroup</h3>
 <div class="outline-text-3" id="text-BlockGroup">
 <p>
 Groups for blocks to build on top of each other:
@@ -7682,13 +7688,13 @@ Groups for blocks to build on top of each other:
 </div>
 </div>
 
-<div id="outline-container-org4ffdf75" class="outline-2">
-<h2 id="org4ffdf75"><span class="section-number-2">3</span> Type</h2>
+<div id="outline-container-org013f305" class="outline-2">
+<h2 id="org013f305"><span class="section-number-2">3</span> Type</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 
-<div id="outline-container-orgecbda52" class="outline-3">
-<h3 id="ItemLiquidGenerator"><a id="orgecbda52"></a><span class="section-number-3">3.1</span> Item</h3>
+<div id="outline-container-org5219fbe" class="outline-3">
+<h3 id="ItemLiquidGenerator"><a id="org5219fbe"></a><span class="section-number-3">3.1</span> Item</h3>
 <div class="outline-text-3" id="text-ItemLiquidGenerator">
 <p>
 Extends <a href="#Content">Content</a> &#x2013; It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
@@ -7724,7 +7730,7 @@ Extends <a href="#Content">Content</a> &#x2013; It's the object that can ride co
 
 <tr>
 <td class="org-left">type</td>
-<td class="org-left"><a href="#org2f11782">ItemTypes</a></td>
+<td class="org-left"><a href="#org2d019c0">ItemTypes</a></td>
 <td class="org-right">resource</td>
 <td class="org-left">used for tabs and core acceptance</td>
 </tr>
@@ -7774,7 +7780,7 @@ Extends <a href="#Content">Content</a> &#x2013; It's the object that can ride co
 </table>
 
 <p>
-<a id="org2f11782"></a> <b>ItemTypes:</b>
+<a id="org2d019c0"></a> <b>ItemTypes:</b>
 </p>
 <ul class="org-ul">
 <li><code>resource</code> can't go in the core;</li>
@@ -7783,8 +7789,8 @@ Extends <a href="#Content">Content</a> &#x2013; It's the object that can ride co
 </div>
 </div>
 
-<div id="outline-container-org0644104" class="outline-3">
-<h3 id="ItemStack"><a id="org0644104"></a><span class="section-number-3">3.2</span> ItemStack</h3>
+<div id="outline-container-org3e3d55b" class="outline-3">
+<h3 id="ItemStack"><a id="org3e3d55b"></a><span class="section-number-3">3.2</span> ItemStack</h3>
 <div class="outline-text-3" id="text-ItemStack">
 <p>
 This type is used when you need to describe an amount of items to the game for what ever reason.
@@ -7844,8 +7850,8 @@ Often you'll see <code>[ ItemStack ]</code>, which stands for an array of <code>
 </div>
 </div>
 
-<div id="outline-container-org1933c7e" class="outline-3">
-<h3 id="ItemLiquidGenerator"><a id="org1933c7e"></a><span class="section-number-3">3.3</span> Liquid</h3>
+<div id="outline-container-org9633a2b" class="outline-3">
+<h3 id="ItemLiquidGenerator"><a id="org9633a2b"></a><span class="section-number-3">3.3</span> Liquid</h3>
 <div class="outline-text-3" id="text-ItemLiquidGenerator">
 <p>
 Extends <a href="#Content">Content</a>
@@ -7950,8 +7956,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org16ea692" class="outline-3">
-<h3 id="LiquidStack"><a id="org16ea692"></a><span class="section-number-3">3.4</span> LiquidStack</h3>
+<div id="outline-container-orgf982ca7" class="outline-3">
+<h3 id="LiquidStack"><a id="orgf982ca7"></a><span class="section-number-3">3.4</span> LiquidStack</h3>
 <div class="outline-text-3" id="text-LiquidStack">
 <p>
 This type is used when you need to describe an amount of liquid to the game for what ever reason.
@@ -8011,8 +8017,8 @@ For example:
 </div>
 </div>
 
-<div id="outline-container-orgae78ba1" class="outline-3">
-<h3 id="Weapon"><a id="orgae78ba1"></a><span class="section-number-3">3.5</span> Weapon</h3>
+<div id="outline-container-org7831cc8" class="outline-3">
+<h3 id="Weapon"><a id="org7831cc8"></a><span class="section-number-3">3.5</span> Weapon</h3>
 <div class="outline-text-3" id="text-Weapon">
 <p>
 Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
@@ -8183,8 +8189,8 @@ Sprite:
 </div>
 </div>
 
-<div id="outline-container-orgeb2b960" class="outline-3">
-<h3 id="UnitType"><a id="orgeb2b960"></a><span class="section-number-3">3.6</span> UnitType</h3>
+<div id="outline-container-orgee6311b" class="outline-3">
+<h3 id="UnitType"><a id="orgee6311b"></a><span class="section-number-3">3.6</span> UnitType</h3>
 <div class="outline-text-3" id="text-UnitType">
 <p>
 Extends <a href="#Content">Content</a>
@@ -8365,8 +8371,8 @@ Sprites:
 </div>
 </div>
 
-<div id="outline-container-org4a5ecea" class="outline-3">
-<h3 id="MechPad"><a id="org4a5ecea"></a><span class="section-number-3">3.7</span> Mech</h3>
+<div id="outline-container-org983d8c7" class="outline-3">
+<h3 id="MechPad"><a id="org983d8c7"></a><span class="section-number-3">3.7</span> Mech</h3>
 <div class="outline-text-3" id="text-MechPad">
 <p>
 Extends <a href="#Content">Content</a> &#x2013; Mechs are the player controlled entities.
@@ -8532,8 +8538,8 @@ Extends <a href="#Content">Content</a> &#x2013; Mechs are the player controlled 
 </div>
 </div>
 
-<div id="outline-container-org6b97e28" class="outline-3">
-<h3 id="Category"><a id="org6b97e28"></a><span class="section-number-3">3.8</span> Category</h3>
+<div id="outline-container-orgcc2c979" class="outline-3">
+<h3 id="Category"><a id="orgcc2c979"></a><span class="section-number-3">3.8</span> Category</h3>
 <div class="outline-text-3" id="text-Category">
 <p>
 Categories for building menu:
@@ -8553,8 +8559,8 @@ Categories for building menu:
 </div>
 </div>
 
-<div id="outline-container-orgcb0b1d7" class="outline-3">
-<h3 id="Zone"><a id="orgcb0b1d7"></a><span class="section-number-3">3.9</span> Zone</h3>
+<div id="outline-container-orgbe9bbd7" class="outline-3">
+<h3 id="Zone"><a id="orgbe9bbd7"></a><span class="section-number-3">3.9</span> Zone</h3>
 <div class="outline-text-3" id="text-Zone">
 <p>
 Extends <a href="#Content">Content</a>
@@ -8714,8 +8720,8 @@ Built-in zones:
 </div>
 </div>
 
-<div id="outline-container-orgef24c10" class="outline-3">
-<h3 id="StatusEffect"><a id="orgef24c10"></a><span class="section-number-3">3.10</span> StatusEffect</h3>
+<div id="outline-container-org2ae7d4f" class="outline-3">
+<h3 id="StatusEffect"><a id="org2ae7d4f"></a><span class="section-number-3">3.10</span> StatusEffect</h3>
 <div class="outline-text-3" id="text-StatusEffect">
 <p>
 <i>Not be be confused with <a href="#StatusEffect">Effect</a></i>, a status effect will give an entity special properties. It is currently <b>not possible to add custom status effects</b>. &#x2013; Status effects are used as transitions between intermediate effects. If some a <code>wet</code> unit gets <code>shocked</code> it then gets 20 damage.
@@ -9117,12 +9123,12 @@ Built-in status effects:
 </div>
 </div>
 
-<div id="outline-container-org3aefab0" class="outline-2">
-<h2 id="Graphics"><a id="org3aefab0"></a><span class="section-number-2">4</span> Graphics</h2>
+<div id="outline-container-org2c64659" class="outline-2">
+<h2 id="Graphics"><a id="org2c64659"></a><span class="section-number-2">4</span> Graphics</h2>
 <div class="outline-text-2" id="text-Graphics">
 </div>
-<div id="outline-container-org9d92435" class="outline-3">
-<h3 id="Layer"><a id="org9d92435"></a><span class="section-number-3">4.1</span> Layer</h3>
+<div id="outline-container-org0858a19" class="outline-3">
+<h3 id="Layer"><a id="org0858a19"></a><span class="section-number-3">4.1</span> Layer</h3>
 <div class="outline-text-3" id="text-Layer">
 <p>
 Layers is an enumeration type, which the renderer will use to group rendering order:
@@ -9137,8 +9143,8 @@ Layers is an enumeration type, which the renderer will use to group rendering or
 </ul>
 </div>
 </div>
-<div id="outline-container-org4f274e0" class="outline-3">
-<h3 id="Color"><a id="org4f274e0"></a><span class="section-number-3">4.2</span> Color</h3>
+<div id="outline-container-orgeb28959" class="outline-3">
+<h3 id="Color"><a id="orgeb28959"></a><span class="section-number-3">4.2</span> Color</h3>
 <div class="outline-text-3" id="text-Color">
 <p>
 Color is a hexadecimal string, <code>&lt;rr&gt;&lt;gg&gt;&lt;bb&gt;</code> for example:
@@ -9156,15 +9162,15 @@ Color is a hexadecimal string, <code>&lt;rr&gt;&lt;gg&gt;&lt;bb&gt;</code> for e
 </div>
 </div>
 
-<div id="outline-container-org4ef3872" class="outline-2">
-<h2 id="Entities"><a id="org4ef3872"></a><span class="section-number-2">5</span> Entities</h2>
+<div id="outline-container-orga647d5a" class="outline-2">
+<h2 id="Entities"><a id="orga647d5a"></a><span class="section-number-2">5</span> Entities</h2>
 <div class="outline-text-2" id="text-Entities">
 </div>
-<div id="outline-container-orgd6af5b9" class="outline-3">
-<h3 id="BulletType"><a id="orgd6af5b9"></a><span class="section-number-3">5.1</span> BulletType</h3>
+<div id="outline-container-orgd258142" class="outline-3">
+<h3 id="BulletType"><a id="orgd258142"></a><span class="section-number-3">5.1</span> BulletType</h3>
 <div class="outline-text-3" id="text-BulletType">
 <p>
-<a href="#orga841da2">Abstract</a> type which extends <a href="#Content">Content</a>
+<a href="#org6549906">Abstract</a> type which extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -9516,8 +9522,8 @@ Here's an example of a custom bullet:
 </table>
 </div>
 
-<div id="outline-container-org9cc5a55" class="outline-4">
-<h4 id="BasicBulletType"><a id="org9cc5a55"></a>BasicBulletType</h4>
+<div id="outline-container-org1829694" class="outline-4">
+<h4 id="BasicBulletType"><a id="org1829694"></a>BasicBulletType</h4>
 <div class="outline-text-4" id="text-BasicBulletType">
 <p>
 Extends <a href="#BulletType">5.1</a>
@@ -9627,8 +9633,8 @@ Built-in <code>bulletSprites</code>:
 </ul>
 </div>
 
-<div id="outline-container-org6ae74bf" class="outline-5">
-<h5 id="ArtilleryBulletType"><a id="org6ae74bf"></a>ArtilleryBulletType</h5>
+<div id="outline-container-org00cc83e" class="outline-5">
+<h5 id="ArtilleryBulletType"><a id="org00cc83e"></a>ArtilleryBulletType</h5>
 <div class="outline-text-5" id="text-ArtilleryBulletType">
 <p>
 Extends <a href="#BasicBulletType">BasicBulletType</a>
@@ -9717,8 +9723,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgbc39cc2" class="outline-5">
-<h5 id="FlakBulletType"><a id="orgbc39cc2"></a>FlakBulletType</h5>
+<div id="outline-container-orgc60b7fd" class="outline-5">
+<h5 id="FlakBulletType"><a id="orgc60b7fd"></a>FlakBulletType</h5>
 <div class="outline-text-5" id="text-FlakBulletType">
 <p>
 Extends <a href="#BasicBulletType">BasicBulletType</a>
@@ -9802,8 +9808,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org04b84c9" class="outline-5">
-<h5 id="MissileBulletType"><a id="org04b84c9"></a>MissileBulletType</h5>
+<div id="outline-container-org8033623" class="outline-5">
+<h5 id="MissileBulletType"><a id="org8033623"></a>MissileBulletType</h5>
 <div class="outline-text-5" id="text-MissileBulletType">
 <p>
 Extends <a href="#BasicBulletType">BasicBulletType</a>
@@ -9874,8 +9880,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgab2957c" class="outline-5">
-<h5 id="BombBulletType"><a id="orgab2957c"></a>BombBulletType</h5>
+<div id="outline-container-org50826b7" class="outline-5">
+<h5 id="BombBulletType"><a id="org50826b7"></a>BombBulletType</h5>
 <div class="outline-text-5" id="text-BombBulletType">
 <p>
 Extends <a href="#BasicBulletType">BasicBulletType</a>
@@ -9945,8 +9951,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgef6ce47" class="outline-4">
-<h4 id="HealBulletType"><a id="orgef6ce47"></a>HealBulletType</h4>
+<div id="outline-container-org3d0071a" class="outline-4">
+<h4 id="HealBulletType"><a id="org3d0071a"></a>HealBulletType</h4>
 <div class="outline-text-4" id="text-HealBulletType">
 <p>
 Extends <a href="#BulletType">BulletType</a> &#x2013; Bullets that can heal blocks of the same team as the shooter.
@@ -10026,8 +10032,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgc8ea4c2" class="outline-4">
-<h4 id="LiquidBulletType"><a id="orgc8ea4c2"></a>LiquidBulletType</h4>
+<div id="outline-container-orge40802c" class="outline-4">
+<h4 id="LiquidBulletType"><a id="orge40802c"></a>LiquidBulletType</h4>
 <div class="outline-text-4" id="text-LiquidBulletType">
 <p>
 Extends <a href="#BulletType">BulletType</a>
@@ -10126,8 +10132,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org5dfbb7e" class="outline-4">
-<h4 id="MassDriverBolt"><a id="org5dfbb7e"></a>MassDriverBolt</h4>
+<div id="outline-container-org7f680f9" class="outline-4">
+<h4 id="MassDriverBolt"><a id="org7f680f9"></a>MassDriverBolt</h4>
 <div class="outline-text-4" id="text-MassDriverBolt">
 <p>
 Extends <a href="#BulletType">BulletType</a>
@@ -10181,8 +10187,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-orgb824973" class="outline-4">
-<h4 id="Built-in-Bullets"><a id="orgb824973"></a>Built-in Bullets</h4>
+<div id="outline-container-org64d2827" class="outline-4">
+<h4 id="Built-in-Bullets"><a id="org64d2827"></a>Built-in Bullets</h4>
 <div class="outline-text-4" id="text-Built-in-Bullets">
 <ul class="org-ul">
 <li>artillery:
@@ -10222,8 +10228,8 @@ Defaults:
 </div>
 </div>
 
-<div id="outline-container-org4bbcab1" class="outline-3">
-<h3 id="BaseUnit"><a id="org4bbcab1"></a><span class="section-number-3">5.2</span> BaseUnit</h3>
+<div id="outline-container-orgb6f357b" class="outline-3">
+<h3 id="BaseUnit"><a id="orgb6f357b"></a><span class="section-number-3">5.2</span> BaseUnit</h3>
 <div class="outline-text-3" id="text-BaseUnit">
 <p>
 There are a few useful base unit types:
@@ -10245,8 +10251,8 @@ There are a few useful base unit types:
 </div>
 </div>
 
-<div id="outline-container-org1973973" class="outline-3">
-<h3 id="StatusEffect"><a id="org1973973"></a><span class="section-number-3">5.3</span> Effect</h3>
+<div id="outline-container-org0ce89aa" class="outline-3">
+<h3 id="StatusEffect"><a id="org0ce89aa"></a><span class="section-number-3">5.3</span> Effect</h3>
 <div class="outline-text-3" id="text-StatusEffect">
 <p>
 Type should be a <code>string</code>. You can't currently create custom effects. List of built-in effects are as follows:
@@ -10275,8 +10281,8 @@ Type should be a <code>string</code>. You can't currently create custom effects.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf13436d" class="outline-3">
-<h3 id="TargetPriority"><a id="orgf13436d"></a><span class="section-number-3">5.4</span> TargetPriority</h3>
+<div id="outline-container-orgdfbc420" class="outline-3">
+<h3 id="TargetPriority"><a id="orgdfbc420"></a><span class="section-number-3">5.4</span> TargetPriority</h3>
 <div class="outline-text-3" id="text-TargetPriority">
 <ul class="org-ul">
 <li><code>base</code></li>
@@ -10286,8 +10292,8 @@ Type should be a <code>string</code>. You can't currently create custom effects.
 </div>
 </div>
 
-<div id="outline-container-org43ddabd" class="outline-2">
-<h2 id="Objective"><a id="org43ddabd"></a><span class="section-number-2">6</span> Objective</h2>
+<div id="outline-container-org65aa04c" class="outline-2">
+<h2 id="Objective"><a id="org65aa04c"></a><span class="section-number-2">6</span> Objective</h2>
 <div class="outline-text-2" id="text-Objective">
 <p>
 Objective is a trait, which a few types implement, which is used by <a href="#Zone">Zone</a> to give campaign maps objectives.
@@ -10394,13 +10400,13 @@ Types which implement Objective are as follows:
 </div>
 </div>
 
-<div id="outline-container-orge189991" class="outline-2">
-<h2 id="Other"><a id="orge189991"></a><span class="section-number-2">7</span> Other</h2>
+<div id="outline-container-orgb89a966" class="outline-2">
+<h2 id="Other"><a id="orgb89a966"></a><span class="section-number-2">7</span> Other</h2>
 <div class="outline-text-2" id="text-Other">
 </div>
 
-<div id="outline-container-orgded5a3f" class="outline-3">
-<h3 id="Mindustry-Source-Structure"><a id="orgded5a3f"></a><span class="section-number-3">7.1</span> Mindustry Source Structure</h3>
+<div id="outline-container-org7ed3858" class="outline-3">
+<h3 id="Mindustry-Source-Structure"><a id="org7ed3858"></a><span class="section-number-3">7.1</span> Mindustry Source Structure</h3>
 <div class="outline-text-3" id="text-Mindustry-Source-Structure">
 <div class="org-src-container">
 <pre class="src src-fundamental">core/src/io/anuke/mindustry/
@@ -10895,7 +10901,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2019-12-03 Tue 08:36</p>
+<p class="date">Created: 2019-12-03 Tue 08:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
