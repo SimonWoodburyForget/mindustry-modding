@@ -8,7 +8,7 @@
 
 #+LANGUAGE: en
 #+TEXINFO_DEFFN: t
-#+OPTIONS: H:4 num:2 toc:2
+#+OPTIONS: H:4 num:2 toc:4
 #+TEXINFO_FILENAME: index
 
 #+TODO: TODO UNTESTED | NEW DONE
