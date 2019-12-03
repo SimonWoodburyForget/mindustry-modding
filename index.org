@@ -611,7 +611,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     Type used for floors themselves or extended to make ores and other things.
 
-    | envir             | type         | default | notes      |
+    | field        | type         | default | notes      |
     |-------------------+--------------+---------+------------|
     |                   |              |     <r> | <10>       |
     | variants          | int          |       3 | number of different variant regions to use. |
