@@ -18,7 +18,7 @@
 
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles/main/css/htmlize.css"/>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles/main/css/main.css"/>
-#+HTML_HEAD: <script type="text/javascript"          src="styles/main/js/readtheorg.js"></script>
+#+HTML_HEAD: <script type="text/javascript"          src="styles/main/js/main.js"></script>
 
 Submit =test= pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
@@ -153,12 +153,10 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    The content of these files should look as follows:
 
-   #+BEGIN_SRC json
-   {
-       "type": "TypeOfThing",
-       "name": "Name Of Thing",
-       "description": "Description of thing."
-   }
+   #+BEGIN_SRC yaml
+   type: TypeOfThing
+   name: Name Of Thing
+   description: Description of thing.
    #+END_SRC
 
    | field       | type   | notes                             |
@@ -185,15 +183,13 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    Here you can see, the type of the top level object is ~Revenant~, but the type of the ~bullet~ is ~BulletType~ so you can use ~MissileBulletType~, because ~MissileBulletType~ extends ~BulletType~.
 
-   #+BEGIN_SRC json
-   {
-       "type": "Revenant",
-       "weapon": {
-           "bullet": {
-               "type": "MissileBulletType",
-               "damage": 9000
-           }
-       }
+   #+BEGIN_SRC yaml
+   type: Revenant
+   weapon: {
+     bullet: {
+       type: MissileBulletType
+       damage: 9000
+     }
    }
    #+END_SRC
 
@@ -205,10 +201,8 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    Much like ~type~ there exist another magical field known as ~research~ which can go at the root of any block object to put it in the techtree.
 
-   #+BEGIN_SRC json
-   {
-       "research": "duo"
-   }
+   #+BEGIN_SRC yaml
+   research: duo
    #+END_SRC
 
    This would put your block after ~duo~ in the techtree, and to put it after your own mods block you would write your ~<block-name>~, a mod name prefix is only required if you're using the content from another mod.
@@ -301,13 +295,11 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    You can add dependencies to your mod by simple adding other mods name in your ~mod.json~:
 
-   #+BEGIN_SRC json
-   {
-       "dependencies": [
-           "other-mod-name",
-           "not-a-mod"
-       ]
-   }
+   #+BEGIN_SRC yaml
+   dependencies: [
+     other-mod-name
+     not-a-mod
+   ]
    #+END_SRC
 
    The name of dependencies are lower-cased and spaces are replaced with ~-~ hyphens, for example ~Other MOD NamE~ becomes ~other-mod-name~.
@@ -513,20 +505,17 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * you shouldn't have ~power~ and ~powerBuffered~.
 
    For example with [[ConsumeItems][ConsumeItems]] and [[ConsumeLiquid][ConsumeLiquid]]:
-   #+BEGIN_SRC json
-   {
-       "items": {
-           "items": [
-               { "amount": 10, "item": "copper" },
-               { "amount": 5, "item": "surge-alloy" }
-           ],
-           "booster": true,
-           "optional": true
-       },
-       "liquid": {
-           "liquid": "water",
-           "amount": 1.0
-       }
+   #+BEGIN_SRC yaml
+   items: {
+     items: [
+       copper/10
+       surge-alloy/5
+     ]
+     booster: true
+     optional: true
+   }
+   liquid: {
+     water/1.0
    }
    #+END_SRC
 
@@ -1198,22 +1187,20 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     This type is a turret that uses items as ammo. The key to the ~ammo~ field should be the name of an [[Item]], while the value may be any [[Built-in Bullets]] or a [[BulletType]] itself.
 
-    #+BEGIN_SRC fundamental
-    {
-        type: ItemTurret
-        ammo: {
-            copper: standardCopper
+    #+BEGIN_SRC yaml
+    type: ItemTurret
+    ammo: {
+      copper: standardCopper
+      
+      metaglass: {
+        type: MissileBulletType
+        damage: 2
+      }
 
-            metaglass: {
-                type: MissileBulletType
-                damage: 2
-            }
-
-            surge-alloy: {
-                type: LiquidBulletType
-                damage: 3
-            }
-        }
+      surge-alloy: {
+        type: LiquidBulletType
+        damage: 3
+      }
     }
     #+END_SRC
 
@@ -1244,22 +1231,19 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     For example you could do something like this:
 
-    #+BEGIN_SRC fundamental
-    {
-        type: LiquidTurret
-        ammo: {
-            water: {
-                type: MissileBulletType
-                damage: 9000
-            }
+    #+BEGIN_SRC yaml
+    type: LiquidTurret
+    ammo: {
+      water: {
+        type: MissileBulletType
+        damage: 9000
+      }
 
-            slag: {
-                type: LiquidBulletType
-                damage: 0
-            }
-        }
+      slag: {
+        type: LiquidBulletType
+        damage: 0
+      }
     }
-
     #+END_SRC
 
 
