@@ -16,9 +16,9 @@
 #+OPTIONS: broken-links:t
 
 
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles/main/css/htmlize.css"/>
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles/main/css/main.css"/>
-#+HTML_HEAD: <script type="text/javascript"          src="styles/main/js/main.js"></script>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="mindustry-modding/styles/main/css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="mindustry-modding/styles/main/css/main.css"/>
+#+HTML_HEAD: <script type="text/javascript"          src="mindustry-modding/styles/main/js/main.js"></script>
 
 Submit =test= pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
