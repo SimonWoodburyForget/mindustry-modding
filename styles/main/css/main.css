@@ -19,7 +19,7 @@ h1
 
 .subtitle
 {
-    font-size:95%; /* of h1 */
+    font-size:90%; /* of h1 */
     font-weight:lighter;
     font-style:italic;
 }
@@ -80,11 +80,11 @@ body
 {
     background:#fcfcfc;
     height:100%;
-    /* margin-left:300px; */
+    margin-left:240px;
     /* margin:auto; */
     max-width:800px;
     min-height:100%;
-    padding:1.618em 3.236em;
+    padding:18px;
 }
 
 p
@@ -120,6 +120,7 @@ ul,ol,dl
     /* list-style:none; */
     margin:0px 0px 24px 0px;
     padding:0;
+    margin-left: 2px;
 }
 
 li
@@ -132,6 +133,7 @@ dd
     margin:0;
 }
 
+
 /* Linking */
 
 :target
@@ -139,8 +141,85 @@ dd
    background-color: #ffa;
 }
 
+/* Table of Contents */
+
+#table-of-contents
+{
+    background: #212424;
+    position: fixed;
+    width: 240px;
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    bottom: 80px;
+    /* padding-top: 12px; */
+    /* padding-left: 4px; */
+    padding-top: 0px;
+    padding-left: 0px;
+    scrollbar-color: #595959 #a0a0a0;
+    scrollbar-width: thin;
+}
+
+#table-of-contents code
+{
+    color: #212121;
+}
+
+#table-of-contents h2
+{
+    background: #2980B9;
+    padding-top: 14px;
+    padding-left: 4px;
+    color: #f0f0f0;
+}
+
+#table-of-contents a
+{
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+/* #table-of-contents a:visited */
+/* { */
+/*     color: #f0f0a0; */
+/* } */
+
+#table-of-contents ul
+{
+    list-style-type: none;
+    margin: 4px;
+}
+
+#table-of-contents ul > li
+{
+    margin-left:6px;
+}
+
+
+
+/* Postamble */
+
+
+#postamble
+{
+    position: fixed;
+    bottom: 0;
+    width: 240px;
+    height: 80px;
+    background: #2980B9;
+    color: #f0f0f0;
+}
+
+
 /* ================================================================ */
 /* Code */
+
+/* Generic Block */
+pre
+{
+    scrollbar-color: #afafaf #f0f0f0;
+    scrollbar-width: thin;
+}
 
 /* Inline */
 code
@@ -150,7 +229,6 @@ code
     /* color:#000;  for clickable code */
     font-family:Consolas,"Andale Mono WT","Andale Mono","Lucida Console","Lucida Sans Typewriter","DejaVu Sans Mono","Bitstream Vera Sans Mono","Liberation Mono","Nimbus Mono L",Monaco,"Courier New",Courier,monospace;
     font-size:75%;
-    max-width:100%;
     overflow-x:auto;
     padding:0 5px;
     white-space:nowrap;

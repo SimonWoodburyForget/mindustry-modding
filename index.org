@@ -8,7 +8,7 @@
 
 #+LANGUAGE: en
 #+TEXINFO_DEFFN: t
-#+OPTIONS: H:4 num:2 toc:2
+#+OPTIONS: H:4 num:2 toc:4
 #+TEXINFO_FILENAME: index
 
 #+TODO: TODO UNTESTED | NEW DONE
@@ -526,7 +526,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 ** Consume
    :PROPERTIES:
    :DESCRIPTION: a resource to consume
-   :CUSTOM_ID: Consumers
+   :CUSTOM_ID: Consume
    :END:
 
    [[Abstract][Abstract]] type which defines a type of resource that a block can consume.
@@ -605,7 +605,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     Type used for floors themselves or extended to make ores and other things.
 
-    | envir             | type         | default | notes      |
+    | field        | type         | default | notes      |
     |-------------------+--------------+---------+------------|
     |                   |              |     <r> | <10>       |
     | variants          | int          |       3 | number of different variant regions to use. |
@@ -1112,7 +1112,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: Turrets
    :END:
 
-   This section is for turret types. All turrets shoot [[BulletType]], and this means [[LiquidTurret]] can shoot [[MissileBulletType]] and [[ItemTurret]] can shoot [[LiquidBulletType]].
+   This section is for turret types. All turrets shoot [[BulletType][BulletType]], and this means [[LiquidTurret]] can shoot [[MissileBulletType][MissileBulletType]] and [[ItemTurret][ItemTurret]] can shoot [[LiquidBulletType][LiquidBulletType]].
 
 *** Turret
     :PROPERTIES:
@@ -1169,7 +1169,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: CooledTurret
     :END:
 
-    Extends [[Turret][Turret]] -- This is a base type that turrets which use [[Liquid]] to cool themselves extend from.
+    Extends [[Turret][Turret]] -- This is a base type that turrets which use [[Liquid][Liquid]] to cool themselves extend from.
 
     | field             | type   | default | notes      |
     |-------------------+--------+---------+------------|
@@ -1189,7 +1189,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     Extends [[CooledTurret][CooledTurret]]
 
-    This type is a turret that uses items as ammo. The key to the ~ammo~ field should be the name of an [[Item]], while the value may be any [[Built-in Bullets]] or a [[BulletType]] itself.
+    This type is a turret that uses items as ammo. The key to the ~ammo~ field should be the name of an [[Item][Item]], while the value may be any [[Built-in Bullets]] or a [[BulletType][BulletType]] itself.
 
     #+BEGIN_SRC yaml
     type: ItemTurret
@@ -1214,7 +1214,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     |---------+------------------------+---------+------------|
     |         |                        |         | <10>       |
     | maxAmmo | int                    |      30 |            |
-    | ammo    | { String: [[BulletType][BulletType]] } |         | String is the name of an [[Item]], which will be used to select the type of bullet which will be shot. |
+    | ammo    | { String: [[BulletType][BulletType]] } |         | String is the name of an [[Item][Item]], which will be used to select the type of bullet which will be shot. |
 
 
     Defaults:
@@ -1231,7 +1231,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     Extends [[Turret]]
 
-    This type is just a turret that uses liquid as ammo. The key to ~ammo~ must be the name of a [[Liquid]], while the value may either be the name of any [[Built-in Bullets]] or a [[BulletType]] itself.
+    This type is just a turret that uses liquid as ammo. The key to ~ammo~ must be the name of a [[Liquid][Liquid]], while the value may either be the name of any [[Built-in Bullets]] or a [[BulletType][BulletType]] itself.
 
     For example you could do something like this:
 
@@ -1253,7 +1253,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     | fields | type                   | notes                                     |
     |--------+------------------------+-------------------------------------------|
-    | ammo   | { String: [[BulletType]] } | object with [[Liquid]] names to bullet types. |
+    | ammo   | { String: [[BulletType][BulletType]] } | object with [[Liquid][Liquid]] names to bullet types. |
 
     Defaults:
     | fields      | default |
@@ -1326,8 +1326,8 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | chargeTime        | float  |      30 |
     | chargeEffects     | int    |       5 |
     | chargeMaxDelay    | float  |      10 |
-    | chargeEffect      | [[Effect]] |    none |
-    | chargeBeginEffect | [[Effect]] |    none |
+    | chargeEffect      | [[Effect][Effect]] |    none |
+    | chargeBeginEffect | [[Effect][Effect]] |    none |
 
 *** LaserTurret
     :PROPERTIES:
@@ -2606,16 +2606,36 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * ~<name>-zone~ preview
 
    Built-in loadouts:
-   * basicShard ~bXNjaAB4nD2K2wqAIBiD5ymibnoRn6YnEP1BwUMoBL19FuJ2sbFvUFgYZDaJsLeQrkinN9UJHImsNzlYE7WrIUastuSbnlKx2VJJt+8IQGGKdfO/8J5yrGJSMegLg+YUIA==~ \\
+   * basicShard
+
+     #+BEGIN_SRC fundamental
+     bXNjaAB4nD2K2wqAIBiD5ymibnoRn6YnEP1BwUMoBL19FuJ2sbFvUFgYZDaJsLeQrkinN9UJHImsNzlYE7WrIUastuSbnlKx2VJJt+8IQGGKdfO/8J5yrGJSMegLg+YUIA==
+     #+END_SRC
+
      [[file:img/basicShard.png]]
 
-   * advancedShard ~bXNjaAB4nD2LjQqAIAyET7OMIOhFfJqeYMxBgSkYCL199gu33fFtB4tOwUTaBCP5QpHFzwtl32DahBeKK1NwPq8hoOcUixwpY+CUxe3XIwBbB/pa6tadVCUP02hgHvp5vZq/0b7pBHPYFOQ=~ \\
+   * advancedShard 
+
+     #+BEGIN_SRC fundamental
+     bXNjaAB4nD2LjQqAIAyET7OMIOhFfJqeYMxBgSkYCL199gu33fFtB4tOwUTaBCP5QpHFzwtl32DahBeKK1NwPq8hoOcUixwpY+CUxe3XIwBbB/pa6tadVCUP02hgHvp5vZq/0b7pBHPYFOQ=
+     #+END_SRC
+
      [[file:img/advancedShard.png]]
 
-   * basicFoundation ~bXNjaAB4nD1OSQ6DMBBzFhVu8BG+0X8MQyoiJTNSukj8nlCi2Adbtg/GA4OBF8oB00rvyE/9ykafqOIw58A7SWRKy1ZiShhZ5RcOLZhYS1hefQ1gRIeptH9jq/qW2lvc1d2tgWsOfVX/tOwE86AYBA==~ \\
+   * basicFoundation 
+
+     #+BEGIN_SRC fundamental
+     bXNjaAB4nD1OSQ6DMBBzFhVu8BG+0X8MQyoiJTNSukj8nlCi2Adbtg/GA4OBF8oB00rvyE/9ykafqOIw58A7SWRKy1ZiShhZ5RcOLZhYS1hefQ1gRIeptH9jq/qW2lvc1d2tgWsOfVX/tOwE86AYBA==
+     #+END_SRC
+
      [[file:img/basicFoundation.png]]
 
-   * basicNucleus ~bXNjaAB4nD2MUQqAIBBEJy0s6qOLdJXuYNtCgikYBd2+LNmdj308hkGHtkId7M4YFns4mk/yfB4a48602eDI+mlNznu0FMPFd0wYKCaewl8F0EOueqM+yKSLVfJrNKWnSw/FZGzEGXFG9sy/px4gEBW1~ \\
+   * basicNucleus 
+
+     #+BEGIN_SRC fundamental
+     bXNjaAB4nD2MUQqAIBBEJy0s6qOLdJXuYNtCgikYBd2+LNmdj308hkGHtkId7M4YFns4mk/yfB4a48602eDI+mlNznu0FMPFd0wYKCaewl8F0EOueqM+yKSLVfJrNKWnSw/FZGzEGXFG9sy/px4gEBW1
+     #+END_SRC
+
      [[file:img/basicNucleus.png]]
 
    Built-in zones:
