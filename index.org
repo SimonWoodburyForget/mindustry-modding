@@ -2461,8 +2461,9 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: Weapon
    :END:
 
-   Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
+   Weapons are used by units and mechs alike. A weapon is a type used to shoot bullets [[BulletType][bullets]] just like turrets /(except that they don't have an ~ammo~ mapping)/. Weapons can only shoot one type of bullet, which you define in the ~bullet~ field.
 
+   :DEF:
    | field          | type       | default | notes      |
    |----------------+------------+---------+------------|
    |                |            |         | <10>       |
@@ -2485,6 +2486,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | shotDelay      | float      |       0 | delay in ticks between shots |
    | ignoreRotation | boolean    |   false | whether shooter rotation is ignored when shooting. |
    | shootSound     | [[Sound][Sound]]      |     pew |            |
+   :END:
 
    Sprite:
    * ~<name>~ or ~<name>-equip~
@@ -2533,7 +2535,9 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: Mech
    :END:
 
-   Extends [[Content][Content]] -- Mechs are the player controlled entities.
+   Extends [[Content][Content]] 
+
+   Mechs are the player controlled entities. They shoot [[BulletType][bullets]] just like turrets from their [[Weapon][weapon]].
 
    | field              | type    | default |
    |--------------------+---------+---------|
