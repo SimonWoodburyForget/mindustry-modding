@@ -1118,7 +1118,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: Turrets
    :END:
 
-   This section is for turret types. All turrets shoot [[BulletType]], and this means [[LiquidTurret]] can shoot [[MissileBulletType]] and [[ItemTurret]] can shoot [[LiquidBulletType]].
+   This section is for turret types. All turrets shoot [[BulletType][BulletType]], and this means [[LiquidTurret]] can shoot [[MissileBulletType][MissileBulletType]] and [[ItemTurret][ItemTurret]] can shoot [[LiquidBulletType][LiquidBulletType]].
 
 *** Turret
     :PROPERTIES:
@@ -1175,7 +1175,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: CooledTurret
     :END:
 
-    Extends [[Turret][Turret]] -- This is a base type that turrets which use [[Liquid]] to cool themselves extend from.
+    Extends [[Turret][Turret]] -- This is a base type that turrets which use [[Liquid][Liquid]] to cool themselves extend from.
 
     | field             | type   | default | notes      |
     |-------------------+--------+---------+------------|
@@ -1195,7 +1195,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     Extends [[CooledTurret][CooledTurret]]
 
-    This type is a turret that uses items as ammo. The key to the ~ammo~ field should be the name of an [[Item]], while the value may be any [[Built-in Bullets]] or a [[BulletType]] itself.
+    This type is a turret that uses items as ammo. The key to the ~ammo~ field should be the name of an [[Item][Item]], while the value may be any [[Built-in Bullets]] or a [[BulletType][BulletType]] itself.
 
     #+BEGIN_SRC yaml
     type: ItemTurret
@@ -1220,7 +1220,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     |---------+------------------------+---------+------------|
     |         |                        |         | <10>       |
     | maxAmmo | int                    |      30 |            |
-    | ammo    | { String: [[BulletType][BulletType]] } |         | String is the name of an [[Item]], which will be used to select the type of bullet which will be shot. |
+    | ammo    | { String: [[BulletType][BulletType]] } |         | String is the name of an [[Item][Item]], which will be used to select the type of bullet which will be shot. |
 
 
     Defaults:
@@ -1237,7 +1237,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     Extends [[Turret]]
 
-    This type is just a turret that uses liquid as ammo. The key to ~ammo~ must be the name of a [[Liquid]], while the value may either be the name of any [[Built-in Bullets]] or a [[BulletType]] itself.
+    This type is just a turret that uses liquid as ammo. The key to ~ammo~ must be the name of a [[Liquid][Liquid]], while the value may either be the name of any [[Built-in Bullets]] or a [[BulletType][BulletType]] itself.
 
     For example you could do something like this:
 
@@ -1259,7 +1259,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     | fields | type                   | notes                                     |
     |--------+------------------------+-------------------------------------------|
-    | ammo   | { String: [[BulletType]] } | object with [[Liquid]] names to bullet types. |
+    | ammo   | { String: [[BulletType][BulletType]] } | object with [[Liquid][Liquid]] names to bullet types. |
 
     Defaults:
     | fields      | default |
@@ -1332,8 +1332,8 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | chargeTime        | float  |      30 |
     | chargeEffects     | int    |       5 |
     | chargeMaxDelay    | float  |      10 |
-    | chargeEffect      | [[Effect]] |    none |
-    | chargeBeginEffect | [[Effect]] |    none |
+    | chargeEffect      | [[Effect][Effect]] |    none |
+    | chargeBeginEffect | [[Effect][Effect]] |    none |
 
 *** LaserTurret
     :PROPERTIES:
