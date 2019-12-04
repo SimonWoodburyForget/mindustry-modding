@@ -2883,7 +2883,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: BasicBulletType
     :END:
 
-    Extends [[BulletType]]
+    Extends [[BulletType][BulletType]]
 
     This types purpose is to give basic bullets their sprites. The ~bulletSprite~ will be used as the shape of the bullet. The visible pixels in your sprites will be tinted with ~backColor~ and ~frontColor~ respectively. For example if you had sprites ~router.png~ and ~router-back.png~ where ~Test Mod~ was your mods name, you could do this to include your ~bulletSprite~:
 
