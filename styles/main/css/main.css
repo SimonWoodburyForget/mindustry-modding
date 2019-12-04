@@ -151,7 +151,7 @@ dd
     overflow-y: auto;
     top: 0;
     left: 0;
-    bottom: 0;
+    bottom: -20px;
     /* padding-top: 12px; */
     /* padding-left: 4px; */
     padding-top: 0px;
@@ -162,7 +162,7 @@ dd
 
 div#text-table-of-contents
 {
-    margin-bottom: 80px;
+    margin-bottom: 120px;
 }
 
 #table-of-contents code
