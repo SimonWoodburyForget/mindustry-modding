@@ -2358,7 +2358,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
 ** Item
    :PROPERTIES:
-   :CUSTOM_ID: ItemLiquidGenerator
+   :CUSTOM_ID: Item
    :END:
 
    Extends [[Content][Content]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
@@ -2407,7 +2407,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
 ** Liquid
    :PROPERTIES:
-   :CUSTOM_ID: ItemLiquidGenerator
+   :CUSTOM_ID: Liquid
    :END:
 
    Extends [[Content][Content]]
@@ -2530,7 +2530,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
 ** Mech
    :PROPERTIES:
-   :CUSTOM_ID: MechPad
+   :CUSTOM_ID: Mech
    :END:
 
    Extends [[Content][Content]] -- Mechs are the player controlled entities.
