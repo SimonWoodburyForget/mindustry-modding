@@ -148,12 +148,13 @@ dd
     background: #212424;
     position: fixed;
     width: 240px;
-    overflow-y: scroll;
+    overflow-y: auto;
     top: 0;
     left: 0;
-    bottom: 80px;
+    bottom: 0;
     /* padding-top: 12px; */
     /* padding-left: 4px; */
+    margin-bottom: 80px;
     padding-top: 0px;
     padding-left: 0px;
     scrollbar-color: #595959 #a0a0a0;

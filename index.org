@@ -236,7 +236,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    You can find all the vanilla sprites here:
    * https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites
 
-   Another thing to know about sprites is that they're passed through /anti-aliasing filters/ and what that means is that they may look a little different in game. -- The turrets specifically have a special black border filter added to them, so you must account for that while making your sprites, and leave a border of transparent space around them, for example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/turrets/ripple.png][Ripple]]
+   Another thing to know about sprites is that some of them are modified by the game. Turrets specifically have a black border added to them, so you must account for that while making your sprites, leaving transparent space around turrets for example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/turrets/ripple.png][Ripple]]
 
    *[new [[#a5fbc0756]]]* to override ingame content sprites, you can simply put them in ~sprites-override/~.
 
