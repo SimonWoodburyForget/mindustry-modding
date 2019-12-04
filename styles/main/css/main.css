@@ -154,11 +154,15 @@ dd
     bottom: 0;
     /* padding-top: 12px; */
     /* padding-left: 4px; */
-    margin-bottom: 80px;
     padding-top: 0px;
     padding-left: 0px;
     scrollbar-color: #595959 #a0a0a0;
     scrollbar-width: thin;
+}
+
+div#text-table-of-contents
+{
+    margin-bottom: 80px;
 }
 
 #table-of-contents code
