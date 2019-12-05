@@ -21,8 +21,7 @@
              :css-dirs ["styles/main/css"]}
 
   :cljsbuild {:builds
-              {:app {
-                     :source-paths ["helper"]
+              {:app {:source-paths ["helper"]
                      :compiler
                      {:main "style.core"
                       :output-to "styles/main/js/main.js"
@@ -31,7 +30,7 @@
                       :source-map true
                       :optimizations :none}
                      :figwheel
-                     {;; :on-jsload "cljs.core/mount-root"
+                     {:on-jsload "style.core/run"
                       :open-urls ["http://localhost:3449/index.html"]}}
 
                :release {:source-paths ["helper"]
