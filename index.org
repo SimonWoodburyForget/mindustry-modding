@@ -3102,7 +3102,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
 ** Effect
    :PROPERTIES:
-   :CUSTOM_ID: StatusEffect
+   :CUSTOM_ID: Effect
    :END:
 
    Type should be a ~string~. You can't currently create custom effects. List of built-in effects are as follows:
