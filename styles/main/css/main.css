@@ -334,6 +334,8 @@ table
     empty-cells:show;
     margin-bottom:24px;
     border-bottom:1px solid #e1e4e5;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
 }
 
 td
@@ -436,4 +438,76 @@ p.validation
 /* :target */
 /* { */
 /*     flo */
+/* } */
+
+
+/* ================================================================ */
+/* Themes */
+
+/* Dark */
+/* ==== */
+
+/* body, */
+/* #table-of-contents code */
+/* { */
+/*     background:#202020; */
+/*     color:#edf0f2; */
+/* } */
+
+
+/* #content */
+/* { */
+/*     background: #202020; */
+/*     scrollbar-color: #a0a0a0 #595959; */
+/* } */
+
+/* code, pre, pre.src, */
+/* table, */
+/* td, td.org-left, td.org-right, */
+/* th, th.org-right, th.org-left, */
+/* div#table-of-contents */
+/* { */
+/*     background: #202020; */
+/* } */
+
+/* pre */
+/* { */
+/*     box-shadow: 3px 3px #eee; */
+/* } */
+
+/* a */
+/* { */
+/*     color: #ffa; */
+/* } */
+
+/* :target */
+/* { */
+/*     color: #202020; */
+/*     background: #ffa; */
+/* } */
+
+/* :target > code */
+/* { */
+/*     color: #ffa; */
+/* } */
+
+
+/* div.outline-2 */
+/* { */
+/*     border-top: 2px solid #f0f0f0; */
+/* } */
+
+/* div.outline-3 */
+/* { */
+/*     border-top: 2px solid #909090; */
+/* } */
+
+/* div.outline-4 */
+/* { */
+/*     border-top: 2px solid #303030; */
+/* } */
+
+/* div.outline-5 */
+/* { */
+/*     border-top: 2px solid #303030; */
 /* } */

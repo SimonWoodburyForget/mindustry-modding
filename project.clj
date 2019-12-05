@@ -8,6 +8,7 @@
                  [reagent "0.9.0-rc3"]
                  ;; [cljs-ajax "0.8.0"]
                  ;; [hickory "0.7.1"]
+                 [garden "1.3.9"]
                  ]
 
   :plugins [[lein-cljsbuild "1.1.7"]

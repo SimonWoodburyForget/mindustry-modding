@@ -465,7 +465,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | consumesTap         | boolean         |              | Whether this block consumes touchDown events when tapped. |
    | drawLiquidLight     | boolean         |         true | Whether to draw the glow of the liquid for this block, if it has one. |
    | posConfig           | boolean         |              | Whether the config is positional and needs to be shifted. |
-   | sync                | boolean         |              | *[new [[a087df077][Dec 4]]]* Whether to periodically synt this block across the network. |
+   | sync                | boolean         |              | *[new [[a087df077][Dec 4]]]* Whether to periodically sync this block across the network. |
    | targetable          | boolean         |         true | Whether units target this block. |
    | canOverdrive        | boolean         |         true | Whether the overdrive core has any effect on this block. |
    | outlineColor        | [[Color][Color]]           |       404049 | Outlined icon color. |
