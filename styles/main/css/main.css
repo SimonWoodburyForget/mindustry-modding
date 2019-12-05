@@ -168,7 +168,7 @@ dd
 #table-of-contents h2
 {
     background: #2980B9;
-    padding-top: 14px;
+    padding-top: 40px;
     padding-left: 4px;
     color: #f0f0f0;
 }
@@ -195,10 +195,7 @@ dd
     margin-left:6px;
 }
 
-
-
 /* Postamble */
-
 
 #postamble
 {
@@ -331,6 +328,54 @@ table thead th
     border-bottom:1px solid #e1e4e5;
 }
 
+
+/* ================================================================ */
+/* Reactive */
+
+#table-of-contents.unshow
+{width:0;}
+#postamble.unshow
+{width:0;}
+#content.unshow
+{margin-left:40px;}
+
+button#toggle
+{
+    color: #f0f0f0;
+    background: #2980B9;
+    border: 0;
+    /* border-bottom: 2px solid #f0f0f0; */
+    top:0;
+    left:0;
+    width:234px;
+    height:40px;
+    position:fixed;
+    font-size: 1.4em;
+}
+
+button#toggle.unshow
+{
+    opacity: 0.5;
+    width: 40px;
+}
+
+:focus,
+{
+    background: #f55;
+    color: #;
+    outline:0;
+}
+
+
+/* #table-of-contents.show */
+/* {display: none;} */
+/* #postamble.show */
+/* {display: none;} */
+/* #content.show */
+/* {margin-left:240px;} */
+
+
+
 /* ================================================================ */
 /* Hidden */
 
@@ -338,3 +383,5 @@ p.validation
 {
     display:none;
 }
+
+
