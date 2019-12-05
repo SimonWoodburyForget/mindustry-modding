@@ -11,14 +11,15 @@
                  ]
 
   :plugins [[lein-cljsbuild "1.1.7"]
-            [lein-figwheel "0.5.19"]]
+            ;; [lein-figwheel "0.5.19"]
+            ]
 
   ;; :clean-targets ^{:protect false}
   
   :source-paths ["helper"]
   :resource-paths ["."]
-  :figwheel {:http-server-root "."
-             :css-dirs ["styles/main/css"]}
+  ;; :figwheel {:http-server-root "."
+  ;;            :css-dirs ["styles/main/css"]}
 
   :cljsbuild {:builds
               {:app {:source-paths ["helper"]
@@ -29,9 +30,10 @@
                       ;; :asset-path "js/out"
                       :source-map true
                       :optimizations :none}
-                     :figwheel
-                     {:on-jsload "style.core/run"
-                      :open-urls ["http://localhost:3449/index.html"]}}
+                     ;; :figwheel
+                     ;; {;; :on-jsload "style.core/run"
+                     ;;  :open-urls ["http://localhost:3449/index.html"]}
+                     }
 
                :release {:source-paths ["helper"]
                          :compiler

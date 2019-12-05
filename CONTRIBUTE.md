@@ -27,15 +27,15 @@ This script is generated with Clojure's ClojureScript compiler from:
 helper/style.cljs
 ```
 
-You don't need to rebuild it unless you modify the script itself, to build and test figwheel is used:
+You don't need to rebuild it unless you modify the script itself, to build and test cljsbuild auto is used:
 
 ```
-lein figwheel
+lein cljsbuild auto app
 ```
 
-Figwheel will start a server on port 3449, and will periodically inject JS/CSS into the runtime as you change and save it. Figwheel will output files into a `styles/main/js/main/out/` subdirectory, instead of into a single file, so it's output shouldn't be used directly.
+App will output files into a `styles/main/js/main/out/` subdirectories, instead of into a single file, so it's output shouldn't be used directly, but this allows it to compile fast.
 
-To build a release version, `cljsbuild` is used, and is configured to run with advanced optimizations:
+To compile a release version `release` is used, and is configured to run with advanced optimizations:
 
 ```
 lein cljsbuild once release
