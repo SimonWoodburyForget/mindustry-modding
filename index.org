@@ -230,7 +230,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    You can find all the vanilla sprites here:
    * https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites
 
-   Another thing to know about sprites is that they're passed through /anti-aliasing filters/ and what that means is that they may look a little different in game. -- The turrets specifically have a special black border filter added to them, so you must account for that while making your sprites, and leave a border of transparent space around them, for example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/turrets/ripple.png][Ripple]]
+   Another thing to know about sprites is that some of them are modified by the game. Turrets specifically have a black border added to them, so you must account for that while making your sprites, leaving transparent space around turrets for example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/turrets/ripple.png][Ripple]]
 
    *[new [[#a5fbc0756]]]* to override ingame content sprites, you can simply put them in ~sprites-override/~.
 
@@ -2352,7 +2352,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
 ** Item
    :PROPERTIES:
-   :CUSTOM_ID: ItemLiquidGenerator
+   :CUSTOM_ID: Item
    :END:
 
    Extends [[Content][Content]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
@@ -2401,7 +2401,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
 ** Liquid
    :PROPERTIES:
-   :CUSTOM_ID: ItemLiquidGenerator
+   :CUSTOM_ID: Liquid
    :END:
 
    Extends [[Content][Content]]
@@ -2455,8 +2455,9 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: Weapon
    :END:
 
-   Weapons are used by units types, flying or ground, and mechs alike. They're what actually shoots the bullets.
+   Weapons are used by units and mechs alike. A weapon is a type used to shoot bullets [[BulletType][bullets]] just like turrets /(except that they don't have an ~ammo~ mapping)/. Weapons can only shoot one type of bullet, which you define in the ~bullet~ field.
 
+   :DEF:
    | field          | type       | default | notes      |
    |----------------+------------+---------+------------|
    |                |            |         | <10>       |
@@ -2479,6 +2480,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | shotDelay      | float      |       0 | delay in ticks between shots |
    | ignoreRotation | boolean    |   false | whether shooter rotation is ignored when shooting. |
    | shootSound     | [[Sound][Sound]]      |     pew |            |
+   :END:
 
    Sprite:
    * ~<name>~ or ~<name>-equip~
@@ -2524,10 +2526,12 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
 ** Mech
    :PROPERTIES:
-   :CUSTOM_ID: MechPad
+   :CUSTOM_ID: Mech
    :END:
 
-   Extends [[Content][Content]] -- Mechs are the player controlled entities.
+   Extends [[Content][Content]] 
+
+   Mechs are the player controlled entities. They shoot [[BulletType][bullets]] just like turrets from their [[Weapon][weapon]].
 
    | field              | type    | default |
    |--------------------+---------+---------|
@@ -2873,7 +2877,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: BasicBulletType
     :END:
 
-    Extends [[BulletType]]
+    Extends [[BulletType][BulletType]]
 
     This types purpose is to give basic bullets their sprites. The ~bulletSprite~ will be used as the shape of the bullet. The visible pixels in your sprites will be tinted with ~backColor~ and ~frontColor~ respectively. For example if you had sprites ~router.png~ and ~router-back.png~ where ~Test Mod~ was your mods name, you could do this to include your ~bulletSprite~:
 

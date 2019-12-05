@@ -148,16 +148,21 @@ dd
     background: #212424;
     position: fixed;
     width: 240px;
-    overflow-y: scroll;
+    overflow-y: auto;
     top: 0;
     left: 0;
-    bottom: 80px;
+    bottom: -20px;
     /* padding-top: 12px; */
     /* padding-left: 4px; */
     padding-top: 0px;
     padding-left: 0px;
     scrollbar-color: #595959 #a0a0a0;
     scrollbar-width: thin;
+}
+
+div#text-table-of-contents
+{
+    margin-bottom: 120px;
 }
 
 #table-of-contents code
