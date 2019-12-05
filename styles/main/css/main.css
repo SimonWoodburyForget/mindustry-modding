@@ -368,7 +368,10 @@ table thead th
 #table-of-contents.unshow
 {width:0;}
 #postamble.unshow
-{width:0;}
+{
+    width:0;
+    display:none;
+}
 #content.unshow
 {
     left:0;
