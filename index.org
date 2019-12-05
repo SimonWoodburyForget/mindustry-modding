@@ -2382,25 +2382,27 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: ItemStack
    :END:
 
-   This type is used when you need to describe an amount of items to the game for what ever reason.
+   A ~ItemStack~ can be a string or an object. It's used to describe the type and amount of items to a machine. 
 
-   *[new [[#968f3ace3]]]:* An ~ItemStack~ can be a string with the following format ~"item/amount"~.
+   As a ~string~:
 
-   An ~ItemStack~ can be an object with the following fields:
+   #+BEGIN_SRC yaml
+   copper/5
+   #+END_SRC
 
+   As an ~object~:
+
+   #+BEGIN_SRC yaml
+   liquid: copper
+   amount: 5
+   #+END_SRC
+
+   :DEF:
    | field  | type   | notes                    |
    |--------+--------+--------------------------|
    | item   | string | The name of an [[Item][Item]].     |
    | amount | int    | The amount of said item. |
-
-   Often you'll see ~[ ItemStack ]~, which stands for an array of ~ItemStack~, for example:
-
-   #+BEGIN_SRC json
-   [
-       { "amount": 30, "item": "surge-alloy" },
-       { "amount": 90, "item": "copper" }
-   ]
-   #+END_SRC
+   :END:
 
 ** Liquid
    :PROPERTIES:
@@ -2433,26 +2435,28 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: LiquidStack
    :END:
 
-   This type is used when you need to describe an amount of liquid to the game for what ever reason.
+   A ~LiquidStack~ can be a string or an object. It's used to describe the type and amount of liquid to a machine. 
 
-   *[new [[#968f3ace3]]]:* A ~LiquidStack~ can be a string with the following format ~"liquid/amount"~.
+   As a ~string~:
 
-    A ~LiquidStack~ can be an object with the following fields:
+   #+BEGIN_SRC yaml
+   water/0.5
+   #+END_SRC
 
-    | field  | type   | notes                      |
-    |--------+--------+----------------------------|
-    | liquid | string | The name of a [[Liquid][Liquid]].      |
-    | amount | float  | The amount of said liquid. |
+   As an ~object~:
 
-    For example:
+   #+BEGIN_SRC json 
+   liquid: water
+   amount: 0.5
+   #+END_SRC
 
-    #+BEGIN_SRC json
-    {
-        "liquid": "water",
-        "amount": 0.5
-    }
-    #+END_SRC
-
+   :DEF:
+   | field  | type   | notes                      |
+   |--------+--------+----------------------------|
+   | liquid | string | The name of a [[Liquid][Liquid]].      |
+   | amount | float  | The amount of said liquid. |
+   :END:
+ 
 ** Weapon
    :PROPERTIES:
    :CUSTOM_ID: Weapon
