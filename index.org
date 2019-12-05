@@ -394,7 +394,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     * ~time~ in game is calculated through ~ticks~;
     * ~ticks~ /sometimes called ~frames~,/ are assumed to be 60/1 second;
-    * ~range~ or most forms of distance is 1/10 of a tile;
+    * ~tilesize~ is 8 units internally;
     * to calculate range out of ~lifetime~ and ~speed~ you can do ~lifetime * speed = range~;
     * <<Abstract>> what is ~abstract~? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an /"initialization exception"/ of some kind;
     * what is a ~NullPointerException~? This is an error message that indicates a field is null and shouldn't be null, meaning one of the required fields may be missing;
@@ -1136,7 +1136,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | shootSound    | [[Sound][Sound]]   |      shoot | A sound created from the tile when a bullet is fired. |
     | ammoPerShot   | int     |          1 | The amount of ammo used per shot. |
     | ammoEjectBack | float   |          1 | The eject angle of shells in radians. |
-    | range         | float   |         50 | The range at which the turret can target enemies. |
+    | range         | float   |         50 | The range at which the turret can target enemies. Range is in ~tilesize~ so 8 is 1 tile. |
     | reload        | float   |         10 | The amount of ticks it takes to reload. |
     | inaccuracy    | float   |          0 | The degrees of inaccuracy. |
     | shots         | int     |          1 | The numbers of bullets fired at once. |
