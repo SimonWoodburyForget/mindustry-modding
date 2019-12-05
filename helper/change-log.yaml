@@ -1,0 +1,20 @@
+################################################################
+# File used to render a change log.
+################################################################
+
+968f3ace3:
+    - ~liquid/amount~ can now be used as a string for [[ItemStack][ItemStack]]
+    - ~item/amount~ can now be used as a string for [[ItemStack][ItemStack]]
+    - ~mod.json~ now supports hjson
+
+2c61fcdfa:
+    - ~minGameVersion~ can now be used within ~mod.json~
+
+2d4270406:
+    - ~.hjson~ can now be used as a file extension
+
+a5fbc0756:
+    - ~sprites-override/~ subdirectory can now be used to override existing ingame sprites
+
+a087df077:
+    - ~sync~ field for [[Block][Block]] type was added
