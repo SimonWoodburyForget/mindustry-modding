@@ -80,7 +80,9 @@ body
 {
     background:#fcfcfc;
     height:100%;
-    position:relative;
+    /* position:absolute; */
+    /* position:relative; */
+    position:fixed;
     overflow-x:hidden;
     /* left: 240px; */
     margin-left:1em;
@@ -94,7 +96,7 @@ body
     /* min-width:40% */
     /* width:800px; */
     width: 90%;
-    min-width: 25em;
+    min-width: 20em;
     max-width: 45em;
 
     /* max-width: 40em; */
@@ -166,6 +168,8 @@ div#table-of-contents
 {
     background: #212424;
     position: fixed;
+    /* position:absolute; */
+    /* position:relative; */
     width: 240px;
     overflow-y: auto;
     top: 0;
@@ -194,7 +198,7 @@ div#text-table-of-contents
 {
     background: #2980B9;
     padding-top: 40px;
-    padding-left: 4px;
+    padding-left: 6px;
     color: #f0f0f0;
 }
 
@@ -370,26 +374,38 @@ table thead th
 
 /* /\* {margin:auto;} *\/ */
 /* {margin-left:auto;} */
- 
-button#toggle
+
+button, button a
 {
-    z-index: 3;
+    background:0;
+    border:0;
+    margin:auto;
+    padding:auto;
+    width:100%;
+    font-size:30px;
     color: #f0f0f0;
+}
+
+div#toggle
+{
+    display:flex;
+    z-index:3;
     background: #2980B9;
     border: 0;
     /* border-bottom: 2px solid #f0f0f0; */
     top:0;
     left:0;
     width:234px;
-    height:40px;
     position:fixed;
     font-size: 1.4em;
 }
 
-button#toggle.unshow
+div#toggle.unshow
 {
+    flex-flow:column;
     opacity: 0.5;
     width: 40px;
+    height:90px;
 }
 
 :focus,
@@ -416,3 +432,8 @@ p.validation
     display:none;
 }
 
+
+/* :target */
+/* { */
+/*     flo */
+/* } */
