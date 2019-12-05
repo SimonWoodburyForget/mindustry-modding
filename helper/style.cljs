@@ -30,6 +30,7 @@
   (if state (show) (unshow))
   (if state false true))
 
+
 (def home "https://simonwoodburyforget.github.io/mindustry-modding/")
 (defn go-home []
   (set! (.-location js/window) home))
@@ -37,7 +38,8 @@
 (defn button-component []
   [:div#toggle {:class (if @menu-state "unshow" "show")}
    [:button {:on-click #(swap! menu-state menu-toggle)} "☰"]
-   [:button {:on-click go-home } "⌂"]])
+   ;; [:button {:on-click go-home } "⌂"]
+   ])
 
 (defn ^export run []
   (defonce app (.appendChild (.-body js/document)
