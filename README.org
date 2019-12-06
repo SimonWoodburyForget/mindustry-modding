@@ -55,6 +55,7 @@ Content Table:
   * [[https://simonwoodburyforget.github.io/mindustry-modding/#Graphics][Graphics]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Layer][Layer]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Color][Color]]
+    * [[https://simonwoodburyforget.github.io/mindustry-modding/#CacheLayer][CacheLayer]]
   * [[https://simonwoodburyforget.github.io/mindustry-modding/#Entities][Entities]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#BulletType][BulletType]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#BaseUnit][BaseUnit]]

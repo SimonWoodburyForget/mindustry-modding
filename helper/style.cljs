@@ -1,3 +1,4 @@
+;; Disclaimer: have no clue what I'm doing.
 (ns style.core
   (:require
    [reagent.core :as r]

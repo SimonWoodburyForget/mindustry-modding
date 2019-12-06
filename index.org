@@ -459,6 +459,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | size                | int             |            1 | multiblock size |
    | expanded            | boolean         |        false | Whether to draw this block in the expanded draw range. |
    | timers              | int             |            0 | Max of timers used. |
+   | cacheLayer          | [[CacheLayer][CacheLayer]]      |       normal | Cache layer. Only used for 'cached' rendering. |
    | fillesTile          | true            |              | Special flag; if false, [[Floor][floor]] will be drawn under this block even if it is cached. |
    | alwaysReplace       | boolean         |        false | whether this block can be replaced in all cases |
    | group               | [[BlockGroup][BlockGroup]]      |         none | Unless ~canReplace~ is overriden, blocks in the same group can replace each other. |
@@ -1692,7 +1693,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :END:
 *** PowerBlock
     :PROPERTIES:
-    :CUSTOM_ID: PowerBlock
+    :CUSTOM_ID: Power
     :END:
     [[Abstract][Abstract]] type which extends [[Block][Block]]
 
@@ -2785,6 +2786,17 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * ~ffff00~ is yellow,
    * ~00ffff~ is cyan,
    * /ect../
+
+** CacheLayer
+   :PROPERTIES:
+   :DESCRIPTION: cached rendering flags
+   :END:
+  
+   Flags used by for cache render:
+   + ~normal~ normal layer;
+   + ~walls~ walls layer;
+   + ~water~ water layer, adding tile water shaders, and giving wave reflections;
+   + ~tar~ tar layer, adding tar shaders, making it darker and giving it some bubble reflections;
 
 * Entities
   :PROPERTIES:
