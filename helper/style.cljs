@@ -123,7 +123,6 @@ button.theme-toggle
 (def saved-theme (= (.getItem js/localStorage "theme") "dark"))
 (def dark-atom (r/atom (not saved-theme)))
 
-(.log js/console @dark-atom)
 (defn toggle-dark [state]
   (if state
     (do (.setItem js/localStorage "theme" "dark")
