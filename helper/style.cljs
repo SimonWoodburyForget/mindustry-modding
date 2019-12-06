@@ -17,7 +17,7 @@
   (def el (create-el "style"))
   (set! (.-innerHTML el) style)
   (.setAttribute el "id" "dark-theme")
-  (.appendChild (.-body js/document) el))
+  (.appendChild (.-head js/document) el))
 
 (defn remove-style [style]
   (def el (by-id style))
@@ -117,12 +117,21 @@ button.theme-toggle
 (defn go-home []
   (set! (.-location js/window) home))
 
-(def dark-atom (r/atom true))
+(defn last-theme []
+  (.getItem js/localStorage "theme"))
+
+(def saved-theme (= (.getItem js/localStorage "theme") "dark"))
+(def dark-atom (r/atom (not saved-theme)))
+
+(.log js/console @dark-atom)
 (defn toggle-dark [state]
   (if state
-    (set-style dark-theme)
-    (remove-style "dark-theme"))
-  (if state false true))
+    (do (.setItem js/localStorage "theme" "dark")
+        (set-style dark-theme)
+        fales)
+    (do (.setItem js/localStorage "theme" nil)
+        (remove-style "dark-theme")
+        true)))
 
 (defn button-component []
   [:div#toggle {:class (if @menu-state "unshow" "show")}
@@ -130,10 +139,13 @@ button.theme-toggle
    [:button.theme-toggle {:on-click #(swap! dark-atom toggle-dark) } "c"]
    ])
 
+(if saved-theme
+  (do (set-style dark-theme)
+      (reset! dark-atom false)))
+
 (defn ^export run []
   (defonce app (.appendChild (.-body js/document)
                              (.createElement js/document "APP")))
   (r/render [button-component] app))
 
 (set! (.-onload js/window) run)
-

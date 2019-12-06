@@ -2395,7 +2395,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    As an ~object~:
 
    #+BEGIN_SRC yaml
-   liquid: copper
+   item: copper
    amount: 5
    #+END_SRC
 
@@ -2875,7 +2875,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | incendSpread       | float        |       8 |            |
    | incendChance       | float        |       1 |            |
    | homingPower        | float        |       0 | Doesn't do anything complicated; if ~homingPower~ larger then ~0.01~ it gets rendered in the UI, if ~homingPower~ is larger then ~0.0001~ it allows ~homingRange~ to work. |
-   | homingRange        | float        |      50 | How far the bullet can home towards target from itself. |
+   | homingRange        | float        |      50 | How close the bullet needs from a target in order to home/seek said target. |
    | lightining         | int          |         |            |
    | lightningLength    | int          |       5 |            |
    | hitShake           | float        |       0 |            |
