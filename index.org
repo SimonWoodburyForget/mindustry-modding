@@ -24,6 +24,8 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="mindustry-modding/styles/main/css/main.css"/>
 #+HTML_HEAD: <script type="text/javascript"          src="mindustry-modding/styles/main/js/main.js"></script>
 
+#+OPTIONS: tex:t
+
 Submit =test= pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
 :END:
@@ -2975,11 +2977,18 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
      Extends [[BasicBulletType][BasicBulletType]]
 
-     | field      | type  |           default |
-     |------------+-------+-------------------|
-     | trailColor | [[Color][Color]] | missileYellowBack |
-     | weaveScale | float |                 0 |
-     | weaveMag   | float |                -1 |
+     Weave is simple a sin wave with the following equation. 
+
+     \begin{equation}
+     r = \sin(\frac{t}{s}) \cdot m
+     \end{equation}
+    
+     | field      | type  |           default | notes      |
+     |------------+-------+-------------------+------------|
+     |            |       |                   | <10>       |
+     | trailColor | [[Color][Color]] | missileYellowBack | Color of the trail effect. |
+     | weaveScale | float |                 0 | A larger ~weaveScale~ means a longer wave. |
+     | weaveMag   | float |                -1 | A higher ~weaveMag~ means a higher (wider) wave. |
 
      Defaults:
      | field        | default |
