@@ -542,29 +542,50 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | booster  | boolean |         | consumer will be displayed as a boost input. |
    | update   | boolean | true    |            |
 
-   * <<ConsumeItems>> ~ConsumeItems~, consume an itemstack.
+*** ConsumeItems 
+    :PROPERTIES:
+    :CUSTOM_ID: ConsumeItems
+    :END:
 
-     | field | type          |
-     |-------+---------------|
-     | items | [ [[ItemStack][ItemStack]] ] |
+    Extends [[Consume][Consume]]
 
-   * <<ConsumeLiquid>> ~ConsumeLiquid~, consume a liquid.
+    Type to consume ItemStacks.
 
-     | field      | type   | default | notes      |
-     |------------+--------+---------+------------|
-     |            |        |         | <10>       |
-     | liquid     | String |         | the name of [[Liquid][liquid]] type consumed |
-     | amount     | float  |         | amount used per frame |
-     | timePeriod | float  |      60 | how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as /100 seconds/, but without a time override it would display as /10 liquid/second/. This is used for generic crafters. |
+    | field | type          |
+    |-------+---------------|
+    | items | [ [[ItemStack][ItemStack]] ] |
 
-   * <<ConsumePower>> ~ConsumePower~, consume or buffer power.
+*** ConsumeLiquid
+    :PROPERTIES:
+    :CUSTOM_ID: ConsumeLiquid
+    :END:
 
-     | field    | type    | notes      |
-     |----------+---------+------------|
-     |          |         | <10>       |
-     | usage    | float   | The maximum amount of power which can be processed per tick. This might influence efficiency or load a buffer |
-     | capacity | float   | The maximum power capacity in power units. |
-     | buffered | boolean | True if the module can store power. |
+    Extends [[Consume][Consume]]
+
+    Type to consume a LiquidStack.
+
+    | field      | type   | default | notes      |
+    |------------+--------+---------+------------|
+    |            |        |         | <10>       |
+    | liquid     | String |         | the name of [[Liquid][liquid]] type consumed |
+    | amount     | float  |         | amount used per frame |
+    | timePeriod | float  |      60 | how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as /100 seconds/, but without a time override it would display as /10 liquid/second/. This is used for generic crafters. |
+
+*** ConsumePower
+    :PROPERTIES:
+    :CUSTOM_ID: ConsumePower
+    :END:
+
+    Extends [[Consume][Consume]]
+
+    Type to consume or buffer power.
+
+    | field    | type    | notes      |
+    |----------+---------+------------|
+    |          |         | <10>       |
+    | usage    | float   | The maximum amount of power which can be processed per tick. This might influence efficiency or load a buffer |
+    | capacity | float   | The maximum power capacity in power units. |
+    | buffered | boolean | True if the module can store power. |
 
 ** BlockStorage
    :PROPERTIES:
