@@ -430,6 +430,30 @@ div#toggle.unshow
 /* #content.show */
 /* {margin-left:240px;} */
 
+@media (width <= 1000px) {
+    #content
+    {
+        width: calc(90vw - 240px);
+    }
+}
+
+@media (width <= 750px) {
+    #content
+    {
+        width: calc(95vw - 240px);
+        margin: 0;
+    }
+}
+
+@media (width <= 670px) {
+    #content
+    {
+        width: calc(95vw);
+    }
+
+    table
+}
+
 
 
 /* ================================================================ */
