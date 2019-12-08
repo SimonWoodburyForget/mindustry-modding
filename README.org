@@ -18,6 +18,7 @@ Content Table:
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Dependencies][Dependencies]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Bundles][Bundles]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Schematic][Schematic]]
+    * [[https://simonwoodburyforget.github.io/mindustry-modding/#Scripting][NEW Scripting]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#FAQ][FAQ]]
     * [[https://simonwoodburyforget.github.io/mindustry-modding/#Change-Log][Change Log]]
   * [[https://simonwoodburyforget.github.io/mindustry-modding/#World][World]]

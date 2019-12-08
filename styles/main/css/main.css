@@ -464,6 +464,10 @@ p.validation
     display:none;
 }
 
+pre::before
+{
+    content: none !important;
+}
 
 /* :target */
 /* { */

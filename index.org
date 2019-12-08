@@ -85,8 +85,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :CUSTOM_ID: Hjson
    :END:
 
-   *[new v99]* /partially in v99, but otherwise should work in v100/
-
    Mindustry uses [[https://hjson.org/][Hjson]], which is a superset of the very popular serialization language known as Json. This means that any valid Json will work, but you get extra useful stuff:
 
    #+BEGIN_SRC yaml
@@ -388,6 +386,56 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    /As of now, the only purpose of schematics is to give a zone a loadout./
 
+** NEW Scripts
+   :PROPERTIES:
+   :CUSTOM_ID: Scripting
+   :END:
+
+   *[new [[#268f3cc3c]]]*
+
+   Scripting in Mindustry is done with the [[https://github.com/mozilla/rhino][Rhino JavaScript]] runtime. Scripts may be added to your mod by putting them in ~scripts/~. Using the built-in ~extendContent~ function, you can extend existing Java types from JS, using /allowed classes/ which are injected into your namespace.
+
+   For example ~Block~ references the [[Block.java]] class itself, and as a very short example, you could do this:
+
+   #+BEGIN_SRC js
+   print('Loading spinner...');
+
+   const spinner = extendContent(Block, "spinner", {
+       update(tile){
+           tile.rotation(tile.rotation() + 1);
+       },
+       draw(tile){
+           Draw.rect(Core.atlas.find("router"), tile.drawx(), tile.drawy(), Time.time() * 2);
+       }
+   });
+   spinner.update = true;
+   spinner.localizedName = "Spinner";
+   spinner.description = "it spin";
+   spinner.rotate = true;
+   spinner.category = Category.turret;
+   spinner.buildVisibility = BuildVisibility.shown;
+   
+   print("Created spinner block.");
+   #+END_SRC
+
+*** extendContent
+    :PROPERTIES:
+    :CUSTOM_ID: extendContent
+    :END:
+
+    Function which takes three arguments.
+
+    1) ~classType~ the type of class you want to extend;
+    2) ~name~ the name of your type;
+    3) ~params~ the object which will be used to extend the type.
+    
+*** print
+    :PROPERTIES:
+    :CUSTOM_ID: print
+    :END:
+    
+    Function which prints text to stdout with the name of your mod.
+
 ** FAQ
     :PROPERTIES:
     :DESCRIPTION: simple questions and awnsers
@@ -409,20 +457,67 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :END:
    This is a log of changes done on the Mindustry Master branch that affected the modding API. The sections are ordered by date commited, and provide a description of what was changed, with a link to the diff on Github.
 
-{% for log in change_log %}
-*** {{ log.hash }}
+*** Dec 08
     :PROPERTIES:
     :UNNUMBERED: t
-    :DESCRIPTION: {{ log.message }}
-    :CUSTOM_ID: {{ log.hash }}
+    :CUSTOM_ID: 268f3cc3c
     :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/{{ log.hash }}][commit]] ={{ log.hash }}= {{ log.date_fmt() }} ]   ={{ log.message }}=
+    [ [[https://github.com/Anuken/Mindustry/commit/268f3cc3c][commit]] =268f3cc3c= Dec 08 ] =Merge branches 'master' and 'rhino-js-suffering'=
+    
+    * ~scripts/~ sub-directory and Rhino JS runtime was added;
+    
+*** Dec 04
+    :PROPERTIES:
+    :UNNUMBERED: t
+    :DESCRIPTION: Added experimental server block syncing
+    :CUSTOM_ID: a087df077
+    :END:
+    [ [[https://github.com/Anuken/Mindustry/commit/a087df077][commit]] =a087df077= Dec 04 ]   =Added experimental server block syncing=
 
-    {% for note in log.notes %}
-       * {{ note }};
-    {% endfor %}
-{% endfor %}
+    * ~sync~ field for ~Block~ type was added;
 
+*** Nov 26
+    :PROPERTIES:
+    :UNNUMBERED: t
+    :DESCRIPTION: Texture overrides / Potential mod texture binding optimizations
+    :CUSTOM_ID: a5fbc0756
+    :END:
+    [ [[https://github.com/Anuken/Mindustry/commit/a5fbc0756][commit]] =a5fbc0756= Nov 26 ]   =Texture overrides / Potential mod texture binding optimizations=
+
+    * ~sprites-override/~ subdirectory can now be used to override existing ingame sprites;
+
+*** Nov 22
+    :PROPERTIES:
+    :UNNUMBERED: t
+    :DESCRIPTION: Switched to hjson extension
+    :CUSTOM_ID: 2d4270406
+    :END:
+    [ [[https://github.com/Anuken/Mindustry/commit/2d4270406][commit]] =2d4270406= Nov 22 ]   =Switched to hjson extension=
+    
+    * ~.hjson~ can now be used as a file extension;
+
+*** Nov 22
+    :PROPERTIES:
+    :UNNUMBERED: t
+    :DESCRIPTION: Added optional mod minimum game version
+    :CUSTOM_ID: 2c61fcdfa
+    :END:
+    [ [[https://github.com/Anuken/Mindustry/commit/2c61fcdfa][commit]] =2c61fcdfa= Nov 22 ]   =Added optional mod minimum game version=
+
+    * ~minGameVersion~ can now be used within ~mod.json~;
+
+*** Nov 20
+    :PROPERTIES:
+    :UNNUMBERED: t
+    :DESCRIPTION: Better mod parsing
+    :CUSTOM_ID: 968f3ace3
+    :END:
+    [ [[https://github.com/Anuken/Mindustry/commit/968f3ace3][commit]] =968f3ace3= Nov 20 ]   =Better mod parsing=
+    
+    * ~liquid/amount~ can now be used as a string for ~LiquidStack~;
+    * ~item/amount~ can now be used as a string for ~ItemStack~;
+    * ~mod.json~ now supports hjson;
+   
 * World
   :PROPERTIES:
   :DESCRIPTION: the universe and everything in it.
@@ -468,7 +563,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | consumesTap         | boolean         |              | Whether this block consumes touchDown events when tapped. |
    | drawLiquidLight     | boolean         |         true | Whether to draw the glow of the liquid for this block, if it has one. |
    | posConfig           | boolean         |              | Whether the config is positional and needs to be shifted. |
-   | sync                | boolean         |              | *[new [[a087df077][Dec 4]]]* Whether to periodically sync this block across the network. |
+   | sync                | boolean         |              | *[new [[#a087df077]]]* Whether to periodically sync this block across the network. |
    | targetable          | boolean         |         true | Whether units target this block. |
    | canOverdrive        | boolean         |         true | Whether the overdrive core has any effect on this block. |
    | outlineColor        | [[Color][Color]]           |       404049 | Outlined icon color. |
@@ -1621,9 +1716,9 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :END:
     Extends [[LiquidBlock][LiquidBlock]]
 
-    | field          | type | default | notes             |
-    |----------------+------+---------+-------------------|
-    | leakResistance |      |         | *[new v99 (268)]* |
+    | field          | type  |
+    |----------------+-------|
+    | leakResistance | float |
 
     Defaults:
 
@@ -1867,7 +1962,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      Notes:
      * Lower targetting priority then other generators.
 
-**** NEW NuclearReactor
+**** NuclearReactor
      :PROPERTIES:
      :CUSTOM_ID: NuclearReactor
      :END:
@@ -1946,7 +2041,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     Sprites:
     - ~<name>-arrow~
-*** NEW LightBlock
+*** LightBlock
     :PROPERTIES:
     :CUSTOM_ID: LightBlock
     :END:
