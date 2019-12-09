@@ -1,3 +1,34 @@
+# Modifying `index.org`
+
+The `.org` file at the root of the project is the meat of everything. It starts with some metadata *(`#+WORD: ..` and `:PREAMBEL: ... :END:`)* which you can easily skip over.
+
+Sections are split-up with `* Headline`. It's important for `*` to be prefixed with a newline and no white spaces, and it shouldn't be confused with ` *` which is actually just an unnamed list element.
+
+Sections themselves may be referenced with `[[Section Name][Description text]]`
+
+Tables are much like Markdown tables, except that you may see some metadata flags in them to assist org-mode in knowing how to align things or whether to cutoff overflow text:
+
+```org
+| column1 | column2    |
+|---------|------------|
+|         | <8>        |
+| value   | long val=> |
+```
+
+You can `*bold*` `/italic/` and `~inline code~` text or use code blocks:
+
+```org
+#+BEGIN_SRC js
+// block code
+const x = "This is JavaScript";
+print(x);
+#+END_SRC
+```
+
+`js` should be used for JavaScript, as it colors the output text itself,  `yaml` mode is what is currently used for `hjson`, because it usually lines up nicely, and `json` can be used for `json` itself, although `yaml` would just work. `fundamental` for anything that not uncolored.
+
+
+
 # Building `index.html`
 
 Currently there's three steps to build the `index.html`:
