@@ -450,6 +450,24 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :END:
    This is a log of changes done on the Mindustry Master branch that affected the modding API. The sections are ordered by date commited, and provide a description of what was changed, with a link to the diff on Github.
 
+*** Dec 09
+    :PROPERTIES:
+    :UNNUMBERED: t
+    :CUSTOM_ID: 74dc31b10a82763d4f1ff29d32ae430ee87b9def
+    :END:
+    
+    [ [[https://github.com/Anuken/Mindustry/commit/74dc31b10a82763d4f1ff29d32ae430ee87b9def][commit]]  Removed unnecessary unit types ]
+
+    * changed unit types names:
+      * ~Draug~ \to ~MinerDrone~;
+      * ~Spirit~ \to ~RepairDrone~;
+      * ~Phantom~ \to ~BuilderDrone~;
+      * [ ~Dagger~ ~Crawler~ ~Titan~ ~Fortress~ ~Eruptor~ ] \to ~GroundUnit~;
+      * [ ~Wraith~ ~Ghoul~ ] \to ~FlyingUnit~;
+      * ~Revenant~ \to ~HoverUnit~;
+
+
+
 *** Dec 08
     :PROPERTIES:
     :UNNUMBERED: t
@@ -3231,11 +3249,10 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    There are a few useful base unit types:
 
    * ~FlyingUnit~
-     * ~Revenant~
-     * ~BaseDrone~
-       * ~BuilderDrone~
-       * ~MinerDrone~
-       * ~RepairDrone~
+     * ~HoverUnit~
+     * ~BuilderDrone~
+     * ~MinerDrone~
+     * ~RepairDrone~
    * ~GroundUnit~
 
 ** Effect
