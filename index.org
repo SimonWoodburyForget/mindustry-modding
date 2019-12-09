@@ -1,5 +1,5 @@
 #+TITLE: Mindustry Modding Guide
-#+SUBTITLE: Modding documentation for Mindustry v100 (81)
+#+SUBTITLE: Modding documentation for Mindustry v100 (144)
 :PREAMBLE:
 
 #+AUTHOR: Simon Woodbury-Forget
@@ -14,7 +14,6 @@
 #+TODO: TODO UNTESTED | NEW DONE
 #+EXCLUDE_TAGS: TODO
 #+OPTIONS: broken-links:t
-
 
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles/main/css/htmlize.css"/>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles/main/css/main.css"/>
@@ -419,9 +418,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    #+END_SRC
 
 *** extendContent
-    :PROPERTIES:
-    :CUSTOM_ID: extendContent
-    :END:
 
     Function which takes three arguments.
 
@@ -430,9 +426,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     3) ~params~ the object which will be used to extend the type.
     
 *** print
-    :PROPERTIES:
-    :CUSTOM_ID: print
-    :END:
     
     Function which prints text to stdout with the name of your mod.
 

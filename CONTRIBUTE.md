@@ -1,9 +1,10 @@
 # Building `index.html`
 
-Currently there's two steps to build the `index.html`:
+Currently there's three steps to build the `index.html`:
 
-1. generate templates with jinja2 *(for change log and `README.md` content table)*
-2. generate `index.html` with org-modes html export function.
+1. generate templates with jinja2;
+2. activate [export-to-html-with-useful-anchors](https://github.com/alphapapa/unpackaged.el#export-to-html-with-useful-anchors)))) minor mode;
+3. generate `index.html` with org-modes html export function.
 
 Expected dependencies required to generate the `README.md` are the following:
 
@@ -11,7 +12,9 @@ Expected dependencies required to generate the `README.md` are the following:
 - Jinja2
 - Click
 
-I use Emacs 26 to generate the `index.html` with no special configurations.
+I use Emacs 26 to generate the `index.html` with:
+
+- https://github.com/alphapapa/unpackaged.el#export-to-html-with-useful-anchors minor mode which gives the exported anchors better names without adding `:CUSTOM_ID:` to everything.
 
 # Building `styles/main/js/main.js`
 
