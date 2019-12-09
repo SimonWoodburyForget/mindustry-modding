@@ -113,7 +113,6 @@ body
 
 p
 {
-    padding-left: 1.5vw;
     font-size:16px;
     line-height:24px;
     margin:0px 0px 24px 0px;
@@ -180,8 +179,7 @@ dd
     margin:0;
 }
 
-
-/* Linking */
+/* Link Anchors */
 
 :target
 {
@@ -473,8 +471,6 @@ div#toggle.unshow
     {
         width: calc(95vw);
     }
-
-    table
 }
 
 
