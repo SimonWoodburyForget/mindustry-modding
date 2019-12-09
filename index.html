@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-09 Mon 08:24 -->
+<!-- 2019-12-09 Mon 09:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -451,7 +451,11 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#Type">3. Type</a>
 <ul>
-<li><a href="#Item">3.1. Item</a></li>
+<li><a href="#Item">3.1. Item</a>
+<ul>
+<li><a href="#ItemType">ItemType</a></li>
+</ul>
+</li>
 <li><a href="#ItemStack">3.2. ItemStack</a></li>
 <li><a href="#Liquid">3.3. Liquid</a></li>
 <li><a href="#LiquidStack">3.4. LiquidStack</a></li>
@@ -1062,7 +1066,7 @@ Function which takes three arguments.
 </div>
 
 <div id="outline-container-print" class="outline-4">
-<h4 id="print"><a id="print"></a>print</h4>
+<h4 id="print">print</h4>
 <div class="outline-text-4" id="text-print">
 <p>
 Function which prints text to stdout with the name of your mod.
@@ -1079,9 +1083,9 @@ Function which prints text to stdout with the name of your mod.
 <li><code>ticks</code> <i>sometimes called <code>frames</code>,</i> are assumed to be 60/1 second;</li>
 <li><code>tilesize</code> is 8 units internally;</li>
 <li>to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;</li>
-<li><a id="orgced423d"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
+<li><a id="orgd4f3c1c"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
 <li>what is a <code>NullPointerException</code>? This is an error message that indicates a field is null and shouldn't be null, meaning one of the required fields may be missing;</li>
-<li><a id="org6ee4440"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
+<li><a id="org5690bab"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
 </ul>
 </div>
 </div>
@@ -1624,7 +1628,7 @@ For example with <a href="#ConsumeItems">ConsumeItems</a> and <a href="#ConsumeL
 <h3 id="Consume"><a id="Consume"></a><span class="section-number-3">2.3</span> Consume</h3>
 <div class="outline-text-3" id="text-Consume">
 <p>
-<a href="#orgced423d">Abstract</a> type which defines a type of resource that a block can consume.
+<a href="#orgd4f3c1c">Abstract</a> type which defines a type of resource that a block can consume.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1820,7 +1824,7 @@ Type to consume or buffer power.
 <h3 id="BlockStorage"><a id="BlockStorage"></a><span class="section-number-3">2.4</span> BlockStorage</h3>
 <div class="outline-text-3" id="text-BlockStorage">
 <p>
-<a href="#orgced423d">Abstract</a> type that extends <a href="#Content">Content</a>
+<a href="#orgd4f3c1c">Abstract</a> type that extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -3567,13 +3571,13 @@ Defaults:
 
 <tr>
 <td class="org-left">consumes</td>
-<td class="org-left"><a href="#org933fcf6">cold-liquid</a></td>
+<td class="org-left"><a href="#org04001e6">cold-liquid</a></td>
 </tr>
 </tbody>
 </table>
 
 <p>
-<a id="org933fcf6"></a><a href="#org933fcf6">cold-liquid</a>:
+<a id="org04001e6"></a><a href="#org04001e6">cold-liquid</a>:
 </p>
 <ul class="org-ul">
 <li>temperature less then 0.5</li>
@@ -3708,7 +3712,7 @@ This section is for turret types. All turrets shoot <a href="#BulletType">Bullet
 <h4 id="Turrets"><a id="Turret"></a>Turret</h4>
 <div class="outline-text-4" id="text-Turrets">
 <p>
-<a href="#orgced423d">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgd4f3c1c">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -5727,7 +5731,7 @@ Extends <a href="#ExtendingItemBridge">ExtendingItemBridge</a>
 <h4 id="Power"><a id="PowerBlock"></a>PowerBlock</h4>
 <div class="outline-text-4" id="text-Power">
 <p>
-<a href="#orgced423d">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgd4f3c1c">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -7553,7 +7557,7 @@ Defaults:
 <h4 id="StorageBlock"><a id="StorageBlock"></a>StorageBlock</h4>
 <div class="outline-text-4" id="text-StorageBlock">
 <p>
-<a href="#orgced423d">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgd4f3c1c">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -8022,7 +8026,7 @@ Extends <a href="#Content">Content</a> &#x2013; It's the object that can ride co
 
 <tr>
 <td class="org-left">type</td>
-<td class="org-left"><a href="#org7c541dc">ItemTypes</a></td>
+<td class="org-left"><a href="#ItemType">ItemType</a></td>
 <td class="org-right">resource</td>
 <td class="org-left">used for tabs and core acceptance</td>
 </tr>
@@ -8070,14 +8074,16 @@ Extends <a href="#Content">Content</a> &#x2013; It's the object that can ride co
 </tr>
 </tbody>
 </table>
+</div>
 
-<p>
-<a id="org7c541dc"></a> <b>ItemTypes:</b>
-</p>
+<div id="outline-container-ItemType" class="outline-4">
+<h4 id="ItemType">ItemType</h4>
+<div class="outline-text-4" id="text-ItemType">
 <ul class="org-ul">
 <li><code>resource</code> can't go in the core;</li>
 <li><code>material</code> can go in the core.</li>
 </ul>
+</div>
 </div>
 </div>
 
@@ -9527,7 +9533,7 @@ Flags used by for cache render:
 <h3 id="BulletType"><a id="BulletType"></a><span class="section-number-3">5.1</span> BulletType</h3>
 <div class="outline-text-3" id="text-BulletType">
 <p>
-<a href="#orgced423d">Abstract</a> type which extends <a href="#Content">Content</a>
+<a href="#orgd4f3c1c">Abstract</a> type which extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -11272,7 +11278,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2019-12-09 Mon 08:24</p>
+<p class="date">Created: 2019-12-09 Mon 09:00</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
