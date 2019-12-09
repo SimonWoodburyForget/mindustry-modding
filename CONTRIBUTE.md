@@ -27,8 +27,6 @@ print(x);
 
 `js` should be used for JavaScript, as it colors the output text itself,  `yaml` mode is what is currently used for `hjson`, because it usually lines up nicely, and `json` can be used for `json` itself, although `yaml` would just work. `fundamental` for anything that not uncolored.
 
-
-
 # Building `index.html`
 
 Currently there's three steps to build the `index.html`:

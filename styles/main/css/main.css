@@ -113,10 +113,33 @@ body
 
 p
 {
+    padding-left: 1.5vw;
     font-size:16px;
     line-height:24px;
     margin:0px 0px 24px 0px;
 }
+
+
+div.outline-5
+{
+    border-top: 2px solid #f0f0f0;
+}
+
+div.outline-4
+{
+    border-top: 2px solid #909090;
+}
+
+div.outline-3
+{
+    border-top: 2px solid #303030;
+}
+
+div.outline-2
+{
+    border-top: 2px solid #303030;
+}
+
 
 /* Bold */
 b,strong
