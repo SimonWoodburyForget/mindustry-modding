@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-09 Mon 12:36 -->
+<!-- 2019-12-09 Mon 16:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -281,6 +281,7 @@ for the JavaScript code in this tag.
 <li><a href="#Scripting">1.12. <span class="done NEW">NEW</span> Scripts</a>
 <ul>
 <li><a href="#extendContent">extendContent</a></li>
+<li><a href="#newEffect">newEffect</a></li>
 <li><a href="#print">print</a></li>
 </ul>
 </li>
@@ -1025,43 +1026,125 @@ Scripting in Mindustry is done with the <a href="https://github.com/mozilla/rhin
 </p>
 
 <p>
-For example <code>Block</code> references the class itself, and as a very short example, you could do this:
+For example:
+</p>
+
+<ul class="org-ul">
+<li><p>
+<code>scripts/silo.js</code>
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js">print(<span style="color: #8b2252;">'Loading spinner...'</span>);
+<pre class="src src-js"><span style="color: #b22222;">// </span><span style="color: #b22222;">create a simple shockwave effect</span>
+<span style="color: #a020f0;">const</span> <span style="color: #a0522d;">siloLaunchEffect</span> = newEffect(20, e =&gt; {
 
-<span style="color: #a020f0;">const</span> <span style="color: #a0522d;">spinner</span> = extendContent(Block, <span style="color: #8b2252;">"spinner"</span>, {
-    update(tile){
-        tile.rotation(tile.rotation() + 1);
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">color goes from white to light gray</span>
+    Draw.color(Color.white, Color.lightGray, e.fin());
+
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">line thickness goes from 3 to 0</span>
+    Lines.stroke(e.fout() * 3);
+
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">draw a circle whose radius goes from 0 to 100</span>
+    Lines.circle(e.x, e.y, e.fin() * 100); 
+});
+
+<span style="color: #b22222;">// </span><span style="color: #b22222;">create the block type</span>
+<span style="color: #a020f0;">const</span> <span style="color: #a0522d;">silo</span> = extendContent(Block, <span style="color: #8b2252;">"scatter-silo"</span>, {
+
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">override the method to build configuration</span>
+    buildConfiguration(tile, table) {
+        table.addImageButton(
+            Icon.arrowUpSmall, 
+            Styles.clearTransi,
+
+            <span style="color: #b22222;">// </span><span style="color: #b22222;">configure the tile to signal that it has been </span>
+            <span style="color: #b22222;">// </span><span style="color: #b22222;">pressed (this sync on client to server)</span>
+            run(() =&gt; tile.configure(0))
+        ).size(50);
     },
-    draw(tile){
-        Draw.rect(Core.atlas.find(<span style="color: #8b2252;">"router"</span>), tile.drawx(), tile.drawy(), Time.time() * 2);
+
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">override configure event</span>
+    configured(tile, value) {
+
+        <span style="color: #b22222;">// </span><span style="color: #b22222;">make sure this silo has the items it needs to fire</span>
+        <span style="color: #a020f0;">if</span> (tile.entity.cons.valid()) {
+
+            <span style="color: #b22222;">// </span><span style="color: #b22222;">make this effect occur at the tile location</span>
+            Effects.effect(siloLaunchEffect, tile);
+
+            <span style="color: #b22222;">// </span><span style="color: #b22222;">create 10 bullets at this tile's location with</span>
+            <span style="color: #b22222;">// </span><span style="color: #b22222;">random rotation and velocity/lifetime</span>
+            <span style="color: #a020f0;">for</span> (<span style="color: #a020f0;">var</span> <span style="color: #a0522d;">i</span> = 0; i &lt; 10; i++) {
+                Calls.createBullet(
+                    Bullets.flakExplosive, 
+                    tile.getTeam(), 
+                    tile.drawx(), 
+                    tile.drawy(), 
+                    Mathf.random(360), 
+                    Mathf.random(0.5, 1.0), 
+                    Mathf.random(0.2, 1.0)
+                );
+            }
+
+            <span style="color: #b22222;">// </span><span style="color: #b22222;">triggering consumption makes it use up the </span>
+            <span style="color: #b22222;">// </span><span style="color: #b22222;">items it requires</span>
+            tile.entity.cons.trigger();
+        }
     }
 });
-spinner.update = <span style="color: #008b8b;">true</span>;
-spinner.localizedName = <span style="color: #8b2252;">"Spinner"</span>;
-spinner.description = <span style="color: #8b2252;">"it spin"</span>;
-spinner.rotate = <span style="color: #008b8b;">true</span>;
-spinner.category = Category.turret;
-spinner.buildVisibility = BuildVisibility.shown;
-
-print(<span style="color: #8b2252;">"Created spinner block."</span>);
 </pre>
-</div>
+</div></li>
+
+<li><p>
+<code>content/blocks/scatter-silo.hjson</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-yaml"><span style="color: #a0522d;">localizedName</span>: <span style="color: #8b2252;">"Scatter Silo"</span> 
+<span style="color: #a0522d;">description</span>: <span style="color: #8b2252;">"A player-activatable block that scatters bullets everywhere upon use."</span>
+
+<span style="color: #a0522d;">category</span>: turret
+<span style="color: #a0522d;">size</span>: 2
+
+<span style="color: #a0522d;">update</span>: <span style="color: #008b8b;">true</span>
+<span style="color: #a0522d;">solid</span>: <span style="color: #008b8b;">true</span>
+<span style="color: #a0522d;">hasItems</span>: <span style="color: #008b8b;">true</span>
+<span style="color: #a0522d;">configurable</span>: <span style="color: #008b8b;">true</span>
+
+<span style="color: #a0522d;">requirements</span>: [ graphite/75
+                titanium/30 ]
+
+<span style="color: #a0522d;">consumes</span>: { <span style="color: #a0522d;">items</span>: { <span style="color: #a0522d;">items</span>: [ scrap/10 ] } }
+</pre>
+</div></li>
+</ul>
 </div>
 
 <div id="outline-container-extendContent" class="outline-4">
 <h4 id="extendContent">extendContent</h4>
 <div class="outline-text-4" id="text-extendContent">
 <p>
-Function which takes three arguments.
+Function to extend content which takes three arguments.
 </p>
 
 <ol class="org-ol">
 <li><code>classType</code> the type of class you want to extend;</li>
 <li><code>name</code> the name of your type;</li>
 <li><code>params</code> the object which will be used to extend the type.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-newEffect" class="outline-4">
+<h4 id="newEffect">newEffect</h4>
+<div class="outline-text-4" id="text-newEffect">
+<p>
+Function which takes two arguments. 
+</p>
+
+<ol class="org-ol">
+<li><code>lifetime</code></li>
+<li><code>renderer</code></li>
 </ol>
 </div>
 </div>
@@ -1084,9 +1167,9 @@ Function which prints text to stdout with the name of your mod.
 <li><code>ticks</code> <i>sometimes called <code>frames</code>,</i> are assumed to be 60/1 second;</li>
 <li><code>tilesize</code> is 8 units internally;</li>
 <li>to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;</li>
-<li><a id="orgdb403c5"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
+<li><a id="orgebb6a27"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
 <li>what is a <code>NullPointerException</code>? This is an error message that indicates a field is null and shouldn't be null, meaning one of the required fields may be missing;</li>
-<li><a id="orgf4a521e"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
+<li><a id="org65d3238"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
 </ul>
 </div>
 </div>
@@ -1652,7 +1735,7 @@ For example with <a href="#ConsumeItems">ConsumeItems</a> and <a href="#ConsumeL
 <h3 id="Consume"><a id="Consume"></a><span class="section-number-3">2.3</span> Consume</h3>
 <div class="outline-text-3" id="text-Consume">
 <p>
-<a href="#orgdb403c5">Abstract</a> type which defines a type of resource that a block can consume.
+<a href="#orgebb6a27">Abstract</a> type which defines a type of resource that a block can consume.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1848,7 +1931,7 @@ Type to consume or buffer power.
 <h3 id="BlockStorage"><a id="BlockStorage"></a><span class="section-number-3">2.4</span> BlockStorage</h3>
 <div class="outline-text-3" id="text-BlockStorage">
 <p>
-<a href="#orgdb403c5">Abstract</a> type that extends <a href="#Content">Content</a>
+<a href="#orgebb6a27">Abstract</a> type that extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -3595,13 +3678,13 @@ Defaults:
 
 <tr>
 <td class="org-left">consumes</td>
-<td class="org-left"><a href="#orge50f228">cold-liquid</a></td>
+<td class="org-left"><a href="#org99acd39">cold-liquid</a></td>
 </tr>
 </tbody>
 </table>
 
 <p>
-<a id="orge50f228"></a><a href="#orge50f228">cold-liquid</a>:
+<a id="org99acd39"></a><a href="#org99acd39">cold-liquid</a>:
 </p>
 <ul class="org-ul">
 <li>temperature less then 0.5</li>
@@ -3736,7 +3819,7 @@ This section is for turret types. All turrets shoot <a href="#BulletType">Bullet
 <h4 id="Turrets"><a id="Turret"></a>Turret</h4>
 <div class="outline-text-4" id="text-Turrets">
 <p>
-<a href="#orgdb403c5">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgebb6a27">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -5755,7 +5838,7 @@ Extends <a href="#ExtendingItemBridge">ExtendingItemBridge</a>
 <h4 id="Power"><a id="PowerBlock"></a>PowerBlock</h4>
 <div class="outline-text-4" id="text-Power">
 <p>
-<a href="#orgdb403c5">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgebb6a27">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -7581,7 +7664,7 @@ Defaults:
 <h4 id="StorageBlock"><a id="StorageBlock"></a>StorageBlock</h4>
 <div class="outline-text-4" id="text-StorageBlock">
 <p>
-<a href="#orgdb403c5">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgebb6a27">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -9557,7 +9640,7 @@ Flags used by for cache render:
 <h3 id="BulletType"><a id="BulletType"></a><span class="section-number-3">5.1</span> BulletType</h3>
 <div class="outline-text-3" id="text-BulletType">
 <p>
-<a href="#orgdb403c5">Abstract</a> type which extends <a href="#Content">Content</a>
+<a href="#orgebb6a27">Abstract</a> type which extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -11299,7 +11382,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2019-12-09 Mon 12:36</p>
+<p class="date">Created: 2019-12-09 Mon 16:00</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
