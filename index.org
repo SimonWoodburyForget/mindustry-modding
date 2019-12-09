@@ -473,7 +473,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :UNNUMBERED: t
     :CUSTOM_ID: 268f3cc3c
     :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/268f3cc3c][commit]] =268f3cc3c= Dec 08 ] =Merge branches 'master' and 'rhino-js-suffering'=
+    [ [[https://github.com/Anuken/Mindustry/commit/268f3cc3c][commit]] Merge branches 'master' and 'rhino-js-suffering' ]
     
     * ~scripts/~ sub-directory and Rhino JS runtime was added;
     
@@ -483,7 +483,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :DESCRIPTION: Added experimental server block syncing
     :CUSTOM_ID: a087df077
     :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/a087df077][commit]] =a087df077= Dec 04 ]   =Added experimental server block syncing=
+    [ [[https://github.com/Anuken/Mindustry/commit/a087df077][commit]] Added experimental server block syncing ]
 
     * ~sync~ field for ~Block~ type was added;
 
@@ -493,7 +493,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :DESCRIPTION: Texture overrides / Potential mod texture binding optimizations
     :CUSTOM_ID: a5fbc0756
     :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/a5fbc0756][commit]] =a5fbc0756= Nov 26 ]   =Texture overrides / Potential mod texture binding optimizations=
+    [ [[https://github.com/Anuken/Mindustry/commit/a5fbc0756][commit]] Texture overrides / Potential mod texture binding optimizations ]
 
     * ~sprites-override/~ subdirectory can now be used to override existing ingame sprites;
 
@@ -503,7 +503,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :DESCRIPTION: Switched to hjson extension
     :CUSTOM_ID: 2d4270406
     :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/2d4270406][commit]] =2d4270406= Nov 22 ]   =Switched to hjson extension=
+    [ [[https://github.com/Anuken/Mindustry/commit/2d4270406][commit]] Switched to hjson extension ]
     
     * ~.hjson~ can now be used as a file extension;
 
@@ -513,7 +513,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :DESCRIPTION: Added optional mod minimum game version
     :CUSTOM_ID: 2c61fcdfa
     :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/2c61fcdfa][commit]] =2c61fcdfa= Nov 22 ]   =Added optional mod minimum game version=
+    [ [[https://github.com/Anuken/Mindustry/commit/2c61fcdfa][commit]] Added optional mod minimum game version ]
 
     * ~minGameVersion~ can now be used within ~mod.json~;
 
@@ -523,7 +523,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :DESCRIPTION: Better mod parsing
     :CUSTOM_ID: 968f3ace3
     :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/968f3ace3][commit]] =968f3ace3= Nov 20 ]   =Better mod parsing=
+    [ [[https://github.com/Anuken/Mindustry/commit/968f3ace3][commit]] Better mod parsing ]
     
     * ~liquid/amount~ can now be used as a string for ~LiquidStack~;
     * ~item/amount~ can now be used as a string for ~ItemStack~;
