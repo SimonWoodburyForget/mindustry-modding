@@ -92,12 +92,13 @@ body
     /* margin:auto; */
     /* left:240px;  */
     
-    padding:0.9em;
-    width: 87%;
+    padding-left:8px;
+    padding-right:8px;
+    /* width: 95%; */
 
-    max-width: 45em;
+    max-width: 50em;
     /* margin-left:2.5%; */
-    margin-right:2.5%;
+    /* margin-right:2.5%; */
 
 }
 
@@ -458,14 +459,15 @@ div#toggle.unshow
 @media (width <= 1000px) {
     #content
     {
-        width: calc(90vw - 240px);
+        /* width: calc(90vw - 240px); */
+        width: calc(97vm - 240px);
     }
 }
 
 @media (width <= 750px) {
     #content
     {
-        width: calc(95vw - 240px);
+        width: 97vw;
         margin: 0;
     }
 }
@@ -473,7 +475,7 @@ div#toggle.unshow
 @media (width <= 670px) {
     #content
     {
-        width: calc(95vw);
+        width: 97vw;
     }
 }
 
