@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-10 Tue 13:34 -->
+<!-- 2019-12-10 Tue 15:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -288,13 +288,13 @@ for the JavaScript code in this tag.
 <li><a href="#FAQ">1.13. FAQ</a></li>
 <li><a href="#Change%20Log">1.14. Change Log</a>
 <ul>
-<li><a href="#Dec%2009">Dec 09</a></li>
-<li><a href="#Dec%2008">Dec 08</a></li>
-<li><a href="#Dec%2004">Dec 04</a></li>
-<li><a href="#Nov%2026">Nov 26</a></li>
-<li><a href="#Nov%2022">Nov 22</a></li>
-<li><a href="#Change%20Log--Nov%2022">Nov 22</a></li>
-<li><a href="#Nov%2020">Nov 20</a></li>
+<li><a href="#74dc31b10a82763d4f1ff29d32ae430ee87b9def">Dec 09</a></li>
+<li><a href="#268f3cc3c">Dec 08</a></li>
+<li><a href="#a087df077">Dec 04</a></li>
+<li><a href="#a5fbc0756">Nov 26</a></li>
+<li><a href="#2d4270406">Nov 22</a></li>
+<li><a href="#2c61fcdfa">Nov 22</a></li>
+<li><a href="#968f3ace3">Nov 20</a></li>
 </ul>
 </li>
 </ul>
@@ -615,7 +615,7 @@ comment */
 </div>
 
 <p>
-<b>[new ]</b> Files may have either a <code>.json</code> or <code>.hjson</code> extension.
+<b>[new <a href="#2d4270406">Nov 22</a>]</b> Files may have either a <code>.json</code> or <code>.hjson</code> extension.
 </p>
 </div>
 </div>
@@ -644,7 +644,7 @@ Notes:
 <li><code>name</code> will be used to reference to your mod, so name it carefully, and avoid giving it the same name as another mod;</li>
 <li><code>description</code> of the mod will be rendered in the ingame mod manager, so keep it short and to the point;</li>
 <li><code>dependencies</code> is optional, if you want to know more about that, go to the <a href="#Dependencies">dependencies</a> section;</li>
-<li><b>[new ]</b> <code>minGameVersion</code> is the minimum build version of the game.</li>
+<li><b>[new <a href="#2c61fcdfa">Nov 22</a>]</b> <code>minGameVersion</code> is the minimum build version of the game.</li>
 </ul>
 </div>
 </div>
@@ -653,7 +653,7 @@ Notes:
 <h3 id="Content"><span class="section-number-3">1.4</span> Content</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-<b>[new ]</b> <i>file extension <code>.hjson</code> now supported</i>
+<b>[new <a href="#2d4270406">Nov 22</a>]</b> <i>file extension <code>.hjson</code> now supported</i>
 </p>
 
 <p>
@@ -817,7 +817,7 @@ Another thing to know about sprites is that some of them are modified by the gam
 </p>
 
 <p>
-<b>[new ]</b> to override ingame content sprites, you can simply put them in <code>sprites-override/</code>.
+<b>[new <a href="#a5fbc0756">Nov 26</a>]</b> to override ingame content sprites, you can simply put them in <code>sprites-override/</code>.
 </p>
 </div>
 </div>
@@ -1019,7 +1019,7 @@ Fields that require the type <code>Schematic</code> can either take a built-in l
 <h3 id="Scripts"><span class="section-number-3">1.12</span> <span class="done NEW">NEW</span> Scripts</h3>
 <div class="outline-text-3" id="text-1-12">
 <p>
-<b>[new ]</b>
+<b>[new <a href="#268f3cc3c">Dec 08</a>]</b>
 </p>
 
 <p>
@@ -1168,9 +1168,9 @@ Function which prints text to stdout with the name of your mod.
 <li><code>ticks</code> <i>sometimes called <code>frames</code>,</i> are assumed to be 60/1 second;</li>
 <li><code>tilesize</code> is 8 units internally;</li>
 <li>to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;</li>
-<li><a id="orga149427"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
+<li><a id="orgea4bd53"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
 <li>what is a <code>NullPointerException</code>? This is an error message that indicates a field is null and shouldn't be null, meaning one of the required fields may be missing;</li>
-<li><a id="org97d10a6"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
+<li><a id="org84a1ccd"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
 </ul>
 </div>
 </div>
@@ -1184,8 +1184,8 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 
 <div id="outline-container-Dec%2009" class="outline-4">
-<h4 id="Dec%2009">Dec 09</h4>
-<div class="outline-text-4" id="text-Dec%2009">
+<h4 id="74dc31b10a82763d4f1ff29d32ae430ee87b9def"><a id="Dec%2009"></a>Dec 09</h4>
+<div class="outline-text-4" id="text-74dc31b10a82763d4f1ff29d32ae430ee87b9def">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/74dc31b10a82763d4f1ff29d32ae430ee87b9def">commit</a>  Removed unnecessary unit types ]
 </p>
@@ -1207,8 +1207,8 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 
 
 <div id="outline-container-Dec%2008" class="outline-4">
-<h4 id="Dec%2008">Dec 08</h4>
-<div class="outline-text-4" id="text-Dec%2008">
+<h4 id="268f3cc3c"><a id="Dec%2008"></a>Dec 08</h4>
+<div class="outline-text-4" id="text-268f3cc3c">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/268f3cc3c">commit</a> Merge branches 'master' and 'rhino-js-suffering' ]
 </p>
@@ -1220,8 +1220,8 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 
 <div id="outline-container-Dec%2004" class="outline-4">
-<h4 id="Dec%2004">Dec 04</h4>
-<div class="outline-text-4" id="text-Dec%2004">
+<h4 id="a087df077"><a id="Dec%2004"></a>Dec 04</h4>
+<div class="outline-text-4" id="text-a087df077">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/a087df077">commit</a> Added experimental server block syncing ]
 </p>
@@ -1233,8 +1233,8 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 
 <div id="outline-container-Nov%2026" class="outline-4">
-<h4 id="Nov%2026">Nov 26</h4>
-<div class="outline-text-4" id="text-Nov%2026">
+<h4 id="a5fbc0756"><a id="Nov%2026"></a>Nov 26</h4>
+<div class="outline-text-4" id="text-a5fbc0756">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/a5fbc0756">commit</a> Texture overrides / Potential mod texture binding optimizations ]
 </p>
@@ -1246,8 +1246,8 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 
 <div id="outline-container-Nov%2022" class="outline-4">
-<h4 id="Nov%2022">Nov 22</h4>
-<div class="outline-text-4" id="text-Nov%2022">
+<h4 id="2d4270406"><a id="Nov%2022"></a>Nov 22</h4>
+<div class="outline-text-4" id="text-2d4270406">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/2d4270406">commit</a> Switched to hjson extension ]
 </p>
@@ -1259,8 +1259,8 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 
 <div id="outline-container-Change%20Log--Nov%2022" class="outline-4">
-<h4 id="Change%20Log--Nov%2022">Nov 22</h4>
-<div class="outline-text-4" id="text-Change%20Log--Nov%2022">
+<h4 id="2c61fcdfa"><a id="Change%20Log--Nov%2022"></a>Nov 22</h4>
+<div class="outline-text-4" id="text-2c61fcdfa">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/2c61fcdfa">commit</a> Added optional mod minimum game version ]
 </p>
@@ -1272,8 +1272,8 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 
 <div id="outline-container-Nov%2020" class="outline-4">
-<h4 id="Nov%2020">Nov 20</h4>
-<div class="outline-text-4" id="text-Nov%2020">
+<h4 id="968f3ace3"><a id="Nov%2020"></a>Nov 20</h4>
+<div class="outline-text-4" id="text-968f3ace3">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/968f3ace3">commit</a> Better mod parsing ]
 </p>
@@ -1501,7 +1501,7 @@ Fields for all objects that are blocks.
 <td class="org-left">sync</td>
 <td class="org-left">boolean</td>
 <td class="org-right">&#xa0;</td>
-<td class="org-left"><b>[new ]</b> Whether to periodically sync this block across the network.</td>
+<td class="org-left"><b>[new <a href="#a087df077">Dec 04</a>]</b> Whether to periodically sync this block across the network.</td>
 </tr>
 
 <tr>
@@ -1736,7 +1736,7 @@ For example with <a href="#ConsumeItems">ConsumeItems</a> and <a href="#ConsumeL
 <h3 id="Consume"><span class="section-number-3">2.3</span> Consume</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-<a href="#orga149427">Abstract</a> type which defines a type of resource that a block can consume.
+<a href="#orgea4bd53">Abstract</a> type which defines a type of resource that a block can consume.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1932,7 +1932,7 @@ Type to consume or buffer power.
 <h3 id="BlockStorage"><span class="section-number-3">2.4</span> BlockStorage</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
-<a href="#orga149427">Abstract</a> type that extends <a href="#Content">Content</a>
+<a href="#orgea4bd53">Abstract</a> type that extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -3679,13 +3679,13 @@ Defaults:
 
 <tr>
 <td class="org-left">consumes</td>
-<td class="org-left"><a href="#orgd606f8c">cold-liquid</a></td>
+<td class="org-left"><a href="#orgbc97721">cold-liquid</a></td>
 </tr>
 </tbody>
 </table>
 
 <p>
-<a id="orgd606f8c"></a><a href="#orgd606f8c">cold-liquid</a>:
+<a id="orgbc97721"></a><a href="#orgbc97721">cold-liquid</a>:
 </p>
 <ul class="org-ul">
 <li>temperature less then 0.5</li>
@@ -3820,7 +3820,7 @@ This section is for turret types. All turrets shoot <a href="#BulletType">Bullet
 <h4 id="Turret">Turret</h4>
 <div class="outline-text-4" id="text-Turret">
 <p>
-<a href="#orga149427">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgea4bd53">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -5839,7 +5839,7 @@ Extends <a href="#ExtendingItemBridge">ExtendingItemBridge</a>
 <h4 id="PowerBlock">PowerBlock</h4>
 <div class="outline-text-4" id="text-PowerBlock">
 <p>
-<a href="#orga149427">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgea4bd53">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -7665,7 +7665,7 @@ Defaults:
 <h4 id="StorageBlock">StorageBlock</h4>
 <div class="outline-text-4" id="text-StorageBlock">
 <p>
-<a href="#orga149427">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgea4bd53">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -9641,11 +9641,11 @@ Flags used by for cache render:
 <h3 id="BulletType"><span class="section-number-3">5.1</span> BulletType</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
-<a href="#orga149427">Abstract</a> type which extends <a href="#Content">Content</a>
+<a href="#orgea4bd53">Abstract</a> type which extends <a href="#Content">Content</a>
 </p>
 
 <p>
-BulletType can either be an object <code>{}</code> or a <code>"string"</code>, where a string would be reusing and an object would be making a custom one.
+BulletType can either be an object <code>{}</code> or a <code>"string"</code>, where a string would be reusing <a href="#Built-in%20Bullets">Built-in Bullets</a> and an object would be making a custom one.
 </p>
 
 <p>
@@ -11383,7 +11383,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2019-12-10 Tue 13:34</p>
+<p class="date">Created: 2019-12-10 Tue 15:18</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

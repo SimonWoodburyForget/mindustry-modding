@@ -13,7 +13,6 @@
 
 #+TODO: TODO UNTESTED | NEW DONE
 #+EXCLUDE_TAGS: TODO
-#+OPTIONS: broken-links:t
 
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles/main/css/htmlize.css"/>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="styles/main/css/main.css"/>
@@ -499,14 +498,13 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * <<bleeding-edge>> what is ~bleeding-edge~? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.
 
 ** Change Log
-   :PROPERTIES:
-   :DESCRIPTION: log of changes   
-   :END:
+
    This is a log of changes done on the Mindustry Master branch that affected the modding API. The sections are ordered by date commited, and provide a description of what was changed, with a link to the diff on Github.
 
 *** Dec 09
     :PROPERTIES:
     :UNNUMBERED: t
+    :CUSTOM_ID: 74dc31b10a82763d4f1ff29d32ae430ee87b9def
     :END:
     
     [ [[https://github.com/Anuken/Mindustry/commit/74dc31b10a82763d4f1ff29d32ae430ee87b9def][commit]]  Removed unnecessary unit types ]
@@ -524,6 +522,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 *** Dec 08
     :PROPERTIES:
     :UNNUMBERED: t
+    :CUSTOM_ID: 268f3cc3c
     :END:
     [ [[https://github.com/Anuken/Mindustry/commit/268f3cc3c][commit]] Merge branches 'master' and 'rhino-js-suffering' ]
     
@@ -533,6 +532,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :PROPERTIES:
     :UNNUMBERED: t
     :DESCRIPTION: Added experimental server block syncing
+    :CUSTOM_ID: a087df077
     :END:
     [ [[https://github.com/Anuken/Mindustry/commit/a087df077][commit]] Added experimental server block syncing ]
 
@@ -542,6 +542,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :PROPERTIES:
     :UNNUMBERED: t
     :DESCRIPTION: Texture overrides / Potential mod texture binding optimizations
+    :CUSTOM_ID: a5fbc0756
     :END:
     [ [[https://github.com/Anuken/Mindustry/commit/a5fbc0756][commit]] Texture overrides / Potential mod texture binding optimizations ]
 
@@ -551,6 +552,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :PROPERTIES:
     :UNNUMBERED: t
     :DESCRIPTION: Switched to hjson extension
+    :CUSTOM_ID: 2d4270406
     :END:
     [ [[https://github.com/Anuken/Mindustry/commit/2d4270406][commit]] Switched to hjson extension ]
     
@@ -560,6 +562,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :PROPERTIES:
     :UNNUMBERED: t
     :DESCRIPTION: Added optional mod minimum game version
+    :CUSTOM_ID: 2c61fcdfa
     :END:
     [ [[https://github.com/Anuken/Mindustry/commit/2c61fcdfa][commit]] Added optional mod minimum game version ]
 
@@ -569,6 +572,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :PROPERTIES:
     :UNNUMBERED: t
     :DESCRIPTION: Better mod parsing
+    :CUSTOM_ID: 968f3ace3
     :END:
     [ [[https://github.com/Anuken/Mindustry/commit/968f3ace3][commit]] Better mod parsing ]
     
@@ -2863,7 +2867,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    [[Abstract][Abstract]] type which extends [[Content][Content]]
 
-   BulletType can either be an object ~{}~ or a ~"string"~, where a string would be reusing [[Built-in-Bullets][Built-in Bullets]] and an object would be making a custom one.
+   BulletType can either be an object ~{}~ or a ~"string"~, where a string would be reusing [[Built-in Bullets][Built-in Bullets]] and an object would be making a custom one.
 
    There are two major categories of bullet types:
    * [[BasicBulletType][BasicBulletType]] and,
