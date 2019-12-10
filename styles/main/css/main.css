@@ -82,32 +82,22 @@ body
     height:100%;
     /* position:absolute; */
     /* position:relative; */
-    position:fixed;
+    /* position:fixed; */
     overflow-x:hidden;
     /* left: 240px; */
-    
+    margin-left: 240px;
 
-    
     /* margin-right:1em; */
     /* transform: translateX(240px); */
     /* margin:auto; */
-    left:240px;
+    /* left:240px;  */
     
     padding:0.9em;
-    /* min-width:25em; */
-    /* min-width:40% */
-    /* width:800px; */
     width: 87%;
-    /* min-width: 20em; */
+
     max-width: 45em;
-    margin-left:2.5%;
+    /* margin-left:2.5%; */
     margin-right:2.5%;
-    /* max-width: 40em; */
-    /* margin: 1em; */
-    /* margin: 1em; */
-    /* max-width: 800px; */
-    /* min-width: 25em; */
-    /* min-height:100%; */
 
 }
 
@@ -186,11 +176,11 @@ dd
    background-color: #ffa;
 }
 
-/* Table of Contents */
+/* toc/Table-of-Contents */
 
 div#table-of-contents
 {
-    background: #212424;
+    background: #303030;
     position: fixed;
     /* position:absolute; */
     /* position:relative; */
@@ -204,9 +194,16 @@ div#table-of-contents
     padding-top: 0px;
     padding-left: 0px;
     scrollbar-color: #595959 #a0a0a0;
-    scrollbar-width: thin;
+    
     z-index: 1;
+    border: 2px solid #303030;
 }
+
+/* Welcome to scrollbar hell. */
+div#table-of-contents::-webkit-scrollbar { width: 0 !important; }
+div#table-of-contents { overflow: -moz-scrollbars-none; }
+div#table-of-contents { -ms-overflow-style: none; }
+div#table-of-contents { scrollbar-width: none; }
 
 div#text-table-of-contents
 {
@@ -259,6 +256,7 @@ div#text-table-of-contents
     background: #2980B9;
     color: #f0f0f0;
     z-index: 2;
+    border: 2px solid #303030;
 }
 
 
@@ -390,7 +388,9 @@ table thead th
 /* Reactive */
 
 #table-of-contents.unshow
-{width:0;}
+{
+    width:0;
+}
 #postamble.unshow
 {
     width:0;
@@ -398,7 +398,8 @@ table thead th
 }
 #content.unshow
 {
-    left:0;
+    /* left:0; */
+    margin-left: 0;
 }
 
 /* /\* {margin:auto;} *\/ */
@@ -427,6 +428,9 @@ div#toggle
     width:240px;
     position:fixed;
     font-size: 1.4em;
+    
+    border: 2px solid #303030;
+    border-bottom-width: 0;
 }
 
 div#toggle.unshow
@@ -478,89 +482,21 @@ div#toggle.unshow
 /* ================================================================ */
 /* Hidden */
 
+/* Weird validation thing Org Mode generates. */
 p.validation
 {
     display:none;
 }
 
+/* Code block language annotation that is not properly alligned. */
 pre::before
 {
     content: none !important;
 }
 
-/* :target */
-/* { */
-/*     flo */
-/* } */
-
-
 /* ================================================================ */
 /* Themes */
 
-/* Dark */
-/* ==== */
-
-/* body, */
-/* #table-of-contents code */
-/* { */
-/*     background:#202020; */
-/*     color:#edf0f2; */
-/* } */
-
-
-/* #content */
-/* { */
-/*     background: #202020; */
-/*     scrollbar-color: #a0a0a0 #595959; */
-/* } */
-
-/* code, pre, pre.src, */
-/* table, */
-/* td, td.org-left, td.org-right, */
-/* th, th.org-right, th.org-left, */
-/* div#table-of-contents */
-/* { */
-/*     background: #202020; */
-/* } */
-
-/* pre */
-/* { */
-/*     box-shadow: 3px 3px #eee; */
-/* } */
-
-/* a */
-/* { */
-/*     color: #ffa; */
-/* } */
-
-/* :target */
-/* { */
-/*     color: #202020; */
-/*     background: #ffa; */
-/* } */
-
-/* :target > code */
-/* { */
-/*     color: #ffa; */
-/* } */
-
-
-/* div.outline-2 */
-/* { */
-/*     border-top: 2px solid #f0f0f0; */
-/* } */
-
-/* div.outline-3 */
-/* { */
-/*     border-top: 2px solid #909090; */
-/* } */
-
-/* div.outline-4 */
-/* { */
-/*     border-top: 2px solid #303030; */
-/* } */
-
-/* div.outline-5 */
-/* { */
-/*     border-top: 2px solid #303030; */
-/* } */
+/* Dark Theme */
+/* ========== */
+/* helper/style.cljs */
