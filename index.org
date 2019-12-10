@@ -62,6 +62,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    ├── bundles
    ├── sounds
    ├── schematics
+   ├── scripts
    ├── sprites-override
    └── sprites
    #+END_SRC
