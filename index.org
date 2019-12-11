@@ -56,6 +56,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    │   ├── liquids
    │   ├── units
    │   └── zones
+   ├── maps
    ├── bundles
    ├── sounds
    ├── schematics
