@@ -2925,7 +2925,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | ammoMultiplier     | float        |       2 | how many bullets get created per item/liquid |
    | reloadMultiplier   | float        |       1 | multiplied by turret reload speed |
    | recoil             | float        |         | recoil from shooter entities |
-   | splashDamage       | float        |       0 | Area of effect damage when the bullet despawns or hits a target. Damage is calculated with [[https://en.wikipedia.org/wiki/Linear_interpolation][linear interpolation]] (also known as lerp). |
    | knockback          | float        |         | Knockback in velocity. |
    | hitTiles           | boolean      |    true | Whether this bullet hits tiles. |
    | status             | [[StatusEffect][StatusEffect]] |    none | Status effect applied on hit. |
@@ -2939,7 +2938,8 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | fragVelocityMin    | float        |     0.2 | Minimum random multiplier. |
    | fragVelocityMax    | float        |       1 | Maximum random multiplier. |
    | fragBullet         | [[BulletType][BulletType]]   |    null | The frag bullet that will be created, may be a string, an object or null. If field is null, no frag bullet is created. |
-   | splashDamageRadius | float        |      -1 | Use a negative value to disable splash damage. |
+   | splashDamage       | float        |       0 | Area of effect damage when the bullet despawns or hits a target. Damage is calculated with [[https://en.wikipedia.org/wiki/Linear_interpolation][linear interpolation]], also known as lerp. |
+   | splashDamageRadius | float        |      -1 | Use a negative value to disable splash damage. ~splashDamageRadius~ is a value used in the equation ~lerp(1 - distance / radius, 1, 0.4)~ which is a multiplier for ~splashDamage~. |
    | incendAmount       | int          |       0 |            |
    | incendSpread       | float        |       8 |            |
    | incendChance       | float        |       1 |            |
