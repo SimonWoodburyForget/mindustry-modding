@@ -2842,7 +2842,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    * ~ff0000~ is red,
    * ~00ff00~ is green,
-   * ~00ffff~ is blue,
+   * ~0000ff~ is blue,
    * ~ffff00~ is yellow,
    * ~00ffff~ is cyan,
    * /ect../
