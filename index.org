@@ -389,41 +389,41 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      #+BEGIN_SRC js
        // create a simple shockwave effect
        const siloLaunchEffect = newEffect(20, e => {
-    
+
            // color goes from white to light gray
            Draw.color(Color.white, Color.lightGray, e.fin());
-    
+
            // line thickness goes from 3 to 0
            Lines.stroke(e.fout() * 3);
-    
+
            // draw a circle whose radius goes from 0 to 100
            Lines.circle(e.x, e.y, e.fin() * 100); 
        });
 
        // create the block type
        const silo = extendContent(Block, "scatter-silo", {
-    
+
            // override the method to build configuration
            buildConfiguration(tile, table) {
                table.addImageButton(
                    Icon.arrowUpSmall, 
                    Styles.clearTransi,
-            
+
                    // configure the tile to signal that it has been 
                    // pressed (this sync on client to server)
                    run(() => tile.configure(0))
                ).size(50);
            },
-    
+
            // override configure event
            configured(tile, value) {
-        
+
                // make sure this silo has the items it needs to fire
                if (tile.entity.cons.valid()) {
-            
+
                    // make this effect occur at the tile location
                    Effects.effect(siloLaunchEffect, tile);
-            
+
                    // create 10 bullets at this tile's location with
                    // random rotation and velocity/lifetime
                    for (var i = 0; i < 10; i++) {
@@ -460,10 +460,10 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
        hasItems: true
        configurable: true
 
-       requirements: [ graphite/75
-                       titanium/30 ]
+       requirements: [ "graphite/75"
+                       "titanium/30" ]
 
-       consumes: { items: { items: [ scrap/10 ] } }
+       consumes: { items: { items: [ "scrap/10" ] } }
      #+END_SRC
 
 *** extendContent
