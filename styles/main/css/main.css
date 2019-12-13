@@ -388,21 +388,6 @@ table thead th
 /* ================================================================ */
 /* Reactive */
 
-#table-of-contents.unshow
-{
-    width:0;
-}
-#postamble.unshow
-{
-    width:0;
-    display:none;
-}
-#content.unshow
-{
-    /* left:0; */
-    margin-left: 0;
-}
-
 /* /\* {margin:auto;} *\/ */
 /* {margin-left:auto;} */
 
@@ -449,36 +434,47 @@ div#toggle.unshow
     outline:0;
 }
 
-/* #table-of-contents.show */
-/* {display: none;} */
-/* #postamble.show */
-/* {display: none;} */
-/* #content.show */
-/* {margin-left:240px;} */
 
-@media (width <= 1000px) {
-    #content
-    {
-        /* width: calc(90vw - 240px); */
-        width: calc(97vm - 240px);
-    }
+/* Hides the toc. */
+#table-of-contents.unshow
+{
+    width:0;
+}
+#postamble.unshow
+{
+    width:0;
+    display:none;
 }
 
-@media (width <= 750px) {
+/* Centers the page if the toc is closed. */
+#content.unshow
+{
+    /* left:0; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Centers menu up until it "touches" the toc when centered. */
+@media (width >= calc(50em + 240px * 2)) {
     #content
     {
         width: 97vw;
-        margin: 0;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }
 
-@media (width <= 670px) {
+/* Default forces toc to always touch. */
+
+/* Centers menu after content "touches" the outside margin.  */
+@media (width <= calc(50em + 240px)) {
     #content
     {
         width: 97vw;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }
-
 
 
 /* ================================================================ */
