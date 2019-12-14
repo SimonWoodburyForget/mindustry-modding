@@ -1,5 +1,5 @@
 #+TITLE: Mindustry Modding Guide
-#+SUBTITLE: Modding documentation for Mindustry v100 (144)
+#+SUBTITLE: Modding documentation for Mindustry v101
 :PREAMBLE:
 
 #+AUTHOR: Simon Woodbury-Forget
@@ -119,6 +119,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    #+BEGIN_SRC yaml
    name: Mod Name
+   displayName: Mod [red]Name[]
    author: Yourself
    description: This is a useless description.
    version: "1.0"
@@ -127,10 +128,11 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    #+END_SRC
 
    Notes:
-   * ~name~ will be used to reference to your mod, so name it carefully, and avoid giving it the same name as another mod;
+   * ~name~ will be used to reference to your mod, so name it carefully;
+   * ~displayName~ this will be used as a display name for the UI, which you can use to add formatting to said name;
    * ~description~ of the mod will be rendered in the ingame mod manager, so keep it short and to the point;
    * ~dependencies~ is optional, if you want to know more about that, go to the [[Dependencies][dependencies]] section;
-   * *[new [[#2c61fcdfa]]]* ~minGameVersion~ is the minimum build version of the game.
+   * ~minGameVersion~ is the minimum build version of the game.
 
 ** Content
    :PROPERTIES:
@@ -518,16 +520,15 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
       * [ ~Wraith~ ~Ghoul~ ] \to ~FlyingUnit~;
       * ~Revenant~ \to ~HoverUnit~;
 
-
-
 *** Dec 08
     :PROPERTIES:
     :UNNUMBERED: t
     :CUSTOM_ID: 268f3cc3c
     :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/268f3cc3c][commit]] Merge branches 'master' and 'rhino-js-suffering' ]
+    [ [[https://github.com/Anuken/Mindustry/commit/268f3cc3c][commit]] Merge branches ~master~ and ~rhino-js-suffering~ ]
     
     * ~scripts/~ sub-directory and Rhino JS runtime was added;
+    * ~displayName~ can now be used as field name in ~mod.json~
     
 *** Dec 04
     :PROPERTIES:
