@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-17 Tue 00:40 -->
+<!-- 2019-12-19 Thu 08:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -1144,11 +1144,11 @@ For example:
 Function to extend content which takes three arguments.
 </p>
 
-<ul class="org-ul">
+<ol class="org-ol">
 <li><code>classType</code> the type of class you want to extend;</li>
 <li><code>name</code> the name of your type;</li>
 <li><code>params</code> the object which will be used to extend the type.</li>
-</ul>
+</ol>
 </div>
 </div>
 
@@ -1159,10 +1159,10 @@ Function to extend content which takes three arguments.
 Function which takes two arguments. 
 </p>
 
-<ul class="org-ul">
+<ol class="org-ol">
 <li><code>lifetime</code></li>
 <li><code>renderer</code></li>
-</ul>
+</ol>
 </div>
 </div>
 
@@ -1184,9 +1184,9 @@ Function which prints text to stdout with the name of your mod.
 <li><code>ticks</code> <i>sometimes called <code>frames</code>,</i> are assumed to be 60/1 second;</li>
 <li><code>tilesize</code> is 8 units internally;</li>
 <li>to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;</li>
-<li><a id="org8d7ad4a"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
+<li><a id="orgabaedff"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
 <li>what is a <code>NullPointerException</code>? This is an error message that indicates a field is null and shouldn't be null, meaning one of the required fields may be missing;</li>
-<li><a id="org9c47ae2"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
+<li><a id="org603daa3"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
 </ul>
 </div>
 </div>
@@ -1751,7 +1751,7 @@ For example with <a href="#ConsumeItems">ConsumeItems</a> and <a href="#ConsumeL
 <h3 id="Consume"><span class="section-number-3">2.3</span> Consume</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-<a href="#org8d7ad4a">Abstract</a> type which defines a type of resource that a block can consume.
+<a href="#orgabaedff">Abstract</a> type which defines a type of resource that a block can consume.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1947,7 +1947,7 @@ Type to consume or buffer power.
 <h3 id="BlockStorage"><span class="section-number-3">2.4</span> BlockStorage</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
-<a href="#org8d7ad4a">Abstract</a> type that extends <a href="#Content">Content</a>
+<a href="#orgabaedff">Abstract</a> type that extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -3694,13 +3694,13 @@ Defaults:
 
 <tr>
 <td class="org-left">consumes</td>
-<td class="org-left"><a href="#org0a11192">cold-liquid</a></td>
+<td class="org-left"><a href="#orgf7b48c5">cold-liquid</a></td>
 </tr>
 </tbody>
 </table>
 
 <p>
-<a id="org0a11192"></a><a href="#org0a11192">cold-liquid</a>:
+<a id="orgf7b48c5"></a><a href="#orgf7b48c5">cold-liquid</a>:
 </p>
 <ul class="org-ul">
 <li>temperature less then 0.5</li>
@@ -3835,7 +3835,7 @@ This section is for turret types. All turrets shoot <a href="#BulletType">Bullet
 <h4 id="Turret">Turret</h4>
 <div class="outline-text-4" id="text-Turret">
 <p>
-<a href="#org8d7ad4a">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgabaedff">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -5854,7 +5854,7 @@ Extends <a href="#ExtendingItemBridge">ExtendingItemBridge</a>
 <h4 id="PowerBlock">PowerBlock</h4>
 <div class="outline-text-4" id="text-PowerBlock">
 <p>
-<a href="#org8d7ad4a">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgabaedff">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -7680,7 +7680,7 @@ Defaults:
 <h4 id="StorageBlock">StorageBlock</h4>
 <div class="outline-text-4" id="text-StorageBlock">
 <p>
-<a href="#org8d7ad4a">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#orgabaedff">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -9665,7 +9665,7 @@ Flags used by for cache render:
 <h3 id="BulletType"><span class="section-number-3">5.1</span> BulletType</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
-<a href="#org8d7ad4a">Abstract</a> type which extends <a href="#Content">Content</a>
+<a href="#orgabaedff">Abstract</a> type which extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -10917,484 +10917,484 @@ Types which implement Objective are as follows:
 <div class="org-src-container">
 <pre class="src src-fundamental">core/src/io/anuke/mindustry/
 &#9500;&#9472;&#9472; ai
-&#9474;   &#9500;&#9472;&#9472; BlockIndexer.java
-&#9474;   &#9500;&#9472;&#9472; Pathfinder.java
-&#9474;   &#9492;&#9472;&#9472; WaveSpawner.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; BlockIndexer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Pathfinder.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; WaveSpawner.java
 &#9500;&#9472;&#9472; ClientLauncher.java
 &#9500;&#9472;&#9472; content
-&#9474;   &#9500;&#9472;&#9472; Blocks.java
-&#9474;   &#9500;&#9472;&#9472; Bullets.java
-&#9474;   &#9500;&#9472;&#9472; Fx.java
-&#9474;   &#9500;&#9472;&#9472; Items.java
-&#9474;   &#9500;&#9472;&#9472; Liquids.java
-&#9474;   &#9500;&#9472;&#9472; Loadouts.java
-&#9474;   &#9500;&#9472;&#9472; Mechs.java
-&#9474;   &#9500;&#9472;&#9472; StatusEffects.java
-&#9474;   &#9500;&#9472;&#9472; TechTree.java
-&#9474;   &#9500;&#9472;&#9472; TypeIDs.java
-&#9474;   &#9500;&#9472;&#9472; UnitTypes.java
-&#9474;   &#9492;&#9472;&#9472; Zones.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Blocks.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Bullets.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Fx.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Items.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Liquids.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Loadouts.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Mechs.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; StatusEffects.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; TechTree.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; TypeIDs.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; UnitTypes.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; Zones.java
 &#9500;&#9472;&#9472; core
-&#9474;   &#9500;&#9472;&#9472; ContentLoader.java
-&#9474;   &#9500;&#9472;&#9472; Control.java
-&#9474;   &#9500;&#9472;&#9472; FileTree.java
-&#9474;   &#9500;&#9472;&#9472; GameState.java
-&#9474;   &#9500;&#9472;&#9472; Logic.java
-&#9474;   &#9500;&#9472;&#9472; NetClient.java
-&#9474;   &#9500;&#9472;&#9472; NetServer.java
-&#9474;   &#9500;&#9472;&#9472; Platform.java
-&#9474;   &#9500;&#9472;&#9472; Renderer.java
-&#9474;   &#9500;&#9472;&#9472; UI.java
-&#9474;   &#9500;&#9472;&#9472; Version.java
-&#9474;   &#9492;&#9472;&#9472; World.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ContentLoader.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Control.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; FileTree.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; GameState.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Logic.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; NetClient.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; NetServer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Platform.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Renderer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; UI.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Version.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; World.java
 &#9500;&#9472;&#9472; ctype
-&#9474;   &#9500;&#9472;&#9472; Content.java
-&#9474;   &#9500;&#9472;&#9472; ContentList.java
-&#9474;   &#9500;&#9472;&#9472; MappableContent.java
-&#9474;   &#9492;&#9472;&#9472; UnlockableContent.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Content.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ContentList.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ContentType.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MappableContent.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; UnlockableContent.java
 &#9500;&#9472;&#9472; editor
-&#9474;   &#9500;&#9472;&#9472; DrawOperation.java
-&#9474;   &#9500;&#9472;&#9472; EditorTile.java
-&#9474;   &#9500;&#9472;&#9472; EditorTool.java
-&#9474;   &#9500;&#9472;&#9472; MapEditorDialog.java
-&#9474;   &#9500;&#9472;&#9472; MapEditor.java
-&#9474;   &#9500;&#9472;&#9472; MapGenerateDialog.java
-&#9474;   &#9500;&#9472;&#9472; MapInfoDialog.java
-&#9474;   &#9500;&#9472;&#9472; MapLoadDialog.java
-&#9474;   &#9500;&#9472;&#9472; MapRenderer.java
-&#9474;   &#9500;&#9472;&#9472; MapResizeDialog.java
-&#9474;   &#9500;&#9472;&#9472; MapSaveDialog.java
-&#9474;   &#9500;&#9472;&#9472; MapView.java
-&#9474;   &#9500;&#9472;&#9472; OperationStack.java
-&#9474;   &#9492;&#9472;&#9472; WaveInfoDialog.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; DrawOperation.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; EditorTile.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; EditorTool.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapEditorDialog.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapEditor.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapGenerateDialog.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapInfoDialog.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapLoadDialog.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapRenderer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapResizeDialog.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapSaveDialog.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapView.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; OperationStack.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; WaveInfoDialog.java
 &#9500;&#9472;&#9472; entities
-&#9474;   &#9500;&#9472;&#9472; bullet
-&#9474;   &#9474;   &#9500;&#9472;&#9472; ArtilleryBulletType.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BasicBulletType.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BombBulletType.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BulletType.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; FlakBulletType.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; HealBulletType.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; LiquidBulletType.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; MassDriverBolt.java
-&#9474;   &#9474;   &#9492;&#9472;&#9472; MissileBulletType.java
-&#9474;   &#9500;&#9472;&#9472; Damage.java
-&#9474;   &#9500;&#9472;&#9472; effect
-&#9474;   &#9474;   &#9500;&#9472;&#9472; Decal.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; Fire.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; GroundEffectEntity.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; ItemTransfer.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; Lightning.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; Puddle.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; RubbleDecal.java
-&#9474;   &#9474;   &#9492;&#9472;&#9472; ScorchDecal.java
-&#9474;   &#9500;&#9472;&#9472; Effects.java
-&#9474;   &#9500;&#9472;&#9472; Entities.java
-&#9474;   &#9500;&#9472;&#9472; EntityCollisions.java
-&#9474;   &#9500;&#9472;&#9472; EntityGroup.java
-&#9474;   &#9500;&#9472;&#9472; Predict.java
-&#9474;   &#9500;&#9472;&#9472; TargetPriority.java
-&#9474;   &#9500;&#9472;&#9472; traits
-&#9474;   &#9474;   &#9500;&#9472;&#9472; AbsorbTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BelowLiquidTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BuilderMinerTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BuilderTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; DamageTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; DrawTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; Entity.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; HealthTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; KillerTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; MinerTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; MoveTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; Saveable.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; SaveTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; ScaleTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; ShooterTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; SolidTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; SpawnerTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; SyncTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; TargetTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; TeamTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; TimeTrait.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; TypeTrait.java
-&#9474;   &#9474;   &#9492;&#9472;&#9472; VelocityTrait.java
-&#9474;   &#9500;&#9472;&#9472; type
-&#9474;   &#9474;   &#9500;&#9472;&#9472; base
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; BaseDrone.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; BuilderDrone.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; Crawler.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; Dagger.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; Draug.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; Eruptor.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; FlyingUnit.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; Fortress.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; Ghoul.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; GroundUnit.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; MinerDrone.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; Phantom.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; RepairDrone.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; Revenant.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; Spirit.java
-&#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; Titan.java
-&#9474;   &#9474;   &#9474;   &#9492;&#9472;&#9472; Wraith.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BaseEntity.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BaseUnit.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; Bullet.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; DestructibleEntity.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; EffectEntity.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; Player.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; SolidEntity.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; TileEntity.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; TimedEntity.java
-&#9474;   &#9474;   &#9492;&#9472;&#9472; Unit.java
-&#9474;   &#9500;&#9472;&#9472; units
-&#9474;   &#9474;   &#9500;&#9472;&#9472; StateMachine.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; Statuses.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; UnitCommand.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; UnitDrops.java
-&#9474;   &#9474;   &#9492;&#9472;&#9472; UnitState.java
-&#9474;   &#9492;&#9472;&#9472; Units.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; bullet
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ArtilleryBulletType.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BasicBulletType.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BombBulletType.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BulletType.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; FlakBulletType.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; HealBulletType.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidBulletType.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MassDriverBolt.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; MissileBulletType.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Damage.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; effect
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Decal.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Fire.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; GroundEffectEntity.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemTransfer.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Lightning.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Puddle.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; RubbleDecal.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; ScorchDecal.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Effects.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Entities.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; EntityCollisions.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; EntityGroup.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Predict.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; TargetPriority.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; traits
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; AbsorbTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BelowLiquidTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BuilderMinerTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BuilderTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; DamageTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; DrawTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Entity.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; HealthTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; KillerTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MinerTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MoveTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Saveable.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; SaveTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ScaleTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ShooterTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; SolidTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; SpawnerTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; SyncTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; TargetTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; TeamTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; TimeTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; TypeTrait.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; VelocityTrait.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; type
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; base
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BaseDrone.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BuilderDrone.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; FlyingUnit.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; GroundUnit.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; HoverUnit.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MinerDrone.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; RepairDrone.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BaseEntity.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BaseUnit.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Bullet.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; DestructibleEntity.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; EffectEntity.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Player.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; SolidEntity.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; TileEntity.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; TimedEntity.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; Unit.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; units
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; StateMachine.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Statuses.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; UnitCommand.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; UnitDrops.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; UnitState.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; Units.java
 &#9500;&#9472;&#9472; game
-&#9474;   &#9500;&#9472;&#9472; DefaultWaves.java
-&#9474;   &#9500;&#9472;&#9472; Difficulty.java
-&#9474;   &#9500;&#9472;&#9472; EventType.java
-&#9474;   &#9500;&#9472;&#9472; Gamemode.java
-&#9474;   &#9500;&#9472;&#9472; GlobalData.java
-&#9474;   &#9500;&#9472;&#9472; LoopControl.java
-&#9474;   &#9500;&#9472;&#9472; MusicControl.java
-&#9474;   &#9500;&#9472;&#9472; Objective.java
-&#9474;   &#9500;&#9472;&#9472; Objectives.java
-&#9474;   &#9500;&#9472;&#9472; Rules.java
-&#9474;   &#9500;&#9472;&#9472; Saves.java
-&#9474;   &#9500;&#9472;&#9472; Schematic.java
-&#9474;   &#9500;&#9472;&#9472; Schematics.java
-&#9474;   &#9500;&#9472;&#9472; SoundLoop.java
-&#9474;   &#9500;&#9472;&#9472; SpawnGroup.java
-&#9474;   &#9500;&#9472;&#9472; Stats.java
-&#9474;   &#9500;&#9472;&#9472; Team.java
-&#9474;   &#9500;&#9472;&#9472; Teams.java
-&#9474;   &#9492;&#9472;&#9472; Tutorial.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; DefaultWaves.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Difficulty.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; EventType.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Gamemode.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; GlobalData.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; LoopControl.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MusicControl.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Objective.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Objectives.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Rules.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Saves.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Schematic.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Schematics.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; SoundLoop.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; SpawnGroup.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Stats.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Team.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Teams.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; Tutorial.java
 &#9500;&#9472;&#9472; graphics
-&#9474;   &#9500;&#9472;&#9472; BlockRenderer.java
-&#9474;   &#9500;&#9472;&#9472; Bloom.java
-&#9474;   &#9500;&#9472;&#9472; CacheLayer.java
-&#9474;   &#9500;&#9472;&#9472; Drawf.java
-&#9474;   &#9500;&#9472;&#9472; FloorRenderer.java
-&#9474;   &#9500;&#9472;&#9472; IndexedRenderer.java
-&#9474;   &#9500;&#9472;&#9472; Layer.java
-&#9474;   &#9500;&#9472;&#9472; MenuRenderer.java
-&#9474;   &#9500;&#9472;&#9472; MinimapRenderer.java
-&#9474;   &#9500;&#9472;&#9472; OverlayRenderer.java
-&#9474;   &#9500;&#9472;&#9472; Pal.java
-&#9474;   &#9500;&#9472;&#9472; Pixelator.java
-&#9474;   &#9492;&#9472;&#9472; Shaders.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; BlockRenderer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Bloom.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; CacheLayer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Drawf.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; FloorRenderer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; IndexedRenderer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Layer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; LightRenderer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MenuRenderer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MinimapRenderer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MultiPacker.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; OverlayRenderer.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Pal.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Pixelator.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; Shaders.java
 &#9500;&#9472;&#9472; input
-&#9474;   &#9500;&#9472;&#9472; Binding.java
-&#9474;   &#9500;&#9472;&#9472; DesktopInput.java
-&#9474;   &#9500;&#9472;&#9472; InputHandler.java
-&#9474;   &#9500;&#9472;&#9472; MobileInput.java
-&#9474;   &#9500;&#9472;&#9472; PlaceMode.java
-&#9474;   &#9492;&#9472;&#9472; PlaceUtils.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Binding.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; DesktopInput.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; InputHandler.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MobileInput.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Placement.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; PlaceMode.java
 &#9500;&#9472;&#9472; io
-&#9474;   &#9500;&#9472;&#9472; JsonIO.java
-&#9474;   &#9500;&#9472;&#9472; LegacyMapIO.java
-&#9474;   &#9500;&#9472;&#9472; MapIO.java
-&#9474;   &#9500;&#9472;&#9472; SaveFileReader.java
-&#9474;   &#9500;&#9472;&#9472; SaveIO.java
-&#9474;   &#9500;&#9472;&#9472; SaveMeta.java
-&#9474;   &#9500;&#9472;&#9472; SavePreviewLoader.java
-&#9474;   &#9500;&#9472;&#9472; SaveVersion.java
-&#9474;   &#9500;&#9472;&#9472; TypeIO.java
-&#9474;   &#9492;&#9472;&#9472; versions
-&#9474;       &#9500;&#9472;&#9472; LegacyTypeTable.java
-&#9474;       &#9500;&#9472;&#9472; Save1.java
-&#9474;       &#9500;&#9472;&#9472; Save2.java
-&#9474;       &#9492;&#9472;&#9472; Save3.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; JsonIO.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; LegacyMapIO.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapIO.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; SaveFileReader.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; SaveIO.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; SaveMeta.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; SavePreviewLoader.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; SaveVersion.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; TypeIO.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; versions
+&#9474;&#160;&#160;     &#9500;&#9472;&#9472; LegacyTypeTable.java
+&#9474;&#160;&#160;     &#9500;&#9472;&#9472; Save1.java
+&#9474;&#160;&#160;     &#9500;&#9472;&#9472; Save2.java
+&#9474;&#160;&#160;     &#9492;&#9472;&#9472; Save3.java
 &#9500;&#9472;&#9472; maps
-&#9474;   &#9500;&#9472;&#9472; filters
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BlendFilter.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; ClearFilter.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; DistortFilter.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; FilterOption.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; GenerateFilter.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; MedianFilter.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; MirrorFilter.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; NoiseFilter.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; OreFilter.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; OreMedianFilter.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; RiverNoiseFilter.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; ScatterFilter.java
-&#9474;   &#9474;   &#9492;&#9472;&#9472; TerrainFilter.java
-&#9474;   &#9500;&#9472;&#9472; generators
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BasicGenerator.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; Generator.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; MapGenerator.java
-&#9474;   &#9474;   &#9492;&#9472;&#9472; RandomGenerator.java
-&#9474;   &#9500;&#9472;&#9472; MapException.java
-&#9474;   &#9500;&#9472;&#9472; Map.java
-&#9474;   &#9500;&#9472;&#9472; MapPreviewLoader.java
-&#9474;   &#9500;&#9472;&#9472; Maps.java
-&#9474;   &#9492;&#9472;&#9472; zonegen
-&#9474;       &#9500;&#9472;&#9472; DesertWastesGenerator.java
-&#9474;       &#9492;&#9472;&#9472; OvergrowthGenerator.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; filters
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BlendFilter.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ClearFilter.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; DistortFilter.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; FilterOption.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; GenerateFilter.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MedianFilter.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MirrorFilter.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; NoiseFilter.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; OreFilter.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; OreMedianFilter.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; RiverNoiseFilter.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ScatterFilter.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; TerrainFilter.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; generators
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BasicGenerator.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Generator.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MapGenerator.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; RandomGenerator.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapException.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Map.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MapPreviewLoader.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Maps.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; zonegen
+&#9474;&#160;&#160;     &#9500;&#9472;&#9472; DesertWastesGenerator.java
+&#9474;&#160;&#160;     &#9492;&#9472;&#9472; OvergrowthGenerator.java
 &#9500;&#9472;&#9472; mod
-&#9474;   &#9500;&#9472;&#9472; ContentParser.java
-&#9474;   &#9500;&#9472;&#9472; ModCrashHandler.java
-&#9474;   &#9500;&#9472;&#9472; Mod.java
-&#9474;   &#9500;&#9472;&#9472; ModLoadingSound.java
-&#9474;   &#9492;&#9472;&#9472; Mods.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ClassAccess.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ContentParser.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Mod.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ModLoadingSound.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Mods.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; Scripts.java
 &#9500;&#9472;&#9472; net
-&#9474;   &#9500;&#9472;&#9472; Administration.java
-&#9474;   &#9500;&#9472;&#9472; ArcNetImpl.java
-&#9474;   &#9500;&#9472;&#9472; CrashSender.java
-&#9474;   &#9500;&#9472;&#9472; Host.java
-&#9474;   &#9500;&#9472;&#9472; Interpolator.java
-&#9474;   &#9500;&#9472;&#9472; NetConnection.java
-&#9474;   &#9500;&#9472;&#9472; Net.java
-&#9474;   &#9500;&#9472;&#9472; NetworkIO.java
-&#9474;   &#9500;&#9472;&#9472; Packet.java
-&#9474;   &#9500;&#9472;&#9472; Packets.java
-&#9474;   &#9500;&#9472;&#9472; Registrator.java
-&#9474;   &#9500;&#9472;&#9472; Streamable.java
-&#9474;   &#9492;&#9472;&#9472; ValidateException.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Administration.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ArcNetProvider.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; CrashSender.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Host.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Interpolator.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; NetConnection.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Net.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; NetworkIO.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Packet.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Packets.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Registrator.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Streamable.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; ValidateException.java
 &#9500;&#9472;&#9472; plugin
-&#9474;   &#9492;&#9472;&#9472; Plugin.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; Plugin.java
 &#9500;&#9472;&#9472; type
-&#9474;   &#9500;&#9472;&#9472; Category.java
-&#9474;   &#9500;&#9472;&#9472; ContentType.java
-&#9474;   &#9500;&#9472;&#9472; Item.java
-&#9474;   &#9500;&#9472;&#9472; ItemStack.java
-&#9474;   &#9500;&#9472;&#9472; ItemType.java
-&#9474;   &#9500;&#9472;&#9472; Liquid.java
-&#9474;   &#9500;&#9472;&#9472; LiquidStack.java
-&#9474;   &#9500;&#9472;&#9472; Loadout.java
-&#9474;   &#9500;&#9472;&#9472; Mech.java
-&#9474;   &#9500;&#9472;&#9472; Publishable.java
-&#9474;   &#9500;&#9472;&#9472; StatusEffect.java
-&#9474;   &#9500;&#9472;&#9472; TypeID.java
-&#9474;   &#9500;&#9472;&#9472; UnitType.java
-&#9474;   &#9500;&#9472;&#9472; Weapon.java
-&#9474;   &#9500;&#9472;&#9472; WeatherEvent.java
-&#9474;   &#9492;&#9472;&#9472; Zone.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Category.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ErrorContent.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Item.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemStack.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemType.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Liquid.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidStack.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Mech.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Publishable.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; StatusEffect.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; TypeID.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; UnitType.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Weapon.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; WeatherEvent.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; Zone.java
 &#9500;&#9472;&#9472; ui
-&#9474;   &#9500;&#9472;&#9472; Bar.java
-&#9474;   &#9500;&#9472;&#9472; BorderImage.java
-&#9474;   &#9500;&#9472;&#9472; Cicon.java
-&#9474;   &#9500;&#9472;&#9472; ContentDisplay.java
-&#9474;   &#9500;&#9472;&#9472; dialogs
-&#9474;   &#9474;   &#9500;&#9472;&#9472; AboutDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; AdminsDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BansDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; ColorPickDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; ContentInfoDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; ControlsDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; CustomGameDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; CustomRulesDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; DatabaseDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; DeployDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; DiscordDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; FileChooser.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; FloatingDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; GameOverDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; HostDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; JoinDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; LanguageDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; LoadDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; LoadoutDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; MapPlayDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; MapsDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; MinimapDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; ModsDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; PausedDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; SaveDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; SchematicsDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; SettingsMenuDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; TechTreeDialog.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; TraceDialog.java
-&#9474;   &#9474;   &#9492;&#9472;&#9472; ZoneInfoDialog.java
-&#9474;   &#9500;&#9472;&#9472; Fonts.java
-&#9474;   &#9500;&#9472;&#9472; fragments
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BlockConfigFragment.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BlockInventoryFragment.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; ChatFragment.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; FadeInFragment.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; Fragment.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; HudFragment.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; LoadingFragment.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; MenuFragment.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; OverlayFragment.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; PlacementFragment.java
-&#9474;   &#9474;   &#9492;&#9472;&#9472; PlayerListFragment.java
-&#9474;   &#9500;&#9472;&#9472; GridImage.java
-&#9474;   &#9500;&#9472;&#9472; IconSize.java
-&#9474;   &#9500;&#9472;&#9472; IntFormat.java
-&#9474;   &#9500;&#9472;&#9472; ItemDisplay.java
-&#9474;   &#9500;&#9472;&#9472; ItemImage.java
-&#9474;   &#9500;&#9472;&#9472; ItemsDisplay.java
-&#9474;   &#9500;&#9472;&#9472; layout
-&#9474;   &#9474;   &#9500;&#9472;&#9472; BranchTreeLayout.java
-&#9474;   &#9474;   &#9500;&#9472;&#9472; RadialTreeLayout.java
-&#9474;   &#9474;   &#9492;&#9472;&#9472; TreeLayout.java
-&#9474;   &#9500;&#9472;&#9472; Links.java
-&#9474;   &#9500;&#9472;&#9472; LiquidDisplay.java
-&#9474;   &#9500;&#9472;&#9472; Minimap.java
-&#9474;   &#9500;&#9472;&#9472; MobileButton.java
-&#9474;   &#9500;&#9472;&#9472; MultiReqImage.java
-&#9474;   &#9500;&#9472;&#9472; ReqImage.java
-&#9474;   &#9492;&#9472;&#9472; Styles.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Bar.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; BorderImage.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Cicon.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ContentDisplay.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; dialogs
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; AboutDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; AdminsDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BansDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ColorPicker.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ContentInfoDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ControlsDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; CustomGameDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; CustomRulesDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; DatabaseDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; DeployDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; DiscordDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; FileChooser.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; FloatingDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; GameOverDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; HostDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; JoinDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LanguageDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LoadDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LoadoutDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MapPlayDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MapsDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MinimapDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ModsDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; PaletteDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; PausedDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; SaveDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; SchematicsDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; SettingsMenuDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; TechTreeDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; TraceDialog.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; ZoneInfoDialog.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Fonts.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; fragments
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BlockConfigFragment.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BlockInventoryFragment.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ChatFragment.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; FadeInFragment.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Fragment.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; HudFragment.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LoadingFragment.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MenuFragment.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; OverlayFragment.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; PlacementFragment.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; PlayerListFragment.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; ScriptConsoleFragment.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; GridImage.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; IconSize.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; IntFormat.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemDisplay.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemImage.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemsDisplay.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; layout
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BranchTreeLayout.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; RadialTreeLayout.java
+&#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; TreeLayout.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Links.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidDisplay.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; Minimap.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MobileButton.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; MultiReqImage.java
+&#9474;&#160;&#160; &#9500;&#9472;&#9472; ReqImage.java
+&#9474;&#160;&#160; &#9492;&#9472;&#9472; Styles.java
 &#9500;&#9472;&#9472; Vars.java
 &#9492;&#9472;&#9472; world
     &#9500;&#9472;&#9472; Block.java
     &#9500;&#9472;&#9472; blocks
-    &#9474;   &#9500;&#9472;&#9472; Attributes.java
-    &#9474;   &#9500;&#9472;&#9472; Autotiler.java
-    &#9474;   &#9500;&#9472;&#9472; BlockPart.java
-    &#9474;   &#9500;&#9472;&#9472; BuildBlock.java
-    &#9474;   &#9500;&#9472;&#9472; defense
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; DeflectorWall.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Door.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; ForceProjector.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; MendProjector.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; OverdriveProjector.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; ShockMine.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; SurgeWall.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; turrets
-    &#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; ArtilleryTurret.java
-    &#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; BurstTurret.java
-    &#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; ChargeTurret.java
-    &#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; CooledTurret.java
-    &#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; DoubleTurret.java
-    &#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; ItemTurret.java
-    &#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; LaserTurret.java
-    &#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; LiquidTurret.java
-    &#9474;   &#9474;   &#9474;   &#9500;&#9472;&#9472; PowerTurret.java
-    &#9474;   &#9474;   &#9474;   &#9492;&#9472;&#9472; Turret.java
-    &#9474;   &#9474;   &#9492;&#9472;&#9472; Wall.java
-    &#9474;   &#9500;&#9472;&#9472; distribution
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; ArmoredConveyor.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; BufferedItemBridge.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Conduit.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Conveyor.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; ExtendingItemBridge.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; ItemBridge.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Junction.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; LiquidBridge.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; LiquidExtendingBridge.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; LiquidJunction.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; LiquidRouter.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; LiquidTank.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; MassDriver.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; OverflowGate.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Router.java
-    &#9474;   &#9474;   &#9492;&#9472;&#9472; Sorter.java
-    &#9474;   &#9500;&#9472;&#9472; DoubleOverlayFloor.java
-    &#9474;   &#9500;&#9472;&#9472; Floor.java
-    &#9474;   &#9500;&#9472;&#9472; ItemSelection.java
-    &#9474;   &#9500;&#9472;&#9472; LiquidBlock.java
-    &#9474;   &#9500;&#9472;&#9472; logic
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; LogicBlock.java
-    &#9474;   &#9474;   &#9492;&#9472;&#9472; MessageBlock.java
-    &#9474;   &#9500;&#9472;&#9472; OreBlock.java
-    &#9474;   &#9500;&#9472;&#9472; OverlayFloor.java
-    &#9474;   &#9500;&#9472;&#9472; power
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Battery.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; BurnerGenerator.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; ConditionalConsumePower.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; DecayGenerator.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; ImpactReactor.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; ItemLiquidGenerator.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; NuclearReactor.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; PowerDistributor.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; PowerGenerator.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; PowerGraph.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; PowerNode.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; SingleTypeGenerator.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; SolarGenerator.java
-    &#9474;   &#9474;   &#9492;&#9472;&#9472; ThermalGenerator.java
-    &#9474;   &#9500;&#9472;&#9472; PowerBlock.java
-    &#9474;   &#9500;&#9472;&#9472; production
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Cultivator.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Drill.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Fracker.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; GenericCrafter.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; GenericSmelter.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Incinerator.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; LiquidConverter.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Pump.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Separator.java
-    &#9474;   &#9474;   &#9492;&#9472;&#9472; SolidPump.java
-    &#9474;   &#9500;&#9472;&#9472; RespawnBlock.java
-    &#9474;   &#9500;&#9472;&#9472; Rock.java
-    &#9474;   &#9500;&#9472;&#9472; sandbox
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; ItemSource.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; ItemVoid.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; LiquidSource.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; PowerSource.java
-    &#9474;   &#9474;   &#9492;&#9472;&#9472; PowerVoid.java
-    &#9474;   &#9500;&#9472;&#9472; StaticWall.java
-    &#9474;   &#9500;&#9472;&#9472; storage
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; CoreBlock.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; LaunchPad.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; StorageBlock.java
-    &#9474;   &#9474;   &#9500;&#9472;&#9472; Unloader.java
-    &#9474;   &#9474;   &#9492;&#9472;&#9472; Vault.java
-    &#9474;   &#9500;&#9472;&#9472; TreeBlock.java
-    &#9474;   &#9492;&#9472;&#9472; units
-    &#9474;       &#9500;&#9472;&#9472; CommandCenter.java
-    &#9474;       &#9500;&#9472;&#9472; MechPad.java
-    &#9474;       &#9500;&#9472;&#9472; RallyPoint.java
-    &#9474;       &#9500;&#9472;&#9472; RepairPoint.java
-    &#9474;       &#9492;&#9472;&#9472; UnitFactory.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; Attributes.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; Autotiler.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; BlockPart.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; BuildBlock.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; defense
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; DeflectorWall.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Door.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ForceProjector.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MendProjector.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; OverdriveProjector.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ShockMine.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; SurgeWall.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; turrets
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ArtilleryTurret.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BurstTurret.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ChargeTurret.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; CooledTurret.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; DoubleTurret.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemTurret.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LaserTurret.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidTurret.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; PowerTurret.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; Turret.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; Wall.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; distribution
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ArmoredConveyor.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BufferedItemBridge.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Conveyor.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ExtendingItemBridge.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemBridge.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Junction.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; MassDriver.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; OverflowGate.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Router.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; Sorter.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; DoubleOverlayFloor.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; Floor.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemSelection.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; liquid
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ArmoredConduit.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Conduit.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidBridge.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidExtendingBridge.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidJunction.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidOverflowGate.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidRouter.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; LiquidTank.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidBlock.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; logic
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LogicBlock.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; MessageBlock.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; OreBlock.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; OverlayFloor.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; power
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Battery.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; BurnerGenerator.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ConditionalConsumePower.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; DecayGenerator.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ImpactReactor.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemLiquidGenerator.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LightBlock.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; NuclearReactor.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; PowerDiode.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; PowerDistributor.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; PowerGenerator.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; PowerGraph.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; PowerNode.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; SingleTypeGenerator.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; SolarGenerator.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; ThermalGenerator.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; PowerBlock.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; production
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Cultivator.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Drill.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Fracker.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; GenericCrafter.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; GenericSmelter.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Incinerator.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidConverter.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Pump.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Separator.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; SolidPump.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; RespawnBlock.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; Rock.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; sandbox
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemSource.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemVoid.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidSource.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; PowerSource.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; PowerVoid.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; StaticWall.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; storage
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; CoreBlock.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; LaunchPad.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; StorageBlock.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9500;&#9472;&#9472; Unloader.java
+    &#9474;&#160;&#160; &#9474;&#160;&#160; &#9492;&#9472;&#9472; Vault.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; TreeBlock.java
+    &#9474;&#160;&#160; &#9492;&#9472;&#9472; units
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; CommandCenter.java
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; MechPad.java
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; RallyPoint.java
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; RepairPoint.java
+    &#9474;&#160;&#160;     &#9492;&#9472;&#9472; UnitFactory.java
     &#9500;&#9472;&#9472; BlockStorage.java
     &#9500;&#9472;&#9472; Build.java
     &#9500;&#9472;&#9472; CachedTile.java
     &#9500;&#9472;&#9472; consumers
-    &#9474;   &#9500;&#9472;&#9472; ConsumeItemFilter.java
-    &#9474;   &#9500;&#9472;&#9472; ConsumeItems.java
-    &#9474;   &#9500;&#9472;&#9472; Consume.java
-    &#9474;   &#9500;&#9472;&#9472; ConsumeLiquidBase.java
-    &#9474;   &#9500;&#9472;&#9472; ConsumeLiquidFilter.java
-    &#9474;   &#9500;&#9472;&#9472; ConsumeLiquid.java
-    &#9474;   &#9500;&#9472;&#9472; ConsumePower.java
-    &#9474;   &#9500;&#9472;&#9472; Consumers.java
-    &#9474;   &#9492;&#9472;&#9472; ConsumeType.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; ConsumeItemFilter.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; ConsumeItems.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; Consume.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; ConsumeLiquidBase.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; ConsumeLiquidFilter.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; ConsumeLiquid.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; ConsumePower.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; Consumers.java
+    &#9474;&#160;&#160; &#9492;&#9472;&#9472; ConsumeType.java
     &#9500;&#9472;&#9472; DirectionalItemBuffer.java
     &#9500;&#9472;&#9472; Edges.java
     &#9500;&#9472;&#9472; ItemBuffer.java
     &#9500;&#9472;&#9472; LegacyColorMapper.java
     &#9500;&#9472;&#9472; meta
-    &#9474;   &#9500;&#9472;&#9472; Attribute.java
-    &#9474;   &#9500;&#9472;&#9472; BlockBars.java
-    &#9474;   &#9500;&#9472;&#9472; BlockFlag.java
-    &#9474;   &#9500;&#9472;&#9472; BlockGroup.java
-    &#9474;   &#9500;&#9472;&#9472; BlockStat.java
-    &#9474;   &#9500;&#9472;&#9472; BlockStats.java
-    &#9474;   &#9500;&#9472;&#9472; BuildVisibility.java
-    &#9474;   &#9500;&#9472;&#9472; PowerType.java
-    &#9474;   &#9500;&#9472;&#9472; Producers.java
-    &#9474;   &#9500;&#9472;&#9472; StatCategory.java
-    &#9474;   &#9500;&#9472;&#9472; StatUnit.java
-    &#9474;   &#9500;&#9472;&#9472; StatValue.java
-    &#9474;   &#9492;&#9472;&#9472; values
-    &#9474;       &#9500;&#9472;&#9472; AmmoListValue.java
-    &#9474;       &#9500;&#9472;&#9472; BooleanValue.java
-    &#9474;       &#9500;&#9472;&#9472; BoosterListValue.java
-    &#9474;       &#9500;&#9472;&#9472; ItemFilterValue.java
-    &#9474;       &#9500;&#9472;&#9472; ItemListValue.java
-    &#9474;       &#9500;&#9472;&#9472; LiquidFilterValue.java
-    &#9474;       &#9500;&#9472;&#9472; LiquidValue.java
-    &#9474;       &#9500;&#9472;&#9472; NumberValue.java
-    &#9474;       &#9492;&#9472;&#9472; StringValue.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; Attribute.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; BlockBars.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; BlockFlag.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; BlockGroup.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; BlockStat.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; BlockStats.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; BuildVisibility.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; PowerType.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; Producers.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; StatCategory.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; StatUnit.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; StatValue.java
+    &#9474;&#160;&#160; &#9492;&#9472;&#9472; values
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; AmmoListValue.java
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; BooleanValue.java
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; BoosterListValue.java
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; ItemFilterValue.java
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; ItemListValue.java
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; LiquidFilterValue.java
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; LiquidValue.java
+    &#9474;&#160;&#160;     &#9500;&#9472;&#9472; NumberValue.java
+    &#9474;&#160;&#160;     &#9492;&#9472;&#9472; StringValue.java
     &#9500;&#9472;&#9472; modules
-    &#9474;   &#9500;&#9472;&#9472; BlockModule.java
-    &#9474;   &#9500;&#9472;&#9472; ConsumeModule.java
-    &#9474;   &#9500;&#9472;&#9472; ItemModule.java
-    &#9474;   &#9500;&#9472;&#9472; LiquidModule.java
-    &#9474;   &#9492;&#9472;&#9472; PowerModule.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; BlockModule.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; ConsumeModule.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; ItemModule.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; LiquidModule.java
+    &#9474;&#160;&#160; &#9492;&#9472;&#9472; PowerModule.java
     &#9500;&#9472;&#9472; Pos.java
     &#9500;&#9472;&#9472; producers
-    &#9474;   &#9500;&#9472;&#9472; ProduceItem.java
-    &#9474;   &#9492;&#9472;&#9472; Produce.java
+    &#9474;&#160;&#160; &#9500;&#9472;&#9472; ProduceItem.java
+    &#9474;&#160;&#160; &#9492;&#9472;&#9472; Produce.java
     &#9500;&#9472;&#9472; StaticTree.java
     &#9500;&#9472;&#9472; Tile.java
     &#9492;&#9472;&#9472; WorldContext.java
@@ -11407,7 +11407,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2019-12-17 Tue 00:40</p>
+<p class="date">Created: 2019-12-19 Thu 08:36</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

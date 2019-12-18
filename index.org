@@ -3248,487 +3248,487 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 :END:
 
    #+BEGIN_SRC fundamental
-   core/src/io/anuke/mindustry/
-   ├── ai
-   │   ├── BlockIndexer.java
-   │   ├── Pathfinder.java
-   │   └── WaveSpawner.java
-   ├── ClientLauncher.java
-   ├── content
-   │   ├── Blocks.java
-   │   ├── Bullets.java
-   │   ├── Fx.java
-   │   ├── Items.java
-   │   ├── Liquids.java
-   │   ├── Loadouts.java
-   │   ├── Mechs.java
-   │   ├── StatusEffects.java
-   │   ├── TechTree.java
-   │   ├── TypeIDs.java
-   │   ├── UnitTypes.java
-   │   └── Zones.java
-   ├── core
-   │   ├── ContentLoader.java
-   │   ├── Control.java
-   │   ├── FileTree.java
-   │   ├── GameState.java
-   │   ├── Logic.java
-   │   ├── NetClient.java
-   │   ├── NetServer.java
-   │   ├── Platform.java
-   │   ├── Renderer.java
-   │   ├── UI.java
-   │   ├── Version.java
-   │   └── World.java
-   ├── ctype
-   │   ├── Content.java
-   │   ├── ContentList.java
-   │   ├── MappableContent.java
-   │   └── UnlockableContent.java
-   ├── editor
-   │   ├── DrawOperation.java
-   │   ├── EditorTile.java
-   │   ├── EditorTool.java
-   │   ├── MapEditorDialog.java
-   │   ├── MapEditor.java
-   │   ├── MapGenerateDialog.java
-   │   ├── MapInfoDialog.java
-   │   ├── MapLoadDialog.java
-   │   ├── MapRenderer.java
-   │   ├── MapResizeDialog.java
-   │   ├── MapSaveDialog.java
-   │   ├── MapView.java
-   │   ├── OperationStack.java
-   │   └── WaveInfoDialog.java
-   ├── entities
-   │   ├── bullet
-   │   │   ├── ArtilleryBulletType.java
-   │   │   ├── BasicBulletType.java
-   │   │   ├── BombBulletType.java
-   │   │   ├── BulletType.java
-   │   │   ├── FlakBulletType.java
-   │   │   ├── HealBulletType.java
-   │   │   ├── LiquidBulletType.java
-   │   │   ├── MassDriverBolt.java
-   │   │   └── MissileBulletType.java
-   │   ├── Damage.java
-   │   ├── effect
-   │   │   ├── Decal.java
-   │   │   ├── Fire.java
-   │   │   ├── GroundEffectEntity.java
-   │   │   ├── ItemTransfer.java
-   │   │   ├── Lightning.java
-   │   │   ├── Puddle.java
-   │   │   ├── RubbleDecal.java
-   │   │   └── ScorchDecal.java
-   │   ├── Effects.java
-   │   ├── Entities.java
-   │   ├── EntityCollisions.java
-   │   ├── EntityGroup.java
-   │   ├── Predict.java
-   │   ├── TargetPriority.java
-   │   ├── traits
-   │   │   ├── AbsorbTrait.java
-   │   │   ├── BelowLiquidTrait.java
-   │   │   ├── BuilderMinerTrait.java
-   │   │   ├── BuilderTrait.java
-   │   │   ├── DamageTrait.java
-   │   │   ├── DrawTrait.java
-   │   │   ├── Entity.java
-   │   │   ├── HealthTrait.java
-   │   │   ├── KillerTrait.java
-   │   │   ├── MinerTrait.java
-   │   │   ├── MoveTrait.java
-   │   │   ├── Saveable.java
-   │   │   ├── SaveTrait.java
-   │   │   ├── ScaleTrait.java
-   │   │   ├── ShooterTrait.java
-   │   │   ├── SolidTrait.java
-   │   │   ├── SpawnerTrait.java
-   │   │   ├── SyncTrait.java
-   │   │   ├── TargetTrait.java
-   │   │   ├── TeamTrait.java
-   │   │   ├── TimeTrait.java
-   │   │   ├── TypeTrait.java
-   │   │   └── VelocityTrait.java
-   │   ├── type
-   │   │   ├── base
-   │   │   │   ├── BaseDrone.java
-   │   │   │   ├── BuilderDrone.java
-   │   │   │   ├── Crawler.java
-   │   │   │   ├── Dagger.java
-   │   │   │   ├── Draug.java
-   │   │   │   ├── Eruptor.java
-   │   │   │   ├── FlyingUnit.java
-   │   │   │   ├── Fortress.java
-   │   │   │   ├── Ghoul.java
-   │   │   │   ├── GroundUnit.java
-   │   │   │   ├── MinerDrone.java
-   │   │   │   ├── Phantom.java
-   │   │   │   ├── RepairDrone.java
-   │   │   │   ├── Revenant.java
-   │   │   │   ├── Spirit.java
-   │   │   │   ├── Titan.java
-   │   │   │   └── Wraith.java
-   │   │   ├── BaseEntity.java
-   │   │   ├── BaseUnit.java
-   │   │   ├── Bullet.java
-   │   │   ├── DestructibleEntity.java
-   │   │   ├── EffectEntity.java
-   │   │   ├── Player.java
-   │   │   ├── SolidEntity.java
-   │   │   ├── TileEntity.java
-   │   │   ├── TimedEntity.java
-   │   │   └── Unit.java
-   │   ├── units
-   │   │   ├── StateMachine.java
-   │   │   ├── Statuses.java
-   │   │   ├── UnitCommand.java
-   │   │   ├── UnitDrops.java
-   │   │   └── UnitState.java
-   │   └── Units.java
-   ├── game
-   │   ├── DefaultWaves.java
-   │   ├── Difficulty.java
-   │   ├── EventType.java
-   │   ├── Gamemode.java
-   │   ├── GlobalData.java
-   │   ├── LoopControl.java
-   │   ├── MusicControl.java
-   │   ├── Objective.java
-   │   ├── Objectives.java
-   │   ├── Rules.java
-   │   ├── Saves.java
-   │   ├── Schematic.java
-   │   ├── Schematics.java
-   │   ├── SoundLoop.java
-   │   ├── SpawnGroup.java
-   │   ├── Stats.java
-   │   ├── Team.java
-   │   ├── Teams.java
-   │   └── Tutorial.java
-   ├── graphics
-   │   ├── BlockRenderer.java
-   │   ├── Bloom.java
-   │   ├── CacheLayer.java
-   │   ├── Drawf.java
-   │   ├── FloorRenderer.java
-   │   ├── IndexedRenderer.java
-   │   ├── Layer.java
-   │   ├── MenuRenderer.java
-   │   ├── MinimapRenderer.java
-   │   ├── OverlayRenderer.java
-   │   ├── Pal.java
-   │   ├── Pixelator.java
-   │   └── Shaders.java
-   ├── input
-   │   ├── Binding.java
-   │   ├── DesktopInput.java
-   │   ├── InputHandler.java
-   │   ├── MobileInput.java
-   │   ├── PlaceMode.java
-   │   └── PlaceUtils.java
-   ├── io
-   │   ├── JsonIO.java
-   │   ├── LegacyMapIO.java
-   │   ├── MapIO.java
-   │   ├── SaveFileReader.java
-   │   ├── SaveIO.java
-   │   ├── SaveMeta.java
-   │   ├── SavePreviewLoader.java
-   │   ├── SaveVersion.java
-   │   ├── TypeIO.java
-   │   └── versions
-   │       ├── LegacyTypeTable.java
-   │       ├── Save1.java
-   │       ├── Save2.java
-   │       └── Save3.java
-   ├── maps
-   │   ├── filters
-   │   │   ├── BlendFilter.java
-   │   │   ├── ClearFilter.java
-   │   │   ├── DistortFilter.java
-   │   │   ├── FilterOption.java
-   │   │   ├── GenerateFilter.java
-   │   │   ├── MedianFilter.java
-   │   │   ├── MirrorFilter.java
-   │   │   ├── NoiseFilter.java
-   │   │   ├── OreFilter.java
-   │   │   ├── OreMedianFilter.java
-   │   │   ├── RiverNoiseFilter.java
-   │   │   ├── ScatterFilter.java
-   │   │   └── TerrainFilter.java
-   │   ├── generators
-   │   │   ├── BasicGenerator.java
-   │   │   ├── Generator.java
-   │   │   ├── MapGenerator.java
-   │   │   └── RandomGenerator.java
-   │   ├── MapException.java
-   │   ├── Map.java
-   │   ├── MapPreviewLoader.java
-   │   ├── Maps.java
-   │   └── zonegen
-   │       ├── DesertWastesGenerator.java
-   │       └── OvergrowthGenerator.java
-   ├── mod
-   │   ├── ContentParser.java
-   │   ├── ModCrashHandler.java
-   │   ├── Mod.java
-   │   ├── ModLoadingSound.java
-   │   └── Mods.java
-   ├── net
-   │   ├── Administration.java
-   │   ├── ArcNetImpl.java
-   │   ├── CrashSender.java
-   │   ├── Host.java
-   │   ├── Interpolator.java
-   │   ├── NetConnection.java
-   │   ├── Net.java
-   │   ├── NetworkIO.java
-   │   ├── Packet.java
-   │   ├── Packets.java
-   │   ├── Registrator.java
-   │   ├── Streamable.java
-   │   └── ValidateException.java
-   ├── plugin
-   │   └── Plugin.java
-   ├── type
-   │   ├── Category.java
-   │   ├── ContentType.java
-   │   ├── Item.java
-   │   ├── ItemStack.java
-   │   ├── ItemType.java
-   │   ├── Liquid.java
-   │   ├── LiquidStack.java
-   │   ├── Loadout.java
-   │   ├── Mech.java
-   │   ├── Publishable.java
-   │   ├── StatusEffect.java
-   │   ├── TypeID.java
-   │   ├── UnitType.java
-   │   ├── Weapon.java
-   │   ├── WeatherEvent.java
-   │   └── Zone.java
-   ├── ui
-   │   ├── Bar.java
-   │   ├── BorderImage.java
-   │   ├── Cicon.java
-   │   ├── ContentDisplay.java
-   │   ├── dialogs
-   │   │   ├── AboutDialog.java
-   │   │   ├── AdminsDialog.java
-   │   │   ├── BansDialog.java
-   │   │   ├── ColorPickDialog.java
-   │   │   ├── ContentInfoDialog.java
-   │   │   ├── ControlsDialog.java
-   │   │   ├── CustomGameDialog.java
-   │   │   ├── CustomRulesDialog.java
-   │   │   ├── DatabaseDialog.java
-   │   │   ├── DeployDialog.java
-   │   │   ├── DiscordDialog.java
-   │   │   ├── FileChooser.java
-   │   │   ├── FloatingDialog.java
-   │   │   ├── GameOverDialog.java
-   │   │   ├── HostDialog.java
-   │   │   ├── JoinDialog.java
-   │   │   ├── LanguageDialog.java
-   │   │   ├── LoadDialog.java
-   │   │   ├── LoadoutDialog.java
-   │   │   ├── MapPlayDialog.java
-   │   │   ├── MapsDialog.java
-   │   │   ├── MinimapDialog.java
-   │   │   ├── ModsDialog.java
-   │   │   ├── PausedDialog.java
-   │   │   ├── SaveDialog.java
-   │   │   ├── SchematicsDialog.java
-   │   │   ├── SettingsMenuDialog.java
-   │   │   ├── TechTreeDialog.java
-   │   │   ├── TraceDialog.java
-   │   │   └── ZoneInfoDialog.java
-   │   ├── Fonts.java
-   │   ├── fragments
-   │   │   ├── BlockConfigFragment.java
-   │   │   ├── BlockInventoryFragment.java
-   │   │   ├── ChatFragment.java
-   │   │   ├── FadeInFragment.java
-   │   │   ├── Fragment.java
-   │   │   ├── HudFragment.java
-   │   │   ├── LoadingFragment.java
-   │   │   ├── MenuFragment.java
-   │   │   ├── OverlayFragment.java
-   │   │   ├── PlacementFragment.java
-   │   │   └── PlayerListFragment.java
-   │   ├── GridImage.java
-   │   ├── IconSize.java
-   │   ├── IntFormat.java
-   │   ├── ItemDisplay.java
-   │   ├── ItemImage.java
-   │   ├── ItemsDisplay.java
-   │   ├── layout
-   │   │   ├── BranchTreeLayout.java
-   │   │   ├── RadialTreeLayout.java
-   │   │   └── TreeLayout.java
-   │   ├── Links.java
-   │   ├── LiquidDisplay.java
-   │   ├── Minimap.java
-   │   ├── MobileButton.java
-   │   ├── MultiReqImage.java
-   │   ├── ReqImage.java
-   │   └── Styles.java
-   ├── Vars.java
-   └── world
-       ├── Block.java
-       ├── blocks
-       │   ├── Attributes.java
-       │   ├── Autotiler.java
-       │   ├── BlockPart.java
-       │   ├── BuildBlock.java
-       │   ├── defense
-       │   │   ├── DeflectorWall.java
-       │   │   ├── Door.java
-       │   │   ├── ForceProjector.java
-       │   │   ├── MendProjector.java
-       │   │   ├── OverdriveProjector.java
-       │   │   ├── ShockMine.java
-       │   │   ├── SurgeWall.java
-       │   │   ├── turrets
-       │   │   │   ├── ArtilleryTurret.java
-       │   │   │   ├── BurstTurret.java
-       │   │   │   ├── ChargeTurret.java
-       │   │   │   ├── CooledTurret.java
-       │   │   │   ├── DoubleTurret.java
-       │   │   │   ├── ItemTurret.java
-       │   │   │   ├── LaserTurret.java
-       │   │   │   ├── LiquidTurret.java
-       │   │   │   ├── PowerTurret.java
-       │   │   │   └── Turret.java
-       │   │   └── Wall.java
-       │   ├── distribution
-       │   │   ├── ArmoredConveyor.java
-       │   │   ├── BufferedItemBridge.java
-       │   │   ├── Conduit.java
-       │   │   ├── Conveyor.java
-       │   │   ├── ExtendingItemBridge.java
-       │   │   ├── ItemBridge.java
-       │   │   ├── Junction.java
-       │   │   ├── LiquidBridge.java
-       │   │   ├── LiquidExtendingBridge.java
-       │   │   ├── LiquidJunction.java
-       │   │   ├── LiquidRouter.java
-       │   │   ├── LiquidTank.java
-       │   │   ├── MassDriver.java
-       │   │   ├── OverflowGate.java
-       │   │   ├── Router.java
-       │   │   └── Sorter.java
-       │   ├── DoubleOverlayFloor.java
-       │   ├── Floor.java
-       │   ├── ItemSelection.java
-       │   ├── LiquidBlock.java
-       │   ├── logic
-       │   │   ├── LogicBlock.java
-       │   │   └── MessageBlock.java
-       │   ├── OreBlock.java
-       │   ├── OverlayFloor.java
-       │   ├── power
-       │   │   ├── Battery.java
-       │   │   ├── BurnerGenerator.java
-       │   │   ├── ConditionalConsumePower.java
-       │   │   ├── DecayGenerator.java
-       │   │   ├── ImpactReactor.java
-       │   │   ├── ItemLiquidGenerator.java
-       │   │   ├── NuclearReactor.java
-       │   │   ├── PowerDistributor.java
-       │   │   ├── PowerGenerator.java
-       │   │   ├── PowerGraph.java
-       │   │   ├── PowerNode.java
-       │   │   ├── SingleTypeGenerator.java
-       │   │   ├── SolarGenerator.java
-       │   │   └── ThermalGenerator.java
-       │   ├── PowerBlock.java
-       │   ├── production
-       │   │   ├── Cultivator.java
-       │   │   ├── Drill.java
-       │   │   ├── Fracker.java
-       │   │   ├── GenericCrafter.java
-       │   │   ├── GenericSmelter.java
-       │   │   ├── Incinerator.java
-       │   │   ├── LiquidConverter.java
-       │   │   ├── Pump.java
-       │   │   ├── Separator.java
-       │   │   └── SolidPump.java
-       │   ├── RespawnBlock.java
-       │   ├── Rock.java
-       │   ├── sandbox
-       │   │   ├── ItemSource.java
-       │   │   ├── ItemVoid.java
-       │   │   ├── LiquidSource.java
-       │   │   ├── PowerSource.java
-       │   │   └── PowerVoid.java
-       │   ├── StaticWall.java
-       │   ├── storage
-       │   │   ├── CoreBlock.java
-       │   │   ├── LaunchPad.java
-       │   │   ├── StorageBlock.java
-       │   │   ├── Unloader.java
-       │   │   └── Vault.java
-       │   ├── TreeBlock.java
-       │   └── units
-       │       ├── CommandCenter.java
-       │       ├── MechPad.java
-       │       ├── RallyPoint.java
-       │       ├── RepairPoint.java
-       │       └── UnitFactory.java
-       ├── BlockStorage.java
-       ├── Build.java
-       ├── CachedTile.java
-       ├── consumers
-       │   ├── ConsumeItemFilter.java
-       │   ├── ConsumeItems.java
-       │   ├── Consume.java
-       │   ├── ConsumeLiquidBase.java
-       │   ├── ConsumeLiquidFilter.java
-       │   ├── ConsumeLiquid.java
-       │   ├── ConsumePower.java
-       │   ├── Consumers.java
-       │   └── ConsumeType.java
-       ├── DirectionalItemBuffer.java
-       ├── Edges.java
-       ├── ItemBuffer.java
-       ├── LegacyColorMapper.java
-       ├── meta
-       │   ├── Attribute.java
-       │   ├── BlockBars.java
-       │   ├── BlockFlag.java
-       │   ├── BlockGroup.java
-       │   ├── BlockStat.java
-       │   ├── BlockStats.java
-       │   ├── BuildVisibility.java
-       │   ├── PowerType.java
-       │   ├── Producers.java
-       │   ├── StatCategory.java
-       │   ├── StatUnit.java
-       │   ├── StatValue.java
-       │   └── values
-       │       ├── AmmoListValue.java
-       │       ├── BooleanValue.java
-       │       ├── BoosterListValue.java
-       │       ├── ItemFilterValue.java
-       │       ├── ItemListValue.java
-       │       ├── LiquidFilterValue.java
-       │       ├── LiquidValue.java
-       │       ├── NumberValue.java
-       │       └── StringValue.java
-       ├── modules
-       │   ├── BlockModule.java
-       │   ├── ConsumeModule.java
-       │   ├── ItemModule.java
-       │   ├── LiquidModule.java
-       │   └── PowerModule.java
-       ├── Pos.java
-       ├── producers
-       │   ├── ProduceItem.java
-       │   └── Produce.java
-       ├── StaticTree.java
-       ├── Tile.java
-       └── WorldContext.java
+     core/src/io/anuke/mindustry/
+     ├── ai
+     │   ├── BlockIndexer.java
+     │   ├── Pathfinder.java
+     │   └── WaveSpawner.java
+     ├── ClientLauncher.java
+     ├── content
+     │   ├── Blocks.java
+     │   ├── Bullets.java
+     │   ├── Fx.java
+     │   ├── Items.java
+     │   ├── Liquids.java
+     │   ├── Loadouts.java
+     │   ├── Mechs.java
+     │   ├── StatusEffects.java
+     │   ├── TechTree.java
+     │   ├── TypeIDs.java
+     │   ├── UnitTypes.java
+     │   └── Zones.java
+     ├── core
+     │   ├── ContentLoader.java
+     │   ├── Control.java
+     │   ├── FileTree.java
+     │   ├── GameState.java
+     │   ├── Logic.java
+     │   ├── NetClient.java
+     │   ├── NetServer.java
+     │   ├── Platform.java
+     │   ├── Renderer.java
+     │   ├── UI.java
+     │   ├── Version.java
+     │   └── World.java
+     ├── ctype
+     │   ├── Content.java
+     │   ├── ContentList.java
+     │   ├── ContentType.java
+     │   ├── MappableContent.java
+     │   └── UnlockableContent.java
+     ├── editor
+     │   ├── DrawOperation.java
+     │   ├── EditorTile.java
+     │   ├── EditorTool.java
+     │   ├── MapEditorDialog.java
+     │   ├── MapEditor.java
+     │   ├── MapGenerateDialog.java
+     │   ├── MapInfoDialog.java
+     │   ├── MapLoadDialog.java
+     │   ├── MapRenderer.java
+     │   ├── MapResizeDialog.java
+     │   ├── MapSaveDialog.java
+     │   ├── MapView.java
+     │   ├── OperationStack.java
+     │   └── WaveInfoDialog.java
+     ├── entities
+     │   ├── bullet
+     │   │   ├── ArtilleryBulletType.java
+     │   │   ├── BasicBulletType.java
+     │   │   ├── BombBulletType.java
+     │   │   ├── BulletType.java
+     │   │   ├── FlakBulletType.java
+     │   │   ├── HealBulletType.java
+     │   │   ├── LiquidBulletType.java
+     │   │   ├── MassDriverBolt.java
+     │   │   └── MissileBulletType.java
+     │   ├── Damage.java
+     │   ├── effect
+     │   │   ├── Decal.java
+     │   │   ├── Fire.java
+     │   │   ├── GroundEffectEntity.java
+     │   │   ├── ItemTransfer.java
+     │   │   ├── Lightning.java
+     │   │   ├── Puddle.java
+     │   │   ├── RubbleDecal.java
+     │   │   └── ScorchDecal.java
+     │   ├── Effects.java
+     │   ├── Entities.java
+     │   ├── EntityCollisions.java
+     │   ├── EntityGroup.java
+     │   ├── Predict.java
+     │   ├── TargetPriority.java
+     │   ├── traits
+     │   │   ├── AbsorbTrait.java
+     │   │   ├── BelowLiquidTrait.java
+     │   │   ├── BuilderMinerTrait.java
+     │   │   ├── BuilderTrait.java
+     │   │   ├── DamageTrait.java
+     │   │   ├── DrawTrait.java
+     │   │   ├── Entity.java
+     │   │   ├── HealthTrait.java
+     │   │   ├── KillerTrait.java
+     │   │   ├── MinerTrait.java
+     │   │   ├── MoveTrait.java
+     │   │   ├── Saveable.java
+     │   │   ├── SaveTrait.java
+     │   │   ├── ScaleTrait.java
+     │   │   ├── ShooterTrait.java
+     │   │   ├── SolidTrait.java
+     │   │   ├── SpawnerTrait.java
+     │   │   ├── SyncTrait.java
+     │   │   ├── TargetTrait.java
+     │   │   ├── TeamTrait.java
+     │   │   ├── TimeTrait.java
+     │   │   ├── TypeTrait.java
+     │   │   └── VelocityTrait.java
+     │   ├── type
+     │   │   ├── base
+     │   │   │   ├── BaseDrone.java
+     │   │   │   ├── BuilderDrone.java
+     │   │   │   ├── FlyingUnit.java
+     │   │   │   ├── GroundUnit.java
+     │   │   │   ├── HoverUnit.java
+     │   │   │   ├── MinerDrone.java
+     │   │   │   └── RepairDrone.java
+     │   │   ├── BaseEntity.java
+     │   │   ├── BaseUnit.java
+     │   │   ├── Bullet.java
+     │   │   ├── DestructibleEntity.java
+     │   │   ├── EffectEntity.java
+     │   │   ├── Player.java
+     │   │   ├── SolidEntity.java
+     │   │   ├── TileEntity.java
+     │   │   ├── TimedEntity.java
+     │   │   └── Unit.java
+     │   ├── units
+     │   │   ├── StateMachine.java
+     │   │   ├── Statuses.java
+     │   │   ├── UnitCommand.java
+     │   │   ├── UnitDrops.java
+     │   │   └── UnitState.java
+     │   └── Units.java
+     ├── game
+     │   ├── DefaultWaves.java
+     │   ├── Difficulty.java
+     │   ├── EventType.java
+     │   ├── Gamemode.java
+     │   ├── GlobalData.java
+     │   ├── LoopControl.java
+     │   ├── MusicControl.java
+     │   ├── Objective.java
+     │   ├── Objectives.java
+     │   ├── Rules.java
+     │   ├── Saves.java
+     │   ├── Schematic.java
+     │   ├── Schematics.java
+     │   ├── SoundLoop.java
+     │   ├── SpawnGroup.java
+     │   ├── Stats.java
+     │   ├── Team.java
+     │   ├── Teams.java
+     │   └── Tutorial.java
+     ├── graphics
+     │   ├── BlockRenderer.java
+     │   ├── Bloom.java
+     │   ├── CacheLayer.java
+     │   ├── Drawf.java
+     │   ├── FloorRenderer.java
+     │   ├── IndexedRenderer.java
+     │   ├── Layer.java
+     │   ├── LightRenderer.java
+     │   ├── MenuRenderer.java
+     │   ├── MinimapRenderer.java
+     │   ├── MultiPacker.java
+     │   ├── OverlayRenderer.java
+     │   ├── Pal.java
+     │   ├── Pixelator.java
+     │   └── Shaders.java
+     ├── input
+     │   ├── Binding.java
+     │   ├── DesktopInput.java
+     │   ├── InputHandler.java
+     │   ├── MobileInput.java
+     │   ├── Placement.java
+     │   └── PlaceMode.java
+     ├── io
+     │   ├── JsonIO.java
+     │   ├── LegacyMapIO.java
+     │   ├── MapIO.java
+     │   ├── SaveFileReader.java
+     │   ├── SaveIO.java
+     │   ├── SaveMeta.java
+     │   ├── SavePreviewLoader.java
+     │   ├── SaveVersion.java
+     │   ├── TypeIO.java
+     │   └── versions
+     │       ├── LegacyTypeTable.java
+     │       ├── Save1.java
+     │       ├── Save2.java
+     │       └── Save3.java
+     ├── maps
+     │   ├── filters
+     │   │   ├── BlendFilter.java
+     │   │   ├── ClearFilter.java
+     │   │   ├── DistortFilter.java
+     │   │   ├── FilterOption.java
+     │   │   ├── GenerateFilter.java
+     │   │   ├── MedianFilter.java
+     │   │   ├── MirrorFilter.java
+     │   │   ├── NoiseFilter.java
+     │   │   ├── OreFilter.java
+     │   │   ├── OreMedianFilter.java
+     │   │   ├── RiverNoiseFilter.java
+     │   │   ├── ScatterFilter.java
+     │   │   └── TerrainFilter.java
+     │   ├── generators
+     │   │   ├── BasicGenerator.java
+     │   │   ├── Generator.java
+     │   │   ├── MapGenerator.java
+     │   │   └── RandomGenerator.java
+     │   ├── MapException.java
+     │   ├── Map.java
+     │   ├── MapPreviewLoader.java
+     │   ├── Maps.java
+     │   └── zonegen
+     │       ├── DesertWastesGenerator.java
+     │       └── OvergrowthGenerator.java
+     ├── mod
+     │   ├── ClassAccess.java
+     │   ├── ContentParser.java
+     │   ├── Mod.java
+     │   ├── ModLoadingSound.java
+     │   ├── Mods.java
+     │   └── Scripts.java
+     ├── net
+     │   ├── Administration.java
+     │   ├── ArcNetProvider.java
+     │   ├── CrashSender.java
+     │   ├── Host.java
+     │   ├── Interpolator.java
+     │   ├── NetConnection.java
+     │   ├── Net.java
+     │   ├── NetworkIO.java
+     │   ├── Packet.java
+     │   ├── Packets.java
+     │   ├── Registrator.java
+     │   ├── Streamable.java
+     │   └── ValidateException.java
+     ├── plugin
+     │   └── Plugin.java
+     ├── type
+     │   ├── Category.java
+     │   ├── ErrorContent.java
+     │   ├── Item.java
+     │   ├── ItemStack.java
+     │   ├── ItemType.java
+     │   ├── Liquid.java
+     │   ├── LiquidStack.java
+     │   ├── Mech.java
+     │   ├── Publishable.java
+     │   ├── StatusEffect.java
+     │   ├── TypeID.java
+     │   ├── UnitType.java
+     │   ├── Weapon.java
+     │   ├── WeatherEvent.java
+     │   └── Zone.java
+     ├── ui
+     │   ├── Bar.java
+     │   ├── BorderImage.java
+     │   ├── Cicon.java
+     │   ├── ContentDisplay.java
+     │   ├── dialogs
+     │   │   ├── AboutDialog.java
+     │   │   ├── AdminsDialog.java
+     │   │   ├── BansDialog.java
+     │   │   ├── ColorPicker.java
+     │   │   ├── ContentInfoDialog.java
+     │   │   ├── ControlsDialog.java
+     │   │   ├── CustomGameDialog.java
+     │   │   ├── CustomRulesDialog.java
+     │   │   ├── DatabaseDialog.java
+     │   │   ├── DeployDialog.java
+     │   │   ├── DiscordDialog.java
+     │   │   ├── FileChooser.java
+     │   │   ├── FloatingDialog.java
+     │   │   ├── GameOverDialog.java
+     │   │   ├── HostDialog.java
+     │   │   ├── JoinDialog.java
+     │   │   ├── LanguageDialog.java
+     │   │   ├── LoadDialog.java
+     │   │   ├── LoadoutDialog.java
+     │   │   ├── MapPlayDialog.java
+     │   │   ├── MapsDialog.java
+     │   │   ├── MinimapDialog.java
+     │   │   ├── ModsDialog.java
+     │   │   ├── PaletteDialog.java
+     │   │   ├── PausedDialog.java
+     │   │   ├── SaveDialog.java
+     │   │   ├── SchematicsDialog.java
+     │   │   ├── SettingsMenuDialog.java
+     │   │   ├── TechTreeDialog.java
+     │   │   ├── TraceDialog.java
+     │   │   └── ZoneInfoDialog.java
+     │   ├── Fonts.java
+     │   ├── fragments
+     │   │   ├── BlockConfigFragment.java
+     │   │   ├── BlockInventoryFragment.java
+     │   │   ├── ChatFragment.java
+     │   │   ├── FadeInFragment.java
+     │   │   ├── Fragment.java
+     │   │   ├── HudFragment.java
+     │   │   ├── LoadingFragment.java
+     │   │   ├── MenuFragment.java
+     │   │   ├── OverlayFragment.java
+     │   │   ├── PlacementFragment.java
+     │   │   ├── PlayerListFragment.java
+     │   │   └── ScriptConsoleFragment.java
+     │   ├── GridImage.java
+     │   ├── IconSize.java
+     │   ├── IntFormat.java
+     │   ├── ItemDisplay.java
+     │   ├── ItemImage.java
+     │   ├── ItemsDisplay.java
+     │   ├── layout
+     │   │   ├── BranchTreeLayout.java
+     │   │   ├── RadialTreeLayout.java
+     │   │   └── TreeLayout.java
+     │   ├── Links.java
+     │   ├── LiquidDisplay.java
+     │   ├── Minimap.java
+     │   ├── MobileButton.java
+     │   ├── MultiReqImage.java
+     │   ├── ReqImage.java
+     │   └── Styles.java
+     ├── Vars.java
+     └── world
+         ├── Block.java
+         ├── blocks
+         │   ├── Attributes.java
+         │   ├── Autotiler.java
+         │   ├── BlockPart.java
+         │   ├── BuildBlock.java
+         │   ├── defense
+         │   │   ├── DeflectorWall.java
+         │   │   ├── Door.java
+         │   │   ├── ForceProjector.java
+         │   │   ├── MendProjector.java
+         │   │   ├── OverdriveProjector.java
+         │   │   ├── ShockMine.java
+         │   │   ├── SurgeWall.java
+         │   │   ├── turrets
+         │   │   │   ├── ArtilleryTurret.java
+         │   │   │   ├── BurstTurret.java
+         │   │   │   ├── ChargeTurret.java
+         │   │   │   ├── CooledTurret.java
+         │   │   │   ├── DoubleTurret.java
+         │   │   │   ├── ItemTurret.java
+         │   │   │   ├── LaserTurret.java
+         │   │   │   ├── LiquidTurret.java
+         │   │   │   ├── PowerTurret.java
+         │   │   │   └── Turret.java
+         │   │   └── Wall.java
+         │   ├── distribution
+         │   │   ├── ArmoredConveyor.java
+         │   │   ├── BufferedItemBridge.java
+         │   │   ├── Conveyor.java
+         │   │   ├── ExtendingItemBridge.java
+         │   │   ├── ItemBridge.java
+         │   │   ├── Junction.java
+         │   │   ├── MassDriver.java
+         │   │   ├── OverflowGate.java
+         │   │   ├── Router.java
+         │   │   └── Sorter.java
+         │   ├── DoubleOverlayFloor.java
+         │   ├── Floor.java
+         │   ├── ItemSelection.java
+         │   ├── liquid
+         │   │   ├── ArmoredConduit.java
+         │   │   ├── Conduit.java
+         │   │   ├── LiquidBridge.java
+         │   │   ├── LiquidExtendingBridge.java
+         │   │   ├── LiquidJunction.java
+         │   │   ├── LiquidOverflowGate.java
+         │   │   ├── LiquidRouter.java
+         │   │   └── LiquidTank.java
+         │   ├── LiquidBlock.java
+         │   ├── logic
+         │   │   ├── LogicBlock.java
+         │   │   └── MessageBlock.java
+         │   ├── OreBlock.java
+         │   ├── OverlayFloor.java
+         │   ├── power
+         │   │   ├── Battery.java
+         │   │   ├── BurnerGenerator.java
+         │   │   ├── ConditionalConsumePower.java
+         │   │   ├── DecayGenerator.java
+         │   │   ├── ImpactReactor.java
+         │   │   ├── ItemLiquidGenerator.java
+         │   │   ├── LightBlock.java
+         │   │   ├── NuclearReactor.java
+         │   │   ├── PowerDiode.java
+         │   │   ├── PowerDistributor.java
+         │   │   ├── PowerGenerator.java
+         │   │   ├── PowerGraph.java
+         │   │   ├── PowerNode.java
+         │   │   ├── SingleTypeGenerator.java
+         │   │   ├── SolarGenerator.java
+         │   │   └── ThermalGenerator.java
+         │   ├── PowerBlock.java
+         │   ├── production
+         │   │   ├── Cultivator.java
+         │   │   ├── Drill.java
+         │   │   ├── Fracker.java
+         │   │   ├── GenericCrafter.java
+         │   │   ├── GenericSmelter.java
+         │   │   ├── Incinerator.java
+         │   │   ├── LiquidConverter.java
+         │   │   ├── Pump.java
+         │   │   ├── Separator.java
+         │   │   └── SolidPump.java
+         │   ├── RespawnBlock.java
+         │   ├── Rock.java
+         │   ├── sandbox
+         │   │   ├── ItemSource.java
+         │   │   ├── ItemVoid.java
+         │   │   ├── LiquidSource.java
+         │   │   ├── PowerSource.java
+         │   │   └── PowerVoid.java
+         │   ├── StaticWall.java
+         │   ├── storage
+         │   │   ├── CoreBlock.java
+         │   │   ├── LaunchPad.java
+         │   │   ├── StorageBlock.java
+         │   │   ├── Unloader.java
+         │   │   └── Vault.java
+         │   ├── TreeBlock.java
+         │   └── units
+         │       ├── CommandCenter.java
+         │       ├── MechPad.java
+         │       ├── RallyPoint.java
+         │       ├── RepairPoint.java
+         │       └── UnitFactory.java
+         ├── BlockStorage.java
+         ├── Build.java
+         ├── CachedTile.java
+         ├── consumers
+         │   ├── ConsumeItemFilter.java
+         │   ├── ConsumeItems.java
+         │   ├── Consume.java
+         │   ├── ConsumeLiquidBase.java
+         │   ├── ConsumeLiquidFilter.java
+         │   ├── ConsumeLiquid.java
+         │   ├── ConsumePower.java
+         │   ├── Consumers.java
+         │   └── ConsumeType.java
+         ├── DirectionalItemBuffer.java
+         ├── Edges.java
+         ├── ItemBuffer.java
+         ├── LegacyColorMapper.java
+         ├── meta
+         │   ├── Attribute.java
+         │   ├── BlockBars.java
+         │   ├── BlockFlag.java
+         │   ├── BlockGroup.java
+         │   ├── BlockStat.java
+         │   ├── BlockStats.java
+         │   ├── BuildVisibility.java
+         │   ├── PowerType.java
+         │   ├── Producers.java
+         │   ├── StatCategory.java
+         │   ├── StatUnit.java
+         │   ├── StatValue.java
+         │   └── values
+         │       ├── AmmoListValue.java
+         │       ├── BooleanValue.java
+         │       ├── BoosterListValue.java
+         │       ├── ItemFilterValue.java
+         │       ├── ItemListValue.java
+         │       ├── LiquidFilterValue.java
+         │       ├── LiquidValue.java
+         │       ├── NumberValue.java
+         │       └── StringValue.java
+         ├── modules
+         │   ├── BlockModule.java
+         │   ├── ConsumeModule.java
+         │   ├── ItemModule.java
+         │   ├── LiquidModule.java
+         │   └── PowerModule.java
+         ├── Pos.java
+         ├── producers
+         │   ├── ProduceItem.java
+         │   └── Produce.java
+         ├── StaticTree.java
+         ├── Tile.java
+         └── WorldContext.java
    #+END_SRC
