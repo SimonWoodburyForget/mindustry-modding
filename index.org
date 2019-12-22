@@ -377,7 +377,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    /As of now, the only purpose of schematics is to give a zone a loadout./
 
-** NEW Scripts
+** Scripts
    :PROPERTIES:
    :END:
 
