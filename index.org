@@ -370,16 +370,12 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * Chinese TW ~bundle_zh_TW.properties~
 
 ** Schematic
-   :PROPERTIES:
-   :END:
 
    Fields that require the type ~Schematic~ can either take a built-in loadout /(see the [[Zone][Zone]] section)/ a base64 string, or the stem name of a ~.msch~ file in the ~schematics/~ subdirectory.
 
    /As of now, the only purpose of schematics is to give a zone a loadout./
 
 ** Scripts
-   :PROPERTIES:
-   :END:
 
    *[new [[#268f3cc3c]]]*
 
@@ -680,8 +676,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | update   | boolean | true    |                                                |
 
 *** ConsumeItems 
-    :PROPERTIES:
-    :END:
 
     Extends [[Consume][Consume]]
 
@@ -692,8 +686,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | items | [ [[ItemStack][ItemStack]] ] |
 
 *** ConsumeLiquid
-    :PROPERTIES:
-    :END:
 
     Extends [[Consume][Consume]]
 
@@ -707,8 +699,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | timePeriod | float  |      60 | how much time is taken to use this liquid, example: a normal ConsumeLiquid with 10/s and a 10 second timePeriod would display as /100 seconds/, but without a time override it would display as /10 liquid/second/. This is used for generic crafters. |
 
 *** ConsumePower
-    :PROPERTIES:
-    :END:
 
     Extends [[Consume][Consume]]
 
@@ -822,8 +812,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | variants |       3 |
 
 *** Rock
-    :PROPERTIES:
-    :END:
 
     Extends [[Block][Block]]
 
@@ -839,8 +827,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | alwaysReplace |    true |
 
 *** StaticWall
-    :PROPERTIES:
-    :END:
 
     Extends [[Rock][Rock]]
 
@@ -857,8 +843,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-large.png~ which is a 2x2 variant of the block.
 
 *** StaticTree
-    :PROPERTIES:
-    :END:
 
     Extends [[StaticWall][StaticWall]]
 
@@ -869,8 +853,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~shrubs~
 
 *** TreeBlock
-    :PROPERTIES:
-    :END:
 
     Extends [[Block][Block]]
 
@@ -885,8 +867,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :DESCRIPTION: blocks that take consume and output
    :END:
 *** GenericCrafter
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     | field              | type        | default | notes            |
@@ -912,8 +892,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | sync            |    true |
 
 *** GenericSmelter
-    :PROPERTIES:
-    :END:
     Extends [[GenericCrafter][GenericCrafter]] 
 
     A GenericCrafter with a new glowing region drawn on top.
@@ -962,8 +940,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :DESCRIPTION: the magical stuff
    :END:
 *** PowerVoid
-    :PROPERTIES:
-    :END:
     Extends [[PowerBlock][PowerBlock]]
 
     Deafults:
@@ -974,8 +950,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | consumesPower | MAX_VALUE |
 
 *** PowerSource
-    :PROPERTIES:
-    :END:
     Extends [[PowerNode][PowerNode]]
 
     Defaults:
@@ -988,8 +962,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | consumesPower |   false |
 
 *** ItemSource
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     Defaults:
@@ -1004,8 +976,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | configurable |           true |
 
 *** ItemVoid
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     Defaults:
@@ -1017,8 +987,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | solid  |    true |
 
 *** LiquidSource
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     Defaults:
@@ -1034,11 +1002,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | outputsLiquid  |    true |
 
 ** Logic
-   :PROPERTIES:
-   :END:
 *** MessageBlock
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     | field         | type | default |
@@ -1061,8 +1025,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :END:
 
 *** Wall
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     | field    | type | default |
@@ -1081,8 +1043,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | buildCostMultiplier |       5 |
 
 *** DeflectorWall
-    :PROPERTIES:
-    :END:
     Extends [[Wall][Wall]] -- Wall that deflects low damage bullets.
 
     | field            | type  | default |
@@ -1092,8 +1052,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | maxDamageDeflect | float |      10 |
 
 *** SurgeWall
-    :PROPERTIES:
-    :END:
     Extends [[Wall][Wall]] -- Wall that creates lightning when shot.
 
     | field           | type  | default |
@@ -1104,8 +1062,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | lightningLength | int   |      17 |
 
 *** Door
-    :PROPERTIES:
-    :END:
     Extends [[Wall][Wall]]
 
     | field   | type   |   default |
@@ -1126,8 +1082,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-open~
 
 *** MendProjector
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     | field           | type  | default |
@@ -1146,8 +1100,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-top~
 
 *** OverdriveProjector
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     | field           | type  | default |
@@ -1176,8 +1128,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-top~
 
 *** ForceProjector
-    :PROPERTIES:
-    :END:
 
     Extends [[Block][Block]]
 
@@ -1214,8 +1164,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-top~
 
 *** ShockMine
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     | field      | type  | default |
@@ -1292,8 +1240,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-heat~ the heat map
 
 *** CooledTurret
-    :PROPERTIES:
-    :END:
 
     Extends [[Turret][Turret]] -- This is a base type that turrets which use [[Liquid][Liquid]] to cool themselves extend from.
 
@@ -1386,8 +1332,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | activeSound | spray   |
 
 *** DoubleTurret
-    :PROPERTIES:
-    :END:
     Extends [[ItemTurret][ItemTurret]]
 
     ItemTurret that shoots from two side-by-side barrels.
@@ -1402,8 +1346,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | shots |       2 |
 
 *** ArtilleryTurret
-    :PROPERTIES:
-    :END:
     Extends [[ItemTurret][ItemTurret]] -- Artillery turrets have special shooting calculations done to hit targets.
 
     | field     | default |
@@ -1411,16 +1353,12 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | targetAir | false   |
 
 *** BurstTurret
-    :PROPERTIES:
-    :END:
     Extends [[ItemTurret][ItemTurret]] -- Turrets capable of bursts of specially spaced bullets, separated by long reload times.
 
     | field        | type  | default |
     |--------------+-------+---------|
     | burstSpacing | float |       5 |
 *** PowerTurret
-    :PROPERTIES:
-    :END:
     Extends [[CooledTurret][CooledTurret]] -- Turret which uses power has ammo to shoot.
 
     | field     | type       | default | notes        |
@@ -1435,8 +1373,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | hasPower | true    |
 
 *** ChargeTurret
-    :PROPERTIES:
-    :END:
 
     Extends [[PowerTurret]]
 
@@ -1449,8 +1385,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | chargeBeginEffect | [[Effect][Effect]] |    none |
 
 *** LaserTurret
-    :PROPERTIES:
-    :END:
     Extends [[PowerTurret][PowerTurret]]
 
     | field           | type  | default | notes                                        |
@@ -1473,8 +1407,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :DESCRIPTION: blocks to move items around
    :END:
 *** Conveyor
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     | field | type  | default |
@@ -1500,13 +1432,9 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~-<0..4>-<0..3>~ example: [[https://github.com/Anuken/Mindustry/tree/master/core/assets-raw/sprites/blocks/distribution/conveyors][Conveyors-sprites]]
 
 *** ArmoredConveyor
-    :PROPERTIES:
-    :END:
     Extends [[Conveyor][Conveyor]]  -A type of conveyor don't accept item coming from side
 
 *** Junction
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     | field    | type     | default | notes                                    |
@@ -1525,8 +1453,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | unloadable      | false          |
 
 *** ItemBridge
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     | field         | type  | default |
@@ -1555,8 +1481,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-arrow~ example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/distribution/bridge-conveyor-arrow.png][bridge-conveyor-arrow]]
 
 *** ExtendingItemBridge
-    :PROPERTIES:
-    :END:
     Extends [[ItemBridge][ItemBridge]]
 
     Defaults:
@@ -1565,8 +1489,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | hasItems | true    |
 
 *** BufferedItemBridge
-    :PROPERTIES:
-    :END:
     Extends [[ExtendingItemBridge][ExtendingItemBridge]]
 
     | field          | type  | default |
@@ -1581,8 +1503,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | hasPower | false   |
 
 *** Sorter
-    :PROPERTIES:
-    :END:
 
     Extends [[Block][Block]]
 
@@ -1602,8 +1522,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | unloadable      | false          |
 
 *** OverflowGate
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     | field | type  | default |
@@ -1621,8 +1539,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | unloadable | false          |
 
 *** MassDriver
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]] -- Uses ~driverBolt~ to transfer items.
 
     | field         | type   |        default |
@@ -1660,8 +1576,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :DESCRIPTION: blocks to do things with liquid
    :END:
 *** LiquidBlock
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]] -- For blocks that can carry liquids. Apart from the better defaults, it also fetches extra sprites.
 
     Defaults:
@@ -1680,8 +1594,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * ~<name>-bottom~
 
 *** Pump
-    :PROPERTIES:
-    :END:
     Extends [[LiquidBlock][LiquidBlock]]
 
     | field      | type  | default |
@@ -1695,8 +1607,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | floating | true    |
 
 *** Conduit
-    :PROPERTIES:
-    :END:
     Extends [[LiquidBlock][LiquidBlock]]
 
     | field          | type  |
@@ -1715,8 +1625,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-top-<0..6>~
 
 *** ArmoredConduit
-    :PROPERTIES:
-    :END:
     *[new type v99 (268)]* -- Extends [[Conduit][Conduit]]
 
     Defaults:
@@ -1728,8 +1636,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-cap~
 
 *** LiquidOverflowGate
-    :PROPERTIES:
-    :END:
     *[new type v99 (268)]* -- Extends [[LiquidBlock][LiquidBlock]]
 
     Defaults:
@@ -1741,23 +1647,15 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-top~
 
 *** LiquidRouter
-    :PROPERTIES:
-    :END:
     Extends [[LiquidBlock][LiquidBlock]]
 
 *** LiquidTank
-    :PROPERTIES:
-    :END:
     Extends [[LiquidRouter][LiquidRouter]]
 
 *** LiquidJunction
-    :PROPERTIES:
-    :END:
     Extends [[LiquidBlock][LiquidBlock]]
 
 *** LiquidBridge
-    :PROPERTIES:
-    :END:
     Extends [[LiquidBridge][LiquidBridge]]
 
     | field         | default |
@@ -1768,8 +1666,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | group         | liquids |
 
 *** LiquidExtendingBridge
-    :PROPERTIES:
-    :END:
     Extends [[ExtendingItemBridge][ExtendingItemBridge]]
 
     | field         | default |
@@ -1783,8 +1679,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :DESCRIPTION: blocks to do things with power
    :END:
 *** PowerBlock
-    :PROPERTIES:
-    :END:
     [[Abstract][Abstract]] type which extends [[Block][Block]]
 
     Defaults:
@@ -1797,8 +1691,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | group    | power   |
 
 *** PowerNode
-    :PROPERTIES:
-    :END:
     Extends [[PowerBlock][PowerBlock]]
 
     | field      | type  | default |
@@ -1817,8 +1709,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | outputsPower  | false   |
 
 *** PowerDistributor
-    :PROPERTIES:
-    :END:
     Extends [[PowerBlock][PowerBlock]]
 
     Defaults:
@@ -1828,8 +1718,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | outputsPower  | true    |
 
 *** Battery
-    :PROPERTIES:
-    :END:
     Extends [[PowerDistributor][PowerDistributor]] -- Just a change of defaults for batteries.
 
     Defauts:
@@ -1860,8 +1748,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | sync              | true    |
 
 **** ThermalGenerator
-     :PROPERTIES:
-     :END:
      Extends [[PowerGenerator][PowerGenerator]] -- Generates power with the heat [[Attributes][attribute]] of a tile. Power production is ~powerProduction * heat~, and ~heat~ must be greater then ~0.01~.
 
      | field          | type   | default | notes |
@@ -1870,8 +1756,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      | generateEffect | [[Effect][Effect]] | none    |       |
 
 **** ItemLiquidGenerator
-     :PROPERTIES:
-     :END:
      Extends [[PowerGenerator][PowerGenerator]] -- Base of power generation blocks.
 
      Notes:
@@ -1900,16 +1784,10 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      * ~<name>-liquid~
 
 **** SingleTypeGenerator
-     :PROPERTIES:
-     :END:
      Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from an item.
 **** BurnerGenerator
-     :PROPERTIES:
-     :END:
      Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item flamability.
 **** DecayGenerator
-     :PROPERTIES:
-     :END:
      Extends [[ItemLiquidGenerator][ItemLiquidGenerator]] -- Generates power from item radioactivity.
 
      Defaults:
@@ -1919,16 +1797,12 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      | hasLiquids | false   |
 
 **** SolarGenerator
-     :PROPERTIES:
-     :END:
      Extends [[PowerGenerator][PowerGenerator]] -- A generator that always produces 100% efficiency power.
 
      Notes:
      * Lower targetting priority then other generators.
 
 **** NuclearReactor
-     :PROPERTIES:
-     :END:
      Extends [[PowerGenerator][PowerGenerator]] -- Generates power relative to how many items are in storage, and explodes if it runs out of coolant.
 
      | field           | type  |  default | notes                               |
@@ -1959,8 +1833,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      * ~<name>-lights~ lights region
 
 **** ImpactReactor
-     :PROPERTIES:
-     :END:
      Extends [[PowerGenerator][PowerGenerator]] -- Generator that uses power and has a startup time.
 
      | field           | type  | default | notes                    |
@@ -1988,8 +1860,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      * ~<name>-bottom~ bottom region
      * ~<name>-plasma-<i>~ plasma regions, where ~i~ is ~0~ to ~plasmas - 1~.
 *** PowerDiode
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     Defaults:
@@ -2003,8 +1873,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     Sprites:
     - ~<name>-arrow~
 *** LightBlock
-    :PROPERTIES:
-    :END:
     *[new type v99 (268)]* -- Extends [[Block][Block]]
 
     | field      | type  | default |
@@ -2027,8 +1895,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :DESCRIPTION: blocks to extract materials from the environment
    :END:
 *** Drill
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]] -- Types which can be placed on ore blocks to extract the [[OreBlock][OreBlock]]'s item.
 
     | field                | type    | default        | notes                                                                 |
@@ -2065,8 +1931,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-top~
 
 *** SolidPump
-    :PROPERTIES:
-    :END:
     Extends [[Pump][Pump]] -- Pump that makes liquid from solids and takes in power. Only works on solid floor blocks.
 
     | field              | type      | default |
@@ -2086,8 +1950,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-liquid~
 
 *** Cultivator
-    :PROPERTIES:
-    :END:
     Extends [[GenericCrafter][GenericCrafter]]
 
     | field      | type  | default |
@@ -2104,8 +1966,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-top~
 
 *** Fracker
-    :PROPERTIES:
-    :END:
     Extends [[SolidPump][SolidPump]]
 
     | field       | default |
@@ -2122,8 +1982,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-rotater~
     * ~<name>-top~
 *** Incinerator
-    :PROPERTIES:
-    :END:
     Extends [[Block][Block]]
 
     | field      | type   |  default |
@@ -2340,8 +2198,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | solid    | true    |
 
 ** Attributes
-   :PROPERTIES:
-   :END:
 
    An object with an array of [[Attribute][attribute]]. Used in the ~Floor~ type to give a tile specific properties, like /hottness/ or /sporness/ for efficiency of various systems, like ThermalPumps and WaterExtractors.
 
@@ -2371,8 +2227,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     #+END_SRC
 
 ** Attribute
-   :PROPERTIES:
-   :END:
 
    New attributes cannot be added. List of built-in attributes:
 
@@ -2381,8 +2235,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * ~water~
    * ~oil~
 ** BuildVisibility
-   :PROPERTIES:
-   :END:
 
    A flag used by the game to change a few special-case things. It may be one of the following strings:
 
@@ -2394,8 +2246,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * =lightingOnly=
 
 ** BlockGroup
-   :PROPERTIES:
-   :END:
 
    Groups for blocks to build on top of each other:
    * ~none~
@@ -2412,8 +2262,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
   :END:
 
 ** Item
-   :PROPERTIES:
-   :END:
 
    Extends [[Content][Content]] -- It's the object that can ride conveyors, sorters and be stored in containers, and is commonly used in crafters.
 
@@ -2462,8 +2310,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :END:
 
 ** Liquid
-   :PROPERTIES:
-   :END:
 
    Extends [[Content][Content]]
 
@@ -2512,8 +2358,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :END:
  
 ** Weapon
-   :PROPERTIES:
-   :END:
 
    Weapons are used by units and mechs alike. A weapon is a type used to shoot bullets [[BulletType][bullets]] just like turrets /(except that they don't have an ~ammo~ mapping)/. Weapons can only shoot one type of bullet, which you define in the ~bullet~ field.
 
@@ -2546,8 +2390,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * ~<name>~ or ~<name>-equip~
 
 ** UnitType
-   :PROPERTIES:
-   :END:
 
    Extends [[Content][Content]]
 
@@ -2584,8 +2426,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * ~<name>-base~
 
 ** Mech
-   :PROPERTIES:
-   :END:
 
    Extends [[Content][Content]] 
 
@@ -2623,8 +2463,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * ~<name>-base~
 
 ** Category
-   :PROPERTIES:
-   :END:
 
    Categories for building menu:
    * ~turret~ Offensive turrets;
@@ -2715,8 +2553,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * groundZero
 
 ** StatusEffect
-   :PROPERTIES:
-   :END:
 
    /Not be be confused with [[Effect][Effect]]/, a status effect will give an entity special properties. It is currently *not possible to add custom status effects*. -- Status effects are used as transitions between intermediate effects. If some a ~wet~ unit gets ~shocked~ it then gets 20 damage.
 
@@ -2811,8 +2647,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
   :DESCRIPTION: the rendering specific stuff.
   :END:
 ** Layer
-   :PROPERTIES:
-   :END:
 
    Layers is an enumeration type, which the renderer will use to group rendering order:
 
@@ -2822,8 +2656,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * ~turret~, "high" blocks like turrets;
    * ~power~ power lasers
 ** Color
-   :PROPERTIES:
-   :END:
 
    Color is a hexadecimal string, ~<rr><gg><bb>~ for example:
 
@@ -2850,8 +2682,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
   :DESCRIPTION: the things that exists as themselves.
   :END:
 ** BulletType
-   :PROPERTIES:
-   :END:
 
    [[Abstract][Abstract]] type which extends [[Content][Content]]
 
@@ -3069,8 +2899,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      | hitSound      | explosion |
 
 *** HealBulletType
-    :PROPERTIES:
-    :END:
 
     Extends [[BulletType][BulletType]] -- Bullets that can heal blocks of the same team as the shooter.
 
@@ -3089,8 +2917,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | collidesTeam  | true      |
 
 *** LiquidBulletType
-    :PROPERTIES:
-    :END:
 
     Extends [[BulletType][BulletType]]
 
@@ -3113,8 +2939,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | knockback      | 0.55      |
 
 *** MassDriverBolt
-    :PROPERTIES:
-    :END:
 
     Extends [[BulletType][BulletType]]
 
@@ -3129,8 +2953,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | drag          | 0.005        |
 
 *** Built-in Bullets
-    :PROPERTIES:
-    :END:
 
    * artillery:
      * ~artilleryDense~ ~arilleryPlastic~ ~artilleryPlasticFrag~ ~artilleryHoming~ ~artlleryIncendiary~ ~artilleryExplosive~ ~artilleryUnit~
@@ -3150,8 +2972,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      * ~bombExplosive~ ~bombIncendiary~ ~bombOil~
 
 ** BaseUnit
-   :PROPERTIES:
-   :END:
 
    There are a few useful base unit types:
 
@@ -3163,8 +2983,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * ~GroundUnit~
 
 ** Effect
-   :PROPERTIES:
-   :END:
 
    Type should be a ~string~. You can't currently create custom effects. List of built-in effects are as follows:
 
@@ -3188,8 +3006,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * ~unitSpawn~ ~spawnShockwave~ ~magmasmoke~ ~impactShockwave~
        ~impactcloud~ ~impactsmoke~ ~dynamicExplosion~ ~padlaunch~ ~commandSend~ ~coreLand~
 ** TargetPriority
-   :PROPERTIES:
-   :END:
 
    * ~base~
    * ~turret~
@@ -3225,8 +3041,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
   :END:
 
 ** Mindustry Source Structure
-   :PROPERTIES:
-:END:
 
    #+BEGIN_SRC fundamental
      core/src/io/anuke/mindustry/
