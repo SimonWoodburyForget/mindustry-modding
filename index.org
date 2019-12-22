@@ -469,25 +469,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
        consumes: { items: { items: [ "scrap/10" ] } }
      #+END_SRC
 
-*** extendContent
-
-    Function to extend content which takes three arguments.
-
-    1) ~classType~ the type of class you want to extend;
-    2) ~name~ the name of your type;
-    3) ~params~ the object which will be used to extend the type.
-    
-*** newEffect
-
-    Function which takes two arguments. 
-
-    1) ~lifetime~
-    2) ~renderer~
-
-*** print
-    
-    Function which prints text to stdout with the name of your mod.
-
 ** FAQ
     :PROPERTIES:
     :DESCRIPTION: simple questions and awnsers
