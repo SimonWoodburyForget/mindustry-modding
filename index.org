@@ -87,15 +87,15 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    #+BEGIN_SRC yaml
    # single line comment
-   
+
    // single line comment
-   
+
    /* multiline
    comment */
-   
+
    key1: single line string
-   
-   key2: 
+
+   key2:
    '''
    multiline
    string
@@ -116,7 +116,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :DESCRIPTION: the project configuration file.
    :END:
 
-   At the root of your project directory, you must have a ~mod.json~ which defines the basic metadata for your project. 
+   At the root of your project directory, you must have a ~mod.json~ which defines the basic metadata for your project.
 
    #+BEGIN_SRC yaml
    name: Mod Name
@@ -369,6 +369,72 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * Chinese CN ~bundle_zh_CN.properties~
    * Chinese TW ~bundle_zh_TW.properties~
 
+** Markup
+
+   The text renderer uses a simple makeup language for coloring text.
+
+   * ~[name]~ sets the color by name, there's a few [[Built-in Colors][built-in colors]];
+   * ~[#rrggbb]~ / ~[#rrggbbaa]~ sets the color by hex value, with each value being anything from ~00~ to ~ff~:
+     * ~rr~ is the red value,
+     * ~gg~ is the green value,
+     * ~bb~ is the blue value,
+     * ~aa~ is the alpha value;
+   * ~[]~ sets the color back to the previous color;
+   * ~[[~ escapes the left bracket, so you can write ~[[red]~ to write and it'll render as ~[red]~.
+
+   Notes:
+   * erros/unknown colors will be silently ignored.
+
+   Example:
+
+   #+BEGIN_SRC fundamental
+     [red]red
+     [#ff0000]full-red
+     [#ff000066]half-red
+     [#ff000033]half-half-red
+     [#00ff00]green
+     []half-half-red
+   #+END_SRC
+
+*** Built-in Colors
+
+    #+BEGIN_SRC fundamental
+      [clear]clear
+      [black]black
+      [white]white
+      [lightgray]lightgray
+      [gray]gray
+      [darkgray]darkgray
+      [blue]blue
+      [navy]navy
+      [royal]royal
+      [slate]slate
+      [sky]sky
+      [cyan]cyan
+      [teal]teal
+      [green]green
+      [acid]acid
+      [lime]lime
+      [forest]forest
+      [olive]olive
+      [yellow]yellow
+      [gold]gold
+      [goldenrod]goldenrod
+      [orange]orange
+      [brown]brown
+      [tan]tan
+      [brick]brick
+      [red]red
+      [scarlet]scarlet
+      [coral]coral
+      [salmon]salmon
+      [pink]pink
+      [magenta]magenta
+      [purple]purple
+      [violet]violet
+      [maroon]maroon
+    #+END_SRC
+
 ** Schematic
 
    Fields that require the type ~Schematic~ can either take a built-in loadout /(see the [[Zone][Zone]] section)/ a base64 string, or the stem name of a ~.msch~ file in the ~schematics/~ subdirectory.
@@ -384,7 +450,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    For example:
 
    * ~scripts/silo.js~
-     
+
      #+BEGIN_SRC js
        // create a simple shockwave effect
        const siloLaunchEffect = newEffect(20, e => {
@@ -396,7 +462,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
            Lines.stroke(e.fout() * 3);
 
            // draw a circle whose radius goes from 0 to 100
-           Lines.circle(e.x, e.y, e.fin() * 100); 
+           Lines.circle(e.x, e.y, e.fin() * 100);
        });
 
        // create the block type
@@ -405,10 +471,10 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
            // override the method to build configuration
            buildConfiguration(tile, table) {
                table.addImageButton(
-                   Icon.arrowUpSmall, 
+                   Icon.arrowUpSmall,
                    Styles.clearTransi,
 
-                   // configure the tile to signal that it has been 
+                   // configure the tile to signal that it has been
                    // pressed (this sync on client to server)
                    run(() => tile.configure(0))
                ).size(50);
@@ -427,17 +493,17 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
                    // random rotation and velocity/lifetime
                    for (var i = 0; i < 10; i++) {
                        Calls.createBullet(
-                           Bullets.flakExplosive, 
-                           tile.getTeam(), 
-                           tile.drawx(), 
-                           tile.drawy(), 
-                           Mathf.random(360), 
-                           Mathf.random(0.5, 1.0), 
+                           Bullets.flakExplosive,
+                           tile.getTeam(),
+                           tile.drawx(),
+                           tile.drawy(),
+                           Mathf.random(360),
+                           Mathf.random(0.5, 1.0),
                            Mathf.random(0.2, 1.0)
                        );
                    }
 
-                   // triggering consumption makes it use up the 
+                   // triggering consumption makes it use up the
                    // items it requires
                    tile.entity.cons.trigger();
                }
@@ -448,7 +514,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * ~content/blocks/scatter-silo.hjson~
 
      #+BEGIN_SRC yaml
-       localizedName: "Scatter Silo" 
+       localizedName: "Scatter Silo"
        description: "A player-activatable block that scatters bullets everywhere upon use."
 
        category: turret
@@ -487,7 +553,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :UNNUMBERED: t
     :CUSTOM_ID: 74dc31b10a82763d4f1ff29d32ae430ee87b9def
     :END:
-    
+
     [ [[https://github.com/Anuken/Mindustry/commit/74dc31b10a82763d4f1ff29d32ae430ee87b9def][commit]]  Removed unnecessary unit types ]
 
     * changed unit types names:
@@ -504,10 +570,10 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: 268f3cc3c
     :END:
     [ [[https://github.com/Anuken/Mindustry/commit/268f3cc3c][commit]] Merge branches ~master~ and ~rhino-js-suffering~ ]
-    
+
     * ~scripts/~ sub-directory and Rhino JS runtime was added;
     * ~displayName~ can now be used as field name in ~mod.json~
-    
+
 *** Dec 04
     :PROPERTIES:
     :UNNUMBERED: t
@@ -535,7 +601,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: 2d4270406
     :END:
     [ [[https://github.com/Anuken/Mindustry/commit/2d4270406][commit]] Switched to hjson extension ]
-    
+
     * ~.hjson~ can now be used as a file extension;
 
 *** Nov 22
@@ -555,11 +621,11 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     :CUSTOM_ID: 968f3ace3
     :END:
     [ [[https://github.com/Anuken/Mindustry/commit/968f3ace3][commit]] Better mod parsing ]
-    
+
     * ~liquid/amount~ can now be used as a string for ~LiquidStack~;
     * ~item/amount~ can now be used as a string for ~ItemStack~;
     * ~mod.json~ now supports hjson;
-   
+
 * World
   :PROPERTIES:
   :DESCRIPTION: the universe and everything in it.
@@ -675,7 +741,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | booster  | boolean |         | consumer will be displayed as a boost input.   |
    | update   | boolean | true    |                                                |
 
-*** ConsumeItems 
+*** ConsumeItems
 
     Extends [[Consume][Consume]]
 
@@ -892,7 +958,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | sync            |    true |
 
 *** GenericSmelter
-    Extends [[GenericCrafter][GenericCrafter]] 
+    Extends [[GenericCrafter][GenericCrafter]]
 
     A GenericCrafter with a new glowing region drawn on top.
 
@@ -1266,7 +1332,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     type: ItemTurret
     ammo: {
       copper: standardCopper
-      
+
       metaglass: {
         type: MissileBulletType
         damage: 2
@@ -2287,7 +2353,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :DESCRIPTION: amount of item types
    :END:
 
-   A ~ItemStack~ can be a string or an object. It's used to describe the type and amount of items to a machine. 
+   A ~ItemStack~ can be a string or an object. It's used to describe the type and amount of items to a machine.
 
    As a ~string~:
 
@@ -2335,7 +2401,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :DESCRIPTION: amount of liquid types
    :END:
 
-   A ~LiquidStack~ can be a string or an object. It's used to describe the type and amount of liquid to a machine. 
+   A ~LiquidStack~ can be a string or an object. It's used to describe the type and amount of liquid to a machine.
 
    As a ~string~:
 
@@ -2345,7 +2411,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    As an ~object~:
 
-   #+BEGIN_SRC json 
+   #+BEGIN_SRC json
    liquid: water
    amount: 0.5
    #+END_SRC
@@ -2356,7 +2422,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | liquid | string | The name of a [[Liquid][Liquid]].      |
    | amount | float  | The amount of said liquid. |
    :END:
- 
+
 ** Weapon
 
    Weapons are used by units and mechs alike. A weapon is a type used to shoot bullets [[BulletType][bullets]] just like turrets /(except that they don't have an ~ammo~ mapping)/. Weapons can only shoot one type of bullet, which you define in the ~bullet~ field.
@@ -2427,7 +2493,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
 ** Mech
 
-   Extends [[Content][Content]] 
+   Extends [[Content][Content]]
 
    Mechs are the player controlled entities. They shoot [[BulletType][bullets]] just like turrets from their [[Weapon][weapon]].
 
@@ -2517,7 +2583,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
      [[file:img/basicShard.png]]
 
-   * advancedShard 
+   * advancedShard
 
      #+BEGIN_SRC fundamental
      bXNjaAB4nD2LjQqAIAyET7OMIOhFfJqeYMxBgSkYCL199gu33fFtB4tOwUTaBCP5QpHFzwtl32DahBeKK1NwPq8hoOcUixwpY+CUxe3XIwBbB/pa6tadVCUP02hgHvp5vZq/0b7pBHPYFOQ=
@@ -2525,7 +2591,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
      [[file:img/advancedShard.png]]
 
-   * basicFoundation 
+   * basicFoundation
 
      #+BEGIN_SRC fundamental
      bXNjaAB4nD1OSQ6DMBBzFhVu8BG+0X8MQyoiJTNSukj8nlCi2Adbtg/GA4OBF8oB00rvyE/9ykafqOIw58A7SWRKy1ZiShhZ5RcOLZhYS1hefQ1gRIeptH9jq/qW2lvc1d2tgWsOfVX/tOwE86AYBA==
@@ -2533,7 +2599,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
      [[file:img/basicFoundation.png]]
 
-   * basicNucleus 
+   * basicNucleus
 
      #+BEGIN_SRC fundamental
      bXNjaAB4nD2MUQqAIBBEJy0s6qOLdJXuYNtCgikYBd2+LNmdj308hkGHtkId7M4YFns4mk/yfB4a48602eDI+mlNznu0FMPFd0wYKCaewl8F0EOueqM+yKSLVfJrNKWnSw/FZGzEGXFG9sy/px4gEBW1
@@ -2670,7 +2736,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    :PROPERTIES:
    :DESCRIPTION: cached rendering flags
    :END:
-  
+
    Flags used by for cache render:
    + ~normal~ normal layer;
    + ~walls~ walls layer;
@@ -2860,12 +2926,12 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
      Extends [[BasicBulletType][BasicBulletType]]
 
-     Weave is simple a sin wave with the following equation. 
+     Weave is simple a sin wave with the following equation.
 
      \begin{equation}
      r = \sin(\frac{t}{s}) \cdot m
      \end{equation}
-    
+
      | field      | type  |           default | notes                                            |
      |------------+-------+-------------------+--------------------------------------------------|
      |            |       |                   | <10>                                             |

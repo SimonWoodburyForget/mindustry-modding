@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-19 Thu 08:36 -->
+<!-- 2019-12-22 Sun 23:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -290,16 +290,15 @@ for the JavaScript code in this tag.
 <li><a href="#Sound">1.8. Sound</a></li>
 <li><a href="#Dependencies">1.9. Dependencies</a></li>
 <li><a href="#Bundles">1.10. Bundles</a></li>
-<li><a href="#Schematic">1.11. Schematic</a></li>
-<li><a href="#Scripts">1.12. <span class="done NEW">NEW</span> Scripts</a>
+<li><a href="#Markup">1.11. Markup</a>
 <ul>
-<li><a href="#extendContent">extendContent</a></li>
-<li><a href="#newEffect">newEffect</a></li>
-<li><a href="#print">print</a></li>
+<li><a href="#Built-in%20Colors">Built-in Colors</a></li>
 </ul>
 </li>
-<li><a href="#FAQ">1.13. FAQ</a></li>
-<li><a href="#Change%20Log">1.14. Change Log</a>
+<li><a href="#Schematic">1.12. Schematic</a></li>
+<li><a href="#Scripts">1.13. Scripts</a></li>
+<li><a href="#FAQ">1.14. FAQ</a></li>
+<li><a href="#Change%20Log">1.15. Change Log</a>
 <ul>
 <li><a href="#74dc31b10a82763d4f1ff29d32ae430ee87b9def">Dec 09</a></li>
 <li><a href="#268f3cc3c">Dec 08</a></li>
@@ -613,7 +612,7 @@ comment */
 
 <span style="color: #a0522d;">key1</span>: single line string
 
-<span style="color: #a0522d;">key2</span>: 
+<span style="color: #a0522d;">key2</span>:
 <span style="color: #8b2252;">'''</span>
 <span style="color: #8b2252;">multiline</span>
 <span style="color: #8b2252;">string</span>
@@ -638,7 +637,7 @@ comment */
 <h3 id="~mod.json~"><span class="section-number-3">1.3</span> <code>mod.json</code></h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-At the root of your project directory, you must have a <code>mod.json</code> which defines the basic metadata for your project. 
+At the root of your project directory, you must have a <code>mod.json</code> which defines the basic metadata for your project.
 </p>
 
 <div class="org-src-container">
@@ -1018,9 +1017,95 @@ List of filenames relative to languages:
 </div>
 </div>
 
-<div id="outline-container-Schematic" class="outline-3">
-<h3 id="Schematic"><span class="section-number-3">1.11</span> Schematic</h3>
+<div id="outline-container-Markup" class="outline-3">
+<h3 id="Markup"><span class="section-number-3">1.11</span> Markup</h3>
 <div class="outline-text-3" id="text-1-11">
+<p>
+The text renderer uses a simple makeup language for coloring text.
+</p>
+
+<ul class="org-ul">
+<li><code>[name]</code> sets the color by name, there's a few <a href="#Built-in%20Colors">built-in colors</a>;</li>
+<li><code>[#rrggbb]</code> / <code>[#rrggbbaa]</code> sets the color by hex value, with each value being anything from <code>00</code> to <code>ff</code>:
+<ul class="org-ul">
+<li><code>rr</code> is the red value,</li>
+<li><code>gg</code> is the green value,</li>
+<li><code>bb</code> is the blue value,</li>
+<li><code>aa</code> is the alpha value;</li>
+</ul></li>
+<li><code>[]</code> sets the color back to the previous color;</li>
+<li><code>[[</code> escapes the left bracket, so you can write <code>[[red]</code> to write and it'll render as <code>[red]</code>.</li>
+</ul>
+
+<p>
+Notes:
+</p>
+<ul class="org-ul">
+<li>erros/unknown colors will be silently ignored.</li>
+</ul>
+
+<p>
+Example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-fundamental">[red]red
+[#ff0000]full-red
+[#ff000066]half-red
+[#ff000033]half-half-red
+[#00ff00]green
+[]half-half-red
+</pre>
+</div>
+</div>
+
+<div id="outline-container-Built-in%20Colors" class="outline-4">
+<h4 id="Built-in%20Colors">Built-in Colors</h4>
+<div class="outline-text-4" id="text-Built-in%20Colors">
+<div class="org-src-container">
+<pre class="src src-fundamental">[clear]clear
+[black]black
+[white]white
+[lightgray]lightgray
+[gray]gray
+[darkgray]darkgray
+[blue]blue
+[navy]navy
+[royal]royal
+[slate]slate
+[sky]sky
+[cyan]cyan
+[teal]teal
+[green]green
+[acid]acid
+[lime]lime
+[forest]forest
+[olive]olive
+[yellow]yellow
+[gold]gold
+[goldenrod]goldenrod
+[orange]orange
+[brown]brown
+[tan]tan
+[brick]brick
+[red]red
+[scarlet]scarlet
+[coral]coral
+[salmon]salmon
+[pink]pink
+[magenta]magenta
+[purple]purple
+[violet]violet
+[maroon]maroon
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-Schematic" class="outline-3">
+<h3 id="Schematic"><span class="section-number-3">1.12</span> Schematic</h3>
+<div class="outline-text-3" id="text-1-12">
 <p>
 Fields that require the type <code>Schematic</code> can either take a built-in loadout <i>(see the <a href="#Zone">Zone</a> section)</i> a base64 string, or the stem name of a <code>.msch</code> file in the <code>schematics/</code> subdirectory.
 </p>
@@ -1032,8 +1117,8 @@ Fields that require the type <code>Schematic</code> can either take a built-in l
 </div>
 
 <div id="outline-container-Scripts" class="outline-3">
-<h3 id="Scripts"><span class="section-number-3">1.12</span> <span class="done NEW">NEW</span> Scripts</h3>
-<div class="outline-text-3" id="text-1-12">
+<h3 id="Scripts"><span class="section-number-3">1.13</span> Scripts</h3>
+<div class="outline-text-3" id="text-1-13">
 <p>
 <b>[new <a href="#268f3cc3c">Dec 08</a>]</b>
 </p>
@@ -1062,7 +1147,7 @@ For example:
     Lines.stroke(e.fout() * 3);
 
     <span style="color: #b22222;">// </span><span style="color: #b22222;">draw a circle whose radius goes from 0 to 100</span>
-    Lines.circle(e.x, e.y, e.fin() * 100); 
+    Lines.circle(e.x, e.y, e.fin() * 100);
 });
 
 <span style="color: #b22222;">// </span><span style="color: #b22222;">create the block type</span>
@@ -1071,10 +1156,10 @@ For example:
     <span style="color: #b22222;">// </span><span style="color: #b22222;">override the method to build configuration</span>
     buildConfiguration(tile, table) {
         table.addImageButton(
-            Icon.arrowUpSmall, 
+            Icon.arrowUpSmall,
             Styles.clearTransi,
 
-            <span style="color: #b22222;">// </span><span style="color: #b22222;">configure the tile to signal that it has been </span>
+            <span style="color: #b22222;">// </span><span style="color: #b22222;">configure the tile to signal that it has been</span>
             <span style="color: #b22222;">// </span><span style="color: #b22222;">pressed (this sync on client to server)</span>
             run(() =&gt; tile.configure(0))
         ).size(50);
@@ -1093,17 +1178,17 @@ For example:
             <span style="color: #b22222;">// </span><span style="color: #b22222;">random rotation and velocity/lifetime</span>
             <span style="color: #a020f0;">for</span> (<span style="color: #a020f0;">var</span> <span style="color: #a0522d;">i</span> = 0; i &lt; 10; i++) {
                 Calls.createBullet(
-                    Bullets.flakExplosive, 
-                    tile.getTeam(), 
-                    tile.drawx(), 
-                    tile.drawy(), 
-                    Mathf.random(360), 
-                    Mathf.random(0.5, 1.0), 
+                    Bullets.flakExplosive,
+                    tile.getTeam(),
+                    tile.drawx(),
+                    tile.drawy(),
+                    Mathf.random(360),
+                    Mathf.random(0.5, 1.0),
                     Mathf.random(0.2, 1.0)
                 );
             }
 
-            <span style="color: #b22222;">// </span><span style="color: #b22222;">triggering consumption makes it use up the </span>
+            <span style="color: #b22222;">// </span><span style="color: #b22222;">triggering consumption makes it use up the</span>
             <span style="color: #b22222;">// </span><span style="color: #b22222;">items it requires</span>
             tile.entity.cons.trigger();
         }
@@ -1117,7 +1202,7 @@ For example:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">localizedName</span>: <span style="color: #8b2252;">"Scatter Silo"</span> 
+<pre class="src src-yaml"><span style="color: #a0522d;">localizedName</span>: <span style="color: #8b2252;">"Scatter Silo"</span>
 <span style="color: #a0522d;">description</span>: <span style="color: #8b2252;">"A player-activatable block that scatters bullets everywhere upon use."</span>
 
 <span style="color: #a0522d;">category</span>: turret
@@ -1136,64 +1221,26 @@ For example:
 </div></li>
 </ul>
 </div>
-
-<div id="outline-container-extendContent" class="outline-4">
-<h4 id="extendContent">extendContent</h4>
-<div class="outline-text-4" id="text-extendContent">
-<p>
-Function to extend content which takes three arguments.
-</p>
-
-<ol class="org-ol">
-<li><code>classType</code> the type of class you want to extend;</li>
-<li><code>name</code> the name of your type;</li>
-<li><code>params</code> the object which will be used to extend the type.</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-newEffect" class="outline-4">
-<h4 id="newEffect">newEffect</h4>
-<div class="outline-text-4" id="text-newEffect">
-<p>
-Function which takes two arguments. 
-</p>
-
-<ol class="org-ol">
-<li><code>lifetime</code></li>
-<li><code>renderer</code></li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-print" class="outline-4">
-<h4 id="print">print</h4>
-<div class="outline-text-4" id="text-print">
-<p>
-Function which prints text to stdout with the name of your mod.
-</p>
-</div>
-</div>
 </div>
 
 <div id="outline-container-FAQ" class="outline-3">
-<h3 id="FAQ"><span class="section-number-3">1.13</span> FAQ</h3>
-<div class="outline-text-3" id="text-1-13">
+<h3 id="FAQ"><span class="section-number-3">1.14</span> FAQ</h3>
+<div class="outline-text-3" id="text-1-14">
 <ul class="org-ul">
 <li><code>time</code> in game is calculated through <code>ticks</code>;</li>
 <li><code>ticks</code> <i>sometimes called <code>frames</code>,</i> are assumed to be 60/1 second;</li>
 <li><code>tilesize</code> is 8 units internally;</li>
 <li>to calculate range out of <code>lifetime</code> and <code>speed</code> you can do <code>lifetime * speed = range</code>;</li>
-<li><a id="orgabaedff"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
+<li><a id="org3442dc9"></a> what is <code>abstract</code>? all you need to know about abstract types, is this is a Java specific term, which means you cannot instantiate/initialize this specific type by itself. If you do so you'll probably get an <i>"initialization exception"</i> of some kind;</li>
 <li>what is a <code>NullPointerException</code>? This is an error message that indicates a field is null and shouldn't be null, meaning one of the required fields may be missing;</li>
-<li><a id="org603daa3"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
+<li><a id="orgb8165ae"></a> what is <code>bleeding-edge</code>? This is the developer version of Mindustry, specifically it's refering to the Github master branch. Changes on bleeding-edge usually make it into Mindustry in the next release.</li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-Change%20Log" class="outline-3">
-<h3 id="Change%20Log"><span class="section-number-3">1.14</span> Change Log</h3>
-<div class="outline-text-3" id="text-1-14">
+<h3 id="Change%20Log"><span class="section-number-3">1.15</span> Change Log</h3>
+<div class="outline-text-3" id="text-1-15">
 <p>
 This is a log of changes done on the Mindustry Master branch that affected the modding API. The sections are ordered by date commited, and provide a description of what was changed, with a link to the diff on Github.
 </p>
@@ -1751,7 +1798,7 @@ For example with <a href="#ConsumeItems">ConsumeItems</a> and <a href="#ConsumeL
 <h3 id="Consume"><span class="section-number-3">2.3</span> Consume</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
-<a href="#orgabaedff">Abstract</a> type which defines a type of resource that a block can consume.
+<a href="#org3442dc9">Abstract</a> type which defines a type of resource that a block can consume.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1947,7 +1994,7 @@ Type to consume or buffer power.
 <h3 id="BlockStorage"><span class="section-number-3">2.4</span> BlockStorage</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
-<a href="#orgabaedff">Abstract</a> type that extends <a href="#Content">Content</a>
+<a href="#org3442dc9">Abstract</a> type that extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -2600,7 +2647,7 @@ Defaults:
 <h4 id="GenericSmelter">GenericSmelter</h4>
 <div class="outline-text-4" id="text-GenericSmelter">
 <p>
-Extends <a href="#GenericCrafter">GenericCrafter</a> 
+Extends <a href="#GenericCrafter">GenericCrafter</a>
 </p>
 
 <p>
@@ -3694,13 +3741,13 @@ Defaults:
 
 <tr>
 <td class="org-left">consumes</td>
-<td class="org-left"><a href="#orgf7b48c5">cold-liquid</a></td>
+<td class="org-left"><a href="#org09bdab5">cold-liquid</a></td>
 </tr>
 </tbody>
 </table>
 
 <p>
-<a id="orgf7b48c5"></a><a href="#orgf7b48c5">cold-liquid</a>:
+<a id="org09bdab5"></a><a href="#org09bdab5">cold-liquid</a>:
 </p>
 <ul class="org-ul">
 <li>temperature less then 0.5</li>
@@ -3835,7 +3882,7 @@ This section is for turret types. All turrets shoot <a href="#BulletType">Bullet
 <h4 id="Turret">Turret</h4>
 <div class="outline-text-4" id="text-Turret">
 <p>
-<a href="#orgabaedff">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#org3442dc9">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -5854,7 +5901,7 @@ Extends <a href="#ExtendingItemBridge">ExtendingItemBridge</a>
 <h4 id="PowerBlock">PowerBlock</h4>
 <div class="outline-text-4" id="text-PowerBlock">
 <p>
-<a href="#orgabaedff">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#org3442dc9">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -7680,7 +7727,7 @@ Defaults:
 <h4 id="StorageBlock">StorageBlock</h4>
 <div class="outline-text-4" id="text-StorageBlock">
 <p>
-<a href="#orgabaedff">Abstract</a> type which extends <a href="#Block">Block</a>
+<a href="#org3442dc9">Abstract</a> type which extends <a href="#Block">Block</a>
 </p>
 
 <p>
@@ -8214,7 +8261,7 @@ Extends <a href="#Content">Content</a> &#x2013; It's the object that can ride co
 <h3 id="ItemStack"><span class="section-number-3">3.2</span> ItemStack</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
-A <code>ItemStack</code> can be a string or an object. It's used to describe the type and amount of items to a machine. 
+A <code>ItemStack</code> can be a string or an object. It's used to describe the type and amount of items to a machine.
 </p>
 
 <p>
@@ -8380,7 +8427,7 @@ Sprites:
 <h3 id="LiquidStack"><span class="section-number-3">3.4</span> LiquidStack</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
-A <code>LiquidStack</code> can be a string or an object. It's used to describe the type and amount of liquid to a machine. 
+A <code>LiquidStack</code> can be a string or an object. It's used to describe the type and amount of liquid to a machine.
 </p>
 
 <p>
@@ -8794,7 +8841,7 @@ Sprites:
 <h3 id="Mech"><span class="section-number-3">3.7</span> Mech</h3>
 <div class="outline-text-3" id="text-3-7">
 <p>
-Extends <a href="#Content">Content</a> 
+Extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -9138,7 +9185,7 @@ basicShard
 </div></li>
 
 <li><p>
-advancedShard 
+advancedShard
 </p>
 
 <div class="org-src-container">
@@ -9153,7 +9200,7 @@ advancedShard
 </div></li>
 
 <li><p>
-basicFoundation 
+basicFoundation
 </p>
 
 <div class="org-src-container">
@@ -9168,7 +9215,7 @@ basicFoundation
 </div></li>
 
 <li><p>
-basicNucleus 
+basicNucleus
 </p>
 
 <div class="org-src-container">
@@ -9665,7 +9712,7 @@ Flags used by for cache render:
 <h3 id="BulletType"><span class="section-number-3">5.1</span> BulletType</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
-<a href="#orgabaedff">Abstract</a> type which extends <a href="#Content">Content</a>
+<a href="#org3442dc9">Abstract</a> type which extends <a href="#Content">Content</a>
 </p>
 
 <p>
@@ -10311,7 +10358,7 @@ Extends <a href="#BasicBulletType">BasicBulletType</a>
 </p>
 
 <p>
-Weave is simple a sin wave with the following equation. 
+Weave is simple a sin wave with the following equation.
 </p>
 
 \begin{equation}
@@ -11407,7 +11454,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2019-12-19 Thu 08:36</p>
+<p class="date">Created: 2019-12-22 Sun 23:46</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
