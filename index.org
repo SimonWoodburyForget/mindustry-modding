@@ -22,7 +22,6 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="mindustry-modding/styles/main/css/main.css"/>
 #+HTML_HEAD: <script type="text/javascript"          src="mindustry-modding/styles/main/js/main.js"></script>
 
-#+OPTIONS: tex:t
 #+STARTUP: align shrink
 
 Submit =test= pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
