@@ -26,22 +26,15 @@ def decoder(it):
             elif x.startswith("</thead>"):
                 yield ws.group() + "|---" * th_count + "|" + "\n"
                 th_count = 0
-                continue 
             elif x.startswith("<th"):
                 th_count += 1
                 yield th.group(1) + "|"
-                continue
             elif x.startswith("<tr"):
                 yield ws.group() + "|"
-                continue
             elif x.startswith("</tr>"):
                 yield '\n'
-                continue
             elif x.startswith("<td"):
                 yield td.group(1) + "|"
-                continue
-            else:
-                continue
             continue
         yield line
 
