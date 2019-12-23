@@ -1302,8 +1302,11 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | outlineIcon | true    |
 
     Sprites:
-    * ~<name>~ the turret sprite
-    * ~<name>-heat~ the heat map
+    * ~<name>~ the turret sprite,
+    * ~<name>-heat~ the heat map.
+
+    Sprites-Override:
+    * ~block-<1..>~ global turret base override, where the number is the turrets size. Can be used to override existing turret bases, as well as adding larger ones.
 
 *** CooledTurret
 
