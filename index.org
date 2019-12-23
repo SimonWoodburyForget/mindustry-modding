@@ -2931,9 +2931,9 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
      Weave is simple a sin wave with the following equation.
 
-     \begin{equation}
-     r = \sin(\frac{t}{s}) \cdot m
-     \end{equation}
+     #+BEGIN_SRC fundamental
+       rotation = sin(time/scale) * magnitude
+     #+END_SRC
 
      | field      | type  |           default | notes                                            |
      |------------+-------+-------------------+--------------------------------------------------|
