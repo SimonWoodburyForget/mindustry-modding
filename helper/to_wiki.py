@@ -1,6 +1,4 @@
 import re
-from bs4 import BeautifulSoup
-from enum import Enum, auto
 
 def decoder(it):
     '''Fixes some org mode markdown export.'''
@@ -55,5 +53,6 @@ def main():
     print(len(out))
     with open('../wiki/docs/modding.md', 'w') as f:
         print(out, file=f)
-        
-main()
+
+if __name__ == '__main__':
+    main()
