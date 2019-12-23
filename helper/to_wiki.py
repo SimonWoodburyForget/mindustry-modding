@@ -23,32 +23,28 @@ def decoder(it):
         if any(x.startswith(y) for y in ['<col', '</col']):
             continue
         if mode == 'table':
-            # yield table until outside of table
-            if any(x.startswith(y) for y in
-                   ["<tbody", "</tbody"]):
-                continue
             if x.startswith("<thead"):
                 continue
-            if x.startswith("</thead>"):
-                yield "|---" * th_count + "|" + "\n"
+            elif x.startswith("</thead>"):
+                yield ws.group() + "|---" * th_count + "|" + "\n"
                 th_count = 0
                 continue 
-            if x.startswith("<th"):
+            elif x.startswith("<th"):
                 th_count += 1
-                yield ws.group() + th.group(1) + "|"
+                yield th.group(1) + "|"
                 continue
-            if x.startswith("<tr"):
-                yield "|"
+            elif x.startswith("<tr"):
+                yield ws.group() + "|"
                 continue
-            if x.startswith("</tr>"):
+            elif x.startswith("</tr>"):
                 yield '\n'
                 continue
-            if x.startswith("<td"):
-                yield ws.group() + td.group(1) + "|"
+            elif x.startswith("<td"):
+                yield td.group(1) + "|"
                 continue
-            if line == '\n':
-                yield ""
+            else:
                 continue
+            continue
         yield line
 
 def main():
