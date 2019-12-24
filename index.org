@@ -2853,15 +2853,15 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
     [[file:images/router-bullets.png]]
 
-    | field        | type   |          default |                                                      |
-    |--------------+--------+------------------+------------------------------------------------------|
-    |              |        |              <r> | <10>                                                 |
-    | bulletWidth  | float  |                5 |                                                      |
-    | bulletHeight | float  |                7 |                                                      |
-    | bulletShrink | float  |              0.5 |                                                      |
-    | frontColor   | [[Color][Color]]  |     bulletYellow | Color of front sprite.                               |
-    | backColor    | [[Color][Color]]  | bulletYellowBack | Color of back sprite.                                |
-    | bulletSprite | String |           bullet | Mapping sprite used to make the shape of the bullet. |
+    | field        | type   |          default |                                                                                                                                   |
+    |--------------+--------+------------------+-----------------------------------------------------------------------------------------------------------------------------------|
+    |              |        |              <r> | <10>                                                                                                                              |
+    | bulletWidth  | float  |                5 |                                                                                                                                   |
+    | bulletHeight | float  |                7 |                                                                                                                                   |
+    | bulletShrink | float  |              0.5 | Used to squishify the bullet as it gets closer to the target, where ~0~ is no shrink ~-0.5~ is stretching and ~0.5~ is shrinking. |
+    | frontColor   | [[Color][Color]]  |     bulletYellow | Color of front sprite.                                                                                                            |
+    | backColor    | [[Color][Color]]  | bulletYellowBack | Color of back sprite.                                                                                                             |
+    | bulletSprite | String |           bullet | Mapping sprite used to make the shape of the bullet.                                                                              |
 
     Sprites:
     * ~<mod-name>-<sprite-name>~ top layer ~bulletSprite~
