@@ -9,7 +9,15 @@ def decoder(it):
         ws = re.match(r' *', line)
         th = re.match(r'<th.*>(.*)<\/th>', x)
         td = re.match(r'<td.*>(.*)<\/td>', x)
-        
+
+        # normalize internal links
+        link = re.search(r'\[(.*)\]\(#(.*)\)', line)
+        if link:
+            desc = link.group(1)
+            href = link.group(2).lower().replace('%20', '-')
+            href = re.sub(r'[^a-zA-Z\d\s:]', '', href)
+            line = re.sub(r'\[.*\]\(#.*\)', f'[{desc}](#{href})', line)
+
         if re.match(r'\s*<a id="(?!").*"><\/a>\s*', x):
             continue
         if x.startswith("<table"):
@@ -37,11 +45,13 @@ def decoder(it):
                 yield td.group(1) + "|"
             continue
         yield line
-
+        
 def main():
     with open("./index.md") as f:
         md = ''.join(decoder(f.readlines()))
 
+    md = re.sub("# Table of Contents[\s\S]*# Overview", "# Modding", md)
+    
     out = md
     print(len(out))
     with open('../wiki/docs/modding.md', 'w') as f:
