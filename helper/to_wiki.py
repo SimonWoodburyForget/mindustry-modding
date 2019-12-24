@@ -11,12 +11,18 @@ def decoder(it):
         td = re.match(r'<td.*>(.*)<\/td>', x)
 
         # normalize internal links
-        link = re.search(r'\[(.*)\]\(#(.*)\)', line)
+        link = re.search(r'\[(.*)\]\(#([^\)]*)\)', line)
         if link:
             desc = link.group(1)
-            href = link.group(2).lower().replace('%20', '-')
-            href = re.sub(r'[^a-zA-Z\d\s:]', '', href)
-            line = re.sub(r'\[.*\]\(#.*\)', f'[{desc}](#{href})', line)
+            href = (link.group(2)
+                    .lower()
+                    .replace('%20', '-')
+                    .replace(" ", "-")
+                    .replace("~", "")
+                    .replace(".", ""))
+            print(href)
+            # href = re.sub(r'[^a-zA-Z\d\s:]', '', href)
+            line = re.sub(r'\[.*\]\(#[^\)]*\)', f'[{desc}](#{href})', line)
 
         if re.match(r'\s*<a id="(?!").*"><\/a>\s*', x):
             continue
