@@ -1,4 +1,5 @@
 import re
+import functools as ft
 
 def decoder(it):
     '''Fixes some org mode markdown export.'''
@@ -9,20 +10,6 @@ def decoder(it):
         ws = re.match(r' *', line)
         th = re.match(r'<th.*>(.*)<\/th>', x)
         td = re.match(r'<td.*>(.*)<\/td>', x)
-
-        # normalize internal links
-        link = re.search(r'\[(.*)\]\(#([^\)]*)\)', line)
-        if link:
-            desc = link.group(1)
-            href = (link.group(2)
-                    .lower()
-                    .replace('%20', '-')
-                    .replace(" ", "-")
-                    .replace("~", "")
-                    .replace(".", ""))
-            print(href)
-            # href = re.sub(r'[^a-zA-Z\d\s:]', '', href)
-            line = re.sub(r'\[.*\]\(#[^\)]*\)', f'[{desc}](#{href})', line)
 
         if re.match(r'\s*<a id="(?!").*"><\/a>\s*', x):
             continue
@@ -51,12 +38,33 @@ def decoder(it):
                 yield td.group(1) + "|"
             continue
         yield line
+
+def normalize(md):
+    '''Normalize anchors.'''
+    def on_match(link):
+        desc = link.group(1)
+        old = link.group(2)
+        href = (link.group(2)
+                .lower()
+                .replace('%20', '-')
+                .replace(" ", "-")
+                .replace("~", "")
+                .replace(".", ""))
+        old, new = f'[{desc}]({old})', f'[{desc}]({href})'
+        print(old, new)
+        return old, new
+
+    replacers = set((on_match(x) for x in re.finditer(r'\[([^\]\[]*)\]\((#[^\)]*)\)', md)))
+    return ft.reduce(lambda md, x: md.replace(x[0], x[1]), replacers, md)
+    
         
 def main():
+    
     with open("./index.md") as f:
         md = ''.join(decoder(f.readlines()))
 
     md = re.sub("# Table of Contents[\s\S]*# Overview", "# Modding", md)
+    md = normalize(md)
     
     out = md
     print(len(out))
