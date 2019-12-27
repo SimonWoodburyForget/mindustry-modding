@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-12-25 Wed 12:30 -->
+<!-- 2019-12-27 Fri 03:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -260,7 +260,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#Directory%20Structure">1.1. Directory Structure</a></li>
 <li><a href="#Hjson">1.2. Hjson</a></li>
-<li><a href="#~mod.json~">1.3. <code>mod.json</code></a></li>
+<li><a href="#modjson">1.3. <code>mod.json</code></a></li>
 <li><a href="#Content">1.4. Content</a></li>
 <li><a href="#Types">1.5. Types</a></li>
 <li><a href="#Tech%20Tree">1.6. Tech Tree</a></li>
@@ -514,15 +514,19 @@ Submit <code>test</code> pull requests, issues or suggestions on Github: <a href
 <h2 id="Overview"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Mindustry mods are simply directories of assests. You reuse existing types and can use different values to initialize them, and you can even overwrite initialization of vanilla content.
+Mindustry mods are simply directories of assests. There are many ways to use the modding API, depending on exactly what you want to do, and how far you're willing to go to do it.
 </p>
 
 <p>
-You can add custom sprites and sounds; sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them.
+You could just resprite existing game content, you can create new game content with the simpler Json API (which is the main focus of this documentation), you can add custom sounds (or reuse existing ones). It's possible to add maps to compaing mode, and add scripts to program special behavior into your mod, like custom effects. 
 </p>
 
 <p>
-It is also now possible to put schematics into mods
+Sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them. Realistically speaking you'll want to use GitHub.
+</p>
+
+<p>
+To make mods all you really need is any computer with a text editor.
 </p>
 </div>
 
@@ -553,9 +557,17 @@ Your project directory should look something like this:
 </pre>
 </div>
 
-<p>
-<i>(only the <code>mod.json</code> file is required)</i>
-</p>
+<ul class="org-ul">
+<li><a href="#modjson"><code>mod.json</code></a> (required) metadata file for your mod,</li>
+<li><code>content/*</code> directories for game <a href="#Content">Content</a>,</li>
+<li><code>maps/</code> directory for <a href="#Zone">Zone</a> maps,</li>
+<li><code>bundles/</code> directory for <a href="#Bundles">Bundles</a>,</li>
+<li><code>sounds/</code> directory for <a href="#Sound">Sound</a> files,</li>
+<li><code>schematics/</code> directory for <a href="#Schematic">Schematic</a> files,</li>
+<li><code>scripts/</code> directory for <a href="#Scripts">Scripts</a>,</li>
+<li><code>sprites-override/</code> <a href="#Sprites">Sprites</a> directory for overriding ingame content,</li>
+<li><code>sprites/</code> <a href="#Sprites">Sprites</a> directory for your content,</li>
+</ul>
 
 <p>
 Every platform has a different user application data directory, and this is where your mods should be placed:
@@ -568,7 +580,7 @@ Every platform has a different user application data directory, and this is wher
 </ul>
 
 <p>
-<b>Note;</b> your filenames should be lowercased and hyphen separated:
+<i>Note that your filenames should be lowercased and hyphen separated:</i>
 </p>
 <ul class="org-ul">
 <li>correct: <code>my-custom-block.json</code></li>
@@ -581,7 +593,7 @@ Every platform has a different user application data directory, and this is wher
 <h3 id="Hjson"><span class="section-number-3">1.2</span> Hjson</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
-Mindustry uses <a href="https://hjson.org/">Hjson</a>, which is a superset of the very popular serialization language known as Json. This means that any valid Json will work, but you get extra useful stuff:
+Mindustry uses <a href="https://hjson.org/">Hjson</a>, which for anyone who knows Json, is simply a superset of the very popular serialization language known as <a href="https://en.wikipedia.org/wiki/JSON">Json</a>. &#x2013; This means that any valid Json will work, but you get extra useful stuff:
 </p>
 
 <div class="org-src-container">
@@ -610,16 +622,16 @@ comment */
 </div>
 
 <p>
-<b>[new <a href="#2d4270406">Nov 22</a>]</b> Files may have either a <code>.json</code> or <code>.hjson</code> extension.
+If you don't know any of those words. &#x2013; A serialization language, is simply a language which encodes information for a program, and <i>encode</i> means to translate informantion from one form to another, and in this case, to translate text into Java data structures.
 </p>
 </div>
 </div>
 
 <div id="outline-container-~mod.json~" class="outline-3">
-<h3 id="~mod.json~"><span class="section-number-3">1.3</span> <code>mod.json</code></h3>
-<div class="outline-text-3" id="text-1-3">
+<h3 id="modjson"><span class="section-number-3">1.3</span> <code>mod.json</code></h3>
+<div class="outline-text-3" id="text-modjson">
 <p>
-At the root of your project directory, you must have a <code>mod.json</code> which defines the basic metadata for your project.
+At the root of your project directory, you must have a <code>mod.json</code> which defines the basic metadata for your project. This file can also be (optionally) named <code>mod.hjson</code> to potentially help your text editor pick better syntax highlighting.
 </p>
 
 <div class="org-src-container">
@@ -633,9 +645,6 @@ At the root of your project directory, you must have a <code>mod.json</code> whi
 </pre>
 </div>
 
-<p>
-Notes:
-</p>
 <ul class="org-ul">
 <li><code>name</code> will be used to reference to your mod, so name it carefully;</li>
 <li><code>displayName</code> this will be used as a display name for the UI, which you can use to add formatting to said name;</li>
@@ -650,11 +659,7 @@ Notes:
 <h3 id="Content"><span class="section-number-3">1.4</span> Content</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
-<b>[new <a href="#2d4270406">Nov 22</a>]</b> <i>file extension <code>.hjson</code> now supported</i>
-</p>
-
-<p>
-At the root of your project directory you can have a <code>content/</code> directory, this is where all the JSON/HJSON data goes for your content, and in this directory you have subdirectories for the various content types, these are the current common ones:
+At the root of your project directory you can have a <code>content/</code> directory, and this is where all the Json/Hjson data goes. Inside of <code>content/</code> you have subdirectories for the various kinds of content, these are the current common ones:
 </p>
 
 <ul class="org-ul">
@@ -667,17 +672,18 @@ At the root of your project directory you can have a <code>content/</code> direc
 </ul>
 
 <p>
-This is important, because it's how Mindustry will know which types to lookup. &#x2013; How you name your files is also important as the stem <code>name</code> of your path <code>content/blocks/&lt;name&gt;.json</code> is going to be used to reference it.
+Note that each one of these subdirectories needs a specific content type. The filenames of these files is important, because the stem name of your path <i>(filename without the extension)</i> is used to reference it.
 </p>
 
 <p>
-The content of these files should look as follows:
+The content of these files will tend to look something like this:
 </p>
 
 <div class="org-src-container">
 <pre class="src src-yaml"><span style="color: #a0522d;">type</span>: TypeOfThing
 <span style="color: #a0522d;">name</span>: Name Of Thing
 <span style="color: #a0522d;">description</span>: Description of thing.
+<span style="color: #b22222;"># </span><span style="color: #b22222;">... more fields here ...</span>
 </pre>
 </div>
 
@@ -720,7 +726,7 @@ The content of these files should look as follows:
 </table>
 
 <p>
-Other fields included would be the fields of the <code>type</code> in question.
+Other fields included will be the fields of the type itself.
 </p>
 </div>
 </div>
@@ -11446,7 +11452,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2019-12-25 Wed 12:30</p>
+<p class="date">Created: 2019-12-27 Fri 03:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
