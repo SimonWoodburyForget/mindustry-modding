@@ -22,7 +22,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="mindustry-modding/styles/main/css/main.css"/>
 #+HTML_HEAD: <script type="text/javascript"          src="mindustry-modding/styles/main/js/main.js"></script>
 
-#+STARTUP: align shrink
+#+STARTUP: org-table-shrink
 
 Submit =test= pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
@@ -2800,8 +2800,8 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    | field              | type         | default | notes                                                                                                                                                                               |
    |--------------------+--------------+---------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |                    |              |         | <10>                                                                                                                                                                                |
-   | lifetime           | float        |         | amount of ticks it will lasts                                                                                                                                                       |
+   |                    |              |         | <25>                                                                                                                                                                                |
+   | lifetime           | float        |         | amount of ticks the bullet will last                                                                                                                                                |
    | speed              | float        |         | inital speed of bullet                                                                                                                                                              |
    | damage             | float        |         | collision damage                                                                                                                                                                    |
    | hitSize            | float        |       4 | collision radius                                                                                                                                                                    |
