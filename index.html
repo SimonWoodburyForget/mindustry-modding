@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-03 Fri 09:24 -->
+<!-- 2020-01-05 Sun 05:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -278,6 +278,13 @@ for the JavaScript code in this tag.
 <li><a href="#FAQ">1.14. FAQ</a></li>
 <li><a href="#Change%20Log">1.15. Change Log</a>
 <ul>
+<li><a href="#2020">2020</a>
+<ul>
+<li><a href="#62b2b25ee474fcf44aa86832c1373b38e16d703d">Jan 03</a></li>
+</ul>
+</li>
+<li><a href="#2019">2019</a>
+<ul>
 <li><a href="#74dc31b10a82763d4f1ff29d32ae430ee87b9def">Dec 09</a></li>
 <li><a href="#268f3cc3c">Dec 08</a></li>
 <li><a href="#a087df077">Dec 04</a></li>
@@ -285,6 +292,8 @@ for the JavaScript code in this tag.
 <li><a href="#2d4270406">Nov 22</a></li>
 <li><a href="#2c61fcdfa">Nov 22</a></li>
 <li><a href="#968f3ace3">Nov 20</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -674,6 +683,15 @@ At the root of your project directory you can have a <code>content/</code> direc
 <p>
 Note that each one of these subdirectories needs a specific content type. The filenames of these files is important, because the stem name of your path <i>(filename without the extension)</i> is used to reference it.
 </p>
+
+
+<p>
+[ <b>new</b> <a href="#62b2b25ee474fcf44aa86832c1373b38e16d703d">Jan 03</a> ] Furthermore the files within these <code>content/&lt;content-type&gt;/*</code> directories may be arbitrarly nested into other sub-directories of any name, to help you organize them further, for example:
+</p>
+
+<ul class="org-ul">
+<li><code>content/items/metals/iron.hjson</code>, which would respectively create an item named <code>iron</code>.</li>
+</ul>
 
 <p>
 The content of these files will tend to look something like this:
@@ -1234,9 +1252,31 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </p>
 </div>
 
-<div id="outline-container-Dec%2009" class="outline-4">
-<h4 id="74dc31b10a82763d4f1ff29d32ae430ee87b9def">Dec 09</h4>
-<div class="outline-text-4" id="text-74dc31b10a82763d4f1ff29d32ae430ee87b9def">
+<div id="outline-container-2020" class="outline-4">
+<h4 id="2020">2020</h4>
+<div class="outline-text-4" id="text-2020">
+</div>
+<div id="outline-container-Jan%2003" class="outline-5">
+<h5 id="62b2b25ee474fcf44aa86832c1373b38e16d703d">Jan 03</h5>
+<div class="outline-text-5" id="text-62b2b25ee474fcf44aa86832c1373b38e16d703d">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/pull/1313/commits/62b2b25ee474fcf44aa86832c1373b38e16d703d">commit</a> use findAll to iterate through mod content ]
+</p>
+
+<ul class="org-ul">
+<li><code>content/</code> support for organizing <code>.hjson</code> files into directories;</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-2019" class="outline-4">
+<h4 id="2019">2019</h4>
+<div class="outline-text-4" id="text-2019">
+</div>
+<div id="outline-container-Dec%2009" class="outline-5">
+<h5 id="74dc31b10a82763d4f1ff29d32ae430ee87b9def">Dec 09</h5>
+<div class="outline-text-5" id="text-74dc31b10a82763d4f1ff29d32ae430ee87b9def">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/74dc31b10a82763d4f1ff29d32ae430ee87b9def">commit</a>  Removed unnecessary unit types ]
 </p>
@@ -1255,9 +1295,9 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Dec%2008" class="outline-4">
-<h4 id="268f3cc3c">Dec 08</h4>
-<div class="outline-text-4" id="text-268f3cc3c">
+<div id="outline-container-Dec%2008" class="outline-5">
+<h5 id="268f3cc3c">Dec 08</h5>
+<div class="outline-text-5" id="text-268f3cc3c">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/268f3cc3c">commit</a> Merge branches <code>master</code> and <code>rhino-js-suffering</code> ]
 </p>
@@ -1269,9 +1309,9 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Dec%2004" class="outline-4">
-<h4 id="a087df077">Dec 04</h4>
-<div class="outline-text-4" id="text-a087df077">
+<div id="outline-container-Dec%2004" class="outline-5">
+<h5 id="a087df077">Dec 04</h5>
+<div class="outline-text-5" id="text-a087df077">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/a087df077">commit</a> Added experimental server block syncing ]
 </p>
@@ -1282,9 +1322,9 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Nov%2026" class="outline-4">
-<h4 id="a5fbc0756">Nov 26</h4>
-<div class="outline-text-4" id="text-a5fbc0756">
+<div id="outline-container-Nov%2026" class="outline-5">
+<h5 id="a5fbc0756">Nov 26</h5>
+<div class="outline-text-5" id="text-a5fbc0756">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/a5fbc0756">commit</a> Texture overrides / Potential mod texture binding optimizations ]
 </p>
@@ -1295,9 +1335,9 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Nov%2022" class="outline-4">
-<h4 id="2d4270406">Nov 22</h4>
-<div class="outline-text-4" id="text-2d4270406">
+<div id="outline-container-Nov%2022" class="outline-5">
+<h5 id="2d4270406">Nov 22</h5>
+<div class="outline-text-5" id="text-2d4270406">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/2d4270406">commit</a> Switched to hjson extension ]
 </p>
@@ -1308,9 +1348,9 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Change%20Log--Nov%2022" class="outline-4">
-<h4 id="2c61fcdfa">Nov 22</h4>
-<div class="outline-text-4" id="text-2c61fcdfa">
+<div id="outline-container-2019--Nov%2022" class="outline-5">
+<h5 id="2c61fcdfa">Nov 22</h5>
+<div class="outline-text-5" id="text-2c61fcdfa">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/2c61fcdfa">commit</a> Added optional mod minimum game version ]
 </p>
@@ -1321,9 +1361,9 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Nov%2020" class="outline-4">
-<h4 id="968f3ace3">Nov 20</h4>
-<div class="outline-text-4" id="text-968f3ace3">
+<div id="outline-container-Nov%2020" class="outline-5">
+<h5 id="968f3ace3">Nov 20</h5>
+<div class="outline-text-5" id="text-968f3ace3">
 <p>
 [ <a href="https://github.com/Anuken/Mindustry/commit/968f3ace3">commit</a> Better mod parsing ]
 </p>
@@ -1333,6 +1373,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 <li><code>item/amount</code> can now be used as a string for <code>ItemStack</code>;</li>
 <li><code>mod.json</code> now supports hjson;</li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -11452,7 +11493,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2020-01-03 Fri 09:24</p>
+<p class="date">Created: 2020-01-05 Sun 05:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

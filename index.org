@@ -157,6 +157,10 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    Note that each one of these subdirectories needs a specific content type. The filenames of these files is important, because the stem name of your path /(filename without the extension)/ is used to reference it.
 
+   [ *new* [[#62b2b25ee474fcf44aa86832c1373b38e16d703d]] ] Furthermore the files within these ~content/<content-type>/*~ directories may be arbitrarly nested into other sub-directories of any name, to help you organize them further, for example:
+
+   * ~content/items/metals/iron.hjson~, which would respectively create an item named ~iron~.
+
    The content of these files will tend to look something like this:
 
    #+BEGIN_SRC yaml
@@ -553,83 +557,94 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    This is a log of changes done on the Mindustry Master branch that affected the modding API. The sections are ordered by date commited, and provide a description of what was changed, with a link to the diff on Github.
 
-*** Dec 09
-    :PROPERTIES:
-    :UNNUMBERED: t
-    :CUSTOM_ID: 74dc31b10a82763d4f1ff29d32ae430ee87b9def
-    :END:
+*** 2020
+**** Jan 03
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :CUSTOM_ID: 62b2b25ee474fcf44aa86832c1373b38e16d703d
+     :END:
+     [ [[https://github.com/Anuken/Mindustry/pull/1313/commits/62b2b25ee474fcf44aa86832c1373b38e16d703d][commit]] use findAll to iterate through mod content ]
 
-    [ [[https://github.com/Anuken/Mindustry/commit/74dc31b10a82763d4f1ff29d32ae430ee87b9def][commit]]  Removed unnecessary unit types ]
+     * ~content/~ support for organizing ~.hjson~ files into directories;
 
-    * changed unit types names:
-      * ~Draug~ \to ~MinerDrone~;
-      * ~Spirit~ \to ~RepairDrone~;
-      * ~Phantom~ \to ~BuilderDrone~;
-      * [ ~Dagger~ ~Crawler~ ~Titan~ ~Fortress~ ~Eruptor~ ] \to ~GroundUnit~;
-      * [ ~Wraith~ ~Ghoul~ ] \to ~FlyingUnit~;
-      * ~Revenant~ \to ~HoverUnit~;
+*** 2019
+**** Dec 09
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :CUSTOM_ID: 74dc31b10a82763d4f1ff29d32ae430ee87b9def
+     :END:
 
-*** Dec 08
-    :PROPERTIES:
-    :UNNUMBERED: t
-    :CUSTOM_ID: 268f3cc3c
-    :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/268f3cc3c][commit]] Merge branches ~master~ and ~rhino-js-suffering~ ]
+     [ [[https://github.com/Anuken/Mindustry/commit/74dc31b10a82763d4f1ff29d32ae430ee87b9def][commit]]  Removed unnecessary unit types ]
 
-    * ~scripts/~ sub-directory and Rhino JS runtime was added;
-    * ~displayName~ can now be used as field name in ~mod.json~
+     * changed unit types names:
+       * ~Draug~ \to ~MinerDrone~;
+       * ~Spirit~ \to ~RepairDrone~;
+       * ~Phantom~ \to ~BuilderDrone~;
+       * [ ~Dagger~ ~Crawler~ ~Titan~ ~Fortress~ ~Eruptor~ ] \to ~GroundUnit~;
+       * [ ~Wraith~ ~Ghoul~ ] \to ~FlyingUnit~;
+       * ~Revenant~ \to ~HoverUnit~;
 
-*** Dec 04
-    :PROPERTIES:
-    :UNNUMBERED: t
-    :DESCRIPTION: Added experimental server block syncing
-    :CUSTOM_ID: a087df077
-    :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/a087df077][commit]] Added experimental server block syncing ]
+**** Dec 08
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :CUSTOM_ID: 268f3cc3c
+     :END:
+     [ [[https://github.com/Anuken/Mindustry/commit/268f3cc3c][commit]] Merge branches ~master~ and ~rhino-js-suffering~ ]
 
-    * ~sync~ field for ~Block~ type was added;
+     * ~scripts/~ sub-directory and Rhino JS runtime was added;
+     * ~displayName~ can now be used as field name in ~mod.json~
 
-*** Nov 26
-    :PROPERTIES:
-    :UNNUMBERED: t
-    :DESCRIPTION: Texture overrides / Potential mod texture binding optimizations
-    :CUSTOM_ID: a5fbc0756
-    :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/a5fbc0756][commit]] Texture overrides / Potential mod texture binding optimizations ]
+**** Dec 04
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :DESCRIPTION: Added experimental server block syncing
+     :CUSTOM_ID: a087df077
+     :END:
+     [ [[https://github.com/Anuken/Mindustry/commit/a087df077][commit]] Added experimental server block syncing ]
 
-    * ~sprites-override/~ subdirectory can now be used to override existing ingame sprites;
+     * ~sync~ field for ~Block~ type was added;
 
-*** Nov 22
-    :PROPERTIES:
-    :UNNUMBERED: t
-    :DESCRIPTION: Switched to hjson extension
-    :CUSTOM_ID: 2d4270406
-    :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/2d4270406][commit]] Switched to hjson extension ]
+**** Nov 26
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :DESCRIPTION: Texture overrides / Potential mod texture binding optimizations
+     :CUSTOM_ID: a5fbc0756
+     :END:
+     [ [[https://github.com/Anuken/Mindustry/commit/a5fbc0756][commit]] Texture overrides / Potential mod texture binding optimizations ]
 
-    * ~.hjson~ can now be used as a file extension;
+     * ~sprites-override/~ subdirectory can now be used to override existing ingame sprites;
 
-*** Nov 22
-    :PROPERTIES:
-    :UNNUMBERED: t
-    :DESCRIPTION: Added optional mod minimum game version
-    :CUSTOM_ID: 2c61fcdfa
-    :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/2c61fcdfa][commit]] Added optional mod minimum game version ]
+**** Nov 22
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :DESCRIPTION: Switched to hjson extension
+     :CUSTOM_ID: 2d4270406
+     :END:
+     [ [[https://github.com/Anuken/Mindustry/commit/2d4270406][commit]] Switched to hjson extension ]
 
-    * ~minGameVersion~ can now be used within ~mod.json~;
+     * ~.hjson~ can now be used as a file extension;
 
-*** Nov 20
-    :PROPERTIES:
-    :UNNUMBERED: t
-    :DESCRIPTION: Better mod parsing
-    :CUSTOM_ID: 968f3ace3
-    :END:
-    [ [[https://github.com/Anuken/Mindustry/commit/968f3ace3][commit]] Better mod parsing ]
+**** Nov 22
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :DESCRIPTION: Added optional mod minimum game version
+     :CUSTOM_ID: 2c61fcdfa
+     :END:
+     [ [[https://github.com/Anuken/Mindustry/commit/2c61fcdfa][commit]] Added optional mod minimum game version ]
 
-    * ~liquid/amount~ can now be used as a string for ~LiquidStack~;
-    * ~item/amount~ can now be used as a string for ~ItemStack~;
-    * ~mod.json~ now supports hjson;
+     * ~minGameVersion~ can now be used within ~mod.json~;
+
+**** Nov 20
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :DESCRIPTION: Better mod parsing
+     :CUSTOM_ID: 968f3ace3
+     :END:
+     [ [[https://github.com/Anuken/Mindustry/commit/968f3ace3][commit]] Better mod parsing ]
+
+     * ~liquid/amount~ can now be used as a string for ~LiquidStack~;
+     * ~item/amount~ can now be used as a string for ~ItemStack~;
+     * ~mod.json~ now supports hjson;
 
 * World
   :PROPERTIES:
