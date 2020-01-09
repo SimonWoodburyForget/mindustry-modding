@@ -37,7 +37,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
   You could just resprite existing game content, you can create new game content with the simpler Json API (which is the main focus of this documentation), you can add custom sounds (or reuse existing ones). It's possible to add maps to compaing mode, and add scripts to program special behavior into your mod, like custom effects. 
 
-  Sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them. Realistically speaking you'll want to use GitHub.
+  Sharing your mod is as simple as giving someone your project directory; mods are also cross platfrom to any platform that supports them. Realistically speaking you'll want to use [[GitHub][GitHub]], you should also checkout the Example Mod repository on GitHub: https://github.com/Anuken/ExampleMod
 
   To make mods all you really need is any computer with a text editor.
 
@@ -539,6 +539,16 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
        consumes: { items: { items: [ "scrap/10" ] } }
      #+END_SRC
+
+** GitHub
+
+   Once you have a mod of some kind, you'll want to actually share it, and you may even want to work with other people on it, and to do that you can use [[https://github.com/][GitHub]]. If you don't know what Git (or GitHub) is at all, then you should look into [[https://desktop.github.com/][GitHub Desktop]], otherwise simply use your favorite command line tool or text editor plugin. 
+
+   All you need understand is how to open repositories on GitHub, stage and commit changes in your local repository, and push changes to the GitHub repository. Once your project is on GitHub, there are three ways to share it:
+
+   * with the endpoint, for example ~Anuken/ExampleMod~, which could then be typed in the ingame GitHub interface, and that would download it;
+   * with the zip file, for example ~https://github.com/Anuken/ExampleMod/archive/master.zip~, which would download the repository as a zip file, and put in mod directory (unzipping is not required);
+   * add the typic/tags ~mindustry-mod~ on your repository, which should cause the ~#mods~ Discord bot to pick it up and render it in it's listh.
 
 ** FAQ
     :PROPERTIES:
@@ -1522,6 +1532,19 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
 *** ArmoredConveyor
     Extends [[Conveyor][Conveyor]]  -A type of conveyor don't accept item coming from side
+
+*** Router
+    Extends [[Block][Block]]
+
+    Defaults:
+    | field        | default        |
+    |--------------+----------------|
+    | solid        | true           |
+    | update       | true           |
+    | hasItems     | true           |
+    | itemCapacity | 1              |
+    | group        | transportation |
+    | uploadable   | false          |
 
 *** Junction
     Extends [[Block][Block]]
