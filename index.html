@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-08 Wed 20:34 -->
+<!-- 2020-01-24 Fri 01:39 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -250,7 +250,7 @@ for the JavaScript code in this tag.
 <div id="content">
 <h1 class="title">Mindustry Modding Guide
 <br />
-<span class="subtitle">Modding documentation for Mindustry v101</span>
+<span class="subtitle">Modding documentation for Mindustry v102 (a4e820f90)</span>
 </h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
@@ -281,11 +281,19 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#2020">2020</a>
 <ul>
+<li><a href="#235142c8698f0d8cd9fc296a2ecabf430d7ea261">Jan 23</a></li>
+<li><a href="#a4e820f90733148de4b75f5b60928e0523bf51b3">Jan 22</a></li>
+<li><a href="#b1df52e0c83ae44f5bd70892fcda5ac2fa69e36c">Jan 19</a></li>
+<li><a href="#eaa86023f9854b6e8d574cbfdd43ee32488b2de5">Jan 14</a></li>
+<li><a href="#406c11a14d31c9680b914c60cd1d8577ddd5fc7d">Jan 08</a></li>
+<li><a href="#b0d65dcedb26014580632a9b0d8d597f0c7f8ccc">Jan 07</a></li>
+<li><a href="#1dd0295c45e6ea6f0967f291b41ff3a58ab7202c">Jan 04</a></li>
 <li><a href="#62b2b25ee474fcf44aa86832c1373b38e16d703d">Jan 03</a></li>
 </ul>
 </li>
 <li><a href="#2019">2019</a>
 <ul>
+<li><a href="#2366d25de73ab85bffc3352ab1e74ba1dea68dfe">Dec 12</a></li>
 <li><a href="#74dc31b10a82763d4f1ff29d32ae430ee87b9def">Dec 09</a></li>
 <li><a href="#268f3cc3c">Dec 08</a></li>
 <li><a href="#a087df077">Dec 04</a></li>
@@ -337,6 +345,7 @@ for the JavaScript code in this tag.
 <li><a href="#ItemSource">ItemSource</a></li>
 <li><a href="#ItemVoid">ItemVoid</a></li>
 <li><a href="#LiquidSource">LiquidSource</a></li>
+<li><a href="#LiquidVoid">LiquidVoid</a></li>
 </ul>
 </li>
 <li><a href="#Logic">2.8. Logic</a>
@@ -1276,6 +1285,99 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 <h4 id="2020">2020</h4>
 <div class="outline-text-4" id="text-2020">
 </div>
+<div id="outline-container-Jan%2023" class="outline-5">
+<h5 id="235142c8698f0d8cd9fc296a2ecabf430d7ea261">Jan 23</h5>
+<div class="outline-text-5" id="text-235142c8698f0d8cd9fc296a2ecabf430d7ea261">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/commit/235142c8698f0d8cd9fc296a2ecabf430d7ea261">commit</a> implemented #1093 ]
+</p>
+
+<ul class="org-ul">
+<li>added <code>attribute</code> to <code>ThermalGenerator</code>;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-Jan%2022" class="outline-5">
+<h5 id="a4e820f90733148de4b75f5b60928e0523bf51b3">Jan 22</h5>
+<div class="outline-text-5" id="text-a4e820f90733148de4b75f5b60928e0523bf51b3">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/commit/a4e820f90733148de4b75f5b60928e0523bf51b3">commit</a> added default ore flags for modded ores ]
+</p>
+
+<ul class="org-ul">
+<li>added <code>oreDefault</code> and <code>oreScale</code> to <code>Floor</code>;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-Jan%2019" class="outline-5">
+<h5 id="b1df52e0c83ae44f5bd70892fcda5ac2fa69e36c">Jan 19</h5>
+<div class="outline-text-5" id="text-b1df52e0c83ae44f5bd70892fcda5ac2fa69e36c">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/commit/b1df52e0c83ae44f5bd70892fcda5ac2fa69e36c">commit</a> cleanup of scripts ]
+</p>
+
+<ul class="org-ul">
+<li>added <code>killShooter</code> attribute for <code>BulletType</code>;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-Jan%2014" class="outline-5">
+<h5 id="eaa86023f9854b6e8d574cbfdd43ee32488b2de5">Jan 14</h5>
+<div class="outline-text-5" id="text-eaa86023f9854b6e8d574cbfdd43ee32488b2de5">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/commit/eaa86023f9854b6e8d574cbfdd43ee32488b2de5">commit</a> visual tweaks ]
+</p>
+
+<ul class="org-ul">
+<li>added <code>-spinner</code> region to <code>Separator</code>;</li>
+<li>removed <code>spinnerRadius</code>, <code>spinnerLength</code>, <code>spinnerThickness</code>, <code>color</code> from <code>Separator</code>;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-Jan%2008" class="outline-5">
+<h5 id="406c11a14d31c9680b914c60cd1d8577ddd5fc7d">Jan 08</h5>
+<div class="outline-text-5" id="text-406c11a14d31c9680b914c60cd1d8577ddd5fc7d">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/commit/406c11a14d31c9680b914c60cd1d8577ddd5fc7d">commit</a> make rebuildable a block attribute (#1338) ]
+</p>
+
+<ul class="org-ul">
+<li>added <code>rebuildable</code> to <code>Block</code>;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-Jan%2007" class="outline-5">
+<h5 id="b0d65dcedb26014580632a9b0d8d597f0c7f8ccc">Jan 07</h5>
+<div class="outline-text-5" id="text-b0d65dcedb26014580632a9b0d8d597f0c7f8ccc">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/commit/b0d65dcedb26014580632a9b0d8d597f0c7f8ccc">commit</a> cleanup ]
+</p>
+
+<ul class="org-ul">
+<li>added <code>drawCell</code>, <code>drawItems</code> and <code>drawLight</code> to <code>Mech</code>;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-Jan%2004" class="outline-5">
+<h5 id="1dd0295c45e6ea6f0967f291b41ff3a58ab7202c">Jan 04</h5>
+<div class="outline-text-5" id="text-1dd0295c45e6ea6f0967f291b41ff3a58ab7202c">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/commit/1dd0295c45e6ea6f0967f291b41ff3a58ab7202c">commit</a> merge remote-tracking branch 'origin/master' ]
+</p>
+
+<ul class="org-ul">
+<li>added <code>targetDistance</code> to <code>Weapon</code>;</li>
+</ul>
+</div>
+</div>
+
+
 <div id="outline-container-Jan%2003" class="outline-5">
 <h5 id="62b2b25ee474fcf44aa86832c1373b38e16d703d">Jan 03</h5>
 <div class="outline-text-5" id="text-62b2b25ee474fcf44aa86832c1373b38e16d703d">
@@ -1294,6 +1396,19 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 <h4 id="2019">2019</h4>
 <div class="outline-text-4" id="text-2019">
 </div>
+<div id="outline-container-Dec%2012" class="outline-5">
+<h5 id="2366d25de73ab85bffc3352ab1e74ba1dea68dfe">Dec 12</h5>
+<div class="outline-text-5" id="text-2366d25de73ab85bffc3352ab1e74ba1dea68dfe">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/commit/2366d25de73ab85bffc3352ab1e74ba1dea68dfe">commit</a> add liquid void block ]
+</p>
+
+<ul class="org-ul">
+<li>added <code>LiquidVoid</code> block;</li>
+</ul>
+</div>
+</div>
+
 <div id="outline-container-Dec%2009" class="outline-5">
 <h5 id="74dc31b10a82763d4f1ff29d32ae430ee87b9def">Dec 09</h5>
 <div class="outline-text-5" id="text-74dc31b10a82763d4f1ff29d32ae430ee87b9def">
@@ -1490,6 +1605,13 @@ Fields for all objects that are blocks.
 </tr>
 
 <tr>
+<td class="org-left">rebuildable</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+<td class="org-left">whether to add this block to brokenblocks or not (like <code>ShockMine</code> or <code>NuclearReactor</code>)</td>
+</tr>
+
+<tr>
 <td class="org-left">placeableOn</td>
 <td class="org-left">boolean</td>
 <td class="org-right">true</td>
@@ -1575,7 +1697,7 @@ Fields for all objects that are blocks.
 
 <tr>
 <td class="org-left">priority</td>
-<td class="org-left">TargetPriority</td>
+<td class="org-left"><a href="#TargetPriority">TargetPriority</a></td>
 <td class="org-right">base</td>
 <td class="org-left">Targeting priority of this block, as seen by enemies.</td>
 </tr>
@@ -2296,6 +2418,27 @@ Type used for floors themselves or extended to make ores and other things.
 <td class="org-right">&#xa0;</td>
 <td class="org-left">array of affinities to certain things.</td>
 </tr>
+
+<tr>
+<td class="org-left">oreDefault</td>
+<td class="org-left">boolean</td>
+<td class="org-right">false</td>
+<td class="org-left">whether this ore generates in maps by default.</td>
+</tr>
+
+<tr>
+<td class="org-left">oreScale</td>
+<td class="org-left">float</td>
+<td class="org-right">24</td>
+<td class="org-left">ore generation param, for example <code>thorium</code> is <code>25.38</code>, <code>copper</code> is <code>23.47</code>.</td>
+</tr>
+
+<tr>
+<td class="org-left">oreThreshold</td>
+<td class="org-left">float</td>
+<td class="org-right">0.828</td>
+<td class="org-left">ore generation param, for example <code>thorium</code> is <code>0.882</code>, <code>copper</code> is <code>0.81</code>.</td>
+</tr>
 </tbody>
 </table>
 
@@ -2757,7 +2900,7 @@ Separator takes liquid as an input, and will produce items from it's stack rando
 
 <col  class="org-left" />
 
-<col  class="org-right" />
+<col  class="org-left" />
 
 <col  class="org-left" />
 </colgroup>
@@ -2765,7 +2908,7 @@ Separator takes liquid as an input, and will produce items from it's stack rando
 <tr>
 <th scope="col" class="org-left">field</th>
 <th scope="col" class="org-left">type</th>
-<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">default</th>
 <th scope="col" class="org-left">notes</th>
 </tr>
 </thead>
@@ -2773,56 +2916,28 @@ Separator takes liquid as an input, and will produce items from it's stack rando
 <tr>
 <td class="org-left">results</td>
 <td class="org-left">[ <a href="#ItemStack">ItemStack</a> ]</td>
-<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left"><b>[required]</b></td>
 </tr>
 
 <tr>
 <td class="org-left">craftTime</td>
 <td class="org-left">float</td>
-<td class="org-right">&#xa0;</td>
 <td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">spinnerRadius</td>
-<td class="org-left">float</td>
-<td class="org-right">2.5</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">spinnerLength</td>
-<td class="org-left">float</td>
-<td class="org-right">1</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">spinnerThickness</td>
-<td class="org-left">float</td>
-<td class="org-right">1</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">spinnerSpeed</td>
 <td class="org-left">float</td>
-<td class="org-right">2</td>
+<td class="org-left">3</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">color</td>
 <td class="org-left"><a href="#Color">Color</a></td>
-<td class="org-right">858585</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">liquidRegion</td>
-<td class="org-left">int</td>
-<td class="org-right">&#xa0;</td>
+<td class="org-left">858585</td>
 <td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
@@ -2873,10 +2988,12 @@ Sprite suffixes:
 </p>
 <ul class="org-ul">
 <li><code>&lt;name&gt;-liquid</code></li>
+<li><code>&lt;name&gt;-spinner</code></li>
 </ul>
 </div>
 </div>
 </div>
+
 <div id="outline-container-Sandbox" class="outline-3">
 <h3 id="Sandbox"><span class="section-number-3">2.7</span> Sandbox</h3>
 <div class="outline-text-3" id="text-2-7">
@@ -3110,6 +3227,51 @@ Defaults:
 <tr>
 <td class="org-left">outputsLiquid</td>
 <td class="org-right">true</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-LiquidVoid" class="outline-4">
+<h4 id="LiquidVoid">LiquidVoid</h4>
+<div class="outline-text-4" id="text-LiquidVoid">
+<p>
+Extends <a href="#Block">Block</a>
+</p>
+
+<p>
+Defaults:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">hasLiquids</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">solid</td>
+<td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">update</td>
+<td class="org-left">true</td>
 </tr>
 </tbody>
 </table>
@@ -3916,11 +4078,17 @@ Defaults:
 <td class="org-left">layer</td>
 <td class="org-right">overlay</td>
 </tr>
+
+<tr>
+<td class="org-left">rebuildable</td>
+<td class="org-right">false</td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
+
 <div id="outline-container-Turrets" class="outline-3">
 <h3 id="Turrets"><span class="section-number-3">2.10</span> Turrets</h3>
 <div class="outline-text-3" id="text-2-10">
@@ -5363,6 +5531,10 @@ Defaults:
 Extends <a href="#Block">Block</a>
 </p>
 
+<p>
+Type used for overflow and underflow gates. 
+</p>
+
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -5371,20 +5543,31 @@ Extends <a href="#Block">Block</a>
 
 <col  class="org-left" />
 
-<col  class="org-right" />
+<col  class="org-left" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
 <th scope="col" class="org-left">field</th>
 <th scope="col" class="org-left">type</th>
-<th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">default</th>
+<th scope="col" class="org-left">notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="org-left">speed</td>
 <td class="org-left">float</td>
-<td class="org-right">1</td>
+<td class="org-left">1</td>
+<td class="org-left">delta time multiplier for whether an item can be moved after an update cycle</td>
+</tr>
+
+<tr>
+<td class="org-left">invert</td>
+<td class="org-left">boolean</td>
+<td class="org-left">false</td>
+<td class="org-left"><code>true</code> makes it underflow</td>
 </tr>
 </tbody>
 </table>
@@ -6302,7 +6485,7 @@ Defaults:
 <h5 id="ThermalGenerator">ThermalGenerator</h5>
 <div class="outline-text-5" id="text-ThermalGenerator">
 <p>
-Extends <a href="#PowerGenerator">PowerGenerator</a> &#x2013; Generates power with the heat <a href="#Attributes">attribute</a> of a tile. Power production is <code>powerProduction * heat</code>, and <code>heat</code> must be greater then <code>0.01</code>.
+Extends <a href="#PowerGenerator">PowerGenerator</a> &#x2013; Generates power with the <a href="#Attributes">attribute</a> of a tile. Power production is <code>powerProduction * attribute</code>, and <code>attribute</code> must be greater then <code>0.01</code>.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -6331,6 +6514,13 @@ Extends <a href="#PowerGenerator">PowerGenerator</a> &#x2013; Generates power wi
 <td class="org-left"><a href="#Effect">Effect</a></td>
 <td class="org-left">none</td>
 <td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">attribute</td>
+<td class="org-left"><a href="#Attribute">Attribute</a></td>
+<td class="org-left">heat</td>
+<td class="org-left">The attribute used to vary efficiency.</td>
 </tr>
 </tbody>
 </table>
@@ -6662,6 +6852,11 @@ Defaults:
 <tr>
 <td class="org-left">hasLiquids</td>
 <td class="org-left">true</td>
+</tr>
+
+<tr>
+<td class="org-left">rebuildable</td>
+<td class="org-left">false</td>
 </tr>
 </tbody>
 </table>
@@ -8234,6 +8429,7 @@ New attributes cannot be added. List of built-in attributes:
 </ul>
 </div>
 </div>
+
 <div id="outline-container-BuildVisibility" class="outline-3">
 <h3 id="BuildVisibility"><span class="section-number-3">2.19</span> BuildVisibility</h3>
 <div class="outline-text-3" id="text-2-19">
@@ -8755,6 +8951,13 @@ Weapons are used by units and mechs alike. A weapon is a type used to shoot bull
 </tr>
 
 <tr>
+<td class="org-left">targetDistance</td>
+<td class="org-left">float</td>
+<td class="org-right">1</td>
+<td class="org-left">if <code>turnCursor</code> is <code>false</code> for a mech, how far away will the weapon target.</td>
+</tr>
+
+<tr>
 <td class="org-left">shootSound</td>
 <td class="org-left"><a href="#Sound">Sound</a></td>
 <td class="org-right">pew</td>
@@ -8974,12 +9177,15 @@ Mechs are the player controlled entities. They shoot <a href="#BulletType">bulle
 <col  class="org-left" />
 
 <col  class="org-right" />
+
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
 <th scope="col" class="org-left">field</th>
 <th scope="col" class="org-left">type</th>
 <th scope="col" class="org-right">default</th>
+<th scope="col" class="org-left">notes</th>
 </tr>
 </thead>
 <tbody>
@@ -8987,138 +9193,182 @@ Mechs are the player controlled entities. They shoot <a href="#BulletType">bulle
 <td class="org-left">flying</td>
 <td class="org-left">boolean</td>
 <td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">speed</td>
 <td class="org-left">float</td>
 <td class="org-right">1.1</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">maxSpeed</td>
 <td class="org-left">float</td>
 <td class="org-right">10</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">boostSpeed</td>
 <td class="org-left">float</td>
 <td class="org-right">0.75</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">drag</td>
 <td class="org-left">float</td>
 <td class="org-right">0.4</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">mass</td>
 <td class="org-left">float</td>
 <td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">shake</td>
 <td class="org-left">float</td>
 <td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">health</td>
 <td class="org-left">float</td>
 <td class="org-right">200</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">hitsize</td>
 <td class="org-left">float</td>
 <td class="org-right">6</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">cellTrnsY</td>
 <td class="org-left">float</td>
 <td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">mineSpeed</td>
 <td class="org-left">float</td>
 <td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">drillPower</td>
 <td class="org-left">int</td>
 <td class="org-right">-1</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">buildPower</td>
 <td class="org-left">float</td>
 <td class="org-right">1</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">engineColor</td>
 <td class="org-left"><a href="#Color">Color</a></td>
 <td class="org-right">boostTo</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">itemCapacity</td>
 <td class="org-left">int</td>
 <td class="org-right">30</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">turnCursor</td>
 <td class="org-left">boolean</td>
 <td class="org-right">true</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">canHeal</td>
 <td class="org-left">boolean</td>
 <td class="org-right">false</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">compoundSpeed</td>
 <td class="org-left">float</td>
 <td class="org-right">5</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">compoundSpeedBoost</td>
 <td class="org-left">float</td>
 <td class="org-right">5</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">drawCell</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+<td class="org-left">draw the health and team indicator</td>
+</tr>
+
+<tr>
+<td class="org-left">drawItems</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+<td class="org-left">draw the items on its back</td>
+</tr>
+
+<tr>
+<td class="org-left">drawLight</td>
+<td class="org-left">boolean</td>
+<td class="org-right">true</td>
+<td class="org-left">draw the engine light if it's flying/boosting</td>
 </tr>
 
 <tr>
 <td class="org-left">weaponOffsetY</td>
 <td class="org-left">float</td>
 <td class="org-right">5</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">engineOffset</td>
 <td class="org-left">float</td>
 <td class="org-right">5</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">engineSize</td>
 <td class="org-left">float</td>
 <td class="org-right">2.5</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
 <td class="org-left">weapon</td>
 <td class="org-left"><a href="#Weapon">Weapon</a></td>
 <td class="org-right">null</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
@@ -10015,6 +10265,13 @@ Here's an example of a custom bullet:
 <td class="org-left">float</td>
 <td class="org-right">&#xa0;</td>
 <td class="org-left">recoil from shooter entities</td>
+</tr>
+
+<tr>
+<td class="org-left">killShooter</td>
+<td class="org-left">float</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">whether to kill the shooter when this is shot. (for suicide bombers)</td>
 </tr>
 
 <tr>
@@ -10955,10 +11212,14 @@ Type should be a <code>string</code>. You can't currently create custom effects.
 <div id="outline-container-TargetPriority" class="outline-3">
 <h3 id="TargetPriority"><span class="section-number-3">5.4</span> TargetPriority</h3>
 <div class="outline-text-3" id="text-5-4">
-<ul class="org-ul">
+<p>
+A higher ordinal means a higher priority. Higher priority blocks will always get targeted over those of lower priority, regardless of distance.
+</p>
+
+<ol class="org-ol">
 <li><code>base</code></li>
 <li><code>turret</code></li>
-</ul>
+</ol>
 </div>
 </div>
 </div>
@@ -11572,7 +11833,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2020-01-08 Wed 20:34</p>
+<p class="date">Created: 2020-01-24 Fri 01:39</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
