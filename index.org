@@ -585,7 +585,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      :END:
      [ [[https://github.com/Anuken/Mindustry/commit/a4e820f90733148de4b75f5b60928e0523bf51b3][commit]] added default ore flags for modded ores ]
 
-     * added ~oreDefault~ and ~oreScale~ to ~Floor~;
+     * added ~oreDefault~, ~oreThreshold~ and ~oreScale~ to ~Floor~;
 
 **** Jan 19
      :PROPERTIES:
@@ -632,7 +632,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      [ [[https://github.com/Anuken/Mindustry/commit/1dd0295c45e6ea6f0967f291b41ff3a58ab7202c][commit]] merge remote-tracking branch 'origin/master' ]
 
      * added ~targetDistance~ to ~Weapon~;
-
 
 **** Jan 03
      :PROPERTIES:
