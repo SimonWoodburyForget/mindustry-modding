@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-01-24 Fri 01:39 -->
+<!-- 2020-02-01 Sat 21:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -1136,10 +1136,6 @@ Fields that require the type <code>Schematic</code> can either take a built-in l
 <h3 id="Scripts"><span class="section-number-3">1.13</span> Scripts</h3>
 <div class="outline-text-3" id="text-1-13">
 <p>
-<b>[new <a href="#268f3cc3c">Dec 08</a>]</b>
-</p>
-
-<p>
 Scripting in Mindustry is done with the <a href="https://github.com/mozilla/rhino">Rhino JavaScript</a> runtime. Scripts may be added to your mod by putting them in <code>scripts/</code>. Using the built-in <code>extendContent</code> function, you can extend existing Java types from JS, using <i>allowed classes</i> which are injected into your namespace.
 </p>
 
@@ -1236,6 +1232,14 @@ For example:
 </pre>
 </div></li>
 </ul>
+
+<p>
+More examples:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/DeltaNedas/entity-lib">entity-lib</a></li>
+</ul>
 </div>
 </div>
 
@@ -1306,7 +1310,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </p>
 
 <ul class="org-ul">
-<li>added <code>oreDefault</code> and <code>oreScale</code> to <code>Floor</code>;</li>
+<li>added <code>oreDefault</code>, <code>oreThreshold</code> and <code>oreScale</code> to <code>Floor</code>;</li>
 </ul>
 </div>
 </div>
@@ -1376,7 +1380,6 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </ul>
 </div>
 </div>
-
 
 <div id="outline-container-Jan%2003" class="outline-5">
 <h5 id="62b2b25ee474fcf44aa86832c1373b38e16d703d">Jan 03</h5>
@@ -11833,7 +11836,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2020-01-24 Fri 01:39</p>
+<p class="date">Created: 2020-02-01 Sat 21:54</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
