@@ -157,7 +157,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    Note that each one of these subdirectories needs a specific content type. The filenames of these files is important, because the stem name of your path /(filename without the extension)/ is used to reference it.
 
-   [ *new* [[#62b2b25ee474fcf44aa86832c1373b38e16d703d]] ] Furthermore the files within these ~content/<content-type>/*~ directories may be arbitrarly nested into other sub-directories of any name, to help you organize them further, for example:
+   Furthermore the files within theseb ~content/<content-type>/*~ directories may be arbitrarly nested into other sub-directories of any name, to help you organize them further, for example:
 
    * ~content/items/metals/iron.hjson~, which would respectively create an item named ~iron~.
 
@@ -236,7 +236,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    Another thing to know about sprites is that some of them are modified by the game. Turrets specifically have a black border added to them, so you must account for that while making your sprites, leaving transparent space around turrets for example: [[https://raw.githubusercontent.com/Anuken/Mindustry/master/core/assets-raw/sprites/blocks/turrets/ripple.png][Ripple]]
 
-   *[new [[#a5fbc0756]]]* to override ingame content sprites, you can simply put them in ~sprites-override/~.
+   To override ingame content sprites, you can simply put them in ~sprites-override/~.
 
 ** Sound
    :PROPERTIES:
@@ -776,7 +776,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | consumesTap         | boolean         |              | Whether this block consumes touchDown events when tapped.                               |
    | drawLiquidLight     | boolean         |         true | Whether to draw the glow of the liquid for this block, if it has one.                   |
    | posConfig           | boolean         |              | Whether the config is positional and needs to be shifted.                               |
-   | sync                | boolean         |              | *[new [[#a087df077]]]* Whether to periodically sync this block across the network.          |
+   | sync                | boolean         |              | Whether to periodically sync this block across the network.          |
    | targetable          | boolean         |         true | Whether units target this block.                                                        |
    | canOverdrive        | boolean         |         true | Whether the overdrive core has any effect on this block.                                |
    | outlineColor        | [[Color][Color]]           |       404049 | Outlined icon color.                                                                    |
@@ -1831,7 +1831,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-top-<0..6>~
 
 *** ArmoredConduit
-    *[new type v99 (268)]* -- Extends [[Conduit][Conduit]]
+    Extends [[Conduit][Conduit]]
 
     Defaults:
     | field          | default |
@@ -1842,7 +1842,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     * ~<name>-cap~
 
 *** LiquidOverflowGate
-    *[new type v99 (268)]* -- Extends [[LiquidBlock][LiquidBlock]]
+    Extends [[LiquidBlock][LiquidBlock]]
 
     Defaults:
     | field  | default |
@@ -2014,7 +2014,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
      | field           | type  |  default | notes                               |
      |-----------------+-------+----------+-------------------------------------|
      |                 |       |          | <10>                                |
-     | lightColor      | [[Color][Color]] |   7f19ea | *[new v99 (268)]*                   |
+     | lightColor      | [[Color][Color]] |   7f19ea |                    |
      | coolColor       | [[Color][Color]] | ffffff00 |                                     |
      | hotColor        | [[Color][Color]] | ff9575a3 |                                     |
      | itemDuration    | float |      120 | time to consume 1 fuel              |
@@ -2080,7 +2080,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     Sprites:
     - ~<name>-arrow~
 *** LightBlock
-    *[new type v99 (268)]* -- Extends [[Block][Block]]
+    Extends [[Block][Block]]
 
     | field      | type  | default |
     |------------+-------+---------|
