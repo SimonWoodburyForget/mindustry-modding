@@ -1,5 +1,5 @@
 #+TITLE: Mindustry Modding Guide
-#+SUBTITLE: Modding documentation for Mindustry v102 (a4e820f90)
+#+SUBTITLE: Modding documentation for Mindustry v104 (0cbd9a1fc)
 :PREAMBLE:
 
 #+AUTHOR: Simon Woodbury-Forget
@@ -570,6 +570,24 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    This is a log of changes done on the Mindustry Master branch that affected the modding API. The sections are ordered by date commited, and provide a description of what was changed, with a link to the diff on Github.
 
 *** 2020
+
+**** Feb 11
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :CUSTOM_ID: fb302d49c7de104675c7c33c0e98e4f31e735bd7
+     :END:
+     [ [[https://github.com/Anuken/Mindustry/commit/fb302d49c7de104675c7c33c0e98e4f31e735bd7][commit]] improved battery brightness display ]
+
+     * added ~<name>-top~ region for battery;
+
+**** Jan 24
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :CUSTOM_ID: 923d576a5fb7553eb28fa7ebc8a9c16fd4fe6ceb
+     :END:
+     [ [[https://github.com/Anuken/Mindustry/commit/923d576a5fb7553eb28fa7ebc8a9c16fd4fe6ceb][commit]] fixed #1436 / fixed crawlers not exploding ]
+
+     * added ~instantDisappear~ to ~BulletType~;
 
 **** Jan 23
      :PROPERTIES:
@@ -1650,7 +1668,6 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     |-----------------+----------------|
     | update          | true           |
     | solid           | true           |
-    | instantTransfer | true           |
     | group           | transportation |
     | unloadable      | false          |
 
@@ -1924,7 +1941,12 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | outputsPower  | true    |
 
 *** Battery
-    Extends [[PowerDistributor][PowerDistributor]] -- Just a change of defaults for batteries.
+    Extends [[PowerDistributor][PowerDistributor]] 
+
+    | field           | type  | default |
+    |-----------------+-------+---------|
+    | emptyLightColor | Color | f8c266  |
+    | fullLightColor  | Color | fb9567  |
 
     Defauts:
 
@@ -1932,6 +1954,9 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     |---------------+---------|
     | outputsPower  | true    |
     | consumesPower | true    |
+
+    Sprites:
+    * ~<name>-top~ light region on top of the battery.
 
 *** PowerGenerator
     :PROPERTIES:
@@ -2969,6 +2994,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    | fragVelocityMin    | float        |     0.2 | Minimum random multiplier.                                                                                                                                                          |
    | fragVelocityMax    | float        |       1 | Maximum random multiplier.                                                                                                                                                          |
    | fragBullet         | [[BulletType][BulletType]]   |    null | The frag bullet that will be created, may be a string, an object or null. If field is null, no frag bullet is created.                                                              |
+   | instantDisappear   | boolean      |         | Whether to instantly make the bullet disappear. (used in crawlers to make sure they explode)                                                                                        |
    | splashDamage       | float        |       0 | Area of effect damage when the bullet despawns or hits a target. Damage is calculated with [[https://en.wikipedia.org/wiki/Linear_interpolation][linear interpolation]], also known as lerp.                                                |
    | splashDamageRadius | float        |      -1 | Use a negative value to disable splash damage. ~splashDamageRadius~ is a value used in the equation ~lerp(1 - distance / radius, 1, 0.4)~ which is a multiplier for ~splashDamage~. |
    | incendAmount       | int          |       0 |                                                                                                                                                                                     |

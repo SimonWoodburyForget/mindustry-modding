@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-08 Sat 19:15 -->
+<!-- 2020-02-11 Tue 19:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -250,7 +250,7 @@ for the JavaScript code in this tag.
 <div id="content">
 <h1 class="title">Mindustry Modding Guide
 <br />
-<span class="subtitle">Modding documentation for Mindustry v102 (a4e820f90)</span>
+<span class="subtitle">Modding documentation for Mindustry v104 (0cbd9a1fc)</span>
 </h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
@@ -281,6 +281,8 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#2020">2020</a>
 <ul>
+<li><a href="#fb302d49c7de104675c7c33c0e98e4f31e735bd7">Feb 11</a></li>
+<li><a href="#923d576a5fb7553eb28fa7ebc8a9c16fd4fe6ceb">Jan 24</a></li>
 <li><a href="#235142c8698f0d8cd9fc296a2ecabf430d7ea261">Jan 23</a></li>
 <li><a href="#a4e820f90733148de4b75f5b60928e0523bf51b3">Jan 22</a></li>
 <li><a href="#b1df52e0c83ae44f5bd70892fcda5ac2fa69e36c">Jan 19</a></li>
@@ -1289,6 +1291,32 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 <h4 id="2020">2020</h4>
 <div class="outline-text-4" id="text-2020">
 </div>
+<div id="outline-container-Feb%2011" class="outline-5">
+<h5 id="fb302d49c7de104675c7c33c0e98e4f31e735bd7">Feb 11</h5>
+<div class="outline-text-5" id="text-fb302d49c7de104675c7c33c0e98e4f31e735bd7">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/commit/fb302d49c7de104675c7c33c0e98e4f31e735bd7">commit</a> improved battery brightness display ]
+</p>
+
+<ul class="org-ul">
+<li>added <code>&lt;name&gt;-top</code> region for battery;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-Jan%2024" class="outline-5">
+<h5 id="923d576a5fb7553eb28fa7ebc8a9c16fd4fe6ceb">Jan 24</h5>
+<div class="outline-text-5" id="text-923d576a5fb7553eb28fa7ebc8a9c16fd4fe6ceb">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/commit/923d576a5fb7553eb28fa7ebc8a9c16fd4fe6ceb">commit</a> fixed #1436 / fixed crawlers not exploding ]
+</p>
+
+<ul class="org-ul">
+<li>added <code>instantDisappear</code> to <code>BulletType</code>;</li>
+</ul>
+</div>
+</div>
+
 <div id="outline-container-Jan%2023" class="outline-5">
 <h5 id="235142c8698f0d8cd9fc296a2ecabf430d7ea261">Jan 23</h5>
 <div class="outline-text-5" id="text-235142c8698f0d8cd9fc296a2ecabf430d7ea261">
@@ -5189,11 +5217,6 @@ Defaults:
 </tr>
 
 <tr>
-<td class="org-left">instantTransfer</td>
-<td class="org-left">true</td>
-</tr>
-
-<tr>
 <td class="org-left">group</td>
 <td class="org-left">transportation</td>
 </tr>
@@ -6380,8 +6403,40 @@ Defaults:
 <h4 id="Battery">Battery</h4>
 <div class="outline-text-4" id="text-Battery">
 <p>
-Extends <a href="#PowerDistributor">PowerDistributor</a> &#x2013; Just a change of defaults for batteries.
+Extends <a href="#PowerDistributor">PowerDistributor</a> 
 </p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">field</th>
+<th scope="col" class="org-left">type</th>
+<th scope="col" class="org-left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">emptyLightColor</td>
+<td class="org-left">Color</td>
+<td class="org-left">f8c266</td>
+</tr>
+
+<tr>
+<td class="org-left">fullLightColor</td>
+<td class="org-left">Color</td>
+<td class="org-left">fb9567</td>
+</tr>
+</tbody>
+</table>
 
 <p>
 Defauts:
@@ -6413,6 +6468,13 @@ Defauts:
 </tr>
 </tbody>
 </table>
+
+<p>
+Sprites:
+</p>
+<ul class="org-ul">
+<li><code>&lt;name&gt;-top</code> light region on top of the battery.</li>
+</ul>
 </div>
 </div>
 
@@ -10369,6 +10431,13 @@ Here's an example of a custom bullet:
 </tr>
 
 <tr>
+<td class="org-left">instantDisappear</td>
+<td class="org-left">boolean</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">Whether to instantly make the bullet disappear. (used in crawlers to make sure they explode)</td>
+</tr>
+
+<tr>
 <td class="org-left">splashDamage</td>
 <td class="org-left">float</td>
 <td class="org-right">0</td>
@@ -11836,7 +11905,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2020-02-08 Sat 19:15</p>
+<p class="date">Created: 2020-02-11 Tue 19:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
