@@ -216,7 +216,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    This would put your block after ~duo~ in the techtree, and to put it after your own mods block you would write your ~<block-name>~, a mod name prefix is only required if you're using the content from another mod.
 
-   Research cost will be ~30 + requirements * 6~, where ~requirements~ is the build cost of your block. /(in otherwords you can't set ~requirements~ and ~research cost~ individually)/
+   Research cost will be ~40 + round(requirements ^ 1.25) * 60 rounded down to the nearest 10~, where ~requirements~ is the build cost of your block. /(in otherwords you can't set ~requirements~ and ~research cost~ individually)/
 
 ** Sprites
    :PROPERTIES:
@@ -570,6 +570,15 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    This is a log of changes done on the Mindustry Master branch that affected the modding API. The sections are ordered by date commited, and provide a description of what was changed, with a link to the diff on Github.
 
 *** 2020
+
+**** March 5
+     :PROPERTIES:
+     :UNNUMBERED: t
+     :CUSTOM_ID: 50355b45d5eb5c09c19f8d7c6bba48c568a609a8
+     :END:
+     [ [[https://github.com/Anuken/Mindustry/commit/50355b45d5eb5c09c19f8d7c6bba48c568a609a8][commit]] Tech tree balance ]
+
+     * updated research cost formula
 
 **** Feb 11
      :PROPERTIES:
