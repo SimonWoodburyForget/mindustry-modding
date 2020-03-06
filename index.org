@@ -571,7 +571,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
 *** 2020
 
-**** March 5
+**** Mar 5
      :PROPERTIES:
      :UNNUMBERED: t
      :CUSTOM_ID: 50355b45d5eb5c09c19f8d7c6bba48c568a609a8
