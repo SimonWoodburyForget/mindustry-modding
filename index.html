@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-11 Tue 19:44 -->
+<!-- 2020-03-06 Fri 08:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mindustry Modding Guide</title>
@@ -200,50 +200,28 @@
 <link rel="stylesheet" type="text/css" href="mindustry-modding/styles/main/css/main.css"/>
 <script type="text/javascript"          src="mindustry-modding/styles/main/js/main.js"></script>
 <script type="text/javascript">
-/*
-@licstart  The following is the entire license notice for the
-JavaScript code in this tag.
-
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
-
-The JavaScript code in this tag is free software: you can
-redistribute it and/or modify it under the terms of the GNU
-General Public License (GNU GPL) as published by the Free Software
-Foundation, either version 3 of the License, or (at your option)
-any later version.  The code is distributed WITHOUT ANY WARRANTY;
-without even the implied warranty of MERCHANTABILITY or FITNESS
-FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
-
-As additional permission under GNU GPL version 3 section 7, you
-may distribute non-source (e.g., minimized or compacted) forms of
-that code without the copy of the GNU GPL normally required by
-section 4, provided you include this license notice and a URL
-through which recipients can access the Corresponding Source.
-
-
-@licend  The above is the entire license notice
-for the JavaScript code in this tag.
-*/
+// @license magnet:?xt=urn:btih:1f739d935676111cfff4b4693e3816e664797050&dn=gpl-3.0.txt GPL-v3-or-Later
 <!--/*--><![CDATA[/*><!--*/
- function CodeHighlightOn(elem, id)
- {
-   var target = document.getElementById(id);
-   if(null != target) {
-     elem.cacheClassElem = elem.className;
-     elem.cacheClassTarget = target.className;
-     target.className = "code-highlighted";
-     elem.className   = "code-highlighted";
-   }
- }
- function CodeHighlightOff(elem, id)
- {
-   var target = document.getElementById(id);
-   if(elem.cacheClassElem)
-     elem.className = elem.cacheClassElem;
-   if(elem.cacheClassTarget)
-     target.className = elem.cacheClassTarget;
- }
-/*]]>*///-->
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.cacheClassElem = elem.className;
+         elem.cacheClassTarget = target.className;
+         target.className = "code-highlighted";
+         elem.className   = "code-highlighted";
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(elem.cacheClassElem)
+         elem.className = elem.cacheClassElem;
+       if(elem.cacheClassTarget)
+         target.className = elem.cacheClassTarget;
+     }
+    /*]]>*///-->
+// @license-end
 </script>
 </head>
 <body>
@@ -281,6 +259,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#2020">2020</a>
 <ul>
+<li><a href="#50355b45d5eb5c09c19f8d7c6bba48c568a609a8">Mar 5</a></li>
 <li><a href="#fb302d49c7de104675c7c33c0e98e4f31e735bd7">Feb 11</a></li>
 <li><a href="#923d576a5fb7553eb28fa7ebc8a9c16fd4fe6ceb">Jan 24</a></li>
 <li><a href="#235142c8698f0d8cd9fc296a2ecabf430d7ea261">Jan 23</a></li>
@@ -619,27 +598,27 @@ Mindustry uses <a href="https://hjson.org/">Hjson</a>, which for anyone who know
 </p>
 
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #b22222;"># </span><span style="color: #b22222;">single line comment</span>
+<pre class="src src-yaml"><span style="color: #6272a4;"># </span><span style="color: #6272a4;">single line comment</span>
 
 // single line comment
 
 /* multiline
 comment */
 
-<span style="color: #a0522d;">key1</span>: single line string
+<span style="color: #f8f8f2; font-weight: bold;">key1</span>: single line string
 
-<span style="color: #a0522d;">key2</span>:
-<span style="color: #8b2252;">'''</span>
-<span style="color: #8b2252;">multiline</span>
-<span style="color: #8b2252;">string</span>
-<span style="color: #8b2252;">'''</span>
+<span style="color: #f8f8f2; font-weight: bold;">key2</span>:
+<span style="color: #f1fa8c;">'''</span>
+<span style="color: #f1fa8c;">multiline</span>
+<span style="color: #f1fa8c;">string</span>
+<span style="color: #f1fa8c;">'''</span>
 
-<span style="color: #a0522d;">key3</span>: [ value 1
+<span style="color: #f8f8f2; font-weight: bold;">key3</span>: [ value 1
         value 2
         value 3 ]
 
-<span style="color: #a0522d;">key4</span>: { <span style="color: #a0522d;">key1</span>: string
-        <span style="color: #a0522d;">key2</span>: 0 }
+<span style="color: #f8f8f2; font-weight: bold;">key4</span>: { <span style="color: #f8f8f2; font-weight: bold;">key1</span>: string
+        <span style="color: #f8f8f2; font-weight: bold;">key2</span>: 0 }
 </pre>
 </div>
 
@@ -649,7 +628,7 @@ If you don't know any of those words. &#x2013; A serialization language, is simp
 </div>
 </div>
 
-<div id="outline-container-~mod.json~" class="outline-3">
+<div id="outline-container-modjson" class="outline-3">
 <h3 id="modjson"><span class="section-number-3">1.3</span> <code>mod.json</code></h3>
 <div class="outline-text-3" id="text-modjson">
 <p>
@@ -657,13 +636,13 @@ At the root of your project directory, you must have a <code>mod.json</code> whi
 </p>
 
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">name</span>: Mod Name
-<span style="color: #a0522d;">displayName</span>: Mod [red]Name[]
-<span style="color: #a0522d;">author</span>: Yourself
-<span style="color: #a0522d;">description</span>: This is a useless description.
-<span style="color: #a0522d;">version</span>: <span style="color: #8b2252;">"1.0"</span>
-<span style="color: #a0522d;">minGameVersion</span>: <span style="color: #8b2252;">"100.3"</span>
-<span style="color: #a0522d;">dependencies</span>: [ ]
+<pre class="src src-yaml"><span style="color: #f8f8f2; font-weight: bold;">name</span>: Mod Name
+<span style="color: #f8f8f2; font-weight: bold;">displayName</span>: Mod [red]Name[]
+<span style="color: #f8f8f2; font-weight: bold;">author</span>: Yourself
+<span style="color: #f8f8f2; font-weight: bold;">description</span>: This is a useless description.
+<span style="color: #f8f8f2; font-weight: bold;">version</span>: <span style="color: #f1fa8c;">"1.0"</span>
+<span style="color: #f8f8f2; font-weight: bold;">minGameVersion</span>: <span style="color: #f1fa8c;">"100.3"</span>
+<span style="color: #f8f8f2; font-weight: bold;">dependencies</span>: [ ]
 </pre>
 </div>
 
@@ -710,10 +689,10 @@ The content of these files will tend to look something like this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">type</span>: TypeOfThing
-<span style="color: #a0522d;">name</span>: Name Of Thing
-<span style="color: #a0522d;">description</span>: Description of thing.
-<span style="color: #b22222;"># </span><span style="color: #b22222;">... more fields here ...</span>
+<pre class="src src-yaml"><span style="color: #f8f8f2; font-weight: bold;">type</span>: TypeOfThing
+<span style="color: #f8f8f2; font-weight: bold;">name</span>: Name Of Thing
+<span style="color: #f8f8f2; font-weight: bold;">description</span>: Description of thing.
+<span style="color: #6272a4;"># </span><span style="color: #6272a4;">... more fields here ...</span>
 </pre>
 </div>
 
@@ -785,11 +764,11 @@ Here you can see, the type of the top level object is <code>Revenant</code>, but
 </p>
 
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">type</span>: Revenant
-<span style="color: #a0522d;">weapon</span>: {
-  <span style="color: #a0522d;">bullet</span>: {
-    <span style="color: #a0522d;">type</span>: MissileBulletType
-    <span style="color: #a0522d;">damage</span>: 9000
+<pre class="src src-yaml"><span style="color: #f8f8f2; font-weight: bold;">type</span>: Revenant
+<span style="color: #f8f8f2; font-weight: bold;">weapon</span>: {
+  <span style="color: #f8f8f2; font-weight: bold;">bullet</span>: {
+    <span style="color: #f8f8f2; font-weight: bold;">type</span>: MissileBulletType
+    <span style="color: #f8f8f2; font-weight: bold;">damage</span>: 9000
   }
 }
 </pre>
@@ -805,7 +784,7 @@ Much like <code>type</code> there exist another magical field known as <code>res
 </p>
 
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">research</span>: duo
+<pre class="src src-yaml"><span style="color: #f8f8f2; font-weight: bold;">research</span>: duo
 </pre>
 </div>
 
@@ -814,7 +793,7 @@ This would put your block after <code>duo</code> in the techtree, and to put it 
 </p>
 
 <p>
-Research cost will be <code>30 + requirements * 6</code>, where <code>requirements</code> is the build cost of your block. <i>(in otherwords you can't set <code>requirements</code> and <code>research cost</code> individually)</i>
+Research cost will be <code>40 + round(requirements ^ 1.25) * 60 rounded down to the nearest 10</code>, where <code>requirements</code> is the build cost of your block. <i>(in otherwords you can't set <code>requirements</code> and <code>research cost</code> individually)</i>
 </p>
 </div>
 </div>
@@ -929,7 +908,7 @@ You can add dependencies to your mod by simple adding other mods name in your <c
 </p>
 
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">dependencies</span>: [
+<pre class="src src-yaml"><span style="color: #f8f8f2; font-weight: bold;">dependencies</span>: [
   other-mod-name
   not-a-mod
 ]
@@ -947,11 +926,10 @@ To reference the other mods assets, you must prefix the asset with the other mod
 <ul class="org-ul">
 <li><code>other-mod-name-not-copper</code> would reference <code>not-copper</code> in <code>other-mod-name</code></li>
 <li><code>other-mod-name-angry-dagger</code> would reference <code>angry-dagger</code> in <code>other-mod-name</code></li>
-<li><code>not-a-mod-angry-dagger</code> would reference <code>angry-dagger</code> in <code>not-a-mod</code></li>
+<li><code>not-a-mod-angry-dagger</code> would reference <code>angry-dagger</code> in ~not-a-m</li>
 </ul>
 </div>
 </div>
-
 <div id="outline-container-Bundles" class="outline-3">
 <h3 id="Bundles"><span class="section-number-3">1.10</span> Bundles</h3>
 <div class="outline-text-3" id="text-1-10">
@@ -1151,46 +1129,46 @@ For example:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-js"><span style="color: #b22222;">// </span><span style="color: #b22222;">create a simple shockwave effect</span>
-<span style="color: #a020f0;">const</span> <span style="color: #a0522d;">siloLaunchEffect</span> = newEffect(20, e =&gt; {
+<pre class="src src-js"><span style="color: #6272a4;">// </span><span style="color: #6272a4;">create a simple shockwave effect</span>
+<span style="color: #ff79c6; font-weight: bold;">const</span> <span style="color: #f8f8f2; font-weight: bold;">siloLaunchEffect</span> = newEffect(20, e =&gt; {
 
-    <span style="color: #b22222;">// </span><span style="color: #b22222;">color goes from white to light gray</span>
+    <span style="color: #6272a4;">// </span><span style="color: #6272a4;">color goes from white to light gray</span>
     Draw.color(Color.white, Color.lightGray, e.fin());
 
-    <span style="color: #b22222;">// </span><span style="color: #b22222;">line thickness goes from 3 to 0</span>
+    <span style="color: #6272a4;">// </span><span style="color: #6272a4;">line thickness goes from 3 to 0</span>
     Lines.stroke(e.fout() * 3);
 
-    <span style="color: #b22222;">// </span><span style="color: #b22222;">draw a circle whose radius goes from 0 to 100</span>
+    <span style="color: #6272a4;">// </span><span style="color: #6272a4;">draw a circle whose radius goes from 0 to 100</span>
     Lines.circle(e.x, e.y, e.fin() * 100);
 });
 
-<span style="color: #b22222;">// </span><span style="color: #b22222;">create the block type</span>
-<span style="color: #a020f0;">const</span> <span style="color: #a0522d;">silo</span> = extendContent(Block, <span style="color: #8b2252;">"scatter-silo"</span>, {
+<span style="color: #6272a4;">// </span><span style="color: #6272a4;">create the block type</span>
+<span style="color: #ff79c6; font-weight: bold;">const</span> <span style="color: #f8f8f2; font-weight: bold;">silo</span> = extendContent(Block, <span style="color: #f1fa8c;">"scatter-silo"</span>, {
 
-    <span style="color: #b22222;">// </span><span style="color: #b22222;">override the method to build configuration</span>
+    <span style="color: #6272a4;">// </span><span style="color: #6272a4;">override the method to build configuration</span>
     buildConfiguration(tile, table) {
         table.addImageButton(
             Icon.arrowUpSmall,
             Styles.clearTransi,
 
-            <span style="color: #b22222;">// </span><span style="color: #b22222;">configure the tile to signal that it has been</span>
-            <span style="color: #b22222;">// </span><span style="color: #b22222;">pressed (this sync on client to server)</span>
+            <span style="color: #6272a4;">// </span><span style="color: #6272a4;">configure the tile to signal that it has been</span>
+            <span style="color: #6272a4;">// </span><span style="color: #6272a4;">pressed (this sync on client to server)</span>
             run(() =&gt; tile.configure(0))
         ).size(50);
     },
 
-    <span style="color: #b22222;">// </span><span style="color: #b22222;">override configure event</span>
+    <span style="color: #6272a4;">// </span><span style="color: #6272a4;">override configure event</span>
     configured(tile, value) {
 
-        <span style="color: #b22222;">// </span><span style="color: #b22222;">make sure this silo has the items it needs to fire</span>
-        <span style="color: #a020f0;">if</span> (tile.entity.cons.valid()) {
+        <span style="color: #6272a4;">// </span><span style="color: #6272a4;">make sure this silo has the items it needs to fire</span>
+        <span style="color: #ff79c6; font-weight: bold;">if</span> (tile.entity.cons.valid()) {
 
-            <span style="color: #b22222;">// </span><span style="color: #b22222;">make this effect occur at the tile location</span>
+            <span style="color: #6272a4;">// </span><span style="color: #6272a4;">make this effect occur at the tile location</span>
             Effects.effect(siloLaunchEffect, tile);
 
-            <span style="color: #b22222;">// </span><span style="color: #b22222;">create 10 bullets at this tile's location with</span>
-            <span style="color: #b22222;">// </span><span style="color: #b22222;">random rotation and velocity/lifetime</span>
-            <span style="color: #a020f0;">for</span> (<span style="color: #a020f0;">var</span> <span style="color: #a0522d;">i</span> = 0; i &lt; 10; i++) {
+            <span style="color: #6272a4;">// </span><span style="color: #6272a4;">create 10 bullets at this tile's location with</span>
+            <span style="color: #6272a4;">// </span><span style="color: #6272a4;">random rotation and velocity/lifetime</span>
+            <span style="color: #ff79c6; font-weight: bold;">for</span> (<span style="color: #ff79c6; font-weight: bold;">var</span> <span style="color: #f8f8f2; font-weight: bold;">i</span> = 0; i &lt; 10; i++) {
                 Calls.createBullet(
                     Bullets.flakExplosive,
                     tile.getTeam(),
@@ -1202,8 +1180,8 @@ For example:
                 );
             }
 
-            <span style="color: #b22222;">// </span><span style="color: #b22222;">triggering consumption makes it use up the</span>
-            <span style="color: #b22222;">// </span><span style="color: #b22222;">items it requires</span>
+            <span style="color: #6272a4;">// </span><span style="color: #6272a4;">triggering consumption makes it use up the</span>
+            <span style="color: #6272a4;">// </span><span style="color: #6272a4;">items it requires</span>
             tile.entity.cons.trigger();
         }
     }
@@ -1216,21 +1194,21 @@ For example:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">localizedName</span>: <span style="color: #8b2252;">"Scatter Silo"</span>
-<span style="color: #a0522d;">description</span>: <span style="color: #8b2252;">"A player-activatable block that scatters bullets everywhere upon use."</span>
+<pre class="src src-yaml"><span style="color: #f8f8f2; font-weight: bold;">localizedName</span>: <span style="color: #f1fa8c;">"Scatter Silo"</span>
+<span style="color: #f8f8f2; font-weight: bold;">description</span>: <span style="color: #f1fa8c;">"A player-activatable block that scatters bullets everywhere upon use."</span>
 
-<span style="color: #a0522d;">category</span>: turret
-<span style="color: #a0522d;">size</span>: 2
+<span style="color: #f8f8f2; font-weight: bold;">category</span>: turret
+<span style="color: #f8f8f2; font-weight: bold;">size</span>: 2
 
-<span style="color: #a0522d;">update</span>: <span style="color: #008b8b;">true</span>
-<span style="color: #a0522d;">solid</span>: <span style="color: #008b8b;">true</span>
-<span style="color: #a0522d;">hasItems</span>: <span style="color: #008b8b;">true</span>
-<span style="color: #a0522d;">configurable</span>: <span style="color: #008b8b;">true</span>
+<span style="color: #f8f8f2; font-weight: bold;">update</span>: <span style="color: #8be9fd;">true</span>
+<span style="color: #f8f8f2; font-weight: bold;">solid</span>: <span style="color: #8be9fd;">true</span>
+<span style="color: #f8f8f2; font-weight: bold;">hasItems</span>: <span style="color: #8be9fd;">true</span>
+<span style="color: #f8f8f2; font-weight: bold;">configurable</span>: <span style="color: #8be9fd;">true</span>
 
-<span style="color: #a0522d;">requirements</span>: [ <span style="color: #8b2252;">"graphite/75"</span>
-                <span style="color: #8b2252;">"titanium/30"</span> ]
+<span style="color: #f8f8f2; font-weight: bold;">requirements</span>: [ <span style="color: #f1fa8c;">"graphite/75"</span>
+                <span style="color: #f1fa8c;">"titanium/30"</span> ]
 
-<span style="color: #a0522d;">consumes</span>: { <span style="color: #a0522d;">items</span>: { <span style="color: #a0522d;">items</span>: [ <span style="color: #8b2252;">"scrap/10"</span> ] } }
+<span style="color: #f8f8f2; font-weight: bold;">consumes</span>: { <span style="color: #f8f8f2; font-weight: bold;">items</span>: { <span style="color: #f8f8f2; font-weight: bold;">items</span>: [ <span style="color: #f1fa8c;">"scrap/10"</span> ] } }
 </pre>
 </div></li>
 </ul>
@@ -1291,7 +1269,20 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 <h4 id="2020">2020</h4>
 <div class="outline-text-4" id="text-2020">
 </div>
-<div id="outline-container-Feb%2011" class="outline-5">
+<div id="outline-container-50355b45d5eb5c09c19f8d7c6bba48c568a609a8" class="outline-5">
+<h5 id="50355b45d5eb5c09c19f8d7c6bba48c568a609a8">Mar 5</h5>
+<div class="outline-text-5" id="text-50355b45d5eb5c09c19f8d7c6bba48c568a609a8">
+<p>
+[ <a href="https://github.com/Anuken/Mindustry/commit/50355b45d5eb5c09c19f8d7c6bba48c568a609a8">commit</a> Tech tree balance ]
+</p>
+
+<ul class="org-ul">
+<li>updated research cost formula</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-fb302d49c7de104675c7c33c0e98e4f31e735bd7" class="outline-5">
 <h5 id="fb302d49c7de104675c7c33c0e98e4f31e735bd7">Feb 11</h5>
 <div class="outline-text-5" id="text-fb302d49c7de104675c7c33c0e98e4f31e735bd7">
 <p>
@@ -1304,7 +1295,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Jan%2024" class="outline-5">
+<div id="outline-container-923d576a5fb7553eb28fa7ebc8a9c16fd4fe6ceb" class="outline-5">
 <h5 id="923d576a5fb7553eb28fa7ebc8a9c16fd4fe6ceb">Jan 24</h5>
 <div class="outline-text-5" id="text-923d576a5fb7553eb28fa7ebc8a9c16fd4fe6ceb">
 <p>
@@ -1317,7 +1308,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Jan%2023" class="outline-5">
+<div id="outline-container-235142c8698f0d8cd9fc296a2ecabf430d7ea261" class="outline-5">
 <h5 id="235142c8698f0d8cd9fc296a2ecabf430d7ea261">Jan 23</h5>
 <div class="outline-text-5" id="text-235142c8698f0d8cd9fc296a2ecabf430d7ea261">
 <p>
@@ -1330,7 +1321,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Jan%2022" class="outline-5">
+<div id="outline-container-a4e820f90733148de4b75f5b60928e0523bf51b3" class="outline-5">
 <h5 id="a4e820f90733148de4b75f5b60928e0523bf51b3">Jan 22</h5>
 <div class="outline-text-5" id="text-a4e820f90733148de4b75f5b60928e0523bf51b3">
 <p>
@@ -1343,7 +1334,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Jan%2019" class="outline-5">
+<div id="outline-container-b1df52e0c83ae44f5bd70892fcda5ac2fa69e36c" class="outline-5">
 <h5 id="b1df52e0c83ae44f5bd70892fcda5ac2fa69e36c">Jan 19</h5>
 <div class="outline-text-5" id="text-b1df52e0c83ae44f5bd70892fcda5ac2fa69e36c">
 <p>
@@ -1356,7 +1347,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Jan%2014" class="outline-5">
+<div id="outline-container-eaa86023f9854b6e8d574cbfdd43ee32488b2de5" class="outline-5">
 <h5 id="eaa86023f9854b6e8d574cbfdd43ee32488b2de5">Jan 14</h5>
 <div class="outline-text-5" id="text-eaa86023f9854b6e8d574cbfdd43ee32488b2de5">
 <p>
@@ -1370,7 +1361,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Jan%2008" class="outline-5">
+<div id="outline-container-406c11a14d31c9680b914c60cd1d8577ddd5fc7d" class="outline-5">
 <h5 id="406c11a14d31c9680b914c60cd1d8577ddd5fc7d">Jan 08</h5>
 <div class="outline-text-5" id="text-406c11a14d31c9680b914c60cd1d8577ddd5fc7d">
 <p>
@@ -1383,7 +1374,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Jan%2007" class="outline-5">
+<div id="outline-container-b0d65dcedb26014580632a9b0d8d597f0c7f8ccc" class="outline-5">
 <h5 id="b0d65dcedb26014580632a9b0d8d597f0c7f8ccc">Jan 07</h5>
 <div class="outline-text-5" id="text-b0d65dcedb26014580632a9b0d8d597f0c7f8ccc">
 <p>
@@ -1396,7 +1387,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Jan%2004" class="outline-5">
+<div id="outline-container-1dd0295c45e6ea6f0967f291b41ff3a58ab7202c" class="outline-5">
 <h5 id="1dd0295c45e6ea6f0967f291b41ff3a58ab7202c">Jan 04</h5>
 <div class="outline-text-5" id="text-1dd0295c45e6ea6f0967f291b41ff3a58ab7202c">
 <p>
@@ -1409,7 +1400,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Jan%2003" class="outline-5">
+<div id="outline-container-62b2b25ee474fcf44aa86832c1373b38e16d703d" class="outline-5">
 <h5 id="62b2b25ee474fcf44aa86832c1373b38e16d703d">Jan 03</h5>
 <div class="outline-text-5" id="text-62b2b25ee474fcf44aa86832c1373b38e16d703d">
 <p>
@@ -1427,7 +1418,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 <h4 id="2019">2019</h4>
 <div class="outline-text-4" id="text-2019">
 </div>
-<div id="outline-container-Dec%2012" class="outline-5">
+<div id="outline-container-2366d25de73ab85bffc3352ab1e74ba1dea68dfe" class="outline-5">
 <h5 id="2366d25de73ab85bffc3352ab1e74ba1dea68dfe">Dec 12</h5>
 <div class="outline-text-5" id="text-2366d25de73ab85bffc3352ab1e74ba1dea68dfe">
 <p>
@@ -1440,7 +1431,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Dec%2009" class="outline-5">
+<div id="outline-container-74dc31b10a82763d4f1ff29d32ae430ee87b9def" class="outline-5">
 <h5 id="74dc31b10a82763d4f1ff29d32ae430ee87b9def">Dec 09</h5>
 <div class="outline-text-5" id="text-74dc31b10a82763d4f1ff29d32ae430ee87b9def">
 <p>
@@ -1461,7 +1452,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Dec%2008" class="outline-5">
+<div id="outline-container-268f3cc3c" class="outline-5">
 <h5 id="268f3cc3c">Dec 08</h5>
 <div class="outline-text-5" id="text-268f3cc3c">
 <p>
@@ -1475,7 +1466,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Dec%2004" class="outline-5">
+<div id="outline-container-a087df077" class="outline-5">
 <h5 id="a087df077">Dec 04</h5>
 <div class="outline-text-5" id="text-a087df077">
 <p>
@@ -1488,7 +1479,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Nov%2026" class="outline-5">
+<div id="outline-container-a5fbc0756" class="outline-5">
 <h5 id="a5fbc0756">Nov 26</h5>
 <div class="outline-text-5" id="text-a5fbc0756">
 <p>
@@ -1501,7 +1492,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Nov%2022" class="outline-5">
+<div id="outline-container-2d4270406" class="outline-5">
 <h5 id="2d4270406">Nov 22</h5>
 <div class="outline-text-5" id="text-2d4270406">
 <p>
@@ -1514,7 +1505,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-2019--Nov%2022" class="outline-5">
+<div id="outline-container-2c61fcdfa" class="outline-5">
 <h5 id="2c61fcdfa">Nov 22</h5>
 <div class="outline-text-5" id="text-2c61fcdfa">
 <p>
@@ -1527,7 +1518,7 @@ This is a log of changes done on the Mindustry Master branch that affected the m
 </div>
 </div>
 
-<div id="outline-container-Nov%2020" class="outline-5">
+<div id="outline-container-968f3ace3" class="outline-5">
 <h5 id="968f3ace3">Nov 20</h5>
 <div class="outline-text-5" id="text-968f3ace3">
 <p>
@@ -1980,15 +1971,15 @@ Notes:
 For example with <a href="#ConsumeItems">ConsumeItems</a> and <a href="#ConsumeLiquid">ConsumeLiquid</a>:
 </p>
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">items</span>: {
-  <span style="color: #a0522d;">items</span>: [
+<pre class="src src-yaml"><span style="color: #f8f8f2; font-weight: bold;">items</span>: {
+  <span style="color: #f8f8f2; font-weight: bold;">items</span>: [
     copper/10
     surge-alloy/5
-  <span style="color: #a0522d;">]</span>
-<span style="color: #a0522d;">  booster</span>: <span style="color: #008b8b;">true</span>
-  <span style="color: #a0522d;">optional</span>: <span style="color: #008b8b;">true</span>
-<span style="color: #a0522d;">}</span>
-<span style="color: #a0522d;">liquid</span>: {
+  <span style="color: #f8f8f2; font-weight: bold;">]</span>
+<span style="color: #f8f8f2; font-weight: bold;">  booster</span>: <span style="color: #8be9fd;">true</span>
+  <span style="color: #f8f8f2; font-weight: bold;">optional</span>: <span style="color: #8be9fd;">true</span>
+<span style="color: #f8f8f2; font-weight: bold;">}</span>
+<span style="color: #f8f8f2; font-weight: bold;">liquid</span>: {
   water/1.0
 }
 </pre>
@@ -2389,7 +2380,7 @@ Type used for floors themselves or extended to make ores and other things.
 
 <tr>
 <td class="org-left">status</td>
-<td class="org-left">StatusEffect</td>
+<td class="org-left"><a href="#StatusEffect">StatusEffect</a></td>
 <td class="org-right">none</td>
 <td class="org-left">status effect applied when walking on.</td>
 </tr>
@@ -4443,18 +4434,18 @@ This type is a turret that uses items as ammo. The key to the <code>ammo</code> 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">type</span>: ItemTurret
-<span style="color: #a0522d;">ammo</span>: {
-  <span style="color: #a0522d;">copper</span>: standardCopper
+<pre class="src src-yaml"><span style="color: #f8f8f2; font-weight: bold;">type</span>: ItemTurret
+<span style="color: #f8f8f2; font-weight: bold;">ammo</span>: {
+  <span style="color: #f8f8f2; font-weight: bold;">copper</span>: standardCopper
 
-  <span style="color: #a0522d;">metaglass</span>: {
-    <span style="color: #a0522d;">type</span>: MissileBulletType
-    <span style="color: #a0522d;">damage</span>: 2
+  <span style="color: #f8f8f2; font-weight: bold;">metaglass</span>: {
+    <span style="color: #f8f8f2; font-weight: bold;">type</span>: MissileBulletType
+    <span style="color: #f8f8f2; font-weight: bold;">damage</span>: 2
   }
 
-  <span style="color: #a0522d;">surge-alloy</span>: {
-    <span style="color: #a0522d;">type</span>: LiquidBulletType
-    <span style="color: #a0522d;">damage</span>: 3
+  <span style="color: #f8f8f2; font-weight: bold;">surge-alloy</span>: {
+    <span style="color: #f8f8f2; font-weight: bold;">type</span>: LiquidBulletType
+    <span style="color: #f8f8f2; font-weight: bold;">damage</span>: 3
   }
 }
 </pre>
@@ -4546,16 +4537,16 @@ For example you could do something like this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">type</span>: LiquidTurret
-<span style="color: #a0522d;">ammo</span>: {
-  <span style="color: #a0522d;">water</span>: {
-    <span style="color: #a0522d;">type</span>: MissileBulletType
-    <span style="color: #a0522d;">damage</span>: 9000
+<pre class="src src-yaml"><span style="color: #f8f8f2; font-weight: bold;">type</span>: LiquidTurret
+<span style="color: #f8f8f2; font-weight: bold;">ammo</span>: {
+  <span style="color: #f8f8f2; font-weight: bold;">water</span>: {
+    <span style="color: #f8f8f2; font-weight: bold;">type</span>: MissileBulletType
+    <span style="color: #f8f8f2; font-weight: bold;">damage</span>: 9000
   }
 
-  <span style="color: #a0522d;">slag</span>: {
-    <span style="color: #a0522d;">type</span>: LiquidBulletType
-    <span style="color: #a0522d;">damage</span>: 0
+  <span style="color: #f8f8f2; font-weight: bold;">slag</span>: {
+    <span style="color: #f8f8f2; font-weight: bold;">type</span>: LiquidBulletType
+    <span style="color: #f8f8f2; font-weight: bold;">damage</span>: 0
   }
 }
 </pre>
@@ -8458,7 +8449,7 @@ For example, this would give you <code>100</code> heat, <code>1</code> spores, <
 
 <div class="org-src-container">
 <pre class="src src-json">{
-    <span style="color: #a020f0;">"array"</span>: [ <span style="color: #008b8b;">100</span>, <span style="color: #008b8b;">1</span>, <span style="color: #008b8b;">0.5</span>, <span style="color: #008b8b;">0.1</span>]
+    <span style="color: #ff79c6; font-weight: bold;">"array"</span>: [ <span style="color: #8be9fd;">100</span>, <span style="color: #8be9fd;">1</span>, <span style="color: #8be9fd;">0.5</span>, <span style="color: #8be9fd;">0.1</span>]
 }
 </pre>
 </div>
@@ -8469,9 +8460,9 @@ You could use it inside of <a href="#Floor">Floor</a> type as such:
 
 <div class="org-src-container">
 <pre class="src src-json">{
-    <span style="color: #a020f0;">"type"</span>: <span style="color: #8b2252;">"Floor"</span>,
-    <span style="color: #a020f0;">"name"</span>: <span style="color: #8b2252;">"magma"</span>,
-    <span style="color: #a020f0;">"attributes"</span>: { <span style="color: #a020f0;">"array"</span>: [ <span style="color: #008b8b;">0.75</span>, <span style="color: #008b8b;">0</span>, <span style="color: #008b8b;">0</span>, <span style="color: #008b8b;">0</span> ] }
+    <span style="color: #ff79c6; font-weight: bold;">"type"</span>: <span style="color: #f1fa8c;">"Floor"</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"name"</span>: <span style="color: #f1fa8c;">"magma"</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"attributes"</span>: { <span style="color: #ff79c6; font-weight: bold;">"array"</span>: [ <span style="color: #8be9fd;">0.75</span>, <span style="color: #8be9fd;">0</span>, <span style="color: #8be9fd;">0</span>, <span style="color: #8be9fd;">0</span> ] }
 }
 </pre>
 </div></li>
@@ -8656,8 +8647,8 @@ As an <code>object</code>:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">item</span>: copper
-<span style="color: #a0522d;">amount</span>: 5
+<pre class="src src-yaml"><span style="color: #f8f8f2; font-weight: bold;">item</span>: copper
+<span style="color: #f8f8f2; font-weight: bold;">amount</span>: 5
 </pre>
 </div>
 
@@ -8823,7 +8814,7 @@ As an <code>object</code>:
 
 <div class="org-src-container">
 <pre class="src src-json">liquid: water
-amount: <span style="color: #008b8b;">0.5</span>
+amount: <span style="color: #8be9fd;">0.5</span>
 </pre>
 </div>
 
@@ -9683,6 +9674,10 @@ Built-in zones:
 <h3 id="StatusEffect"><span class="section-number-3">3.10</span> StatusEffect</h3>
 <div class="outline-text-3" id="text-3-10">
 <p>
+Extends <a href="#Content">Content</a>
+</p>
+
+<p>
 <i>Not be be confused with <a href="#Effect">Effect</a></i>, a status effect will give an entity special properties. Status effects are used as transitions between intermediate effects. If some a <code>wet</code> unit gets <code>shocked</code> it then gets 20 damage.
 </p>
 
@@ -10165,28 +10160,28 @@ Here's an example of a custom bullet:
 
 <div class="org-src-container">
 <pre class="src src-json">{
-    <span style="color: #a020f0;">"type"</span>: <span style="color: #8b2252;">"MissileBulletType"</span>,
-    <span style="color: #a020f0;">"lifetime"</span>: <span style="color: #008b8b;">1000</span>,
-    <span style="color: #a020f0;">"speed"</span>: <span style="color: #008b8b;">2</span>,
-    <span style="color: #a020f0;">"splashDamageRadius"</span>: <span style="color: #008b8b;">2</span>,
-    <span style="color: #a020f0;">"splashDamage"</span>: <span style="color: #008b8b;">9</span>,
-    <span style="color: #a020f0;">"frontColor"</span>: <span style="color: #8b2252;">"ffff00"</span>,
-    <span style="color: #a020f0;">"backColor"</span>: <span style="color: #8b2252;">"00ffff"</span>,
-    <span style="color: #a020f0;">"homingPower"</span>: <span style="color: #008b8b;">1</span>,
-    <span style="color: #a020f0;">"homingRange"</span>: <span style="color: #008b8b;">20</span>,
-    <span style="color: #a020f0;">"fragBullets"</span>: <span style="color: #008b8b;">3</span>,
-    <span style="color: #a020f0;">"fragBullet"</span>: {
-        <span style="color: #a020f0;">"type"</span>: <span style="color: #8b2252;">"LiquidBulletType"</span>,
-        <span style="color: #a020f0;">"liquid"</span>: <span style="color: #8b2252;">"oil"</span>,
-        <span style="color: #a020f0;">"lifetime"</span>: <span style="color: #008b8b;">2</span>,
-        <span style="color: #a020f0;">"speed"</span>: <span style="color: #008b8b;">1</span>,
-        <span style="color: #a020f0;">"fragBullets"</span>: <span style="color: #008b8b;">2</span>,
-        <span style="color: #a020f0;">"fragBullet"</span>: {
-            <span style="color: #a020f0;">"type"</span>: <span style="color: #8b2252;">"LiquidBulletType"</span>,
-            <span style="color: #a020f0;">"liquid"</span>: <span style="color: #8b2252;">"slag"</span>,
-            <span style="color: #a020f0;">"lifetime"</span>: <span style="color: #008b8b;">1</span>,
-            <span style="color: #a020f0;">"speed"</span>: <span style="color: #008b8b;">2</span>,
-            <span style="color: #a020f0;">"damage"</span>: <span style="color: #008b8b;">1</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"type"</span>: <span style="color: #f1fa8c;">"MissileBulletType"</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"lifetime"</span>: <span style="color: #8be9fd;">1000</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"speed"</span>: <span style="color: #8be9fd;">2</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"splashDamageRadius"</span>: <span style="color: #8be9fd;">2</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"splashDamage"</span>: <span style="color: #8be9fd;">9</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"frontColor"</span>: <span style="color: #f1fa8c;">"ffff00"</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"backColor"</span>: <span style="color: #f1fa8c;">"00ffff"</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"homingPower"</span>: <span style="color: #8be9fd;">1</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"homingRange"</span>: <span style="color: #8be9fd;">20</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"fragBullets"</span>: <span style="color: #8be9fd;">3</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"fragBullet"</span>: {
+        <span style="color: #ff79c6; font-weight: bold;">"type"</span>: <span style="color: #f1fa8c;">"LiquidBulletType"</span>,
+        <span style="color: #ff79c6; font-weight: bold;">"liquid"</span>: <span style="color: #f1fa8c;">"oil"</span>,
+        <span style="color: #ff79c6; font-weight: bold;">"lifetime"</span>: <span style="color: #8be9fd;">2</span>,
+        <span style="color: #ff79c6; font-weight: bold;">"speed"</span>: <span style="color: #8be9fd;">1</span>,
+        <span style="color: #ff79c6; font-weight: bold;">"fragBullets"</span>: <span style="color: #8be9fd;">2</span>,
+        <span style="color: #ff79c6; font-weight: bold;">"fragBullet"</span>: {
+            <span style="color: #ff79c6; font-weight: bold;">"type"</span>: <span style="color: #f1fa8c;">"LiquidBulletType"</span>,
+            <span style="color: #ff79c6; font-weight: bold;">"liquid"</span>: <span style="color: #f1fa8c;">"slag"</span>,
+            <span style="color: #ff79c6; font-weight: bold;">"lifetime"</span>: <span style="color: #8be9fd;">1</span>,
+            <span style="color: #ff79c6; font-weight: bold;">"speed"</span>: <span style="color: #8be9fd;">2</span>,
+            <span style="color: #ff79c6; font-weight: bold;">"damage"</span>: <span style="color: #8be9fd;">1</span>,
         }
     }
 }
@@ -10523,8 +10518,8 @@ This types purpose is to give basic bullets their sprites. The <code>bulletSprit
 
 <div class="org-src-container">
 <pre class="src src-json">{
-    <span style="color: #a020f0;">"type"</span>: <span style="color: #8b2252;">"BasicBulletType"</span>,
-    <span style="color: #a020f0;">"bulletSprite"</span>: <span style="color: #8b2252;">"test-mod-router"</span>
+    <span style="color: #ff79c6; font-weight: bold;">"type"</span>: <span style="color: #f1fa8c;">"BasicBulletType"</span>,
+    <span style="color: #ff79c6; font-weight: bold;">"bulletSprite"</span>: <span style="color: #f1fa8c;">"test-mod-router"</span>
 }
 </pre>
 </div>
@@ -11905,7 +11900,7 @@ Types which implement Objective are as follows:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-10-31</p>
 <p class="author">Author: Simon Woodbury-Forget</p>
-<p class="date">Created: 2020-02-11 Tue 19:44</p>
+<p class="date">Created: 2020-03-06 Fri 08:26</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -314,8 +314,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
 
    * ~other-mod-name-not-copper~ would reference ~not-copper~ in ~other-mod-name~
    * ~other-mod-name-angry-dagger~ would reference ~angry-dagger~ in ~other-mod-name~
-   * ~not-a-mod-angry-dagger~ would reference ~angry-dagger~ in ~not-a-mod~
-
+   * ~not-a-mod-angry-dagger~ would reference ~angry-dagger~ in ~not-a-m
 ** Bundles
    :PROPERTIES:
    :DESCRIPTION: translations and renaming
