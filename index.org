@@ -953,7 +953,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
     | drownTime         | float        |       0 | how many ticks it takes to drown on this.                                    |
     | walkEffect        | [[Effect][Effect]]       |  ripple | effect when walking on this [[Floor][floor]].                                           |
     | drownUpdateEffect | [[Effect][Effect]]       |  bubble | effect displayed when drowning on this [[Floor][floor]].                                |
-    | status            | StatusEffect |    none | status effect applied when walking on.                                       |
+    | status            | [[StatusEffect][StatusEffect]] |    none | status effect applied when walking on.                                       |
     | statusDuration    | float        |      60 | intensity of applied status effect.                                          |
     | liquidDrop        | [[Liquid][Liquid]]       |         | liquids that drop from this block, used for pumps.                           |
     | itemDrop          | [[Item][Item]]         |         | item that drops from this block, used for drills.                            |
@@ -2790,6 +2790,7 @@ Submit =test= pull requests, issues or suggestions on Github: https://github.com
    * groundZero
 
 ** StatusEffect
+   Extends [[Content][Content]]
 
    /Not be be confused with [[Effect][Effect]]/, a status effect will give an entity special properties. Status effects are used as transitions between intermediate effects. If some a ~wet~ unit gets ~shocked~ it then gets 20 damage.
 
