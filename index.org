@@ -24,7 +24,7 @@
 
 #+STARTUP: org-table-shrink
 
-Submit =test= pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
+Submit pull requests, issues or suggestions on Github: https://github.com/SimonWoodburyForget/mindustry-modding
 
 :END:
 

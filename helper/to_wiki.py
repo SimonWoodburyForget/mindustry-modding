@@ -56,8 +56,7 @@ def normalize(md):
 
     replacers = set((on_match(x) for x in re.finditer(r'\[([^\]\[]*)\]\((#[^\)]*)\)', md)))
     return ft.reduce(lambda md, x: md.replace(x[0], x[1]), replacers, md)
-    
-        
+
 def main():
     
     with open("./index.md") as f:
